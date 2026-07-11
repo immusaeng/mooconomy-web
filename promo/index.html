@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily 'Moo'conomy · 매일 아침, 경제를 3줄로 배달</title>
+<meta name="description" content="잠든 사이 움직인 지표와 뉴스를 매일 아침 3줄로 정리해 배달하는 무료 경제 뉴스레터. 완전 무료·월~토 아침·1초 해지.">
+<meta property="og:title" content="Daily 'Moo'conomy · 매일 아침, 경제를 3줄로 배달">
+<meta property="og:description" content="잠든 사이 움직인 지표와 뉴스를 매일 아침 3줄로. 완전 무료 경제 뉴스레터.">
+<meta property="og:image" content="https://raw.githubusercontent.com/immusaeng/mooconomy-assets/main/bull-gold.png">
+<meta property="og:type" content="website">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Pretendard","Malgun Gothic","맑은 고딕",-apple-system,sans-serif;
+         background: #e9edf2; display: flex; justify-content: center; padding: 30px 14px; line-height: 1.6; }
+  .card { width: 100%; max-width: 480px; background: #fff; border-radius: 20px; overflow: hidden;
+          box-shadow: 0 12px 40px rgba(11,37,69,0.18); }
+
+  .header { background: linear-gradient(135deg, #0b2545 0%, #13315c 100%); padding: 32px 40px 28px; text-align: center; }
+  .header .logo { width: 56px; height: 56px; margin: 0 auto 12px; display: block; }
+  .header .brand { color: #fff; font-size: 27px; font-weight: 800; }
+  .header .brand .moo { color: #d9a441; }
+  .header .eyebrow { color: #d9a441; font-size: 11.5px; font-weight: 700; letter-spacing: 3px; margin-top: 8px; }
+  .header .slogan { color: #fff; font-size: 19px; margin-top: 14px; line-height: 1.45; font-weight: 800; }
+  .header .slogan .hl { color: #d9a441; }
+  .header .sub { display: inline-block; margin-top: 12px; font-size: 12.5px; font-weight: 700; color: #0b2545; background: #d9a441; padding: 5px 14px; border-radius: 20px; }
+  .divider { height: 4px; background: linear-gradient(90deg, #d9a441 0%, #f0c06f 100%); }
+
+  .body { padding: 28px 38px 22px; }
+  .section-label { font-size: 12px; font-weight: 800; color: #c08e2d; letter-spacing: 2px; margin-bottom: 6px; text-align: center; }
+  .section-title { font-size: 16px; font-weight: 800; color: #1a2b45; text-align: center; margin-bottom: 20px; }
+  .section-title .hl { color: #c08e2d; }
+  .c3 { display: flex; flex-direction: column; gap: 12px; }
+  .c3-item { display: flex; align-items: flex-start; gap: 13px; padding: 13px 15px; background: #f7f9fc; border-left: 4px solid #d9a441; border-radius: 10px; }
+  .c3-item .cc { flex: 0 0 auto; width: 34px; height: 34px; border-radius: 9px; background: #0b2545; color: #d9a441; font-size: 15px; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+  .c3-item .t { font-size: 14.5px; font-weight: 800; color: #1a2b45; }
+  .c3-item .t .en { color: #c08e2d; font-size: 11.5px; font-weight: 700; letter-spacing: 1px; margin-left: 6px; }
+  .c3-item .d { font-size: 12.5px; color: #5a6b82; font-weight: 600; margin-top: 3px; }
+
+  .footer { background: #f5f7fa; padding: 26px 38px 30px; text-align: center; border-top: 1px solid #e3e8ef; }
+  .footer .free-tag { display: inline-block; background: #fbf1da; color: #b07d1e; font-size: 12.5px; font-weight: 800; padding: 5px 15px; border-radius: 20px; margin-bottom: 15px; }
+  .cta-btn { display: block; background: #d9a441; color: #0b2545; font-size: 18px; font-weight: 800; text-decoration: none; padding: 17px 0; border-radius: 12px; }
+  .cta-btn:hover { background: #c08e2d; }
+  .home-btn { display: block; margin-top: 12px; background: #0b2545; color: #fff; font-size: 15px; font-weight: 700; text-decoration: none; padding: 14px 0; border-radius: 12px; }
+  .home-btn:hover { background: #13315c; }
+  .footer .qr-box { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 18px; padding-top: 16px; border-top: 1px dashed #d9dee6; }
+  .footer .qr { width: 84px; height: 84px; border: 1px solid #e3e8ef; border-radius: 8px; padding: 5px; background: #fff; }
+  .footer .qr-text { font-size: 12px; color: #5a6b82; font-weight: 600; text-align: left; }
+  .footer .note { color: #8a94a3; font-size: 12px; margin-top: 14px; }
+  .footer .note b { color: #b07d1e; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="header">
+      <img class="logo" src="https://raw.githubusercontent.com/immusaeng/mooconomy-assets/main/bull-gold.png" alt="Daily 'Moo'conomy">
+      <div class="brand">Daily <span class="moo">'Moo'</span>conomy</div>
+      <div class="eyebrow">MORNING BRIEFING</div>
+      <div class="slogan">
+        <span class="hl">잠든 사이</span> 움직인 지표와 뉴스,<br>매일 아침 <span class="hl">3줄</span>로 배달합니다
+        <br><span class="sub">완전 무료 · 월~토 아침 · 1초 해지</span>
+      </div>
+    </div>
+    <div class="divider"></div>
+
+    <div class="body">
+      <div class="section-label">WHY 'MOO'CONOMY</div>
+      <div class="section-title">오늘의 3줄은 <span class="hl">3C</span>에서 나옵니다</div>
+      <div class="c3">
+        <div class="c3-item">
+          <div class="cc">C</div>
+          <div><div class="t">모으다<span class="en">COLLECT</span></div>
+          <div class="d">코스피·코스닥·나스닥·환율·유가, 수급까지 한 통에.</div></div>
+        </div>
+        <div class="c3-item">
+          <div class="cc">C</div>
+          <div><div class="t">잇다<span class="en">CONNECT</span></div>
+          <div class="d">밤사이 글로벌 흐름이 오늘 국내 시장에 주는 의미까지.</div></div>
+        </div>
+        <div class="c3-item">
+          <div class="cc">C</div>
+          <div><div class="t">줄이다<span class="en">CONDENSE</span></div>
+          <div class="d">복잡한 하루의 경제를 오늘의 핵심 3줄로 졸여 냅니다.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <span class="free-tag">완전 무료 구독</span>
+      <a class="cta-btn" href="https://forms.gle/7UKrcZR7D7YfGv8L9" target="_blank">무료로 구독하기 →</a>
+      <a class="home-btn" href="https://mooconomy.co.kr" target="_blank">홈페이지 둘러보기 →</a>
+      <div class="qr-box">
+        <img class="qr" src="../qr_subscribe.png" alt="구독 신청 QR코드">
+        <div class="qr-text">QR을 찍어<br>바로 구독하세요</div>
+      </div>
+      <div class="note">코스피 · 코스닥 · 나스닥 · 환율 · 유가 한눈에<br><b>mooconomy.co.kr</b></div>
+    </div>
+  </div>
+</body>
+</html>
