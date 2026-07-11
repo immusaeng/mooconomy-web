@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily Mooconomy 홍보 카드</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Malgun Gothic", "맑은 고딕", -apple-system, sans-serif; background: #e9edf2; display: flex; justify-content: center; padding: 40px 0; }
+  .card { width: 480px; background: #ffffff; border-radius: 20px; overflow: hidden; box-shadow: 0 12px 40px rgba(11,37,69,0.18); }
+  .header { background: linear-gradient(135deg, #0b2545 0%, #133b6e 100%); padding: 28px 40px 26px; text-align: center; }
+  .header .logo { width: 52px; height: 52px; margin: 0 auto 10px; display: block; }
+  .header .brand { color: #ffffff; font-size: 27px; font-weight: 800; letter-spacing: 0.5px; }
+  .header .brand .moo { color: #f5b301; }
+  .header .slogan { color: #ffffff; font-size: 18px; margin-top: 13px; line-height: 1.4; font-weight: 700; letter-spacing: -0.4px; }
+  .header .slogan .hl { color: #f5b301; }
+  .header .slogan .sub { display: inline-block; margin-top: 9px; font-size: 12.5px; font-weight: 600; letter-spacing: 0.5px; color: #0b2545; background: #f5b301; padding: 4px 13px; border-radius: 20px; }
+  .divider { height: 4px; background: linear-gradient(90deg, #f5b301 0%, #ffd76b 100%); }
+  .body { padding: 30px 38px 24px; }
+  .section-label { font-size: 13px; font-weight: 700; color: #f5b301; letter-spacing: 2px; margin-bottom: 18px; text-transform: uppercase; }
+  .point { padding: 10px 0 10px 15px; border-left: 3px solid #f5b301; margin-bottom: 4px; color: #1a2b45; font-size: 14.5px; font-weight: 600; line-height: 1.4; letter-spacing: -0.3px; }
+  .point:last-child { margin-bottom: 0; }
+  .preview { padding: 4px 38px 28px; text-align: center; }
+  .preview-label { color: #556; font-size: 13px; font-weight: 700; letter-spacing: 0.5px; margin-bottom: 14px; }
+  .preview-label .accent { color: #f5b301; }
+  .preview-frame { border: 1px solid #e3e8ef; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 14px rgba(11,37,69,0.10); margin-bottom: 12px; position: relative; }
+  .preview-frame:last-child { margin-bottom: 0; max-height: 200px; }
+  .preview-frame img { width: 100%; display: block; }
+  .preview-frame:last-child::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 70px; background: linear-gradient(to bottom, rgba(255,255,255,0), #ffffff); }
+  .footer { background: #f5f7fa; padding: 28px 38px 32px; text-align: center; border-top: 1px solid #e3e8ef; }
+  .footer .free-tag { display: inline-block; background: #eaf4ff; color: #1565c0; font-size: 13px; font-weight: 700; padding: 5px 14px; border-radius: 20px; margin-bottom: 16px; }
+  .cta-btn { display: block; background: #0b2545; color: #ffffff; font-size: 18px; font-weight: 800; text-decoration: none; padding: 17px 0; border-radius: 12px; letter-spacing: 0.5px; }
+  .footer .qr-box { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 16px; padding-top: 16px; border-top: 1px dashed #d9dee6; }
+  .footer .qr { width: 84px; height: 84px; display: block; border: 1px solid #e3e8ef; border-radius: 8px; padding: 5px; background: #fff; }
+  .footer .qr-text { font-size: 12px; color: #5a6b82; line-height: 1.5; font-weight: 600; text-align: left; }
+  .footer .note { color: #8a94a3; font-size: 12px; margin-top: 14px; line-height: 1.5; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="header">
+      <img class="logo" src="https://raw.githubusercontent.com/immusaeng/mooconomy-assets/main/bull-gold.png" alt="Daily Mooconomy">
+      <div class="brand">Daily <span class="moo">'Moo'</span>conomy</div>
+      <div class="slogan">
+        <span class="hl">잠든 사이</span> 움직인 지표와 뉴스<br>
+        <span class="sub">매일 아침 배달</span>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div class="body">
+      <div class="section-label">WHY SUBSCRIBE</div>
+      <div class="point">매일 아침, 하루 경제를 한 번에 — 원스톱 배달</div>
+      <div class="point">잠든 사이 움직인 새벽 주요 지표까지 깔끔하게 정리</div>
+      <div class="point">눈뜨자마자 보는 오늘 아침 핵심 경제뉴스 요약</div>
+      <div class="point">지표로 짚어주는 오늘의 관전·체크포인트</div>
+    </div>
+    <div class="preview">
+      <div class="preview-label">바쁜 아침, <span class="accent">지표와 국내·해외 경제뉴스</span>를 이렇게 정리해 드려요</div>
+      <div class="preview-frame"><img src="letter_preview_1.png" alt="핵심 지표와 헤드라인"></div>
+      <div class="preview-frame"><img src="letter_preview_2.png" alt="국내 경제 뉴스 브리핑"></div>
+    </div>
+    <div class="footer">
+      <span class="free-tag">무료 구독</span>
+      <a class="cta-btn" href="https://forms.gle/7UKrcZR7D7YfGv8L9" target="_blank">무료로 구독하기 →</a>
+      <div class="qr-box">
+        <img class="qr" src="qr_subscribe.png" alt="구독 신청 QR코드">
+        <div class="qr-text">이미지로 보고 계신가요?<br>QR을 찍어 바로 구독하세요</div>
+      </div>
+      <div class="note">코스피 · 코스닥 · 나스닥 · 환율 · 유가 한눈에<br>mooconomy.co.kr</div>
+    </div>
+  </div>
+</body>
+</html>
