@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daily Mooconomy · 잠든 사이 움직인 지표와 뉴스, 매일 아침 배달</title>
-<meta name="description" content="코스피·코스닥·나스닥·환율·유가까지, 잠든 사이 움직인 지표와 뉴스를 매일 아침 3줄로 정리해 배달합니다.">
+<title>Daily 'Moo'conomy · 잠든 사이 움직인 지표와 뉴스, 매일 아침 배달</title>
+<meta name="description" content="코스피·코스닥·나스닥·환율·유가까지, 잠든 사이 움직인 지표와 뉴스를 매일 아침 3줄로 정리해 배달하는 무료 경제 뉴스레터.">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
@@ -14,193 +14,214 @@
   }
   body {
     font-family:"Pretendard","Malgun Gothic",-apple-system,sans-serif;
-    color:var(--ink); background:var(--bg); line-height:1.6;
+    color:var(--ink); background:#fff; line-height:1.6;
     -webkit-font-smoothing:antialiased;
   }
-  .wrap { max-width:680px; margin:0 auto; background:#fff; }
-  .sec { padding:64px 32px; border-bottom:1px solid var(--line); }
-  .sec-num { font-size:12px; letter-spacing:2px; color:var(--gold-d); font-weight:800; margin-bottom:12px; }
+  section { width:100%; }
+  .inner { max-width:1160px; margin:0 auto; padding:0 40px; }
+  .sec-pad { padding:88px 0; }
+  .sec-num { font-size:12px; letter-spacing:2px; color:var(--gold-d); font-weight:800; margin-bottom:14px; text-align:center; }
 
   /* ── 01 HERO ── */
-  .hero {
-    background:linear-gradient(160deg,var(--navy),var(--navy2));
-    color:#fff; text-align:center; padding:72px 32px 64px;
-  }
-  .hero .logo { width:60px; margin-bottom:20px; }
-  .hero .brand { font-size:30px; font-weight:800; letter-spacing:-0.5px; margin-bottom:18px; }
+  .hero { background:linear-gradient(160deg,var(--navy),var(--navy2)); color:#fff; text-align:center; padding:96px 0 84px; }
+  .hero .logo { width:66px; margin-bottom:22px; }
+  .hero .brand { font-size:34px; font-weight:800; letter-spacing:-0.5px; margin-bottom:20px; }
   .hero .brand .moo { color:var(--gold); }
-  .hero .eyebrow { font-size:12px; letter-spacing:3px; color:var(--gold); font-weight:700; margin-bottom:22px; }
-  .hero h1 { font-size:27px; font-weight:800; line-height:1.45; margin-bottom:18px; }
+  .hero .eyebrow { font-size:13px; letter-spacing:3px; color:var(--gold); font-weight:700; margin-bottom:26px; }
+  .hero h1 { font-size:40px; font-weight:800; line-height:1.4; margin-bottom:22px; }
   .hero h1 .hl { color:var(--gold); }
-  .hero p.lead { font-size:15px; color:#c8d3e0; max-width:460px; margin:0 auto 32px; }
-  .hero .cta {
-    display:inline-block; background:var(--gold); color:var(--navy);
-    font-size:16px; font-weight:800; padding:16px 40px; border-radius:12px;
-    text-decoration:none; transition:.2s; box-shadow:0 8px 24px rgba(217,164,65,.35);
-  }
-  .hero .cta:hover { background:var(--gold-d); transform:translateY(-2px); }
-  .hero .subnote { font-size:12.5px; color:#9fb0c4; margin-top:16px; }
-
-  /* ── strip ── */
-  .strip { background:var(--navy2); color:#fff; text-align:center; padding:18px 20px; font-size:13.5px; }
-  .strip b { color:var(--gold); }
-
-  /* ── PROBLEM ── */
-  .prob-title { font-size:23px; font-weight:800; line-height:1.5; margin-bottom:8px; }
-  .prob-title .hl { color:var(--gold-d); }
-  .prob-sub { font-size:14.5px; color:var(--gray); margin-bottom:36px; }
-  .prob-item { display:flex; gap:18px; padding:24px 0; border-top:1px solid var(--line); }
-  .prob-item:first-of-type { border-top:none; }
-  .prob-n { flex:none; width:34px; height:34px; border-radius:9px; background:var(--navy); color:var(--gold);
-            font-weight:800; font-size:15px; display:flex; align-items:center; justify-content:center; }
-  .prob-b h3 { font-size:16.5px; font-weight:800; margin-bottom:7px; }
-  .prob-b p { font-size:14px; color:var(--gray); }
-
-  /* ── SERVICE / WHY ── */
-  .why { background:#fafbfd; }
-  .why-title { font-size:23px; font-weight:800; margin-bottom:8px; }
-  .why-sub { font-size:14.5px; color:var(--gray); margin-bottom:34px; }
-  .why-card { background:#fff; border:1px solid var(--line); border-radius:14px; padding:24px; margin-bottom:16px;
-              border-left:4px solid var(--gold); }
-  .why-card h3 { font-size:17px; font-weight:800; margin-bottom:8px; }
-  .why-card h3 .em { color:var(--gold-d); }
-  .why-card p { font-size:14px; color:var(--gray); }
-
-  /* ── LATEST ── */
-  .latest-title { font-size:23px; font-weight:800; margin-bottom:8px; text-align:center; }
-  .latest-sub { font-size:14.5px; color:var(--gray); margin-bottom:30px; text-align:center; }
-  .preview-frame { border:1px solid var(--line); border-radius:12px; overflow:hidden; margin-bottom:16px; box-shadow:0 4px 16px rgba(11,37,69,.06); }
-  .preview-frame img { width:100%; display:block; }
-
-  /* ── FINAL CTA ── */
-  .final { background:linear-gradient(160deg,var(--navy),var(--navy2)); color:#fff; text-align:center; padding:64px 32px; }
-  .final h2 { font-size:24px; font-weight:800; line-height:1.45; margin-bottom:16px; }
-  .final h2 .hl { color:var(--gold); }
-  .final p { font-size:14.5px; color:#c8d3e0; max-width:440px; margin:0 auto 14px; }
-  .final .cond { font-size:13px; color:#9fb0c4; margin-bottom:30px; }
-  .final .cond b { color:var(--gold); }
-  .final .cta {
+  .hero p.lead { font-size:17px; color:#c8d3e0; max-width:620px; margin:0 auto 36px; }
+  .cta {
     display:inline-block; background:var(--gold); color:var(--navy);
     font-size:17px; font-weight:800; padding:17px 46px; border-radius:12px;
     text-decoration:none; transition:.2s; box-shadow:0 8px 24px rgba(217,164,65,.35);
   }
-  .final .cta:hover { background:var(--gold-d); transform:translateY(-2px); }
-  .qr-box { display:flex; align-items:center; justify-content:center; gap:14px; margin-top:30px; padding-top:26px; border-top:1px dashed rgba(255,255,255,.2); }
-  .qr-box img { width:88px; height:88px; border-radius:8px; padding:5px; background:#fff; }
-  .qr-box .qt { font-size:12.5px; color:#c8d3e0; text-align:left; line-height:1.5; font-weight:600; }
+  .cta:hover { background:var(--gold-d); transform:translateY(-2px); }
+  .hero .subnote { font-size:13px; color:#9fb0c4; margin-top:18px; }
+
+  /* ── strip ── */
+  .strip { background:var(--navy2); color:#fff; text-align:center; padding:20px; font-size:15px; }
+  .strip b { color:var(--gold); }
+
+  /* ── section headings ── */
+  .c3-badge {
+    display:inline-block; background:var(--navy); color:var(--gold);
+    font-size:12.5px; font-weight:700; letter-spacing:1px;
+    padding:8px 18px; border-radius:20px; margin-bottom:18px;
+  }
+  .sec-title { font-size:30px; font-weight:800; line-height:1.4; margin-bottom:10px; text-align:center; }
+  .sec-title .hl { color:var(--gold-d); }
+  .sec-sub { font-size:16px; color:var(--gray); margin-bottom:52px; text-align:center; }
+  .center { text-align:center; }
+
+  /* ── PROBLEM (3-column grid) ── */
+  .grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+  .prob-item { background:var(--bg); border-radius:16px; padding:34px 28px; border-top:4px solid var(--navy); }
+  .prob-n { width:42px; height:42px; border-radius:11px; background:var(--navy); color:var(--gold);
+            font-weight:800; font-size:17px; display:flex; align-items:center; justify-content:center; margin-bottom:20px; }
+  .prob-item h3 { font-size:18px; font-weight:800; margin-bottom:12px; line-height:1.45; }
+  .prob-item p { font-size:14.5px; color:var(--gray); }
+
+  /* ── WHY / SERVICE (3C grid) ── */
+  .why { background:#fafbfd; }
+  .why-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:34px 28px; border-left:5px solid var(--gold);
+              box-shadow:0 4px 16px rgba(11,37,69,.05); }
+  .why-card .why-en { font-size:12px; letter-spacing:2px; font-weight:800; color:var(--gold-d); margin-bottom:8px; }
+  .why-card h3 { font-size:19px; font-weight:800; margin-bottom:12px; }
+  .why-card h3 .em { color:var(--gold-d); }
+  .why-card p { font-size:14.5px; color:var(--gray); }
+
+  /* ── LATEST (2-column) ── */
+  .grid2 { display:grid; grid-template-columns:repeat(2,1fr); gap:28px; align-items:start; }
+  .preview-frame { border:1px solid var(--line); border-radius:14px; overflow:hidden; box-shadow:0 6px 20px rgba(11,37,69,.08); }
+  .preview-frame img { width:100%; display:block; }
+
+  /* ── FINAL CTA ── */
+  .final { background:linear-gradient(160deg,var(--navy),var(--navy2)); color:#fff; text-align:center; padding:88px 0; }
+  .final h2 { font-size:32px; font-weight:800; line-height:1.4; margin-bottom:18px; }
+  .final h2 .hl { color:var(--gold); }
+  .final p { font-size:16px; color:#c8d3e0; max-width:560px; margin:0 auto 14px; }
+  .final .cond { font-size:14px; color:#9fb0c4; margin-bottom:36px; }
+  .final .cond b { color:var(--gold); }
+  .final .cta { font-size:18px; padding:18px 52px; }
+  /* 구독 박스: 버튼 아래 QR을 중앙 세로 정렬 */
+  .sub-block { display:flex; flex-direction:column; align-items:center; gap:0; }
+  .qr-box { display:inline-flex; align-items:center; justify-content:center; gap:16px;
+            margin-top:40px; padding:20px 26px; background:rgba(255,255,255,.05);
+            border:1px solid rgba(255,255,255,.12); border-radius:14px; }
+  .qr-box img { width:96px; height:96px; border-radius:8px; padding:5px; background:#fff; }
+  .qr-box .qt { font-size:13px; color:#c8d3e0; text-align:left; line-height:1.5; font-weight:600; }
 
   /* ── FOOTER ── */
-  .foot { background:#08182e; color:#8ba0b8; text-align:center; padding:28px 32px; font-size:12px; line-height:1.7; }
+  .foot { background:#08182e; color:#8ba0b8; text-align:center; padding:32px 40px; font-size:12.5px; line-height:1.7; }
   .foot .items { color:var(--gold); font-weight:700; margin-bottom:6px; }
 
-  @media (max-width:520px) {
-    .sec { padding:48px 22px; }
-    .hero { padding:56px 22px 48px; }
-    .hero h1 { font-size:23px; }
-    .prob-title, .why-title, .latest-title, .final h2 { font-size:20px; }
+  /* ── 반응형 ── */
+  @media (max-width:900px) {
+    .grid3 { grid-template-columns:1fr; gap:18px; }
+    .hero h1 { font-size:30px; }
+    .sec-title, .final h2 { font-size:24px; }
+  }
+  @media (max-width:640px) {
+    .inner { padding:0 22px; }
+    .sec-pad { padding:56px 0; }
+    .hero { padding:64px 0 52px; }
+    .hero h1 { font-size:25px; }
+    .hero p.lead { font-size:15px; }
+    .grid2 { grid-template-columns:1fr; }
+    .qr-box { flex-direction:column; text-align:center; }
+    .qr-box .qt { text-align:center; }
   }
 </style>
 </head>
 <body>
-<div class="wrap">
 
   <!-- 01 HERO -->
-  <div class="hero">
-    <img class="logo" src="https://raw.githubusercontent.com/immusaeng/mooconomy-assets/main/bull-gold.png" alt="Daily Mooconomy">
-    <div class="brand">Daily <span class="moo">'Moo'</span>conomy</div>
-    <div class="eyebrow">MORNING BRIEFING</div>
-    <h1>잠든 사이 움직인 <span class="hl">지표와 뉴스</span>,<br>매일 아침 <span class="hl">3줄</span>로 배달합니다</h1>
-    <p class="lead">코스피·코스닥·나스닥·환율·유가까지. 밤사이 흩어진 시장의 흐름을 하나로 모아, 오늘 꼭 알아야 할 핵심만 추려 드립니다.</p>
-    <a class="cta" href="https://forms.gle/7UKrcZR7D7YfGv8L9" target="_blank">무료로 내일 아침 첫 메일 받기</a>
-    <div class="subnote">완전 무료 · 월~토 아침 배달 · 1초 만에 해지</div>
-  </div>
+  <section class="hero">
+    <div class="inner">
+      <img class="logo" src="https://raw.githubusercontent.com/immusaeng/mooconomy-assets/main/bull-gold.png" alt="Daily 'Moo'conomy">
+      <div class="brand">Daily <span class="moo">'Moo'</span>conomy</div>
+      <div class="eyebrow">MORNING BRIEFING</div>
+      <h1>잠든 사이 움직인 <span class="hl">지표와 뉴스</span>,<br>매일 아침 <span class="hl">3줄</span>로 배달합니다</h1>
+      <p class="lead">코스피·코스닥·나스닥·환율·유가까지. 밤사이 흩어진 시장의 흐름을 하나로 모아, 오늘 꼭 알아야 할 핵심만 추려 드립니다.</p>
+      <a class="cta" href="https://forms.gle/7UKrcZR7D7YfGv8L9" target="_blank">무료로 내일 아침 첫 메일 받기</a>
+      <div class="subnote">완전 무료 · 월~토 아침 배달 · 1초 만에 해지</div>
+    </div>
+  </section>
 
   <!-- strip -->
-  <div class="strip">
+  <section class="strip">
     오늘 아침 한눈에 &nbsp;·&nbsp; <b>코스피 · 코스닥 · 나스닥 · 환율 · 유가</b> &nbsp;·&nbsp; 그리고 개인·외국인·기관 <b>수급</b>까지
-  </div>
+  </section>
 
   <!-- 02 THE PROBLEM -->
-  <div class="sec">
-    <div class="sec-num">02 / THE PROBLEM</div>
-    <div class="prob-title">경제 정보, 없어서가 아니라<br><span class="hl">흩어져 있어서</span> 어렵습니다</div>
-    <div class="prob-sub">매일 아침 반복되는 세 가지 피로. 무코노미는 여기서 출발했습니다.</div>
-
-    <div class="prob-item">
-      <div class="prob-n">01</div>
-      <div class="prob-b">
-        <h3>지표 하나 보려고 앱 대여섯 개를 엽니다</h3>
-        <p>코스피는 증권 앱, 나스닥은 포털, 환율은 또 다른 곳. 출근 전 15분이 여러 사이트를 오가는 데 사라지고, 정작 오늘 뭐가 중요한지는 놓친 채 지하철에 오릅니다.</p>
+  <section class="sec-pad">
+    <div class="inner">
+      <div class="sec-num">02 / THE PROBLEM</div>
+      <div class="sec-title">경제 정보, 없어서가 아니라 <span class="hl">흩어져 있어서</span> 어렵습니다</div>
+      <div class="sec-sub">매일 아침 반복되는 세 가지 피로. 'Moo'conomy는 여기서 출발했습니다.</div>
+      <div class="grid3">
+        <div class="prob-item">
+          <div class="prob-n">01</div>
+          <h3>지표 하나 보려고<br>앱 대여섯 개를 엽니다</h3>
+          <p>코스피는 증권 앱, 나스닥은 포털, 환율은 또 다른 곳. 출근 전 15분이 여러 사이트를 오가는 데 사라지고, 정작 오늘 뭐가 중요한지는 놓친 채 지하철에 오릅니다.</p>
+        </div>
+        <div class="prob-item">
+          <div class="prob-n">02</div>
+          <h3>정보는 봤는데, 서로 어떻게<br>연결되는지 모릅니다</h3>
+          <p>밤사이 미국 증시가 오르면 오늘 코스피엔 무슨 의미인지, 환율과 유가가 내 시장에 어떤 신호인지. 흩어진 숫자를 '마디'로 연결해 해석해주는 곳이 드뭅니다.</p>
+        </div>
+        <div class="prob-item">
+          <div class="prob-n">03</div>
+          <h3>바쁜 아침엔, 결국<br>'핵심 3줄'이 필요합니다</h3>
+          <p>길고 어려운 리포트를 다 읽을 시간은 없습니다. 전문용어를 걷어내고, 오늘 꼭 알아야 할 것만 딱 3줄로. 그게 바쁜 아침에 진짜 필요한 정보입니다.</p>
+        </div>
       </div>
     </div>
+  </section>
 
-    <div class="prob-item">
-      <div class="prob-n">02</div>
-      <div class="prob-b">
-        <h3>정보는 봤는데, 서로 어떻게 연결되는지 모릅니다</h3>
-        <p>밤사이 미국 증시가 오르면 오늘 코스피엔 무슨 의미인지, 환율과 유가가 내 시장에 어떤 신호인지. 흩어진 숫자를 '마디'로 연결해 해석해주는 곳이 드뭅니다.</p>
+  <!-- 03 WHY / 3C -->
+  <section class="sec-pad why">
+    <div class="inner">
+      <div class="sec-num">03 / WHY 'Moo'conomy</div>
+      <div class="center"><span class="c3-badge">오늘의 3줄은 3C에서 나옵니다 · Collect · Connect · Condense</span></div>
+      <div class="sec-title">흩어진 시장을, <span class="hl">오늘의 3줄</span>로</div>
+      <div class="sec-sub">모으고, 잇고, 줄입니다 — 'Moo'conomy의 3C가 매일 아침 하는 일입니다.</div>
+      <div class="grid3">
+        <div class="why-card">
+          <div class="why-en">C · COLLECT</div>
+          <h3><span class="em">모으다</span></h3>
+          <p><b>흩어진 지표를 한 잔에.</b> 코스피·코스닥·나스닥·환율·유가, 그리고 개인·외국인·기관 수급까지. 아침마다 여기저기 흩어져 확인하던 지표를 'Moo'conomy 한 통의 메일에 담습니다.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-en">C · CONNECT</div>
+          <h3><span class="em">잇다</span></h3>
+          <p><b>숫자와 숫자를 맥락으로.</b> 단순 나열이 아닙니다. 밤사이 글로벌 흐름이 오늘 국내 시장에 주는 의미, 지표들이 만들어내는 맥락을 이어 '그래서 오늘 무엇을 봐야 하는지'까지 해석합니다.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-en">C · CONDENSE</div>
+          <h3><span class="em">줄이다</span></h3>
+          <p><b>오늘 이것만, 딱 3줄로.</b> 복잡한 하루의 경제를 일반 독자도 이해할 수 있는 <b>Moo's Daily 3줄</b>로 졸여 냅니다. 눈뜨자마자, 오늘의 흐름을 3줄로 잡으세요.</p>
+        </div>
       </div>
     </div>
-
-    <div class="prob-item">
-      <div class="prob-n">03</div>
-      <div class="prob-b">
-        <h3>바쁜 아침엔, 결국 '핵심 3줄'이 필요합니다</h3>
-        <p>길고 어려운 리포트를 다 읽을 시간은 없습니다. 전문용어를 걷어내고, 오늘 꼭 알아야 할 것만 딱 3줄로. 그게 바쁜 아침에 진짜 필요한 정보입니다.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- 03 WHY / SERVICE -->
-  <div class="sec why">
-    <div class="sec-num">03 / WHY MOOCONOMY</div>
-    <div class="why-title">그래서 무코노미는 이렇게 정리합니다</div>
-    <div class="why-sub">흩어진 정보를 모으고, 연결하고, 3줄로 압축합니다.</div>
-
-    <div class="why-card">
-      <h3><span class="em">모으다</span> · 파편화된 정보를 한 잔에</h3>
-      <p>코스피·코스닥·나스닥·환율·유가, 그리고 개인·외국인·기관 수급까지. 아침마다 흩어져 확인하던 지표를 무코노미 한 통의 메일에 담아 드립니다.</p>
-    </div>
-
-    <div class="why-card">
-      <h3><span class="em">잇다</span> · 숫자와 숫자의 마디를 연결</h3>
-      <p>단순 나열이 아닙니다. 밤사이 글로벌 흐름이 오늘 국내 시장에 주는 의미, 지표들이 만들어내는 맥락을 짚어 '그래서 오늘 무엇을 봐야 하는지' 해석해 드립니다.</p>
-    </div>
-
-    <div class="why-card">
-      <h3><span class="em">Moo's Daily 3줄</span> · 오늘 이것만 봐도 됩니다</h3>
-      <p>바쁜 아침을 위한 무코노미의 정체성. 복잡한 하루의 경제를 일반 독자도 이해할 수 있는 핵심 3줄로 압축해, 눈뜨자마자 오늘의 흐름을 잡게 해 드립니다.</p>
-    </div>
-  </div>
+  </section>
 
   <!-- 05 LATEST ISSUE -->
-  <div class="sec">
-    <div class="sec-num">05 / LATEST ISSUE</div>
-    <div class="latest-title">오늘 아침의 한 잔</div>
-    <div class="latest-sub">가장 최근에 발송된 브리핑을 그대로 미리 읽어보세요.</div>
-    <div class="preview-frame"><img src="letter_preview_1.png" alt="핵심 지표와 헤드라인"></div>
-    <div class="preview-frame"><img src="letter_preview_2.png" alt="국내 경제 뉴스 브리핑"></div>
-  </div>
+  <section class="sec-pad">
+    <div class="inner">
+      <div class="sec-num">05 / LATEST ISSUE</div>
+      <div class="sec-title">오늘 아침의 한 잔</div>
+      <div class="sec-sub">가장 최근에 발송된 브리핑을 그대로 미리 읽어보세요.</div>
+      <div class="grid2">
+        <div class="preview-frame"><img src="letter_preview_1.png" alt="핵심 지표와 헤드라인"></div>
+        <div class="preview-frame"><img src="letter_preview_2.png" alt="국내 경제 뉴스 브리핑"></div>
+      </div>
+    </div>
+  </section>
 
   <!-- FINAL CTA -->
-  <div class="final">
-    <h2>내일 아침, <span class="hl">첫 메일</span>부터<br>확인해보세요</h2>
-    <p>데일리 브리핑은 완전 무료입니다. 마음에 안 들면 메일 하단 버튼 한 번으로 1초 만에 해지할 수 있습니다.</p>
-    <div class="cond">구독하면 다음 발행일 <b>(월~토) 아침</b> 첫 브리핑이 도착합니다.</div>
-    <a class="cta" href="https://forms.gle/7UKrcZR7D7YfGv8L9" target="_blank">무료로 구독하기 →</a>
-    <div class="qr-box">
-      <img src="qr_subscribe.png" alt="구독 신청 QR코드">
-      <div class="qt">이미지로 보고 계신가요?<br>QR을 찍어 바로 구독하세요</div>
+  <section class="final">
+    <div class="inner">
+      <h2>내일 아침, <span class="hl">첫 메일</span>부터 확인해보세요</h2>
+      <p>데일리 브리핑은 완전 무료입니다. 마음에 안 들면 메일 하단 버튼 한 번으로 1초 만에 해지할 수 있습니다.</p>
+      <div class="cond">구독하면 다음 발행일 <b>(월~토) 아침</b> 첫 브리핑이 도착합니다.</div>
+      <div class="sub-block">
+        <a class="cta" href="https://forms.gle/7UKrcZR7D7YfGv8L9" target="_blank">무료로 구독하기 →</a>
+        <div class="qr-box">
+          <img src="qr_subscribe.png" alt="구독 신청 QR코드">
+          <div class="qt">이미지로 보고 계신가요?<br>QR을 찍어 바로 구독하세요</div>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
 
   <!-- FOOTER -->
-  <div class="foot">
+  <footer class="foot">
     <div class="items">코스피 · 코스닥 · 나스닥 · 환율 · 유가 한눈에</div>
-    Daily Mooconomy · mooconomy.co.kr<br>
-    © 2026 Mooconomy. All rights reserved.
-  </div>
+    Daily 'Moo'conomy · mooconomy.co.kr<br>
+    © 2026 'Moo'conomy. All rights reserved.
+  </footer>
 
-</div>
 </body>
 </html>
