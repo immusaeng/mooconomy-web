@@ -11,7 +11,9 @@
   :root {
     --navy:#0b2545; --navy2:#13315c; --gold:#d9a441; --gold-d:#c08e2d;
     --ink:#1b2733; --gray:#5a6b82; --line:#e3e8ef; --bg:#f4f6f9;
+    --nav-h:60px; --ticker-h:40px;
   }
+  html { scroll-behavior:smooth; }
   body {
     font-family:"Pretendard","Malgun Gothic",-apple-system,sans-serif;
     color:var(--ink); background:#fff; line-height:1.6;
@@ -19,11 +21,46 @@
   }
   section { width:100%; }
   .inner { max-width:1160px; margin:0 auto; padding:0 40px; }
-  .sec-pad { padding:88px 0; }
+  .sec-pad { padding:96px 0; }
+  .anchor { scroll-margin-top:calc(var(--nav-h) + var(--ticker-h) + 12px); }
   .sec-num { font-size:12px; letter-spacing:2px; color:var(--gold-d); font-weight:800; margin-bottom:14px; text-align:center; }
 
+  /* ── 상단 고정 네비 ── */
+  .topbar { position:fixed; top:0; left:0; right:0; z-index:100; }
+  .nav {
+    height:var(--nav-h); background:rgba(11,37,69,.96); backdrop-filter:blur(8px);
+    display:flex; align-items:center; justify-content:space-between; padding:0 40px; position:relative;
+  }
+  .nav .logo-wrap { display:flex; align-items:center; gap:10px; text-decoration:none; z-index:2; }
+  .nav .logo-wrap img { width:30px; }
+  .nav .logo-wrap .nm { color:#fff; font-weight:800; font-size:16px; }
+  .nav .logo-wrap .nm .moo { color:var(--gold); }
+  .nav ul {
+    list-style:none; display:flex; gap:40px; align-items:center;
+    position:absolute; left:50%; top:0; height:var(--nav-h); transform:translateX(-50%);
+  }
+  .nav ul a { color:#c8d3e0; text-decoration:none; font-size:13px; font-weight:700; letter-spacing:1px;
+              transition:.2s; padding:6px 0; border-bottom:2px solid transparent; }
+  .nav ul a:hover { color:#fff; }
+  .nav ul a.active { color:var(--gold); border-bottom-color:var(--gold); }
+  .nav .nav-cta { background:var(--gold); color:var(--navy); padding:9px 18px; border-radius:8px;
+                  font-size:12.5px; font-weight:800; letter-spacing:.5px; text-decoration:none; z-index:2; }
+  .nav .menu-btn { display:none; background:none; border:none; color:#fff; font-size:22px; cursor:pointer; z-index:2; }
+
+  /* ── 상단 지표 티커 (마퀴) ── */
+  .ticker { height:var(--ticker-h); background:var(--navy2); border-top:1px solid rgba(255,255,255,.08); overflow:hidden; display:flex; align-items:center; }
+  .ticker .track { display:flex; white-space:nowrap; animation:scroll 34s linear infinite; }
+  .ticker:hover .track { animation-play-state:paused; }
+  .ticker .item { color:#e5edf6; font-size:13px; font-weight:600; padding:0 26px; display:inline-flex; align-items:center; gap:8px; }
+  .ticker .item .nm { color:#9fb0c4; }
+  .ticker .up { color:#ff6b6b; font-weight:700; }
+  .ticker .down { color:#5aa9ff; font-weight:700; }
+  @keyframes scroll { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+
+  .spacer { height:calc(var(--nav-h) + var(--ticker-h)); }
+
   /* ── 01 HERO ── */
-  .hero { background:linear-gradient(160deg,var(--navy),var(--navy2)); color:#fff; text-align:center; padding:96px 0 84px; }
+  .hero { background:linear-gradient(160deg,var(--navy),var(--navy2)); color:#fff; text-align:center; padding:92px 0 84px; }
   .hero .logo { width:66px; margin-bottom:22px; }
   .hero .brand { font-size:34px; font-weight:800; letter-spacing:-0.5px; margin-bottom:20px; }
   .hero .brand .moo { color:var(--gold); }
@@ -31,64 +68,47 @@
   .hero h1 { font-size:40px; font-weight:800; line-height:1.4; margin-bottom:22px; }
   .hero h1 .hl { color:var(--gold); }
   .hero p.lead { font-size:17px; color:#c8d3e0; max-width:620px; margin:0 auto 36px; }
-  .cta {
-    display:inline-block; background:var(--gold); color:var(--navy);
-    font-size:17px; font-weight:800; padding:17px 46px; border-radius:12px;
-    text-decoration:none; transition:.2s; box-shadow:0 8px 24px rgba(217,164,65,.35);
-  }
+  .cta { display:inline-block; background:var(--gold); color:var(--navy); font-size:17px; font-weight:800; padding:17px 46px; border-radius:12px; text-decoration:none; transition:.2s; box-shadow:0 8px 24px rgba(217,164,65,.35); }
   .cta:hover { background:var(--gold-d); transform:translateY(-2px); }
   .hero .subnote { font-size:13px; color:#9fb0c4; margin-top:18px; }
 
-  /* ── strip ── */
-  .strip { background:var(--navy2); color:#fff; text-align:center; padding:20px; font-size:15px; }
-  .strip b { color:var(--gold); }
-
   /* ── section headings ── */
-  .c3-badge {
-    display:inline-block; background:var(--navy); color:var(--gold);
-    font-size:12.5px; font-weight:700; letter-spacing:1px;
-    padding:8px 18px; border-radius:20px; margin-bottom:18px;
-  }
+  .c3-badge { display:inline-block; background:var(--navy); color:var(--gold); font-size:12.5px; font-weight:700; letter-spacing:1px; padding:8px 18px; border-radius:20px; margin-bottom:18px; }
   .sec-title { font-size:30px; font-weight:800; line-height:1.4; margin-bottom:10px; text-align:center; }
   .sec-title .hl { color:var(--gold-d); }
   .sec-sub { font-size:16px; color:var(--gray); margin-bottom:52px; text-align:center; }
   .center { text-align:center; }
 
-  /* ── PROBLEM (3-column grid) ── */
+  /* ── PROBLEM ── */
   .grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
   .prob-item { background:var(--bg); border-radius:16px; padding:34px 28px; border-top:4px solid var(--navy); }
-  .prob-n { width:42px; height:42px; border-radius:11px; background:var(--navy); color:var(--gold);
-            font-weight:800; font-size:17px; display:flex; align-items:center; justify-content:center; margin-bottom:20px; }
+  .prob-n { width:42px; height:42px; border-radius:11px; background:var(--navy); color:var(--gold); font-weight:800; font-size:17px; display:flex; align-items:center; justify-content:center; margin-bottom:20px; }
   .prob-item h3 { font-size:18px; font-weight:800; margin-bottom:12px; line-height:1.45; }
   .prob-item p { font-size:14.5px; color:var(--gray); }
 
-  /* ── WHY / SERVICE (3C grid) ── */
+  /* ── WHY / 3C ── */
   .why { background:#fafbfd; }
-  .why-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:34px 28px; border-left:5px solid var(--gold);
-              box-shadow:0 4px 16px rgba(11,37,69,.05); }
+  .why-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:34px 28px; border-left:5px solid var(--gold); box-shadow:0 4px 16px rgba(11,37,69,.05); }
   .why-card .why-en { font-size:12px; letter-spacing:2px; font-weight:800; color:var(--gold-d); margin-bottom:8px; }
   .why-card h3 { font-size:19px; font-weight:800; margin-bottom:12px; }
   .why-card h3 .em { color:var(--gold-d); }
   .why-card p { font-size:14.5px; color:var(--gray); }
 
-  /* ── LATEST (2-column) ── */
+  /* ── LATEST ── */
   .grid2 { display:grid; grid-template-columns:repeat(2,1fr); gap:28px; align-items:start; }
   .preview-frame { border:1px solid var(--line); border-radius:14px; overflow:hidden; box-shadow:0 6px 20px rgba(11,37,69,.08); }
   .preview-frame img { width:100%; display:block; }
 
   /* ── FINAL CTA ── */
-  .final { background:linear-gradient(160deg,var(--navy),var(--navy2)); color:#fff; text-align:center; padding:88px 0; }
+  .final { background:linear-gradient(160deg,var(--navy),var(--navy2)); color:#fff; text-align:center; padding:96px 0; }
   .final h2 { font-size:32px; font-weight:800; line-height:1.4; margin-bottom:18px; }
   .final h2 .hl { color:var(--gold); }
   .final p { font-size:16px; color:#c8d3e0; max-width:560px; margin:0 auto 14px; }
   .final .cond { font-size:14px; color:#9fb0c4; margin-bottom:36px; }
   .final .cond b { color:var(--gold); }
   .final .cta { font-size:18px; padding:18px 52px; }
-  /* 구독 박스: 버튼 아래 QR을 중앙 세로 정렬 */
-  .sub-block { display:flex; flex-direction:column; align-items:center; gap:0; }
-  .qr-box { display:inline-flex; align-items:center; justify-content:center; gap:16px;
-            margin-top:40px; padding:20px 26px; background:rgba(255,255,255,.05);
-            border:1px solid rgba(255,255,255,.12); border-radius:14px; }
+  .sub-block { display:flex; flex-direction:column; align-items:center; }
+  .qr-box { display:inline-flex; align-items:center; justify-content:center; gap:16px; margin-top:40px; padding:20px 26px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); border-radius:14px; }
   .qr-box img { width:96px; height:96px; border-radius:8px; padding:5px; background:#fff; }
   .qr-box .qt { font-size:13px; color:#c8d3e0; text-align:left; line-height:1.5; font-weight:600; }
 
@@ -101,10 +121,18 @@
     .grid3 { grid-template-columns:1fr; gap:18px; }
     .hero h1 { font-size:30px; }
     .sec-title, .final h2 { font-size:24px; }
+    .nav ul { position:fixed; left:0; top:calc(var(--nav-h) + var(--ticker-h)); right:0;
+              transform:none; height:auto; flex-direction:column; gap:0;
+              background:rgba(11,37,69,.98); padding:8px 0; display:none; }
+    .nav ul.open { display:flex; }
+    .nav ul a { padding:14px 40px; width:100%; border-bottom:1px solid rgba(255,255,255,.06); }
+    .nav ul a.active { border-bottom-color:rgba(255,255,255,.06); }
+    .nav .menu-btn { display:block; }
+    .nav .nav-cta { display:none; }
   }
   @media (max-width:640px) {
     .inner { padding:0 22px; }
-    .sec-pad { padding:56px 0; }
+    .sec-pad { padding:60px 0; }
     .hero { padding:64px 0 52px; }
     .hero h1 { font-size:25px; }
     .hero p.lead { font-size:15px; }
@@ -116,8 +144,30 @@
 </head>
 <body>
 
+  <!-- 상단 고정: 네비 + 지표 티커 -->
+  <div class="topbar">
+    <nav class="nav">
+      <a class="logo-wrap" href="#top">
+        <img src="https://raw.githubusercontent.com/immusaeng/mooconomy-assets/main/bull-gold.png" alt="logo">
+        <span class="nm">Daily <span class="moo">'Moo'</span>conomy</span>
+      </a>
+      <ul id="navmenu">
+        <li><a href="#problem" class="nav-link">THE PROBLEM</a></li>
+        <li><a href="#why" class="nav-link">THE 3C</a></li>
+        <li><a href="#latest" class="nav-link">LATEST</a></li>
+        <li><a href="#subscribe" class="nav-link">SUBSCRIBE</a></li>
+      </ul>
+      <a class="nav-cta" href="https://forms.gle/7UKrcZR7D7YfGv8L9" target="_blank">SUBSCRIBE FREE</a>
+      <button class="menu-btn" id="menuBtn" aria-label="메뉴">☰</button>
+    </nav>
+    <div class="ticker">
+      <div class="track" id="tickerTrack"><!-- JS가 채움 --></div>
+    </div>
+  </div>
+  <div class="spacer"></div>
+
   <!-- 01 HERO -->
-  <section class="hero">
+  <section class="hero" id="top">
     <div class="inner">
       <img class="logo" src="https://raw.githubusercontent.com/immusaeng/mooconomy-assets/main/bull-gold.png" alt="Daily 'Moo'conomy">
       <div class="brand">Daily <span class="moo">'Moo'</span>conomy</div>
@@ -129,13 +179,8 @@
     </div>
   </section>
 
-  <!-- strip -->
-  <section class="strip">
-    오늘 아침 한눈에 &nbsp;·&nbsp; <b>코스피 · 코스닥 · 나스닥 · 환율 · 유가</b> &nbsp;·&nbsp; 그리고 개인·외국인·기관 <b>수급</b>까지
-  </section>
-
   <!-- 02 THE PROBLEM -->
-  <section class="sec-pad">
+  <section class="sec-pad anchor" id="problem">
     <div class="inner">
       <div class="sec-num">02 / THE PROBLEM</div>
       <div class="sec-title">경제 정보, 없어서가 아니라 <span class="hl">흩어져 있어서</span> 어렵습니다</div>
@@ -161,7 +206,7 @@
   </section>
 
   <!-- 03 WHY / 3C -->
-  <section class="sec-pad why">
+  <section class="sec-pad why anchor" id="why">
     <div class="inner">
       <div class="sec-num">03 / WHY 'Moo'conomy</div>
       <div class="center"><span class="c3-badge">오늘의 3줄은 3C에서 나옵니다 · Collect · Connect · Condense</span></div>
@@ -188,7 +233,7 @@
   </section>
 
   <!-- 05 LATEST ISSUE -->
-  <section class="sec-pad">
+  <section class="sec-pad anchor" id="latest">
     <div class="inner">
       <div class="sec-num">05 / LATEST ISSUE</div>
       <div class="sec-title">오늘 아침의 한 잔</div>
@@ -201,7 +246,7 @@
   </section>
 
   <!-- FINAL CTA -->
-  <section class="final">
+  <section class="final anchor" id="subscribe">
     <div class="inner">
       <h2>내일 아침, <span class="hl">첫 메일</span>부터 확인해보세요</h2>
       <p>데일리 브리핑은 완전 무료입니다. 마음에 안 들면 메일 하단 버튼 한 번으로 1초 만에 해지할 수 있습니다.</p>
@@ -222,6 +267,57 @@
     Daily 'Moo'conomy · mooconomy.co.kr<br>
     © 2026 'Moo'conomy. All rights reserved.
   </footer>
+
+  <script>
+    // ── 지표 티커: ticker.json이 있으면 실데이터, 없으면 예시값(—) ──
+    var tickerFallback = [
+      {name:"코스피", value:"—", change:null},
+      {name:"코스닥", value:"—", change:null},
+      {name:"나스닥", value:"—", change:null},
+      {name:"S&P500", value:"—", change:null},
+      {name:"원/달러", value:"—", change:null},
+      {name:"WTI", value:"—", change:null}
+    ];
+    function renderTicker(items){
+      var track = document.getElementById('tickerTrack');
+      function cell(it){
+        var cls = it.change > 0 ? 'up' : (it.change < 0 ? 'down' : '');
+        var arrow = it.change > 0 ? '▲ ' : (it.change < 0 ? '▼ ' : '');
+        var chg = (it.change === null || it.change === undefined) ? ''
+                  : '<span class="'+cls+'">'+arrow+Math.abs(Number(it.change)).toFixed(2)+'%</span>';
+        return '<span class="item"><span class="nm">'+it.name+'</span> '+it.value+' '+chg+'</span>';
+      }
+      var html = items.map(cell).join('') + items.map(cell).join('');
+      track.innerHTML = html;
+    }
+    fetch('ticker.json?v=' + Date.now())
+      .then(function(r){ if(!r.ok) throw new Error('no ticker'); return r.json(); })
+      .then(function(data){ renderTicker((data && data.items) ? data.items : data); })
+      .catch(function(){ renderTicker(tickerFallback); });
+
+    // ── 모바일 메뉴 토글 ──
+    var menuBtn = document.getElementById('menuBtn');
+    var navMenu = document.getElementById('navmenu');
+    menuBtn.addEventListener('click', function(){ navMenu.classList.toggle('open'); });
+    navMenu.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){ navMenu.classList.remove('open'); });
+    });
+
+    // ── 스크롤 위치에 따라 현재 메뉴 활성화 ──
+    var sectionIds = ['problem','why','latest','subscribe'];
+    var sections = sectionIds.map(function(id){ return document.getElementById(id); });
+    var links = {};
+    document.querySelectorAll('.nav-link').forEach(function(a){ links[a.getAttribute('href').slice(1)] = a; });
+    function onScroll(){
+      var topbar = document.querySelector('.topbar');
+      var pos = window.scrollY + (topbar ? topbar.offsetHeight : 100) + 40;
+      var current = '';
+      sections.forEach(function(sec){ if(sec && sec.offsetTop <= pos) current = sec.id; });
+      Object.keys(links).forEach(function(id){ links[id].classList.toggle('active', id === current); });
+    }
+    window.addEventListener('scroll', onScroll);
+    onScroll();
+  </script>
 
 </body>
 </html>
