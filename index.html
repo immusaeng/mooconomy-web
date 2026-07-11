@@ -94,19 +94,19 @@
   .why-card h3 .em { color:var(--gold-d); }
   .why-card p { font-size:14.5px; color:var(--gray); }
 
-  /* ── LATEST (오늘 아침의 한 잔) ── */
-  .latest-sec { background:var(--navy); }
-  .latest-sec .sec-num { color:var(--gold); }
-  .latest-sec .sec-title { color:#fff; }
-  .latest-sec .sec-title .hl { color:var(--gold); }
-  .latest-sec .sec-sub { color:#c8d3e0; }
-  .mail-frame { max-width:920px; margin:0 auto; background:#1a2236;
-    border-radius:16px; overflow:hidden; box-shadow:0 20px 50px rgba(0,0,0,.4); }
-  .mail-bar { display:flex; align-items:center; gap:8px; padding:12px 18px; background:#111827; }
+  /* ── LATEST (흰색 톤) ── */
+  .latest-sec { background:var(--bg); }
+  .latest-sec .sec-num { color:var(--gold-d); }
+  .latest-sec .sec-title { color:var(--ink); }
+  .latest-sec .sec-title .hl { color:var(--gold-d); }
+  .latest-sec .sec-sub { color:var(--gray); }
+  .mail-frame { max-width:920px; margin:0 auto; background:#e8ecf2;
+    border-radius:16px; overflow:hidden; box-shadow:0 12px 36px rgba(11,37,69,.12); border:1px solid var(--line); }
+  .mail-bar { display:flex; align-items:center; gap:8px; padding:12px 18px; background:#dfe4ec; }
   .mail-bar .dot { width:11px; height:11px; border-radius:50%; }
   .mail-bar .dot.red{background:#ff5f56;} .mail-bar .dot.yellow{background:#ffbd2e;} .mail-bar .dot.green{background:#27c93f;}
-  .mail-bar .mail-label { margin-left:12px; color:#8a93a8; font-size:12.5px; letter-spacing:.5px; }
-  .mail-bar .mail-date { margin-left:auto; color:#8a93a8; font-size:12.5px; letter-spacing:.5px; }
+  .mail-bar .mail-label { margin-left:12px; color:#6b7688; font-size:12.5px; letter-spacing:.5px; }
+  .mail-bar .mail-date { margin-left:auto; color:#6b7688; font-size:12.5px; letter-spacing:.5px; }
   .mail-body { padding:18px; }
   .letter-wrap { position:relative; max-height:520px; overflow:hidden; border-radius:10px; background:#fff; transition:max-height .5s ease; }
   .letter-wrap.open { max-height:none; }
@@ -157,7 +157,6 @@
     .hero { padding:64px 0 52px; }
     .hero h1 { font-size:25px; }
     .hero p.lead { font-size:15px; }
-    .grid2 { grid-template-columns:1fr; }
     .qr-box { flex-direction:column; text-align:center; }
     .qr-box .qt { text-align:center; }
     .letter-wrap { max-height:400px; }
@@ -180,7 +179,7 @@
         <li><a href="#latest" class="nav-link">LATEST</a></li>
         <li><a href="#subscribe" class="nav-link">SUBSCRIBE</a></li>
       </ul>
-      <a class="nav-cta" href="https://forms.gle/7UKrcZR7D7YfGv8L9" target="_blank">SUBSCRIBE FREE</a>
+      <a class="nav-cta" href="https://forms.gle/7UKrcZR7D7YfGv8L9" target="_blank">무료 구독하기</a>
       <button class="menu-btn" id="menuBtn" aria-label="메뉴">☰</button>
     </nav>
     <div class="ticker">
@@ -255,12 +254,12 @@
     </div>
   </section>
 
-  <!-- 05 LATEST ISSUE (오늘 아침의 한 잔) -->
+  <!-- 05 LATEST ISSUE -->
   <section class="sec-pad latest-sec anchor" id="latest">
     <div class="inner">
       <div class="sec-num">05 / LATEST ISSUE</div>
-      <div class="sec-title">오늘 아침의 한 잔</div>
-      <div class="sec-sub">가장 최근에 발송된 브리핑을 그대로 미리 읽어보세요.</div>
+      <div class="sec-title">오늘 아침, <span class="hl">'Moo'conomy</span> 배달</div>
+      <div class="sec-sub">가장 최근에 발송된 실제 브리핑입니다. 3줄 요약부터 지표·해설까지, 받아보실 그대로 미리 확인하세요.</div>
       <div class="mail-frame">
         <div class="mail-bar">
           <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
@@ -298,7 +297,7 @@
   <footer class="foot">
     <div class="items">코스피 · 코스닥 · 나스닥 · 환율 · 유가 한눈에</div>
     Daily 'Moo'conomy · mooconomy.co.kr<br>
-    © 2026 'Moo'conomy. All rights reserved.
+    © 2026 임무생. All rights reserved.
   </footer>
 
   <script>
@@ -327,7 +326,6 @@
       .then(function(r){ if(!r.ok) throw new Error('no ticker'); return r.json(); })
       .then(function(data){
         renderTicker((data && data.items) ? data.items : data);
-        // 레터 날짜 표시 (ticker.json의 updated 활용)
         if (data && data.updated) {
           var el = document.getElementById('letterDate');
           if (el) el.textContent = data.updated;
