@@ -3,71 +3,204 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daily Mooconomy 홍보 카드</title>
+<title>Daily Mooconomy · 잠든 사이 움직인 지표와 뉴스, 매일 아침 배달</title>
+<meta name="description" content="코스피·코스닥·나스닥·환율·유가까지, 잠든 사이 움직인 지표와 뉴스를 매일 아침 3줄로 정리해 배달합니다.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: "Malgun Gothic", "맑은 고딕", -apple-system, sans-serif; background: #e9edf2; display: flex; justify-content: center; padding: 40px 0; }
-  .card { width: 480px; background: #ffffff; border-radius: 20px; overflow: hidden; box-shadow: 0 12px 40px rgba(11,37,69,0.18); }
-  .header { background: linear-gradient(135deg, #0b2545 0%, #133b6e 100%); padding: 28px 40px 26px; text-align: center; }
-  .header .logo { width: 52px; height: 52px; margin: 0 auto 10px; display: block; }
-  .header .brand { color: #ffffff; font-size: 27px; font-weight: 800; letter-spacing: 0.5px; }
-  .header .brand .moo { color: #f5b301; }
-  .header .slogan { color: #ffffff; font-size: 18px; margin-top: 13px; line-height: 1.4; font-weight: 700; letter-spacing: -0.4px; }
-  .header .slogan .hl { color: #f5b301; }
-  .header .slogan .sub { display: inline-block; margin-top: 9px; font-size: 12.5px; font-weight: 600; letter-spacing: 0.5px; color: #0b2545; background: #f5b301; padding: 4px 13px; border-radius: 20px; }
-  .divider { height: 4px; background: linear-gradient(90deg, #f5b301 0%, #ffd76b 100%); }
-  .body { padding: 30px 38px 24px; }
-  .section-label { font-size: 13px; font-weight: 700; color: #f5b301; letter-spacing: 2px; margin-bottom: 18px; text-transform: uppercase; }
-  .point { padding: 10px 0 10px 15px; border-left: 3px solid #f5b301; margin-bottom: 4px; color: #1a2b45; font-size: 14.5px; font-weight: 600; line-height: 1.4; letter-spacing: -0.3px; }
-  .point:last-child { margin-bottom: 0; }
-  .preview { padding: 4px 38px 28px; text-align: center; }
-  .preview-label { color: #556; font-size: 13px; font-weight: 700; letter-spacing: 0.5px; margin-bottom: 14px; }
-  .preview-label .accent { color: #f5b301; }
-  .preview-frame { border: 1px solid #e3e8ef; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 14px rgba(11,37,69,0.10); margin-bottom: 12px; position: relative; }
-  .preview-frame:last-child { margin-bottom: 0; max-height: 200px; }
-  .preview-frame img { width: 100%; display: block; }
-  .preview-frame:last-child::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 70px; background: linear-gradient(to bottom, rgba(255,255,255,0), #ffffff); }
-  .footer { background: #f5f7fa; padding: 28px 38px 32px; text-align: center; border-top: 1px solid #e3e8ef; }
-  .footer .free-tag { display: inline-block; background: #eaf4ff; color: #1565c0; font-size: 13px; font-weight: 700; padding: 5px 14px; border-radius: 20px; margin-bottom: 16px; }
-  .cta-btn { display: block; background: #0b2545; color: #ffffff; font-size: 18px; font-weight: 800; text-decoration: none; padding: 17px 0; border-radius: 12px; letter-spacing: 0.5px; }
-  .footer .qr-box { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 16px; padding-top: 16px; border-top: 1px dashed #d9dee6; }
-  .footer .qr { width: 84px; height: 84px; display: block; border: 1px solid #e3e8ef; border-radius: 8px; padding: 5px; background: #fff; }
-  .footer .qr-text { font-size: 12px; color: #5a6b82; line-height: 1.5; font-weight: 600; text-align: left; }
-  .footer .note { color: #8a94a3; font-size: 12px; margin-top: 14px; line-height: 1.5; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root {
+    --navy:#0b2545; --navy2:#13315c; --gold:#d9a441; --gold-d:#c08e2d;
+    --ink:#1b2733; --gray:#5a6b82; --line:#e3e8ef; --bg:#f4f6f9;
+  }
+  body {
+    font-family:"Pretendard","Malgun Gothic",-apple-system,sans-serif;
+    color:var(--ink); background:var(--bg); line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap { max-width:680px; margin:0 auto; background:#fff; }
+  .sec { padding:64px 32px; border-bottom:1px solid var(--line); }
+  .sec-num { font-size:12px; letter-spacing:2px; color:var(--gold-d); font-weight:800; margin-bottom:12px; }
+
+  /* ── 01 HERO ── */
+  .hero {
+    background:linear-gradient(160deg,var(--navy),var(--navy2));
+    color:#fff; text-align:center; padding:72px 32px 64px;
+  }
+  .hero .logo { width:60px; margin-bottom:20px; }
+  .hero .brand { font-size:30px; font-weight:800; letter-spacing:-0.5px; margin-bottom:18px; }
+  .hero .brand .moo { color:var(--gold); }
+  .hero .eyebrow { font-size:12px; letter-spacing:3px; color:var(--gold); font-weight:700; margin-bottom:22px; }
+  .hero h1 { font-size:27px; font-weight:800; line-height:1.45; margin-bottom:18px; }
+  .hero h1 .hl { color:var(--gold); }
+  .hero p.lead { font-size:15px; color:#c8d3e0; max-width:460px; margin:0 auto 32px; }
+  .hero .cta {
+    display:inline-block; background:var(--gold); color:var(--navy);
+    font-size:16px; font-weight:800; padding:16px 40px; border-radius:12px;
+    text-decoration:none; transition:.2s; box-shadow:0 8px 24px rgba(217,164,65,.35);
+  }
+  .hero .cta:hover { background:var(--gold-d); transform:translateY(-2px); }
+  .hero .subnote { font-size:12.5px; color:#9fb0c4; margin-top:16px; }
+
+  /* ── strip ── */
+  .strip { background:var(--navy2); color:#fff; text-align:center; padding:18px 20px; font-size:13.5px; }
+  .strip b { color:var(--gold); }
+
+  /* ── PROBLEM ── */
+  .prob-title { font-size:23px; font-weight:800; line-height:1.5; margin-bottom:8px; }
+  .prob-title .hl { color:var(--gold-d); }
+  .prob-sub { font-size:14.5px; color:var(--gray); margin-bottom:36px; }
+  .prob-item { display:flex; gap:18px; padding:24px 0; border-top:1px solid var(--line); }
+  .prob-item:first-of-type { border-top:none; }
+  .prob-n { flex:none; width:34px; height:34px; border-radius:9px; background:var(--navy); color:var(--gold);
+            font-weight:800; font-size:15px; display:flex; align-items:center; justify-content:center; }
+  .prob-b h3 { font-size:16.5px; font-weight:800; margin-bottom:7px; }
+  .prob-b p { font-size:14px; color:var(--gray); }
+
+  /* ── SERVICE / WHY ── */
+  .why { background:#fafbfd; }
+  .why-title { font-size:23px; font-weight:800; margin-bottom:8px; }
+  .why-sub { font-size:14.5px; color:var(--gray); margin-bottom:34px; }
+  .why-card { background:#fff; border:1px solid var(--line); border-radius:14px; padding:24px; margin-bottom:16px;
+              border-left:4px solid var(--gold); }
+  .why-card h3 { font-size:17px; font-weight:800; margin-bottom:8px; }
+  .why-card h3 .em { color:var(--gold-d); }
+  .why-card p { font-size:14px; color:var(--gray); }
+
+  /* ── LATEST ── */
+  .latest-title { font-size:23px; font-weight:800; margin-bottom:8px; text-align:center; }
+  .latest-sub { font-size:14.5px; color:var(--gray); margin-bottom:30px; text-align:center; }
+  .preview-frame { border:1px solid var(--line); border-radius:12px; overflow:hidden; margin-bottom:16px; box-shadow:0 4px 16px rgba(11,37,69,.06); }
+  .preview-frame img { width:100%; display:block; }
+
+  /* ── FINAL CTA ── */
+  .final { background:linear-gradient(160deg,var(--navy),var(--navy2)); color:#fff; text-align:center; padding:64px 32px; }
+  .final h2 { font-size:24px; font-weight:800; line-height:1.45; margin-bottom:16px; }
+  .final h2 .hl { color:var(--gold); }
+  .final p { font-size:14.5px; color:#c8d3e0; max-width:440px; margin:0 auto 14px; }
+  .final .cond { font-size:13px; color:#9fb0c4; margin-bottom:30px; }
+  .final .cond b { color:var(--gold); }
+  .final .cta {
+    display:inline-block; background:var(--gold); color:var(--navy);
+    font-size:17px; font-weight:800; padding:17px 46px; border-radius:12px;
+    text-decoration:none; transition:.2s; box-shadow:0 8px 24px rgba(217,164,65,.35);
+  }
+  .final .cta:hover { background:var(--gold-d); transform:translateY(-2px); }
+  .qr-box { display:flex; align-items:center; justify-content:center; gap:14px; margin-top:30px; padding-top:26px; border-top:1px dashed rgba(255,255,255,.2); }
+  .qr-box img { width:88px; height:88px; border-radius:8px; padding:5px; background:#fff; }
+  .qr-box .qt { font-size:12.5px; color:#c8d3e0; text-align:left; line-height:1.5; font-weight:600; }
+
+  /* ── FOOTER ── */
+  .foot { background:#08182e; color:#8ba0b8; text-align:center; padding:28px 32px; font-size:12px; line-height:1.7; }
+  .foot .items { color:var(--gold); font-weight:700; margin-bottom:6px; }
+
+  @media (max-width:520px) {
+    .sec { padding:48px 22px; }
+    .hero { padding:56px 22px 48px; }
+    .hero h1 { font-size:23px; }
+    .prob-title, .why-title, .latest-title, .final h2 { font-size:20px; }
+  }
 </style>
 </head>
 <body>
-  <div class="card">
-    <div class="header">
-      <img class="logo" src="https://raw.githubusercontent.com/immusaeng/mooconomy-assets/main/bull-gold.png" alt="Daily Mooconomy">
-      <div class="brand">Daily <span class="moo">'Moo'</span>conomy</div>
-      <div class="slogan">
-        <span class="hl">잠든 사이</span> 움직인 지표와 뉴스<br>
-        <span class="sub">매일 아침 배달</span>
+<div class="wrap">
+
+  <!-- 01 HERO -->
+  <div class="hero">
+    <img class="logo" src="https://raw.githubusercontent.com/immusaeng/mooconomy-assets/main/bull-gold.png" alt="Daily Mooconomy">
+    <div class="brand">Daily <span class="moo">'Moo'</span>conomy</div>
+    <div class="eyebrow">MORNING BRIEFING</div>
+    <h1>잠든 사이 움직인 <span class="hl">지표와 뉴스</span>,<br>매일 아침 <span class="hl">3줄</span>로 배달합니다</h1>
+    <p class="lead">코스피·코스닥·나스닥·환율·유가까지. 밤사이 흩어진 시장의 흐름을 하나로 모아, 오늘 꼭 알아야 할 핵심만 추려 드립니다.</p>
+    <a class="cta" href="https://forms.gle/7UKrcZR7D7YfGv8L9" target="_blank">무료로 내일 아침 첫 메일 받기</a>
+    <div class="subnote">완전 무료 · 월~토 아침 배달 · 1초 만에 해지</div>
+  </div>
+
+  <!-- strip -->
+  <div class="strip">
+    오늘 아침 한눈에 &nbsp;·&nbsp; <b>코스피 · 코스닥 · 나스닥 · 환율 · 유가</b> &nbsp;·&nbsp; 그리고 개인·외국인·기관 <b>수급</b>까지
+  </div>
+
+  <!-- 02 THE PROBLEM -->
+  <div class="sec">
+    <div class="sec-num">02 / THE PROBLEM</div>
+    <div class="prob-title">경제 정보, 없어서가 아니라<br><span class="hl">흩어져 있어서</span> 어렵습니다</div>
+    <div class="prob-sub">매일 아침 반복되는 세 가지 피로. 무코노미는 여기서 출발했습니다.</div>
+
+    <div class="prob-item">
+      <div class="prob-n">01</div>
+      <div class="prob-b">
+        <h3>지표 하나 보려고 앱 대여섯 개를 엽니다</h3>
+        <p>코스피는 증권 앱, 나스닥은 포털, 환율은 또 다른 곳. 출근 전 15분이 여러 사이트를 오가는 데 사라지고, 정작 오늘 뭐가 중요한지는 놓친 채 지하철에 오릅니다.</p>
       </div>
     </div>
-    <div class="divider"></div>
-    <div class="body">
-      <div class="section-label">WHY SUBSCRIBE</div>
-      <div class="point">매일 아침, 하루 경제를 한 번에 — 원스톱 배달</div>
-      <div class="point">잠든 사이 움직인 새벽 주요 지표까지 깔끔하게 정리</div>
-      <div class="point">눈뜨자마자 보는 오늘 아침 핵심 경제뉴스 요약</div>
-      <div class="point">지표로 짚어주는 오늘의 관전·체크포인트</div>
-    </div>
-    <div class="preview">
-      <div class="preview-label">바쁜 아침, <span class="accent">지표와 국내·해외 경제뉴스</span>를 이렇게 정리해 드려요</div>
-      <div class="preview-frame"><img src="letter_preview_1.png" alt="핵심 지표와 헤드라인"></div>
-      <div class="preview-frame"><img src="letter_preview_2.png" alt="국내 경제 뉴스 브리핑"></div>
-    </div>
-    <div class="footer">
-      <span class="free-tag">무료 구독</span>
-      <a class="cta-btn" href="https://forms.gle/7UKrcZR7D7YfGv8L9" target="_blank">무료로 구독하기 →</a>
-      <div class="qr-box">
-        <img class="qr" src="qr_subscribe.png" alt="구독 신청 QR코드">
-        <div class="qr-text">이미지로 보고 계신가요?<br>QR을 찍어 바로 구독하세요</div>
+
+    <div class="prob-item">
+      <div class="prob-n">02</div>
+      <div class="prob-b">
+        <h3>정보는 봤는데, 서로 어떻게 연결되는지 모릅니다</h3>
+        <p>밤사이 미국 증시가 오르면 오늘 코스피엔 무슨 의미인지, 환율과 유가가 내 시장에 어떤 신호인지. 흩어진 숫자를 '마디'로 연결해 해석해주는 곳이 드뭅니다.</p>
       </div>
-      <div class="note">코스피 · 코스닥 · 나스닥 · 환율 · 유가 한눈에<br>mooconomy.co.kr</div>
+    </div>
+
+    <div class="prob-item">
+      <div class="prob-n">03</div>
+      <div class="prob-b">
+        <h3>바쁜 아침엔, 결국 '핵심 3줄'이 필요합니다</h3>
+        <p>길고 어려운 리포트를 다 읽을 시간은 없습니다. 전문용어를 걷어내고, 오늘 꼭 알아야 할 것만 딱 3줄로. 그게 바쁜 아침에 진짜 필요한 정보입니다.</p>
+      </div>
     </div>
   </div>
+
+  <!-- 03 WHY / SERVICE -->
+  <div class="sec why">
+    <div class="sec-num">03 / WHY MOOCONOMY</div>
+    <div class="why-title">그래서 무코노미는 이렇게 정리합니다</div>
+    <div class="why-sub">흩어진 정보를 모으고, 연결하고, 3줄로 압축합니다.</div>
+
+    <div class="why-card">
+      <h3><span class="em">모으다</span> · 파편화된 정보를 한 잔에</h3>
+      <p>코스피·코스닥·나스닥·환율·유가, 그리고 개인·외국인·기관 수급까지. 아침마다 흩어져 확인하던 지표를 무코노미 한 통의 메일에 담아 드립니다.</p>
+    </div>
+
+    <div class="why-card">
+      <h3><span class="em">잇다</span> · 숫자와 숫자의 마디를 연결</h3>
+      <p>단순 나열이 아닙니다. 밤사이 글로벌 흐름이 오늘 국내 시장에 주는 의미, 지표들이 만들어내는 맥락을 짚어 '그래서 오늘 무엇을 봐야 하는지' 해석해 드립니다.</p>
+    </div>
+
+    <div class="why-card">
+      <h3><span class="em">Moo's Daily 3줄</span> · 오늘 이것만 봐도 됩니다</h3>
+      <p>바쁜 아침을 위한 무코노미의 정체성. 복잡한 하루의 경제를 일반 독자도 이해할 수 있는 핵심 3줄로 압축해, 눈뜨자마자 오늘의 흐름을 잡게 해 드립니다.</p>
+    </div>
+  </div>
+
+  <!-- 05 LATEST ISSUE -->
+  <div class="sec">
+    <div class="sec-num">05 / LATEST ISSUE</div>
+    <div class="latest-title">오늘 아침의 한 잔</div>
+    <div class="latest-sub">가장 최근에 발송된 브리핑을 그대로 미리 읽어보세요.</div>
+    <div class="preview-frame"><img src="letter_preview_1.png" alt="핵심 지표와 헤드라인"></div>
+    <div class="preview-frame"><img src="letter_preview_2.png" alt="국내 경제 뉴스 브리핑"></div>
+  </div>
+
+  <!-- FINAL CTA -->
+  <div class="final">
+    <h2>내일 아침, <span class="hl">첫 메일</span>부터<br>확인해보세요</h2>
+    <p>데일리 브리핑은 완전 무료입니다. 마음에 안 들면 메일 하단 버튼 한 번으로 1초 만에 해지할 수 있습니다.</p>
+    <div class="cond">구독하면 다음 발행일 <b>(월~토) 아침</b> 첫 브리핑이 도착합니다.</div>
+    <a class="cta" href="https://forms.gle/7UKrcZR7D7YfGv8L9" target="_blank">무료로 구독하기 →</a>
+    <div class="qr-box">
+      <img src="qr_subscribe.png" alt="구독 신청 QR코드">
+      <div class="qt">이미지로 보고 계신가요?<br>QR을 찍어 바로 구독하세요</div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="foot">
+    <div class="items">코스피 · 코스닥 · 나스닥 · 환율 · 유가 한눈에</div>
+    Daily Mooconomy · mooconomy.co.kr<br>
+    © 2026 Mooconomy. All rights reserved.
+  </div>
+
+</div>
 </body>
 </html>
