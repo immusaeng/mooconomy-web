@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily 'Moo'conomy · 카카오톡 공유 카드</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:"Pretendard","Malgun Gothic","맑은 고딕",-apple-system,sans-serif;
+         background:#c9d2de; display:flex; justify-content:center; padding:30px 14px; word-break:keep-all; }
+
+  /* 카톡 최적 비율 4:5 (800 x 1000) — #card 영역만 캡처하면 됨 */
+  .card { width:800px; background:#fff; overflow:hidden; box-shadow:0 12px 40px rgba(11,37,69,.2); }
+
+  /* HEADER (남색) */
+  .top { background:linear-gradient(135deg,#0b2545 0%,#13315c 100%); padding:44px 56px 40px; text-align:center; }
+  .top .brand { color:#fff; font-size:30px; font-weight:800; letter-spacing:-.3px; }
+  .top .brand .moo { color:#d9a441; }
+  .top .eyebrow { color:#d9a441; font-size:14px; font-weight:700; letter-spacing:4px; margin-top:8px; }
+  .top .hook { color:#fff; font-size:38px; font-weight:800; line-height:1.42; margin-top:26px; letter-spacing:-.8px; }
+  .top .hook .hl { color:#d9a441; }
+  .top .subhook { color:#b8c4d6; font-size:17px; font-weight:600; margin-top:18px; line-height:1.55; }
+  .bar { height:6px; background:linear-gradient(90deg,#d9a441,#f0c06f); }
+
+  /* PREVIEW (실제 레터 1장) */
+  .mid { padding:34px 56px 10px; text-align:center; }
+  .mid .plabel { color:#5a6b82; font-size:16px; font-weight:700; margin-bottom:18px; }
+  .mid .plabel .ac { color:#c08e2d; }
+  .pframe { border:1px solid #e3e8ef; border-radius:12px; overflow:hidden; box-shadow:0 6px 18px rgba(11,37,69,.12); position:relative; max-height:300px; }
+  .pframe img { width:100%; display:block; }
+  .pframe::after { content:""; position:absolute; left:0; right:0; bottom:0; height:90px;
+                   background:linear-gradient(to bottom, rgba(255,255,255,0), #fff); }
+
+  /* 3C 한 줄 요약 */
+  .c3line { display:flex; justify-content:center; gap:10px; padding:26px 56px 4px; flex-wrap:wrap; }
+  .c3line .chip { background:#f4f6f9; border:1px solid #e3e8ef; border-left:4px solid #d9a441;
+                  border-radius:10px; padding:12px 18px; font-size:16px; font-weight:800; color:#1a2b45; }
+  .c3line .chip .en { color:#c08e2d; font-size:12.5px; font-weight:700; letter-spacing:1px; margin-left:6px; }
+
+  /* FOOTER (남색) */
+  .bottom { margin-top:30px; background:linear-gradient(135deg,#0b2545 0%,#13315c 100%); padding:34px 56px 40px; }
+  .bottom .row { display:flex; align-items:center; justify-content:space-between; gap:24px; }
+  .bottom .free { display:inline-block; background:#d9a441; color:#0b2545; font-size:16px; font-weight:800;
+                  padding:8px 20px; border-radius:22px; }
+  .bottom .free-sub { color:#b8c4d6; font-size:14px; font-weight:600; margin-top:12px; }
+  .bottom .link { color:#fff; font-size:22px; font-weight:800; margin-top:4px; letter-spacing:-.3px; }
+  .bottom .link .hl { color:#d9a441; }
+  .bottom .qr { width:120px; height:120px; background:#fff; border-radius:12px; padding:8px; flex:0 0 auto; }
+  .bottom .qr img { width:100%; height:100%; display:block; }
+  .bottom .left { text-align:left; }
+</style>
+</head>
+<body>
+  <div class="card" id="card">
+
+    <div class="top">
+      <div class="brand">Daily <span class="moo">'Moo'</span>conomy</div>
+      <div class="eyebrow">MORNING BRIEFING</div>
+      <div class="hook">매일 아침, 경제신문 한 부를<br><span class="hl">3줄</span>로 배달합니다</div>
+      <div class="subhook">밤사이 움직인 코스피·나스닥·환율·유가를<br>출근 전 1분이면 한눈에.</div>
+    </div>
+    <div class="bar"></div>
+
+    <div class="mid">
+      <div class="plabel">실제로 <span class="ac">이렇게</span> 배달됩니다</div>
+      <div class="pframe"><img src="../letter_preview_1.png" alt="실제 브리핑 미리보기"></div>
+    </div>
+
+    <div class="c3line">
+      <div class="chip">모으다<span class="en">COLLECT</span></div>
+      <div class="chip">잇다<span class="en">CONNECT</span></div>
+      <div class="chip">줄이다<span class="en">CONDENSE</span></div>
+    </div>
+
+    <div class="bottom">
+      <div class="row">
+        <div class="left">
+          <span class="free">완전 무료 · 1초 해지</span>
+          <div class="link">지금 구독 <span class="hl">→ mooconomy.co.kr/promo</span></div>
+          <div class="free-sub">QR을 찍거나 링크를 눌러 바로 구독하세요</div>
+        </div>
+        <div class="qr"><img src="../qr_subscribe.png" alt="구독 QR"></div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
