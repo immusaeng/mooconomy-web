@@ -47,9 +47,10 @@
   .nav {
     height:var(--nav-h); background:rgba(11,37,69,.96); backdrop-filter:blur(8px);
     display:flex; align-items:center; justify-content:space-between; padding:0 40px; position:relative;
+    transition:height .25s ease;
   }
   .nav .logo-wrap { display:flex; align-items:center; gap:10px; text-decoration:none; z-index:2; }
-  .nav .logo-wrap img { width:30px; }
+  .nav .logo-wrap img { width:30px; transition:width .25s ease; }
   .nav .logo-wrap .nm { color:#fff; font-weight:800; font-size:16px; }
   .nav .logo-wrap .nm .moo { color:var(--gold); }
   .nav ul {
@@ -65,7 +66,7 @@
   .nav .menu-btn { display:none; background:none; border:none; color:#fff; font-size:22px; cursor:pointer; z-index:2; }
 
   /* ── 상단 지표 티커 (마퀴) ── */
-  .ticker { height:var(--ticker-h); background:var(--navy2); border-top:1px solid rgba(255,255,255,.08); overflow:hidden; display:flex; align-items:center; }
+  .ticker { height:var(--ticker-h); background:var(--navy2); border-top:1px solid rgba(255,255,255,.08); overflow:hidden; display:flex; align-items:center; transition:height .25s ease, opacity .25s ease; }
   .ticker .track { display:flex; white-space:nowrap; animation:scroll 34s linear infinite; }
   .ticker:hover .track { animation-play-state:paused; }
   /* tabular-nums: 티커 숫자 자릿수 흔들림 방지 */
@@ -131,7 +132,9 @@
   .mail-body { padding:18px; }
   .letter-wrap { position:relative; max-height:520px; overflow:hidden; border-radius:10px; background:#fff; transition:max-height .5s ease; }
   .letter-wrap.open { max-height:none; }
-  .letter-wrap iframe { width:100%; height:1600px; border:0; display:block; }
+  /* iframe: 접힌 상태에선 스크롤 hijack 방지 위해 pointer-events 차단 */
+  .letter-wrap iframe { width:100%; height:1600px; border:0; display:block; pointer-events:none; }
+  .letter-wrap.open iframe { pointer-events:auto; }
   .letter-fade { position:absolute; left:0; right:0; bottom:0; height:120px;
     background:linear-gradient(to bottom, rgba(255,255,255,0), #fff); pointer-events:none; }
   .letter-wrap.open .letter-fade { display:none; }
@@ -173,6 +176,16 @@
     .grid3 { grid-template-columns:1fr; gap:18px; }
     .hero h1 { font-size:30px; }
     .sec-title, .final h2 { font-size:24px; }
+
+    /* [개선1] 모바일 헤더 경량화: nav 슬림 + 로고 축소 */
+    :root { --nav-h:48px; --ticker-h:34px; }
+    .nav .logo-wrap img { width:24px; }
+    .nav .logo-wrap .nm { font-size:15px; }
+    .ticker .item { font-size:12px; padding:0 20px; }
+    /* 스크롤 내리면 티커 숨김 → 화면 확보 */
+    body.scrolled .ticker { height:0; opacity:0; border-top:0; }
+    body.scrolled .spacer { height:var(--nav-h); }
+
     .nav ul { position:fixed; left:0; top:calc(var(--nav-h) + var(--ticker-h)); right:0;
               transform:none; height:auto; flex-direction:column; gap:0;
               background:rgba(11,37,69,.98); padding:8px 0; display:none; }
@@ -181,6 +194,19 @@
     .nav ul a.active { border-bottom-color:rgba(255,255,255,.06); }
     .nav .menu-btn { display:block; }
     .nav .nav-cta { display:none; }
+
+    /* [개선2] 미리보기 전진 배치: body를 flex로, 모바일에서만 순서 재배치 */
+    body { display:flex; flex-direction:column; }
+    .topbar { order:0; }
+    .spacer  { order:1; }
+    .hero    { order:2; }   /* 히어로 */
+    #latest  { order:3; }   /* 실제 브리핑 미리보기를 바로 위로 */
+    #problem { order:4; }
+    #why     { order:5; }
+    #subscribe { order:6; }
+    .foot    { order:7; }
+    .mobile-sticky-cta { order:8; }
+
     /* 모바일: 하단 고정 CTA 노출 + 콘텐츠 하단 여백 */
     .mobile-sticky-cta {
       display:block; position:fixed; left:0; right:0; bottom:0; z-index:120;
@@ -314,7 +340,7 @@
         </div>
         <div class="mail-body">
           <div class="letter-wrap" id="letterWrap">
-            <iframe id="letterFrame" src="latest.html" title="최신 브리핑" loading="lazy"></iframe>
+            <iframe id="letterFrame" src="latest.html" title="최신 브리핑" loading="lazy" scrolling="no"></iframe>
             <div class="letter-fade" id="letterFade"></div>
           </div>
           <button class="expand-btn" id="expandBtn" type="button"><span class="btn-label">전체 보기</span> <span class="chev">⌄</span></button>
@@ -411,6 +437,21 @@
           if (opened) gtag('event','expand_letter',{event_category:'engagement',event_label:'latest_preview'});
         });
       }
+    })();
+
+    // ── [개선1] 스크롤 내리면 모바일 티커 숨김 ──
+    (function(){
+      var ticking = false;
+      function updateScrolled(){
+        var y = window.scrollY || document.documentElement.scrollTop;
+        if (y > 80) document.body.classList.add('scrolled');
+        else document.body.classList.remove('scrolled');
+        ticking = false;
+      }
+      window.addEventListener('scroll', function(){
+        if (!ticking) { window.requestAnimationFrame(updateScrolled); ticking = true; }
+      }, { passive:true });
+      updateScrolled();
     })();
 
     // ── 스크롤 위치에 따라 현재 메뉴 활성화 ──
