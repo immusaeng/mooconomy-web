@@ -71,6 +71,56 @@
   .sign b { color:#0b2545; letter-spacing:2px; }
   .sign .moo { color:#f5b301; }
   .band { background:#0b2545; color:#f5b301; font-size:13px; font-weight:700; padding:8px 14px; border-radius:4px; margin:26px 0 10px; letter-spacing:.5px; }
+    /* ══════════ 모바일 반응형 (600px 이하) ══════════ */
+  @media (max-width:600px) {
+    body { padding:10px; }
+    .wrap { border-radius:6px; }
+    .top { padding:18px 16px 16px; }
+    .top .logo { font-size:24px; }
+    .top .brand img { width:36px; height:36px; }
+    .inner { padding:0 16px; }
+
+    /* 지표 스트립: 5칸 가로 → 반응형 그리드로 전환 (겹침 방지 핵심) */
+    .strip, .strip tbody, .strip tr { display:block; width:100%; }
+    .strip { border:none; margin:16px 0; }
+    .strip tr {
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:8px;
+    }
+    .strip .cell {
+      width:auto;
+      border:1px solid #e3e6ea;
+      border-radius:6px;
+      padding:10px 6px;
+    }
+    .strip .cell:last-child { border-right:1px solid #e3e6ea; }
+    .strip .lbl { font-size:11px; }
+    .strip .val { font-size:15px; }
+    .strip .chg { font-size:11px; }
+
+    /* 본문 표: 폰트/패딩 축소로 가로 넘침 완화 */
+    table { font-size:12px; }
+    th, td { padding:6px 5px; }
+    td.num, th.num { text-align:right; }
+
+    /* 넘칠 수 있는 데이터 표는 가로 스크롤 허용 */
+    .sec table:not(.strip) {
+      display:block;
+      overflow-x:auto;
+      white-space:nowrap;
+      -webkit-overflow-scrolling:touch;
+    }
+
+    /* 제목·본문 크기 소폭 축소 */
+    .headline { font-size:16px; padding:8px 12px; }
+    h2 { font-size:16px; }
+    .summary li { font-size:13.5px; }
+    .news .n-title { font-size:14px; }
+    .news .n-body { font-size:13.5px; }
+    .mood { font-size:13px; }
+    .comment { font-size:14px; }
+  }
 </style>
 </head>
 <body>

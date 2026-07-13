@@ -240,18 +240,15 @@
     .toast { bottom:110px; }
   }
   @media (max-width:640px) {
-    .inner { padding:0 22px; }
-    .sec-pad { padding:60px 0; }
-    .hero { padding:64px 0 52px; }
-    .hero h1 { font-size:25px; }
-    .hero p.lead { font-size:15px; }
-    .qr-box { flex-direction:column; text-align:center; }
-    .qr-box .qt { text-align:center; }
-    .letter-wrap { max-height:400px; }
-    .letter-wrap iframe { height:1400px; }
-    .subscribe-form input[type="email"] { padding:15px 16px; font-size:15px; }
-    .subscribe-form .cta { width:100%; }
+    /* ...기존 규칙 유지... */
+    .letter-wrap { max-height:440px; }
+    .letter-wrap iframe {
+      width:100%;        /* 스케일 없이 폭 100% → 내부 반응형이 알아서 동작 */
+      height:1600px;
+      transform:none;
+    }
   }
+
 </style>
 </head>
 <body>
