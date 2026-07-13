@@ -46,6 +46,7 @@
   .news .n-src a { color:#5a6b82; text-decoration:none; display:block; margin:2px 0; }
   .news .n-src a:hover { text-decoration:underline; }
   .news .n-src .paper { display:inline-block; background:#eef1f5; color:#0b2545; border-radius:3px; padding:1px 6px; margin-right:6px; font-weight:600; }
+  .news .n-src .src-date { display:inline-block; color:#8a94a3; font-size:11px; margin-right:6px; font-weight:600; }
   .insight { border-left:3px solid #f5b301; background:#fffdf5; padding:10px 14px; margin:8px 0; border-radius:4px; }
   .insight .i-title { font-size:14px; font-weight:700; color:#0b2545; margin-bottom:3px; }
   .insight .i-detail { font-size:13px; line-height:1.6; color:#444; }
@@ -66,68 +67,15 @@
   .risk { background:#fdf2f2; border-left:3px solid #d32f2f; padding:10px 14px; border-radius:4px; }
   .risk li { color:#a01818; margin:4px 0; font-size:14px; line-height:1.5; }
   .comment { background:#0b2545; color:#fff; padding:14px 16px; border-radius:6px; font-weight:600; font-size:15px; margin:12px 0; line-height:1.5; }
+  .comment-note { font-size:11px; color:#8a94a3; line-height:1.6; margin:6px 2px 0; }
   .footer { color:#8a94a3; font-size:11px; margin-top:30px; border-top:1px solid #e3e6ea; padding-top:14px; line-height:1.6; text-align:center; }
+  .footer .f-head { font-weight:700; color:#5a6b82; margin-bottom:8px; }
+  .footer .f-src { line-height:1.9; text-align:center; }
+  .footer .f-src .f-cat { font-weight:700; color:#0b2545; }
   .sign { margin-top:10px; font-size:13px; letter-spacing:1px; color:#5a6b82; }
   .sign b { color:#0b2545; letter-spacing:2px; }
   .sign .moo { color:#f5b301; }
   .band { background:#0b2545; color:#f5b301; font-size:13px; font-weight:700; padding:8px 14px; border-radius:4px; margin:26px 0 10px; letter-spacing:.5px; }
-
-  /* ══════════ 모바일 반응형 (600px 이하) ══════════ */
-  @media (max-width:600px) {
-    /* [개선 1] 이중 테두리 및 마진 간섭을 원천 차단하여 모바일 풀블리드 구현 */
-    body { padding: 0; background: #fff; }
-    .wrap { border-radius: 0; box-shadow: none; border: none; }
-
-    .top { padding:18px 16px 16px; }
-    .top .logo { font-size:24px; }
-    .top .brand img { width:36px; height:36px; }
-    
-    /* [개선 1] 좌우 여백을 최소한으로 조율하여 가용 가로폭 83% 이상 긴급 복원 */
-    .inner { padding:0 8px; }
-
-    /* 지표 스트립: 5칸 가로 → 반응형 그리드로 전환 (겹침 방지 핵심) */
-    .strip, .strip tbody, .strip tr { display:block; width:100%; }
-    .strip { border:none; margin:16px 0; }
-    .strip tr {
-      display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:6px; /* [개선 2] 지수 카드 사이 마진 축소 */
-    }
-    .strip .cell {
-      width:auto;
-      border:1px solid #e3e6ea;
-      border-radius:6px;
-      padding:8px 3px; /* [개선 2] 안쪽 좌우 패딩을 최대한 아껴 텍스트 잘림을 완벽 차단 */
-    }
-    .strip .cell:last-child { border-right:1px solid #e3e6ea; }
-    .strip .lbl { font-size:11px; margin-bottom: 2px; }
-    .strip .val { font-size:13.5px; } /* [개선 2] 2만대(나스닥 등) 이상의 큰 숫자가 밀림 없이 일렬로 안착되도록 미세 조정 */
-    .strip .chg { font-size:10.5px; }
-
-    /* 본문 표: 폰트/패딩 축소로 가로 넘침 완화 */
-    table { font-size:12px; }
-    th, td { padding:6px 5px; }
-    td.num, th.num { text-align:right; }
-
-    /* 넘칠 수 있는 데이터 표는 가로 스크롤 허용 */
-    .sec table:not(.strip) {
-      display:block;
-      overflow-x:auto;
-      white-space:nowrap;
-      -webkit-overflow-scrolling:touch;
-    }
-
-    /* [개선 3] 모바일 뷰포트 인지부하 감소를 위한 텍스트 스케일링 재조정 */
-    .headline { font-size:15.5px; padding:8px 10px; margin: 14px 0; }
-    h2 { font-size:15px; margin: 22px 0 10px; }
-    .summary { margin: 10px 0; padding: 10px 12px; }
-    .summary li { font-size:13px; line-height: 1.5; margin: 5px 0; }
-    .news .n-title { font-size:13.5px; }
-    .news .n-body { font-size:13px; line-height: 1.55; }
-    .mood { font-size:12.5px; padding: 9px 12px; }
-    .comment { font-size:13.5px; padding: 12px 14px; }
-    .band { margin: 20px 0 10px; font-size: 12px; padding: 6px 12px; }
-  }
 </style>
 </head>
 <body>
@@ -138,289 +86,514 @@
       <img src="https://raw.githubusercontent.com/immusaeng/mooconomy-assets/main/bull-gold.png" alt="Mooconomy" width="44" height="44">
       <div class="logo">Daily <span class="quote">'</span><span class="moo">Moo</span><span class="quote">'</span>conomy</div>
     </div>
-    <div class="tagline">매일 아침 배달되는 경제 인사이트 한 잔</div>
-    <div class="date">2026년 07월 13일(월) 아침 배달 · 2026-07-13 07:18 KST</div>
+    <div class="tagline">잠든 사이 움직인 지표와 뉴스, 매일 아침 배달</div>
+    <div class="date">2026년 07월 13일(월) 아침 배달 · 2026-07-13 17:38 KST</div>
   </div>
 
   <div class="inner">
 
   <!-- 지수 스트립 -->
-  <div style="font-size:12px;color:#8a94a3;margin:16px 0 -6px;text-align:right;">※ 아래 지표는 2026-07-10 국내 증시 마감 및 간밤 뉴욕장 기준입니다.</div>
+  
+  <div style="font-size:12px;color:#8a94a3;margin:16px 0 -6px;text-align:right;">※ 아래 지표는 2026-07-13 국내 증시 마감 및 간밤 뉴욕장 기준입니다.</div>
+  
+
+  
+  <div class="mood"><span class="mood-lbl">오늘의 시장 온도</span><span>반도체 폭락 속 변동성 확대</span></div>
+  
+
   
   <table class="strip" cellpadding="0" cellspacing="0" role="presentation">
     <tr>
+    
       <td class="cell"><div class="lbl">코스피</div>
-        <div class="val">7475.94</div>
-        <div class="chg"><span class="up">▲ +2.52%</span></div></td>
+        <div class="val">7244.49</div>
+        <div class="chg"><span class="down">▼ -3.10%</span></div></td>
+    
+    
       <td class="cell"><div class="lbl">코스닥</div>
-        <div class="val">837.43</div>
-        <div class="chg"><span class="up">▲ +5.47%</span></div></td>
+        <div class="val">836.68</div>
+        <div class="chg"><span class="down">▼ -0.09%</span></div></td>
+    
+    
       <td class="cell"><div class="lbl">나스닥</div>
         <div class="val">26281.61</div>
         <div class="chg"><span class="up">▲ +0.29%</span></div></td>
+    
+    
       <td class="cell"><div class="lbl">원/달러</div>
-        <div class="val">1498.92</div>
-        <div class="chg"><span class="down">▼ -6.99원</span></div></td>
+        <div class="val">1495.3</div>
+        <div class="chg">
+          
+          
+            <span class="down">▼ -10.61원</span>
+            
+          
+        </div></td>
+    
+    
       <td class="cell"><div class="lbl">브렌트유</div>
-        <div class="val">76.01</div>
-        <div class="chg"><span style="color:#6b7280">― 0.00%</span></div></td>
+        <div class="val">78.31</div>
+        <div class="chg"><span class="up">▲ +3.03%</span></div></td>
+    
     </tr>
   </table>
+  
 
-  <div class="headline">반도체 훈풍과 환율 안정에 양대 증시 폭등, 사이드카 발동 속 금통위 인상 경계</div>
+  <div class="headline">SK하이닉스 발 반도체 충격에 코스피 3.1% 급락</div>
 
+  
   <div class="summary">
-    <div class="sm-lbl">Moo's Daily 3줄 · 오늘 이것만 봐도 됩니다</div>
+    <div class="sm-lbl">임무생's Daily 3줄 · 오늘 이것만 봐도 됩니다</div>
     <ul>
-      <li><span class="sm-num">1</span>SK하이닉스의 ADR 나스닥 상장 기대와 글로벌 달러 약세 여파로 원/달러 환율이 1,500원을 하회하며 외환시장 불안이 크게 완화되었습니다.</li>
-      <li><span class="sm-num">2</span>반도체 투자심리가 회복되며 코스피가 2.52%, 코스닥이 5.47% 폭등해 유가 및 코스닥 시장 전반에 매수 사이드카가 발동되었습니다.</li>
-      <li><span class="sm-num">3</span>오는 16일 한국은행 금통위의 기준금리 인상이 확실시되는 가운데, 시장은 향후 추가 인상 횟수와 금리 속도 조절 시그널을 주시하고 있습니다.</li>
+    <li><span class="sm-num">1</span>SK하이닉스 나스닥 상장 후 급락 여파로 반도체 업종이 폭락하며 코스피가 7,240선으로 밀렸습니다.</li><li><span class="sm-num">2</span>중동 지역의 미-이란 갈등 고조로 국제유가가 급등세를 보이며 인플레이션 우려를 자극했습니다.</li><li><span class="sm-num">3</span>정부는 반도체 메가특구에 대한 최고 수준의 규제 완화와 재정 지원을 약속하며 시장 진정에 나섰습니다.</li>
     </ul>
   </div>
+  
 
   <!-- ═══════ PART 1. 오늘의 인사이트 ═══════ -->
   <div class="band">PART 1. 오늘의 인사이트</div>
 
   <!-- 뉴스 브리핑 -->
+  
   <div class="sec">
     <h2>오늘의 경제 뉴스 브리핑</h2>
     
     <h3 class="sub">국내 경제 주요 뉴스</h3>
     
     <div class="news">
-      <div class="n-title">기준금리 인상 유력한 7월 금통위</div>
-      <div class="n-body">오는 16일 한국은행 금융통화위원회에서 기준금리를 현 연 2.50%에서 2.75%로 0.25%포인트 인상하는 안이 유력시되고 있습니다. 시장의 관심은 단순 인상을 넘어 8월 혹은 10월 추가 연속 인상 시그널이 나오는지 여부로 향하고 있습니다.</div>
+      <div class="n-title">반도체 메가특구에 957조 투자 지원</div>
+      <div class="n-body">정부가 약 957조 원 규모의 민간 투자를 촉진하기 위해 연내 메가특구법 제정과 반도체특별법 개정을 적극 추진합니다. 반도체 기업들에 최고 수준의 규제 특례와 재정 지원을 아끼지 않겠다는 구상을 재확인하며 반도체 생태계 강화를 목표로 삼고 있습니다.</div>
+      
       <div class="n-src">
-        <a href="https://www.mk.co.kr/news/economy/12096444" target="_blank"><span class="paper">매일경제</span>증시·환율 출렁이는데 여유로운 한은 … 금리 인상 유력해도 더 봐야 할 것은</a>
-        <a href="https://www.yna.co.kr/view/AKR20260710151400008" target="_blank"><span class="paper">연합뉴스</span>만장일치 인상 유력한 7월 금통위…관건은 '연속 인상' 시그널</a>
-        <a href="https://www.yna.co.kr/view/AKR20260710147700002" target="_blank"><span class="paper">연합뉴스</span>통화긴축 시작된다…전문가들 "7월 이어 8월이나 10월 인상"</a>
+        
+        <a href="https://www.fnnews.com/news/202607131622276889" target="_blank"><span class="paper">파이낸셜뉴스</span><span class="src-date">2026-07-13</span>반도체 메가특구에 최고 수준 규제특례…정부, 957조 투자 지원</a>
+        
+        <a href="https://www.hankyung.com/article/202607132332i" target="_blank"><span class="paper">한국경제</span><span class="src-date">2026-07-13</span>산업장관 "반도체, AI로봇 전쟁 기업 홀로 감당 못해" 재정 투입 절실</a>
+        
       </div>
+      
     </div>
     
     <div class="news">
-      <div class="n-title">반도체 투심 회복에 사이드카 발동</div>
-      <div class="n-body">반도체 업황 회복 기대감과 SK그룹의 대규모 AI 투자 계획에 힙입어 국내 양대 증시가 급등했습니다. 코스피와 코스닥 시장 모두 프로그램 매수호가 일시 효력정지(매수 사이드카)가 발동되는 폭등세를 기록했습니다.</div>
+      <div class="n-title">가계 규제 속 대기업 대출만 급증</div>
+      <div class="n-body">가계대출 규제 장벽이 높아지자 은행권이 기업금융 중심의 영토 확장에 나서고 있습니다. 대기업 대출은 두 자릿수 증가세를 보이는 반면 중소기업과 자영업자 대출은 제자리에 머물고 있어 신용 양극화와 소외 우려가 나옵니다.</div>
+      
       <div class="n-src">
-        <a href="https://www.yna.co.kr/view/AKR20260710082851008" target="_blank"><span class="paper">연합뉴스마켓</span>코스피 5%대·코스닥 6% 급등세에 양 시장 매수 사이드카(종합)</a>
-        <a href="https://www.yna.co.kr/view/AKR20260710172152071" target="_blank"><span class="paper">연합뉴스마켓</span>최태원 "AI분야 수백억달러 투자…HBM 수요 기하급수적 증가"(종합2보)</a>
+        
+        <a href="https://www.mk.co.kr/news/economy/12097184" target="_blank"><span class="paper">매일경제</span><span class="src-date">2026-07-13</span>“돈 많아야 대출 받을 수 있다니”…자영업·중기 대출은 제자리, 대기업은 ‘쑥’</a>
+        
+        <a href="https://www.mk.co.kr/news/economy/12096932" target="_blank"><span class="paper">매일경제</span><span class="src-date">2026-07-13</span>하반기 금융권에 불어닥친다는데…대출 셧다운이 뭐예요? [금융가 톺아보기]</a>
+        
       </div>
+      
     </div>
     
     <div class="news">
-      <div class="n-title">환율 1,500원 하회와 국고채 안정</div>
-      <div class="n-body">SK하이닉스의 미국 ADR 상장 기대 및 달러 약세로 원/달러 환율이 장중 1,500원 아래로 내렸습니다. 채권시장 역시 글로벌 달러 약세와 엔화 및 일본 국채 금리 급락 흐름 속에 국고채 금리가 동반 하락하며 안정세를 구축했습니다.</div>
+      <div class="n-title">정부, 청년 전문인력 20만명 양성</div>
+      <div class="n-body">정부는 오는 2030년까지 인공지능, 반도체, 그린전환 등 미래 첨단 분야에서 청년 인재 20만 명 이상을 집중 육성하기로 뜻을 모았습니다. 예산 투입과 민관 협업을 통해 양질의 청년 일자리를 대거 창출하겠다는 청사진을 구체화하고 있습니다.</div>
+      
       <div class="n-src">
-        <a href="https://www.yna.co.kr/view/AKR20260710136951008" target="_blank"><span class="paper">연합뉴스</span>환율·일본국채 금리 하락에 국고채 금리↓…3년물 연 3.768%(종합)</a>
-        <a href="https://www.yna.co.kr/view/AKR20260710120700002" target="_blank"><span class="paper">연합뉴스</span>하이닉스 ADR 상장 기대·달러 약세에 환율 장중 1,500원 하회</a>
+        
+        <a href="https://www.fnnews.com/news/202607131658450949" target="_blank"><span class="paper">파이낸셜뉴스</span><span class="src-date">2026-07-13</span>정부, 2030년까지 청년 인재 20만명 양성…청년 창업가도 10만명 육성</a>
+        
       </div>
+      
     </div>
+    
+    
     
     <h3 class="sub gl">해외 경제 주요 토픽</h3>
     
     <div class="news">
-      <div class="n-title">AI 모멘텀이 주도하는 미국 증시</div>
-      <div class="n-body">어닝시즌 개막을 앞두고 미국 증시의 주도권은 고유가 우려보다 AI 부문의 강력한 투자 흐름으로 재편되고 있습니다. 테크 대형주들의 막대한 설비투자는 한국 반도체 기업들의 낙수효과 기대를 뒷받침하는 핵심 요인입니다.</div>
+      <div class="n-title">SK하이닉스 서울 증시서 15% 폭락</div>
+      <div class="n-body">SK하이닉스가 성공적인 미국 나스닥 상장을 마친 이후, 아이러니하게도 서울 본 시장에서는 15% 넘게 주저앉으며 최악의 하루를 보냈습니다. 이는 코스피 지수 전반을 흔들고 반도체 소부장 전반의 투자심리를 급속도로 냉각시키는 결과로 이어지는 분위기입니다.</div>
+      
       <div class="n-src">
-        <a href="https://www.marketwatch.com/story/the-stock-market-rally-now-hinges-more-on-ai-than-oil-1292260a?mod=mw_rss_topstories" target="_blank"><span class="paper">MarketWatch</span>The stock-market rally now hinges more on AI than oil</a>
+        
+        <a href="https://www.cnbc.com/2026/07/13/sk-hynix-shares-fall-after-stellar-nasdaq-debut.html" target="_blank"><span class="paper">CNBC</span><span class="src-date">2026-07-13</span>SK Hynix South Korean shares clock worst day, sinking over 15%, after stellar Nasdaq debut</a>
+        
       </div>
+      
     </div>
     
     <div class="news">
-      <div class="n-title">인플레이션 압력과 연준 통화정책</div>
-      <div class="n-body">미국의 5월 근원 PCE 물가가 3.4%로 상승세를 나타내며 인플레이션 압력이 여전한 상태입니다. 연준은 고유가 리스크에도 연내 1회 금리 인하 전망을 유지하고 있어, 국내 통화정책 경로에도 인상 압력을 유지시키고 있습니다.</div>
+      <div class="n-title">중동 긴장 고조에 국제유가 반등</div>
+      <div class="n-body">미국과 이란 간의 상호 공방이 호르무즈 해협 주변의 물리적 충돌로 이어지며 국제유가가 3%대 오름세를 나타냈습니다. 지정학적 리스크 지속 여부는 수입 의존도가 높은 국내 경제 전반에 물가 자극 요인이 될 수 있다는 점에서 우려됩니다.</div>
+      
       <div class="n-src">
-        <a href="https://www.cnbc.com/2026/06/25/pce-inflation-report-may-2026-.html" target="_blank"><span class="paper">CNBC</span>Core inflation rate hit 3.4% in May, highest since October 2023, Fed’s preferred gauge shows</a>
-        <a href="https://www.cnbc.com/2026/03/18/dot-plot-fed-still-expects-to-cut-rates-once-this-year-despite-spiking-oil-prices-.html" target="_blank"><span class="paper">CNBC마켓</span>Fed still expects to cut rates once this year despite spiking oil prices</a>
+        
+        <a href="https://www.marketwatch.com/story/oil-prices-rise-stock-futures-dip-after-latest-flare-up-of-strikes-between-u-s-and-iran-fef7f856?mod=mw_rss_topstories" target="_blank"><span class="paper">MarketWatch</span><span class="src-date">2026-07-13</span>Oil prices rise, stock futures dip after latest flare-up of strikes between U.S. and Iran</a>
+        
+        <a href="https://www.investing.com/news/economy-news/morning-bid-oil-swept-along-on-troubled-waters-4787418" target="_blank"><span class="paper">Investing</span><span class="src-date">2026-07-13</span>Morning Bid: Oil swept along on troubled waters</a>
+        
       </div>
+      
     </div>
     
     <div class="news">
-      <div class="n-title">중동 전쟁발 글로벌 긴축 가속</div>
-      <div class="n-body">유럽중앙은행(ECB)은 이란 전쟁에 따른 에너지 가격 상승에 선제 대응하고자 2023년 이후 첫 금리 인상을 전격 단행했습니다. 지정학적 리스크로 인한 공급측 인플레이션은 주요국의 고금리 환경 장기화를 유도하고 있습니다.</div>
+      <div class="n-title">TSMC 호실적에도 반도체 흔들</div>
+      <div class="n-body">세계 최대 파운드리인 TSMC가 6월 매출에서 전년 대비 68% 성장을 기록했으나, 국내 시장에서는 SK하이닉스 발 수급 왜곡 우려가 시장을 지배했습니다. 호실적 소식에도 불구하고 아시아권 반도체 전반의 동조화 강도가 차별화되는 흐름이 관찰됩니다.</div>
+      
       <div class="n-src">
-        <a href="https://www.cnbc.com/2026/06/11/ecb-hikes-interest-rates.html" target="_blank"><span class="paper">CNBC</span>ECB hikes interest rates for first time since 2023 as Iran war ramps up energy costs</a>
+        
+        <a href="https://www.cnbc.com/2026/07/13/tsmc-june-revenue-rises-percent-ahead-second-quarter.html" target="_blank"><span class="paper">CNBC</span><span class="src-date">2026-07-13</span>TSMC, the world's largest contract chipmaker, reports 68% surge in June revenue</a>
+        
       </div>
+      
     </div>
+    
+    
   </div>
+  
 
   <!-- 관전포인트 & 체크포인트 -->
+  
   <div class="sec">
     <h2>개장 전 관전포인트 & 체크포인트</h2>
+
     
     <h3 class="sub ntr">개장 전 관전포인트</h3>
     
     <div class="insight">
-      <div class="i-title">양 시장 사이드카 발동 이후 기관 수급의 지속성</div>
-      <div class="i-detail">프로그램 매수 급증으로 코스피와 코스닥에 모두 매수 사이드카가 발동됐습니다. 기관이 코스피에서 1.1조 원, 코스닥에서 5,800억 원 이상 순매수하며 반등을 견인한 만큼 차익실현 매물 소화 과정을 거쳐 추가 상승 동력을 확보할지가 중요합니다.</div>
+      <div class="i-title">SK하이닉스 폭락 이후의 수급 진정세</div>
+      <div class="i-detail">역대급 폭락세를 기록한 반도체 섹터의 추가 매물 압박이 완화되는지, 외국인의 순매도 강도가 둔화되는지 여부가 지수 하방 지지선의 척도로 보입니다.</div>
     </div>
     
     <div class="insight">
-      <div class="i-title">금통위의 추가 연속 금리 인상 가이드라인 여부</div>
-      <div class="i-detail">16일 한국은행의 기준금리 인상이 기정사실화된 만큼, 시장은 금리 동결을 기대하기보다 연내 2회 이상 연속 인상 여부에 대한 신현송 한은 총재의 메시지에 집중할 것입니다. 매파적 기조가 강할 경우 중소기업들의 이자 부담 우려와 증시 상단 제한 요인으로 작용할 수 있습니다.</div>
+      <div class="i-title">중동 발 국제유가 상승의 고착화 우려</div>
+      <div class="i-detail">WTI 및 브렌트유가 3% 안팎으로 급등하는 등 유가 흐름의 불안정성이 국내 채권 금리 상승과 수입 단가 인상을 자극할 수 있어 주시할 만합니다.</div>
     </div>
+    
+    
+
     
     <h3 class="sub ntr">오늘의 체크포인트</h3>
     
     <div class="cp">
       <div class="cp-head">
-        <span class="cp-date">2026-07-16</span>한국은행 금융통화위원회 기준금리 결정
+        <span class="cp-date">2026-07-13</span>에코프로 그룹 결산실적 공시 및 기업설명회 예고
       </div>
-      <div class="cp-watch"><b>관전포인트</b> · 현재 연 2.50%에서 2.75%로의 인상 여부 및 소수의견 출현과 기자간담회에서의 연속 인상 가능성 언급 수준 수집</div>
+      <div class="cp-watch"><b>관전포인트</b> · 에코프로, 에코프로에이치엔, 에코프로머티 등이 향후 가이드라인을 구체화하는 국면에서 2차전지 전반의 투심 개선으로 연결될 수 있을지 점검할 만합니다.</div>
     </div>
     
     <div class="cp">
       <div class="cp-head">
-        미국 실적 시즌 본격 개막 및 주요 물가 지표 발표
+        <span class="cp-date">2026-07-13</span>조선·방산 주요 기업의 2분기 실적 시즌 예고
       </div>
-      <div class="cp-watch"><b>관전포인트</b> · 중동 분쟁에 따른 원자재 인플레이션 충격을 상쇄할 만한 빅테크 기업들의 인공지능(AI) 수요 증가 전망 및 실적 점검</div>
+      <div class="cp-watch"><b>관전포인트</b> · 한화에어로스페이스 및 한화오션이 IR 일정을 예고하면서, 지정학적 불확실성 속에서 수주 잔고가 실적으로 가시화되는 흐름을 지켜볼 여지가 있어 보입니다.</div>
     </div>
     
-    <div class="cp">
-      <div class="cp-head">
-        <span class="cp-date">2026-07-10</span>에코프로비엠·CJ ENM 등 코스닥 대형주 실적 공시 예고
-      </div>
-      <div class="cp-watch"><b>관전포인트</b> · 실적 예고 공시 일정 발표에 따른 기관 투자자의 선제적 포트폴리오 재편 움직임 주시</div>
-    </div>
+    
   </div>
+  
 
   <!-- 공시 쟁점 해설 -->
+  
   <div class="sec">
     <h2>주목할 공시·실적</h2>
     
     <div class="insight">
-      <div class="i-title">주요 대형주 실적 예고 공시 본격 개시</div>
-      <div class="i-detail">에코프로비엠, CJ ENM, 두산밥캣, 현대로템 등이 2분기 결산실적 공시 일정을 조기 확정 및 안내했습니다. 가계 대출 억제와 고환율 장기화로 영업 환경이 부진했던 업종 내 선두 기업들의 하반기 이익 추정치 하향 폭이 중요 변수입니다.</div>
+      <div class="i-title">[조선·방산] 실적 공시 진입 및 실적 방어력 확인 예고</div>
+      <div class="i-detail">한화에어로스페이스와 한화오션이 결산실적 공시예고와 IR 개최 계획을 제출했습니다. 지정학적 위기 속에 방산 수출 모멘텀과 고부가가치 선박 인도가 2분기 실적 개선으로 견고하게 반영될지 관찰하는 관점이 요구됩니다.</div>
     </div>
     
     <div class="insight">
-      <div class="i-title">코스닥 소부장 공급계약 체결 릴레이</div>
-      <div class="i-detail">파두, 아이크래프트, 엑시콘 등 AI 및 반도체 검사 장비 관련 기업들이 대규모 단일판매·공급계약을 연속 체결하며 수주 모멘텀을 증명했습니다. 대형주에서 시작된 반도체 훈풍이 실체 있는 수주 실적을 기반으로 중소형 장비사들로 확산되는지 모니터링해야 합니다.</div>
+      <div class="i-title">[2차전지] 에코프로 그룹주 실적 공시 가시성 타진</div>
+      <div class="i-detail">에코프로 및 계열사들이 일제히 실적 예고를 공시하며 투자설명회 계획을 수립했습니다. 캐즘 우려 속 배터리 원소재 가격 변동이 마진율에 미친 실질적 영향력을 사전 검토하는 기회가 될 것으로 보입니다.</div>
     </div>
+    
+    <div class="insight">
+      <div class="i-title">[자동차·건설] 경기 민감 제조 대형주 실적 예고</div>
+      <div class="i-detail">현대건설과 한온시스템 등이 잠정실적 예고 공시를 제출하며 본격적인 2분기 성적표 공개를 준비하고 있습니다. 고금리와 원자재가 상승 압박 속에서 이익 체력을 얼마나 유지했을지가 관전 포인트로 보입니다.</div>
+    </div>
+    
   </div>
+  
 
   <!-- ═══════ PART 2. 데이터 점검 ═══════ -->
   <div class="band">PART 2. 데이터 점검</div>
 
   <!-- 국내 증시 -->
+  
   <div class="sec">
     <h2>국내 증시</h2>
-    <div class="key">반도체 폭풍 흡수하며 사이드카 발동, 7,400선 안착 성공</div>
+    <div class="key">반도체 대형주 투매에 코스피 3%대 폭락 마감</div>
     <table>
       <tr><th>지수</th><th class="num">종가</th><th class="num">등락률</th></tr>
-      <tr><td>코스피</td><td class="num"><b>7475.94</b></td>
-          <td class="num"><span class="up">▲ +2.52%</span></td></tr>
-      <tr><td>코스닥</td><td class="num"><b>837.43</b></td>
-          <td class="num"><span class="up">▲ +5.47%</span></td></tr>
+      
+        
+        
+        <tr><td>코스피</td><td class="num"><b>7244.49</b></td>
+            <td class="num"><span class="down">▼ -3.10%</span></td></tr>
+        
+      
+        
+        
+        <tr><td>코스닥</td><td class="num"><b>836.68</b></td>
+            <td class="num"><span class="down">▼ -0.09%</span></td></tr>
+        
+      
     </table>
 
     <!-- 투자자 수급 (Moo's Pick) -->
+    
     <h3 class="sub ntr">오늘 누가 샀나 · 개인 · 외국인 · 기관</h3>
     <div class="key">대중이 가장 궁금해하는 '수급'을 매일 짚어드립니다 (단위: 억원, 순매수 +)</div>
     <table>
       <tr><th>구분</th><th class="num">개인</th><th class="num">외국인</th><th class="num">기관</th></tr>
-      <tr>
-        <td>코스피</td>
-        <td class="num"><span class="down">-7,805</span></td>
-        <td class="num"><span class="down">-3,228</span></td>
-        <td class="num"><span class="up">+11,314</span></td>
-      </tr>
-      <tr>
-        <td>코스닥</td>
-        <td class="num"><span class="down">-4,213</span></td>
-        <td class="num"><span class="down">-1,563</span></td>
-        <td class="num"><span class="up">+5,825</span></td>
-      </tr>
+      
+        
+        
+        <tr>
+          <td>코스피</td>
+          
+            
+            <td class="num">
+            
+              <span class="up">+38,822</span>
+              
+            
+            </td>
+          
+            
+            <td class="num">
+            
+              <span class="down">-16,850</span>
+              
+            
+            </td>
+          
+            
+            <td class="num">
+            
+              <span class="down">-22,194</span>
+              
+            
+            </td>
+          
+        </tr>
+        
+      
+        
+        
+        <tr>
+          <td>코스닥</td>
+          
+            
+            <td class="num">
+            
+              <span class="up">+2,113</span>
+              
+            
+            </td>
+          
+            
+            <td class="num">
+            
+              <span class="down">-3,878</span>
+              
+            
+            </td>
+          
+            
+            <td class="num">
+            
+              <span class="up">+1,737</span>
+              
+            
+            </td>
+          
+        </tr>
+        
+      
     </table>
     
-    <div class="analysis"><div class="a-lbl">상세 분석</div><p>10일 코스피는 전일 대비 2.52% 오른 7475.94, 코스닥은 5.47% 급등한 837.43에 마감했습니다. 외인들의 장중 비우호적 수급에도 불구하고 기관이 코스피 11,314억 원, 코스닥 5,825억 원을 대규모 순매수하며 수급 반전을 꾀했습니다. 업종별로는 반도체 주변 모멘텀 확산으로 문구류(+25.66%)와 통신장비(+10.0%) 등이 지수 반등을 견인했습니다. 공매도 금지 조치와 맞물려 숏커버링성 매수가 급격히 몰린 하루였습니다.</p></div>
-  </div>
 
-  <!-- 거시·채권·금리 -->
+    
+    <div class="analysis"><div class="a-lbl">상세 분석</div><p>지난 거래일(2026-07-13) 코스피는 외국인(-1조 6,850억 원)과 기관(-2조 2,194억 원)의 거센 동반 매도세에 밀려 3.1% 급락한 7244.49에 장을 마쳤습니다. 코스닥 역시 -0.09%로 약보합권에 머물렀습니다. 특히 SK하이닉스 나스닥 상장 직후 역풍으로 반도체와 전자장비 업종이 10%를 넘나드는 급락을 기록한 반면, 가정용기기와 화장품 등 일부 소형 내수 업종은 빨간불을 켜며 부분적인 방어력을 드러냈습니다.</p></div>
+    
+  </div>
+  
+
+  <!-- 거시·채권·금리 (한·미 대비 통합표) -->
+  
   <div class="sec">
     <h2>거시·채권·금리</h2>
-    <div class="key">BOK 금리 인상 초읽기 및 환율 1,500원선 하회</div>
+    <div class="key">한·미 금리차 긴장감 속 국채 금리 상승세 동반 자극</div>
+    <div class="key" style="background:#fafbfc;border-left-color:#8a94a3;color:#8a94a3;">
+      같은 지표는 같은 행에서 한·미를 비교합니다. 한쪽에만 있는 지표는 ― 로 표시됩니다.
+      미국 지표 옆 날짜는 발표 기준월입니다.
+    </div>
     <table>
-      <tr><th>지표</th><th class="num">값</th><th class="num">전일/전기</th></tr>
       <tr>
-        <td>국고채(3년)</td>
-        <td class="num"><b>3.768</b></td>
-        <td class="num"><span class="down">▼ -0.01</span></td>
+        <th>지표</th>
+        <th class="num">🇰🇷 한국</th>
+        <th class="num">🇺🇸 미국</th>
       </tr>
+      <!-- 기준금리 -->
       <tr>
-        <td>국고채(10년)</td>
-        <td class="num"><b>4.23</b></td>
-        <td class="num"><span class="down">▼ -0.02</span></td>
+        <td>기준금리</td>
+        <td class="num"><b>2.5%</b></td>
+        <td class="num"><b>―</b>
+          </td>
       </tr>
+      <!-- 국채 2년물 (미국만) -->
       <tr>
-        <td>한국은행 기준금리</td>
-        <td class="num"><b>2.5</b></td>
-        <td class="num"><span class="flat">― 0</span></td>
+        <td>국채 2년물</td>
+        <td class="num"><b>―</b></td>
+        <td class="num"><b>―</b>
+          </td>
       </tr>
+      <!-- 국고채 3년물 (한국만) -->
       <tr>
-        <td>소비자물가YoY</td>
+        <td>국고채 3년물</td>
+        <td class="num"><b>3.81%</b></td>
+        <td class="num"><b>―</b></td>
+      </tr>
+      <!-- 국채 10년물 -->
+      <tr>
+        <td>국채 10년물</td>
+        <td class="num"><b>4.26%</b></td>
+        <td class="num"><b>―</b>
+          </td>
+      </tr>
+      <!-- 소비자물가 YoY -->
+      <tr>
+        <td>소비자물가(YoY)</td>
         <td class="num"><b>3.16%</b></td>
-        <td class="num"><span class="flat">―</span></td>
+        <td class="num"><b>―</b>
+          </td>
+      </tr>
+      <!-- 근원 PCE (미국만) -->
+      <tr>
+        <td>근원 PCE(YoY)</td>
+        <td class="num"><b>―</b></td>
+        <td class="num"><b>―</b>
+          </td>
+      </tr>
+      <!-- 실업률 (미국만) -->
+      <tr>
+        <td>실업률</td>
+        <td class="num"><b>―</b></td>
+        <td class="num"><b>―</b>
+          </td>
       </tr>
     </table>
+
     
-    <div class="analysis"><div class="a-lbl">상세 분석</div><p>국내 채권시장에서 국고채 3년물 금리는 연 3.768%로 전일 대비 -0.01%p 하락하며 다가올 한은 금리 인상 압력을 선반영하며 하락 안정을 시도했습니다. 원/달러 환율은 SK하이닉스의 미국 ADR 발행 상장 기대와 외인 매도세 완화에 전일 대비 6.99원 내린 1498.92원에 마감, 마침내 1,500원선을 뚫고 하향 안착했습니다.</p></div>
+    <div class="analysis"><div class="a-lbl">상세 분석</div><p>지난 거래일(2026-07-13) 서울 외환시장에서 원·달러 환율은 전일 대비 10.61원 하락한 1495.3원으로 소폭 안정되었으나 여전히 심리적 저항선 부근입니다. 한국의 국고채 3년물(3.81%)과 10년물(4.26%) 금리가 나란히 상승한 가운데, 미국의 고금리 유지 상황과 중동 리스크가 맞물려 채권 매수 심리를 지속적으로 제한하는 양상이 나타나고 있습니다.</p></div>
+    
   </div>
+  
+
+  <!-- 미국 실적 캘린더 -->
+  
 
   <!-- 간밤 미국·글로벌 -->
+  
   <div class="sec">
     <h2>간밤 미국·글로벌</h2>
-    <div class="key">인플레이션 압력 속 AI 주도 랠리 지속, 뉴욕증시 강보합</div>
+    <div class="key">지정학적 우려 속 유가 급등과 기술주 변동성 노출</div>
     <table>
       <tr><th>지표</th><th class="num">종가</th><th class="num">등락률</th></tr>
-      <tr><td>다우</td><td class="num"><b>52637.01</b></td>
-          <td class="num"><span class="up">▲ +0.29%</span></td></tr>
-      <tr><td>S&P500</td><td class="num"><b>7575.39</b></td>
-          <td class="num"><span class="up">▲ +0.42%</span></td></tr>
-      <tr><td>나스닥</td><td class="num"><b>26281.61</b></td>
-          <td class="num"><span class="up">▲ +0.29%</span></td></tr>
-      <tr><td>닛케이</td><td class="num"><b>68557.73</b></td>
-          <td class="num"><span class="up">▲ +1.20%</span></td></tr>
-      <tr><td>상해종합</td><td class="num"><b>3996.16</b></td>
-          <td class="num"><span class="down">▼ -1.00%</span></td></tr>
-      <tr><td>원달러</td><td class="num"><b>1498.92</b></td>
-          <td class="num"><span class="down">▼ -0.46%</span></td></tr>
-      <tr><td>WTI</td><td class="num"><b>71.41</b></td>
-          <td class="num"><span style="color:#6b7280">― 0.00%</span></td></tr>
-      <tr><td>브렌트유</td><td class="num"><b>76.01</b></td>
-          <td class="num"><span style="color:#6b7280">― 0.00%</span></td></tr>
-      <tr><td>금</td><td class="num"><b>4113.7</b></td>
-          <td class="num"><span class="down">▼ -0.41%</span></td></tr>
-      <tr><td>VIX</td><td class="num"><b>15.03</b></td>
-          <td class="num"><span class="down">▼ -5.11%</span></td></tr>
-      <tr><td>미국채10년</td><td class="num"><b>4.57</b></td>
-          <td class="num"><span class="up">▲ +0.66%</span></td></tr>
-      <tr><td>달러인덱스</td><td class="num"><b>100.97</b></td>
-          <td class="num"><span class="up">▲ +0.03%</span></td></tr>
+      
+        
+        <tr><td>다우</td><td class="num"><b>52637.01</b></td>
+            <td class="num"><span class="up">▲ +0.29%</span></td></tr>
+        
+      
+        
+        <tr><td>S&P500</td><td class="num"><b>7575.39</b></td>
+            <td class="num"><span class="up">▲ +0.42%</span></td></tr>
+        
+      
+        
+        <tr><td>나스닥</td><td class="num"><b>26281.61</b></td>
+            <td class="num"><span class="up">▲ +0.29%</span></td></tr>
+        
+      
+        
+        <tr><td>닛케이</td><td class="num"><b>67242.73</b></td>
+            <td class="num"><span class="down">▼ -1.92%</span></td></tr>
+        
+      
+        
+        <tr><td>상해종합</td><td class="num"><b>3913.79</b></td>
+            <td class="num"><span class="down">▼ -2.06%</span></td></tr>
+        
+      
+        
+        <tr><td>원달러</td><td class="num"><b>1495.3</b></td>
+            <td class="num"><span class="down">▼ -0.70%</span></td></tr>
+        
+      
+        
+        <tr><td>WTI</td><td class="num"><b>73.48</b></td>
+            <td class="num"><span class="up">▲ +2.90%</span></td></tr>
+        
+      
+        
+        <tr><td>브렌트유</td><td class="num"><b>78.31</b></td>
+            <td class="num"><span class="up">▲ +3.03%</span></td></tr>
+        
+      
+        
+        <tr><td>금</td><td class="num"><b>4083.1</b></td>
+            <td class="num"><span class="down">▼ -0.51%</span></td></tr>
+        
+      
+        
+        <tr><td>VIX</td><td class="num"><b>16.26</b></td>
+            <td class="num"><span class="up">▲ +8.18%</span></td></tr>
+        
+      
+        
+        <tr><td>미국채10년</td><td class="num"><b>4.57</b></td>
+            <td class="num"><span class="up">▲ +0.66%</span></td></tr>
+        
+      
+        
+        <tr><td>달러인덱스</td><td class="num"><b>100.85</b></td>
+            <td class="num"><span class="down">▼ -0.12%</span></td></tr>
+        
+      
     </table>
     
-    <div class="analysis"><div class="a-lbl">상세 분석</div><p>간밤 뉴욕증시는 다우(+0.29%), S&P500(+0.42%), 나스닥(+0.29%)이 완만히 동반 상승했습니다. 미국의 물가 지표가 소폭 높았음에도 리스크 온 분위기가 지배적이었습니다.</p></div>
+    <div class="analysis"><div class="a-lbl">상세 분석</div><p>간밤 미국 증시는 다우(+0.29%)와 나스닥(+0.29%)이 소폭 상승했으나, 주말 사이 고조된 미-이란 물리적 갈등에 미국 지수 선물이 압박을 받는 등 심리는 다소 위축되었습니다. TSMC의 탁월한 매출 기록에도 불구하고 SK하이닉스의 폭락세가 서울 증시를 흔들며 글로벌 공급망 및 기술주 전반에 센티먼트 균열이 발생하고 있는 점이 눈에 띕니다.</p></div>
+    
   </div>
+  
 
   <!-- 리스크 -->
+  
   <div class="sec">
     <h2>리스크 요인</h2>
     <div class="risk"><ul>
-      <li>한은 금융통화위원회의 기준금리 추가 인상 속도 조절 실패 시 내수 연착륙 리스크 가중</li>
-      <li>미국 상무부의 메모리 반도체 현지 생산 압박에 따른 삼성전자 및 SK하이닉스의 장기 설비투자 부담 증가</li>
-      <li>지정학적 분쟁 장기화로 인한 공급망 훼손과 물가 상승 재점화 우려</li>
+      <li>나스닥 상장 이벤트 종료 이후 SK하이닉스 발 수급 왜곡의 국내 반도체 생태계 전파 리스크</li><li>중동 발 에너지 지정학적 충돌 심화로 인한 국제유가 급등과 수입 원자재 가격 전가 우려</li>
     </ul></div>
   </div>
+  
 
-  <!-- 전략 코멘트 -->
+  <!-- 오늘의 관전 코멘트 -->
+  
   <div class="sec">
-    <h2>전략 코멘트</h2>
-    <div class="comment">사이드카 발동에 따른 추격 매수보다는 16일 한은 금통위 이벤트 통과를 대기하며, 실질적인 수주 공시를 확보한 실적 개선 소부장에 압축 대응해야 합니다.</div>
+    <h2>오늘의 관전 코멘트</h2>
+    <div class="comment">반도체 중심의 외국인 수급 변동성이 제어되는 것을 확인하기 전까지는, 실적 가시성이 뚜렷한 방산 및 방어주 위주의 관망 흐름이 자연스러워 보입니다.</div>
+    <div class="comment-note">※ 위 내용은 시장 상황에 대한 관점·참고 정보이며, 특정 종목의 매매를 권유하지 않습니다. 투자 판단과 책임은 이용자 본인에게 있습니다.</div>
   </div>
+  
 
   <div class="footer">
-    데이터 출처: FinanceDataReader, 네이버 금융, 한국은행 ECOS, 금융감독원 DART, 연합뉴스·한국경제·매일경제·CNBC·MarketWatch<br>
-    본 리포트는 투자 참고용이며 투자 판단의 책임은 이용자 본인에게 있습니다.
-    <div class="sign">Curated by <b><span class="moo">Moo</span></b> · © 2026 All rights reserved.</div>
+    <div class="f-head">📊 이 리포트는 아래 공식·공신력 있는 데이터를 종합해 자동 생성됩니다</div>
+    <div class="f-src">
+      <div><span class="f-cat">시장·지수</span> · FinanceDataReader · 네이버 금융</div>
+      <div><span class="f-cat">거시·금리</span> · 한국은행 ECOS · 美 연준 FRED</div>
+      <div><span class="f-cat">공시·실적</span> · 금융감독원 DART · Finnhub</div>
+      <div><span class="f-cat">국내 뉴스</span> · 연합뉴스 · 한국경제 · 매일경제 · 머니투데이 · 파이낸셜뉴스</div>
+      <div><span class="f-cat">해외 뉴스</span> · MarketWatch · CNBC · Investing.com</div>
+    </div>
+    <div style="color:#b0b8c4;margin-top:10px;">본 리포트는 투자 참고용이며 투자 판단의 책임은 이용자 본인에게 있습니다.</div>
+    <div class="sign">Curated by <b>임무생</b> · © 2026 All rights reserved.</div>
   </div>
 
   </div><!-- /inner -->
