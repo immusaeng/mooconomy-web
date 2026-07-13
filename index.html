@@ -62,14 +62,13 @@
   .nav ul a:hover { color:#fff; }
   .nav ul a.active { color:var(--gold); border-bottom-color:var(--gold); }
   .nav .nav-cta { background:var(--gold); color:var(--navy); padding:9px 18px; border-radius:8px;
-                  font-size:12.5px; font-weight:800; letter-spacing:.5px; text-decoration:none; z-index:2; }
+                  font-size:12.5px; font-weight:800; letter-spacing:.5px; text-decoration:none; z-index:2; border:0; cursor:pointer; }
   .nav .menu-btn { display:none; background:none; border:none; color:#fff; font-size:22px; cursor:pointer; z-index:2; }
 
   /* ── 상단 지표 티커 (마퀴) ── */
   .ticker { height:var(--ticker-h); background:var(--navy2); border-top:1px solid rgba(255,255,255,.08); overflow:hidden; display:flex; align-items:center; transition:height .25s ease, opacity .25s ease; }
   .ticker .track { display:flex; white-space:nowrap; animation:scroll 34s linear infinite; }
   .ticker:hover .track { animation-play-state:paused; }
-  /* tabular-nums: 티커 숫자 자릿수 흔들림 방지 */
   .ticker .item { color:#e5edf6; font-size:13px; font-weight:600; padding:0 26px; display:inline-flex; align-items:center; gap:8px; font-variant-numeric:tabular-nums; font-feature-settings:"tnum"; }
   .ticker .item .nm { color:#9fb0c4; }
   .ticker .up { color:#ff6b6b; font-weight:700; }
@@ -87,12 +86,29 @@
   .hero h1 { font-size:40px; font-weight:800; line-height:1.4; margin-bottom:22px; }
   .hero h1 .hl { color:var(--gold); }
   .hero p.lead { font-size:17px; color:#c8d3e0; max-width:620px; margin:0 auto 36px; }
-  .cta { display:inline-block; background:var(--gold); color:var(--navy); font-size:17px; font-weight:800; padding:17px 46px; border-radius:12px; text-decoration:none; transition:.2s; box-shadow:0 8px 24px rgba(217,164,65,.35); }
+  .cta { display:inline-block; background:var(--gold); color:var(--navy); font-size:17px; font-weight:800; padding:17px 46px; border-radius:12px; text-decoration:none; transition:.2s; box-shadow:0 8px 24px rgba(217,164,65,.35); border:0; cursor:pointer; font-family:inherit; }
   .cta:hover { background:var(--gold-d); transform:translateY(-2px); }
   .hero .subnote { font-size:13px; color:#9fb0c4; margin-top:18px; }
-  /* 히어로 미리보기 점프 링크 */
   .hero .preview-jump { display:inline-block; margin-top:16px; color:#c8d3e0; font-size:14px; font-weight:600; text-decoration:underline; text-underline-offset:3px; }
   .hero .preview-jump:hover { color:#fff; }
+
+  /* ── 인라인 구독 폼 (신규) ── */
+  .subscribe-form { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; max-width:520px; margin:0 auto; }
+  .subscribe-form .field { flex:1; min-width:240px; }
+  .subscribe-form input[type="email"] {
+    width:100%; padding:17px 18px; border:1px solid rgba(255,255,255,.25);
+    border-radius:12px; font-size:16px; font-family:inherit; background:rgba(255,255,255,.08);
+    color:#fff; outline:none; transition:border-color .2s, background .2s;
+  }
+  .subscribe-form input[type="email"]::placeholder { color:#9fb0c4; }
+  .subscribe-form input[type="email"]:focus { border-color:var(--gold); background:rgba(255,255,255,.14); }
+  .subscribe-form .cta { white-space:nowrap; }
+  .subscribe-form .cta:disabled { opacity:.6; cursor:default; transform:none; }
+  .input-honeypot {
+    position:absolute !important; left:-9999px !important;
+    width:1px !important; height:1px !important; opacity:0 !important; pointer-events:none;
+  }
+  /* 파이널 섹션(밝은 배경 아님, 네이비)에서도 동일 톤 사용 */
 
   /* ── section headings ── */
   .c3-badge { display:inline-block; background:var(--navy); color:var(--gold); font-size:12.5px; font-weight:700; letter-spacing:1px; padding:8px 18px; border-radius:20px; margin-bottom:18px; }
@@ -132,7 +148,6 @@
   .mail-body { padding:18px; }
   .letter-wrap { position:relative; max-height:520px; overflow:hidden; border-radius:10px; background:#fff; transition:max-height .5s ease; }
   .letter-wrap.open { max-height:none; }
-  /* iframe: 접힌 상태에선 스크롤 hijack 방지 위해 pointer-events 차단 */
   .letter-wrap iframe { width:100%; height:1600px; border:0; display:block; pointer-events:none; }
   .letter-wrap.open iframe { pointer-events:auto; }
   .letter-fade { position:absolute; left:0; right:0; bottom:0; height:120px;
@@ -151,8 +166,9 @@
   .final p { font-size:16px; color:#c8d3e0; max-width:560px; margin:0 auto 14px; }
   .final .cond { font-size:14px; color:#9fb0c4; margin-bottom:36px; }
   .final .cond b { color:var(--gold); }
-  .final .cta { font-size:18px; padding:18px 52px; }
   .sub-block { display:flex; flex-direction:column; align-items:center; }
+  .consent { font-size:12.5px; color:#9fb0c4; margin-top:16px; }
+  .consent a { color:var(--gold); text-decoration:underline; }
   .qr-box { display:inline-flex; align-items:center; justify-content:center; gap:16px; margin-top:40px; padding:20px 26px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); border-radius:14px; }
   .qr-box img { width:96px; height:96px; border-radius:8px; padding:5px; background:#fff; }
   .qr-box .qt { font-size:13px; color:#c8d3e0; text-align:left; line-height:1.5; font-weight:600; }
@@ -171,18 +187,26 @@
   }
   .mobile-sticky-cta .msc-sub { display:block; text-align:center; color:#9fb0c4; font-size:11px; margin-top:6px; letter-spacing:.3px; }
 
+  /* ── 토스트 ── */
+  .toast {
+    position:fixed; left:50%; bottom:96px; transform:translateX(-50%) translateY(20px);
+    background:var(--navy); color:#fff; padding:14px 22px; border-radius:12px;
+    font-size:14px; font-weight:600; opacity:0; pointer-events:none;
+    transition:opacity .25s, transform .25s; z-index:300; max-width:90%; text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,.25); border:1px solid rgba(255,255,255,.12);
+  }
+  .toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+
   /* ── 반응형 ── */
   @media (max-width:900px) {
     .grid3 { grid-template-columns:1fr; gap:18px; }
     .hero h1 { font-size:30px; }
     .sec-title, .final h2 { font-size:24px; }
 
-    /* [개선1] 모바일 헤더 경량화: nav 슬림 + 로고 축소 */
     :root { --nav-h:48px; --ticker-h:34px; }
     .nav .logo-wrap img { width:24px; }
     .nav .logo-wrap .nm { font-size:15px; }
     .ticker .item { font-size:12px; padding:0 20px; }
-    /* 스크롤 내리면 티커 숨김 → 화면 확보 */
     body.scrolled .ticker { height:0; opacity:0; border-top:0; }
     body.scrolled .spacer { height:var(--nav-h); }
 
@@ -195,19 +219,17 @@
     .nav .menu-btn { display:block; }
     .nav .nav-cta { display:none; }
 
-    /* [개선2] 미리보기 전진 배치: body를 flex로, 모바일에서만 순서 재배치 */
     body { display:flex; flex-direction:column; }
     .topbar { order:0; }
     .spacer  { order:1; }
-    .hero    { order:2; }   /* 히어로 */
-    #latest  { order:3; }   /* 실제 브리핑 미리보기를 바로 위로 */
+    .hero    { order:2; }
+    #latest  { order:3; }
     #problem { order:4; }
     #why     { order:5; }
     #subscribe { order:6; }
     .foot    { order:7; }
     .mobile-sticky-cta { order:8; }
 
-    /* 모바일: 하단 고정 CTA 노출 + 콘텐츠 하단 여백 */
     .mobile-sticky-cta {
       display:block; position:fixed; left:0; right:0; bottom:0; z-index:120;
       background:rgba(11,37,69,.97); backdrop-filter:blur(8px);
@@ -215,6 +237,7 @@
       border-top:1px solid rgba(255,255,255,.1);
     }
     body { padding-bottom:88px; }
+    .toast { bottom:110px; }
   }
   @media (max-width:640px) {
     .inner { padding:0 22px; }
@@ -226,6 +249,8 @@
     .qr-box .qt { text-align:center; }
     .letter-wrap { max-height:400px; }
     .letter-wrap iframe { height:1400px; }
+    .subscribe-form input[type="email"] { padding:15px 16px; font-size:15px; }
+    .subscribe-form .cta { width:100%; }
   }
 </style>
 </head>
@@ -244,7 +269,7 @@
         <li><a href="#latest" class="nav-link">LATEST</a></li>
         <li><a href="#subscribe" class="nav-link">SUBSCRIBE</a></li>
       </ul>
-      <a class="nav-cta" href="https://forms.gle/7UKrcZR7D7YfGv8L9" target="_blank"
+      <a class="nav-cta" href="#subscribe"
          onclick="gtag('event','click_nav_cta',{event_category:'subscribe',event_label:'nav'});">무료 구독하기</a>
       <button class="menu-btn" id="menuBtn" aria-label="메뉴">☰</button>
     </nav>
@@ -262,10 +287,17 @@
       <div class="eyebrow">MORNING BRIEFING</div>
       <h1>잠든 사이 움직인 <span class="hl">지표와 뉴스</span>,<br>매일 아침 <span class="hl">3줄</span>로 배달합니다</h1>
       <p class="lead">코스피·코스닥·나스닥·환율·유가까지. 밤사이 흩어진 시장의 흐름을 하나로 모아, 오늘 꼭 알아야 할 핵심만 추려 드립니다.</p>
-      <a class="cta" href="https://forms.gle/7UKrcZR7D7YfGv8L9" target="_blank"
-         onclick="gtag('event','click_hero_cta',{event_category:'subscribe',event_label:'hero'});">무료로 내일 아침 첫 메일 받기</a>
+
+      <!-- 인라인 구독 폼 (구글폼 링크 → 폼 전환) -->
+      <form class="subscribe-form" data-form="hero" novalidate>
+        <div class="field">
+          <input type="email" name="email" placeholder="이메일 주소를 입력하세요" autocomplete="email" required>
+        </div>
+        <input type="text" name="company" class="input-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button type="submit" class="cta">무료로 첫 메일 받기</button>
+      </form>
+
       <div class="subnote">완전 무료 · 월~토 아침 배달 · 1초 만에 해지</div>
-      <!-- 미리보기 점프 링크 -->
       <a class="preview-jump" href="#latest"
          onclick="gtag('event','click_preview_jump',{event_category:'engagement',event_label:'hero_to_latest'});">
         👀 실제 배달되는 브리핑 미리 보기
@@ -356,8 +388,19 @@
       <p>Daily 'Moo'conomy는 완전 무료입니다. 마음에 안 들면 메일 하단 버튼 한 번으로 1초 만에 해지할 수 있습니다.</p>
       <div class="cond">구독하면 다음 발행일 <b>(월~토) 아침</b> 첫 브리핑이 도착합니다.</div>
       <div class="sub-block">
-        <a class="cta" href="https://forms.gle/7UKrcZR7D7YfGv8L9" target="_blank"
-           onclick="gtag('event','click_final_cta',{event_category:'subscribe',event_label:'final'});">무료로 구독하기 →</a>
+
+        <!-- 인라인 구독 폼 (구글폼 링크 → 폼 전환) -->
+        <form class="subscribe-form" data-form="final" novalidate>
+          <div class="field">
+            <input type="email" name="email" placeholder="이메일 주소를 입력하세요" autocomplete="email" required>
+          </div>
+          <input type="text" name="company" class="input-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button type="submit" class="cta">무료로 구독하기 →</button>
+        </form>
+        <div class="consent">
+          구독 시 <a href="/privacy.html" target="_blank">개인정보 수집·이용</a>에 동의하는 것으로 간주됩니다.
+        </div>
+
         <div class="qr-box">
           <img src="qr_subscribe.png" alt="구독 신청 QR코드">
           <div class="qt">이미지로 보고 계신가요?<br>QR을 찍어 바로 구독하세요</div>
@@ -375,15 +418,101 @@
 
   <!-- 모바일 하단 고정 구독 바 (데스크톱에선 숨김) -->
   <div class="mobile-sticky-cta">
-    <a href="https://forms.gle/7UKrcZR7D7YfGv8L9" target="_blank"
+    <a href="#subscribe"
        onclick="gtag('event','click_sticky_cta',{event_category:'subscribe',event_label:'mobile_sticky'});">
       무료로 내일 아침 첫 메일 받기 →
     </a>
     <span class="msc-sub">완전 무료 · 1초 만에 해지</span>
   </div>
 
+  <!-- 토스트 -->
+  <div class="toast" id="toast"></div>
+
   <script>
-    // ── 지표 티커: ticker.json이 있으면 실데이터, 없으면 예시값(—) ──
+    /* ================= 설정 ================= */
+    var WORKER_SUBSCRIBE_URL = "https://mooconomy-subscribe.immusaeng.workers.dev";
+
+    /* ================= 토스트 ================= */
+    var toastEl = document.getElementById('toast');
+    var toastTimer = null;
+    function toast(msg){
+      toastEl.textContent = msg;
+      toastEl.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(function(){ toastEl.classList.remove('show'); }, 3600);
+    }
+
+    /* ================= [개선1] 이메일 검증 + 오타 교정 ================= */
+    var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    var TYPO_MAP = {
+      "gmail.co":"gmail.com","gmial.com":"gmail.com","gamil.com":"gmail.com",
+      "gmail.con":"gmail.com","gmail.cm":"gmail.com","gmaill.com":"gmail.com","gmail.co.kr":"gmail.com",
+      "naver.co":"naver.com","navr.com":"naver.com","nave.com":"naver.com","naver.con":"naver.com","naver.cm":"naver.com",
+      "hanmail.ne":"hanmail.net","hanmail.com":"hanmail.net",
+      "daum.ne":"daum.net","daum.com":"daum.net",
+      "kakao.co":"kakao.com","nate.co":"nate.com",
+      "outlook.co":"outlook.com","hotmail.co":"hotmail.com","yahoo.co":"yahoo.com"
+    };
+    function validateEmail(raw){
+      var email = (raw || "").trim().toLowerCase();
+      if(!email) return {ok:false, msg:"이메일 주소를 입력해 주세요."};
+      if(email.length > 254) return {ok:false, msg:"이메일 주소가 너무 깁니다."};
+      if(!EMAIL_RE.test(email)) return {ok:false, msg:"이메일 형식을 확인해 주세요. (예: name@gmail.com)"};
+      var domain = email.split("@")[1];
+      if(TYPO_MAP[domain]){
+        var local = email.split("@")[0];
+        return {ok:false, msg:"혹시 " + local + "@" + TYPO_MAP[domain] + " 아닌가요? 다시 확인해 주세요."};
+      }
+      return {ok:true, email:email};
+    }
+
+    /* ================= 구독 폼 제출 ================= */
+    document.querySelectorAll('.subscribe-form').forEach(function(form){
+      form.addEventListener('submit', async function(e){
+        e.preventDefault();
+        var emailInput = form.querySelector('input[name="email"]');
+        var company = form.querySelector('input[name="company"]').value; // 허니팟
+        var btn = form.querySelector('button[type="submit"]');
+
+        // 1) 클라이언트 검증 + 오타 교정
+        var v = validateEmail(emailInput.value);
+        if(!v.ok){ toast(v.msg); emailInput.focus(); return; }
+
+        var originalText = btn.textContent;
+        btn.disabled = true;
+        btn.textContent = "처리 중…";
+
+        try {
+          var res = await fetch(WORKER_SUBSCRIBE_URL + "/api/subscribe", {
+            method:"POST",
+            headers:{ "Content-Type":"application/json" },
+            body: JSON.stringify({ email: v.email, company: company })
+          });
+
+          // 2) 상태코드별 분기
+          if(res.status === 200){
+            toast("🎉 구독 신청이 완료되었습니다. 매일 아침 만나요!");
+            emailInput.value = "";
+            gtag('event','subscribe',{event_category:'subscribe',event_label:form.dataset.form});
+          } else if(res.status === 409){
+            toast("이미 구독 중인 이메일 주소입니다. 감사합니다!");
+          } else if(res.status === 400){
+            toast("이메일 형식을 확인해 주세요. (예: name@gmail.com)");
+          } else if(res.status === 429){
+            toast("요청이 많습니다. 잠시 후 다시 시도해 주세요.");
+          } else {
+            toast("⚠️ 일시적 오류입니다. 잠시 후 다시 시도하거나 하단 QR로 신청해 주세요.");
+          }
+        } catch(err){
+          toast("⚠️ 네트워크 오류입니다. 잠시 후 다시 시도하거나 하단 QR로 신청해 주세요.");
+        } finally {
+          btn.disabled = false;
+          btn.textContent = originalText;
+        }
+      });
+    });
+
+    /* ================= 지표 티커 ================= */
     var tickerFallback = [
       {name:"코스피", value:"—", change:null},
       {name:"코스닥", value:"—", change:null},
@@ -415,7 +544,7 @@
       })
       .catch(function(){ renderTicker(tickerFallback); });
 
-    // ── 모바일 메뉴 토글 ──
+    /* ================= 모바일 메뉴 토글 ================= */
     var menuBtn = document.getElementById('menuBtn');
     var navMenu = document.getElementById('navmenu');
     menuBtn.addEventListener('click', function(){ navMenu.classList.toggle('open'); });
@@ -423,7 +552,7 @@
       a.addEventListener('click', function(){ navMenu.classList.remove('open'); });
     });
 
-    // ── 최신 레터 전체 보기 토글 ──
+    /* ================= 최신 레터 전체 보기 토글 ================= */
     (function(){
       var btn = document.getElementById('expandBtn');
       var wrap = document.getElementById('letterWrap');
@@ -433,13 +562,12 @@
           btn.classList.toggle('open', opened);
           var label = btn.querySelector('.btn-label');
           if (label) label.textContent = opened ? '접기' : '전체 보기';
-          // 전체 보기 클릭도 참여 이벤트로 측정
           if (opened) gtag('event','expand_letter',{event_category:'engagement',event_label:'latest_preview'});
         });
       }
     })();
 
-    // ── [개선1] 스크롤 내리면 모바일 티커 숨김 ──
+    /* ================= 스크롤 내리면 모바일 티커 숨김 ================= */
     (function(){
       var ticking = false;
       function updateScrolled(){
@@ -454,7 +582,7 @@
       updateScrolled();
     })();
 
-    // ── 스크롤 위치에 따라 현재 메뉴 활성화 ──
+    /* ================= 스크롤 위치에 따라 현재 메뉴 활성화 ================= */
     var sectionIds = ['problem','why','latest','subscribe'];
     var sections = sectionIds.map(function(id){ return document.getElementById(id); });
     var links = {};
