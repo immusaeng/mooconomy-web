@@ -6,6 +6,7 @@
 <title>Daily Mooconomy</title>
 <style>
   @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
+  @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
   body { font-family:'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif; background:#f5f6f8; color:#222; margin:0; padding:20px; }
   .wrap { max-width:860px; margin:0 auto; background:#fff; padding:0 0 30px; border-radius:6px; box-shadow:0 1px 6px rgba(0,0,0,.1); overflow:hidden; }
   .top { background:#0b2545; color:#fff; padding:24px 28px 20px; }
@@ -23,6 +24,24 @@
   .strip .lbl { font-size:12px; color:#666; margin-bottom:4px; white-space:nowrap; }
   .strip .val { font-size:16px; font-weight:700; color:#111; white-space:nowrap; }
   .strip .chg { font-size:12px; margin-top:2px; white-space:nowrap; }
+
+  /* ── 지표 스트립 반응형: 좁은 폭에서 5칸 → 3칸씩 자동 줄바꿈 ── */
+  @media only screen and (max-width:600px) {
+    .strip, .strip tbody, .strip tr { display:block !important; width:100% !important; }
+    .strip .cell {
+      display:inline-block !important;
+      width:33.33% !important;
+      border-right:1px solid #e3e6ea !important;
+      border-bottom:1px solid #e3e6ea !important;
+      padding:10px 2px !important;
+      vertical-align:top !important;
+    }
+    .strip .cell:nth-child(3n) { border-right:none !important; }
+    .strip .cell:nth-last-child(-n+2) { border-bottom:none !important; }
+    .strip .val { font-size:15px !important; }
+    .strip .lbl, .strip .chg { font-size:11px !important; }
+  }
+
   .up { color:#d32f2f; font-weight:700; }
   .down { color:#1565c0; font-weight:700; }
   .flat { color:#666; }
@@ -73,7 +92,7 @@
   .footer .f-src { line-height:1.9; text-align:center; }
   .footer .f-src .f-cat { font-weight:700; color:#0b2545; }
   .sign { margin-top:10px; font-size:13px; letter-spacing:1px; color:#5a6b82; }
-  .sign b { color:#0b2545; letter-spacing:2px; }
+  .sign b { font-family:'Nanum Pen Script','Segoe Script','Comic Sans MS',cursive; color:#c8930a; font-size:28px; font-weight:400; letter-spacing:2px; vertical-align:middle; }
   .sign .moo { color:#f5b301; }
   .band { background:#0b2545; color:#f5b301; font-size:13px; font-weight:700; padding:8px 14px; border-radius:4px; margin:26px 0 10px; letter-spacing:.5px; }
 </style>
@@ -87,7 +106,7 @@
       <div class="logo">Daily <span class="quote">'</span><span class="moo">Moo</span><span class="quote">'</span>conomy</div>
     </div>
     <div class="tagline">잠든 사이 움직인 지표와 뉴스, 매일 아침 배달</div>
-    <div class="date">2026년 07월 13일(월) 아침 배달 · 2026-07-13 17:38 KST</div>
+    <div class="date">2026년 07월 14일(화) 아침 배달 · 2026-07-14 07:17 KST</div>
   </div>
 
   <div class="inner">
@@ -98,54 +117,54 @@
   
 
   
-  <div class="mood"><span class="mood-lbl">오늘의 시장 온도</span><span>반도체 폭락 속 변동성 확대</span></div>
+  <div class="mood"><span class="mood-lbl">오늘의 시장 온도</span><span>중동 리스크에 코스피 폭락</span></div>
   
 
   
-  <table class="strip" cellpadding="0" cellspacing="0" role="presentation">
+  <table class="strip" cellpadding="0" cellspacing="0" role="presentation" width="100%" style="width:100%;">
     <tr>
     
       <td class="cell"><div class="lbl">코스피</div>
-        <div class="val">7244.49</div>
-        <div class="chg"><span class="down">▼ -3.10%</span></div></td>
+        <div class="val">6806.93</div>
+        <div class="chg"><span class="down">▼ -8.95%</span></div></td>
     
     
       <td class="cell"><div class="lbl">코스닥</div>
-        <div class="val">836.68</div>
-        <div class="chg"><span class="down">▼ -0.09%</span></div></td>
+        <div class="val">799.36</div>
+        <div class="chg"><span class="down">▼ -4.55%</span></div></td>
     
     
       <td class="cell"><div class="lbl">나스닥</div>
-        <div class="val">26281.61</div>
-        <div class="chg"><span class="up">▲ +0.29%</span></div></td>
+        <div class="val">25873.18</div>
+        <div class="chg"><span class="down">▼ -1.55%</span></div></td>
     
     
       <td class="cell"><div class="lbl">원/달러</div>
-        <div class="val">1495.3</div>
+        <div class="val">1497.02</div>
         <div class="chg">
           
           
-            <span class="down">▼ -10.61원</span>
+            <span class="down">▼ -1.46원</span>
             
           
         </div></td>
     
     
       <td class="cell"><div class="lbl">브렌트유</div>
-        <div class="val">78.31</div>
-        <div class="chg"><span class="up">▲ +3.03%</span></div></td>
+        <div class="val">83.15</div>
+        <div class="chg"><span class="up">▲ +9.39%</span></div></td>
     
     </tr>
   </table>
   
 
-  <div class="headline">SK하이닉스 발 반도체 충격에 코스피 3.1% 급락</div>
+  <div class="headline">트럼프 호르무즈 해상 통행료 예고에 유가 급등, 코스피 6800선 붕괴</div>
 
   
   <div class="summary">
     <div class="sm-lbl">임무생's Daily 3줄 · 오늘 이것만 봐도 됩니다</div>
     <ul>
-    <li><span class="sm-num">1</span>SK하이닉스 나스닥 상장 후 급락 여파로 반도체 업종이 폭락하며 코스피가 7,240선으로 밀렸습니다.</li><li><span class="sm-num">2</span>중동 지역의 미-이란 갈등 고조로 국제유가가 급등세를 보이며 인플레이션 우려를 자극했습니다.</li><li><span class="sm-num">3</span>정부는 반도체 메가특구에 대한 최고 수준의 규제 완화와 재정 지원을 약속하며 시장 진정에 나섰습니다.</li>
+    <li><span class="sm-num">1</span>트럼프의 호르무즈 통행료 부과 방침에 국제유가가 9% 폭등했습니다.</li><li><span class="sm-num">2</span>코스피는 반도체 섹터 폭락 속에 8.95% 급락하며 6,800선으로 밀렸습니다.</li><li><span class="sm-num">3</span>금리 우려가 고조되는 가운데 월가 대형 은행들의 실적 발표가 시작됩니다.</li>
     </ul>
   </div>
   
@@ -161,40 +180,40 @@
     <h3 class="sub">국내 경제 주요 뉴스</h3>
     
     <div class="news">
-      <div class="n-title">반도체 메가특구에 957조 투자 지원</div>
-      <div class="n-body">정부가 약 957조 원 규모의 민간 투자를 촉진하기 위해 연내 메가특구법 제정과 반도체특별법 개정을 적극 추진합니다. 반도체 기업들에 최고 수준의 규제 특례와 재정 지원을 아끼지 않겠다는 구상을 재확인하며 반도체 생태계 강화를 목표로 삼고 있습니다.</div>
+      <div class="n-title">중동 긴장에 코스피 대폭락</div>
+      <div class="n-body">도널드 트럼프 미국 전 대통령이 호르무즈 해협 통행 선박에 대한 20% 통행료 부과 방침을 밝히면서 중동 지정학적 리스크가 극대화되었습니다. 이에 직전 거래일 코스피는 8% 넘게 대폭락하며 투자심리가 급격히 냉각되었고, 세계 2위 러시아의 경유 수출 금지 여파로 정유 섹터의 글로벌 공급 확대 가능성이 거론되는 등 업종별 희비가 엇갈리는 모습입니다.</div>
       
       <div class="n-src">
         
-        <a href="https://www.fnnews.com/news/202607131622276889" target="_blank"><span class="paper">파이낸셜뉴스</span><span class="src-date">2026-07-13</span>반도체 메가특구에 최고 수준 규제특례…정부, 957조 투자 지원</a>
+        <a href="https://www.yna.co.kr/view/AKR20260714008151072" target="_blank"><span class="paper">연합뉴스마켓</span><span class="src-date">2026-07-14</span>뉴욕증시, 트럼프 호르무즈 통행료 예고에 하락…나스닥 1.6%↓(종합)</a>
         
-        <a href="https://www.hankyung.com/article/202607132332i" target="_blank"><span class="paper">한국경제</span><span class="src-date">2026-07-13</span>산업장관 "반도체, AI로봇 전쟁 기업 홀로 감당 못해" 재정 투입 절실</a>
+        <a href="https://www.yna.co.kr/view/AKR20260713107400003" target="_blank"><span class="paper">연합뉴스</span><span class="src-date">2026-07-14</span>세계 2위 러시아 경유 수출금지에 K정유 글로벌 공급 확대 기대</a>
         
       </div>
       
     </div>
     
     <div class="news">
-      <div class="n-title">가계 규제 속 대기업 대출만 급증</div>
-      <div class="n-body">가계대출 규제 장벽이 높아지자 은행권이 기업금융 중심의 영토 확장에 나서고 있습니다. 대기업 대출은 두 자릿수 증가세를 보이는 반면 중소기업과 자영업자 대출은 제자리에 머물고 있어 신용 양극화와 소외 우려가 나옵니다.</div>
+      <div class="n-title">반도체 폭락에 개미 비명</div>
+      <div class="n-body">삼성전자와 SK하이닉스 등 반도체 대형주들이 급락세를 보이면서 레버리지 상품에 가입한 개인 투자자들의 손실 우려가 커지고 있습니다. 특히 은행권이 상반기 중 고점 부근에서 상장지수펀드(ETF)를 대거 판매함에 따라 코스피 6,800선 붕괴 국면에서 안정 성향의 은행 고객들까지 큰 평가손실에 노출되었다는 지적이 나옵니다.</div>
       
       <div class="n-src">
         
-        <a href="https://www.mk.co.kr/news/economy/12097184" target="_blank"><span class="paper">매일경제</span><span class="src-date">2026-07-13</span>“돈 많아야 대출 받을 수 있다니”…자영업·중기 대출은 제자리, 대기업은 ‘쑥’</a>
+        <a href="https://www.hankyung.com/article/2026071326466" target="_blank"><span class="paper">한국경제증권</span><span class="src-date">2026-07-14</span>"8000만원 쏟아부었는데"…삼전닉스 레버리지 개미 '비명' [투자톡]</a>
         
-        <a href="https://www.mk.co.kr/news/economy/12096932" target="_blank"><span class="paper">매일경제</span><span class="src-date">2026-07-13</span>하반기 금융권에 불어닥친다는데…대출 셧다운이 뭐예요? [금융가 톺아보기]</a>
+        <a href="https://www.mk.co.kr/news/economy/12097806" target="_blank"><span class="paper">매일경제</span><span class="src-date">2026-07-14</span>은행들 ETF팔아 수수료만 5500억 챙겼다…근데 수익률 왜이래</a>
         
       </div>
       
     </div>
     
     <div class="news">
-      <div class="n-title">정부, 청년 전문인력 20만명 양성</div>
-      <div class="n-body">정부는 오는 2030년까지 인공지능, 반도체, 그린전환 등 미래 첨단 분야에서 청년 인재 20만 명 이상을 집중 육성하기로 뜻을 모았습니다. 예산 투입과 민관 협업을 통해 양질의 청년 일자리를 대거 창출하겠다는 청사진을 구체화하고 있습니다.</div>
+      <div class="n-title">7월 세제개편 부동산 논의</div>
+      <div class="n-body">정부가 오는 23일 부동산 대토론회를 열고 초고가 및 비거주 1주택자 세제 개편 등에 관한 국민 의견 수렴에 착수할 예정입니다. 이번 세제 개편안의 방향성이 주택 시장 매수 심리와 건설·부동산 섹터의 향방에 미칠 영향이 주목받고 있습니다.</div>
       
       <div class="n-src">
         
-        <a href="https://www.fnnews.com/news/202607131658450949" target="_blank"><span class="paper">파이낸셜뉴스</span><span class="src-date">2026-07-13</span>정부, 2030년까지 청년 인재 20만명 양성…청년 창업가도 10만명 육성</a>
+        <a href="https://www.mk.co.kr/news/economy/12097164" target="_blank"><span class="paper">매일경제</span><span class="src-date">2026-07-14</span>“초고가·비거주 1주택 노린다” … 7월 세제개편 미리보기</a>
         
       </div>
       
@@ -205,38 +224,42 @@
     <h3 class="sub gl">해외 경제 주요 토픽</h3>
     
     <div class="news">
-      <div class="n-title">SK하이닉스 서울 증시서 15% 폭락</div>
-      <div class="n-body">SK하이닉스가 성공적인 미국 나스닥 상장을 마친 이후, 아이러니하게도 서울 본 시장에서는 15% 넘게 주저앉으며 최악의 하루를 보냈습니다. 이는 코스피 지수 전반을 흔들고 반도체 소부장 전반의 투자심리를 급속도로 냉각시키는 결과로 이어지는 분위기입니다.</div>
+      <div class="n-title">트럼프 호르무즈 해상 장악</div>
+      <div class="n-body">도널드 트럼프 미국 전 대통령이 호르무즈 해협 통행 화물에 대한 20%의 통행료 부과와 대이란 봉쇄 재개를 제안하면서 국제 원유 시장에 대형 악재로 부각되었습니다. 미국의 전략비축유가 장비 고장과 누출 등으로 바닥을 드러낸 상황과 맞물려 글로벌 유가가 하루 만에 9% 이상 치솟는 급등세를 기록했습니다.</div>
       
       <div class="n-src">
         
-        <a href="https://www.cnbc.com/2026/07/13/sk-hynix-shares-fall-after-stellar-nasdaq-debut.html" target="_blank"><span class="paper">CNBC</span><span class="src-date">2026-07-13</span>SK Hynix South Korean shares clock worst day, sinking over 15%, after stellar Nasdaq debut</a>
+        <a href="https://www.cnbc.com/2026/07/13/trump-iran-hormuz-strait-charge-reimburse.html" target="_blank"><span class="paper">CNBC</span><span class="src-date">2026-07-13</span>Trump proposes 20% toll on cargo through Strait of Hormuz; restarts Iran blockade</a>
+        
+        <a href="https://www.marketwatch.com/story/the-u-s-is-maxing-out-its-strategic-oil-reserves-as-trump-vows-to-control-the-strait-of-hormuz-b71f88a9?mod=mw_rss_topstories" target="_blank"><span class="paper">MarketWatch</span><span class="src-date">2026-07-13</span>The U.S. is maxing out its strategic oil reserves as Trump vows to control the Strait of Hormuz</a>
         
       </div>
       
     </div>
     
     <div class="news">
-      <div class="n-title">중동 긴장 고조에 국제유가 반등</div>
-      <div class="n-body">미국과 이란 간의 상호 공방이 호르무즈 해협 주변의 물리적 충돌로 이어지며 국제유가가 3%대 오름세를 나타냈습니다. 지정학적 리스크 지속 여부는 수입 의존도가 높은 국내 경제 전반에 물가 자극 요인이 될 수 있다는 점에서 우려됩니다.</div>
+      <div class="n-title">스페이스X 시총 대폭 감소</div>
+      <div class="n-body">지난달 사상 최대 규모로 상장하며 나스닥 100 지수에 편입되었던 스페이스X가 연일 급락하며 공모가인 135달러 부근까지 내려앉았습니다. 한 달 만에 시장가치가 8,000억 달러 이상 증발하면서 일론 머스크의 우주·AI 전략에 대한 투자자들의 신뢰가 시험대에 오른 것으로 평가됩니다.</div>
       
       <div class="n-src">
         
-        <a href="https://www.marketwatch.com/story/oil-prices-rise-stock-futures-dip-after-latest-flare-up-of-strikes-between-u-s-and-iran-fef7f856?mod=mw_rss_topstories" target="_blank"><span class="paper">MarketWatch</span><span class="src-date">2026-07-13</span>Oil prices rise, stock futures dip after latest flare-up of strikes between U.S. and Iran</a>
+        <a href="https://www.cnbc.com/2026/07/13/spacex-spcx-stock-ipo-price.html" target="_blank"><span class="paper">CNBC</span><span class="src-date">2026-07-13</span>SpaceX stock sinks for a second-straight day, nearing $135 IPO price</a>
         
-        <a href="https://www.investing.com/news/economy-news/morning-bid-oil-swept-along-on-troubled-waters-4787418" target="_blank"><span class="paper">Investing</span><span class="src-date">2026-07-13</span>Morning Bid: Oil swept along on troubled waters</a>
+        <a href="https://www.marketwatch.com/story/spacexs-stock-threatens-to-fall-below-the-ipo-price-do-investors-face-a-crisis-if-it-does-2f330b09?mod=mw_rss_topstories" target="_blank"><span class="paper">MarketWatch</span><span class="src-date">2026-07-13</span>SpaceX’s stock threatens to fall below the IPO price. Do investors face a ‘crisis’ if it does?</a>
         
       </div>
       
     </div>
     
     <div class="news">
-      <div class="n-title">TSMC 호실적에도 반도체 흔들</div>
-      <div class="n-body">세계 최대 파운드리인 TSMC가 6월 매출에서 전년 대비 68% 성장을 기록했으나, 국내 시장에서는 SK하이닉스 발 수급 왜곡 우려가 시장을 지배했습니다. 호실적 소식에도 불구하고 아시아권 반도체 전반의 동조화 강도가 차별화되는 흐름이 관찰됩니다.</div>
+      <div class="n-title">금리 우려 속 기술주 하락</div>
+      <div class="n-body">크리스토퍼 월러 연준 이사가 근원 인플레이션이 예상을 웃돌 경우 금리 인상 가능성을 열어두어야 한다고 언급하면서 글로벌 긴축 경계감이 다시 자극되었습니다. 지정학적 리스크 심화와 금리 불안이 겹쳐 샌디스크 등 칩메이커 주가가 일제히 하락하는 등 월가의 위험자산 회피 성향이 뚜렷해지고 있습니다.</div>
       
       <div class="n-src">
         
-        <a href="https://www.cnbc.com/2026/07/13/tsmc-june-revenue-rises-percent-ahead-second-quarter.html" target="_blank"><span class="paper">CNBC</span><span class="src-date">2026-07-13</span>TSMC, the world's largest contract chipmaker, reports 68% surge in June revenue</a>
+        <a href="https://www.investing.com/news/economy-news/sp-500-nasdaq-futures-decline-as-usiran-escalation-rattles-sentiment-4787753" target="_blank"><span class="paper">Investing</span><span class="src-date">2026-07-13</span>Wall Street ends lower as Iran tensions dampen risk appetite; chipmakers drop</a>
+        
+        <a href="https://www.marketwatch.com/story/sandisks-stock-is-plunging-but-some-analysts-are-getting-even-more-bullish-cba3472f?mod=mw_rss_topstories" target="_blank"><span class="paper">MarketWatch</span><span class="src-date">2026-07-13</span>Sandisk’s stock is plunging, but some analysts are getting even more bullish</a>
         
       </div>
       
@@ -255,13 +278,13 @@
     <h3 class="sub ntr">개장 전 관전포인트</h3>
     
     <div class="insight">
-      <div class="i-title">SK하이닉스 폭락 이후의 수급 진정세</div>
-      <div class="i-detail">역대급 폭락세를 기록한 반도체 섹터의 추가 매물 압박이 완화되는지, 외국인의 순매도 강도가 둔화되는지 여부가 지수 하방 지지선의 척도로 보입니다.</div>
+      <div class="i-title">트럼프발 지정학 리스크와 국제 유가 연동 흐름</div>
+      <div class="i-detail">트럼프의 호르무즈 해협 통행료 부과 및 봉쇄 재개 방침으로 WTI가 9.21% 폭등한 가운데, 국내 증시에서 S-Oil 등 정유주의 반사 수혜 여부와 유가 급등에 따른 석유화학 등 한계 기업들의 비용 압박 강도가 주요 쟁점이 될 것으로 보입니다.</div>
     </div>
     
     <div class="insight">
-      <div class="i-title">중동 발 국제유가 상승의 고착화 우려</div>
-      <div class="i-detail">WTI 및 브렌트유가 3% 안팎으로 급등하는 등 유가 흐름의 불안정성이 국내 채권 금리 상승과 수입 단가 인상을 자극할 수 있어 주시할 만합니다.</div>
+      <div class="i-title">반도체 대형주 저가 매수세 유입 여부</div>
+      <div class="i-detail">직전 거래일 반도체와 반도체장비 업종이 12.56% 폭락하며 투심이 무너진 상황이나, TSMC가 인공지능 수요 폭발로 월간 매출 신기록을 경신했다는 소식이 전해진 만큼 삼성전자와 SK하이닉스에 외국인 수급이 복귀할 수 있을지 관전 포인트로 꼽힙니다.</div>
     </div>
     
     
@@ -271,16 +294,23 @@
     
     <div class="cp">
       <div class="cp-head">
-        <span class="cp-date">2026-07-13</span>에코프로 그룹 결산실적 공시 및 기업설명회 예고
+        <span class="cp-date">2026-07-14</span>미국 6월 소비자물가(CPI) 발표 및 연준 통화정책 회의
       </div>
-      <div class="cp-watch"><b>관전포인트</b> · 에코프로, 에코프로에이치엔, 에코프로머티 등이 향후 가이드라인을 구체화하는 국면에서 2차전지 전반의 투심 개선으로 연결될 수 있을지 점검할 만합니다.</div>
+      <div class="cp-watch"><b>관전포인트</b> · 월러 이사의 긴축 재개 검토 발언으로 물가 경계감이 극대화된 가운데, 예상치를 웃도는 지표가 발표될 경우 금리 인하 기대 후퇴와 고금리 장기화 우려가 국내 금융시장의 외인 자금 이탈을 부추길지 관찰이 필요해 보입니다.</div>
     </div>
     
     <div class="cp">
       <div class="cp-head">
-        <span class="cp-date">2026-07-13</span>조선·방산 주요 기업의 2분기 실적 시즌 예고
+        <span class="cp-date">2026-07-14</span>미국 대형 은행들의 2분기 실적 발표 돌입
       </div>
-      <div class="cp-watch"><b>관전포인트</b> · 한화에어로스페이스 및 한화오션이 IR 일정을 예고하면서, 지정학적 불확실성 속에서 수주 잔고가 실적으로 가시화되는 흐름을 지켜볼 여지가 있어 보입니다.</div>
+      <div class="cp-watch"><b>관전포인트</b> · 뱅크오브아메리카, JP모건, 골드만삭스 등의 실적이 발표될 예정인 가운데, 최근 스페이스X IPO 등 투자은행 수수료 수익 증가에 기반한 어닝 서프라이즈 여부가 글로벌 금융주 섹터 전반의 투자심리를 지지해줄지 지켜볼 만합니다.</div>
+    </div>
+    
+    <div class="cp">
+      <div class="cp-head">
+        <span class="cp-date">2026-07-15</span>미국 6월 생산자물가(PPI) 발표
+      </div>
+      <div class="cp-watch"><b>관전포인트</b> · 원자재 및 제조 단가의 흐름을 보여주는 생산자물가의 추이가 향후 수입 물가 압력 조절과 기업 마진 보존 가능성을 판단하는 가이드가 될 것으로 예상됩니다.</div>
     </div>
     
     
@@ -293,18 +323,18 @@
     <h2>주목할 공시·실적</h2>
     
     <div class="insight">
-      <div class="i-title">[조선·방산] 실적 공시 진입 및 실적 방어력 확인 예고</div>
-      <div class="i-detail">한화에어로스페이스와 한화오션이 결산실적 공시예고와 IR 개최 계획을 제출했습니다. 지정학적 위기 속에 방산 수출 모멘텀과 고부가가치 선박 인도가 2분기 실적 개선으로 견고하게 반영될지 관찰하는 관점이 요구됩니다.</div>
+      <div class="i-title">[조선·방산] 한화에어로스페이스·한화오션 실적 공시 및 IR 예고</div>
+      <div class="i-detail">한화에어로스페이스와 한화오션이 2분기 결산실적 공시 예고 및 기업설명회(IR) 개최 일정을 공시했습니다. 중동 지정학적 갈등 격화로 방산 부문의 수주 지속 가능성과 조선 부문의 고가 수주 잔고 반영 여부가 향후 주가의 버팀목 역할을 해줄지 주목되는 시점입니다.</div>
     </div>
     
     <div class="insight">
-      <div class="i-title">[2차전지] 에코프로 그룹주 실적 공시 가시성 타진</div>
-      <div class="i-detail">에코프로 및 계열사들이 일제히 실적 예고를 공시하며 투자설명회 계획을 수립했습니다. 캐즘 우려 속 배터리 원소재 가격 변동이 마진율에 미친 실질적 영향력을 사전 검토하는 기회가 될 것으로 보입니다.</div>
+      <div class="i-title">[반도체·장비] 서울반도체·테크윙 등 잠정실적 제출</div>
+      <div class="i-detail">서울반도체, 서울바이오시스, 테크윙 등 정보기술 장비·부품주들이 일제히 연결 기준 잠정 영업실적을 공시했습니다. 대형 반도체주 폭락 여파 속에서 실적 가시성이 뚜렷한 개별 부품·장비 기업으로 수급이 선별 분산될 수 있을지 지켜볼 부분입니다.</div>
     </div>
     
     <div class="insight">
-      <div class="i-title">[자동차·건설] 경기 민감 제조 대형주 실적 예고</div>
-      <div class="i-detail">현대건설과 한온시스템 등이 잠정실적 예고 공시를 제출하며 본격적인 2분기 성적표 공개를 준비하고 있습니다. 고금리와 원자재가 상승 압박 속에서 이익 체력을 얼마나 유지했을지가 관전 포인트로 보입니다.</div>
+      <div class="i-title">[2차전지] 에코프로 그룹사 실적 예고와 하반기 가이드라인 기대</div>
+      <div class="i-detail">에코프로, 에코프로에이치엔, 에코프로머티 등이 일제히 결산실적공시예고 및 IR 안내공시를 접수했습니다. 최근 정체 국면을 겪고 있는 전기차 및 배터리 공급망 내에서 하반기 턴어라운드 전망을 선제적으로 제시할지가 해당 테마의 반등 계기가 될지 가늠할 기회로 판단됩니다.</div>
     </div>
     
   </div>
@@ -317,20 +347,20 @@
   
   <div class="sec">
     <h2>국내 증시</h2>
-    <div class="key">반도체 대형주 투매에 코스피 3%대 폭락 마감</div>
+    <div class="key">반도체 폭락 속 코스피 6,800선 붕괴, 외국인·기관 동반 대규모 매도</div>
     <table>
       <tr><th>지수</th><th class="num">종가</th><th class="num">등락률</th></tr>
       
         
         
-        <tr><td>코스피</td><td class="num"><b>7244.49</b></td>
-            <td class="num"><span class="down">▼ -3.10%</span></td></tr>
+        <tr><td>코스피</td><td class="num"><b>6806.93</b></td>
+            <td class="num"><span class="down">▼ -8.95%</span></td></tr>
         
       
         
         
-        <tr><td>코스닥</td><td class="num"><b>836.68</b></td>
-            <td class="num"><span class="down">▼ -0.09%</span></td></tr>
+        <tr><td>코스닥</td><td class="num"><b>799.36</b></td>
+            <td class="num"><span class="down">▼ -4.55%</span></td></tr>
         
       
     </table>
@@ -350,7 +380,7 @@
             
             <td class="num">
             
-              <span class="up">+38,822</span>
+              <span class="up">+38,869</span>
               
             
             </td>
@@ -358,7 +388,7 @@
             
             <td class="num">
             
-              <span class="down">-16,850</span>
+              <span class="down">-16,705</span>
               
             
             </td>
@@ -366,7 +396,7 @@
             
             <td class="num">
             
-              <span class="down">-22,194</span>
+              <span class="down">-22,338</span>
               
             
             </td>
@@ -382,7 +412,7 @@
             
             <td class="num">
             
-              <span class="up">+2,113</span>
+              <span class="up">+1,833</span>
               
             
             </td>
@@ -398,7 +428,7 @@
             
             <td class="num">
             
-              <span class="up">+1,737</span>
+              <span class="up">+1,843</span>
               
             
             </td>
@@ -410,7 +440,7 @@
     
 
     
-    <div class="analysis"><div class="a-lbl">상세 분석</div><p>지난 거래일(2026-07-13) 코스피는 외국인(-1조 6,850억 원)과 기관(-2조 2,194억 원)의 거센 동반 매도세에 밀려 3.1% 급락한 7244.49에 장을 마쳤습니다. 코스닥 역시 -0.09%로 약보합권에 머물렀습니다. 특히 SK하이닉스 나스닥 상장 직후 역풍으로 반도체와 전자장비 업종이 10%를 넘나드는 급락을 기록한 반면, 가정용기기와 화장품 등 일부 소형 내수 업종은 빨간불을 켜며 부분적인 방어력을 드러냈습니다.</p></div>
+    <div class="analysis"><div class="a-lbl">상세 분석</div><p>지난 거래일(2026-07-13) 코스피는 전 거래일 대비 8.95% 대폭락한 6806.93에 장을 마치며 충격을 안겼습니다. 외국인과 기관이 각각 1조 6,705억 원, 2조 2,338억 원의 매도 폭탄을 쏟아낸 가운데, 코스닥 역시 4.55% 급락한 799.36으로 주저앉았습니다. 반도체와 전기장비 등 대표 수출 섹터가 8~15%대 급락세를 주도한 반면, 가정용기기와 전자제품 등 일부 내수 섹터만 방어적인 흐름을 보였습니다.</p></div>
     
   </div>
   
@@ -419,7 +449,7 @@
   
   <div class="sec">
     <h2>거시·채권·금리</h2>
-    <div class="key">한·미 금리차 긴장감 속 국채 금리 상승세 동반 자극</div>
+    <div class="key">한미 기준금리차 1.25%p 속 달러인덱스 반등 및 환율 고공행진 지속</div>
     <div class="key" style="background:#fafbfc;border-left-color:#8a94a3;color:#8a94a3;">
       같은 지표는 같은 행에서 한·미를 비교합니다. 한쪽에만 있는 지표는 ― 로 표시됩니다.
       미국 지표 옆 날짜는 발표 기준월입니다.
@@ -434,15 +464,15 @@
       <tr>
         <td>기준금리</td>
         <td class="num"><b>2.5%</b></td>
-        <td class="num"><b>―</b>
-          </td>
+        <td class="num"><b>3.75%</b>
+          <div style="color:#8a94a3;font-size:11px;font-weight:400;">2026-07-13</div></td>
       </tr>
       <!-- 국채 2년물 (미국만) -->
       <tr>
         <td>국채 2년물</td>
         <td class="num"><b>―</b></td>
-        <td class="num"><b>―</b>
-          </td>
+        <td class="num"><b>4.21%</b>
+          <div style="color:#8a94a3;font-size:11px;font-weight:400;">2026-07-10</div></td>
       </tr>
       <!-- 국고채 3년물 (한국만) -->
       <tr>
@@ -454,112 +484,164 @@
       <tr>
         <td>국채 10년물</td>
         <td class="num"><b>4.26%</b></td>
-        <td class="num"><b>―</b>
-          </td>
+        <td class="num"><b>4.56%</b>
+          <div style="color:#8a94a3;font-size:11px;font-weight:400;">2026-07-10</div></td>
       </tr>
       <!-- 소비자물가 YoY -->
       <tr>
         <td>소비자물가(YoY)</td>
         <td class="num"><b>3.16%</b></td>
-        <td class="num"><b>―</b>
-          </td>
+        <td class="num"><b>4.27%</b>
+          <div style="color:#8a94a3;font-size:11px;font-weight:400;">2026-05-01</div></td>
       </tr>
       <!-- 근원 PCE (미국만) -->
       <tr>
         <td>근원 PCE(YoY)</td>
         <td class="num"><b>―</b></td>
-        <td class="num"><b>―</b>
-          </td>
+        <td class="num"><b>3.41%</b>
+          <div style="color:#8a94a3;font-size:11px;font-weight:400;">2026-05-01</div></td>
       </tr>
-      <!-- 실업률 (미국만) -->
+      <!-- 실업률 (한·미) -->
       <tr>
         <td>실업률</td>
-        <td class="num"><b>―</b></td>
-        <td class="num"><b>―</b>
-          </td>
+        <td class="num"><b>2.8%</b></td>
+        <td class="num"><b>4.2%</b>
+          <div style="color:#8a94a3;font-size:11px;font-weight:400;">2026-06-01</div></td>
       </tr>
+
     </table>
 
     
-    <div class="analysis"><div class="a-lbl">상세 분석</div><p>지난 거래일(2026-07-13) 서울 외환시장에서 원·달러 환율은 전일 대비 10.61원 하락한 1495.3원으로 소폭 안정되었으나 여전히 심리적 저항선 부근입니다. 한국의 국고채 3년물(3.81%)과 10년물(4.26%) 금리가 나란히 상승한 가운데, 미국의 고금리 유지 상황과 중동 리스크가 맞물려 채권 매수 심리를 지속적으로 제한하는 양상이 나타나고 있습니다.</p></div>
+    <div class="analysis"><div class="a-lbl">상세 분석</div><p>한국 기준금리(2.5%)와 미국 기준금리(3.75%)의 역전 상태가 지속되는 가운데, 원달러 환율은 1497.02원으로 여전히 심리적 마지노선 부근에 머물러 있습니다. 미국채 10년물 금리가 4.61%로 고개를 들고 위험 회피를 나타내는 VIX 지수가 14.17% 급등하면서 외인 수급 이탈 압력이 높아진 상황입니다. 특히 고환율 장기화 속에서 폭등한 국제유가가 수입 물가를 자극할 경우 한국은행의 선제적 금리 인하 여지는 극히 제한적일 것으로 사료됩니다.</p></div>
     
   </div>
   
 
   <!-- 미국 실적 캘린더 -->
   
+  <div class="sec">
+    <h2>이번 주 미국 주요 실적 발표</h2>
+    <div class="key">미국 현지 발표 일정 기준입니다. EPS 예상치는 시장 컨센서스이며 확정치가 아닙니다.</div>
+    <table>
+      <tr><th>기업</th><th>발표일</th><th>시간대</th><th class="num">EPS 예상</th></tr>
+      
+      <tr>
+        <td><b>뱅크오브아메리카</b> <span style="color:#8a94a3;font-size:11px;">(BAC)</span></td>
+        <td>2026-07-14</td>
+        <td>장 시작 전</td>
+        <td class="num">$1.13</td>
+      </tr>
+      
+      <tr>
+        <td><b>씨티그룹</b> <span style="color:#8a94a3;font-size:11px;">(C)</span></td>
+        <td>2026-07-14</td>
+        <td>장 시작 전</td>
+        <td class="num">$2.76</td>
+      </tr>
+      
+      <tr>
+        <td><b>골드만삭스</b> <span style="color:#8a94a3;font-size:11px;">(GS)</span></td>
+        <td>2026-07-14</td>
+        <td>장 시작 전</td>
+        <td class="num">$14.46</td>
+      </tr>
+      
+      <tr>
+        <td><b>JP모건</b> <span style="color:#8a94a3;font-size:11px;">(JPM)</span></td>
+        <td>2026-07-14</td>
+        <td>장 시작 전</td>
+        <td class="num">$5.74</td>
+      </tr>
+      
+      <tr>
+        <td><b>웰스파고</b> <span style="color:#8a94a3;font-size:11px;">(WFC)</span></td>
+        <td>2026-07-14</td>
+        <td>장 시작 전</td>
+        <td class="num">$1.73</td>
+      </tr>
+      
+      <tr>
+        <td><b>넷플릭스</b> <span style="color:#8a94a3;font-size:11px;">(NFLX)</span></td>
+        <td>2026-07-16</td>
+        <td>장 마감 후</td>
+        <td class="num">$0.80</td>
+      </tr>
+      
+    </table>
+  </div>
+  
 
   <!-- 간밤 미국·글로벌 -->
   
   <div class="sec">
     <h2>간밤 미국·글로벌</h2>
-    <div class="key">지정학적 우려 속 유가 급등과 기술주 변동성 노출</div>
+    <div class="key">트럼프의 호르무즈 통행료 부과 방침에 나스닥 1.55% 하락 및 유가 9% 폭등</div>
     <table>
       <tr><th>지표</th><th class="num">종가</th><th class="num">등락률</th></tr>
       
         
-        <tr><td>다우</td><td class="num"><b>52637.01</b></td>
-            <td class="num"><span class="up">▲ +0.29%</span></td></tr>
+        <tr><td>다우</td><td class="num"><b>52498.64</b></td>
+            <td class="num"><span class="down">▼ -0.26%</span></td></tr>
         
       
         
-        <tr><td>S&P500</td><td class="num"><b>7575.39</b></td>
-            <td class="num"><span class="up">▲ +0.42%</span></td></tr>
+        <tr><td>S&P500</td><td class="num"><b>7515.34</b></td>
+            <td class="num"><span class="down">▼ -0.79%</span></td></tr>
         
       
         
-        <tr><td>나스닥</td><td class="num"><b>26281.61</b></td>
-            <td class="num"><span class="up">▲ +0.29%</span></td></tr>
+        <tr><td>나스닥</td><td class="num"><b>25873.18</b></td>
+            <td class="num"><span class="down">▼ -1.55%</span></td></tr>
         
       
         
-        <tr><td>닛케이</td><td class="num"><b>67242.73</b></td>
-            <td class="num"><span class="down">▼ -1.92%</span></td></tr>
+        <tr><td>닛케이</td><td class="num"><b>68557.73</b></td>
+            <td class="num"><span class="up">▲ +1.20%</span></td></tr>
         
       
         
-        <tr><td>상해종합</td><td class="num"><b>3913.79</b></td>
-            <td class="num"><span class="down">▼ -2.06%</span></td></tr>
+        <tr><td>상해종합</td><td class="num"><b>3996.16</b></td>
+            <td class="num"><span class="down">▼ -1.00%</span></td></tr>
         
       
         
-        <tr><td>원달러</td><td class="num"><b>1495.3</b></td>
-            <td class="num"><span class="down">▼ -0.70%</span></td></tr>
+        <tr><td>원달러</td><td class="num"><b>1497.02</b></td>
+            <td class="num"><span class="down">▼ -0.10%</span></td></tr>
         
       
         
-        <tr><td>WTI</td><td class="num"><b>73.48</b></td>
-            <td class="num"><span class="up">▲ +2.90%</span></td></tr>
+        <tr><td>WTI</td><td class="num"><b>77.99</b></td>
+            <td class="num"><span class="up">▲ +9.21%</span></td></tr>
         
       
         
-        <tr><td>브렌트유</td><td class="num"><b>78.31</b></td>
-            <td class="num"><span class="up">▲ +3.03%</span></td></tr>
+        <tr><td>브렌트유</td><td class="num"><b>83.15</b></td>
+            <td class="num"><span class="up">▲ +9.39%</span></td></tr>
         
       
         
-        <tr><td>금</td><td class="num"><b>4083.1</b></td>
-            <td class="num"><span class="down">▼ -0.51%</span></td></tr>
+        <tr><td>금</td><td class="num"><b>4010.0</b></td>
+            <td class="num"><span class="down">▼ -2.29%</span></td></tr>
         
       
         
-        <tr><td>VIX</td><td class="num"><b>16.26</b></td>
-            <td class="num"><span class="up">▲ +8.18%</span></td></tr>
+        <tr><td>VIX</td><td class="num"><b>17.16</b></td>
+            <td class="num"><span class="up">▲ +14.17%</span></td></tr>
         
       
         
-        <tr><td>미국채10년</td><td class="num"><b>4.57</b></td>
-            <td class="num"><span class="up">▲ +0.66%</span></td></tr>
+        <tr><td>미국채10년</td><td class="num"><b>4.61</b></td>
+            <td class="num"><span class="up">▲ +0.88%</span></td></tr>
         
       
         
-        <tr><td>달러인덱스</td><td class="num"><b>100.85</b></td>
-            <td class="num"><span class="down">▼ -0.12%</span></td></tr>
+        <tr><td>달러인덱스</td><td class="num"><b>101.28</b></td>
+            <td class="num"><span class="up">▲ +0.30%</span></td></tr>
         
       
     </table>
     
-    <div class="analysis"><div class="a-lbl">상세 분석</div><p>간밤 미국 증시는 다우(+0.29%)와 나스닥(+0.29%)이 소폭 상승했으나, 주말 사이 고조된 미-이란 물리적 갈등에 미국 지수 선물이 압박을 받는 등 심리는 다소 위축되었습니다. TSMC의 탁월한 매출 기록에도 불구하고 SK하이닉스의 폭락세가 서울 증시를 흔들며 글로벌 공급망 및 기술주 전반에 센티먼트 균열이 발생하고 있는 점이 눈에 띕니다.</p></div>
+    <div class="analysis"><div class="a-lbl">상세 분석</div><p>간밤 뉴욕증시는 지정학적 리스크 부각으로 일제히 하락 마감했습니다. 도널드 트럼프 전 대통령의 이란 해상 봉쇄 재개와 호르무즈 해협 통행료 부과 발언이 도화선이 되어 WTI 유가가 9.21% 폭등했습니다. 이에 인플레이션 우려가 자극되며 나스닥이 1.55% 내렸고, 신규 상장주인 스페이스X가 연일 급락하며 공모가 135달러 선에 근접해 기술주 투심을 악화시켰습니다.</p></div>
     
   </div>
   
@@ -569,7 +651,7 @@
   <div class="sec">
     <h2>리스크 요인</h2>
     <div class="risk"><ul>
-      <li>나스닥 상장 이벤트 종료 이후 SK하이닉스 발 수급 왜곡의 국내 반도체 생태계 전파 리스크</li><li>중동 발 에너지 지정학적 충돌 심화로 인한 국제유가 급등과 수입 원자재 가격 전가 우려</li>
+      <li>트럼프발 대이란 해상 봉쇄 추진에 따른 글로벌 고유가 장기화 및 인플레이션 2차 스파이크 가능성</li><li>코스피 급락에 따른 신용 거래 및 레버리지 ETF 투자자들의 반대매매 등 연쇄 수급 교란 위험</li>
     </ul></div>
   </div>
   
@@ -578,7 +660,7 @@
   
   <div class="sec">
     <h2>오늘의 관전 코멘트</h2>
-    <div class="comment">반도체 중심의 외국인 수급 변동성이 제어되는 것을 확인하기 전까지는, 실적 가시성이 뚜렷한 방산 및 방어주 위주의 관망 흐름이 자연스러워 보입니다.</div>
+    <div class="comment">지정학적 불확실성과 고환율 국면이 중첩되고 있으므로 방어적 가치주 중심의 압축 포트폴리오를 유지하는 것이 바람직해 보입니다.</div>
     <div class="comment-note">※ 위 내용은 시장 상황에 대한 관점·참고 정보이며, 특정 종목의 매매를 권유하지 않습니다. 투자 판단과 책임은 이용자 본인에게 있습니다.</div>
   </div>
   
