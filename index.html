@@ -563,19 +563,53 @@
       a.addEventListener('click', function(){ navMenu.classList.remove('open'); });
     });
 
-    /* ================= 최신 레터 전체 보기 토글 ================= */
+    /* ================= 최신 레터 전체 보기 토글 + iframe 높이 자동맞춤 ================= */
     (function(){
-      var btn = document.getElementById('expandBtn');
-      var wrap = document.getElementById('letterWrap');
-      if (btn && wrap) {
-        btn.addEventListener('click', function(){
-          var opened = wrap.classList.toggle('open');
-          btn.classList.toggle('open', opened);
-          var label = btn.querySelector('.btn-label');
-          if (label) label.textContent = opened ? '접기' : '전체 보기';
-          if (opened) gtag('event','expand_letter',{event_category:'engagement',event_label:'latest_preview'});
-        });
+      var btn   = document.getElementById('expandBtn');
+      var wrap  = document.getElementById('letterWrap');
+      var frame = document.getElementById('letterFrame');
+      if (!btn || !wrap || !frame) return;
+
+      // iframe 내부 콘텐츠 실제 높이에 맞춰 iframe height 조정 (잘림 방지)
+      function fitFrameHeight(){
+        try {
+          var doc = frame.contentDocument || frame.contentWindow.document;
+          if (!doc || !doc.body) return;
+          var h = Math.max(
+            doc.body.scrollHeight, doc.documentElement.scrollHeight,
+            doc.body.offsetHeight, doc.documentElement.offsetHeight
+          );
+          if (h > 0) frame.style.height = h + 'px';
+        } catch (e) { /* 크로스오리진 등 실패 시 기존 높이 유지 */ }
       }
+
+      // iframe 로드 후, 그리고 폰트/이미지 로딩까지 감안해 한 번 더 보정
+      frame.addEventListener('load', function(){
+        fitFrameHeight();
+        setTimeout(fitFrameHeight, 300);
+        setTimeout(fitFrameHeight, 1000);
+      });
+      // 창 크기 변경(반응형 전환) 시 재계산
+      window.addEventListener('resize', function(){
+        clearTimeout(window.__fitTimer);
+        window.__fitTimer = setTimeout(fitFrameHeight, 200);
+      });
+      // 이미 로드된 경우 대비
+      if (frame.contentDocument && frame.contentDocument.readyState === 'complete') {
+        fitFrameHeight();
+      }
+
+      // 전체 보기 / 접기 토글
+      btn.addEventListener('click', function(){
+        var opened = wrap.classList.toggle('open');
+        btn.classList.toggle('open', opened);
+        var label = btn.querySelector('.btn-label');
+        if (label) label.textContent = opened ? '접기' : '전체 보기';
+        if (opened) {
+          fitFrameHeight(); // 펼칠 때 높이 다시 맞춰 잘림 방지
+          gtag('event','expand_letter',{event_category:'engagement',event_label:'latest_preview'});
+        }
+      });
     })();
 
     /* ================= 스크롤 쓰기 중복 방지 최적화 스택 (Zero-Overhead) ================= */
