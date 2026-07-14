@@ -265,6 +265,11 @@
     }
     .subscribe-form input[type="email"] { padding:15px 16px; font-size:15px; }
     .subscribe-form .cta { width:100%; }
+    /* [신규] 모바일 미리보기 iframe 좌우 여백 완전 제거 → iframe 폭 최대 확보 */
+    #latest .inner { padding:0; }
+    #latest .mail-frame { border-radius:0; border-left:0; border-right:0; max-width:100%; }
+    #latest .mail-body { padding:0; }
+    #latest .letter-wrap { border-radius:0; }
   }
 </style>
 </head>
