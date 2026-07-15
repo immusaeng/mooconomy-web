@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Daily 'Moo'conomy · 잠든 사이 움직인 지표와 뉴스, 매일 아침 배달</title>
 <meta name="description" content="코스피·코스닥·나스닥·환율·유가까지, 잠든 사이 움직인 지표와 뉴스를 매일 아침 3줄로 정리해 배달하는 무료 경제 뉴스레터.">
+<link rel="canonical" href="https://mooconomy.co.kr">
+
 <!-- 카카오톡·SNS 공유 미리보기 (Open Graph) -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="매일 아침, 경제를 3줄로 · Daily 'Moo'conomy">
@@ -12,12 +14,29 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/immusaeng/mooconomy-assets/main/og_mooconomy.png">
 <meta property="og:url" content="https://mooconomy.co.kr">
 
-<!-- Pretendard 고가치 서체 및 외부 에셋 로드 -->
+<!-- Twitter 카드 -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="매일 아침, 경제를 3줄로 · Daily 'Moo'conomy">
+<meta name="twitter:description" content="밤사이 움직인 코스피·나스닥·환율·유가를 매일 아침 딱 3줄로.">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/immusaeng/mooconomy-assets/main/og_mooconomy.png">
+
+<!-- JSON-LD 구조화 데이터 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Daily 'Moo'conomy",
+  "url": "https://mooconomy.co.kr",
+  "description": "잠든 사이 움직인 지표와 뉴스를 매일 아침 3줄로 정리해 배달하는 무료 경제 뉴스레터."
+}
+</script>
+
+<!-- Pretendard 서체 -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
-<!-- Lucide 아이콘 패키지 -->
-<script src="https://unpkg.com/lucide@latest"></script>
-<!-- Chart.js 라이브러리 (대시보드 전용) -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!-- Lucide 아이콘 (버전 고정) -->
+<script src="https://cdn.jsdelivr.net/npm/lucide@0.454.0/dist/umd/lucide.min.js"></script>
+<!-- Chart.js (대시보드 전용) -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
 
 <!-- Google Analytics (GA4) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZXRTZK2KTN"></script>
@@ -31,11 +50,13 @@
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
   :root {
-    --navy:#0b2545; --navy2:#13315c; 
+    --navy:#0b2545; --navy2:#13315c;
     --gold:#f5b301;
     --gold-d:#d9a441;
     --ink:#1b2733; --gray:#5a6b82; --line:#e3e8ef; --bg:#f4f6f9;
     --nav-h:60px; --ticker-h:40px;
+    --up-red:#d32f2f;
+    --down-blue:#1565c0;
   }
   html { scroll-behavior:smooth; }
   body {
@@ -50,14 +71,13 @@
   .anchor { scroll-margin-top:calc(var(--nav-h) + var(--ticker-h) + 12px); }
   .sec-num { font-size:12px; letter-spacing:2px; color:var(--gold-d); font-weight:800; margin-bottom:14px; text-align:center; }
 
-  /* ── 상단 고정 네비 ── */
   .topbar { position:fixed; top:0; left:0; right:0; z-index:100; }
   .nav {
     height:var(--nav-h); background:rgba(11,37,69,.96); backdrop-filter:blur(8px);
     display:flex; align-items:center; justify-content:space-between; padding:0 40px; position:relative;
     transition:height .25s ease;
   }
-  .nav .logo-wrap { display:flex; align-items:center; gap:10px; text-decoration:none; z-index:2; }
+  .nav .logo-wrap { display:flex; align-items:center; gap:10px; text-decoration:none; z-index:2; cursor:pointer; }
   .nav .logo-wrap img { width:30px; transition:width .25s ease; }
   .nav .logo-wrap .nm { color:#fff; font-weight:800; font-size:16px; }
   .nav .logo-wrap .nm .moo { color:var(--gold); }
@@ -73,47 +93,20 @@
                   font-size:12.5px; font-weight:800; letter-spacing:.5px; text-decoration:none; z-index:2; border:0; cursor:pointer; }
   .nav .menu-btn { display:none; background:none; border:none; color:#fff; font-size:22px; cursor:pointer; z-index:2; }
 
-  /* ── 모바일 전용 고정 하단 탭 내비게이션 ── */
   .mobile-nav {
-    display: none;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 62px;
-    background: rgba(11, 37, 69, 0.98);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    z-index: 1000;
-    align-items: center;
-    justify-content: space-around;
-    padding: 0 10px;
+    display: none; position: fixed; bottom: 0; left: 0; right: 0; height: 62px;
+    background: rgba(11, 37, 69, 0.98); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1); z-index: 1000;
+    align-items: center; justify-content: space-around; padding: 0 10px;
   }
   .mobile-nav-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: #a8b2c1;
-    text-decoration: none;
-    font-size: 9px;
-    font-weight: 700;
-    gap: 4px;
-    flex: 1;
-    height: 100%;
-    transition: 0.15s;
-    cursor: pointer;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    color: #a8b2c1; text-decoration: none; font-size: 9px; font-weight: 700; gap: 4px;
+    flex: 1; height: 100%; transition: 0.15s; cursor: pointer; background:none; border:none;
   }
-  .mobile-nav-item.active {
-    color: var(--gold);
-  }
-  .mobile-nav-item i {
-    width: 20px;
-    height: 20px;
-  }
+  .mobile-nav-item.active { color: var(--gold); }
+  .mobile-nav-item i { width: 20px; height: 20px; }
 
-  /* ── 상단 지표 티커 ── */
   .ticker { height:var(--ticker-h); background:var(--navy2); border-top:1px solid rgba(255,255,255,.08); overflow:hidden; display:flex; align-items:center; transition:height .25s ease, opacity .25s ease; }
   .ticker .track { display:flex; white-space:nowrap; animation:scroll 34s linear infinite; }
   .ticker:hover .track { animation-play-state:paused; }
@@ -125,11 +118,9 @@
 
   .spacer { height:calc(var(--nav-h) + var(--ticker-h)); }
 
-  /* ── 뷰 세션 전치 제어용 클래스 ── */
   .view-session { display: none; }
   .view-session.active { display: block; }
 
-  /* ── [VIEW 1] LANDING PAGE (홈 뷰) ── */
   .hero { background:linear-gradient(160deg,var(--navy),var(--navy2)); color:#fff; text-align:center; padding:92px 0 84px; }
   .hero .logo { width:66px; margin-bottom:22px; }
   .hero .brand { font-size:34px; font-weight:800; letter-spacing:-0.5px; margin-bottom:20px; }
@@ -138,14 +129,13 @@
   .hero h1 { font-size:40px; font-weight:800; line-height:1.4; margin-bottom:22px; }
   .hero h1 .hl { color:var(--gold); }
   .hero p.lead { font-size:17px; color:#c8d3e0; max-width:620px; margin:0 auto 36px; }
-  
+
   .cta { display:inline-block; background:var(--gold); color:var(--navy); font-size:17px; font-weight:800; padding:17px 46px; border-radius:12px; text-decoration:none; transition:.2s; box-shadow:0 8px 24px rgba(217,164,65,.35); border:0; cursor:pointer; font-family:inherit; }
   .cta:hover { background:var(--gold-d); transform:translateY(-2px); }
   .hero .subnote { font-size:13px; color:#9fb0c4; margin-top:18px; }
-  .hero .preview-jump { display:inline-block; margin-top:16px; color:#c8d3e0; font-size:14px; font-weight:600; text-decoration:underline; text-underline-offset:3px; }
+  .hero .preview-jump { display:inline-block; margin-top:16px; color:#c8d3e0; font-size:14px; font-weight:600; text-decoration:underline; text-underline-offset:3px; cursor:pointer; }
   .hero .preview-jump:hover { color:#fff; }
 
-  /* 인라인 구독 폼 */
   .subscribe-form { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; max-width:520px; margin:0 auto; }
   .subscribe-form .field { flex:1; min-width:240px; }
   .subscribe-form input[type="email"] {
@@ -162,21 +152,18 @@
     width:1px !important; height:1px !important; opacity:0 !important; pointer-events:none;
   }
 
-  /* section headings */
   .c3-badge { display:inline-block; background:var(--navy); color:var(--gold); font-size:12.5px; font-weight:700; letter-spacing:1px; padding:8px 18px; border-radius:20px; margin-bottom:18px; }
   .sec-title { font-size:30px; font-weight:800; line-height:1.4; margin-bottom:10px; text-align:center; }
   .sec-title .hl { color:var(--gold-d); }
   .sec-sub { font-size:16px; color:var(--gray); margin-bottom:52px; text-align:center; }
   .center { text-align:center; }
 
-  /* PROBLEM */
   .grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
   .prob-item { background:var(--bg); border-radius:16px; padding:34px 28px; border-top:4px solid var(--navy); }
   .prob-n { width:42px; height:42px; border-radius:11px; background:var(--navy); color:var(--gold); font-weight:800; font-size:17px; display:flex; align-items:center; justify-content:center; margin-bottom:20px; }
   .prob-item h3 { font-size:18px; font-weight:800; margin-bottom:12px; line-height:1.45; }
   .prob-item p { font-size:14.5px; color:var(--gray); }
 
-  /* WHY / 3C */
   .why { background:#fafbfd; }
   .why-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:34px 28px; border-left:5px solid var(--gold); box-shadow:0 4px 16px rgba(11,37,69,.05); }
   .why-card .why-en { font-size:12px; letter-spacing:2px; font-weight:800; color:var(--gold-d); margin-bottom:8px; }
@@ -184,7 +171,6 @@
   .why-card h3 .em { color:var(--gold-d); }
   .why-card p { font-size:14.5px; color:var(--gray); }
 
-  /* LATEST */
   .latest-sec { background:var(--bg); }
   .mail-frame { max-width:920px; margin:0 auto; background:#e8ecf2;
     border-radius:16px; overflow:hidden; box-shadow:0 12px 36px rgba(11,37,69,.12); border:1px solid var(--line); }
@@ -207,7 +193,6 @@
   .expand-btn .chev { display:inline-block; transition:transform .3s ease; }
   .expand-btn.open .chev { transform:rotate(180deg); }
 
-  /* FINAL CTA */
   .final { background:linear-gradient(160deg,var(--navy),var(--navy2)); color:#fff; text-align:center; padding:96px 0; }
   .final h2 { font-size:32px; font-weight:800; line-height:1.4; margin-bottom:18px; }
   .final h2 .hl { color:var(--gold); }
@@ -221,25 +206,23 @@
   .qr-box img { width:96px; height:96px; border-radius:8px; padding:5px; background:#fff; }
   .qr-box .qt { font-size:13px; color:#c8d3e0; text-align:left; line-height:1.5; font-weight:600; }
 
-  /* ── [VIEW 2] MARKETS INTERACTIVE TERMINAL (대시보드 뷰) ── */
   .markets-session { background: #fafbfc; min-height: calc(100vh - var(--nav-h) - var(--ticker-h)); }
   .markets-inner { max-width: 1040px; margin: 0 auto; padding: 40px 20px 96px; }
   .db-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 24px; }
   .db-header h1 { font-size: 24px; font-weight: 800; color: var(--navy); display: flex; align-items: center; gap: 8px; }
   .db-header p { font-size: 13.5px; color: var(--gray); margin-top: 4px; }
   .db-header .update-time { font-size: 12px; color: var(--gray); font-weight: 500; }
-  
-  .live-dot {
-    width: 8px; height: 8px; background-color: #2e7d32; border-radius: 50%; display: inline-block;
-    animation: pulse-dot 1.8s infinite;
-  }
+
+  .live-dot { width: 8px; height: 8px; background-color: #2e7d32; border-radius: 50%; display: inline-block; animation: pulse-dot 1.8s infinite; }
   @keyframes pulse-dot {
     0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 125, 50, 0.7); }
     70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(46, 125, 50, 0); }
     100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 125, 50, 0); }
   }
 
-  /* 탭 시스템 */
+  .demo-banner { background:#fff8e1; border:1px solid #f5d97e; color:#8a6d00; font-size:12.5px; font-weight:700; padding:9px 14px; border-radius:8px; margin-bottom:18px; display:none; }
+  .demo-banner.show { display:block; }
+
   .tabs-wrapper {
     background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 6px;
     display: flex; gap: 4px; margin-bottom: 24px; overflow-x: auto; white-space: nowrap;
@@ -252,7 +235,6 @@
   .tab-btn.active { background: var(--navy); color: #fff; }
   .tab-btn.disabled { opacity: 0.45; cursor: not-allowed; }
 
-  /* 데이터 HUD 요약 카드 */
   .hud-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: 24px; }
   .hud-item { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 16px 20px; box-shadow:0 2px 10px rgba(0,0,0,.02); }
   .hud-item .lbl { font-size: 11.5px; color: var(--gray); font-weight: 700; text-transform: uppercase; letter-spacing: .5px; }
@@ -260,20 +242,16 @@
   .hud-item .val.up { color: var(--up-red); }
   .hud-item .val.down { color: var(--down-blue); }
 
-  /* 차트 패널 */
   .chart-card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.02); }
   .chart-container { position: relative; height: 380px; width: 100%; }
-  
-  /* 해설 코멘터리 */
+
   .insight-box { background: #f8fafc; border-left: 4px solid var(--navy); border-radius: 0 10px 10px 0; padding: 18px 22px; margin-top: 24px; }
   .insight-box h3 { font-size: 15px; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
   .insight-box p { font-size: 13.5px; color: var(--ink); line-height: 1.7; }
 
-  /* ── FOOTER ── */
   .foot { background:#08182e; color:#8ba0b8; text-align:center; padding:32px 40px; font-size:12.5px; line-height:1.7; }
   .foot .items { color:var(--gold); font-weight:700; margin-bottom:6px; }
 
-  /* ── 토스트 ── */
   .toast {
     position:fixed; left:50%; bottom:96px; transform:translateX(-50%) translateY(20px);
     background:var(--navy); color:#fff; padding:14px 22px; border-radius:12px;
@@ -283,7 +261,6 @@
   }
   .toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
 
-  /* ── 반응형 모바일 최적화 (900px 이하) ── */
   @media (max-width:900px) {
     .grid3 { grid-template-columns:1fr; gap:18px; }
     .hero h1 { font-size:30px; }
@@ -296,7 +273,6 @@
     body.scrolled .ticker { height:0; opacity:0; border-top:0; }
     body.scrolled .spacer { height:var(--nav-h); }
 
-    /* 상단 네비 GNB 토글 모바일 전환 */
     .nav ul { position:fixed; left:0; top:calc(var(--nav-h) + var(--ticker-h)); right:0;
               transform:none; height:auto; flex-direction:column; gap:0;
               background:rgba(11,37,69,.98); padding:8px 0; display:none; }
@@ -306,21 +282,16 @@
     .nav .menu-btn { display:block; }
     .nav .nav-cta { display:none; }
 
-    /* 모바일 플랙스 레이아웃 세션 전치 렌더가드 */
     body { display:flex; flex-direction:column; }
     .topbar { order:0; }
     .spacer  { order:1; }
-    
     #view-home { order:2; }
     #view-markets { order:3; }
-    
     .foot    { order:4; }
 
-    /* 모바일 고정 하단 탭 내비게이션 활성화 (Thumb-Zone) */
     .mobile-nav { display:flex; }
     body { padding-bottom:62px; }
     .toast { bottom:82px; }
-    
     .markets-inner { padding: 20px 12px 64px; }
   }
 
@@ -332,14 +303,13 @@
     .hero p.lead { font-size:15px; }
     .qr-box { flex-direction:column; text-align:center; }
     .qr-box .qt { text-align:center; }
-    
+
     .mail-body { padding: 8px; }
     .letter-wrap { max-height:440px; border-radius: 8px; }
     .letter-wrap iframe { width:100%; height:1600px; transform:none; }
     .subscribe-form input[type="email"] { padding:15px 16px; font-size:15px; }
     .subscribe-form .cta { width:100%; }
 
-    /* 대시보드 HUD 모바일 가로 스크롤 캐러셀화 */
     .hud-grid { display: flex; overflow-x: auto; gap: 10px; padding-bottom: 8px; scroll-snap-type: x mandatory; }
     .hud-item { flex: 0 0 82%; scroll-snap-align: start; padding: 14px; }
     .hud-item .val { font-size: 20px; }
@@ -349,7 +319,6 @@
 </head>
 <body>
 
-  <!-- 상단 고정: 네비 + 지표 티커 -->
   <div class="topbar">
     <nav class="nav">
       <a class="logo-wrap" onclick="switchView('home')">
@@ -372,31 +341,23 @@
   </div>
   <div class="spacer"></div>
 
-  <!-- [모바일 전용] 엄지 최적화 4버튼 고정 하단 탭 내비게이션 (Model B 핵심) -->
   <nav class="mobile-nav">
-    <a onclick="switchView('home')" class="mobile-nav-item active" id="m-nav-home">
-      <i data-lucide="home"></i>
-      <span>홈</span>
-    </a>
-    <a onclick="switchView('markets')" class="mobile-nav-item" id="m-nav-markets">
-      <i data-lucide="line-chart"></i>
-      <span>지표보드</span>
-    </a>
-    <a onclick="switchView('home', 'latest')" class="mobile-nav-item">
-      <i data-lucide="newspaper"></i>
-      <span>최신레터</span>
-    </a>
-    <a onclick="switchView('home', 'subscribe')" class="mobile-nav-item">
-      <i data-lucide="bell"></i>
-      <span>무료구독</span>
-    </a>
+    <button onclick="switchView('home')" class="mobile-nav-item active" id="m-nav-home">
+      <i data-lucide="home"></i><span>홈</span>
+    </button>
+    <button onclick="switchView('markets')" class="mobile-nav-item" id="m-nav-markets">
+      <i data-lucide="line-chart"></i><span>지표보드</span>
+    </button>
+    <button onclick="switchView('home', 'latest')" class="mobile-nav-item" id="m-nav-latest">
+      <i data-lucide="newspaper"></i><span>최신레터</span>
+    </button>
+    <button onclick="switchView('home', 'subscribe')" class="mobile-nav-item" id="m-nav-subscribe">
+      <i data-lucide="bell"></i><span>무료구독</span>
+    </button>
   </nav>
 
-  <!-- ========================================================== -->
-  <!-- [VIEW 1] LANDING PAGE SESSION (홈 뷰) -->
-  <!-- ========================================================== -->
+  <!-- [VIEW 1] LANDING PAGE -->
   <div id="view-home" class="view-session active">
-    <!-- HERO -->
     <section class="hero" id="top">
       <div class="inner">
         <img class="logo" src="https://raw.githubusercontent.com/immusaeng/mooconomy-assets/main/bull-gold.png" alt="Daily 'Moo'conomy">
@@ -405,7 +366,6 @@
         <h1>잠든 사이 움직인 <span class="hl">지표와 뉴스</span>,<br>매일 아침 <span class="hl">3줄</span>로 배달합니다</h1>
         <p class="lead">코스피·코스닥·나스닥·환율·유가까지. 밤사이 흩어진 시장의 흐름을 하나로 모아, 오늘 꼭 알아야 할 핵심만 추려 드립니다.</p>
 
-        <!-- 인라인 구독 폼 -->
         <form class="subscribe-form" data-form="hero" novalidate>
           <div class="field">
             <input type="email" name="email" placeholder="이메일 주소를 입력하세요" autocomplete="email" required>
@@ -415,13 +375,10 @@
         </form>
 
         <div class="subnote">완전 무료 · 월~토 아침 배달 · 1초 만에 해지</div>
-        <a class="preview-jump" onclick="switchView('home', 'latest')">
-           👀 실제 배달되는 브리핑 미리 보기
-        </a>
+        <a class="preview-jump" onclick="switchView('home', 'latest')">👀 실제 배달되는 브리핑 미리 보기</a>
       </div>
     </section>
 
-    <!-- 01 THE PROBLEM -->
     <section class="sec-pad anchor" id="problem">
       <div class="inner">
         <div class="sec-num">01 / THE PROBLEM</div>
@@ -436,7 +393,7 @@
           <div class="prob-item">
             <div class="prob-n">02</div>
             <h3>정보는 봤는데, 서로 어떻게<br>연결되는지 모릅니다</h3>
-            <p>밤사이 미국 증시가 오르면 오늘 코스피엔 무슨 의미인지, 환율과 유가가 내 시장에 어떤 신호인지. 흩어진 숫자를 '마디'로 연결해 해석해주는 곳이 드웁니다.</p>
+            <p>밤사이 미국 증시가 오르면 오늘 코스피엔 무슨 의미인지, 환율과 유가가 내 시장에 어떤 신호인지. 흩어진 숫자를 '마디'로 연결해 해석해주는 곳이 드뭅니다.</p>
           </div>
           <div class="prob-item">
             <div class="prob-n">03</div>
@@ -447,7 +404,6 @@
       </div>
     </section>
 
-    <!-- 02 WHY / 3C -->
     <section class="sec-pad why anchor" id="why">
       <div class="inner">
         <div class="sec-num">02 / WHY 'Moo'conomy</div>
@@ -474,7 +430,6 @@
       </div>
     </section>
 
-    <!-- 03 LATEST ISSUE -->
     <section class="sec-pad latest-sec anchor" id="latest">
       <div class="inner">
         <div class="sec-num">03 / LATEST ISSUE</div>
@@ -497,15 +452,12 @@
       </div>
     </section>
 
-    <!-- FINAL CTA -->
     <section class="final anchor" id="subscribe">
       <div class="inner">
         <h2>내일 아침, <span class="hl">첫 메일</span>부터 확인해보세요</h2>
         <p>Daily 'Moo'conomy는 완전 무료입니다. 마음에 안 들면 메일 하단 버튼 한 번으로 1초 만에 해지할 수 있습니다.</p>
         <div class="cond">구독하면 다음 발행일 <b>(월~토) 아침</b> 첫 브리핑이 도착합니다.</div>
         <div class="sub-block">
-
-          <!-- 인라인 구독 폼 -->
           <form class="subscribe-form" data-form="final" novalidate>
             <div class="field">
               <input type="email" name="email" placeholder="이메일 주소를 입력하세요" autocomplete="email" required>
@@ -513,10 +465,7 @@
             <input type="text" name="company" class="input-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
             <button type="submit" class="cta">무료로 구독하기 →</button>
           </form>
-          <div class="consent">
-            구독 시 <a href="/privacy.html" target="_blank">개인정보 수집·이용</a>에 동의하는 것으로 간주됩니다.
-          </div>
-
+          <div class="consent">구독 시 <a href="/privacy.html" target="_blank">개인정보 수집·이용</a>에 동의하는 것으로 간주됩니다.</div>
           <div class="qr-box">
             <img src="qr_subscribe.png" alt="구독 신청 QR코드">
             <div class="qt">이미지로 보고 계신가요?<br>QR을 찍어 바로 구독하세요</div>
@@ -526,9 +475,7 @@
     </section>
   </div>
 
-  <!-- ========================================================== -->
-  <!-- [VIEW 2] MARKETS INTERACTIVE TERMINAL (대시보드 뷰) -->
-  <!-- ========================================================== -->
+  <!-- [VIEW 2] MARKETS -->
   <div id="view-markets" class="view-session view-session-markets">
     <section class="markets-session">
       <div class="markets-inner">
@@ -540,7 +487,8 @@
           <div class="update-time">최종 동기화: <span id="syncTime">불러오는 중...</span></div>
         </div>
 
-        <!-- 대시보드 탭바 -->
+        <div class="demo-banner" id="demoBanner">※ 실시간 데이터를 불러오지 못해 예시(데모) 데이터로 표시하고 있습니다. 실제 값과 다를 수 있습니다.</div>
+
         <div class="tabs-wrapper">
           <button class="tab-btn active"><i data-lucide="line-chart"></i> 장단기 금리차</button>
           <button class="tab-btn disabled" title="업데이트 준비 중"><i data-lucide="trending-up"></i> 한미 기준금리차</button>
@@ -549,9 +497,7 @@
           <button class="tab-btn disabled" title="업데이트 준비 중"><i data-lucide="shield-alert"></i> 자본도피 Sentinel</button>
         </div>
 
-        <!-- 메인 차트 및 수치 카드 -->
         <div class="chart-card">
-          <!-- HUD 수치 블록 -->
           <div class="hud-grid">
             <div class="hud-item">
               <div class="lbl">현재 스프레드 (10Y - 2Y)</div>
@@ -566,13 +512,9 @@
               <div class="val" id="hud2Y">0.00%</div>
             </div>
           </div>
-
-          <!-- 차트 영역 -->
           <div class="chart-container">
             <canvas id="spreadChart"></canvas>
           </div>
-
-          <!-- 해석 코멘터리 -->
           <div class="insight-box">
             <h3 id="metaTitle">지표 상세 해설</h3>
             <p id="metaDesc">데이터를 불러오는 중입니다...</p>
@@ -582,21 +524,18 @@
     </section>
   </div>
 
-  <!-- FOOTER -->
   <footer class="foot">
     <div class="items">코스피 · 코스닥 · 나스닥 · 환율 · 유가 한눈에</div>
     Daily 'Moo'conomy · mooconomy.co.kr<br>
-    © 2026 임무생. All rights reserved.
+    © 2026 Mooconomy. All rights reserved.
   </footer>
 
-  <!-- 토스트 -->
   <div class="toast" id="toast"></div>
 
   <script>
-    /* ================= 설정 ================= */
     var WORKER_SUBSCRIBE_URL = "https://mooconomy-subscribe.immusaeng.workers.dev";
 
-    /* ================= 토스트 ================= */
+    /* ===== 토스트 ===== */
     var toastEl = document.getElementById('toast');
     var toastTimer = null;
     function toast(msg){
@@ -606,7 +545,7 @@
       toastTimer = setTimeout(function(){ toastEl.classList.remove('show'); }, 3600);
     }
 
-    /* ================= 이메일 검증 + 오타 교정 ================= */
+    /* ===== 이메일 검증 ===== */
     var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     var TYPO_MAP = {
       "gmail.co":"gmail.com","gmial.com":"gmail.com","gamil.com":"gmail.com",
@@ -630,28 +569,24 @@
       return {ok:true, email:email};
     }
 
-    /* ================= 구독 폼 제출 ================= */
+    /* ===== 구독 폼 ===== */
     document.querySelectorAll('.subscribe-form').forEach(function(form){
       form.addEventListener('submit', async function(e){
         e.preventDefault();
         var emailInput = form.querySelector('input[name="email"]');
-        var company = form.querySelector('input[name="company"]').value; // 허니팟
+        var company = form.querySelector('input[name="company"]').value;
         var btn = form.querySelector('button[type="submit"]');
-
         var v = validateEmail(emailInput.value);
         if(!v.ok){ toast(v.msg); emailInput.focus(); return; }
-
         var originalText = btn.textContent;
         btn.disabled = true;
         btn.textContent = "처리 중…";
-
         try {
           var res = await fetch(WORKER_SUBSCRIBE_URL + "/api/subscribe", {
             method:"POST",
             headers:{ "Content-Type":"application/json" },
             body: JSON.stringify({ email: v.email, company: company })
           });
-
           if(res.status === 200){
             toast("🎉 구독 신청이 완료되었습니다. 매일 아침 만나요!");
             emailInput.value = "";
@@ -674,14 +609,11 @@
       });
     });
 
-    /* ================= 지표 티커 ================= */
+    /* ===== 지표 티커 ===== */
     var tickerFallback = [
-      {name:"코스피", value:"—", change:null},
-      {name:"코스닥", value:"—", change:null},
-      {name:"나스닥", value:"—", change:null},
-      {name:"S&P500", value:"—", change:null},
-      {name:"원/달러", value:"—", change:null},
-      {name:"WTI", value:"—", change:null}
+      {name:"코스피", value:"—", change:null},{name:"코스닥", value:"—", change:null},
+      {name:"나스닥", value:"—", change:null},{name:"S&P500", value:"—", change:null},
+      {name:"원/달러", value:"—", change:null},{name:"WTI", value:"—", change:null}
     ];
     function renderTicker(items){
       var track = document.getElementById('tickerTrack');
@@ -706,7 +638,7 @@
       })
       .catch(function(){ renderTicker(tickerFallback); });
 
-    /* ================= 모바일 메뉴 토글 ================= */
+    /* ===== 모바일 메뉴 토글 ===== */
     var menuBtn = document.getElementById('menuBtn');
     var navMenu = document.getElementById('navmenu');
     menuBtn.addEventListener('click', function(){ navMenu.classList.toggle('open'); });
@@ -714,7 +646,7 @@
       a.addEventListener('click', function(){ navMenu.classList.remove('open'); });
     });
 
-    /* ================= 최신 레터 전체 보기 토글 ================= */
+    /* ===== 최신 레터 전체 보기 토글 ===== */
     (function(){
       var btn = document.getElementById('expandBtn');
       var wrap = document.getElementById('letterWrap');
@@ -729,53 +661,65 @@
       }
     })();
 
-    /* ================= [모델 B 핵심] 뷰 스위칭 (SPA 제어 엔진) ================= */
+    /* ===== 뷰 스위칭 (URL/뒤로가기 지원) ===== */
     var spreadChartInstance = null;
 
-    function switchView(viewId, targetAnchorId) {
-      // 1) 뷰 섹션 노출 토글
-      document.querySelectorAll('.view-session').forEach(function(el) {
-        el.classList.remove('active');
-      });
-      
+    function applyView(viewId, targetAnchorId) {
+      document.querySelectorAll('.view-session').forEach(function(el){ el.classList.remove('active'); });
       var activeView = document.getElementById('view-' + viewId);
-      if (activeView) {
-        activeView.classList.add('active');
-      }
+      if (activeView) activeView.classList.add('active');
 
-      // 2) GNB 및 하단 탭 내비 활성 클래스 처리
-      document.querySelectorAll('.nav-link').forEach(function(el) { el.classList.remove('active'); });
-      document.querySelectorAll('.mobile-nav-item').forEach(function(el) { el.classList.remove('active'); });
+      document.querySelectorAll('.nav-link').forEach(function(el){ el.classList.remove('active'); });
+      document.querySelectorAll('.mobile-nav-item').forEach(function(el){ el.classList.remove('active'); });
 
       if (viewId === 'home') {
-        document.getElementById('m-nav-home').classList.add('active');
+        var mHome = document.getElementById('m-nav-home');
+        if (mHome) mHome.classList.add('active');
+        if (targetAnchorId === 'latest') { var mL = document.getElementById('m-nav-latest'); if (mL) mL.classList.add('active'); }
+        if (targetAnchorId === 'subscribe') { var mS = document.getElementById('m-nav-subscribe'); if (mS) mS.classList.add('active'); }
       } else if (viewId === 'markets') {
-        document.getElementById('m-nav-markets').classList.add('active');
-        document.getElementById('gnb-markets-btn').classList.add('active');
-        
-        // 대시보드 뷰로 올 때 차트 초기 지연 로드 처리
+        var mM = document.getElementById('m-nav-markets'); if (mM) mM.classList.add('active');
+        var gnb = document.getElementById('gnb-markets-btn'); if (gnb) gnb.classList.add('active');
         setTimeout(initMarketsDashboard, 50);
       }
 
-      // 3) 특정 앵커로의 스크롤 이동
       if (targetAnchorId) {
-        setTimeout(function() {
+        setTimeout(function(){
           var target = document.getElementById(targetAnchorId);
-          if (target) {
-            target.scrollIntoView({ behavior: 'smooth' });
-          }
+          if (target) target.scrollIntoView({ behavior: 'smooth' });
         }, 100);
       } else {
         window.scrollTo(0, 0);
       }
-
-      // GA 뷰 스위칭 전환 트래킹 등록
       gtag('event', 'screen_view', { screen_name: viewId });
     }
 
-    /* ================= 대시보드 데이터 및 Chart.js 바인딩 ================= */
+    function switchView(viewId, targetAnchorId) {
+      var hash = '#' + viewId + (targetAnchorId ? '/' + targetAnchorId : '');
+      if (location.hash !== hash) {
+        history.pushState({ viewId: viewId, anchor: targetAnchorId }, '', hash);
+      }
+      applyView(viewId, targetAnchorId);
+    }
+
+    window.addEventListener('popstate', function(e){
+      var s = e.state;
+      if (s && s.viewId) { applyView(s.viewId, s.anchor); }
+      else { routeFromHash(); }
+    });
+
+    function routeFromHash() {
+      var h = (location.hash || '').replace('#', '');
+      if (!h) { applyView('home'); return; }
+      var parts = h.split('/');
+      var viewId = (parts[0] === 'markets') ? 'markets' : 'home';
+      var anchor = parts[1] || null;
+      applyView(viewId, anchor);
+    }
+
+    /* ===== 대시보드 데이터 ===== */
     var fallbackDashboardData = {
-      "updated": "2026-07-15 06:10 AM KST",
+      "updated": "예시 데이터",
       "meta": {
         "title": "미국 장단기 금리차 (10Y - 2Y)와 경기침체",
         "desc": "장단기 금리차(10년물 금리 - 2년물 금리)의 역전 현상은 역사상 주요 경기 침체를 매우 높은 확률로 선행하여 경고해 온 대표적인 매크로 신호입니다. 음영으로 표시된 세로 영역은 NBER(미국경제연구소)이 공식 선언한 미국 경기침체 구간(Recessions)입니다."
@@ -788,33 +732,17 @@
       ],
       "series": [
         {"date": "2018-01", "dgs10": 2.58, "dgs2": 2.03, "spread": 0.55},
-        {"date": "2018-04", "dgs10": 2.87, "dgs2": 2.43, "spread": 0.44},
         {"date": "2018-07", "dgs10": 2.89, "dgs2": 2.61, "spread": 0.28},
-        {"date": "2018-10", "dgs10": 3.15, "dgs2": 2.86, "spread": 0.29},
         {"date": "2019-01", "dgs10": 2.71, "dgs2": 2.58, "spread": 0.13},
-        {"date": "2019-04", "dgs10": 2.53, "dgs2": 2.38, "spread": 0.15},
-        {"date": "2019-07", "dgs10": 2.06, "dgs2": 1.96, "spread": 0.10},
         {"date": "2019-08", "dgs10": 1.63, "dgs2": 1.64, "spread": -0.01},
-        {"date": "2019-10", "dgs10": 1.71, "dgs2": 1.55, "spread": 0.16},
         {"date": "2020-01", "dgs10": 1.76, "dgs2": 1.56, "spread": 0.20},
-        {"date": "2020-04", "dgs10": 0.66, "dgs2": 0.25, "spread": 0.41},
         {"date": "2020-07", "dgs10": 0.62, "dgs2": 0.15, "spread": 0.47},
-        {"date": "2020-10", "dgs10": 0.79, "dgs2": 0.15, "spread": 0.64},
-        {"date": "2021-01", "dgs10": 1.08, "dgs2": 0.13, "spread": 0.95},
         {"date": "2021-04", "dgs10": 1.64, "dgs2": 0.16, "spread": 1.48},
-        {"date": "2021-07", "dgs10": 1.32, "dgs2": 0.22, "spread": 1.10},
-        {"date": "2021-10", "dgs10": 1.58, "dgs2": 0.48, "spread": 1.10},
         {"date": "2022-01", "dgs10": 1.76, "dgs2": 1.02, "spread": 0.74},
-        {"date": "2022-04", "dgs10": 2.75, "dgs2": 2.48, "spread": 0.27},
         {"date": "2022-07", "dgs10": 2.90, "dgs2": 3.12, "spread": -0.22},
-        {"date": "2022-10", "dgs10": 3.98, "dgs2": 4.38, "spread": -0.40},
         {"date": "2023-01", "dgs10": 3.53, "dgs2": 4.21, "spread": -0.68},
-        {"date": "2023-04", "dgs10": 3.46, "dgs2": 4.01, "spread": -0.55},
         {"date": "2023-07", "dgs10": 3.90, "dgs2": 4.88, "spread": -0.98},
-        {"date": "2023-10", "dgs10": 4.80, "dgs2": 5.07, "spread": -0.27},
         {"date": "2024-01", "dgs10": 4.06, "dgs2": 4.35, "spread": -0.29},
-        {"date": "2024-04", "dgs10": 4.54, "dgs2": 4.89, "spread": -0.35},
-        {"date": "2024-07", "dgs10": 4.26, "dgs2": 4.48, "spread": -0.22},
         {"date": "2024-10", "dgs10": 4.10, "dgs2": 4.15, "spread": -0.05},
         {"date": "2025-01", "dgs10": 3.85, "dgs2": 3.80, "spread": 0.05},
         {"date": "2025-07", "dgs10": 3.70, "dgs2": 3.50, "spread": 0.20},
@@ -824,21 +752,22 @@
     };
 
     async function initMarketsDashboard() {
-      // 이미 생성된 차트 인스턴스가 있다면 파괴 후 재생성 (화면 왜곡 버그 차단)
-      if (spreadChartInstance) {
-        spreadChartInstance.destroy();
-      }
+      if (spreadChartInstance) { spreadChartInstance.destroy(); spreadChartInstance = null; }
 
       var data;
+      var isDemo = false;
       try {
-        var response = await fetch('data/macro_history.json');
-        if (!response.ok) throw new Error('Static JSON Load Fail');
+        var response = await fetch('data/macro_history.json?v=' + Date.now());
+        if (!response.ok) throw new Error('load fail');
         data = await response.json();
       } catch (error) {
         data = fallbackDashboardData;
+        isDemo = true;
       }
 
-      // HUD & 코멘터리 연동
+      var banner = document.getElementById('demoBanner');
+      if (banner) banner.classList.toggle('show', isDemo);
+
       document.getElementById('syncTime').innerText = data.updated;
       document.getElementById('metaTitle').innerText = data.meta.title;
       document.getElementById('metaDesc').innerText = data.meta.desc;
@@ -847,38 +776,41 @@
       var hudSpread = document.getElementById('hudSpread');
       hudSpread.innerText = (latest.spread > 0 ? '+' : '') + latest.spread.toFixed(2) + '%';
       hudSpread.className = latest.spread < 0 ? "val down" : "val up";
-
       document.getElementById('hud10Y').innerText = latest.dgs10.toFixed(2) + '%';
       document.getElementById('hud2Y').innerText = latest.dgs2.toFixed(2) + '%';
 
       var labels = data.series.map(function(item){ return item.date; });
       var spreads = data.series.map(function(item){ return item.spread; });
+      var firstLabel = labels[0];
+      var lastLabel = labels[labels.length - 1];
 
       var ctx = document.getElementById('spreadChart').getContext('2d');
-      
-      // 침체 구간 음영 처리를 위한 플러그인 빌드
+
       var recessionPlugin = {
         id: 'recessionPlugin',
         beforeDraw: function(chart) {
-          var ctx = chart.ctx;
+          if (!data.recessions) return;
+          var c = chart.ctx;
           var top = chart.chartArea.top;
           var bottom = chart.chartArea.bottom;
+          var left = chart.chartArea.left;
+          var right = chart.chartArea.right;
           var x = chart.scales.x;
-          
-          ctx.save();
-          ctx.fillStyle = 'rgba(15, 23, 42, 0.05)';
-          
-          data.recessions.forEach(function(r) {
-            var startIndex = labels.findIndex(function(d){ return d >= r.start; });
-            var endIndex = labels.findIndex(function(d){ return d >= r.end; });
-            
-            if (startIndex !== -1 && endIndex !== -1) {
-              var startX = x.getPixelForValue(labels[startIndex]);
-              var endX = x.getPixelForValue(labels[endIndex]);
-              ctx.fillRect(startX, top, endX - startX, bottom - top);
-            }
+          c.save();
+          c.fillStyle = 'rgba(15, 23, 42, 0.05)';
+          data.recessions.forEach(function(r){
+            if (r.end < firstLabel || r.start > lastLabel) return;
+            var s = (r.start < firstLabel) ? firstLabel : r.start;
+            var e = (r.end > lastLabel) ? lastLabel : r.end;
+            var startX = x.getPixelForValue(s);
+            var endX = x.getPixelForValue(e);
+            if (isNaN(startX)) startX = left;
+            if (isNaN(endX)) endX = right;
+            startX = Math.max(left, Math.min(right, startX));
+            endX = Math.max(left, Math.min(right, endX));
+            if (endX > startX) c.fillRect(startX, top, endX - startX, bottom - top);
           });
-          ctx.restore();
+          c.restore();
         }
       };
 
@@ -896,9 +828,7 @@
             pointHoverBackgroundColor: '#f5b301',
             fill: false,
             segment: {
-              borderColor: function(ctx) {
-                return ctx.p0.parsed.y < 0 ? '#1565c0' : '#0b2545';
-              }
+              borderColor: function(ctx){ return ctx.p0.parsed.y < 0 ? '#1565c0' : '#0b2545'; }
             }
           }]
         },
@@ -908,57 +838,27 @@
           plugins: {
             legend: { display: false },
             tooltip: {
-              mode: 'index',
-              intersect: false,
+              mode: 'index', intersect: false,
               backgroundColor: 'rgba(11, 37, 69, 0.95)',
-              callbacks: {
-                label: function(context) {
-                  return '스프레드: ' + context.parsed.y.toFixed(2) + '%';
-                }
-              }
+              callbacks: { label: function(ctx){ return '스프레드: ' + ctx.parsed.y.toFixed(2) + '%'; } }
             }
           },
           scales: {
-            x: {
-              grid: { display: false },
-              ticks: {
-                maxTicksLimit: window.innerWidth < 640 ? 6 : 12,
-                color: '#616e7f',
-                font: { size: 10, family: 'Inter' }
-              }
-            },
-            y: {
-              grid: { color: '#eef0f3' },
-              ticks: {
-                color: '#616e7f',
-                font: { size: 10, family: 'Inter' },
-                callback: function(value) { return value.toFixed(1) + '%'; }
-              }
-            }
+            x: { grid: { display: false }, ticks: { maxTicksLimit: window.innerWidth < 640 ? 6 : 12, color: '#616e7f', font: { size: 10 } } },
+            y: { grid: { color: '#eef0f3' }, ticks: { color: '#616e7f', font: { size: 10 }, callback: function(v){ return v.toFixed(1) + '%'; } } }
           }
         },
         plugins: [recessionPlugin]
       });
     }
 
-    /* ================= 런타임 최적화 스택 (Zero-Overhead) ================= */
+    /* ===== 스크롤 시 티커 축소 ===== */
     (function(){
-      var ticking = false;
-      var isScrolled = false;
-
+      var ticking = false, isScrolled = false;
       function updateScrolled(){
         var y = window.scrollY || document.documentElement.scrollTop;
-        if (y > 80) {
-          if (!isScrolled) {
-            document.body.classList.add('scrolled');
-            isScrolled = true;
-          }
-        } else {
-          if (isScrolled) {
-            document.body.classList.remove('scrolled');
-            isScrolled = false;
-          }
-        }
+        if (y > 80) { if (!isScrolled) { document.body.classList.add('scrolled'); isScrolled = true; } }
+        else { if (isScrolled) { document.body.classList.remove('scrolled'); isScrolled = false; } }
         ticking = false;
       }
       window.addEventListener('scroll', function(){
@@ -967,12 +867,11 @@
       updateScrolled();
     })();
 
-    /* ================= 페이지 첫 안착 로드 이벤트 ================= */
-    window.onload = function() {
-      if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
-      }
-    }
+    /* ===== 최초 로드 ===== */
+    window.addEventListener('load', function(){
+      if (typeof lucide !== 'undefined') lucide.createIcons();
+      routeFromHash();
+    });
   </script>
 
 </body>
