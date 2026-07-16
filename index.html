@@ -446,6 +446,13 @@
       </div>
     </section>
 
+    <section class="sec-pad anchor" id="signals">
+      <div class="inner">
+        <div class="sec-title">오늘의 시장 신호등</div>
+        <div class="signal-grid" id="homeSignalGrid"></div>
+      </div>
+    </section>
+
     <section class="sec-pad latest-sec anchor" id="latest">
       <div class="inner">
         <div class="sec-num">03 / LATEST ISSUE</div>
@@ -804,8 +811,10 @@
     }
 
     async function loadSignals() {
-      var grid = document.getElementById('signalGrid');
-      if (!grid) return;
+      var grids = ['signalGrid', 'homeSignalGrid']
+        .map(function (id) { return document.getElementById(id); })
+        .filter(function (el) { return !!el; });
+      if (grids.length === 0) return;
 
       var signals;
       try {
@@ -813,16 +822,20 @@
         if (!res.ok) throw new Error('load fail');
         signals = await res.json();
       } catch (error) {
-        grid.innerHTML = '';
-        var msg = document.createElement('div');
-        msg.className = 'signal-error';
-        msg.textContent = '신호등 데이터를 불러오지 못했습니다.';
-        grid.appendChild(msg);
+        grids.forEach(function (grid) {
+          grid.innerHTML = '';
+          var msg = document.createElement('div');
+          msg.className = 'signal-error';
+          msg.textContent = '신호등 데이터를 불러오지 못했습니다.';
+          grid.appendChild(msg);
+        });
         return;
       }
 
-      grid.innerHTML = '';
-      signals.forEach(function (s) { grid.appendChild(renderSignalCard(s)); });
+      grids.forEach(function (grid) {
+        grid.innerHTML = '';
+        signals.forEach(function (s) { grid.appendChild(renderSignalCard(s)); });
+      });
     }
 
     async function initMarketsDashboard() {
@@ -946,6 +959,7 @@
     /* ===== 최초 로드 ===== */
     window.addEventListener('load', function(){
       if (typeof lucide !== 'undefined') lucide.createIcons();
+      loadSignals();
       routeFromHash();
     });
   </script>
