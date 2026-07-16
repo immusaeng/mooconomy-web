@@ -224,6 +224,19 @@
   .demo-banner { background:#fff8e1; border:1px solid #f5d97e; color:#8a6d00; font-size:12.5px; font-weight:700; padding:9px 14px; border-radius:8px; margin-bottom:18px; display:none; }
   .demo-banner.show { display:block; }
 
+  /* ── 대시보드 신호등 ── */
+  .signal-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-bottom:18px; }
+  .signal-card { background:#fff; border:1px solid var(--line); border-radius:12px; padding:16px 18px; display:flex; gap:12px; }
+  .signal-dot { width:14px; height:14px; border-radius:50%; flex:0 0 auto; margin-top:3px; }
+  .signal-dot.green  { background:#2e7d32; }
+  .signal-dot.yellow { background:#f5b301; }
+  .signal-dot.red    { background:#d32f2f; }
+  .signal-dot.gray   { background:#9aa5b1; }
+  .signal-name    { font-size:12.5px; font-weight:700; color:var(--gray); }
+  .signal-value   { font-size:19px; font-weight:800; color:var(--ink); margin:2px 0 4px; font-variant-numeric:tabular-nums; }
+  .signal-insight { font-size:12.5px; color:#444; line-height:1.5; }
+  .signal-error   { font-size:13px; color:var(--gray); text-align:center; padding:16px 0; }
+
   .tabs-wrapper {
     background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 6px;
     display: flex; gap: 4px; margin-bottom: 24px; overflow-x: auto; white-space: nowrap;
@@ -315,6 +328,8 @@
     .hud-item { flex: 0 0 82%; scroll-snap-align: start; padding: 14px; }
     .hud-item .val { font-size: 20px; }
     .chart-container { height: 280px; }
+
+    .signal-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -487,6 +502,8 @@
           </div>
           <div class="update-time">최종 동기화: <span id="syncTime">불러오는 중...</span></div>
         </div>
+
+        <div class="signal-grid" id="signalGrid"></div>
 
         <div class="demo-banner" id="demoBanner">※ 실시간 데이터를 불러오지 못해 예시(데모) 데이터로 표시하고 있습니다. 실제 값과 다를 수 있습니다.</div>
 
@@ -682,6 +699,7 @@
         var mM = document.getElementById('m-nav-markets'); if (mM) mM.classList.add('active');
         var gnb = document.getElementById('gnb-markets-btn'); if (gnb) gnb.classList.add('active');
         setTimeout(initMarketsDashboard, 50);
+        setTimeout(loadSignals, 50);
       }
 
       if (targetAnchorId) {
@@ -751,6 +769,61 @@
         {"date": "2026-07", "dgs10": 3.55, "dgs2": 3.20, "spread": 0.35}
       ]
     };
+
+    /* ===== 대시보드 신호등 ===== */
+    function renderSignalCard(s) {
+      var isGray = s.color === 'gray';
+
+      var card = document.createElement('div');
+      card.className = 'signal-card';
+
+      var dot = document.createElement('div');
+      dot.className = 'signal-dot ' + s.color;
+      card.appendChild(dot);
+
+      var body = document.createElement('div');
+      body.className = 'signal-body';
+
+      var name = document.createElement('div');
+      name.className = 'signal-name';
+      name.textContent = s.name;
+      body.appendChild(name);
+
+      var value = document.createElement('div');
+      value.className = 'signal-value';
+      value.textContent = isGray ? '데이터 없음' : s.valueLabel;
+      body.appendChild(value);
+
+      var insight = document.createElement('div');
+      insight.className = 'signal-insight';
+      insight.textContent = s.insight;
+      body.appendChild(insight);
+
+      card.appendChild(body);
+      return card;
+    }
+
+    async function loadSignals() {
+      var grid = document.getElementById('signalGrid');
+      if (!grid) return;
+
+      var signals;
+      try {
+        var res = await fetch('data/signals.json?v=' + Date.now());
+        if (!res.ok) throw new Error('load fail');
+        signals = await res.json();
+      } catch (error) {
+        grid.innerHTML = '';
+        var msg = document.createElement('div');
+        msg.className = 'signal-error';
+        msg.textContent = '신호등 데이터를 불러오지 못했습니다.';
+        grid.appendChild(msg);
+        return;
+      }
+
+      grid.innerHTML = '';
+      signals.forEach(function (s) { grid.appendChild(renderSignalCard(s)); });
+    }
 
     async function initMarketsDashboard() {
       if (spreadChartInstance) { spreadChartInstance.destroy(); spreadChartInstance = null; }
