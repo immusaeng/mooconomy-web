@@ -40,35 +40,42 @@
 
   <div class="wrap">
     <h1>개인정보 수집·이용 동의</h1>
-    <div class="updated">최종 수정일: 2026년 7월 13일</div>
+    <div class="updated">최종 수정일: 2026년 7월 16일 (Google Analytics·Cloudflare Workers 위탁 사실 반영)</div>
 
     <p>Daily 'Moo'conomy(이하 "서비스")는 무료 경제 뉴스레터 발송을 위해 아래와 같이 최소한의 개인정보를 수집·이용합니다. 구독 신청 시 본 내용에 동의하는 것으로 간주됩니다.</p>
 
     <h2>1. 수집하는 항목</h2>
     <ul>
-      <li>필수: 이메일 주소</li>
-      <li>자동 수집: 없음 (별도의 접속 기록·기기 정보를 저장하지 않습니다)</li>
+      <li>필수: 이메일 주소(뉴스레터 구독 시)</li>
+      <li>자동 수집: Google Analytics(GA4)를 통해 페이지 방문(페이지뷰), 화면 전환(screen_view), 뉴스레터 구독 완료(subscribe), 브리핑 전체보기(expand_letter) 이벤트와 이에 수반되는 브라우저·기기 정보가 자동으로 수집됩니다.</li>
+      <li>쿠키: Google Analytics(GA4)가 방문자·세션 식별을 위해 쿠키(예: _ga, _ga_G-ZXRTZK2KTN)를 사용합니다.</li>
+      <li>IP 처리: 별도의 IP 익명화 설정 없이 Google Analytics 기본 방식으로 운영됩니다.</li>
     </ul>
 
     <h2>2. 수집·이용 목적</h2>
     <ul>
       <li>뉴스레터(Daily 'Moo'conomy) 발송</li>
       <li>구독 관리 및 수신 거부(해지) 처리</li>
+      <li>웹사이트 방문 통계 분석 및 서비스 개선(Google Analytics)</li>
     </ul>
 
     <h2>3. 보유 및 이용 기간</h2>
     <table>
       <tr><th>구분</th><th>보유 기간</th></tr>
       <tr><td>이메일 주소</td><td>구독 해지 시까지 (해지 즉시 발송 목록에서 삭제)</td></tr>
+      <tr><td>Google Analytics 방문 통계</td><td>14개월 (Google Analytics 기본 보유 기간)</td></tr>
     </table>
     <p>구독자가 언제든 메일 하단의 수신 거부(Unsubscribe) 링크를 통해 구독을 해지할 수 있으며, 해지 시 관련 정보는 지체 없이 파기됩니다.</p>
 
     <h2>4. 제3자 제공 및 처리 위탁</h2>
-    <p>서비스는 이메일 발송을 위해 아래 업체에 정보 처리를 위탁합니다.</p>
+    <p>서비스는 다음 업체에 정보 처리를 위탁하거나 정보가 공유됩니다.</p>
     <table>
       <tr><th>수탁 업체</th><th>위탁 업무</th></tr>
       <tr><td>Resend (resend.com)</td><td>이메일 발송 및 구독자 목록 관리</td></tr>
+      <tr><td>Google Analytics (Google LLC)</td><td>웹사이트 방문 통계·이벤트 수집 및 분석</td></tr>
+      <tr><td>Cloudflare Workers (mooconomy-subscribe)</td><td>뉴스레터 구독 신청 접수 처리</td></tr>
     </table>
+    <p>Google, Cloudflare는 해외 사업자이며, 서비스 운영을 위해 해외 서버에서 데이터가 처리될 수 있습니다.</p>
     <p>위 목적 외에는 어떠한 경우에도 개인정보를 제3자에게 판매하거나 제공하지 않습니다.</p>
 
     <h2>5. 동의를 거부할 권리</h2>
