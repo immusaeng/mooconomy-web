@@ -157,6 +157,10 @@
     display: inline-block;
     animation: pulse 1.8s infinite;
   }
+  .db-header h1 .live-dot.demo {
+    background-color: #9aa5b1;
+    animation: none;
+  }
   .db-header p { font-size: 13px; color: #666; margin-top: 4px; }
   .db-header .update-time { font-size: 12px; color: #8a94a3; font-weight: 500; }
 
@@ -165,6 +169,20 @@
     70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(46, 125, 50, 0); }
     100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 125, 50, 0); }
   }
+
+  /* ── 데모/예시 데이터 고지 배너 (index.html #demoBanner와 동일 스타일) ── */
+  .demo-banner {
+    background: #fff8e1;
+    border: 1px solid #f5d97e;
+    color: #8a6d00;
+    font-size: 12.5px;
+    font-weight: 700;
+    padding: 9px 14px;
+    border-radius: 8px;
+    margin-bottom: 18px;
+    display: none;
+  }
+  .demo-banner.show { display: block; }
 
   /* ── 탭 바 ── */
   .tabs-wrapper {
@@ -374,6 +392,8 @@
       <div class="update-time">최종 동기화: <span id="syncTime">불러오는 중...</span></div>
     </div>
 
+    <div class="demo-banner" id="demoBanner">※ 실시간 데이터를 불러오지 못해 예시(데모) 데이터로 표시하고 있습니다. 실제 값과 다를 수 있습니다.</div>
+
     <!-- 탭 네비게이터 -->
     <div class="tabs-wrapper">
       <button class="tab-btn active"><i data-lucide="line-chart"></i> 장단기 금리차</button>
@@ -425,7 +445,7 @@
   <script>
     // 샌드박스/로컬 호스팅 및 API fetch 실패 시 즉시 무결점 렌더링을 보장하는 고품격 백업 데이터셋
     const fallbackData = {
-      "updated": "2026-07-15 06:10 AM KST",
+      "updated": "예시 데이터",
       "meta": {
         "title": "미국 장단기 금리차 (10Y - 2Y)와 경기침체",
         "desc": "장단기 금리차(10년물 금리 - 2년물 금리)의 역전 현상은 역사상 주요 경기 침체를 매우 높은 확률로 선행하여 경고해 온 대표적인 매크로 신호입니다. 음영으로 표시된 세로 영역은 NBER(미국경제연구소)이 공식 선언한 미국 경기침체 구간(Recessions)입니다."
@@ -477,6 +497,7 @@
 
     async function initDashboard() {
       let data;
+      let isDemo = false;
       try {
         // [샌드박스 대응 핵심] URL parsing 에러가 발생하는 blob/data 및 로컬 개발용 특수 프로토콜 사전 차단 우회
         const currentProto = window.location.protocol;
@@ -490,7 +511,13 @@
       } catch (error) {
         console.warn('[대시보드 경고] 정적 API fetch 실패, 프리미엄 백업 데이터셋 로드 완료:', error);
         data = fallbackData;
+        isDemo = true;
       }
+
+      const banner = document.getElementById('demoBanner');
+      if (banner) banner.classList.toggle('show', isDemo);
+      const dot = document.querySelector('.live-dot');
+      if (dot) dot.classList.toggle('demo', isDemo);
 
       // 메타정보 및 HUD 바인딩
       document.getElementById('syncTime').innerText = data.updated;
