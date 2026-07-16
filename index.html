@@ -214,6 +214,7 @@
   .db-header .update-time { font-size: 12px; color: var(--gray); font-weight: 500; }
 
   .live-dot { width: 8px; height: 8px; background-color: #2e7d32; border-radius: 50%; display: inline-block; animation: pulse-dot 1.8s infinite; }
+  .live-dot.demo { background-color:#9aa5b1; animation:none; }
   @keyframes pulse-dot {
     0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 125, 50, 0.7); }
     70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(46, 125, 50, 0); }
@@ -767,6 +768,8 @@
 
       var banner = document.getElementById('demoBanner');
       if (banner) banner.classList.toggle('show', isDemo);
+      var dot = document.querySelector('.live-dot');
+      if (dot) dot.classList.toggle('demo', isDemo);
 
       document.getElementById('syncTime').innerText = data.updated;
       document.getElementById('metaTitle').innerText = data.meta.title;
