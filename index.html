@@ -49,16 +49,43 @@
 
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
+  /* ══════════════════════════════════════════════════════════════
+     Daily Mooconomy 디자인 토큰
+     고정 브랜드값(변경 금지): --navy, --gold, Pretendard 서체, 등락 색상.
+     그 외 값은 전부 이 3개를 축으로 파생했다. "오늘의 리포트" 블록
+     (섹션 01~05)에서만 쓰는 웜 페이퍼 톤(--paper)은 이번에 새로 추가한
+     시그니처 색으로, 나머지 섹션의 --bg는 기존 값 그대로 유지한다.
+     ══════════════════════════════════════════════════════════════ */
   :root {
+    /* 색 — 브랜드 아이덴티티 */
     --navy:#0b2545; --navy2:#13315c;
     --gold:#f5b301;
     --gold-d:#d9a441;
-    --ink:#1b2733; --gray:#5a6b82; --line:#e3e8ef; --bg:#f4f6f9;
+    --ink:#1b2733; --gray:#5a6b82; --gray-soft:#8a94a3; --line:#e3e8ef; --bg:#f4f6f9;
+    --card:#ffffff;
+    --paper:#f7f4ee;        /* "오늘의 리포트" 블록 전용 웜 페이퍼 톤(신규) */
+    --paper-line:#e6e0d1;
+
+    /* 색 — 기능(한국식 등락 관습, 변경 금지) */
+    --up-red:#d32f2f;    --up-red-bg:#fdecec;
+    --down-blue:#1565c0; --down-blue-bg:#eaf2fd;
+    --flat-gray:#7a828e; --flat-gray-bg:#eef0f3;
+
+    /* 타입 스케일(Pretendard 단일 서체 — 굵기·트래킹·tabular-nums로 위계를 만든다) */
+    --fs-display: clamp(30px, 4.2vw, 40px);
+    --fs-title: 26px;
+
+    /* 간격 스케일 */
+    --sp-1:8px; --sp-2:12px; --sp-3:16px; --sp-4:24px; --sp-5:32px; --sp-6:48px; --sp-7:72px;
+
     --nav-h:60px; --ticker-h:40px;
-    --up-red:#d32f2f;
-    --down-blue:#1565c0;
+    --radius-card:14px;
   }
   html { scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior:auto; }
+    * { animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important; }
+  }
   body {
     font-family:"Pretendard","Malgun Gothic",-apple-system,sans-serif;
     color:var(--ink); background:#fff; line-height:1.6;
@@ -162,57 +189,110 @@
   .sec-body[data-status="pending"] { display:flex; justify-content:center; }
   .placeholder-pending { display:inline-flex; align-items:center; gap:10px; background:var(--bg); border:1px dashed var(--line); border-radius:14px; padding:20px 30px; color:var(--gray); font-size:14px; font-weight:600; }
   .placeholder-dot { width:9px; height:9px; border-radius:50%; background:#9aa5b1; flex:0 0 auto; }
+  .dispatch .placeholder-pending { background:#fff; border-color:var(--paper-line); }
 
-  .today-status-line { text-align:center; color:var(--gray); font-size:14.5px; font-weight:600; }
-  .today-status-line b { color:var(--ink); }
+  /* ══════════════════════════════════════════════════════════════
+     "오늘의 리포트" 블록 — 섹션 01~05를 하나의 읽는 대상으로 묶는다.
+     각 <section>의 id/anchor/기존 클래스는 전부 그대로 유지하고,
+     새 wrapper 2겹(.dispatch 전체폭 배경, .dispatch-rail 폭 제한+스파인)만
+     바깥에 얹는다. 절대위치·뷰포트 계산을 쓰지 않는 일반 border라
+     360px 모바일에서도 가로 스크롤 위험이 없다.
+     ══════════════════════════════════════════════════════════════ */
+  .dispatch {
+    background:var(--paper);
+    border-top:1px solid var(--paper-line);
+    border-bottom:1px solid var(--paper-line);
+    padding:var(--sp-6) 0;
+  }
+  .dispatch-rail {
+    max-width:880px; margin:0 auto;
+    padding:0 40px 0 32px;
+    border-left:3px solid var(--gold);
+  }
+  .dispatch-rail .inner { max-width:none; padding:0; margin:0; }
+  .dispatch .sec-pad { padding:var(--sp-5) 0; }
+  .dispatch .sec-title, .dispatch .sec-sub { text-align:left; }
+  .dispatch .sec-sub { margin-bottom:var(--sp-4); }
+  .dispatch .sec-num { text-align:left; margin-bottom:var(--sp-1); }
+  .dispatch section + section { border-top:1px solid var(--paper-line); }
+  .dispatch section:first-child { padding-top:0; }
+  @media (max-width:640px) {
+    .dispatch-rail { padding:0 16px 0 18px; }
+  }
 
-  .indicator-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
-  .indicator-card { background:#fff; border:1px solid var(--line); border-radius:14px; padding:18px 16px; }
-  .indicator-card .ind-name { font-size:12.5px; font-weight:700; color:var(--gray); }
-  .indicator-card .ind-value { font-size:21px; font-weight:800; color:var(--ink); margin:6px 0 4px; font-variant-numeric:tabular-nums; }
-  .indicator-card .ind-change { font-size:13px; font-weight:700; color:var(--gray); }
-  .indicator-card .ind-change.up { color:var(--up-red); }
-  .indicator-card .ind-change.down { color:var(--down-blue); }
+  /* 01 — 컴팩트 마스트헤드(리포트 상단 한 줄) */
+  #today-status.sec-pad { padding:0 0 var(--sp-5); }
+  #today-status .sec-num, #today-status .sec-title, #today-status .sec-sub { display:none; }
+  .today-status-line { text-align:left; color:var(--gray); font-size:13.5px; font-weight:600; letter-spacing:.2px; }
+  .today-status-line b { color:var(--ink); font-variant-numeric:tabular-nums; }
+
+  /* 방향 배지 — 02/04/05가 공유하는 등락 표기 컴포넌트(한국식: 상승 빨강▲ 하락 파랑▼) */
+  .dir-badge {
+    display:inline-flex; align-items:center; gap:3px;
+    font-size:13px; font-weight:800; letter-spacing:.2px;
+    padding:3px 9px; border-radius:8px; font-variant-numeric:tabular-nums;
+  }
+  .dir-badge.up   { background:var(--up-red-bg);   color:var(--up-red); }
+  .dir-badge.down { background:var(--down-blue-bg); color:var(--down-blue); }
+  .dir-badge.flat { background:var(--flat-gray-bg); color:var(--flat-gray); }
+
+  .indicator-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:var(--sp-3); }
+  .indicator-card { background:var(--card); border:1px solid var(--line); border-left:3px solid var(--line); border-radius:var(--radius-card); padding:16px; transition:border-color .15s; }
+  .indicator-card.dir-up   { border-left-color:var(--up-red); }
+  .indicator-card.dir-down { border-left-color:var(--down-blue); }
+  .indicator-card .ind-name { font-size:12px; font-weight:700; color:var(--gray); text-transform:uppercase; letter-spacing:.4px; }
+  .indicator-card .ind-value { font-size:21px; font-weight:800; color:var(--ink); margin:6px 0 8px; font-variant-numeric:tabular-nums; letter-spacing:-.3px; }
+  .indicator-card .ind-change { margin-bottom:4px; }
   .indicator-card.is-missing .ind-value { color:var(--gray); }
-  .indicator-card .ind-insight { font-size:12px; color:var(--gray); margin-top:4px; }
+  .indicator-card .ind-insight { font-size:12px; color:var(--gray-soft); margin-top:6px; }
   @media (max-width:900px) {
-    .indicator-grid { grid-template-columns:repeat(2,1fr); gap:12px; }
+    .indicator-grid { grid-template-columns:repeat(2,1fr); gap:var(--sp-2); }
   }
 
   /* 02 시장 온도 */
-  .temperature-card { max-width:640px; margin:0 auto; text-align:center; }
-  .temp-badge { display:inline-block; padding:8px 20px; border-radius:20px; font-size:14px; font-weight:800; margin-bottom:16px; }
-  .temp-badge.strong_risk_on, .temp-badge.risk_on { background:var(--red-100,#ffebee); color:var(--up-red); }
+  .temperature-card { text-align:left; }
+  .temp-badge { display:inline-block; padding:7px 18px; border-radius:8px; font-size:14px; font-weight:800; margin-bottom:16px; }
+  .temp-badge.strong_risk_on, .temp-badge.risk_on { background:var(--up-red-bg); color:var(--up-red); }
   .temp-badge.neutral { background:var(--bg); color:var(--gray); }
   .temp-badge.cautious { background:#fff4db; color:#a86400; }
-  .temp-badge.risk_off { background:#eaf2fd; color:var(--down-blue); }
+  .temp-badge.risk_off { background:var(--down-blue-bg); color:var(--down-blue); }
   .temp-badge.unavailable { background:var(--bg); color:var(--gray); }
-  .temp-summary { font-size:15.5px; color:var(--ink); line-height:1.7; margin-bottom:18px; }
-  .temp-reasons { list-style:none; display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-bottom:14px; padding:0; }
-  .temp-reasons li { background:var(--bg); border:1px solid var(--line); border-radius:20px; padding:6px 14px; font-size:12.5px; color:var(--ink); }
+  .temp-summary { font-size:15.5px; color:var(--ink); line-height:1.7; margin-bottom:16px; max-width:640px; }
+  .temp-reasons { list-style:none; display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px; padding:0; }
+  .temp-reasons li { background:#fff; border:1px solid var(--paper-line); border-radius:8px; padding:6px 12px; font-size:12.5px; color:var(--ink); font-variant-numeric:tabular-nums; }
   .temp-watch { font-size:13px; color:var(--gray); }
   .temp-watch b { color:var(--ink); }
 
-  /* 03 오늘의 3줄 */
-  .daily-three-list { max-width:720px; margin:0 auto; display:flex; flex-direction:column; gap:16px; }
-  .daily-three-item { background:#fff; border:1px solid var(--line); border-left:5px solid var(--gold); border-radius:14px; padding:20px 24px; }
-  .daily-three-item .dt-title { font-size:13px; font-weight:800; color:var(--gold-d); letter-spacing:.5px; margin-bottom:8px; }
+  /* 03 오늘의 3줄 — 이 제품에서 유일하게 "숫자 자체가 정보"인 자리라 서수를 크게 쓴다 */
+  .daily-three-list { display:flex; flex-direction:column; gap:var(--sp-3); }
+  .daily-three-item { display:flex; gap:14px; background:#fff; border:1px solid var(--paper-line); border-radius:var(--radius-card); padding:18px 20px; }
+  .daily-three-item .dt-ord {
+    flex:0 0 auto; width:30px; height:30px; border-radius:8px;
+    background:var(--navy); color:var(--gold); font-weight:800; font-size:14px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .daily-three-item .dt-body { flex:1; min-width:0; }
+  .daily-three-item .dt-title { font-size:12.5px; font-weight:800; color:var(--gold-d); letter-spacing:.4px; margin-bottom:6px; text-transform:uppercase; }
   .daily-three-item .dt-text { font-size:15px; color:var(--ink); line-height:1.7; }
-  .daily-three-item.is-missing { border-left-color:var(--line); }
+  .daily-three-item.is-missing .dt-ord { background:var(--line); color:var(--gray); }
   .daily-three-item.is-missing .dt-text { color:var(--gray); }
 
   /* 05 시장 연결고리 */
-  .connection-flow { display:flex; flex-wrap:wrap; align-items:stretch; justify-content:center; gap:10px; margin-bottom:20px; }
-  .connection-node { background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px 16px; min-width:150px; text-align:center; }
-  .connection-node .cn-label { font-size:12px; font-weight:700; color:var(--gray); margin-bottom:6px; }
-  .connection-node .cn-detail { font-size:14px; font-weight:800; color:var(--ink); }
-  .connection-arrow { display:flex; align-items:center; justify-content:center; color:var(--gold-d); font-size:18px; font-weight:800; }
-  .connection-summary { max-width:680px; margin:0 auto 14px; text-align:center; font-size:15px; color:var(--ink); line-height:1.7; }
-  .connection-counter { max-width:680px; margin:0 auto; background:var(--bg); border-radius:12px; padding:14px 18px; text-align:center; font-size:13.5px; color:var(--gray); }
+  .connection-flow { display:flex; flex-wrap:wrap; align-items:stretch; gap:8px; margin-bottom:18px; }
+  .connection-node { background:#fff; border:1px solid var(--paper-line); border-radius:12px; padding:14px 16px; min-width:150px; }
+  .connection-node .cn-label { font-size:11.5px; font-weight:700; color:var(--gray); margin-bottom:6px; text-transform:uppercase; letter-spacing:.3px; }
+  .connection-node .cn-detail { font-size:14px; font-weight:800; color:var(--ink); font-variant-numeric:tabular-nums; }
+  .connection-arrow { display:flex; align-items:center; justify-content:center; color:var(--gold-d); font-size:16px; font-weight:800; padding:0 2px; }
+  .connection-summary { max-width:640px; margin-bottom:12px; font-size:15px; color:var(--ink); line-height:1.7; }
+  .connection-counter { max-width:640px; background:var(--bg); border-radius:10px; padding:12px 16px; font-size:13.5px; color:var(--gray); border-left:3px solid var(--line); }
   @media (max-width:640px) {
     .connection-flow { flex-direction:column; }
-    .connection-arrow { transform:rotate(90deg); }
+    .connection-arrow { transform:rotate(90deg); padding:2px 0; }
   }
+
+  /* 스크롤 리빌 — prefers-reduced-motion에서는 위 전역 규칙이 즉시 무력화한다 */
+  .reveal { opacity:0; transform:translateY(10px); transition:opacity .5s ease, transform .5s ease; }
+  .reveal.in { opacity:1; transform:translateY(0); }
 
   .grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
   .prob-item { background:var(--bg); border-radius:16px; padding:34px 28px; border-top:4px solid var(--navy); }
@@ -467,6 +547,11 @@
       </div>
     </section>
 
+    <!-- "오늘의 리포트" 블록: 01~05를 하나의 읽는 대상으로 묶는 wrapper.
+         각 섹션의 id/anchor/JS 바인딩은 전부 그대로 유지된다. -->
+    <div class="dispatch">
+    <div class="dispatch-rail">
+
     <!-- 01 / 헤더·날짜/기준시각 -->
     <section class="sec-pad anchor" id="today-status">
       <div class="inner">
@@ -541,6 +626,9 @@
         </div>
       </div>
     </section>
+
+    </div><!-- /.dispatch-rail -->
+    </div><!-- /.dispatch -->
 
     <!-- 06 / 지금 볼 신호 (기존 #signals 이동, 신호등 실데이터 유지) -->
     <section class="sec-pad anchor" id="market-signal">
