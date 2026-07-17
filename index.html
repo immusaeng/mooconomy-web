@@ -174,8 +174,44 @@
   .indicator-card .ind-change.up { color:var(--up-red); }
   .indicator-card .ind-change.down { color:var(--down-blue); }
   .indicator-card.is-missing .ind-value { color:var(--gray); }
+  .indicator-card .ind-insight { font-size:12px; color:var(--gray); margin-top:4px; }
   @media (max-width:900px) {
     .indicator-grid { grid-template-columns:repeat(2,1fr); gap:12px; }
+  }
+
+  /* 02 시장 온도 */
+  .temperature-card { max-width:640px; margin:0 auto; text-align:center; }
+  .temp-badge { display:inline-block; padding:8px 20px; border-radius:20px; font-size:14px; font-weight:800; margin-bottom:16px; }
+  .temp-badge.strong_risk_on, .temp-badge.risk_on { background:var(--red-100,#ffebee); color:var(--up-red); }
+  .temp-badge.neutral { background:var(--bg); color:var(--gray); }
+  .temp-badge.cautious { background:#fff4db; color:#a86400; }
+  .temp-badge.risk_off { background:#eaf2fd; color:var(--down-blue); }
+  .temp-badge.unavailable { background:var(--bg); color:var(--gray); }
+  .temp-summary { font-size:15.5px; color:var(--ink); line-height:1.7; margin-bottom:18px; }
+  .temp-reasons { list-style:none; display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-bottom:14px; padding:0; }
+  .temp-reasons li { background:var(--bg); border:1px solid var(--line); border-radius:20px; padding:6px 14px; font-size:12.5px; color:var(--ink); }
+  .temp-watch { font-size:13px; color:var(--gray); }
+  .temp-watch b { color:var(--ink); }
+
+  /* 03 오늘의 3줄 */
+  .daily-three-list { max-width:720px; margin:0 auto; display:flex; flex-direction:column; gap:16px; }
+  .daily-three-item { background:#fff; border:1px solid var(--line); border-left:5px solid var(--gold); border-radius:14px; padding:20px 24px; }
+  .daily-three-item .dt-title { font-size:13px; font-weight:800; color:var(--gold-d); letter-spacing:.5px; margin-bottom:8px; }
+  .daily-three-item .dt-text { font-size:15px; color:var(--ink); line-height:1.7; }
+  .daily-three-item.is-missing { border-left-color:var(--line); }
+  .daily-three-item.is-missing .dt-text { color:var(--gray); }
+
+  /* 05 시장 연결고리 */
+  .connection-flow { display:flex; flex-wrap:wrap; align-items:stretch; justify-content:center; gap:10px; margin-bottom:20px; }
+  .connection-node { background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px 16px; min-width:150px; text-align:center; }
+  .connection-node .cn-label { font-size:12px; font-weight:700; color:var(--gray); margin-bottom:6px; }
+  .connection-node .cn-detail { font-size:14px; font-weight:800; color:var(--ink); }
+  .connection-arrow { display:flex; align-items:center; justify-content:center; color:var(--gold-d); font-size:18px; font-weight:800; }
+  .connection-summary { max-width:680px; margin:0 auto 14px; text-align:center; font-size:15px; color:var(--ink); line-height:1.7; }
+  .connection-counter { max-width:680px; margin:0 auto; background:var(--bg); border-radius:12px; padding:14px 18px; text-align:center; font-size:13.5px; color:var(--gray); }
+  @media (max-width:640px) {
+    .connection-flow { flex-direction:column; }
+    .connection-arrow { transform:rotate(90deg); }
   }
 
   .grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
@@ -452,7 +488,7 @@
         <div class="sec-num">02 / MARKET TEMPERATURE</div>
         <div class="sec-title">오늘의 시장 온도</div>
         <div class="sec-sub">위험선호부터 위험회피까지, 오늘 시장 분위기를 상태 레이블과 근거로 보여줍니다</div>
-        <div class="sec-body" data-status="pending">
+        <div class="sec-body" id="marketTemperatureBody" data-status="pending">
           <div class="placeholder-pending">
             <span class="placeholder-dot"></span>
             <span class="placeholder-text">준비중 · 곧 추가됩니다</span>
@@ -467,7 +503,7 @@
         <div class="sec-num">03 / DAILY THREE</div>
         <div class="sec-title">오늘의 3줄</div>
         <div class="sec-sub">간밤 글로벌 시장 → 오늘 국내 시장 → 오늘의 체크포인트, 세 줄로 요약합니다</div>
-        <div class="sec-body" data-status="pending">
+        <div class="sec-body" id="dailyThreeBody" data-status="pending">
           <div class="placeholder-pending">
             <span class="placeholder-dot"></span>
             <span class="placeholder-text">준비중 · 곧 추가됩니다</span>
@@ -497,7 +533,7 @@
         <div class="sec-num">05 / MARKET CONNECTION</div>
         <div class="sec-title">오늘의 시장 연결고리</div>
         <div class="sec-sub">원인 지표 → 중간 영향 → 국내 시장 변수 → 확인할 결과로 이어지는 흐름을 보여줍니다</div>
-        <div class="sec-body" data-status="pending">
+        <div class="sec-body" id="marketConnectionBody" data-status="pending">
           <div class="placeholder-pending">
             <span class="placeholder-dot"></span>
             <span class="placeholder-text">준비중 · 곧 추가됩니다</span>
@@ -1085,15 +1121,129 @@
         card.appendChild(name);
         card.appendChild(value);
         card.appendChild(change);
+
+        if (it.insight) {
+          var insight = document.createElement('div');
+          insight.className = 'ind-insight';
+          insight.textContent = it.insight;
+          card.appendChild(insight);
+        }
+
         grid.appendChild(card);
       });
       el.appendChild(grid);
     }
 
+    var TEMP_LABEL_KR = {
+      strong_risk_on: '강한 위험선호', risk_on: '위험선호', neutral: '중립',
+      cautious: '경계', risk_off: '위험회피', unavailable: '분석 불가'
+    };
+
+    function renderMarketTemperature(el, mt) {
+      el.setAttribute('data-status', mt.status || 'ok');
+      el.innerHTML = '';
+      var card = document.createElement('div');
+      card.className = 'temperature-card';
+
+      var badge = document.createElement('span');
+      badge.className = 'temp-badge ' + mt.label;
+      badge.textContent = TEMP_LABEL_KR[mt.label] || mt.label;
+      card.appendChild(badge);
+
+      var summary = document.createElement('div');
+      summary.className = 'temp-summary';
+      summary.textContent = mt.summary || '';
+      card.appendChild(summary);
+
+      if (mt.reasons && mt.reasons.length) {
+        var ul = document.createElement('ul');
+        ul.className = 'temp-reasons';
+        mt.reasons.forEach(function (r) {
+          var li = document.createElement('li');
+          li.textContent = r;
+          ul.appendChild(li);
+        });
+        card.appendChild(ul);
+      }
+
+      if (mt.watchItems && mt.watchItems.length) {
+        var watch = document.createElement('div');
+        watch.className = 'temp-watch';
+        watch.innerHTML = '오늘 확인할 지표 · <b>' + mt.watchItems.join(', ') + '</b>';
+        card.appendChild(watch);
+      }
+
+      el.appendChild(card);
+    }
+
+    function renderDailyThree(el, items) {
+      el.setAttribute('data-status', 'ok');
+      el.innerHTML = '';
+      var list = document.createElement('div');
+      list.className = 'daily-three-list';
+      items.forEach(function (it) {
+        var item = document.createElement('div');
+        item.className = 'daily-three-item' + (it.status !== 'ok' ? ' is-missing' : '');
+        var title = document.createElement('div');
+        title.className = 'dt-title';
+        title.textContent = it.title;
+        var text = document.createElement('div');
+        text.className = 'dt-text';
+        text.textContent = it.text;
+        item.appendChild(title);
+        item.appendChild(text);
+        list.appendChild(item);
+      });
+      el.appendChild(list);
+    }
+
+    function renderConnection(el, conn) {
+      el.setAttribute('data-status', conn.status || 'ok');
+      el.innerHTML = '';
+
+      var flow = document.createElement('div');
+      flow.className = 'connection-flow';
+      conn.nodes.forEach(function (n, i) {
+        var node = document.createElement('div');
+        node.className = 'connection-node';
+        var label = document.createElement('div');
+        label.className = 'cn-label';
+        label.textContent = n.label;
+        var detail = document.createElement('div');
+        detail.className = 'cn-detail';
+        detail.textContent = n.detail;
+        node.appendChild(label);
+        node.appendChild(detail);
+        flow.appendChild(node);
+        if (i < conn.nodes.length - 1) {
+          var arrow = document.createElement('div');
+          arrow.className = 'connection-arrow';
+          arrow.textContent = '→';
+          flow.appendChild(arrow);
+        }
+      });
+      el.appendChild(flow);
+
+      var summary = document.createElement('div');
+      summary.className = 'connection-summary';
+      summary.textContent = conn.summary || '';
+      el.appendChild(summary);
+
+      if (conn.counterScenario) {
+        var counter = document.createElement('div');
+        counter.className = 'connection-counter';
+        counter.textContent = conn.counterScenario;
+        el.appendChild(counter);
+      }
+    }
+
     async function loadHome() {
       var statusBody = document.getElementById('todayStatusBody');
       var indBody = document.getElementById('keyIndicatorsBody');
-      if (!statusBody && !indBody) return;
+      var tempBody = document.getElementById('marketTemperatureBody');
+      var threeBody = document.getElementById('dailyThreeBody');
+      var connBody = document.getElementById('marketConnectionBody');
+      if (!statusBody && !indBody && !tempBody && !threeBody && !connBody) return;
 
       var home;
       try {
@@ -1103,10 +1253,15 @@
       } catch (error) {
         if (statusBody) renderHomeError(statusBody, '오늘의 데이터 기준 정보를 불러오지 못했습니다.');
         if (indBody) renderHomeError(indBody, '핵심 지표를 불러오지 못했습니다.');
+        // 02·03·05는 fetch 자체가 실패하면 굳이 에러로 덮지 않고 기존 "준비중"을 유지한다
         return;
       }
 
       if (statusBody) renderTodayStatus(statusBody, home);
+      // 02·03·05는 필드가 null/빈 배열이면 손대지 않고 기존 "준비중" 플레이스홀더를 그대로 둔다
+      if (tempBody && home.marketTemperature) renderMarketTemperature(tempBody, home.marketTemperature);
+      if (threeBody && home.dailyThree && home.dailyThree.length === 3) renderDailyThree(threeBody, home.dailyThree);
+      if (connBody && home.connection) renderConnection(connBody, home.connection);
       if (indBody) renderKeyIndicators(indBody, home);
     }
 
