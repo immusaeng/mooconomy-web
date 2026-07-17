@@ -163,6 +163,21 @@
   .placeholder-pending { display:inline-flex; align-items:center; gap:10px; background:var(--bg); border:1px dashed var(--line); border-radius:14px; padding:20px 30px; color:var(--gray); font-size:14px; font-weight:600; }
   .placeholder-dot { width:9px; height:9px; border-radius:50%; background:#9aa5b1; flex:0 0 auto; }
 
+  .today-status-line { text-align:center; color:var(--gray); font-size:14.5px; font-weight:600; }
+  .today-status-line b { color:var(--ink); }
+
+  .indicator-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+  .indicator-card { background:#fff; border:1px solid var(--line); border-radius:14px; padding:18px 16px; }
+  .indicator-card .ind-name { font-size:12.5px; font-weight:700; color:var(--gray); }
+  .indicator-card .ind-value { font-size:21px; font-weight:800; color:var(--ink); margin:6px 0 4px; font-variant-numeric:tabular-nums; }
+  .indicator-card .ind-change { font-size:13px; font-weight:700; color:var(--gray); }
+  .indicator-card .ind-change.up { color:var(--up-red); }
+  .indicator-card .ind-change.down { color:var(--down-blue); }
+  .indicator-card.is-missing .ind-value { color:var(--gray); }
+  @media (max-width:900px) {
+    .indicator-grid { grid-template-columns:repeat(2,1fr); gap:12px; }
+  }
+
   .grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
   .prob-item { background:var(--bg); border-radius:16px; padding:34px 28px; border-top:4px solid var(--navy); }
   .prob-n { width:42px; height:42px; border-radius:11px; background:var(--navy); color:var(--gold); font-weight:800; font-size:17px; display:flex; align-items:center; justify-content:center; margin-bottom:20px; }
@@ -422,7 +437,7 @@
         <div class="sec-num">01 / TODAY STATUS</div>
         <div class="sec-title">오늘 날짜 및 데이터 기준</div>
         <div class="sec-sub">발행일, 최근 업데이트 시각, 국내·미국 시장 기준일과 데이터 지연 여부를 한눈에 확인합니다</div>
-        <div class="sec-body" data-status="pending">
+        <div class="sec-body" id="todayStatusBody" data-status="pending">
           <div class="placeholder-pending">
             <span class="placeholder-dot"></span>
             <span class="placeholder-text">준비중 · 곧 추가됩니다</span>
@@ -467,7 +482,7 @@
         <div class="sec-num">04 / KEY INDICATORS</div>
         <div class="sec-title">핵심 시장 지표</div>
         <div class="sec-sub">코스피·코스닥·나스닥·원달러·미국채10년 등 핵심 지표를 카드로 확인합니다</div>
-        <div class="sec-body" data-status="pending">
+        <div class="sec-body" id="keyIndicatorsBody" data-status="pending">
           <div class="placeholder-pending">
             <span class="placeholder-dot"></span>
             <span class="placeholder-text">준비중 · 곧 추가됩니다</span>
@@ -1008,6 +1023,93 @@
       });
     }
 
+    /* ===== 홈 01/04 섹션: home.json ===== */
+    function renderHomeError(el, msg) {
+      el.setAttribute('data-status', 'error');
+      el.innerHTML = '';
+      var box = document.createElement('div');
+      box.className = 'placeholder-pending';
+      var dot = document.createElement('span');
+      dot.className = 'placeholder-dot';
+      var text = document.createElement('span');
+      text.className = 'placeholder-text';
+      text.textContent = msg;
+      box.appendChild(dot);
+      box.appendChild(text);
+      el.appendChild(box);
+    }
+
+    function renderTodayStatus(el, home) {
+      el.setAttribute('data-status', home.status || 'ok');
+      el.innerHTML = '';
+      var line = document.createElement('div');
+      line.className = 'today-status-line';
+      var pub = home.publishDate || '—';
+      var kr = home.marketDateKr || '—';
+      var us = home.marketDateUs || '—';
+      var delayedNote = home.isDelayed ? ' · 실시간 아님 · 전 거래일 마감 기준' : '';
+      line.innerHTML = '발행일 <b>' + pub + '</b> · 국내 기준 <b>' + kr + '</b> · 미국 기준 <b>' + us + '</b>' + delayedNote;
+      el.appendChild(line);
+    }
+
+    function renderKeyIndicators(el, home) {
+      var items = (home.indicators || []);
+      if (items.length === 0) { renderHomeError(el, '핵심 지표 데이터가 없습니다.'); return; }
+      el.setAttribute('data-status', 'ok');
+      el.innerHTML = '';
+      var grid = document.createElement('div');
+      grid.className = 'indicator-grid';
+      items.forEach(function (it) {
+        var isMissing = it.status !== 'ok';
+        var card = document.createElement('div');
+        card.className = 'indicator-card' + (isMissing ? ' is-missing' : '');
+
+        var name = document.createElement('div');
+        name.className = 'ind-name';
+        name.textContent = it.name;
+
+        var value = document.createElement('div');
+        value.className = 'ind-value';
+        value.textContent = it.displayValue || '—';
+
+        var change = document.createElement('div');
+        var dirCls = it.direction === 'up' ? 'up' : (it.direction === 'down' ? 'down' : '');
+        change.className = 'ind-change' + (dirCls ? ' ' + dirCls : '');
+        if (!isMissing && it.change !== null && it.change !== undefined) {
+          var arrow = it.direction === 'up' ? '▲ ' : (it.direction === 'down' ? '▼ ' : '— ');
+          change.textContent = arrow + Math.abs(it.change).toFixed(2) + (it.changeUnit || '%');
+        } else {
+          change.textContent = '데이터 없음';
+        }
+
+        card.appendChild(name);
+        card.appendChild(value);
+        card.appendChild(change);
+        grid.appendChild(card);
+      });
+      el.appendChild(grid);
+    }
+
+    async function loadHome() {
+      var statusBody = document.getElementById('todayStatusBody');
+      var indBody = document.getElementById('keyIndicatorsBody');
+      if (!statusBody && !indBody) return;
+
+      var home;
+      try {
+        var res = await fetch('data/home.json?v=' + Date.now());
+        if (!res.ok) throw new Error('load fail');
+        home = await res.json();
+      } catch (error) {
+        if (statusBody) renderHomeError(statusBody, '오늘의 데이터 기준 정보를 불러오지 못했습니다.');
+        if (indBody) renderHomeError(indBody, '핵심 지표를 불러오지 못했습니다.');
+        return;
+      }
+
+      if (statusBody) renderTodayStatus(statusBody, home);
+      if (indBody) renderKeyIndicators(indBody, home);
+    }
+
     async function initMarketsDashboard() {
       if (spreadChartInstance) { spreadChartInstance.destroy(); spreadChartInstance = null; }
 
@@ -1130,6 +1232,7 @@
     window.addEventListener('load', function(){
       if (typeof lucide !== 'undefined') lucide.createIcons();
       loadSignals();
+      loadHome();
       routeFromHash();
     });
   </script>
