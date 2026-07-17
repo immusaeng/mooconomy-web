@@ -263,6 +263,15 @@
   .cal-item, .news-item { border-left-color: var(--flat-gray); }
   /* 09 뉴스/공시 좌우 패딩은 리스트형(.mc-row) 표준값으로 07과 통일 */
   .cal-item, .news-item { padding: 12px 16px; }
+  /* 요약/보충 설명 상자(05 counterScenario·08/09 요약) — 데이터 카드가 아닌 '노트'라 좌측
+     액센트는 없지만, --bg 회색 채움 대신 다른 카드와 같은 흰 배경+테두리 언어를 쓴다
+     (2026-07-17 톤앤매너 재점검 SP-3: 회색/보랏빛 상자 3곳 제거). */
+  .connection-counter, .kw-summary, .news-summary {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    padding: var(--sp-2) var(--sp-3);
+  }
   /* 10 리스크 레벨 — 등락(빨강/파랑)과 겹치지 않는 별도 색상(주의=호박색, 관찰=중립회색) */
   .risk-item.level-caution { border-left-color: var(--caution); }
   .risk-item.level-watch { border-left-color: var(--gray); }
@@ -283,7 +292,7 @@
   .kw-item .kw-label { font-size:11.5px; font-weight:700; color:var(--gray); text-transform:uppercase; letter-spacing:.3px; }
   .kw-item .kw-value { font-size:16px; font-weight:800; color:var(--ink); margin-top:6px; font-variant-numeric:tabular-nums; }
   .kw-item.is-missing .kw-value { color:var(--gray); }
-  .kw-summary { font-size:14.5px; color:var(--ink); line-height:1.7; background:var(--bg); border-radius:var(--radius-card); padding:14px 16px; }
+  .kw-summary { font-size:14.5px; color:var(--ink); line-height:1.7; }
   @media (max-width:900px) {
     .kw-grid { grid-template-columns:repeat(2,1fr); }
   }
@@ -308,7 +317,7 @@
   }
 
   /* 09 주요 뉴스 및 공시 — 뉴스/공시 분류 배지 + 링크형 카드 */
-  .news-summary { font-size:14.5px; color:var(--ink); line-height:1.7; background:var(--bg); border-radius:var(--radius-card); padding:14px 16px; margin-bottom:var(--sp-3); }
+  .news-summary { font-size:14.5px; color:var(--ink); line-height:1.7; margin-bottom:var(--sp-3); }
   .news-list { display:flex; flex-direction:column; gap:var(--sp-2); }
   .news-item { display:flex; align-items:flex-start; gap:12px; text-decoration:none; }
   .news-item .news-badge { flex:0 0 auto; margin-top:2px; font-size:10.5px; font-weight:800; padding:2px 7px; border-radius:6px; background:var(--bg); color:var(--navy); }
@@ -355,7 +364,7 @@
   .connection-node .cn-detail { font-size:14px; font-weight:800; color:var(--ink); font-variant-numeric:tabular-nums; }
   .connection-arrow { display:flex; align-items:center; justify-content:center; color:var(--gold-d); font-size:16px; font-weight:800; padding:0 2px; }
   .connection-summary { max-width:640px; margin-bottom:12px; font-size:15px; color:var(--ink); line-height:1.7; }
-  .connection-counter { max-width:640px; background:var(--bg); border-radius:10px; padding:12px 16px; font-size:13.5px; color:var(--gray); border-left:3px solid var(--line); }
+  .connection-counter { max-width:640px; font-size:13.5px; color:var(--gray); }
   @media (max-width:640px) {
     .connection-flow { flex-direction:column; }
     .connection-arrow { transform:rotate(90deg); padding:2px 0; }
@@ -400,7 +409,7 @@
   .expand-btn .chev { display:inline-block; transition:transform .3s ease; }
   .expand-btn.open .chev { transform:rotate(180deg); }
 
-  .final { background:linear-gradient(160deg,var(--navy),var(--navy2)); color:#fff; text-align:center; padding:96px 0; }
+  .final { background:linear-gradient(160deg,var(--navy),var(--navy2)); color:#fff; text-align:center; padding:var(--sp-7) 0; }
   .final h2 { font-size:32px; font-weight:800; line-height:1.4; margin-bottom:18px; }
   .final h2 .hl { color:var(--gold); }
   .final p { font-size:16px; color:#c8d3e0; max-width:560px; margin:0 auto 14px; }
