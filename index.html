@@ -236,10 +236,26 @@
   .dir-badge.down { background:var(--down-blue-bg); color:var(--down-blue); }
   .dir-badge.flat { background:var(--flat-gray-bg); color:var(--flat-gray); }
 
+  /* 표준 카드 토큰(.mc-card) — 06~10 전 섹션이 공유하는 카드 언어.
+     08 국내 체크포인트 카드를 기준으로 확정: 배경/보더/라운드는 공통, 좌측 액센트(3px)로
+     방향·중요도·분류를 표현한다 — up=--up-red, down=--down-blue, 중립/강조=--gold, 데이터 없음=--flat-gray. */
+  .mc-card, .indicator-card, .kw-item, .connection-node, .cal-item, .news-item,
+  .signal-grid.home-style .signal-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+  }
+  .mc-card, .indicator-card, .kw-item, .connection-node, .cal-item, .news-item {
+    border-left: 3px solid var(--line);
+  }
+  .mc-card.accent-up, .indicator-card.dir-up, .kw-item.dir-up { border-left-color: var(--up-red); }
+  .mc-card.accent-down, .indicator-card.dir-down, .kw-item.dir-down { border-left-color: var(--down-blue); }
+  .mc-card.accent-gold, .cal-item.imp-high, .news-item.cat-disclosure,
+  .signal-grid.home-style .signal-card { border-left-color: var(--gold); }
+  .mc-card.accent-flat, .indicator-card.is-missing, .kw-item.is-missing { border-left-color: var(--flat-gray); }
+
   .indicator-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:var(--sp-3); }
-  .indicator-card { background:var(--card); border:1px solid var(--line); border-left:3px solid var(--line); border-radius:var(--radius-card); padding:16px; transition:border-color .15s; }
-  .indicator-card.dir-up   { border-left-color:var(--up-red); }
-  .indicator-card.dir-down { border-left-color:var(--down-blue); }
+  .indicator-card { padding:16px; transition:border-color .15s; }
   .indicator-card .ind-name { font-size:12px; font-weight:700; color:var(--gray); text-transform:uppercase; letter-spacing:.4px; }
   .indicator-card .ind-value { font-size:21px; font-weight:800; color:var(--ink); margin:6px 0 8px; font-variant-numeric:tabular-nums; letter-spacing:-.3px; }
   .indicator-card .ind-change { margin-bottom:4px; }
@@ -327,7 +343,7 @@
 
   /* 05 시장 연결고리 */
   .connection-flow { display:flex; flex-wrap:wrap; align-items:stretch; gap:8px; margin-bottom:18px; }
-  .connection-node { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; min-width:150px; }
+  .connection-node { border-left-color:var(--gold); padding:14px 16px; min-width:150px; }
   .connection-node .cn-label { font-size:11.5px; font-weight:700; color:var(--gray); margin-bottom:6px; text-transform:uppercase; letter-spacing:.3px; }
   .connection-node .cn-detail { font-size:14px; font-weight:800; color:var(--ink); font-variant-numeric:tabular-nums; }
   .connection-arrow { display:flex; align-items:center; justify-content:center; color:var(--gold-d); font-size:16px; font-weight:800; padding:0 2px; }
@@ -1246,8 +1262,11 @@
       grid.className = 'indicator-grid';
       items.forEach(function (it) {
         var isMissing = it.status !== 'ok';
+        var dirCls = it.direction === 'up' ? 'up' : (it.direction === 'down' ? 'down' : '');
         var card = document.createElement('div');
-        card.className = 'indicator-card' + (isMissing ? ' is-missing' : '');
+        card.className = 'indicator-card'
+          + (isMissing ? ' is-missing' : '')
+          + (dirCls === 'up' ? ' dir-up' : dirCls === 'down' ? ' dir-down' : '');
 
         var name = document.createElement('div');
         name.className = 'ind-name';
@@ -1258,7 +1277,6 @@
         value.textContent = it.displayValue || '—';
 
         var change = document.createElement('div');
-        var dirCls = it.direction === 'up' ? 'up' : (it.direction === 'down' ? 'down' : '');
         change.className = 'ind-change' + (dirCls ? ' ' + dirCls : '');
         if (!isMissing && it.change !== null && it.change !== undefined) {
           var arrow = it.direction === 'up' ? '▲ ' : (it.direction === 'down' ? '▼ ' : '— ');
