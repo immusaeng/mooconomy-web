@@ -179,9 +179,9 @@
   }
 
   .c3-badge { display:inline-block; background:var(--navy); color:var(--gold); font-size:12.5px; font-weight:700; letter-spacing:1px; padding:8px 18px; border-radius:20px; margin-bottom:18px; }
-  .sec-title { font-size:30px; font-weight:800; line-height:1.4; margin-bottom:10px; text-align:center; }
+  .sec-title { font-size:var(--fs-title); font-weight:800; line-height:1.4; margin-bottom:10px; text-align:center; }
   .sec-title .hl { color:var(--gold-d); }
-  .sec-sub { font-size:16px; color:var(--gray); margin-bottom:52px; text-align:center; }
+  .sec-sub { font-size:16px; color:var(--gray); margin-bottom:var(--sp-6); text-align:center; }
   .center { text-align:center; }
 
   .sec-num.on-dark { color:var(--gold); }
@@ -377,15 +377,14 @@
   .signal-grid.home-style {
     grid-template-columns: repeat(auto-fit, minmax(260px, 320px));
     justify-content: center;
-    gap: 28px;
+    gap: var(--sp-4);
     margin-bottom: 0;
   }
   .signal-grid.home-style .signal-card {
-    border-radius: 16px;
-    padding: 34px 28px;
+    border-radius: var(--radius-card);
+    padding: 28px 24px;
     border: 1px solid var(--line);
-    border-left: 5px solid var(--gold);
-    box-shadow: 0 4px 16px rgba(11,37,69,.05);
+    border-left: 3px solid var(--gold);
   }
 
   .tabs-wrapper {
@@ -414,7 +413,21 @@
   .insight-box h3 { font-size: 15px; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
   .insight-box p { font-size: 13.5px; color: var(--ink); line-height: 1.7; }
 
-  .foot { background:#08182e; color:#8ba0b8; text-align:center; padding:32px 40px; font-size:12.5px; line-height:1.7; }
+  /* ══════════════════════════════════════════════════════════════
+     06~14 섹션 리듬 — 01~05(.dispatch, --sp-5)와 같은 --sp 스케일에서
+     파생하되, 콘텐츠형(06~11)과 브랜드/CTA형(12·13·14)을 구분해
+     서로 다른 정도로 압축한다. 마크업/id/색상은 그대로, padding만 조정.
+     ══════════════════════════════════════════════════════════════ */
+  #market-signal.sec-pad, #today-calendar.sec-pad, #korea-watch.sec-pad,
+  #news-disclosure.sec-pad, #today-risk.sec-pad, #latest.sec-pad {
+    padding: var(--sp-6) 0;
+  }
+  #subscribe.final, #problem.sec-pad, #why.sec-pad {
+    padding: var(--sp-7) 0;
+  }
+  .why-card { box-shadow:none; }
+
+  .foot { background:#08182e; color:#8ba0b8; text-align:center; padding:var(--sp-5) 40px; font-size:12.5px; line-height:1.7; }
   .foot .items { color:var(--gold); font-weight:700; margin-bottom:6px; }
 
   .toast {
