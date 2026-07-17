@@ -259,7 +259,10 @@
   .mc-card.accent-down, .indicator-card.dir-down, .kw-item.dir-down { border-left-color: var(--down-blue); }
   .mc-card.accent-gold, .cal-item.imp-high, .news-item.cat-disclosure,
   .signal-grid.home-style .signal-card { border-left-color: var(--gold); }
-  .mc-card.accent-flat, .indicator-card.is-missing, .kw-item.is-missing { border-left-color: var(--flat-gray); }
+  .mc-card.accent-flat, .indicator-card.is-missing, .kw-item.is-missing,
+  .cal-item, .news-item { border-left-color: var(--flat-gray); }
+  /* 09 뉴스/공시 좌우 패딩은 리스트형(.mc-row) 표준값으로 07과 통일 */
+  .cal-item, .news-item { padding: 12px 16px; }
   /* 10 리스크 레벨 — 등락(빨강/파랑)과 겹치지 않는 별도 색상(주의=호박색, 관찰=중립회색) */
   .risk-item.level-caution { border-left-color: var(--caution); }
   .risk-item.level-watch { border-left-color: var(--gray); }
@@ -296,7 +299,7 @@
 
   /* 07 오늘의 경제 캘린더 — 세로 타임라인, importance로 좌측 액센트 */
   .cal-list { display:flex; flex-direction:column; gap:var(--sp-2); }
-  .cal-item { display:flex; align-items:center; gap:14px; padding:12px 16px; }
+  .cal-item { display:flex; align-items:center; gap:14px; }
   .cal-item .cal-time { flex:0 0 auto; width:88px; font-size:12.5px; font-weight:700; color:var(--gray); font-variant-numeric:tabular-nums; }
   .cal-item .cal-country { flex:0 0 auto; font-size:10.5px; font-weight:800; color:var(--navy); background:var(--bg); padding:2px 7px; border-radius:6px; }
   .cal-item .cal-title { flex:1; min-width:0; font-size:14px; font-weight:700; color:var(--ink); }
@@ -307,7 +310,7 @@
   /* 09 주요 뉴스 및 공시 — 뉴스/공시 분류 배지 + 링크형 카드 */
   .news-summary { font-size:14.5px; color:var(--ink); line-height:1.7; background:var(--bg); border-radius:var(--radius-card); padding:14px 16px; margin-bottom:var(--sp-3); }
   .news-list { display:flex; flex-direction:column; gap:var(--sp-2); }
-  .news-item { display:flex; align-items:flex-start; gap:12px; padding:14px 16px; text-decoration:none; }
+  .news-item { display:flex; align-items:flex-start; gap:12px; text-decoration:none; }
   .news-item .news-badge { flex:0 0 auto; margin-top:2px; font-size:10.5px; font-weight:800; padding:2px 7px; border-radius:6px; background:var(--bg); color:var(--navy); }
   .news-item.cat-disclosure .news-badge { color:var(--gold-d); }
   .news-item .news-body { flex:1; min-width:0; }
