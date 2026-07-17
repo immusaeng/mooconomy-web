@@ -69,6 +69,7 @@
     --up-red:#d32f2f;    --up-red-bg:#fdecec;
     --down-blue:#1565c0; --down-blue-bg:#eaf2fd;
     --flat-gray:#7a828e; --flat-gray-bg:#eef0f3;
+    --caution:#a86400; --caution-bg:#fff4db;
 
     /* 타입 스케일(Pretendard 단일 서체 — 굵기·트래킹·tabular-nums로 위계를 만든다) */
     --fs-display: clamp(30px, 4.2vw, 40px);
@@ -239,13 +240,13 @@
   /* 표준 카드 토큰(.mc-card) — 06~10 전 섹션이 공유하는 카드 언어.
      08 국내 체크포인트 카드를 기준으로 확정: 배경/보더/라운드는 공통, 좌측 액센트(3px)로
      방향·중요도·분류를 표현한다 — up=--up-red, down=--down-blue, 중립/강조=--gold, 데이터 없음=--flat-gray. */
-  .mc-card, .indicator-card, .kw-item, .connection-node, .cal-item, .news-item,
+  .mc-card, .indicator-card, .kw-item, .connection-node, .cal-item, .news-item, .risk-item,
   .signal-grid.home-style .signal-card {
     background: var(--card);
     border: 1px solid var(--line);
     border-radius: var(--radius-card);
   }
-  .mc-card, .indicator-card, .kw-item, .connection-node, .cal-item, .news-item {
+  .mc-card, .indicator-card, .kw-item, .connection-node, .cal-item, .news-item, .risk-item {
     border-left: 3px solid var(--line);
   }
   .mc-card.accent-up, .indicator-card.dir-up, .kw-item.dir-up { border-left-color: var(--up-red); }
@@ -253,6 +254,9 @@
   .mc-card.accent-gold, .cal-item.imp-high, .news-item.cat-disclosure,
   .signal-grid.home-style .signal-card { border-left-color: var(--gold); }
   .mc-card.accent-flat, .indicator-card.is-missing, .kw-item.is-missing { border-left-color: var(--flat-gray); }
+  /* 10 리스크 레벨 — 등락(빨강/파랑)과 겹치지 않는 별도 색상(주의=호박색, 관찰=중립회색) */
+  .risk-item.level-caution { border-left-color: var(--caution); }
+  .risk-item.level-watch { border-left-color: var(--gray); }
 
   .indicator-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:var(--sp-3); }
   .indicator-card { padding:16px; transition:border-color .15s; }
@@ -267,9 +271,7 @@
 
   /* 08 국내 시장 체크포인트 — 04 지표 카드와 같은 언어(카드+방향 보더), 요약문 포함 */
   .kw-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:var(--sp-2); margin-bottom:var(--sp-3); }
-  .kw-item { background:var(--card); border:1px solid var(--line); border-left:3px solid var(--line); border-radius:var(--radius-card); padding:14px; }
-  .kw-item.dir-up   { border-left-color:var(--up-red); }
-  .kw-item.dir-down { border-left-color:var(--down-blue); }
+  .kw-item { padding:14px; }
   .kw-item .kw-label { font-size:11.5px; font-weight:700; color:var(--gray); text-transform:uppercase; letter-spacing:.3px; }
   .kw-item .kw-value { font-size:16px; font-weight:800; color:var(--ink); margin-top:6px; font-variant-numeric:tabular-nums; }
   .kw-item.is-missing .kw-value { color:var(--gray); }
@@ -280,7 +282,7 @@
 
   /* 10 오늘의 리스크 — 03 오늘의 3줄과 같은 카드 리스트 언어, 등락색과 안 겹치는 중립 레벨 배지 */
   .risk-list { display:flex; flex-direction:column; gap:var(--sp-2); }
-  .risk-item { background:var(--card); border:1px solid var(--line); border-radius:var(--radius-card); padding:16px 18px; }
+  .risk-item { padding:16px 18px; }
   .risk-item .risk-head { display:flex; align-items:center; gap:8px; margin-bottom:6px; }
   .risk-item .risk-title { font-size:14.5px; font-weight:800; color:var(--ink); }
   .risk-item .risk-level { font-size:11px; font-weight:800; padding:2px 9px; border-radius:8px; letter-spacing:.2px; }
@@ -290,8 +292,7 @@
 
   /* 07 오늘의 경제 캘린더 — 세로 타임라인, importance로 좌측 액센트 */
   .cal-list { display:flex; flex-direction:column; gap:var(--sp-2); }
-  .cal-item { display:flex; align-items:center; gap:14px; background:var(--card); border:1px solid var(--line); border-left:3px solid var(--line); border-radius:var(--radius-card); padding:12px 16px; }
-  .cal-item.imp-high { border-left-color:var(--gold); }
+  .cal-item { display:flex; align-items:center; gap:14px; padding:12px 16px; }
   .cal-item .cal-time { flex:0 0 auto; width:88px; font-size:12.5px; font-weight:700; color:var(--gray); font-variant-numeric:tabular-nums; }
   .cal-item .cal-country { flex:0 0 auto; font-size:10.5px; font-weight:800; color:var(--navy); background:var(--bg); padding:2px 7px; border-radius:6px; }
   .cal-item .cal-title { flex:1; min-width:0; font-size:14px; font-weight:700; color:var(--ink); }
@@ -1445,7 +1446,7 @@
       list.className = 'risk-list';
       risks.forEach(function (r) {
         var item = document.createElement('div');
-        item.className = 'risk-item';
+        item.className = 'risk-item ' + (r.level === '주의' ? 'level-caution' : 'level-watch');
 
         var head = document.createElement('div');
         head.className = 'risk-head';
