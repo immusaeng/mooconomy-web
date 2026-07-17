@@ -272,6 +272,17 @@
   .risk-item .risk-level.risk-caution { background:#fff4db; color:#a86400; }
   .risk-item .risk-detail { font-size:13.5px; color:var(--gray); line-height:1.65; }
 
+  /* 07 오늘의 경제 캘린더 — 세로 타임라인, importance로 좌측 액센트 */
+  .cal-list { display:flex; flex-direction:column; gap:var(--sp-2); }
+  .cal-item { display:flex; align-items:center; gap:14px; background:var(--card); border:1px solid var(--line); border-left:3px solid var(--line); border-radius:var(--radius-card); padding:12px 16px; }
+  .cal-item.imp-high { border-left-color:var(--gold); }
+  .cal-item .cal-time { flex:0 0 auto; width:88px; font-size:12.5px; font-weight:700; color:var(--gray); font-variant-numeric:tabular-nums; }
+  .cal-item .cal-country { flex:0 0 auto; font-size:10.5px; font-weight:800; color:var(--navy); background:var(--bg); padding:2px 7px; border-radius:6px; }
+  .cal-item .cal-title { flex:1; min-width:0; font-size:14px; font-weight:700; color:var(--ink); }
+  @media (max-width:640px) {
+    .cal-item { flex-wrap:wrap; gap:6px 10px; }
+  }
+
   /* 02 시장 온도 */
   .temperature-card { text-align:left; }
   .temp-badge { display:inline-block; padding:7px 18px; border-radius:8px; font-size:14px; font-weight:800; margin-bottom:16px; }
@@ -682,7 +693,7 @@
         <div class="sec-num">07 / TODAY CALENDAR</div>
         <div class="sec-title">오늘의 경제 캘린더</div>
         <div class="sec-sub">한국·미국 주요 경제 일정을 시간순으로 정리합니다</div>
-        <div class="sec-body" data-status="pending">
+        <div class="sec-body" id="calendarBody" data-status="pending">
           <div class="placeholder-pending">
             <span class="placeholder-dot"></span>
             <span class="placeholder-text">준비중 · 곧 추가됩니다</span>
@@ -1426,6 +1437,37 @@
       el.appendChild(list);
     }
 
+    var CAL_COUNTRY_KR = { KR: '한국', US: '미국' };
+
+    function renderCalendar(el, calendar) {
+      el.setAttribute('data-status', 'ok');
+      el.innerHTML = '';
+      var list = document.createElement('div');
+      list.className = 'cal-list';
+      calendar.forEach(function (ev) {
+        var item = document.createElement('div');
+        item.className = 'cal-item' + (ev.importance === 'high' ? ' imp-high' : '');
+
+        var time = document.createElement('span');
+        time.className = 'cal-time';
+        time.textContent = ev.time;
+
+        var country = document.createElement('span');
+        country.className = 'cal-country';
+        country.textContent = CAL_COUNTRY_KR[ev.country] || ev.country;
+
+        var title = document.createElement('span');
+        title.className = 'cal-title';
+        title.textContent = ev.title;
+
+        item.appendChild(time);
+        item.appendChild(country);
+        item.appendChild(title);
+        list.appendChild(item);
+      });
+      el.appendChild(list);
+    }
+
     async function loadHome() {
       var statusBody = document.getElementById('todayStatusBody');
       var indBody = document.getElementById('keyIndicatorsBody');
@@ -1434,7 +1476,8 @@
       var connBody = document.getElementById('marketConnectionBody');
       var kwBody = document.getElementById('koreaWatchBody');
       var riskBody = document.getElementById('todayRiskBody');
-      if (!statusBody && !indBody && !tempBody && !threeBody && !connBody && !kwBody && !riskBody) return;
+      var calBody = document.getElementById('calendarBody');
+      if (!statusBody && !indBody && !tempBody && !threeBody && !connBody && !kwBody && !riskBody && !calBody) return;
 
       var home;
       try {
@@ -1455,6 +1498,7 @@
       if (connBody && home.connection) renderConnection(connBody, home.connection);
       if (kwBody && home.koreaWatch) renderKoreaWatch(kwBody, home.koreaWatch);
       if (riskBody && home.risks && home.risks.length > 0) renderTodayRisk(riskBody, home.risks);
+      if (calBody && home.calendar && home.calendar.length > 0) renderCalendar(calBody, home.calendar);
       if (indBody) renderKeyIndicators(indBody, home);
     }
 
