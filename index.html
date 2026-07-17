@@ -283,6 +283,20 @@
     .cal-item { flex-wrap:wrap; gap:6px 10px; }
   }
 
+  /* 09 주요 뉴스 및 공시 — 뉴스/공시 분류 배지 + 링크형 카드 */
+  .news-summary { font-size:14.5px; color:var(--ink); line-height:1.7; background:var(--bg); border-radius:var(--radius-card); padding:14px 16px; margin-bottom:var(--sp-3); }
+  .news-list { display:flex; flex-direction:column; gap:var(--sp-2); }
+  .news-item { display:flex; align-items:flex-start; gap:12px; background:var(--card); border:1px solid var(--line); border-left:3px solid var(--line); border-radius:var(--radius-card); padding:14px 16px; text-decoration:none; }
+  .news-item.cat-disclosure { border-left-color:var(--gold); }
+  .news-item .news-badge { flex:0 0 auto; margin-top:2px; font-size:10.5px; font-weight:800; padding:2px 7px; border-radius:6px; background:var(--bg); color:var(--navy); }
+  .news-item.cat-disclosure .news-badge { color:var(--gold-d); }
+  .news-item .news-body { flex:1; min-width:0; }
+  .news-item .news-title { font-size:14px; font-weight:700; color:var(--ink); line-height:1.5; }
+  .news-item .news-meta { font-size:12px; color:var(--gray); margin-top:4px; }
+  @media (max-width:640px) {
+    .news-item { flex-wrap:wrap; }
+  }
+
   /* 02 시장 온도 */
   .temperature-card { text-align:left; }
   .temp-badge { display:inline-block; padding:7px 18px; border-radius:8px; font-size:14px; font-weight:800; margin-bottom:16px; }
@@ -723,7 +737,7 @@
         <div class="sec-num">09 / NEWS &amp; DISCLOSURE</div>
         <div class="sec-title">주요 뉴스 및 공시</div>
         <div class="sec-sub">국내·글로벌 뉴스와 기업 공시를 분류해서 보여줍니다</div>
-        <div class="sec-body" data-status="pending">
+        <div class="sec-body" id="newsBody" data-status="pending">
           <div class="placeholder-pending">
             <span class="placeholder-dot"></span>
             <span class="placeholder-text">준비중 · 곧 추가됩니다</span>
@@ -1468,6 +1482,52 @@
       el.appendChild(list);
     }
 
+    var NEWS_CATEGORY_KR = { news: '뉴스', disclosure: '공시' };
+
+    function renderNews(el, news) {
+      el.setAttribute('data-status', 'ok');
+      el.innerHTML = '';
+
+      if (news.summary) {
+        var summary = document.createElement('div');
+        summary.className = 'news-summary';
+        summary.textContent = news.summary;
+        el.appendChild(summary);
+      }
+
+      var list = document.createElement('div');
+      list.className = 'news-list';
+      (news.items || []).forEach(function (it) {
+        var item = document.createElement('a');
+        item.className = 'news-item' + (it.category === 'disclosure' ? ' cat-disclosure' : '');
+        item.href = it.url;
+        item.target = '_blank';
+        item.rel = 'noopener noreferrer';
+
+        var badge = document.createElement('span');
+        badge.className = 'news-badge';
+        badge.textContent = NEWS_CATEGORY_KR[it.category] || it.category;
+
+        var body = document.createElement('div');
+        body.className = 'news-body';
+
+        var title = document.createElement('div');
+        title.className = 'news-title';
+        title.textContent = it.title;
+
+        var meta = document.createElement('div');
+        meta.className = 'news-meta';
+        meta.textContent = it.source + (it.publishedAt ? ' · ' + it.publishedAt : '');
+
+        body.appendChild(title);
+        body.appendChild(meta);
+        item.appendChild(badge);
+        item.appendChild(body);
+        list.appendChild(item);
+      });
+      el.appendChild(list);
+    }
+
     async function loadHome() {
       var statusBody = document.getElementById('todayStatusBody');
       var indBody = document.getElementById('keyIndicatorsBody');
@@ -1477,7 +1537,8 @@
       var kwBody = document.getElementById('koreaWatchBody');
       var riskBody = document.getElementById('todayRiskBody');
       var calBody = document.getElementById('calendarBody');
-      if (!statusBody && !indBody && !tempBody && !threeBody && !connBody && !kwBody && !riskBody && !calBody) return;
+      var newsBody = document.getElementById('newsBody');
+      if (!statusBody && !indBody && !tempBody && !threeBody && !connBody && !kwBody && !riskBody && !calBody && !newsBody) return;
 
       var home;
       try {
@@ -1499,6 +1560,7 @@
       if (kwBody && home.koreaWatch) renderKoreaWatch(kwBody, home.koreaWatch);
       if (riskBody && home.risks && home.risks.length > 0) renderTodayRisk(riskBody, home.risks);
       if (calBody && home.calendar && home.calendar.length > 0) renderCalendar(calBody, home.calendar);
+      if (newsBody && home.news && home.news.items && home.news.items.length > 0) renderNews(newsBody, home.news);
       if (indBody) renderKeyIndicators(indBody, home);
     }
 

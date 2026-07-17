@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-17T17:52:29+09:00",
+  "generatedAt": "2026-07-17T18:15:07+09:00",
   "publishDate": "2026-07-17",
   "marketDateKr": "2026-07-16",
   "marketDateUs": "2026-07-16",
@@ -8,7 +8,7 @@
   "status": "ok",
   "marketTemperature": {
     "label": "cautious",
-    "summary": "간밤 미국 증시가 평균 -0.73% 하락한 가운데 국내 증시도 -6.37% 하락하고 외국인 코스피 순매도가 13,665억원을 기록하며 경계감이 나타난 것으로 보입니다. 전반적인 투자 심리가 위축된 상태로 파악됩니다.",
+    "summary": "간밤 미국 증시가 평균 -0.73% 하락한 가운데 국내 증시도 -6.37% 큰 폭으로 하락하고 외국인이 코스피에서 13,665억원을 순매도하면서, 시장 온도는 경계 단계로 보입니다.",
     "reasons": [
       "간밤 미국 증시 평균 -0.73% 하락",
       "국내 증시 -6.37% 하락",
@@ -23,19 +23,19 @@
     {
       "id": "overnight-global",
       "title": "간밤 글로벌 시장",
-      "text": "간밤 글로벌 시장은 나스닥 -1.47%, S&P500 -0.51%, 다우 -0.20%로 동반 하락을 보였습니다. VIX는 18.56을 나타내고 미국채 10년 금리는 4.57%를 기록한 점이 관찰됩니다.",
+      "text": "간밤 글로벌 시장은 나스닥 -1.47%, S&P500 -0.51%, 다우 -0.20%로 일제히 하락 마감하였으며, VIX 지수는 18.41, 미국채10년 금리는 4.57%를 기록한 것으로 관찰됩니다.",
       "status": "ok"
     },
     {
       "id": "today-domestic",
       "title": "오늘 국내 시장",
-      "text": "오늘 국내 시장은 코스피가 -6.37%, 코스닥이 -4.53% 하락하며 약세를 나타냈습니다. 원/달러 환율이 -0.13% 하락한 가운데 외국인은 코스피 시장에서 13,665억원을 순매도한 것으로 집계되었습니다.",
+      "text": "오늘 국내 시장은 코스피가 -6.37%, 코스닥이 -4.53% 하락하였으며, 외환시장에서는 원/달러가 -0.06% 하락한 가운데 외국인은 코스피 시장에서 13,665억원을 순매도한 것으로 나타났습니다.",
       "status": "ok"
     },
     {
       "id": "today-checkpoint",
       "title": "오늘의 체크포인트",
-      "text": "경기침체 경보등이 +0.42%p 상승한 상황이 관찰됩니다. 향후 시장 흐름에 대응하기 위해 외국인 수급 동향을 면밀히 확인할 필요가 있을 것으로 보입니다.",
+      "text": "경기침체 경보등이 +0.42%p 상승한 것으로 나타나며, 시장의 향방을 가늠하기 위해 외국인 수급 지표를 긴밀히 확인할 필요가 있을 것으로 보입니다.",
       "status": "ok"
     }
   ],
@@ -47,7 +47,7 @@
       },
       {
         "label": "원/달러 환율",
-        "detail": "-0.13%(원화 강세)"
+        "detail": "-0.06%(원화 강세)"
       },
       {
         "label": "외국인 수급",
@@ -58,8 +58,8 @@
         "detail": "-6.37% 하락"
       }
     ],
-    "summary": "미국채 10년 금리가 4.57%로 상승한 가운데 원/달러 환율은 -0.13% 하락하며 원화 강세를 보였습니다. 다만 외국인이 코스피에서 13,665억원을 순매도하면서 국내 코스피 지수가 -6.37% 하락하는 결과로 이어진 것으로 보입니다.",
-    "counterScenario": "원화 강세 흐름 속에서 향후 수급이 유입세로 전환될 가능성도 열어두되 수급 주체들의 움직임을 신중하게 관찰하는 편이 바람직해 보입니다.",
+    "summary": "미국채10년 금리가 4.57%로 상승한 흐름 속에서 원/달러 환율이 -0.06%로 원화 강세를 보였으나, 외국인이 코스피 시장에서 13,665억원을 순매도함에 따라 국내 코스피 지수가 -6.37% 하락하는 영향으로 이어진 것으로 보입니다.",
+    "counterScenario": "향후 외국인 수급이 순매수로 전환되거나 금리 상승세가 진정될 경우 국내 증시의 하락 압력이 완화될 가능성도 있어 보입니다.",
     "status": "ok"
   },
   "koreaWatch": {
@@ -91,8 +91,8 @@
       {
         "id": "usdkrw",
         "label": "원/달러",
-        "value": 1484.31,
-        "displayValue": "1,484.3원",
+        "value": 1485.33,
+        "displayValue": "1,485.3원",
         "direction": "down",
         "status": "ok"
       },
@@ -105,28 +105,28 @@
         "status": "ok"
       }
     ],
-    "summary": "외국인 수급 -13,665억원, 기관 수급 -23,831억원, 개인 수급 +36,647억원, 원/달러 1,484.3원, 주도 업종 문구류 +8.27%.",
+    "summary": "외국인 수급 -13,665억원, 기관 수급 -23,831억원, 개인 수급 +36,647억원, 원/달러 1,485.3원, 주도 업종 문구류 +8.27%.",
     "status": "ok"
   },
   "risks": [
     {
       "id": "vix-volatility",
       "title": "변동성 확대 국면",
-      "detail": "VIX 지수가 전일 대비 +10.94% 상승한 18.56을 기록하면서 시장 전반의 불안감이 커질 가능성이 관찰됩니다.",
+      "detail": "VIX 지수가 18.41로 전일대비 +10.04% 상승하면서 글로벌 투자심리가 약화되고 변동성이 다소 확대되는 국면으로 보입니다.",
       "level": "주의",
       "status": "ok"
     },
     {
       "id": "kr-swing",
       "title": "국내 증시 큰 변동",
-      "detail": "코스피 지수가 -6.37%의 큰 낙폭을 기록하며 국내 증시의 하방 압력이 확대된 것으로 보입니다.",
+      "detail": "코스피 지수가 -6.37%의 큰 폭으로 하락하며 국내 증시의 단기 변동성이 크게 심화된 것으로 관찰됩니다.",
       "level": "관찰",
       "status": "ok"
     },
     {
       "id": "foreign-outflow",
       "title": "외국인 수급 이탈",
-      "detail": "외국인의 코스피 순매도 규모가 13,665억원에 달하며 수급 이탈 우려를 자극할 가능성이 제기됩니다.",
+      "detail": "외국인이 코스피 시장에서 13,665억원의 순매도를 기록하며 수급 이탈에 따른 하방 압력이 가중될 가능성이 있어 보입니다.",
       "level": "주의",
       "status": "ok"
     }
@@ -213,7 +213,147 @@
       "status": "ok"
     }
   ],
-  "news": [],
+  "news": {
+    "items": [
+      {
+        "id": "news-매일경제-금리인상 후폭풍 고령층부터 타격",
+        "category": "news",
+        "source": "매일경제",
+        "title": "금리인상 후폭풍 고령층부터 타격",
+        "url": "https://www.mk.co.kr/news/economy/12101110",
+        "publishedAt": "2026-07-17",
+        "status": "ok"
+      },
+      {
+        "id": "news-매일경제-은행 대출 조이자 … DSR 적용 안받는 서민급전대출 '껑충'",
+        "category": "news",
+        "source": "매일경제",
+        "title": "은행 대출 조이자 … DSR 적용 안받는 서민급전대출 '껑충'",
+        "url": "https://www.mk.co.kr/news/economy/12101087",
+        "publishedAt": "2026-07-17",
+        "status": "ok"
+      },
+      {
+        "id": "news-한국경제-보호무역에 대응…韓, 중견국 협의체 'FIT-P' 가입",
+        "category": "news",
+        "source": "한국경제",
+        "title": "보호무역에 대응…韓, 중견국 협의체 'FIT-P' 가입",
+        "url": "https://www.hankyung.com/article/2026071712481",
+        "publishedAt": "2026-07-17",
+        "status": "ok"
+      },
+      {
+        "id": "news-한국경제-최태원 \"메모리 수요 지속…韓, 지능 수출해야\"",
+        "category": "news",
+        "source": "한국경제",
+        "title": "최태원 \"메모리 수요 지속…韓, 지능 수출해야\"",
+        "url": "https://www.hankyung.com/article/2026071711931",
+        "publishedAt": "2026-07-17",
+        "status": "ok"
+      },
+      {
+        "id": "news-머니투데이-마인스페이스, AI 기반 '3D 인테리어 계약' 서비스 선보여",
+        "category": "news",
+        "source": "머니투데이",
+        "title": "마인스페이스, AI 기반 '3D 인테리어 계약' 서비스 선보여",
+        "url": "https://www.mt.co.kr/industry/2026/07/17/2026071419233891773",
+        "publishedAt": "2026-07-17",
+        "status": "ok"
+      },
+      {
+        "id": "news-MarketWatch-Buyer snaps up Josh Duhamel’s $3 million L.A. home as actor emb",
+        "category": "news",
+        "source": "MarketWatch",
+        "title": "Buyer snaps up Josh Duhamel’s $3 million L.A. home as actor embraces his Minnesota ‘doomsday prepper’ cabin",
+        "url": "https://www.marketwatch.com/story/buyer-snaps-up-josh-duhamels-3-million-l-a-home-as-actor-embraces-his-minnesota-doomsday-prepper-cabin-6666879e?mod=mw_rss_topstories",
+        "publishedAt": "2026-07-17",
+        "status": "ok"
+      },
+      {
+        "id": "news-CNBC-Chinese startup Moonshot AI unveils Kimi model it says rivals OpenAI, ",
+        "category": "news",
+        "source": "CNBC",
+        "title": "Chinese startup Moonshot AI unveils Kimi model it says rivals OpenAI, Anthropic",
+        "url": "https://www.cnbc.com/2026/07/17/moonshot-ai-kimi-k3-model-openai-anthropic-china.html",
+        "publishedAt": "2026-07-17",
+        "status": "ok"
+      },
+      {
+        "id": "news-Investing-Dollar steady but set for weekly drop on fading rate hike bets",
+        "category": "news",
+        "source": "Investing",
+        "title": "Dollar steady but set for weekly drop on fading rate hike bets",
+        "url": "https://www.investing.com/news/economy-news/dollar-set-for-weekly-drop-as-traders-cut-wagers-on-rate-hikes-4797331",
+        "publishedAt": "2026-07-17",
+        "status": "ok"
+      },
+      {
+        "id": "news-CNBC-BP, ConocoPhillips to back Iraq with major investments as U.S. seeks t",
+        "category": "news",
+        "source": "CNBC",
+        "title": "BP, ConocoPhillips to back Iraq with major investments as U.S. seeks to weaken Iran's energy hold",
+        "url": "https://www.cnbc.com/2026/07/17/bp-conocophillips-to-back-iraq-with-major-energy-investment-.html",
+        "publishedAt": "2026-07-17",
+        "status": "ok"
+      },
+      {
+        "id": "news-CNBC-SoftBank sinks over 9% as Asia chip stocks track Wall Street AI sell-o",
+        "category": "news",
+        "source": "CNBC",
+        "title": "SoftBank sinks over 9% as Asia chip stocks track Wall Street AI sell-off",
+        "url": "https://www.cnbc.com/2026/07/17/softbank-chip-stocks-asia-wall-street-ai-rout.html",
+        "publishedAt": "2026-07-17",
+        "status": "ok"
+      },
+      {
+        "id": "disc-20260716800710",
+        "category": "disclosure",
+        "source": "롯데리츠",
+        "title": "매출액또는손익구조30%(대규모법인은15%)이상변경",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260716800710",
+        "publishedAt": "2026-07-16",
+        "status": "ok"
+      },
+      {
+        "id": "disc-20260716900781",
+        "category": "disclosure",
+        "source": "위메이드맥스",
+        "title": "결산실적공시예고",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260716900781",
+        "publishedAt": "2026-07-16",
+        "status": "ok"
+      },
+      {
+        "id": "disc-20260716900725",
+        "category": "disclosure",
+        "source": "위메이드",
+        "title": "결산실적공시예고",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260716900725",
+        "publishedAt": "2026-07-16",
+        "status": "ok"
+      },
+      {
+        "id": "disc-20260716900703",
+        "category": "disclosure",
+        "source": "펄어비스",
+        "title": "결산실적공시예고",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260716900703",
+        "publishedAt": "2026-07-16",
+        "status": "ok"
+      },
+      {
+        "id": "disc-20260716900436",
+        "category": "disclosure",
+        "source": "피플바이오",
+        "title": "연결재무제표기준영업(잠정)실적(공정공시)",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260716900436",
+        "publishedAt": "2026-07-16",
+        "status": "ok"
+      }
+    ],
+    "summary": "금리 인상에 따른 가계 부담과 정책적 통상 대응 외에도, 기업들의 기술 수출 및 신규 인공지능 서비스 출시 등 다양한 산업계 동향이 관찰되는 흐름으로 보입니다.",
+    "status": "ok"
+  },
   "latestBriefing": null,
   "indicators": [
     {
@@ -283,9 +423,9 @@
     {
       "id": "usdkrw",
       "name": "원/달러",
-      "value": 1484.31,
-      "displayValue": "1,484.3",
-      "change": -0.13,
+      "value": 1485.33,
+      "displayValue": "1,485.3",
+      "change": -0.06,
       "changeUnit": "%",
       "direction": "down",
       "asOf": "2026-07-17",
@@ -315,25 +455,25 @@
     {
       "id": "wti",
       "name": "WTI",
-      "value": 78.87,
-      "displayValue": "$78.87",
-      "change": -0.1,
+      "value": 79.47,
+      "displayValue": "$79.47",
+      "change": 0.66,
       "changeUnit": "%",
-      "direction": "down",
+      "direction": "up",
       "asOf": "2026-07-17",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
       "isDelayed": true,
       "status": "ok",
-      "insight": "전일 대비 소폭 하락"
+      "insight": "전일 대비 상승"
     },
     {
       "id": "vix",
       "name": "VIX",
-      "value": 18.56,
-      "displayValue": "18.56",
-      "change": 10.94,
+      "value": 18.41,
+      "displayValue": "18.41",
+      "change": 10.04,
       "changeUnit": "%",
       "direction": "up",
       "asOf": "2026-07-17",
