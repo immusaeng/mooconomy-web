@@ -262,6 +262,16 @@
     .kw-grid { grid-template-columns:repeat(2,1fr); }
   }
 
+  /* 10 오늘의 리스크 — 03 오늘의 3줄과 같은 카드 리스트 언어, 등락색과 안 겹치는 중립 레벨 배지 */
+  .risk-list { display:flex; flex-direction:column; gap:var(--sp-2); }
+  .risk-item { background:var(--card); border:1px solid var(--line); border-radius:var(--radius-card); padding:16px 18px; }
+  .risk-item .risk-head { display:flex; align-items:center; gap:8px; margin-bottom:6px; }
+  .risk-item .risk-title { font-size:14.5px; font-weight:800; color:var(--ink); }
+  .risk-item .risk-level { font-size:11px; font-weight:800; padding:2px 9px; border-radius:8px; letter-spacing:.2px; }
+  .risk-item .risk-level.risk-watch { background:var(--bg); color:var(--gray); }
+  .risk-item .risk-level.risk-caution { background:#fff4db; color:#a86400; }
+  .risk-item .risk-detail { font-size:13.5px; color:var(--gray); line-height:1.65; }
+
   /* 02 시장 온도 */
   .temperature-card { text-align:left; }
   .temp-badge { display:inline-block; padding:7px 18px; border-radius:8px; font-size:14px; font-weight:800; margin-bottom:16px; }
@@ -717,7 +727,7 @@
         <div class="sec-num">10 / TODAY RISK</div>
         <div class="sec-title">오늘의 리스크</div>
         <div class="sec-sub">상승 논리에 치우치지 않도록 균형 잡힌 주의사항을 안내합니다</div>
-        <div class="sec-body" data-status="pending">
+        <div class="sec-body" id="todayRiskBody" data-status="pending">
           <div class="placeholder-pending">
             <span class="placeholder-dot"></span>
             <span class="placeholder-text">준비중 · 곧 추가됩니다</span>
@@ -1385,6 +1395,37 @@
       }
     }
 
+    function renderTodayRisk(el, risks) {
+      el.setAttribute('data-status', 'ok');
+      el.innerHTML = '';
+      var list = document.createElement('div');
+      list.className = 'risk-list';
+      risks.forEach(function (r) {
+        var item = document.createElement('div');
+        item.className = 'risk-item';
+
+        var head = document.createElement('div');
+        head.className = 'risk-head';
+        var title = document.createElement('span');
+        title.className = 'risk-title';
+        title.textContent = r.title;
+        var level = document.createElement('span');
+        level.className = 'risk-level ' + (r.level === '주의' ? 'risk-caution' : 'risk-watch');
+        level.textContent = r.level;
+        head.appendChild(title);
+        head.appendChild(level);
+
+        var detail = document.createElement('div');
+        detail.className = 'risk-detail';
+        detail.textContent = r.detail;
+
+        item.appendChild(head);
+        item.appendChild(detail);
+        list.appendChild(item);
+      });
+      el.appendChild(list);
+    }
+
     async function loadHome() {
       var statusBody = document.getElementById('todayStatusBody');
       var indBody = document.getElementById('keyIndicatorsBody');
@@ -1392,7 +1433,8 @@
       var threeBody = document.getElementById('dailyThreeBody');
       var connBody = document.getElementById('marketConnectionBody');
       var kwBody = document.getElementById('koreaWatchBody');
-      if (!statusBody && !indBody && !tempBody && !threeBody && !connBody && !kwBody) return;
+      var riskBody = document.getElementById('todayRiskBody');
+      if (!statusBody && !indBody && !tempBody && !threeBody && !connBody && !kwBody && !riskBody) return;
 
       var home;
       try {
@@ -1412,6 +1454,7 @@
       if (threeBody && home.dailyThree && home.dailyThree.length === 3) renderDailyThree(threeBody, home.dailyThree);
       if (connBody && home.connection) renderConnection(connBody, home.connection);
       if (kwBody && home.koreaWatch) renderKoreaWatch(kwBody, home.koreaWatch);
+      if (riskBody && home.risks && home.risks.length > 0) renderTodayRisk(riskBody, home.risks);
       if (indBody) renderKeyIndicators(indBody, home);
     }
 
