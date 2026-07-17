@@ -249,6 +249,19 @@
     .indicator-grid { grid-template-columns:repeat(2,1fr); gap:var(--sp-2); }
   }
 
+  /* 08 국내 시장 체크포인트 — 04 지표 카드와 같은 언어(카드+방향 보더), 요약문 포함 */
+  .kw-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:var(--sp-2); margin-bottom:var(--sp-3); }
+  .kw-item { background:var(--card); border:1px solid var(--line); border-left:3px solid var(--line); border-radius:var(--radius-card); padding:14px; }
+  .kw-item.dir-up   { border-left-color:var(--up-red); }
+  .kw-item.dir-down { border-left-color:var(--down-blue); }
+  .kw-item .kw-label { font-size:11.5px; font-weight:700; color:var(--gray); text-transform:uppercase; letter-spacing:.3px; }
+  .kw-item .kw-value { font-size:16px; font-weight:800; color:var(--ink); margin-top:6px; font-variant-numeric:tabular-nums; }
+  .kw-item.is-missing .kw-value { color:var(--gray); }
+  .kw-summary { font-size:14.5px; color:var(--ink); line-height:1.7; background:var(--bg); border-radius:var(--radius-card); padding:14px 16px; }
+  @media (max-width:900px) {
+    .kw-grid { grid-template-columns:repeat(2,1fr); }
+  }
+
   /* 02 시장 온도 */
   .temperature-card { text-align:left; }
   .temp-badge { display:inline-block; padding:7px 18px; border-radius:8px; font-size:14px; font-weight:800; margin-bottom:16px; }
@@ -674,7 +687,7 @@
         <div class="sec-num">08 / KOREA WATCH</div>
         <div class="sec-title">국내 시장 체크포인트</div>
         <div class="sec-sub">외국인·기관·개인 수급, 원/달러 환율, 주도 업종, 주요 공시를 확인합니다</div>
-        <div class="sec-body" data-status="pending">
+        <div class="sec-body" id="koreaWatchBody" data-status="pending">
           <div class="placeholder-pending">
             <span class="placeholder-dot"></span>
             <span class="placeholder-text">준비중 · 곧 추가됩니다</span>
@@ -1338,13 +1351,48 @@
       }
     }
 
+    function renderKoreaWatch(el, kw) {
+      el.setAttribute('data-status', kw.status || 'ok');
+      el.innerHTML = '';
+
+      var grid = document.createElement('div');
+      grid.className = 'kw-grid';
+      (kw.items || []).forEach(function (it) {
+        var isMissing = it.status !== 'ok';
+        var item = document.createElement('div');
+        var dirCls = it.direction === 'up' ? 'dir-up' : (it.direction === 'down' ? 'dir-down' : '');
+        item.className = 'kw-item' + (dirCls ? ' ' + dirCls : '') + (isMissing ? ' is-missing' : '');
+
+        var label = document.createElement('div');
+        label.className = 'kw-label';
+        label.textContent = it.label;
+
+        var value = document.createElement('div');
+        value.className = 'kw-value';
+        value.textContent = it.displayValue || '—';
+
+        item.appendChild(label);
+        item.appendChild(value);
+        grid.appendChild(item);
+      });
+      el.appendChild(grid);
+
+      if (kw.summary) {
+        var summary = document.createElement('div');
+        summary.className = 'kw-summary';
+        summary.textContent = kw.summary;
+        el.appendChild(summary);
+      }
+    }
+
     async function loadHome() {
       var statusBody = document.getElementById('todayStatusBody');
       var indBody = document.getElementById('keyIndicatorsBody');
       var tempBody = document.getElementById('marketTemperatureBody');
       var threeBody = document.getElementById('dailyThreeBody');
       var connBody = document.getElementById('marketConnectionBody');
-      if (!statusBody && !indBody && !tempBody && !threeBody && !connBody) return;
+      var kwBody = document.getElementById('koreaWatchBody');
+      if (!statusBody && !indBody && !tempBody && !threeBody && !connBody && !kwBody) return;
 
       var home;
       try {
@@ -1354,15 +1402,16 @@
       } catch (error) {
         if (statusBody) renderHomeError(statusBody, '오늘의 데이터 기준 정보를 불러오지 못했습니다.');
         if (indBody) renderHomeError(indBody, '핵심 지표를 불러오지 못했습니다.');
-        // 02·03·05는 fetch 자체가 실패하면 굳이 에러로 덮지 않고 기존 "준비중"을 유지한다
+        // 02·03·05·08은 fetch 자체가 실패하면 굳이 에러로 덮지 않고 기존 "준비중"을 유지한다
         return;
       }
 
       if (statusBody) renderTodayStatus(statusBody, home);
-      // 02·03·05는 필드가 null/빈 배열이면 손대지 않고 기존 "준비중" 플레이스홀더를 그대로 둔다
+      // 02·03·05·08은 필드가 null/빈 배열이면 손대지 않고 기존 "준비중" 플레이스홀더를 그대로 둔다
       if (tempBody && home.marketTemperature) renderMarketTemperature(tempBody, home.marketTemperature);
       if (threeBody && home.dailyThree && home.dailyThree.length === 3) renderDailyThree(threeBody, home.dailyThree);
       if (connBody && home.connection) renderConnection(connBody, home.connection);
+      if (kwBody && home.koreaWatch) renderKoreaWatch(kwBody, home.koreaWatch);
       if (indBody) renderKeyIndicators(indBody, home);
     }
 
