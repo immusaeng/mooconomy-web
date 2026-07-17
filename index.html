@@ -53,8 +53,9 @@
      Daily Mooconomy 디자인 토큰
      고정 브랜드값(변경 금지): --navy, --gold, Pretendard 서체, 등락 색상.
      그 외 값은 전부 이 3개를 축으로 파생했다. "오늘의 리포트" 블록
-     (섹션 01~05)에서만 쓰는 웜 페이퍼 톤(--paper)은 이번에 새로 추가한
-     시그니처 색으로, 나머지 섹션의 --bg는 기존 값 그대로 유지한다.
+     (섹션 01~05)도 별도 배경색 없이 --card(흰색)를 쓰고, 섹션 간
+     구분은 색이 아니라 여백(--sp-*)·경계선(--line)·골드 스파인
+     포인트·타이포 위계로만 낸다.
      ══════════════════════════════════════════════════════════════ */
   :root {
     /* 색 — 브랜드 아이덴티티 */
@@ -63,8 +64,6 @@
     --gold-d:#d9a441;
     --ink:#1b2733; --gray:#5a6b82; --gray-soft:#8a94a3; --line:#e3e8ef; --bg:#f4f6f9;
     --card:#ffffff;
-    --paper:#f7f4ee;        /* "오늘의 리포트" 블록 전용 웜 페이퍼 톤(신규) */
-    --paper-line:#e6e0d1;
 
     /* 색 — 기능(한국식 등락 관습, 변경 금지) */
     --up-red:#d32f2f;    --up-red-bg:#fdecec;
@@ -189,19 +188,20 @@
   .sec-body[data-status="pending"] { display:flex; justify-content:center; }
   .placeholder-pending { display:inline-flex; align-items:center; gap:10px; background:var(--bg); border:1px dashed var(--line); border-radius:14px; padding:20px 30px; color:var(--gray); font-size:14px; font-weight:600; }
   .placeholder-dot { width:9px; height:9px; border-radius:50%; background:#9aa5b1; flex:0 0 auto; }
-  .dispatch .placeholder-pending { background:#fff; border-color:var(--paper-line); }
+  .dispatch .placeholder-pending { background:var(--bg); border-color:var(--line); }
 
   /* ══════════════════════════════════════════════════════════════
      "오늘의 리포트" 블록 — 섹션 01~05를 하나의 읽는 대상으로 묶는다.
      각 <section>의 id/anchor/기존 클래스는 전부 그대로 유지하고,
-     새 wrapper 2겹(.dispatch 전체폭 배경, .dispatch-rail 폭 제한+스파인)만
-     바깥에 얹는다. 절대위치·뷰포트 계산을 쓰지 않는 일반 border라
-     360px 모바일에서도 가로 스크롤 위험이 없다.
+     새 wrapper 2겹(.dispatch, .dispatch-rail)만 바깥에 얹는다.
+     별도 배경색은 쓰지 않는다(페이지 기본 흰색과 동일) — 구분은
+     여백·경계선(--line)·골드 스파인 포인트·타이포 위계로만 낸다.
+     절대위치·뷰포트 계산을 쓰지 않는 일반 border라 360px 모바일에서도
+     가로 스크롤 위험이 없다.
      ══════════════════════════════════════════════════════════════ */
   .dispatch {
-    background:var(--paper);
-    border-top:1px solid var(--paper-line);
-    border-bottom:1px solid var(--paper-line);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
     padding:var(--sp-6) 0;
   }
   .dispatch-rail {
@@ -214,7 +214,7 @@
   .dispatch .sec-title, .dispatch .sec-sub { text-align:left; }
   .dispatch .sec-sub { margin-bottom:var(--sp-4); }
   .dispatch .sec-num { text-align:left; margin-bottom:var(--sp-1); }
-  .dispatch section + section { border-top:1px solid var(--paper-line); }
+  .dispatch section + section { border-top:1px solid var(--line); }
   .dispatch section:first-child { padding-top:0; }
   @media (max-width:640px) {
     .dispatch-rail { padding:0 16px 0 18px; }
@@ -259,13 +259,13 @@
   .temp-badge.unavailable { background:var(--bg); color:var(--gray); }
   .temp-summary { font-size:15.5px; color:var(--ink); line-height:1.7; margin-bottom:16px; max-width:640px; }
   .temp-reasons { list-style:none; display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px; padding:0; }
-  .temp-reasons li { background:#fff; border:1px solid var(--paper-line); border-radius:8px; padding:6px 12px; font-size:12.5px; color:var(--ink); font-variant-numeric:tabular-nums; }
+  .temp-reasons li { background:var(--bg); border:1px solid var(--line); border-radius:8px; padding:6px 12px; font-size:12.5px; color:var(--ink); font-variant-numeric:tabular-nums; }
   .temp-watch { font-size:13px; color:var(--gray); }
   .temp-watch b { color:var(--ink); }
 
   /* 03 오늘의 3줄 — 이 제품에서 유일하게 "숫자 자체가 정보"인 자리라 서수를 크게 쓴다 */
   .daily-three-list { display:flex; flex-direction:column; gap:var(--sp-3); }
-  .daily-three-item { display:flex; gap:14px; background:#fff; border:1px solid var(--paper-line); border-radius:var(--radius-card); padding:18px 20px; }
+  .daily-three-item { display:flex; gap:14px; background:var(--card); border:1px solid var(--line); border-radius:var(--radius-card); padding:18px 20px; }
   .daily-three-item .dt-ord {
     flex:0 0 auto; width:30px; height:30px; border-radius:8px;
     background:var(--navy); color:var(--gold); font-weight:800; font-size:14px;
@@ -279,7 +279,7 @@
 
   /* 05 시장 연결고리 */
   .connection-flow { display:flex; flex-wrap:wrap; align-items:stretch; gap:8px; margin-bottom:18px; }
-  .connection-node { background:#fff; border:1px solid var(--paper-line); border-radius:12px; padding:14px 16px; min-width:150px; }
+  .connection-node { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; min-width:150px; }
   .connection-node .cn-label { font-size:11.5px; font-weight:700; color:var(--gray); margin-bottom:6px; text-transform:uppercase; letter-spacing:.3px; }
   .connection-node .cn-detail { font-size:14px; font-weight:800; color:var(--ink); font-variant-numeric:tabular-nums; }
   .connection-arrow { display:flex; align-items:center; justify-content:center; color:var(--gold-d); font-size:16px; font-weight:800; padding:0 2px; }
