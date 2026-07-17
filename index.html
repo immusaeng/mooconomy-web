@@ -158,6 +158,11 @@
   .sec-sub { font-size:16px; color:var(--gray); margin-bottom:52px; text-align:center; }
   .center { text-align:center; }
 
+  .sec-num.on-dark { color:var(--gold); }
+  .sec-body[data-status="pending"] { display:flex; justify-content:center; }
+  .placeholder-pending { display:inline-flex; align-items:center; gap:10px; background:var(--bg); border:1px dashed var(--line); border-radius:14px; padding:20px 30px; color:var(--gray); font-size:14px; font-weight:600; }
+  .placeholder-dot { width:9px; height:9px; border-radius:50%; background:#9aa5b1; flex:0 0 auto; }
+
   .grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
   .prob-item { background:var(--bg); border-radius:16px; padding:34px 28px; border-top:4px solid var(--navy); }
   .prob-n { width:42px; height:42px; border-radius:11px; background:var(--navy); color:var(--gold); font-weight:800; font-size:17px; display:flex; align-items:center; justify-content:center; margin-bottom:20px; }
@@ -375,16 +380,16 @@
 
   <nav class="mobile-nav">
     <button onclick="switchView('home')" class="mobile-nav-item active" id="m-nav-home">
-      <i data-lucide="home"></i><span>홈</span>
+      <i data-lucide="home"></i><span>오늘</span>
     </button>
     <button onclick="switchView('markets')" class="mobile-nav-item" id="m-nav-markets">
-      <i data-lucide="line-chart"></i><span>지표보드</span>
+      <i data-lucide="line-chart"></i><span>지표</span>
+    </button>
+    <button onclick="switchView('home', 'today-calendar')" class="mobile-nav-item" id="m-nav-calendar">
+      <i data-lucide="calendar-days"></i><span>일정</span>
     </button>
     <button onclick="switchView('home', 'latest')" class="mobile-nav-item" id="m-nav-latest">
-      <i data-lucide="newspaper"></i><span>최신레터</span>
-    </button>
-    <button onclick="switchView('home', 'subscribe')" class="mobile-nav-item" id="m-nav-subscribe">
-      <i data-lucide="bell"></i><span>무료구독</span>
+      <i data-lucide="newspaper"></i><span>브리핑</span>
     </button>
   </nav>
 
@@ -411,9 +416,202 @@
       </div>
     </section>
 
+    <!-- 01 / 헤더·날짜/기준시각 -->
+    <section class="sec-pad anchor" id="today-status">
+      <div class="inner">
+        <div class="sec-num">01 / TODAY STATUS</div>
+        <div class="sec-title">오늘 날짜 및 데이터 기준</div>
+        <div class="sec-sub">발행일, 최근 업데이트 시각, 국내·미국 시장 기준일과 데이터 지연 여부를 한눈에 확인합니다</div>
+        <div class="sec-body" data-status="pending">
+          <div class="placeholder-pending">
+            <span class="placeholder-dot"></span>
+            <span class="placeholder-text">준비중 · 곧 추가됩니다</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 / 오늘의 시장 온도 -->
+    <section class="sec-pad anchor" id="market-temperature">
+      <div class="inner">
+        <div class="sec-num">02 / MARKET TEMPERATURE</div>
+        <div class="sec-title">오늘의 시장 온도</div>
+        <div class="sec-sub">위험선호부터 위험회피까지, 오늘 시장 분위기를 상태 레이블과 근거로 보여줍니다</div>
+        <div class="sec-body" data-status="pending">
+          <div class="placeholder-pending">
+            <span class="placeholder-dot"></span>
+            <span class="placeholder-text">준비중 · 곧 추가됩니다</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 / 오늘의 3줄 -->
+    <section class="sec-pad anchor" id="daily-three">
+      <div class="inner">
+        <div class="sec-num">03 / DAILY THREE</div>
+        <div class="sec-title">오늘의 3줄</div>
+        <div class="sec-sub">간밤 글로벌 시장 → 오늘 국내 시장 → 오늘의 체크포인트, 세 줄로 요약합니다</div>
+        <div class="sec-body" data-status="pending">
+          <div class="placeholder-pending">
+            <span class="placeholder-dot"></span>
+            <span class="placeholder-text">준비중 · 곧 추가됩니다</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 / 핵심 시장 지표 -->
+    <section class="sec-pad anchor" id="key-indicators">
+      <div class="inner">
+        <div class="sec-num">04 / KEY INDICATORS</div>
+        <div class="sec-title">핵심 시장 지표</div>
+        <div class="sec-sub">코스피·코스닥·나스닥·원달러·미국채10년 등 핵심 지표를 카드로 확인합니다</div>
+        <div class="sec-body" data-status="pending">
+          <div class="placeholder-pending">
+            <span class="placeholder-dot"></span>
+            <span class="placeholder-text">준비중 · 곧 추가됩니다</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 / 오늘의 시장 연결고리 -->
+    <section class="sec-pad anchor" id="market-connection">
+      <div class="inner">
+        <div class="sec-num">05 / MARKET CONNECTION</div>
+        <div class="sec-title">오늘의 시장 연결고리</div>
+        <div class="sec-sub">원인 지표 → 중간 영향 → 국내 시장 변수 → 확인할 결과로 이어지는 흐름을 보여줍니다</div>
+        <div class="sec-body" data-status="pending">
+          <div class="placeholder-pending">
+            <span class="placeholder-dot"></span>
+            <span class="placeholder-text">준비중 · 곧 추가됩니다</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 / 지금 볼 신호 (기존 #signals 이동, 신호등 실데이터 유지) -->
+    <section class="sec-pad anchor" id="market-signal">
+      <div class="inner">
+        <div class="sec-num">06 / MARKET SIGNAL</div>
+        <div class="sec-title">지금 볼 시장 신호</div>
+        <div class="sec-sub">지표와 지표의 관계로 읽는 오늘의 시장 신호</div>
+        <div class="signal-grid home-style" id="homeSignalGrid"></div>
+      </div>
+    </section>
+
+    <!-- 07 / 오늘의 경제 캘린더 -->
+    <section class="sec-pad anchor" id="today-calendar">
+      <div class="inner">
+        <div class="sec-num">07 / TODAY CALENDAR</div>
+        <div class="sec-title">오늘의 경제 캘린더</div>
+        <div class="sec-sub">한국·미국 주요 경제 일정을 시간순으로 정리합니다</div>
+        <div class="sec-body" data-status="pending">
+          <div class="placeholder-pending">
+            <span class="placeholder-dot"></span>
+            <span class="placeholder-text">준비중 · 곧 추가됩니다</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 / 국내 시장 체크포인트 -->
+    <section class="sec-pad anchor" id="korea-watch">
+      <div class="inner">
+        <div class="sec-num">08 / KOREA WATCH</div>
+        <div class="sec-title">국내 시장 체크포인트</div>
+        <div class="sec-sub">외국인·기관·개인 수급, 원/달러 환율, 주도 업종, 주요 공시를 확인합니다</div>
+        <div class="sec-body" data-status="pending">
+          <div class="placeholder-pending">
+            <span class="placeholder-dot"></span>
+            <span class="placeholder-text">준비중 · 곧 추가됩니다</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 09 / 주요 뉴스 및 공시 -->
+    <section class="sec-pad anchor" id="news-disclosure">
+      <div class="inner">
+        <div class="sec-num">09 / NEWS &amp; DISCLOSURE</div>
+        <div class="sec-title">주요 뉴스 및 공시</div>
+        <div class="sec-sub">국내·글로벌 뉴스와 기업 공시를 분류해서 보여줍니다</div>
+        <div class="sec-body" data-status="pending">
+          <div class="placeholder-pending">
+            <span class="placeholder-dot"></span>
+            <span class="placeholder-text">준비중 · 곧 추가됩니다</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 / 오늘의 리스크 -->
+    <section class="sec-pad anchor" id="today-risk">
+      <div class="inner">
+        <div class="sec-num">10 / TODAY RISK</div>
+        <div class="sec-title">오늘의 리스크</div>
+        <div class="sec-sub">상승 논리에 치우치지 않도록 균형 잡힌 주의사항을 안내합니다</div>
+        <div class="sec-body" data-status="pending">
+          <div class="placeholder-pending">
+            <span class="placeholder-dot"></span>
+            <span class="placeholder-text">준비중 · 곧 추가됩니다</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11 / 최신 브리핑 (기존 #latest 이동, iframe 구조 유지) -->
+    <section class="sec-pad latest-sec anchor" id="latest">
+      <div class="inner">
+        <div class="sec-num">11 / LATEST ISSUE</div>
+        <div class="sec-title">실제 배달된 오늘의 <span class="hl">'Moo'conomy</span></div>
+        <div class="sec-sub">가장 최근에 발송된 실제 브리핑입니다. 3줄 요약부터 지표·해설까지, 받아보실 그대로 미리 확인하세요.</div>
+        <div class="mail-frame">
+          <div class="mail-bar">
+            <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+            <span class="mail-label">INBOX &nbsp;//&nbsp; daily@mooconomy.co.kr</span>
+            <span class="mail-date" id="letterDate"></span>
+          </div>
+          <div class="mail-body">
+            <div class="letter-wrap" id="letterWrap">
+              <iframe id="letterFrame" src="latest.html" title="최신 브리핑" loading="lazy" scrolling="no"></iframe>
+              <div class="letter-fade" id="letterFade"></div>
+            </div>
+            <button class="expand-btn" id="expandBtn" type="button"><span class="btn-label">전체 보기</span> <span class="chev">⌄</span></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12 / 뉴스레터 구독 (기존 #subscribe 이동) -->
+    <section class="final anchor" id="subscribe">
+      <div class="inner">
+        <div class="sec-num on-dark">12 / SUBSCRIBE</div>
+        <h2>내일 아침, <span class="hl">첫 메일</span>부터 확인해보세요</h2>
+        <p>Daily 'Moo'conomy는 완전 무료입니다. 마음에 안 들면 메일 하단 버튼 한 번으로 1초 만에 해지할 수 있습니다.</p>
+        <div class="cond">구독하면 다음 발행일 <b>(월~토) 아침</b> 첫 브리핑이 도착합니다.</div>
+        <div class="sub-block">
+          <form class="subscribe-form" data-form="final" novalidate>
+            <div class="field">
+              <input type="email" name="email" placeholder="이메일 주소를 입력하세요" autocomplete="email" required>
+            </div>
+            <input type="text" name="company" class="input-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <button type="submit" class="cta">무료로 구독하기 →</button>
+          </form>
+          <div class="consent">구독 시 <a href="/privacy.html" target="_blank">개인정보 수집·이용</a>에 동의하는 것으로 간주됩니다.</div>
+          <div class="qr-box">
+            <img src="qr_subscribe.png" alt="구독 신청 QR코드">
+            <div class="qt">이미지로 보고 계신가요?<br>QR을 찍어 바로 구독하세요</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 13 / About (기존 #problem + #why 이동, id 보존) -->
     <section class="sec-pad anchor" id="problem">
       <div class="inner">
-        <div class="sec-num">01 / THE PROBLEM</div>
+        <div class="sec-num">13 / ABOUT · THE PROBLEM</div>
         <div class="sec-title">경제 정보, 없어서가 아니라 <span class="hl">흩어져 있어서</span> 어렵습니다</div>
         <div class="sec-sub">매일 아침 반복되는 세 가지 피로. 'Moo'conomy는 여기서 출발했습니다.</div>
         <div class="grid3">
@@ -438,7 +636,7 @@
 
     <section class="sec-pad why anchor" id="why">
       <div class="inner">
-        <div class="sec-num">02 / WHY 'Moo'conomy</div>
+        <div class="sec-num">13 / ABOUT · WHY 'MOO'CONOMY</div>
         <div class="center"><span class="c3-badge">오늘의 3줄은 3C에서 나옵니다 · Collect · Connect · Condense</span></div>
         <div class="sec-title">흩어진 시장을, <span class="hl">오늘의 3줄</span>로</div>
         <div class="sec-sub">모으고, 잇고, 줄입니다 — 'Moo'conomy의 3C가 매일 아침 하는 일입니다.</div>
@@ -462,58 +660,12 @@
       </div>
     </section>
 
-    <section class="sec-pad anchor" id="signals">
-      <div class="inner">
-        <div class="sec-num">03 / MARKET SIGNALS</div>
-        <div class="sec-title">오늘의 시장 신호등</div>
-        <div class="sec-sub">지표와 지표의 관계로 읽는 오늘의 시장 신호</div>
-        <div class="signal-grid home-style" id="homeSignalGrid"></div>
-      </div>
-    </section>
-
-    <section class="sec-pad latest-sec anchor" id="latest">
-      <div class="inner">
-        <div class="sec-num">04 / LATEST ISSUE</div>
-        <div class="sec-title">실제 배달된 오늘의 <span class="hl">'Moo'conomy</span></div>
-        <div class="sec-sub">가장 최근에 발송된 실제 브리핑입니다. 3줄 요약부터 지표·해설까지, 받아보실 그대로 미리 확인하세요.</div>
-        <div class="mail-frame">
-          <div class="mail-bar">
-            <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
-            <span class="mail-label">INBOX &nbsp;//&nbsp; daily@mooconomy.co.kr</span>
-            <span class="mail-date" id="letterDate"></span>
-          </div>
-          <div class="mail-body">
-            <div class="letter-wrap" id="letterWrap">
-              <iframe id="letterFrame" src="latest.html" title="최신 브리핑" loading="lazy" scrolling="no"></iframe>
-              <div class="letter-fade" id="letterFade"></div>
-            </div>
-            <button class="expand-btn" id="expandBtn" type="button"><span class="btn-label">전체 보기</span> <span class="chev">⌄</span></button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="final anchor" id="subscribe">
-      <div class="inner">
-        <h2>내일 아침, <span class="hl">첫 메일</span>부터 확인해보세요</h2>
-        <p>Daily 'Moo'conomy는 완전 무료입니다. 마음에 안 들면 메일 하단 버튼 한 번으로 1초 만에 해지할 수 있습니다.</p>
-        <div class="cond">구독하면 다음 발행일 <b>(월~토) 아침</b> 첫 브리핑이 도착합니다.</div>
-        <div class="sub-block">
-          <form class="subscribe-form" data-form="final" novalidate>
-            <div class="field">
-              <input type="email" name="email" placeholder="이메일 주소를 입력하세요" autocomplete="email" required>
-            </div>
-            <input type="text" name="company" class="input-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
-            <button type="submit" class="cta">무료로 구독하기 →</button>
-          </form>
-          <div class="consent">구독 시 <a href="/privacy.html" target="_blank">개인정보 수집·이용</a>에 동의하는 것으로 간주됩니다.</div>
-          <div class="qr-box">
-            <img src="qr_subscribe.png" alt="구독 신청 QR코드">
-            <div class="qt">이미지로 보고 계신가요?<br>QR을 찍어 바로 구독하세요</div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- 14 / 푸터 (홈 전용 신규 추가 — 기존 글로벌 푸터는 #view-markets 전용이라 홈엔 없었음) -->
+    <footer class="foot home-foot">
+      <div class="items">코스피 · 코스닥 · 나스닥 · 환율 · 유가 한눈에</div>
+      Daily 'Moo'conomy · mooconomy.co.kr<br>
+      © 2026 Mooconomy. All rights reserved.
+    </footer>
   </div>
 
   <!-- [VIEW 2] MARKETS -->
@@ -719,7 +871,7 @@
         var mHome = document.getElementById('m-nav-home');
         if (mHome) mHome.classList.add('active');
         if (targetAnchorId === 'latest') { var mL = document.getElementById('m-nav-latest'); if (mL) mL.classList.add('active'); }
-        if (targetAnchorId === 'subscribe') { var mS = document.getElementById('m-nav-subscribe'); if (mS) mS.classList.add('active'); }
+        if (targetAnchorId === 'today-calendar') { var mC = document.getElementById('m-nav-calendar'); if (mC) mC.classList.add('active'); }
       } else if (viewId === 'markets') {
         var mM = document.getElementById('m-nav-markets'); if (mM) mM.classList.add('active');
         var gnb = document.getElementById('gnb-markets-btn'); if (gnb) gnb.classList.add('active');
