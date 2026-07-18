@@ -619,6 +619,17 @@
 
     .signal-grid { grid-template-columns: 1fr; }
     .signal-grid.home-style { grid-template-columns: 1fr; }
+
+    /* 모바일 타이포 위계 재정비(2026-07-18): 섹션 제목이 데스크톱 값을 그대로 물려받아
+       카드 데이터보다 시각적으로 무거웠던 문제 — 제목류는 축소하고 카드 값(수치)은
+       위계를 유지한 채 카드 대비 과대했던 것만 소폭만 줄인다. before→after:
+       sec-num 12px→10.5px, sec-title 26px(desktop)/24px(≤900px)→20px,
+       sec-sub 16px→13.5px, signal-value 19px→17px, ind-value 21px→19px. */
+    .sec-num { font-size: 10.5px; letter-spacing: 1.5px; }
+    .sec-title { font-size: 20px; line-height: 1.3; }
+    .sec-sub { font-size: 13.5px; }
+    .signal-value { font-size: 17px; }
+    .indicator-card .ind-value { font-size: 19px; }
   }
 </style>
 </head>
