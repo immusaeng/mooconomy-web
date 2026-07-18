@@ -360,8 +360,12 @@
   .news-item .news-badge { flex:0 0 auto; margin-top:2px; font-size:10.5px; font-weight:800; padding:2px 7px; border-radius:6px; background:var(--bg); color:var(--navy); }
   .news-item.cat-disclosure .news-badge { color:var(--gold-d); }
   .news-item .news-body { flex:1; min-width:0; }
-  .news-item .news-title { font-size:14px; font-weight:700; color:var(--ink); line-height:1.5; }
+  .news-item .news-title { display:block; font-size:14px; font-weight:700; color:var(--ink); line-height:1.5; text-decoration:none; }
+  .news-item .news-title:hover { text-decoration:underline; }
   .news-item .news-meta { font-size:12px; color:var(--gray); margin-top:4px; }
+  .news-item .news-related { display:flex; flex-direction:column; gap:2px; margin-top:6px; }
+  .news-item .news-related a { font-size:11px; color:var(--gray); text-decoration:none; }
+  .news-item .news-related a:hover { text-decoration:underline; color:var(--gold-d); }
   @media (max-width:640px) {
     .news-item { flex-wrap:wrap; }
   }
@@ -1770,11 +1774,8 @@
       // 09는 뉴스만 다룬다(공시는 07 캘린더 쪽) — 혹시 배포 타이밍 등으로 과거 데이터에
       // disclosure 카테고리가 섞여 있어도 여기서 한 번 더 걸러 노출되지 않게 한다.
       (news.items || []).filter(function (it) { return it.category === 'news'; }).forEach(function (it) {
-        var item = document.createElement('a');
+        var item = document.createElement('div');
         item.className = 'news-item';
-        item.href = it.url;
-        item.target = '_blank';
-        item.rel = 'noopener noreferrer';
 
         var badge = document.createElement('span');
         badge.className = 'news-badge';
@@ -1783,8 +1784,11 @@
         var body = document.createElement('div');
         body.className = 'news-body';
 
-        var title = document.createElement('div');
+        var title = document.createElement('a');
         title.className = 'news-title';
+        title.href = it.url;
+        title.target = '_blank';
+        title.rel = 'noopener noreferrer';
         title.textContent = it.title;
 
         var meta = document.createElement('div');
@@ -1793,6 +1797,22 @@
 
         body.appendChild(title);
         body.appendChild(meta);
+
+        // 유사기사 클러스터(related) — 대표 기사 하단에 원문 링크만 작게 병기
+        if (it.related && it.related.length > 0) {
+          var relWrap = document.createElement('div');
+          relWrap.className = 'news-related';
+          it.related.forEach(function (r) {
+            var relLink = document.createElement('a');
+            relLink.href = r.url;
+            relLink.target = '_blank';
+            relLink.rel = 'noopener noreferrer';
+            relLink.textContent = r.source + (r.publishedAt ? ' · ' + r.publishedAt : '') + ' 에서도 보도';
+            relWrap.appendChild(relLink);
+          });
+          body.appendChild(relWrap);
+        }
+
         item.appendChild(badge);
         item.appendChild(body);
         list.appendChild(item);
