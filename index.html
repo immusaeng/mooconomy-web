@@ -205,8 +205,34 @@
     border-bottom:1px solid var(--line);
     padding:var(--sp-6) 0;
   }
+
+  /* 2단 레이아웃(2026-07-18): 좌측 sticky 목차(.doc-nav) + 우측 본문(.dispatch-rail).
+     .dispatch-rail은 더 이상 자기 폭을 스스로 정하지 않고 그리드 컬럼을 그대로 채운다
+     (기존 880px 고정폭 대신 데이터 블록이 더 넓게 쓸 수 있게 됨). 골드 스파인
+     (border-left)과 좌우 패딩은 기존 그대로 유지 — 시각적 톤 불변. */
+  .doc-layout {
+    display:grid;
+    grid-template-columns:200px minmax(0,1fr);
+    column-gap:40px;
+    max-width:1240px; margin:0 auto;
+    padding:0 40px;
+    align-items:start;
+  }
+  .doc-nav {
+    position:sticky;
+    top:calc(var(--nav-h) + var(--ticker-h) + 28px);
+    display:flex; flex-direction:column; gap:2px;
+    padding-top:2px;
+  }
+  .doc-nav-link {
+    display:block; font-size:13px; font-weight:700; color:var(--gray);
+    padding:8px 12px; border-radius:8px; text-decoration:none; cursor:pointer;
+    border-left:3px solid transparent; line-height:1.4; transition:.15s;
+  }
+  .doc-nav-link:hover { color:var(--ink); background:var(--bg); }
+  .doc-nav-link.active { color:var(--gold-d); border-left-color:var(--gold); background:var(--bg); font-weight:800; }
+
   .dispatch-rail {
-    max-width:880px; margin:0 auto;
     padding:0 40px 0 32px;
     border-left:3px solid var(--gold);
   }
@@ -217,8 +243,17 @@
   .dispatch .sec-num { text-align:left; margin-bottom:var(--sp-1); }
   .dispatch section + section { border-top:1px solid var(--line); }
   .dispatch section:first-child { padding-top:0; }
+
+  /* ≤900px: sticky 목차는 숨기고(모바일 하단 nav가 이미 대체 역할), 본문은
+     단일 컬럼으로 복귀해 읽기 편한 폭을 유지한다. */
+  @media (max-width:900px) {
+    .doc-layout { grid-template-columns:1fr; max-width:none; }
+    .doc-nav { display:none; }
+    .dispatch-rail { max-width:720px; margin:0 auto; }
+  }
   @media (max-width:640px) {
-    .dispatch-rail { padding:0 16px 0 18px; }
+    .doc-layout { padding:0; }
+    .dispatch-rail { padding:0 16px 0 18px; max-width:none; }
   }
 
   /* 01 — 컴팩트 마스트헤드(리포트 상단 한 줄) */
@@ -298,7 +333,7 @@
   .kw-item .kw-label { font-size:11.5px; font-weight:700; color:var(--gray); text-transform:uppercase; letter-spacing:.3px; }
   .kw-item .kw-value { font-size:16px; font-weight:800; color:var(--ink); margin-top:6px; font-variant-numeric:tabular-nums; }
   .kw-item.is-missing .kw-value { color:var(--gray); }
-  .kw-summary { font-size:14.5px; color:var(--ink); line-height:1.7; }
+  .kw-summary { font-size:14.5px; color:var(--ink); line-height:1.7; max-width:760px; }
   @media (max-width:900px) {
     .kw-grid { grid-template-columns:repeat(2,1fr); }
   }
@@ -360,7 +395,7 @@
   }
 
   /* 09 주요 뉴스 및 공시 — 뉴스/공시 분류 배지 + 링크형 카드 */
-  .news-summary { font-size:14.5px; color:var(--ink); line-height:1.7; margin-bottom:var(--sp-3); }
+  .news-summary { font-size:14.5px; color:var(--ink); line-height:1.7; margin-bottom:var(--sp-3); max-width:760px; }
   .news-list { display:flex; flex-direction:column; gap:var(--sp-2); }
   .news-item { display:flex; align-items:flex-start; gap:12px; text-decoration:none; }
   .news-item .news-badge { flex:0 0 auto; margin-top:2px; font-size:10.5px; font-weight:800; padding:2px 7px; border-radius:6px; background:var(--bg); color:var(--navy); }
@@ -384,7 +419,7 @@
   .temp-badge.cautious { background:#fff4db; color:#a86400; }
   .temp-badge.risk_off { background:var(--down-blue-bg); color:var(--down-blue); }
   .temp-badge.unavailable { background:var(--bg); color:var(--gray); }
-  .temp-summary { font-size:15.5px; color:var(--ink); line-height:1.7; margin-bottom:16px; max-width:640px; }
+  .temp-summary { font-size:15.5px; color:var(--ink); line-height:1.7; margin-bottom:16px; max-width:760px; }
   .temp-reasons { list-style:none; display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px; padding:0; }
   .temp-reasons li { background:var(--bg); border:1px solid var(--line); border-radius:8px; padding:6px 12px; font-size:12.5px; color:var(--ink); font-variant-numeric:tabular-nums; }
   .temp-watch { font-size:13px; color:var(--gray); }
@@ -415,11 +450,11 @@
   .connection-arrow { flex:0 0 auto; display:flex; align-items:center; justify-content:center; color:var(--gold-d); font-size:16px; font-weight:800; padding:0 2px; }
   /* 05 결론 문장 강조 — 텍스트 자체를 골드로 칠하면 흰 배경 대비 WCAG AA를
      만족 못 해 왼쪽 골드 보더(+볼드체)로 강조한다(색은 --ink 유지, 대비 안전). */
-  .connection-summary { max-width:640px; margin-bottom:12px; padding-left:14px; border-left:3px solid var(--gold); font-size:15px; font-weight:700; color:var(--ink); line-height:1.7; }
+  .connection-summary { max-width:760px; margin-bottom:12px; padding-left:14px; border-left:3px solid var(--gold); font-size:15px; font-weight:700; color:var(--ink); line-height:1.7; }
   /* counterScenario(반대 시나리오·주의사항)도 summary와 같은 골드 좌측바로 묶어
      '노드 흐름 아래 두 요약 박스' 영역임을 알리되, 폰트 굵기(600<700)·색(--gray)을
      summary보다 한 단계 낮춰 '진짜 결론은 summary'라는 위계를 유지한다. */
-  .connection-counter { max-width:640px; border-left:3px solid var(--gold); font-size:13.5px; font-weight:600; color:var(--gray); }
+  .connection-counter { max-width:760px; border-left:3px solid var(--gold); font-size:13.5px; font-weight:600; color:var(--gray); }
   @media (max-width:640px) {
     .connection-flow { flex-direction:column; }
     .connection-arrow { transform:rotate(90deg); padding:2px 0; }
@@ -724,8 +759,18 @@
     </section>
 
     <!-- "오늘의 리포트" 블록: 01~05를 하나의 읽는 대상으로 묶는 wrapper.
-         각 섹션의 id/anchor/JS 바인딩은 전부 그대로 유지된다. -->
+         각 섹션의 id/anchor/JS 바인딩은 전부 그대로 유지된다.
+         2026-07-18 2단 레이아웃 개편: .dispatch-rail을 .doc-layout(그리드
+         2단: 좌측 sticky 목차 .doc-nav + 우측 본문)으로 감쌌다. -->
     <div class="dispatch">
+    <div class="doc-layout">
+    <nav class="doc-nav" id="docNav" aria-label="오늘의 리포트 목차">
+      <a class="doc-nav-link" data-target="market-temperature" onclick="switchView('home','market-temperature')">시장온도</a>
+      <a class="doc-nav-link" data-target="daily-three" onclick="switchView('home','daily-three')">오늘의 3줄</a>
+      <a class="doc-nav-link" data-target="news-disclosure" onclick="switchView('home','news-disclosure')">뉴스 흐름</a>
+      <a class="doc-nav-link" data-target="today-calendar" onclick="switchView('home','today-calendar')">경제 캘린더</a>
+      <a class="doc-nav-link" data-target="latest" onclick="switchView('home','latest')">최신호</a>
+    </nav>
     <div class="dispatch-rail">
 
     <!-- 01 / 헤더·날짜/기준시각 -->
@@ -897,6 +942,7 @@
       </div>
     </section>
     </div><!-- /.dispatch-rail -->
+    </div><!-- /.doc-layout -->
     </div><!-- /.dispatch -->
 
     <!-- 12 / 뉴스레터 구독 (기존 #subscribe 이동) -->
@@ -2020,12 +2066,39 @@
       updateScrolled();
     })();
 
+    /* ===== 2단 레이아웃 좌측 목차: 스크롤 위치 하이라이트 =====
+       클릭 이동은 기존 switchView()를 그대로 재사용하고, 여기서는 IntersectionObserver로
+       "지금 보이는 섹션"만 판정해 .doc-nav-link에 active 클래스를 얹는다. */
+    function initDocNav() {
+      var nav = document.getElementById('docNav');
+      if (!nav || typeof IntersectionObserver === 'undefined') return;
+      var links = Array.prototype.slice.call(nav.querySelectorAll('.doc-nav-link'));
+      var targets = [];
+      links.forEach(function (link) {
+        var el = document.getElementById(link.getAttribute('data-target'));
+        if (el) targets.push(el);
+      });
+      if (targets.length === 0) return;
+
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          links.forEach(function (l) { l.classList.remove('active'); });
+          var active = nav.querySelector('.doc-nav-link[data-target="' + entry.target.id + '"]');
+          if (active) active.classList.add('active');
+        });
+      }, { rootMargin: '-25% 0px -65% 0px', threshold: 0 });
+
+      targets.forEach(function (t) { observer.observe(t); });
+    }
+
     /* ===== 최초 로드 ===== */
     window.addEventListener('load', function(){
       if (typeof lucide !== 'undefined') lucide.createIcons();
       loadSignals();
       loadHome();
       routeFromHash();
+      initDocNav();
     });
   </script>
 
