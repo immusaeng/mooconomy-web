@@ -306,8 +306,45 @@
   .risk-item .risk-level.risk-caution { background:#fff4db; color:#a86400; }
   .risk-item .risk-detail { font-size:13.5px; color:var(--gray); line-height:1.65; }
 
-  /* 07 오늘의 경제 캘린더 — 세로 타임라인, importance로 좌측 액센트 */
+  /* today-calendar — 데스크톱은 이번 달 먼슬리 그리드 + 지나간 이슈 결과 스트립,
+     모바일(≤640px)은 그리드 대신 날짜별로 묶은 리스트를 쓴다(2026-07-18 B그룹 SP-1).
+     두 마크업을 동시에 만들고 미디어쿼리로만 전환 — JS 분기 없이 안전하게 반응형 처리. */
+  .cal-desktop { display:block; }
+  .cal-mobile { display:none; }
+  @media (max-width:640px) {
+    .cal-desktop { display:none; }
+    .cal-mobile { display:block; }
+  }
+
+  /* 먼슬리 그리드 */
+  .cal-month-head { display:grid; grid-template-columns:repeat(7,1fr); gap:var(--sp-1); margin-bottom:var(--sp-1); }
+  .cal-month-head span { text-align:center; font-size:11.5px; font-weight:700; color:var(--gray); text-transform:uppercase; }
+  .cal-month-grid { display:grid; grid-template-columns:repeat(7,1fr); gap:6px; margin-bottom:var(--sp-4); }
+  .cal-day { min-height:76px; border:1px solid var(--line); border-radius:10px; padding:6px 7px; background:var(--card); }
+  .cal-day.is-empty { border-color:transparent; background:transparent; }
+  .cal-day.is-today { border-color:var(--gold); border-width:2px; padding:5px 6px; }
+  .cal-day.is-past { background:var(--bg); }
+  .cal-day .cal-day-num { font-size:12px; font-weight:700; color:var(--gray); font-variant-numeric:tabular-nums; }
+  .cal-day.is-today .cal-day-num { color:var(--gold-d); font-weight:800; }
+  .cal-day-badges { margin-top:4px; display:flex; flex-direction:column; gap:2px; }
+  .cal-badge { font-size:10px; font-weight:700; line-height:1.4; padding:1px 5px; border-radius:5px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .cal-badge.is-upcoming { background:var(--bg); color:var(--gold-d); border:1px solid var(--gold); }
+  .cal-badge.is-past { background:var(--bg); color:var(--gray); }
+
+  /* 지나간 이슈 결과 스트립 — .mc-row 언어(테두리+좌측 액센트) 재사용 */
+  .cal-result-strip { display:flex; flex-direction:column; gap:var(--sp-2); }
+  .cal-result-item { display:flex; align-items:center; gap:14px; background:var(--card); border:1px solid var(--line); border-left:4px solid var(--flat-gray); border-radius:var(--radius-card); padding:12px 16px; }
+  .cal-result-item .cal-time { flex:0 0 auto; width:88px; font-size:12.5px; font-weight:700; color:var(--gray); font-variant-numeric:tabular-nums; }
+  .cal-result-item .cal-title { flex:1; min-width:0; font-size:13.5px; font-weight:700; color:var(--ink); }
+  .cal-result-item .cal-result-text { flex:0 0 auto; font-size:12.5px; color:var(--gray); max-width:40%; text-align:right; }
+  .cal-result-strip-title { font-size:11.5px; font-weight:800; color:var(--gray); text-transform:uppercase; letter-spacing:.3px; margin-bottom:var(--sp-2); }
+  .cal-item .cal-result-text { flex:0 0 auto; font-size:11.5px; color:var(--gray); }
+
+  /* 모바일 날짜 그룹 리스트 */
   .cal-list { display:flex; flex-direction:column; gap:var(--sp-2); }
+  .cal-date-group + .cal-date-group { margin-top:var(--sp-3); }
+  .cal-date-header { position:sticky; top:0; z-index:1; background:var(--bg); font-size:12px; font-weight:800; color:var(--gray); padding:6px 4px; margin-bottom:6px; border-radius:6px; }
+  .cal-date-header.is-today { color:var(--gold-d); }
   .cal-item { display:flex; align-items:center; gap:14px; }
   .cal-item .cal-time { flex:0 0 auto; width:88px; font-size:12.5px; font-weight:700; color:var(--gray); font-variant-numeric:tabular-nums; }
   .cal-item .cal-country { flex:0 0 auto; font-size:10.5px; font-weight:800; color:var(--navy); background:var(--bg); padding:2px 7px; border-radius:6px; }
@@ -751,7 +788,7 @@
       <div class="inner">
         <div class="sec-num">08 / TODAY CALENDAR</div>
         <div class="sec-title">오늘의 경제 캘린더</div>
-        <div class="sec-sub">한국·미국 주요 경제 일정을 시간순으로 정리합니다</div>
+        <div class="sec-sub">이번 달 한국·미국 주요 경제 일정을 달력으로, 지난 일정은 결과와 함께 보여줍니다</div>
         <div class="sec-body" id="calendarBody" data-status="pending">
           <div class="placeholder-pending">
             <span class="placeholder-dot"></span>
@@ -1494,34 +1531,200 @@
     }
 
     var CAL_COUNTRY_KR = { KR: '한국', US: '미국' };
+    var CAL_WEEKDAY_KR = ['일', '월', '화', '수', '목', '금', '토'];
 
-    function renderCalendar(el, calendar) {
+    function _calPad2(n) { return n < 10 ? '0' + n : '' + n; }
+
+    /* calendar(라이브 예정 목록)와 calendarResults(누적 store)를 id 기준으로 합친다.
+       calendarResults 쪽 값을 우선하되(결과·상태를 갖고 있으므로) importance는 라이브
+       calendar에만 있으므로 있으면 채운다. 둘 중 어디에도 없는 값은 만들어내지 않는다. */
+    function _calMergeEvents(calendar, calendarResults) {
+      var map = {};
+      var results = (calendarResults && calendarResults.results) || {};
+      Object.keys(results).forEach(function (id) {
+        var r = results[id];
+        map[id] = {
+          id: r.id, time: r.time, country: r.country, title: r.title,
+          importance: null, resultText: r.resultText || null, status: r.status || 'pending',
+        };
+      });
+      (calendar || []).forEach(function (ev) {
+        var existing = map[ev.id];
+        if (existing) {
+          existing.importance = ev.importance;
+        } else {
+          map[ev.id] = {
+            id: ev.id, time: ev.time, country: ev.country, title: ev.title,
+            importance: ev.importance, resultText: null, status: 'pending',
+          };
+        }
+      });
+      return Object.keys(map).map(function (k) { return map[k]; });
+    }
+
+    function _calBuildMonthCells(year, month) {
+      var firstWeekday = new Date(year, month, 1).getDay();
+      var daysInMonth = new Date(year, month + 1, 0).getDate();
+      var cells = [];
+      for (var i = 0; i < firstWeekday; i++) cells.push(null);
+      for (var d = 1; d <= daysInMonth; d++) cells.push(d);
+      while (cells.length % 7 !== 0) cells.push(null);
+      return cells;
+    }
+
+    function renderCalendar(el, calendar, calendarResults, todayStr) {
       el.setAttribute('data-status', 'ok');
       el.innerHTML = '';
-      var list = document.createElement('div');
-      list.className = 'cal-list';
-      calendar.forEach(function (ev) {
-        var item = document.createElement('div');
-        item.className = 'cal-item' + (ev.importance === 'high' ? ' imp-high' : '');
 
-        var time = document.createElement('span');
-        time.className = 'cal-time';
-        time.textContent = ev.time;
+      if (!todayStr) todayStr = new Date().toISOString().slice(0, 10);
+      var today = new Date(todayStr + 'T00:00:00');
+      var year = today.getFullYear();
+      var month = today.getMonth();
+      var monthPrefix = year + '-' + _calPad2(month + 1);
 
-        var country = document.createElement('span');
-        country.className = 'cal-country';
-        country.textContent = CAL_COUNTRY_KR[ev.country] || ev.country;
-
-        var title = document.createElement('span');
-        title.className = 'cal-title';
-        title.textContent = ev.title;
-
-        item.appendChild(time);
-        item.appendChild(country);
-        item.appendChild(title);
-        list.appendChild(item);
+      var events = _calMergeEvents(calendar, calendarResults);
+      var byDate = {};
+      events.forEach(function (ev) {
+        if (!ev.time) return;
+        if (!byDate[ev.time]) byDate[ev.time] = [];
+        byDate[ev.time].push(ev);
       });
-      el.appendChild(list);
+
+      /* ── 데스크톱: 이번 달 먼슬리 그리드 + 지나간 이슈 결과 스트립 ── */
+      var desktop = document.createElement('div');
+      desktop.className = 'cal-desktop';
+
+      var head = document.createElement('div');
+      head.className = 'cal-month-head';
+      CAL_WEEKDAY_KR.forEach(function (w) {
+        var s = document.createElement('span');
+        s.textContent = w;
+        head.appendChild(s);
+      });
+      desktop.appendChild(head);
+
+      var grid = document.createElement('div');
+      grid.className = 'cal-month-grid';
+      _calBuildMonthCells(year, month).forEach(function (d) {
+        var cell = document.createElement('div');
+        if (d === null) {
+          cell.className = 'cal-day is-empty';
+          grid.appendChild(cell);
+          return;
+        }
+        var dateStr = monthPrefix + '-' + _calPad2(d);
+        var isToday = dateStr === todayStr;
+        var isPast = dateStr < todayStr;
+        cell.className = 'cal-day' + (isToday ? ' is-today' : '') + (isPast ? ' is-past' : '');
+
+        var num = document.createElement('div');
+        num.className = 'cal-day-num';
+        num.textContent = d;
+        cell.appendChild(num);
+
+        var dayEvents = byDate[dateStr] || [];
+        if (dayEvents.length > 0) {
+          var badges = document.createElement('div');
+          badges.className = 'cal-day-badges';
+          dayEvents.slice(0, 3).forEach(function (ev) {
+            var b = document.createElement('div');
+            b.className = 'cal-badge ' + (isPast ? 'is-past' : 'is-upcoming');
+            b.textContent = ev.title;
+            b.title = ev.title;
+            badges.appendChild(b);
+          });
+          if (dayEvents.length > 3) {
+            var more = document.createElement('div');
+            more.className = 'cal-badge is-past';
+            more.textContent = '+' + (dayEvents.length - 3);
+            badges.appendChild(more);
+          }
+          cell.appendChild(badges);
+        }
+        grid.appendChild(cell);
+      });
+      desktop.appendChild(grid);
+
+      var pastThisMonth = events
+        .filter(function (ev) { return ev.time && ev.time.indexOf(monthPrefix) === 0 && ev.time < todayStr; })
+        .sort(function (a, b) { return a.time < b.time ? 1 : -1; });
+
+      if (pastThisMonth.length > 0) {
+        var stripWrap = document.createElement('div');
+        var stripTitle = document.createElement('div');
+        stripTitle.className = 'cal-result-strip-title';
+        stripTitle.textContent = '지나간 이슈 결과';
+        stripWrap.appendChild(stripTitle);
+
+        var strip = document.createElement('div');
+        strip.className = 'cal-result-strip';
+        pastThisMonth.forEach(function (ev) {
+          var item = document.createElement('div');
+          item.className = 'cal-result-item';
+          var t = document.createElement('span');
+          t.className = 'cal-time';
+          t.textContent = ev.time;
+          var ti = document.createElement('span');
+          ti.className = 'cal-title';
+          ti.textContent = ev.title;
+          var r = document.createElement('span');
+          r.className = 'cal-result-text';
+          r.textContent = (ev.status === 'recorded' && ev.resultText) ? ev.resultText : '결과 집계중';
+          item.appendChild(t);
+          item.appendChild(ti);
+          item.appendChild(r);
+          strip.appendChild(item);
+        });
+        stripWrap.appendChild(strip);
+        desktop.appendChild(stripWrap);
+      }
+
+      el.appendChild(desktop);
+
+      /* ── 모바일: 날짜별 그룹 리스트, 오늘 기준 위=지난 것/아래=예정, 스티키 헤더 ── */
+      var mobile = document.createElement('div');
+      mobile.className = 'cal-mobile';
+      var mlist = document.createElement('div');
+      mlist.className = 'cal-list';
+
+      Object.keys(byDate).sort().forEach(function (dateStr) {
+        var isPast = dateStr < todayStr;
+        var isToday = dateStr === todayStr;
+
+        var group = document.createElement('div');
+        group.className = 'cal-date-group';
+        var headerEl = document.createElement('div');
+        headerEl.className = 'cal-date-header' + (isToday ? ' is-today' : '');
+        headerEl.textContent = dateStr + (isToday ? ' · 오늘' : '');
+        group.appendChild(headerEl);
+
+        byDate[dateStr].forEach(function (ev) {
+          var item = document.createElement('div');
+          item.className = 'cal-item' + (ev.importance === 'high' ? ' imp-high' : '');
+
+          var country = document.createElement('span');
+          country.className = 'cal-country';
+          country.textContent = CAL_COUNTRY_KR[ev.country] || ev.country;
+
+          var title = document.createElement('span');
+          title.className = 'cal-title';
+          title.textContent = ev.title;
+
+          item.appendChild(country);
+          item.appendChild(title);
+
+          if (isPast) {
+            var r = document.createElement('span');
+            r.className = 'cal-result-text';
+            r.textContent = (ev.status === 'recorded' && ev.resultText) ? ev.resultText : '결과 집계중';
+            item.appendChild(r);
+          }
+          group.appendChild(item);
+        });
+        mlist.appendChild(group);
+      });
+      mobile.appendChild(mlist);
+      el.appendChild(mobile);
     }
 
     var NEWS_CATEGORY_KR = { news: '뉴스', disclosure: '공시' };
@@ -1601,7 +1804,16 @@
       if (connBody && home.connection) renderConnection(connBody, home.connection);
       if (kwBody && home.koreaWatch) renderKoreaWatch(kwBody, home.koreaWatch);
       if (riskBody && home.risks && home.risks.length > 0) renderTodayRisk(riskBody, home.risks);
-      if (calBody && home.calendar && home.calendar.length > 0) renderCalendar(calBody, home.calendar);
+      if (calBody && home.calendar && home.calendar.length > 0) {
+        var calendarResults = null;
+        try {
+          var crRes = await fetch('data/calendar_results.json?v=' + Date.now());
+          if (crRes.ok) calendarResults = await crRes.json();
+        } catch (crErr) {
+          // 누적 결과 파일은 없어도(SP-0 배포 직후 등) 캘린더 자체는 정상 렌더되어야 한다
+        }
+        renderCalendar(calBody, home.calendar, calendarResults, home.publishDate);
+      }
       if (newsBody && home.news && home.news.items && home.news.items.length > 0) renderNews(newsBody, home.news);
       if (indBody) renderKeyIndicators(indBody, home);
     }
