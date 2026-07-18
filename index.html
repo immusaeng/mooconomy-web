@@ -588,8 +588,9 @@
         <span class="nm">Daily <span class="moo">'Moo'</span>conomy</span>
       </a>
       <ul id="navmenu">
-        <li><a onclick="switchView('about')" class="nav-link" id="gnb-about-btn">무코노미 소개</a></li>
-        <li><a onclick="switchView('markets')" class="nav-link" id="gnb-markets-btn">MARKETS (지표보드)</a></li>
+        <li><a onclick="switchView('about')" class="nav-link" id="gnb-about-btn">ABOUT</a></li>
+        <li><a onclick="switchView('home', 'news-disclosure')" class="nav-link" id="gnb-news-btn">NEWS</a></li>
+        <li><a onclick="switchView('markets')" class="nav-link" id="gnb-markets-btn">MARKETS</a></li>
         <li><a onclick="switchView('home', 'latest')" class="nav-link">LATEST</a></li>
         <li><a onclick="switchView('home', 'subscribe')" class="nav-link">SUBSCRIBE</a></li>
       </ul>
@@ -609,8 +610,8 @@
     <button onclick="switchView('markets')" class="mobile-nav-item" id="m-nav-markets">
       <i data-lucide="line-chart"></i><span>지표</span>
     </button>
-    <button onclick="switchView('home', 'today-calendar')" class="mobile-nav-item" id="m-nav-calendar">
-      <i data-lucide="calendar-days"></i><span>일정</span>
+    <button onclick="switchView('home', 'news-disclosure')" class="mobile-nav-item" id="m-nav-news">
+      <i data-lucide="rss"></i><span>오늘뉴스</span>
     </button>
     <button onclick="switchView('home', 'latest')" class="mobile-nav-item" id="m-nav-latest">
       <i data-lucide="newspaper"></i><span>브리핑</span>
@@ -1106,7 +1107,10 @@
         var mHome = document.getElementById('m-nav-home');
         if (mHome) mHome.classList.add('active');
         if (targetAnchorId === 'latest') { var mL = document.getElementById('m-nav-latest'); if (mL) mL.classList.add('active'); }
-        if (targetAnchorId === 'today-calendar') { var mC = document.getElementById('m-nav-calendar'); if (mC) mC.classList.add('active'); }
+        if (targetAnchorId === 'news-disclosure') {
+          var mN = document.getElementById('m-nav-news'); if (mN) mN.classList.add('active');
+          var gnbN = document.getElementById('gnb-news-btn'); if (gnbN) gnbN.classList.add('active');
+        }
       } else if (viewId === 'markets') {
         var mM = document.getElementById('m-nav-markets'); if (mM) mM.classList.add('active');
         var gnb = document.getElementById('gnb-markets-btn'); if (gnb) gnb.classList.add('active');
