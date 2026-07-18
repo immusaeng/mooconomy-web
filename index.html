@@ -257,8 +257,14 @@
   }
   .mc-card.accent-up, .indicator-card.dir-up, .kw-item.dir-up { border-left-color: var(--up-red); }
   .mc-card.accent-down, .indicator-card.dir-down, .kw-item.dir-down { border-left-color: var(--down-blue); }
-  .mc-card.accent-gold, .cal-item.imp-high, .news-item.cat-disclosure,
-  .signal-grid.home-style .signal-card { border-left-color: var(--gold); }
+  .mc-card.accent-gold, .cal-item.imp-high, .news-item.cat-disclosure { border-left-color: var(--gold); }
+  /* SP-5(2026-07-18): 07 신호 카드 액센트선을 섹션 고정 골드에서 신호등 배색으로
+     변경 — 색 자체가 위험도 정보가 되게 한다(예: red면 카드 왼쪽도 red).
+     골드 스파인은 섹션 헤더 전용으로 유지, 06 연결고리 결론 박스 골드선은 그대로 둠. */
+  .signal-grid.home-style .signal-card.color-red    { border-left-color: #d32f2f; }
+  .signal-grid.home-style .signal-card.color-yellow { border-left-color: #f5b301; }
+  .signal-grid.home-style .signal-card.color-green  { border-left-color: #2e7d32; }
+  .signal-grid.home-style .signal-card.color-gray   { border-left-color: var(--flat-gray); }
   .mc-card.accent-flat, .indicator-card.is-missing, .kw-item.is-missing,
   .cal-item, .news-item { border-left-color: var(--flat-gray); }
   /* 09 뉴스/공시 좌우 패딩은 리스트형(.mc-row) 표준값으로 07과 통일 */
@@ -1258,7 +1264,7 @@
       var isGray = s.color === 'gray';
 
       var card = document.createElement('div');
-      card.className = 'signal-card';
+      card.className = 'signal-card color-' + s.color;
 
       var dot = document.createElement('div');
       dot.className = 'signal-dot ' + s.color;
