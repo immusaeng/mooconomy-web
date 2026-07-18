@@ -633,7 +633,13 @@
     .sec-title { font-size: 20px; line-height: 1.3; }
     .sec-sub { font-size: 13.5px; }
     .signal-value { font-size: 17px; }
-    .indicator-card .ind-value { font-size: 19px; }
+
+    /* SP-4(2026-07-18): 05 핵심지표 카드가 모바일에서 08 체크포인트(kw-item)
+       카드보다 과도하게 커 보이던 것을 kw-item 폰트 수준으로 맞춤(카드 크기 자체는
+       .mc-card 공유 규칙으로 이미 동일 — 폰트만 컸음). before(직전 SP-2)→after:
+       ind-value 19px→16px(kw-value와 동일), ind-name 12px→11.5px(kw-label과 동일). */
+    .indicator-card .ind-value { font-size: 16px; }
+    .indicator-card .ind-name { font-size: 11.5px; }
   }
 </style>
 </head>
