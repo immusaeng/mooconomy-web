@@ -580,8 +580,7 @@
         <span class="nm">Daily <span class="moo">'Moo'</span>conomy</span>
       </a>
       <ul id="navmenu">
-        <li><a onclick="switchView('home', 'problem')" class="nav-link">THE PROBLEM</a></li>
-        <li><a onclick="switchView('home', 'why')" class="nav-link">THE 3C</a></li>
+        <li><a onclick="switchView('about')" class="nav-link" id="gnb-about-btn">무코노미 소개</a></li>
         <li><a onclick="switchView('markets')" class="nav-link" id="gnb-markets-btn">MARKETS (지표보드)</a></li>
         <li><a onclick="switchView('home', 'latest')" class="nav-link">LATEST</a></li>
         <li><a onclick="switchView('home', 'subscribe')" class="nav-link">SUBSCRIBE</a></li>
@@ -1110,6 +1109,8 @@
         var gnb = document.getElementById('gnb-markets-btn'); if (gnb) gnb.classList.add('active');
         setTimeout(initMarketsDashboard, 50);
         setTimeout(loadSignals, 50);
+      } else if (viewId === 'about') {
+        var gnbA = document.getElementById('gnb-about-btn'); if (gnbA) gnbA.classList.add('active');
       }
 
       if (targetAnchorId) {
@@ -1141,7 +1142,7 @@
       var h = (location.hash || '').replace('#', '');
       if (!h) { applyView('home'); return; }
       var parts = h.split('/');
-      var viewId = (parts[0] === 'markets') ? 'markets' : 'home';
+      var viewId = (parts[0] === 'markets' || parts[0] === 'about') ? parts[0] : 'home';
       var anchor = parts[1] || null;
       applyView(viewId, anchor);
     }
