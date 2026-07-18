@@ -374,14 +374,14 @@
   .reveal { opacity:0; transform:translateY(10px); transition:opacity .5s ease, transform .5s ease; }
   .reveal.in { opacity:1; transform:translateY(0); }
 
-  .grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
-  .prob-item { background:var(--bg); border-radius:16px; padding:34px 28px; border-top:4px solid var(--navy); }
+  .grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:var(--sp-4); }
+  .prob-item { background:var(--card); border:1px solid var(--line); border-radius:var(--radius-card); padding:var(--sp-5) var(--sp-4); border-top:4px solid var(--navy); }
   .prob-n { width:42px; height:42px; border-radius:11px; background:var(--navy); color:var(--gold); font-weight:800; font-size:17px; display:flex; align-items:center; justify-content:center; margin-bottom:20px; }
   .prob-item h3 { font-size:18px; font-weight:800; margin-bottom:12px; line-height:1.45; }
   .prob-item p { font-size:14.5px; color:var(--gray); }
 
-  .why { background:#fafbfd; }
-  .why-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:34px 28px; border-left:5px solid var(--gold); box-shadow:0 4px 16px rgba(11,37,69,.05); }
+  .why { background:var(--bg); }
+  .why-card { background:var(--card); border:1px solid var(--line); border-radius:var(--radius-card); padding:var(--sp-5) var(--sp-4); border-left:4px solid var(--gold); }
   .why-card .why-en { font-size:12px; letter-spacing:2px; font-weight:800; color:var(--gold-d); margin-bottom:8px; }
   .why-card h3 { font-size:19px; font-weight:800; margin-bottom:12px; }
   .why-card h3 .em { color:var(--gold-d); }
