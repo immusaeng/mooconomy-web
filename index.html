@@ -503,10 +503,15 @@
 
   /* 홈(#view-home) 전용 신호등 카드 톤 — #view-markets의 .signal-grid/.signal-card 기본값은 그대로 둠 */
   .signal-grid.home-style {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: var(--sp-2);
     margin-bottom: 0;
   }
+  .sig-more-link {
+    display: inline-flex; align-items: center; gap: 6px; margin-top: var(--sp-3);
+    font-size: 13.5px; font-weight: 700; color: var(--gold-d); text-decoration: none; cursor: pointer;
+  }
+  .sig-more-link:hover { text-decoration: underline; }
 
   .tabs-wrapper {
     background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 6px;
@@ -613,6 +618,7 @@
     .chart-container { height: 280px; }
 
     .signal-grid { grid-template-columns: 1fr; }
+    .signal-grid.home-style { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -780,6 +786,7 @@
         <div class="sec-title">지금 볼 시장 신호</div>
         <div class="sec-sub">지표와 지표의 관계로 읽는 오늘의 시장 신호</div>
         <div class="signal-grid home-style" id="homeSignalGrid"></div>
+        <a class="sig-more-link" onclick="switchView('markets')">지표 터미널에서 더 보기 →</a>
       </div>
     </section>
 
