@@ -511,6 +511,7 @@
   .signal-name    { font-size:12.5px; font-weight:700; color:var(--gray); }
   .signal-value   { font-size:19px; font-weight:800; color:var(--ink); margin:2px 0 4px; font-variant-numeric:tabular-nums; }
   .signal-insight { font-size:12.5px; color:#444; line-height:1.5; }
+  .signal-source { font-size:11px; color:var(--flat-gray); margin-top:6px; }
   .signal-error   { font-size:13px; color:var(--gray); text-align:center; padding:16px 0; }
 
   /* 홈(#view-home) 전용 신호등 카드 톤 — #view-markets의 .signal-grid/.signal-card 기본값은 그대로 둠 */
@@ -1289,6 +1290,13 @@
       insight.className = 'signal-insight';
       insight.textContent = s.insight;
       body.appendChild(insight);
+
+      if (s.sourceLabel) {
+        var source = document.createElement('div');
+        source.className = 'signal-source';
+        source.textContent = s.sourceLabel;
+        body.appendChild(source);
+      }
 
       card.appendChild(body);
       return card;
