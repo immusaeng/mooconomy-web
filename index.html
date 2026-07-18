@@ -398,18 +398,21 @@
   .mail-bar .mail-label { margin-left:12px; color:#6b7688; font-size:12.5px; letter-spacing:.5px; }
   .mail-bar .mail-date { margin-left:auto; color:#6b7688; font-size:12.5px; letter-spacing:.5px; }
   .mail-body { padding:18px; }
-  .letter-wrap { position:relative; max-height:520px; overflow:hidden; border-radius:10px; background:#fff; transition:max-height .5s ease; }
-  .letter-wrap.open { max-height:none; }
+  /* 11 미리보기 — 항상 '의도적으로 잘린 미리보기' 상태만 있고(펼치기 없음),
+     전체를 보려면 실제 최신 발송본(latest.html)으로 이동한다(2026-07-18 개편).
+     페이드를 더 길고 다단계로 만들어 텍스트가 갑자기 끊기지 않고 자연스럽게 흐려지게 한다. */
+  .letter-wrap { position:relative; max-height:520px; overflow:hidden; border-radius:10px; background:#fff; }
   .letter-wrap iframe { width:100%; height:1600px; border:0; display:block; pointer-events:none; }
-  .letter-wrap.open iframe { pointer-events:auto; }
-  .letter-fade { position:absolute; left:0; right:0; bottom:0; height:120px;
-    background:linear-gradient(to bottom, rgba(255,255,255,0), #fff); pointer-events:none; }
-  .letter-wrap.open .letter-fade { display:none; }
-  .expand-btn { display:block; margin:18px auto 4px; padding:11px 30px; background:var(--gold);
-    color:var(--navy); font-weight:800; font-size:14.5px; border:0; border-radius:24px; cursor:pointer; transition:.2s; }
+  .letter-fade { position:absolute; left:0; right:0; bottom:0; height:160px; pointer-events:none;
+    background:linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,.55) 45%, rgba(255,255,255,.92) 75%, #fff 100%); }
+  .expand-btn {
+    display:flex; align-items:center; justify-content:center; gap:6px;
+    margin:18px auto 4px; padding:11px 30px; background:var(--gold);
+    color:var(--navy); font-weight:800; font-size:14.5px; border:0; border-radius:24px;
+    cursor:pointer; text-decoration:none; transition:.2s; width:fit-content;
+  }
   .expand-btn:hover { background:var(--gold-d); }
-  .expand-btn .chev { display:inline-block; transition:transform .3s ease; }
-  .expand-btn.open .chev { transform:rotate(180deg); }
+  .expand-btn .ext-arrow { display:inline-block; font-size:15px; }
 
   .final { background:linear-gradient(160deg,var(--navy),var(--navy2)); color:#fff; text-align:center; padding:var(--sp-7) 0; }
   .final h2 { font-size:32px; font-weight:800; line-height:1.4; margin-bottom:18px; }
@@ -798,7 +801,7 @@
               <iframe id="letterFrame" src="latest.html" title="최신 브리핑" loading="lazy" scrolling="no"></iframe>
               <div class="letter-fade" id="letterFade"></div>
             </div>
-            <button class="expand-btn" id="expandBtn" type="button"><span class="btn-label">전체 보기</span> <span class="chev">⌄</span></button>
+            <a class="expand-btn" id="expandBtn" href="latest.html" target="_blank" rel="noopener"><span class="btn-label">전체 보기</span> <span class="ext-arrow">↗</span></a>
           </div>
         </div>
       </div>
@@ -1071,17 +1074,13 @@
       a.addEventListener('click', function(){ navMenu.classList.remove('open'); });
     });
 
-    /* ===== 최신 레터 전체 보기 토글 ===== */
+    /* ===== 최신 레터 '전체 보기' 클릭 트래킹 (2026-07-18: 제자리 펼치기 대신
+       latest.html로 새 탭 이동하는 일반 링크로 변경 — 클릭 이벤트만 남겨 둔다) ===== */
     (function(){
       var btn = document.getElementById('expandBtn');
-      var wrap = document.getElementById('letterWrap');
-      if (btn && wrap) {
+      if (btn) {
         btn.addEventListener('click', function(){
-          var opened = wrap.classList.toggle('open');
-          btn.classList.toggle('open', opened);
-          var label = btn.querySelector('.btn-label');
-          if (label) label.textContent = opened ? '접기' : '전체 보기';
-          if (opened) gtag('event','expand_letter',{event_category:'engagement',event_label:'latest_preview'});
+          gtag('event','expand_letter',{event_category:'engagement',event_label:'latest_preview'});
         });
       }
     })();
