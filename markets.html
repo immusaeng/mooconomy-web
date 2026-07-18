@@ -505,7 +505,9 @@
           throw new Error('Sandbox or local iframe preview detected. Loading fallback mockup.');
         }
 
-        const response = await fetch('data/macro_history.json');
+        // 캐시버스팅 없이 요청하면 브라우저/CDN이 예전 응답(예: 파일이 아직 없던 시점의 404)을
+        // 그대로 재사용해 실제로는 파일이 있는데도 데모로 표시되는 사례가 있어 쿼리를 붙인다.
+        const response = await fetch('data/macro_history.json?v=' + Date.now());
         if (!response.ok) throw new Error('Data fetch failed');
         data = await response.json();
       } catch (error) {
@@ -622,8 +624,9 @@
     }
 
     window.onload = () => {
-      lucide.createIcons();
+      // 아이콘 라이브러리 실패가 데이터 대시보드 초기화를 막지 않도록 분리한다.
       initDashboard();
+      try { lucide.createIcons(); } catch (e) { console.warn('[아이콘] lucide 로드 실패:', e); }
     }
   </script>
 </body>

@@ -1582,10 +1582,17 @@
       var month = today.getMonth();
       var monthPrefix = year + '-' + _calPad2(month + 1);
 
-      var events = _calMergeEvents(calendar, calendarResults);
+      // id 기준 1차 dedup은 _calMergeEvents가 하지만, 시간/제목이 없는 항목까지
+      // 걸러내는 것은 여기서 한 번 더 보장한다(날짜 없는 항목이 렌더 대상에 섞이지 않도록).
+      var seenIds = {};
+      var events = _calMergeEvents(calendar, calendarResults).filter(function (ev) {
+        if (!ev.id || !ev.time || !ev.title) return false;
+        if (seenIds[ev.id]) return false;
+        seenIds[ev.id] = true;
+        return true;
+      });
       var byDate = {};
       events.forEach(function (ev) {
-        if (!ev.time) return;
         if (!byDate[ev.time]) byDate[ev.time] = [];
         byDate[ev.time].push(ev);
       });
