@@ -487,14 +487,11 @@
   .insight-box p { font-size: 13.5px; color: var(--ink); line-height: 1.7; }
 
   /* ══════════════════════════════════════════════════════════════
-     06~14 섹션 리듬 — 01~05(.dispatch, --sp-5)와 같은 --sp 스케일에서
-     파생하되, 콘텐츠형(06~11)과 브랜드/CTA형(12·13·14)을 구분해
-     서로 다른 정도로 압축한다. 마크업/id/색상은 그대로, padding만 조정.
+     06~11 섹션 리듬 — 2026-07-18부터 01~05와 같은 .dispatch-rail 안에
+     통합되어 --sp-5 리듬·좌측정렬·골드 스파인을 그대로 상속받는다
+     (더 이상 이 블록에서 별도 padding을 줄 필요가 없어짐).
+     12(구독)·13(About, 별도 뷰)만 브랜드/CTA형으로 남아 더 넓은 --sp-7 유지.
      ══════════════════════════════════════════════════════════════ */
-  #market-signal.sec-pad, #today-calendar.sec-pad, #korea-watch.sec-pad,
-  #news-disclosure.sec-pad, #today-risk.sec-pad, #latest.sec-pad {
-    padding: var(--sp-6) 0;
-  }
   #subscribe.final, #problem.sec-pad, #why.sec-pad {
     padding: var(--sp-7) 0;
   }
@@ -712,9 +709,6 @@
       </div>
     </section>
 
-    </div><!-- /.dispatch-rail -->
-    </div><!-- /.dispatch -->
-
     <!-- 06 / 지금 볼 신호 (기존 #signals 이동, 신호등 실데이터 유지) -->
     <section class="sec-pad anchor" id="market-signal">
       <div class="inner">
@@ -807,6 +801,8 @@
         </div>
       </div>
     </section>
+    </div><!-- /.dispatch-rail -->
+    </div><!-- /.dispatch -->
 
     <!-- 12 / 뉴스레터 구독 (기존 #subscribe 이동) -->
     <section class="final anchor" id="subscribe">
