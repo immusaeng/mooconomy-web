@@ -345,17 +345,17 @@
 
   /* 03 오늘의 3줄 — 이 제품에서 유일하게 "숫자 자체가 정보"인 자리라 서수를 크게 쓴다 */
   .daily-three-list { display:flex; flex-direction:column; gap:var(--sp-3); }
-  .daily-three-item { display:flex; gap:14px; background:var(--card); border:1px solid var(--line); border-radius:var(--radius-card); padding:18px 20px; }
-  .daily-three-item .dt-ord {
-    flex:0 0 auto; width:30px; height:30px; border-radius:8px;
-    background:var(--navy); color:var(--gold); font-weight:800; font-size:14px;
-    display:flex; align-items:center; justify-content:center;
-  }
-  .daily-three-item .dt-body { flex:1; min-width:0; }
-  .daily-three-item .dt-title { font-size:12.5px; font-weight:800; color:var(--gold-d); letter-spacing:.4px; margin-bottom:6px; text-transform:uppercase; }
-  .daily-three-item .dt-text { font-size:15px; color:var(--ink); line-height:1.7; }
-  .daily-three-item.is-missing .dt-ord { background:var(--line); color:var(--gray); }
+  .daily-three-item { display:flex; align-items:flex-start; gap:14px; background:var(--card); border:1px solid var(--line); border-radius:var(--radius-card); padding:18px 20px; }
+  /* 라벨 칼럼 폭을 고정해 항목마다 본문 시작선이 어긋나지 않게 한다.
+     라벨이 2~3줄로 접혀도 본문(형제 flex item)은 align-items:flex-start로
+     항상 같은 위치에서 시작한다. */
+  .daily-three-item .dt-title { flex:0 0 128px; padding-top:2px; font-size:12.5px; font-weight:800; color:var(--gold-d); letter-spacing:.4px; line-height:1.5; text-transform:uppercase; }
+  .daily-three-item .dt-text { flex:1; min-width:0; font-size:15px; color:var(--ink); line-height:1.7; }
   .daily-three-item.is-missing .dt-text { color:var(--gray); }
+  @media (max-width:640px) {
+    .daily-three-item { flex-direction:column; gap:6px; }
+    .daily-three-item .dt-title { flex:0 0 auto; padding-top:0; }
+  }
 
   /* 05 시장 연결고리 */
   .connection-flow { display:flex; flex-wrap:wrap; align-items:stretch; gap:var(--sp-2); margin-bottom:18px; }
