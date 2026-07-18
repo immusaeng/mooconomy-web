@@ -1749,9 +1749,11 @@
 
       var list = document.createElement('div');
       list.className = 'news-list';
-      (news.items || []).forEach(function (it) {
+      // 09는 뉴스만 다룬다(공시는 07 캘린더 쪽) — 혹시 배포 타이밍 등으로 과거 데이터에
+      // disclosure 카테고리가 섞여 있어도 여기서 한 번 더 걸러 노출되지 않게 한다.
+      (news.items || []).filter(function (it) { return it.category === 'news'; }).forEach(function (it) {
         var item = document.createElement('a');
-        item.className = 'news-item' + (it.category === 'disclosure' ? ' cat-disclosure' : '');
+        item.className = 'news-item';
         item.href = it.url;
         item.target = '_blank';
         item.rel = 'noopener noreferrer';
