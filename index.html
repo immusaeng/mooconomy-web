@@ -1595,7 +1595,13 @@
           };
         }
       });
-      return Object.keys(map).map(function (k) { return map[k]; });
+      // 캘린더는 매크로 이벤트+미국 대형사 공시만 다룬다(국내 개별공시는 04
+      // 뉴스로 갈음) — 누적 store에 과거에 잘못 등록된 국내 항목이 남아 있어도
+      // 여기서 한 번 더 걸러 화면에 절대 안 뜨게 한다(백엔드 history.py에도
+      // 같은 필터가 있지만 이중 방어).
+      return Object.keys(map)
+        .map(function (k) { return map[k]; })
+        .filter(function (ev) { return ev.country === 'US'; });
     }
 
     function _calBuildMonthCells(year, month) {
