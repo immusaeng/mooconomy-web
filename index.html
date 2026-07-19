@@ -206,19 +206,24 @@
     padding:var(--sp-6) 0;
   }
 
-  /* 2단 레이아웃(2026-07-18): 좌측 sticky 목차(.doc-nav) + 우측 본문(.dispatch-rail).
-     .dispatch-rail은 더 이상 자기 폭을 스스로 정하지 않고 그리드 컬럼을 그대로 채운다
-     (기존 880px 고정폭 대신 데이터 블록이 더 넓게 쓸 수 있게 됨). 골드 스파인
-     (border-left)과 좌우 패딩은 기존 그대로 유지 — 시각적 톤 불변. */
+  /* 2단 레이아웃(2026-07-19 재설계): 본문(.dispatch-rail) 자체가 화면 중앙에
+     오도록 3-트랙 대칭 그리드(좌 1fr · 본문 min(940px,100%) · 우 1fr)를 쓴다.
+     좌우 트랙이 항상 동일 폭(1fr)이라 nav 유무·폭과 무관하게 가운데 트랙(본문)이
+     그리드 전체의 정중앙에 고정된다 — 이전 버전(200px+본문 2컬럼을 통째로
+     margin:auto로 중앙정렬)은 본문이 nav+gap 폭의 절반만큼 오른쪽으로 밀리는
+     문제가 있었다(1440px 기준 약 120px). .doc-nav는 좌측 트랙 안에 폭 130px로
+     우측정렬(justify-self:end)해 본문 바로 왼쪽 여백에 붙인다. */
   .doc-layout {
     display:grid;
-    grid-template-columns:200px minmax(0,1fr);
-    column-gap:40px;
-    max-width:1240px; margin:0 auto;
-    padding:0 40px;
+    grid-template-columns:minmax(0,1fr) min(940px,100%) minmax(0,1fr);
+    padding:0 24px;
     align-items:start;
   }
   .doc-nav {
+    grid-column:1;
+    justify-self:end;
+    width:132px;
+    margin-right:22px;
     position:sticky;
     top:calc(var(--nav-h) + var(--ticker-h) + 28px);
     display:flex; flex-direction:column; gap:2px;
@@ -233,7 +238,8 @@
   .doc-nav-link.active { color:var(--gold-d); border-left-color:var(--gold); background:var(--bg); font-weight:800; }
 
   .dispatch-rail {
-    padding:0 40px 0 32px;
+    grid-column:2;
+    padding:0 32px 0 32px;
     border-left:3px solid var(--gold);
   }
   .dispatch-rail .inner { max-width:none; padding:0; margin:0; }
@@ -244,12 +250,17 @@
   .dispatch section + section { border-top:1px solid var(--line); }
   .dispatch section:first-child { padding-top:0; }
 
-  /* ≤900px: sticky 목차는 숨기고(모바일 하단 nav가 이미 대체 역할), 본문은
-     단일 컬럼으로 복귀해 읽기 편한 폭을 유지한다. */
-  @media (max-width:900px) {
-    .doc-layout { grid-template-columns:1fr; max-width:none; }
+  /* ≤1200px: 좌측 트랙이 nav(132px)+gap(22px)을 감당하기 빠듯해지는 지점부터
+     nav를 숨기고(모바일 하단 nav가 이미 대체 역할) 본문을 단일 컬럼으로
+     전환한다 — 컬럼 자체를 1fr로 재정의해 nav 자리에 빈 여백이 남지 않는다. */
+  @media (max-width:1200px) {
+    .doc-layout { grid-template-columns:1fr; padding:0 40px; }
     .doc-nav { display:none; }
-    .dispatch-rail { max-width:720px; margin:0 auto; }
+    .dispatch-rail { grid-column:1; max-width:760px; margin:0 auto; }
+  }
+  @media (max-width:900px) {
+    .doc-layout { padding:0 24px; }
+    .dispatch-rail { max-width:720px; }
   }
   @media (max-width:640px) {
     .doc-layout { padding:0; }
@@ -317,15 +328,17 @@
   .risk-item.level-caution { border-left-color: var(--caution); }
   .risk-item.level-watch { border-left-color: var(--gray); }
 
-  .indicator-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:var(--sp-2); }
-  .indicator-card { transition:border-color .15s; }
-  .indicator-card .ind-name { font-size:12px; font-weight:700; color:var(--gray); text-transform:uppercase; letter-spacing:.4px; }
-  .indicator-card .ind-value { font-size:21px; font-weight:800; color:var(--ink); margin:6px 0 8px; font-variant-numeric:tabular-nums; letter-spacing:-.3px; }
-  .indicator-card .ind-change { margin-bottom:4px; }
+  /* SP-4(2026-07-19): 카드 높이를 20~30% 줄이기 위해 패딩·행간을 전반적으로
+     압축한다 — 값의 굵기(800)·화살표·등락폭 표기는 그대로, 세로 리듬만 조인다. */
+  .indicator-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; }
+  .indicator-card { padding:8px 12px; transition:border-color .15s; }
+  .indicator-card .ind-name { font-size:12px; font-weight:700; color:var(--gray); text-transform:uppercase; letter-spacing:.4px; line-height:1.2; }
+  .indicator-card .ind-value { font-size:17px; font-weight:800; color:var(--ink); margin:2px 0 4px; font-variant-numeric:tabular-nums; letter-spacing:-.3px; line-height:1.15; }
+  .indicator-card .ind-change { margin-bottom:0; font-size:13px; line-height:1.2; }
   .indicator-card.is-missing .ind-value { color:var(--gray); }
-  .indicator-card .ind-insight { font-size:12px; color:var(--gray-soft); margin-top:6px; }
+  .indicator-card .ind-insight { font-size:11px; color:var(--gray-soft); margin-top:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
   @media (max-width:900px) {
-    .indicator-grid { grid-template-columns:repeat(2,1fr); }
+    .indicator-grid { grid-template-columns:repeat(2,1fr); gap:8px; }
   }
 
   /* 08 국내 시장 체크포인트 — 04 지표 카드와 같은 언어(카드+방향 보더), 요약문 포함 */
@@ -392,6 +405,10 @@
   .cal-item .cal-title { flex:1; min-width:0; font-size:14px; font-weight:700; color:var(--ink); }
   @media (max-width:640px) {
     .cal-item { flex-wrap:wrap; gap:6px 10px; }
+    /* cal-title(flex:1)이 줄바꿈 대신 계속 줄어들며 cal-result-text(flex:0 0 auto,
+       줄바꿈 불가 텍스트)를 뷰포트 밖으로 밀어내는 문제 — 결과 텍스트를 항상
+       자기 줄로 내려서(flex-basis:100%) 잘리지 않게 한다. */
+    .cal-item .cal-result-text { flex-basis:100%; text-align:left; }
   }
 
   /* 09 주요 뉴스 및 공시 — 뉴스/공시 분류 배지 + 링크형 카드 */
@@ -477,33 +494,31 @@
   .why-card h3 .em { color:var(--gold-d); }
   .why-card p { font-size:14.5px; color:var(--gray); }
 
-  .latest-sec { background:var(--bg); }
-  .mail-frame { max-width:920px; margin:0 auto; background:#e8ecf2;
-    border-radius:16px; overflow:hidden; box-shadow:0 12px 36px rgba(11,37,69,.12); border:1px solid var(--line); }
-  .mail-bar { display:flex; align-items:center; gap:8px; padding:12px 18px; background:#dfe4ec; }
+  /* SP-7(2026-07-19): 직전 라운드는 mail-frame/letter-wrap 사이의 회색 "이중
+     레이어"만 정리했을 뿐, 정작 섹션 전체(.latest-sec, 제목·설명 포함)에
+     var(--bg) 회색 배경이 남아 있어 01~09와 달리 이 섹션만 큰 회색 카드
+     안에 갇혀 보였다 — 그 배경 선언 자체를 제거해 다른 섹션과 같은 흰
+     바탕 흐름으로 되돌린다. 미리보기 프레임(mail-frame)도 회색(#e8ecf2)
+     채움 대신 흰 배경+옅은 테두리·그림자만 남겨, "모의 브라우저 상단 바
+     (mail-bar)"만 작게 구분되고 본문 전체가 큰 회색 박스로 보이지 않게 한다. */
+  .mail-frame { max-width:920px; margin:0 auto; background:#fff;
+    border-radius:16px; overflow:hidden; box-shadow:0 8px 24px rgba(11,37,69,.08); border:1px solid var(--line); }
+  .mail-bar { display:flex; align-items:center; gap:8px; padding:12px 18px; background:#eef1f5; border-bottom:1px solid var(--line); }
   .mail-bar .dot { width:11px; height:11px; border-radius:50%; }
   .mail-bar .dot.red{background:#ff5f56;} .mail-bar .dot.yellow{background:#ffbd2e;} .mail-bar .dot.green{background:#27c93f;}
   .mail-bar .mail-label { margin-left:12px; color:#6b7688; font-size:12.5px; letter-spacing:.5px; }
   .mail-bar .mail-date { margin-left:auto; color:#6b7688; font-size:12.5px; letter-spacing:.5px; }
-  .mail-body { padding:18px; }
+  .mail-body { padding:18px; background:#fff; }
   /* 11 미리보기 — 항상 '의도적으로 잘린 미리보기' 상태만 있고(펼치기 없음),
      전체를 보려면 실제 최신 발송본(latest.html)으로 이동한다(2026-07-18 개편).
-     페이드를 더 길고 다단계로 만들어 텍스트가 갑자기 끊기지 않고 자연스럽게 흐려지게 한다. */
-  /* [2](2026-07-18) 회색블록 제거 — 직전 라운드(SP-6)에 .letter-wrap 배경을
-     뉴스레터 자체 body색(#f5f6f8)에 맞췄더니, 이번엔 그 바깥의 .mail-frame
-     (모의 브라우저 크롬, 배경 #e8ecf2)과 .letter-wrap(#f5f6f8)이 서로 다른
-     회색 두 겹으로 겹쳐 보이는 새 문제가 생겼다 — .mail-body는 배경이 없어
-     .letter-wrap의 색이 .mail-frame 크롬과 바로 맞닿는 구조였음. 색을 다시
-     맞추는 대신 .letter-wrap 자체의 배경을 없애 "블록"을 제거한다 — 그러면
-     .mail-frame의 크롬색이 이음매 없이 그대로 비쳐 보이고(중간에 경쟁하는
-     회색 레이어가 사라짐), 뉴스레터 실제 콘텐츠(흰 .wrap 카드)만 그 위에
-     자연스럽게 얹힌 것처럼 보인다. 페이드도 같은 이유로 종착색을
-     .mail-frame의 #e8ecf2로 맞춘다(뉴스레터 자체 색이 아니라 이 미리보기
-     프레임의 색). */
+     페이드를 더 길고 다단계로 만들어 텍스트가 갑자기 끊기지 않고 자연스럽게 흐려지게 한다.
+     종착색은 mail-frame이 흰색이 됐으므로 흰색으로 맞춘다(뉴스레터 자체의 연회색
+     본문 배경은 이메일 템플릿 고유 색이라 건드리지 않는다 — 이 fade는 미리보기
+     프레임 색과의 이음매만 감춘다). */
   .letter-wrap { position:relative; max-height:520px; overflow:hidden; border-radius:var(--radius-card); }
   .letter-wrap iframe { width:100%; height:1600px; border:0; display:block; pointer-events:none; }
   .letter-fade { position:absolute; left:0; right:0; bottom:0; height:220px; pointer-events:none;
-    background:linear-gradient(to bottom, rgba(232,236,242,0) 0%, rgba(232,236,242,.35) 30%, rgba(232,236,242,.75) 60%, rgba(232,236,242,.96) 85%, #e8ecf2 100%); }
+    background:linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,.35) 30%, rgba(255,255,255,.75) 60%, rgba(255,255,255,.96) 85%, #fff 100%); }
   .expand-btn {
     display:flex; align-items:center; justify-content:center; gap:6px;
     margin:18px auto 4px; padding:11px 30px; background:var(--gold);
@@ -693,6 +708,10 @@
        ind-value 19px→16px(kw-value와 동일), ind-name 12px→11.5px(kw-label과 동일). */
     .indicator-card .ind-value { font-size: 16px; }
     .indicator-card .ind-name { font-size: 11.5px; }
+    /* SP-4(2026-07-19): 모바일은 데스크톱(8px 12px)보다 더 압축 — 2열이라
+       카드 자체 폭이 좁아 여백 비중이 더 크게 느껴진다. */
+    .indicator-card { padding:7px 10px; }
+    .indicator-card .ind-insight { font-size: 10.5px; }
   }
 </style>
 </head>
@@ -808,7 +827,7 @@
       <div class="inner">
         <div class="sec-num">02 / DAILY THREE</div>
         <div class="sec-title">오늘의 3줄</div>
-        <div class="sec-sub">간밤 글로벌 시장 → 오늘 국내 시장 → 오늘의 체크포인트, 세 줄로 요약합니다</div>
+        <div class="sec-sub">간밤 글로벌 시장 → 전일 국내 시장 → 오늘의 체크포인트, 세 줄로 요약합니다</div>
         <div class="sec-body" id="dailyThreeBody" data-status="pending">
           <div class="placeholder-pending">
             <span class="placeholder-dot"></span>
