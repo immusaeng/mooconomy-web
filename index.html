@@ -137,7 +137,7 @@
   .mobile-nav-item.active { color: var(--gold); }
   .mobile-nav-item i { width: 20px; height: 20px; }
 
-  .ticker { height:var(--ticker-h); background:var(--navy2); border-top:1px solid rgba(255,255,255,.08); overflow:hidden; display:flex; align-items:center; transition:height .25s ease, opacity .25s ease; }
+  .ticker { height:var(--ticker-h); min-width:0; background:var(--navy2); border-top:1px solid rgba(255,255,255,.08); overflow:hidden; display:flex; align-items:center; transition:height .25s ease, opacity .25s ease; }
   .ticker .track { display:flex; white-space:nowrap; animation:scroll 34s linear infinite; }
   .ticker:hover .track { animation-play-state:paused; }
   .ticker .item { color:#e5edf6; font-size:13px; font-weight:600; padding:0 26px; display:inline-flex; align-items:center; gap:8px; font-variant-numeric:tabular-nums; font-feature-settings:"tnum"; }
@@ -242,6 +242,7 @@
 
   .dispatch-rail {
     grid-column:2;
+    min-width:0;
     padding:0 32px 0 32px;
     border-left:3px solid var(--gold);
   }
@@ -355,6 +356,12 @@
      이 컴포넌트만 overflow-wrap로 안전장치를 둔다(평소 줄바꿈 방식은 그대로, 정말
      안 들어갈 때만 발동). */
   .claim-text { font-size:14.5px; font-weight:700; color:var(--ink); margin-bottom:6px; line-height:1.5; overflow-wrap:break-word; }
+  .claim-why { margin-bottom:8px; }
+  .claim-why-label, .claim-how-label { font-size:11px; font-weight:800; color:var(--gray-soft); text-transform:uppercase; letter-spacing:.2px; margin-bottom:3px; }
+  .claim-why-list { margin:0; padding-left:16px; font-size:12.5px; color:var(--ink); line-height:1.55; }
+  .claim-why-list li { overflow-wrap:break-word; }
+  .claim-how { margin-bottom:8px; }
+  .claim-how-line { font-size:12.5px; color:var(--gray); line-height:1.5; overflow-wrap:break-word; }
   .claim-meta { font-size:11.5px; color:var(--gray-soft); margin-bottom:8px; }
   .claim-resolution { border-top:1px solid var(--line); padding-top:8px; margin-top:4px; }
   .claim-explanation { font-size:13px; color:var(--ink); line-height:1.6; margin-bottom:4px; overflow-wrap:break-word; }
@@ -411,7 +418,7 @@
   .cal-month-head { display:grid; grid-template-columns:repeat(7,1fr); gap:var(--sp-1); margin-bottom:var(--sp-1); }
   .cal-month-head span { text-align:center; font-size:11.5px; font-weight:700; color:var(--gray); text-transform:uppercase; }
   .cal-month-grid { display:grid; grid-template-columns:repeat(7,1fr); gap:6px; margin-bottom:var(--sp-4); }
-  .cal-day { min-height:76px; border:1px solid var(--line); border-radius:10px; padding:6px 7px; background:var(--card); }
+  .cal-day { height:82px; overflow:hidden; border:1px solid var(--line); border-radius:10px; padding:6px 7px; background:var(--card); }
   .cal-day.is-empty { border-color:transparent; background:transparent; }
   .cal-day.is-today { border-color:var(--gold); border-width:2px; padding:5px 6px; }
   .cal-day.is-past { background:var(--bg); }
@@ -823,10 +830,10 @@
     <nav class="doc-nav" id="docNav" aria-label="오늘의 리포트 목차">
       <a class="doc-nav-link" data-target="market-temperature" onclick="switchView('home','market-temperature')">시장온도</a>
       <a class="doc-nav-link" data-target="daily-three" onclick="switchView('home','daily-three')">오늘의 3줄</a>
+      <a class="doc-nav-link" data-target="claims-scorecard" onclick="switchView('home','claims-scorecard')">MOO:Q · MOO:CHECK</a>
       <a class="doc-nav-link" data-target="news-disclosure" onclick="switchView('home','news-disclosure')">뉴스 흐름</a>
       <a class="doc-nav-link" data-target="today-calendar" onclick="switchView('home','today-calendar')">경제 캘린더</a>
       <a class="doc-nav-link" data-target="latest" onclick="switchView('home','latest')">최신호</a>
-      <a class="doc-nav-link" data-target="claims-scorecard" onclick="switchView('home','claims-scorecard')">명제 검증</a>
     </nav>
     <div class="dispatch-rail">
 
@@ -875,10 +882,26 @@
       </div>
     </section>
 
+    <!-- 03 / MOO:Q · MOO:CHECK — 3층 명제 검증 MVP를 사용자 표시명으로 재구성(2026-07-19).
+         내부 claims/claim/proposition/resolution 스키마·Python 명칭은 그대로 유지 — 표시 이름만 바꾼다. -->
+    <section class="sec-pad anchor" id="claims-scorecard">
+      <div class="inner">
+        <div class="sec-num">03 / MOO:Q &amp; MOO:CHECK</div>
+        <div class="sec-title">오늘의 경제 질문 · 지난 질문의 결과</div>
+        <div class="sec-sub">예측보다 검증 가능한 질문을 남깁니다 — '오늘의 연결고리'에서 나온 질문과 다음 거래일 실제 결과를 그대로 공개합니다. 투자 매수·매도를 권유하지 않습니다. 실험 운영 중입니다.</div>
+        <div class="sec-body" id="claimsScorecardBody" data-status="pending">
+          <div class="placeholder-pending">
+            <span class="placeholder-dot"></span>
+            <span class="placeholder-text">준비중 · 곧 추가됩니다</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- 04 / 주요 뉴스 및 공시 (2026-07-18 IA 개편: 09→04, 오늘의3줄 다음으로) -->
     <section class="sec-pad anchor" id="news-disclosure">
       <div class="inner">
-        <div class="sec-num">03 / TODAY'S NEWS</div>
+        <div class="sec-num">04 / TODAY'S NEWS</div>
         <div class="sec-title">오늘의 뉴스 흐름</div>
         <div class="sec-sub">국내·글로벌 뉴스를 시간순으로 모아 보여줍니다</div>
         <div class="sec-body" id="newsBody" data-status="pending">
@@ -893,7 +916,7 @@
     <!-- 05 / 핵심 시장 지표 -->
     <section class="sec-pad anchor" id="key-indicators">
       <div class="inner">
-        <div class="sec-num">04 / KEY INDICATORS</div>
+        <div class="sec-num">05 / KEY INDICATORS</div>
         <div class="sec-title">핵심 시장 지표</div>
         <div class="sec-sub">코스피·코스닥·나스닥·원달러·미국채10년 등 핵심 지표를 카드로 확인합니다</div>
         <div class="sec-body" id="keyIndicatorsBody" data-status="pending">
@@ -908,7 +931,7 @@
     <!-- 06 / 오늘의 시장 연결고리 -->
     <section class="sec-pad anchor" id="market-connection">
       <div class="inner">
-        <div class="sec-num">05 / MARKET CONNECTION</div>
+        <div class="sec-num">06 / MARKET CONNECTION</div>
         <div class="sec-title">오늘의 시장 연결고리</div>
         <div class="sec-sub">원인 지표 → 중간 영향 → 국내 시장 변수 → 확인할 결과로 이어지는 흐름을 보여줍니다</div>
         <div class="sec-body" id="marketConnectionBody" data-status="pending">
@@ -923,7 +946,7 @@
     <!-- 07 / 지금 볼 신호 (기존 #signals 이동, 신호등 실데이터 유지) -->
     <section class="sec-pad anchor" id="market-signal">
       <div class="inner">
-        <div class="sec-num">06 / MARKET SIGNAL</div>
+        <div class="sec-num">07 / MARKET SIGNAL</div>
         <div class="sec-title">지금 볼 시장 신호</div>
         <div class="sec-sub">지표와 지표의 관계로 읽는 오늘의 시장 신호</div>
         <div class="signal-grid home-style" id="homeSignalGrid"></div>
@@ -934,7 +957,7 @@
     <!-- 08 / 오늘의 경제 캘린더 -->
     <section class="sec-pad anchor" id="today-calendar">
       <div class="inner">
-        <div class="sec-num">07 / TODAY CALENDAR</div>
+        <div class="sec-num">08 / TODAY CALENDAR</div>
         <div class="sec-title">오늘의 경제 캘린더</div>
         <div class="sec-sub">이번 달 한국·미국 주요 경제 일정을 달력으로, 지난 일정은 결과와 함께 보여줍니다</div>
         <div class="sec-body" id="calendarBody" data-status="pending">
@@ -949,7 +972,7 @@
     <!-- 09 / 국내 시장 체크포인트 -->
     <section class="sec-pad anchor" id="korea-watch">
       <div class="inner">
-        <div class="sec-num">08 / KOREA WATCH</div>
+        <div class="sec-num">09 / KOREA WATCH</div>
         <div class="sec-title">국내 시장 체크포인트</div>
         <div class="sec-sub">외국인·기관·개인 수급, 원/달러 환율, 주도 업종, 주요 공시를 확인합니다</div>
         <div class="sec-body" id="koreaWatchBody" data-status="pending">
@@ -964,7 +987,7 @@
     <!-- 10 / 오늘의 리스크 -->
     <section class="sec-pad anchor" id="today-risk">
       <div class="inner">
-        <div class="sec-num">09 / TODAY RISK</div>
+        <div class="sec-num">10 / TODAY RISK</div>
         <div class="sec-title">오늘의 리스크</div>
         <div class="sec-sub">상승 논리에 치우치지 않도록 균형 잡힌 주의사항을 안내합니다</div>
         <div class="sec-body" id="todayRiskBody" data-status="pending">
@@ -979,7 +1002,7 @@
     <!-- 11 / 최신 브리핑 (기존 #latest 이동, iframe 구조 유지) -->
     <section class="sec-pad latest-sec anchor" id="latest">
       <div class="inner">
-        <div class="sec-num">10 / LATEST ISSUE</div>
+        <div class="sec-num">11 / LATEST ISSUE</div>
         <div class="sec-title">실제 배달된 오늘의 <span class="hl">'Moo'conomy</span></div>
         <div class="sec-sub">가장 최근에 발송된 실제 브리핑입니다. 3줄 요약부터 지표·해설까지, 받아보실 그대로 미리 확인하세요.</div>
         <div class="mail-frame">
@@ -999,20 +1022,6 @@
       </div>
     </section>
 
-    <!-- 12 / 명제 검증 Scorecard — 3층 명제 검증 MVP(2026-07-19) -->
-    <section class="sec-pad anchor" id="claims-scorecard">
-      <div class="inner">
-        <div class="sec-num">11 / CLAIM SCORECARD</div>
-        <div class="sec-title">오늘의 명제 검증</div>
-        <div class="sec-sub">'오늘의 연결고리'에서 나온 검증 가능한 명제와 다음 거래일 실제 결과를 그대로 공개합니다. 실험 운영 중입니다.</div>
-        <div class="sec-body" id="claimsScorecardBody" data-status="pending">
-          <div class="placeholder-pending">
-            <span class="placeholder-dot"></span>
-            <span class="placeholder-text">준비중 · 곧 추가됩니다</span>
-          </div>
-        </div>
-      </div>
-    </section>
     </div><!-- /.dispatch-rail -->
     </div><!-- /.doc-layout -->
     </div><!-- /.dispatch -->
@@ -1810,17 +1819,18 @@
         if (dayEvents.length > 0) {
           var badges = document.createElement('div');
           badges.className = 'cal-day-badges';
-          dayEvents.slice(0, 3).forEach(function (ev) {
+          dayEvents.slice(0, 2).forEach(function (ev) {
             var b = document.createElement('div');
             b.className = 'cal-badge ' + (isPast ? 'is-past' : 'is-upcoming');
             b.textContent = ev.title;
             b.title = ev.title;
             badges.appendChild(b);
           });
-          if (dayEvents.length > 3) {
+          if (dayEvents.length > 2) {
             var more = document.createElement('div');
             more.className = 'cal-badge is-past';
-            more.textContent = '+' + (dayEvents.length - 3);
+            more.textContent = '+' + (dayEvents.length - 2) + '개';
+            more.title = dayEvents.slice(2).map(function (e) { return e.title; }).join(', ');
             badges.appendChild(more);
           }
           cell.appendChild(badges);
@@ -1983,7 +1993,11 @@
     var CLAIM_DIR_KR = { up: '상승', down: '하락' };
     var CLAIM_VERDICT_KR = {
       hit: '적중', miss: '불일치', neutral: '중립',
-      unresolved: '판정중', invalidated: '판정보류', error: '오류',
+      unresolved: '확인 중', invalidated: '판정보류', error: '오류',
+    };
+    var CLAIM_COMPARISON_KR = {
+      absolute_return: '해당 지표 자체의 변화로 판정',
+      excess_return: '벤치마크 대비 상대적 변화로 판정',
     };
 
     function _claimMetricLabel(id) { return CLAIM_METRIC_KR[id] || id; }
@@ -2012,10 +2026,45 @@
       text.textContent = claim.claimText;
       card.appendChild(text);
 
+      // 왜 이 질문인가 — claim.observationText/interpretationText는 claim 생성 시점에
+      // 이미 검증·저장된 필드다(새 LLM 호출 없이 그대로 재사용, GATE 2 원칙).
+      if (claim.observationText || claim.interpretationText) {
+        var why = document.createElement('div');
+        why.className = 'claim-why';
+        var whyLabel = document.createElement('div');
+        whyLabel.className = 'claim-why-label';
+        whyLabel.textContent = '왜 이 질문인가';
+        why.appendChild(whyLabel);
+        var whyList = document.createElement('ul');
+        whyList.className = 'claim-why-list';
+        [claim.observationText, claim.interpretationText].forEach(function (t) {
+          if (!t) return;
+          var li = document.createElement('li');
+          li.textContent = t;
+          whyList.appendChild(li);
+        });
+        why.appendChild(whyList);
+        card.appendChild(why);
+      }
+
+      // 어떻게 확인하나 — 관찰 지표·판정 기준·확인 예정일(전부 기존 claim 필드에서 파생, 신규 수치 없음)
+      var how = document.createElement('div');
+      how.className = 'claim-how';
+      var howLabel = document.createElement('div');
+      howLabel.className = 'claim-how-label';
+      howLabel.textContent = '어떻게 확인하나';
+      how.appendChild(howLabel);
+      var howLine = document.createElement('div');
+      howLine.className = 'claim-how-line';
+      var deadline = (claim.horizon && claim.horizon.resolutionAt) ? claim.horizon.resolutionAt : '다음 거래일';
+      howLine.textContent = (CLAIM_COMPARISON_KR[claim.comparisonType] || '기존 판정 기준') +
+        ' · 확인 예정일 ' + deadline;
+      how.appendChild(howLine);
+      card.appendChild(how);
+
       var meta = document.createElement('div');
       meta.className = 'claim-meta';
-      meta.textContent = '발행 ' + (claim.publicationId || '') + ' · 검증 시점 ' +
-        (claim.horizon ? claim.horizon.type : '') + '(' + (claim.horizon ? claim.horizon.market : '') + ')';
+      meta.textContent = '발행 ' + (claim.publicationId || '');
       card.appendChild(meta);
 
       if (claim.resolution) {
@@ -2056,7 +2105,7 @@
         dot.className = 'placeholder-dot';
         var txt = document.createElement('span');
         txt.className = 'placeholder-text';
-        txt.textContent = '첫 명제를 준비 중입니다';
+        txt.textContent = '첫 질문을 확인 중입니다';
         pending.appendChild(dot);
         pending.appendChild(txt);
         el.appendChild(pending);
@@ -2067,7 +2116,7 @@
       if (claimsPayload.todayClaims && claimsPayload.todayClaims.length > 0) {
         var todayHead = document.createElement('div');
         todayHead.className = 'claim-group-label';
-        todayHead.textContent = '오늘의 명제';
+        todayHead.textContent = 'MOO:Q · 오늘의 경제 질문';
         el.appendChild(todayHead);
         var todayGrid = document.createElement('div');
         todayGrid.className = 'claim-grid';
@@ -2078,7 +2127,7 @@
       if (claimsPayload.previousClaims && claimsPayload.previousClaims.length > 0) {
         var prevHead = document.createElement('div');
         prevHead.className = 'claim-group-label';
-        prevHead.textContent = (claimsPayload.previousPublicationId || '직전 발행일') + '의 명제 결과';
+        prevHead.textContent = 'MOO:CHECK · ' + (claimsPayload.previousPublicationId || '직전 발행일') + ' 질문의 결과';
         el.appendChild(prevHead);
         var prevGrid = document.createElement('div');
         prevGrid.className = 'claim-grid';
@@ -2089,7 +2138,7 @@
       if (!claimsPayload.todayClaims.length && !claimsPayload.previousClaims.length) {
         var empty = document.createElement('div');
         empty.className = 'placeholder-pending';
-        empty.innerHTML = '<span class="placeholder-dot"></span><span class="placeholder-text">첫 명제를 준비 중입니다</span>';
+        empty.innerHTML = '<span class="placeholder-dot"></span><span class="placeholder-text">첫 질문을 확인 중입니다</span>';
         el.appendChild(empty);
       }
 
