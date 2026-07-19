@@ -258,7 +258,14 @@
      nav를 숨기고(모바일 하단 nav가 이미 대체 역할) 본문을 단일 컬럼으로
      전환한다 — 컬럼 자체를 1fr로 재정의해 nav 자리에 빈 여백이 남지 않는다. */
   @media (max-width:1200px) {
-    .doc-layout { grid-template-columns:1fr; padding:0 40px; }
+    /* 320px overflow 근본원인(2026-07-19 P1-1): 기본 규칙의 3열 정의는
+       minmax(0,1fr)로 트랙 최소폭을 0으로 고정하지만, 이 breakpoint가 그걸
+       bare 1fr로 재정의하면서 minmax(0,...) 보호가 사라져 있었다 — CSS Grid의
+       1fr 트랙은 minmax(auto,1fr)와 동치라 기본 최소폭이 auto(내용의
+       min-content)가 되고, 자손 중 하나라도 줄어들지 않으면 트랙 자체가 뷰포트보다
+       넓어진다(요소 자체의 min-width:0과는 별개 층위의 버그 — 이미 있던
+       .dispatch-rail min-width:0은 아이템 레벨이라 트랙 레벨 문제를 못 막았다). */
+    .doc-layout { grid-template-columns:minmax(0,1fr); padding:0 40px; }
     .doc-nav { display:none; }
     .dispatch-rail { grid-column:1; max-width:760px; margin:0 auto; }
   }
@@ -267,8 +274,15 @@
     .dispatch-rail { max-width:720px; }
   }
   @media (max-width:640px) {
+    /* 320px overflow 진짜 원인(2026-07-19 P1-1): ≤1200px 규칙의 margin:0 auto가
+       여기서도 계속 살아있었다. auto 좌우 마진이 있는 grid item은 justify-self가
+       암묵적으로 center처럼 동작해 stretch를 안 하고 콘텐츠 크기(fit-content)로
+       렌더된다 — 320px처럼 여백을 더 줄 필요가 없는 폭에서는 콘텐츠 중 하나라도
+       줄바꿈 없이 337px를 요구하면 트랙(320px)을 그대로 넘어선다. margin을 0으로
+       되돌려 기본 stretch를 복원하면 320px 트랙 안에 강제로 눌러 담겨(overflow
+       요소는 각자 overflow-wrap 등으로 알아서 줄바꿈) 더 이상 뷰포트를 안 넘는다. */
     .doc-layout { padding:0; }
-    .dispatch-rail { padding:0 16px 0 18px; max-width:none; }
+    .dispatch-rail { padding:0 16px 0 18px; max-width:none; margin:0; }
   }
 
   /* 01 — 컴팩트 마스트헤드(리포트 상단 한 줄) */
