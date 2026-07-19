@@ -70,6 +70,9 @@
     --down-blue:#1565c0; --down-blue-bg:#eaf2fd;
     --flat-gray:#7a828e; --flat-gray-bg:#eef0f3;
     --caution:#a86400; --caution-bg:#fff4db;
+    /* 3층 명제 검증 Scorecard 전용 — hit(적중)만 새 색(초록), miss/neutral/invalidated는
+       위 기존 토큰(up-red/flat-gray/caution)을 그대로 재사용해 새 색 체계를 최소화한다. */
+    --claim-hit:#2e7d32; --claim-hit-bg:#eaf5ec;
 
     /* 타입 스케일(Pretendard 단일 서체 — 굵기·트래킹·tabular-nums로 위계를 만든다) */
     --fs-display: clamp(30px, 4.2vw, 40px);
@@ -327,6 +330,40 @@
   /* 10 리스크 레벨 — 등락(빨강/파랑)과 겹치지 않는 별도 색상(주의=호박색, 관찰=중립회색) */
   .risk-item.level-caution { border-left-color: var(--caution); }
   .risk-item.level-watch { border-left-color: var(--gray); }
+
+  /* 11 명제 검증 Scorecard — .mc-card 공유 언어를 그대로 쓰고 좌측 액센트만 verdict로 분기 */
+  .claim-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:var(--sp-2); margin-bottom:var(--sp-3); }
+  @media (max-width:900px) { .claim-grid { grid-template-columns:1fr; } }
+  /* min-width:0 없으면 그리드 아이템이 콘텐츠의 min-content 폭 이하로 줄어들지 못해
+     긴 한 줄 텍스트가 트랙을 밀어내며 뷰포트 밖으로 넘친다(CSS Grid 기본 동작 —
+     이 세션의 캘린더 flex 오버플로와는 별개의, 그리드 특유의 함정). */
+  .claim-card { padding:var(--sp-3); border-left-color: var(--flat-gray); min-width:0; }
+  .claim-card.status-hit { border-left-color: var(--claim-hit); }
+  .claim-card.status-miss { border-left-color: var(--up-red); }
+  .claim-card.status-neutral { border-left-color: var(--flat-gray); }
+  .claim-card.status-invalidated, .claim-card.status-error { border-left-color: var(--caution); }
+  .claim-head { display:flex; align-items:center; gap:8px; margin-bottom:8px; flex-wrap:wrap; }
+  .claim-verdict-badge { font-size:11px; font-weight:800; padding:3px 9px; border-radius:8px; letter-spacing:.2px; }
+  .claim-verdict-badge.verdict-hit { background:var(--claim-hit-bg); color:var(--claim-hit); }
+  .claim-verdict-badge.verdict-miss { background:var(--up-red-bg); color:var(--up-red); }
+  .claim-verdict-badge.verdict-neutral { background:var(--flat-gray-bg); color:var(--flat-gray); }
+  .claim-verdict-badge.verdict-unresolved { background:var(--flat-gray-bg); color:var(--flat-gray); }
+  .claim-verdict-badge.verdict-invalidated, .claim-verdict-badge.verdict-error { background:var(--caution-bg); color:var(--caution); }
+  .claim-metric-line { font-size:12.5px; font-weight:700; color:var(--gray); }
+  /* 전역 word-break:keep-all(한글 타이포 관행)은 공백 없는 긴 구간(예: '강세)할'처럼
+     띄어쓰기 사이 구간이 길 때)에서 줄바꿈을 막아 카드 밖으로 넘치게 할 수 있다 —
+     이 컴포넌트만 overflow-wrap로 안전장치를 둔다(평소 줄바꿈 방식은 그대로, 정말
+     안 들어갈 때만 발동). */
+  .claim-text { font-size:14.5px; font-weight:700; color:var(--ink); margin-bottom:6px; line-height:1.5; overflow-wrap:break-word; }
+  .claim-meta { font-size:11.5px; color:var(--gray-soft); margin-bottom:8px; }
+  .claim-resolution { border-top:1px solid var(--line); padding-top:8px; margin-top:4px; }
+  .claim-explanation { font-size:13px; color:var(--ink); line-height:1.6; margin-bottom:4px; overflow-wrap:break-word; }
+  .claim-values { font-size:12.5px; color:var(--gray); font-variant-numeric:tabular-nums; margin-bottom:4px; }
+  .claim-source { font-size:11px; color:var(--gray-soft); }
+  .claim-group-label { font-size:11.5px; font-weight:800; color:var(--gray); text-transform:uppercase; letter-spacing:.3px; margin:var(--sp-3) 0 var(--sp-2); }
+  .claim-group-label:first-child { margin-top:0; }
+  .claim-totals-line { font-size:13px; color:var(--gray); margin-top:var(--sp-1); }
+  .claim-disclaimer { font-size:11.5px; color:var(--gray-soft); line-height:1.6; margin-top:8px; }
 
   /* SP-4(2026-07-19): 카드 높이를 20~30% 줄이기 위해 패딩·행간을 전반적으로
      압축한다 — 값의 굵기(800)·화살표·등락폭 표기는 그대로, 세로 리듬만 조인다. */
@@ -789,6 +826,7 @@
       <a class="doc-nav-link" data-target="news-disclosure" onclick="switchView('home','news-disclosure')">뉴스 흐름</a>
       <a class="doc-nav-link" data-target="today-calendar" onclick="switchView('home','today-calendar')">경제 캘린더</a>
       <a class="doc-nav-link" data-target="latest" onclick="switchView('home','latest')">최신호</a>
+      <a class="doc-nav-link" data-target="claims-scorecard" onclick="switchView('home','claims-scorecard')">명제 검증</a>
     </nav>
     <div class="dispatch-rail">
 
@@ -956,6 +994,21 @@
               <div class="letter-fade" id="letterFade"></div>
             </div>
             <a class="expand-btn" id="expandBtn" href="latest.html" target="_blank" rel="noopener"><span class="btn-label">전체 보기</span> <span class="ext-arrow">↗</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12 / 명제 검증 Scorecard — 3층 명제 검증 MVP(2026-07-19) -->
+    <section class="sec-pad anchor" id="claims-scorecard">
+      <div class="inner">
+        <div class="sec-num">11 / CLAIM SCORECARD</div>
+        <div class="sec-title">오늘의 명제 검증</div>
+        <div class="sec-sub">'오늘의 연결고리'에서 나온 검증 가능한 명제와 다음 거래일 실제 결과를 그대로 공개합니다. 실험 운영 중입니다.</div>
+        <div class="sec-body" id="claimsScorecardBody" data-status="pending">
+          <div class="placeholder-pending">
+            <span class="placeholder-dot"></span>
+            <span class="placeholder-text">준비중 · 곧 추가됩니다</span>
           </div>
         </div>
       </div>
@@ -1922,6 +1975,138 @@
       el.appendChild(list);
     }
 
+    /* ===== 11 명제 검증 Scorecard — 3층 명제 검증 MVP(2026-07-19) ===== */
+    var CLAIM_METRIC_KR = {
+      kospi: '코스피', kosdaq: '코스닥', nasdaq: '나스닥', sp500: 'S&P500',
+      usdkrw: '원/달러', us10y: '미국채10년', wti: 'WTI', vix: 'VIX',
+    };
+    var CLAIM_DIR_KR = { up: '상승', down: '하락' };
+    var CLAIM_VERDICT_KR = {
+      hit: '적중', miss: '불일치', neutral: '중립',
+      unresolved: '판정중', invalidated: '판정보류', error: '오류',
+    };
+
+    function _claimMetricLabel(id) { return CLAIM_METRIC_KR[id] || id; }
+
+    function _claimCard(claim) {
+      var card = document.createElement('div');
+      card.className = 'mc-card claim-card status-' + claim.status;
+
+      var head = document.createElement('div');
+      head.className = 'claim-head';
+      var badge = document.createElement('span');
+      badge.className = 'claim-verdict-badge verdict-' + claim.status;
+      badge.textContent = CLAIM_VERDICT_KR[claim.status] || claim.status;
+      var metricLine = document.createElement('span');
+      metricLine.className = 'claim-metric-line';
+      var dirArrow = claim.expectedDirection === 'up' ? '▲' : '▼';
+      metricLine.textContent = _claimMetricLabel(claim.metricId) +
+        (claim.benchmarkMetricId ? ' vs ' + _claimMetricLabel(claim.benchmarkMetricId) : '') +
+        ' ' + dirArrow + ' ' + (CLAIM_DIR_KR[claim.expectedDirection] || claim.expectedDirection) + ' 예상';
+      head.appendChild(badge);
+      head.appendChild(metricLine);
+      card.appendChild(head);
+
+      var text = document.createElement('div');
+      text.className = 'claim-text';
+      text.textContent = claim.claimText;
+      card.appendChild(text);
+
+      var meta = document.createElement('div');
+      meta.className = 'claim-meta';
+      meta.textContent = '발행 ' + (claim.publicationId || '') + ' · 검증 시점 ' +
+        (claim.horizon ? claim.horizon.type : '') + '(' + (claim.horizon ? claim.horizon.market : '') + ')';
+      card.appendChild(meta);
+
+      if (claim.resolution) {
+        var res = document.createElement('div');
+        res.className = 'claim-resolution';
+        var expl = document.createElement('div');
+        expl.className = 'claim-explanation';
+        expl.textContent = claim.resolution.explanation || '';
+        res.appendChild(expl);
+        if (claim.resolution.startValue !== null && claim.resolution.endValue !== null &&
+            claim.resolution.startValue !== undefined && claim.resolution.endValue !== undefined) {
+          var vals = document.createElement('div');
+          vals.className = 'claim-values';
+          var unit = claim.resolution.changeUnit || '';
+          vals.textContent = claim.resolution.startValue + ' → ' + claim.resolution.endValue +
+            ' (' + (claim.resolution.changeValue > 0 ? '+' : '') +
+            (claim.resolution.changeValue !== null ? claim.resolution.changeValue.toFixed(2) : '') + unit + ')';
+          res.appendChild(vals);
+        }
+        var src = document.createElement('div');
+        src.className = 'claim-source';
+        src.textContent = '출처: ' + (claim.resolution.dataProvider || '—') +
+          (claim.resolution.observedAt ? ' · ' + claim.resolution.observedAt + ' 관측' : '');
+        res.appendChild(src);
+        card.appendChild(res);
+      }
+
+      return card;
+    }
+
+    function renderClaimsScorecard(el, claimsPayload) {
+      el.innerHTML = '';
+      if (!claimsPayload || claimsPayload.status === 'empty') {
+        el.setAttribute('data-status', 'pending');
+        var pending = document.createElement('div');
+        pending.className = 'placeholder-pending';
+        var dot = document.createElement('span');
+        dot.className = 'placeholder-dot';
+        var txt = document.createElement('span');
+        txt.className = 'placeholder-text';
+        txt.textContent = '첫 명제를 준비 중입니다';
+        pending.appendChild(dot);
+        pending.appendChild(txt);
+        el.appendChild(pending);
+        return;
+      }
+      el.setAttribute('data-status', 'ok');
+
+      if (claimsPayload.todayClaims && claimsPayload.todayClaims.length > 0) {
+        var todayHead = document.createElement('div');
+        todayHead.className = 'claim-group-label';
+        todayHead.textContent = '오늘의 명제';
+        el.appendChild(todayHead);
+        var todayGrid = document.createElement('div');
+        todayGrid.className = 'claim-grid';
+        claimsPayload.todayClaims.forEach(function (c) { todayGrid.appendChild(_claimCard(c)); });
+        el.appendChild(todayGrid);
+      }
+
+      if (claimsPayload.previousClaims && claimsPayload.previousClaims.length > 0) {
+        var prevHead = document.createElement('div');
+        prevHead.className = 'claim-group-label';
+        prevHead.textContent = (claimsPayload.previousPublicationId || '직전 발행일') + '의 명제 결과';
+        el.appendChild(prevHead);
+        var prevGrid = document.createElement('div');
+        prevGrid.className = 'claim-grid';
+        claimsPayload.previousClaims.forEach(function (c) { prevGrid.appendChild(_claimCard(c)); });
+        el.appendChild(prevGrid);
+      }
+
+      if (!claimsPayload.todayClaims.length && !claimsPayload.previousClaims.length) {
+        var empty = document.createElement('div');
+        empty.className = 'placeholder-pending';
+        empty.innerHTML = '<span class="placeholder-dot"></span><span class="placeholder-text">첫 명제를 준비 중입니다</span>';
+        el.appendChild(empty);
+      }
+
+      var t = claimsPayload.totals || {};
+      var totalsLine = document.createElement('div');
+      totalsLine.className = 'claim-totals-line';
+      totalsLine.textContent = '누적 ' + ((t.hit||0)+(t.miss||0)+(t.neutral||0)+(t.unresolved||0)+(t.invalidated||0)+(t.error||0)) +
+        '건 — 적중 ' + (t.hit||0) + ' · 불일치 ' + (t.miss||0) + ' · 중립 ' + (t.neutral||0) +
+        ' · 확인중 ' + ((t.unresolved||0)+(t.invalidated||0)) + '건';
+      el.appendChild(totalsLine);
+
+      var disclaimer = document.createElement('div');
+      disclaimer.className = 'claim-disclaimer';
+      disclaimer.textContent = '실험 운영 중입니다. 현재 판정 표본이 적어 적중률만으로 예측 성능을 판단할 수 없습니다. 인과관계를 증명하는 것이 아니라 방향 일치 여부만 확인합니다.';
+      el.appendChild(disclaimer);
+    }
+
     async function loadHome() {
       var statusBody = document.getElementById('todayStatusBody');
       var indBody = document.getElementById('keyIndicatorsBody');
@@ -1932,7 +2117,8 @@
       var riskBody = document.getElementById('todayRiskBody');
       var calBody = document.getElementById('calendarBody');
       var newsBody = document.getElementById('newsBody');
-      if (!statusBody && !indBody && !tempBody && !threeBody && !connBody && !kwBody && !riskBody && !calBody && !newsBody) return;
+      var claimsBody = document.getElementById('claimsScorecardBody');
+      if (!statusBody && !indBody && !tempBody && !threeBody && !connBody && !kwBody && !riskBody && !calBody && !newsBody && !claimsBody) return;
 
       var home;
       try {
@@ -1965,6 +2151,7 @@
       }
       if (newsBody && home.news && home.news.items && home.news.items.length > 0) renderNews(newsBody, home.news);
       if (indBody) renderKeyIndicators(indBody, home);
+      if (claimsBody && home.claims) renderClaimsScorecard(claimsBody, home.claims);
     }
 
     async function initMarketsDashboard() {
