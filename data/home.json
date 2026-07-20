@@ -1,19 +1,19 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-20T06:43:28+09:00",
-  "publishDate": "2026-07-20",
-  "marketDateKr": "2026-07-16",
-  "marketDateUs": "2026-07-17",
+  "generatedAt": "2026-07-21T06:43:03+09:00",
+  "publishDate": "2026-07-21",
+  "marketDateKr": "2026-07-20",
+  "marketDateUs": "2026-07-20",
   "isDelayed": true,
   "status": "ok",
   "marketTemperature": {
-    "label": "risk_off",
-    "summary": "오늘의 시장 온도는 위험회피 심리가 짙게 나타나고 있으며, 간밤 미국 증시와 국내 증시 모두 큰 폭으로 하락했습니다.",
+    "label": "neutral",
+    "displayLabel": "중립",
+    "summary": "국내 증시가 크게 하락했음에도 원화 강세와 외국인 순매수가 나타나며 시장 온도는 중립적인 흐름을 보인 것으로 관찰됩니다.",
     "reasons": [
-      "간밤 미국 증시 평균 -1.06% 하락",
-      "국내 증시 -6.37% 하락",
-      "원/달러 +0.52%(원화 약세)",
-      "외국인 코스피 순매도 13,665억원"
+      "국내 증시 -4.46% 하락",
+      "원/달러 -0.80%(원화 강세)",
+      "외국인 코스피 순매수 5,198억원"
     ],
     "watchItems": [
       "원/달러 환율",
@@ -25,19 +25,19 @@
     {
       "id": "overnight-global",
       "title": "간밤 글로벌 시장",
-      "text": "간밤 글로벌 증시는 나스닥, S&P500, 다우지수가 모두 하락 마감했으며, 변동성 지수(VIX)는 18.77을 기록했습니다.",
+      "text": "간밤 뉴욕 증시는 다우지수를 중심으로 소폭 하락했으며, 변동성 지수 VIX는 18.65를 기록했습니다.",
       "status": "ok"
     },
     {
       "id": "today-domestic",
       "title": "전일 국내 시장",
-      "text": "전일 국내 증시에서는 코스피가 -6.37%, 코스닥이 -4.53% 하락했고, 외국인 투자자들은 코스피에서 13,665억원 순매도를 기록했습니다.",
+      "text": "전일 국내 증시는 코스피와 코스닥 모두 크게 하락했으나, 원화 강세 속 외국인 순매수가 유입된 점이 관찰됩니다.",
       "status": "ok"
     },
     {
       "id": "today-checkpoint",
       "title": "오늘의 체크포인트",
-      "text": "간밤의 위험회피 심리가 국내 증시로 이어지는 가운데, 시장은 현재 환율과 외국인 수급 흐름에 주목하는 분위기입니다.",
+      "text": "간밤 위험회피 심리가 이어지는 가운데 경기침체 경고 신호와 기준금리 차이 확대, 유동성 스트레스 지표가 나타나며 시장은 다음 방향성을 주시하는 분위기입니다.",
       "status": "ok"
     }
   ],
@@ -45,23 +45,23 @@
     "nodes": [
       {
         "label": "미국채10년 금리",
-        "detail": "4.54% · -0.03%p 하락"
+        "detail": "4.60% · +0.06%p 상승"
       },
       {
         "label": "원/달러 환율",
-        "detail": "1,486.5원 · +7.68원 상승(원화 약세)"
+        "detail": "1,475.5원 · -11.87원 하락(원화 강세)"
       },
       {
         "label": "외국인 수급",
-        "detail": "코스피 -13,665억원 순매도"
+        "detail": "코스피 +5,198억원 순매수"
       },
       {
         "label": "국내 증시(코스피)",
-        "detail": "6,820.60 · -6.37% 하락"
+        "detail": "6,516.27 · -4.46% 하락"
       }
     ],
-    "summary": "미국채 10년물 금리의 소폭 하락에도 불구하고, 원/달러 환율의 상승(원화 약세)과 외국인 투자자들의 코스피 대규모 순매도가 국내 증시 하락에 영향을 준 요인 중 하나로 해석될 수 있습니다. 다만, 특정 업종의 수급 변화나 대외적인 뉴스 또한 시장 흐름에 복합적으로 작용했을 가능성이 있습니다.",
-    "counterScenario": "이처럼 여러 지표들이 동시에 부정적인 흐름을 보였지만, 단기적인 변동성 확대 국면에서 시장의 방향성은 언제든 달라질 수 있음을 유념할 필요가 있습니다.",
+    "summary": "미국채 10년 금리의 소폭 상승이 관찰되는 가운데 원/달러 환율은 하락하며 원화 강세와 함께 외국인 코스피 순매수가 나타난 것으로 보입니다. 다만, 이러한 흐름은 기관의 순매도와 개인의 순매수, 그리고 특정 업종의 움직임 등 다양한 국내외 요인들이 복합적으로 영향을 준 결과로 해석될 수 있습니다.",
+    "counterScenario": "현재 나타난 지표들에도 불구하고 시장의 변동성이 확대될 가능성 또한 고려해 볼 필요가 있습니다.",
     "status": "ok"
   },
   "koreaWatch": {
@@ -69,67 +69,53 @@
       {
         "id": "foreign",
         "label": "외국인 수급",
-        "value": -13665,
-        "displayValue": "-13,665억원",
-        "direction": "down",
+        "value": 5198,
+        "displayValue": "+5,198억원",
+        "direction": "up",
         "status": "ok"
       },
       {
         "id": "institution",
         "label": "기관 수급",
-        "value": -23831,
-        "displayValue": "-23,831억원",
+        "value": -9235,
+        "displayValue": "-9,235억원",
         "direction": "down",
         "status": "ok"
       },
       {
         "id": "individual",
         "label": "개인 수급",
-        "value": 36647,
-        "displayValue": "+36,647억원",
+        "value": 3490,
+        "displayValue": "+3,490억원",
         "direction": "up",
         "status": "ok"
       },
       {
         "id": "usdkrw",
         "label": "원/달러",
-        "value": 1486.53,
-        "displayValue": "1,486.5원",
-        "direction": "up",
+        "value": 1475.52,
+        "displayValue": "1,475.5원",
+        "direction": "down",
         "status": "ok"
       },
       {
         "id": "leading-sector",
         "label": "주도 업종",
-        "value": 8.27,
-        "displayValue": "문구류 +8.27%",
+        "value": 2.06,
+        "displayValue": "다각화된통신서비스 +2.06%",
         "direction": "up",
         "status": "ok"
       }
     ],
-    "summary": "전일 국내 시장에서는 외국인과 기관이 동반 순매도를 기록한 반면, 개인이 +36,647억원 대규모 순매수에 나서며 뚜렷한 수급 주체별 차이를 보였습니다.",
+    "summary": "전일 국내 시장에서는 외국인 순매수가 관찰된 반면 기관은 순매도를 기록했으며, 개인은 순매수에 나섰습니다.",
     "status": "ok"
   },
   "risks": [
     {
-      "id": "vix-volatility",
-      "title": "변동성 확대 국면",
-      "detail": "VIX 지수가 전일 대비 +12.19% 상승한 18.77을 기록하며 시장의 변동성 확대 국면이 관찰되고 있습니다.",
-      "level": "주의",
-      "status": "ok"
-    },
-    {
       "id": "kr-swing",
       "title": "국내 증시 큰 변동",
-      "detail": "코스피 지수가 전일 -6.37% 하락하는 등 국내 증시에서 큰 폭의 변동성이 나타났습니다.",
+      "detail": "코스피 -4.46%로 하루 변동폭이 컸던 점이 관찰됩니다.",
       "level": "관찰",
-      "status": "ok"
-    },
-    {
-      "id": "foreign-outflow",
-      "title": "외국인 수급 이탈",
-      "detail": "외국인 투자자들이 코스피에서 13,665억원 규모의 대규모 순매도를 기록하며 수급 이탈 현상이 두드러졌습니다.",
-      "level": "주의",
       "status": "ok"
     }
   ],
@@ -154,142 +140,143 @@
   "news": {
     "items": [
       {
-        "id": "news-매일경제-뉴욕개미 원화계좌로 삼전 산다…서울개미도 한밤환전해 애플 줍줍",
+        "id": "news-매일경제-또 전쟁리스크...뉴욕증시 일제히 하락 [월가월부]",
         "category": "news",
         "source": "매일경제",
-        "title": "뉴욕개미 원화계좌로 삼전 산다…서울개미도 한밤환전해 애플 줍줍",
-        "url": "https://www.mk.co.kr/news/economy/12102022",
-        "publishedAt": "2026-07-20",
+        "title": "또 전쟁리스크...뉴욕증시 일제히 하락 [월가월부]",
+        "url": "https://www.mk.co.kr/news/economy/12102901",
+        "publishedAt": "2026-07-21",
         "status": "ok"
       },
       {
-        "id": "news-매일경제-집 살 때, 전세 구할 때 ... “하반기 대출 문턱 더 높아진다”",
+        "id": "news-매일경제-신현송은 올렸고, 워시는 올릴 준비 … 금리인상기, 왜 국채 투자일까",
         "category": "news",
         "source": "매일경제",
-        "title": "집 살 때, 전세 구할 때 ... “하반기 대출 문턱 더 높아진다”",
-        "url": "https://www.mk.co.kr/news/economy/12101673",
-        "publishedAt": "2026-07-20",
+        "title": "신현송은 올렸고, 워시는 올릴 준비 … 금리인상기, 왜 국채 투자일까",
+        "url": "https://www.mk.co.kr/news/economy/12102722",
+        "publishedAt": "2026-07-21",
         "status": "ok"
       },
       {
-        "id": "news-연합뉴스-[팩트체크] 담합 신고하면 수천억 받는다?…포상금 규모 결정 요인은",
+        "id": "news-연합뉴스-[르포] \"멀리 안가도 되니 좋네요\"…농촌 우체국이 4대은행 대출창구로",
         "category": "news",
         "source": "연합뉴스",
-        "title": "[팩트체크] 담합 신고하면 수천억 받는다?…포상금 규모 결정 요인은",
-        "url": "https://www.yna.co.kr/view/AKR20260713150300518",
-        "publishedAt": "2026-07-20",
+        "title": "[르포] \"멀리 안가도 되니 좋네요\"…농촌 우체국이 4대은행 대출창구로",
+        "url": "https://www.yna.co.kr/view/AKR20260720147800063",
+        "publishedAt": "2026-07-21",
         "status": "ok"
       },
       {
-        "id": "news-연합뉴스-\"외국인 관광객 소비, 명품 넘어 K-패션·일상 식품으로 진화\"",
+        "id": "news-연합뉴스마켓-[코스피·코스닥 전 거래일(20일) 주요공시]",
+        "category": "news",
+        "source": "연합뉴스마켓",
+        "title": "[코스피·코스닥 전 거래일(20일) 주요공시]",
+        "url": "https://www.yna.co.kr/view/AKR20260720158000008",
+        "publishedAt": "2026-07-21",
+        "status": "ok"
+      },
+      {
+        "id": "news-연합뉴스-[게시판] 코트라, '중국 역직구 활용한 소비재 수출 전략' 보고서",
         "category": "news",
         "source": "연합뉴스",
-        "title": "\"외국인 관광객 소비, 명품 넘어 K-패션·일상 식품으로 진화\"",
-        "url": "https://www.yna.co.kr/view/AKR20260719056000030",
-        "publishedAt": "2026-07-20",
+        "title": "[게시판] 코트라, '중국 역직구 활용한 소비재 수출 전략' 보고서",
+        "url": "https://www.yna.co.kr/view/AKR20260720144000003",
+        "publishedAt": "2026-07-21",
         "status": "ok"
       },
       {
-        "id": "news-한국경제증권-\"전 세계 모두 코스피만 쳐다본다\"…삼전닉스 주가 향방은",
+        "id": "news-연합뉴스마켓-중동 불안·유가 상승에 뉴욕증시 하락…다우 0.6%↓(종합)",
         "category": "news",
-        "source": "한국경제증권",
-        "title": "\"전 세계 모두 코스피만 쳐다본다\"…삼전닉스 주가 향방은",
-        "url": "https://www.hankyung.com/article/2026071930337",
-        "publishedAt": "2026-07-19",
+        "source": "연합뉴스마켓",
+        "title": "중동 불안·유가 상승에 뉴욕증시 하락…다우 0.6%↓(종합)",
+        "url": "https://www.yna.co.kr/view/AKR20260721007351072",
+        "publishedAt": "2026-07-21",
         "status": "ok"
       },
       {
-        "id": "news-파이낸셜뉴스-부산 외국인 관광객 증가… 백화점·호텔서 지갑 ‘활짝’",
-        "category": "news",
-        "source": "파이낸셜뉴스",
-        "title": "부산 외국인 관광객 증가… 백화점·호텔서 지갑 ‘활짝’",
-        "url": "https://www.fnnews.com/news/202607191837040827",
-        "publishedAt": "2026-07-19",
-        "status": "ok"
-      },
-      {
-        "id": "news-파이낸셜뉴스-용인 장거리·서남권 지산지소… 반도체 클러스터, 송전망 확충에 달렸다",
-        "category": "news",
-        "source": "파이낸셜뉴스",
-        "title": "용인 장거리·서남권 지산지소… 반도체 클러스터, 송전망 확충에 달렸다",
-        "url": "https://www.fnnews.com/news/202607191820585123",
-        "publishedAt": "2026-07-19",
-        "status": "ok"
-      },
-      {
-        "id": "news-한국경제-대기업 27% \"3년내 지방투자 확대\"",
+        "id": "news-한국경제-美 증시, 유가 혼조 속 반도체 반등에 상승",
         "category": "news",
         "source": "한국경제",
-        "title": "대기업 27% \"3년내 지방투자 확대\"",
-        "url": "https://www.hankyung.com/article/2026071928791",
-        "publishedAt": "2026-07-19",
+        "title": "美 증시, 유가 혼조 속 반도체 반등에 상승",
+        "url": "https://www.hankyung.com/article/202607205455i",
+        "publishedAt": "2026-07-20",
         "status": "ok"
       },
       {
-        "id": "news-Investing-Is U.S. inflation melting away?",
+        "id": "news-한국경제증권-환율, 왜 갑자기 떨어졌나 봤더니…SK하이닉스 효과였다 [분석+]",
+        "category": "news",
+        "source": "한국경제증권",
+        "title": "환율, 왜 갑자기 떨어졌나 봤더니…SK하이닉스 효과였다 [분석+]",
+        "url": "https://www.hankyung.com/article/2026072051156",
+        "publishedAt": "2026-07-20",
+        "status": "ok"
+      },
+      {
+        "id": "news-CNBC-Trump imposing 50% tariffs on certain Canadian goods over alleged trad",
+        "category": "news",
+        "source": "CNBC",
+        "title": "Trump imposing 50% tariffs on certain Canadian goods over alleged trade discrimination",
+        "url": "https://www.cnbc.com/2026/07/20/trump-tariffs-canada-trade.html",
+        "publishedAt": "2026-07-20",
+        "status": "ok"
+      },
+      {
+        "id": "news-Investing-US imposes new 50% tariffs on some Canadian products",
         "category": "news",
         "source": "Investing",
-        "title": "Is U.S. inflation melting away?",
-        "url": "https://www.investing.com/news/economy-news/is-us-inflation-melting-away-4799738",
-        "publishedAt": "2026-07-19",
+        "title": "US imposes new 50% tariffs on some Canadian products",
+        "url": "https://www.investing.com/news/economy-news/us-imposes-new-50-tariffs-on-some-canadian-products-4801744",
+        "publishedAt": "2026-07-20",
         "status": "ok"
       },
       {
-        "id": "news-Investing-Deutsche Bank sees Fed balance sheet reduction as bearish for the",
-        "category": "news",
-        "source": "Investing",
-        "title": "Deutsche Bank sees Fed balance sheet reduction as bearish for the dollar",
-        "url": "https://www.investing.com/news/economy-news/deutsche-bank-sees-fed-balance-sheet-reduction-as-bearish-for-the-dollar-4799736",
-        "publishedAt": "2026-07-19",
-        "status": "ok"
-      },
-      {
-        "id": "news-MarketWatch-Can the ‘Magnificent Seven’ save a stock market that might be d",
+        "id": "news-MarketWatch-Global oil prices settle at one-month high despite new Iran cea",
         "category": "news",
         "source": "MarketWatch",
-        "title": "Can the ‘Magnificent Seven’ save a stock market that might be doomed without them?",
-        "url": "https://www.marketwatch.com/story/can-the-magnificent-seven-save-a-stock-market-that-might-be-doomed-without-them-f88988f3?mod=mw_rss_topstories",
-        "publishedAt": "2026-07-19",
+        "title": "Global oil prices settle at one-month high despite new Iran ceasefire proposal, as blockade on Saudi Arabia by Yemen’s Houthis keeps market on edge",
+        "url": "https://www.marketwatch.com/story/oil-prices-surge-stock-futures-dip-as-fighting-between-u-s-and-iran-intensifies-6fb37c79?mod=mw_rss_topstories",
+        "publishedAt": "2026-07-20",
         "status": "ok"
       },
       {
-        "id": "news-CNBC-The market for psychedelic drugs to treat mental health conditions get",
+        "id": "news-MarketWatch-Lumentum’s stock just got a lot more interesting — and Barclays",
+        "category": "news",
+        "source": "MarketWatch",
+        "title": "Lumentum’s stock just got a lot more interesting — and Barclays has turned bullish",
+        "url": "https://www.marketwatch.com/story/lumentums-stock-just-got-a-lot-more-interesting-and-barclays-has-turned-bullish-e00e3395?mod=mw_rss_topstories",
+        "publishedAt": "2026-07-20",
+        "status": "ok"
+      },
+      {
+        "id": "news-MarketWatch-Wall Street’s AI divide: Inside the bull and bear cases for wha",
+        "category": "news",
+        "source": "MarketWatch",
+        "title": "Wall Street’s AI divide: Inside the bull and bear cases for what comes next for the stock market",
+        "url": "https://www.marketwatch.com/story/wall-streets-ai-divide-inside-the-bull-and-bear-cases-for-what-comes-next-for-the-stock-market-3fcab8db?mod=mw_rss_topstories",
+        "publishedAt": "2026-07-20",
+        "status": "ok"
+      },
+      {
+        "id": "news-CNBC-Alphabet stock pops on report it's developing a more efficient AI chip",
         "category": "news",
         "source": "CNBC",
-        "title": "The market for psychedelic drugs to treat mental health conditions gets a big buy signal",
-        "url": "https://www.cnbc.com/2026/07/19/psychedelic-drugs-mental-health.html",
-        "publishedAt": "2026-07-19",
+        "title": "Alphabet stock pops on report it's developing a more efficient AI chip",
+        "url": "https://www.cnbc.com/2026/07/20/alphabet-googl-stock-ai-chip-report.html",
+        "publishedAt": "2026-07-20",
         "status": "ok"
       },
       {
-        "id": "news-CNBC-26-year-old quit her corporate job to become a seamstress at Yellowsto",
+        "id": "news-CNBC-Archer stock rips 20% higher as company unveils military craft with An",
         "category": "news",
         "source": "CNBC",
-        "title": "26-year-old quit her corporate job to become a seamstress at Yellowstone National Park for $19.25/hour",
-        "url": "https://www.cnbc.com/2026/07/19/26-year-old-quit-her-corporate-job-to-become-a-seamstress-at-yellowstone.html",
-        "publishedAt": "2026-07-19",
-        "status": "ok"
-      },
-      {
-        "id": "news-CNBC-Top Wall Street analysts suggest these 3 dividend stocks for steady in",
-        "category": "news",
-        "source": "CNBC",
-        "title": "Top Wall Street analysts suggest these 3 dividend stocks for steady income",
-        "url": "https://www.cnbc.com/2026/07/19/top-analysts-suggest-these-3-dividend-stocks-for-steady-income.html",
-        "publishedAt": "2026-07-19",
-        "status": "ok"
-      },
-      {
-        "id": "news-YahooFinance-Fed Flags a Fresh Inflation Threat That Could Rattle Markets",
-        "category": "news",
-        "source": "YahooFinance",
-        "title": "Fed Flags a Fresh Inflation Threat That Could Rattle Markets",
-        "url": "https://finance.yahoo.com/economy/policy/articles/fed-flags-fresh-inflation-threat-182000339.html",
-        "publishedAt": null,
+        "title": "Archer stock rips 20% higher as company unveils military craft with Anduril",
+        "url": "https://www.cnbc.com/2026/07/20/archer-thunder-military-craft-anduril.html",
+        "publishedAt": "2026-07-20",
         "status": "ok"
       }
     ],
-    "summary": "뉴욕 개미의 국내 주식 매수와 서울 개미의 해외 주식 매수가 교차하는 가운데, 전 세계가 코스피의 향방에 주목하고 있다는 소식이 눈길을 끕니다.",
+    "clusters": [],
+    "summary": "중동 불안 등 전쟁 리스크가 부각되며 간밤 뉴욕 증시가 일제히 하락했다는 소식이 주요하게 전해졌습니다.",
     "status": "ok"
   },
   "latestBriefing": null,
@@ -297,13 +284,13 @@
     {
       "id": "kospi",
       "name": "코스피",
-      "value": 6820.6,
-      "displayValue": "6,820.60",
-      "change": -6.37,
+      "value": 6516.27,
+      "displayValue": "6,516.27",
+      "change": -4.46,
       "changeUnit": "%",
       "displayMode": "pct",
       "direction": "down",
-      "asOf": "2026-07-16",
+      "asOf": "2026-07-20",
       "source": "KRX",
       "sourceUrl": "",
       "frequency": "daily",
@@ -314,13 +301,13 @@
     {
       "id": "kosdaq",
       "name": "코스닥",
-      "value": 791.84,
-      "displayValue": "791.84",
-      "change": -4.53,
+      "value": 749.64,
+      "displayValue": "749.64",
+      "change": -5.33,
       "changeUnit": "%",
       "displayMode": "pct",
       "direction": "down",
-      "asOf": "2026-07-16",
+      "asOf": "2026-07-20",
       "source": "KRX",
       "sourceUrl": "",
       "frequency": "daily",
@@ -331,104 +318,104 @@
     {
       "id": "nasdaq",
       "name": "나스닥",
-      "value": 25520.24,
-      "displayValue": "25,520.24",
-      "change": -1.4,
+      "value": 25508.07,
+      "displayValue": "25,508.07",
+      "change": -0.05,
       "changeUnit": "%",
       "displayMode": "pct",
       "direction": "down",
-      "asOf": "2026-07-17",
+      "asOf": "2026-07-20",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
       "isDelayed": true,
       "status": "ok",
-      "insight": "전일 대비 하락"
+      "insight": "전일 대비 소폭 하락"
     },
     {
       "id": "sp500",
       "name": "S&P500",
-      "value": 7457.69,
-      "displayValue": "7,457.69",
-      "change": -1.01,
+      "value": 7443.28,
+      "displayValue": "7,443.28",
+      "change": -0.19,
       "changeUnit": "%",
       "displayMode": "pct",
       "direction": "down",
-      "asOf": "2026-07-17",
+      "asOf": "2026-07-20",
+      "source": "FinanceDataReader",
+      "sourceUrl": "",
+      "frequency": "daily",
+      "isDelayed": true,
+      "status": "ok",
+      "insight": "전일 대비 소폭 하락"
+    },
+    {
+      "id": "usdkrw",
+      "name": "원/달러",
+      "value": 1475.52,
+      "displayValue": "1,475.5",
+      "change": -11.87,
+      "changeUnit": "원",
+      "displayMode": "delta",
+      "direction": "down",
+      "asOf": "2026-07-20",
+      "source": "FinanceDataReader",
+      "sourceUrl": "",
+      "frequency": "daily",
+      "isDelayed": true,
+      "status": "ok",
+      "insight": "전일 대비 큰 폭 하락"
+    },
+    {
+      "id": "us10y",
+      "name": "미국채10년",
+      "value": 4.6,
+      "displayValue": "4.60%",
+      "change": 0.06,
+      "changeUnit": "%p",
+      "displayMode": "delta",
+      "direction": "up",
+      "asOf": "2026-07-20",
+      "source": "FinanceDataReader",
+      "sourceUrl": "",
+      "frequency": "daily",
+      "isDelayed": true,
+      "status": "ok",
+      "insight": "전일 대비 소폭 상승"
+    },
+    {
+      "id": "wti",
+      "name": "WTI",
+      "value": 82.42,
+      "displayValue": "$82.42",
+      "change": -0.08,
+      "changeUnit": "%",
+      "displayMode": "pct",
+      "direction": "down",
+      "asOf": "2026-07-20",
+      "source": "FinanceDataReader",
+      "sourceUrl": "",
+      "frequency": "daily",
+      "isDelayed": true,
+      "status": "ok",
+      "insight": "전일 대비 소폭 하락"
+    },
+    {
+      "id": "vix",
+      "name": "VIX",
+      "value": 18.65,
+      "displayValue": "18.65",
+      "change": -0.64,
+      "changeUnit": "%",
+      "displayMode": "pct",
+      "direction": "down",
+      "asOf": "2026-07-20",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
       "isDelayed": true,
       "status": "ok",
       "insight": "전일 대비 하락"
-    },
-    {
-      "id": "usdkrw",
-      "name": "원/달러",
-      "value": 1486.53,
-      "displayValue": "1,486.5",
-      "change": 7.68,
-      "changeUnit": "원",
-      "displayMode": "delta",
-      "direction": "up",
-      "asOf": "2026-07-19",
-      "source": "FinanceDataReader",
-      "sourceUrl": "",
-      "frequency": "daily",
-      "isDelayed": true,
-      "status": "ok",
-      "insight": "전일 대비 큰 폭 상승"
-    },
-    {
-      "id": "us10y",
-      "name": "미국채10년",
-      "value": 4.54,
-      "displayValue": "4.54%",
-      "change": -0.03,
-      "changeUnit": "%p",
-      "displayMode": "delta",
-      "direction": "down",
-      "asOf": "2026-07-17",
-      "source": "FinanceDataReader",
-      "sourceUrl": "",
-      "frequency": "daily",
-      "isDelayed": true,
-      "status": "ok",
-      "insight": "보합권"
-    },
-    {
-      "id": "wti",
-      "name": "WTI",
-      "value": 81.78,
-      "displayValue": "$81.78",
-      "change": 3.58,
-      "changeUnit": "%",
-      "displayMode": "pct",
-      "direction": "up",
-      "asOf": "2026-07-17",
-      "source": "FinanceDataReader",
-      "sourceUrl": "",
-      "frequency": "daily",
-      "isDelayed": true,
-      "status": "ok",
-      "insight": "전일 대비 큰 폭 상승"
-    },
-    {
-      "id": "vix",
-      "name": "VIX",
-      "value": 18.77,
-      "displayValue": "18.77",
-      "change": 12.19,
-      "changeUnit": "%",
-      "displayMode": "pct",
-      "direction": "up",
-      "asOf": "2026-07-17",
-      "source": "FinanceDataReader",
-      "sourceUrl": "",
-      "frequency": "daily",
-      "isDelayed": true,
-      "status": "ok",
-      "insight": "전일 대비 큰 폭 상승"
     }
   ],
   "signals": [
@@ -436,11 +423,11 @@
       "id": "recession",
       "name": "경기침체 경보등",
       "color": "green",
-      "value": 0.41,
-      "valueLabel": "+0.41%p",
+      "value": 0.37,
+      "valueLabel": "+0.37%p",
       "insight": "장단기 금리차가 정상 범위에 있어 침체 신호는 뚜렷하지 않습니다.",
       "sourceLabel": "장단기 금리차 (미국채 10Y-2Y)",
-      "asOf": "2026-07-20"
+      "asOf": "2026-07-21"
     },
     {
       "id": "rate-gap",
@@ -450,108 +437,29 @@
       "valueLabel": "+1.00%p",
       "insight": "한미 금리차가 관리 가능한 수준이라 자본유출 압력은 크지 않습니다.",
       "sourceLabel": "한미 기준금리차 (Fed-한은)",
-      "asOf": "2026-07-20"
+      "asOf": "2026-07-21"
     },
     {
       "id": "liquidity-stress",
       "name": "유동성 스트레스",
       "color": "green",
-      "value": 2.71,
-      "valueLabel": "2.71%p",
+      "value": 2.73,
+      "valueLabel": "2.73%p",
       "insight": "신용시장 스프레드가 평상 수준이라 유동성 경색 신호는 없습니다.",
       "sourceLabel": "하이일드 스프레드 (BAMLH0A0HYM2)",
-      "asOf": "2026-07-20"
+      "asOf": "2026-07-21"
     }
   ],
   "claims": {
-    "status": "ok",
-    "todayClaims": [
-      {
-        "schemaVersion": 1,
-        "claimId": "2026-07-20-c1",
-        "publicationId": "2026-07-20",
-        "issuedAt": "2026-07-20T06:43:48+09:00",
-        "dataCutoffAt": "2026-07-20T06:43:48+09:00",
-        "lockedAt": "2026-07-20T06:43:48+09:00",
-        "claimMode": "auto",
-        "verificationType": "proxy",
-        "topic": "원/달러 환율 동향",
-        "sourceNewsIds": [],
-        "observationText": "전일 원/달러 환율이 +7.68원 상승하며 원화 약세 흐름을 보였습니다.",
-        "interpretationText": "이는 외국인 투자자들의 국내 증시 이탈과 함께 원화 가치 하락 압력이 가중되는 신호로 해석될 수 있습니다.",
-        "claimText": "다음 거래일까지 원/달러 환율이 상승세를 이어갈 가능성이 있습니다.",
-        "metricId": "usdkrw",
-        "benchmarkMetricId": null,
-        "comparisonType": "absolute_return",
-        "expectedDirection": "up",
-        "horizon": {
-          "type": "next_close",
-          "market": "KR",
-          "resolutionAt": "2026-07-21"
-        },
-        "thresholdRuleId": "pct_020",
-        "confidence": null,
-        "status": "unresolved",
-        "revision": {
-          "version": 1,
-          "contentHash": "a785c32d69519f15ef71d7397f33d9218f20aa17f868fad8f3f3f9ff675de2e0",
-          "correctedFrom": null
-        },
-        "baseline": {
-          "value": 1486.53,
-          "asOf": "2026-07-19",
-          "benchmarkValue": null,
-          "benchmarkAsOf": null
-        },
-        "resolution": null
-      },
-      {
-        "schemaVersion": 1,
-        "claimId": "2026-07-20-c2",
-        "publicationId": "2026-07-20",
-        "issuedAt": "2026-07-20T06:43:48+09:00",
-        "dataCutoffAt": "2026-07-20T06:43:48+09:00",
-        "lockedAt": "2026-07-20T06:43:48+09:00",
-        "claimMode": "auto",
-        "verificationType": "proxy",
-        "topic": "국내 증시의 추가 변동성",
-        "sourceNewsIds": [],
-        "observationText": "전일 국내 코스피가 -6.37% 하락하고 외국인 투자자들이 대규모 순매도를 기록했습니다.",
-        "interpretationText": "이는 간밤 글로벌 시장의 하락세와 맞물려 국내 증시의 추가적인 변동성 확대 가능성을 시사하는 것으로 보입니다.",
-        "claimText": "다음 거래일까지 코스피 지수가 하락 흐름을 지속하거나 변동성이 높게 유지될 가능성이 있습니다.",
-        "metricId": "kospi",
-        "benchmarkMetricId": null,
-        "comparisonType": "absolute_return",
-        "expectedDirection": "down",
-        "horizon": {
-          "type": "next_close",
-          "market": "KR",
-          "resolutionAt": "2026-07-21"
-        },
-        "thresholdRuleId": "pct_030",
-        "confidence": null,
-        "status": "unresolved",
-        "revision": {
-          "version": 1,
-          "contentHash": "fcb30163b94ce4665b7b44d6e5afaa4f9ea45a64c12aa060fa69b83f2a3d04c6",
-          "correctedFrom": null
-        },
-        "baseline": {
-          "value": 6820.6,
-          "asOf": "2026-07-16",
-          "benchmarkValue": null,
-          "benchmarkAsOf": null
-        },
-        "resolution": null
-      }
-    ],
+    "status": "empty",
+    "todayClaims": [],
     "previousClaims": [],
     "previousPublicationId": null,
     "totals": {
       "hit": 0,
       "miss": 0,
       "neutral": 0,
-      "unresolved": 2,
+      "unresolved": 0,
       "invalidated": 0,
       "error": 0
     }
