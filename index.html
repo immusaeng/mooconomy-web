@@ -1374,13 +1374,26 @@
       else { routeFromHash(); }
     });
 
+    // 뉴스레터 등 외부에서 홈 화면의 특정 섹션으로 바로 진입할 때 쓰는 단일
+    // 세그먼트 앵커(예: #moo-q-check, 2026-07-20). "#home/앵커" 2단 형식과
+    // 달리 뷰 이름 없이 앵커 id만 온다 — 화이트리스트에 있는 정적 앵커일
+    // 때만 홈 뷰로 라우팅해서 알 수 없는 해시값이 우연히 앵커로 오인되지
+    // 않게 한다.
+    var _BARE_HOME_ANCHORS = ['moo-q-check'];
+
     function routeFromHash() {
       var h = (location.hash || '').replace('#', '');
       if (!h) { applyView('home'); return; }
       var parts = h.split('/');
-      var viewId = (parts[0] === 'markets' || parts[0] === 'about') ? parts[0] : 'home';
-      var anchor = parts[1] || null;
-      applyView(viewId, anchor);
+      if (parts[0] === 'markets' || parts[0] === 'about' || parts[0] === 'home') {
+        applyView(parts[0], parts[1] || null);
+        return;
+      }
+      if (_BARE_HOME_ANCHORS.indexOf(parts[0]) !== -1) {
+        applyView('home', parts[0]);
+        return;
+      }
+      applyView('home');
     }
 
     /* ===== 대시보드 데이터 ===== */
