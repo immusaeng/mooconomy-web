@@ -897,7 +897,12 @@
     </section>
 
     <!-- 03 / MOO:Q · MOO:CHECK — 3층 명제 검증 MVP를 사용자 표시명으로 재구성(2026-07-19).
-         내부 claims/claim/proposition/resolution 스키마·Python 명칭은 그대로 유지 — 표시 이름만 바꾼다. -->
+         내부 claims/claim/proposition/resolution 스키마·Python 명칭은 그대로 유지 — 표시 이름만 바꾼다.
+         moo-q-check id(2026-07-20): 뉴스레터에서 #home/moo-q-check로 직접 진입하기 위한 안정
+         앵커. 기존 claims-scorecard id는 nav 호환을 위해 그대로 유지하고, 정적 placeholder만
+         하나 앞에 추가한다(loadHome()의 비동기 렌더를 기다릴 필요 없이 페이지 로드 시점부터
+         존재해야 routeFromHash()의 100ms setTimeout 스크롤이 안정적으로 타겟을 찾는다). -->
+    <div id="moo-q-check" style="position:relative;top:-1px;"></div>
     <section class="sec-pad anchor" id="claims-scorecard">
       <div class="inner">
         <div class="sec-num">03 / MOO:Q &amp; MOO:CHECK</div>
