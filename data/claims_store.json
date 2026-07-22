@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-22T10:25:07+09:00",
+  "updatedAt": "2026-07-23T06:43:32+09:00",
   "claims": {
     "2026-07-19-c1": {
       "schemaVersion": 1,
@@ -241,6 +241,45 @@
         "observedAt": "2026-07-22",
         "explanation": "변화폭이 중립 구간(±0.2%) 이내에 머물러 뚜렷한 방향이 나타나지 않았습니다."
       }
+    },
+    "2026-07-23-c1": {
+      "schemaVersion": 1,
+      "claimId": "2026-07-23-c1",
+      "publicationId": "2026-07-23",
+      "issuedAt": "2026-07-23T06:43:32+09:00",
+      "dataCutoffAt": "2026-07-23T06:43:32+09:00",
+      "lockedAt": "2026-07-23T06:43:32+09:00",
+      "claimMode": "auto",
+      "verificationType": "proxy",
+      "topic": "원/달러 환율 다음 거래일 방향",
+      "sourceNewsIds": [],
+      "observationText": "원/달러 환율은 1,476.6원으로 전일 대비 3.10원 하락했습니다.",
+      "interpretationText": "현재 관찰된 하락 흐름이 다음 거래일까지 이어지는지가 확인 대상입니다.",
+      "claimText": "원/달러 환율은 다음 거래일까지 하락세를 이어갈까?",
+      "metricId": "usdkrw",
+      "benchmarkMetricId": null,
+      "comparisonType": "absolute_return",
+      "expectedDirection": "down",
+      "horizon": {
+        "type": "next_close",
+        "market": "KR",
+        "resolutionAt": "2026-07-24"
+      },
+      "thresholdRuleId": "pct_020",
+      "confidence": null,
+      "status": "unresolved",
+      "revision": {
+        "version": 1,
+        "contentHash": "341801fd8a737a9589babbe244231625d3c7a18b4ca67d93520645831eb37223",
+        "correctedFrom": null
+      },
+      "baseline": {
+        "value": 1476.62,
+        "asOf": "2026-07-22",
+        "benchmarkValue": null,
+        "benchmarkAsOf": null
+      },
+      "resolution": null
     }
   }
 }

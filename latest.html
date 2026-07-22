@@ -23,7 +23,7 @@
 
   /* 핵심지표 카드 — 정확히 6개, 3열×2행(데스크톱)/2열×3행(모바일 미디어쿼리에서 재정의) */
   .strip { width:100%; border-collapse:separate; border-spacing:8px; margin:16px -6px; table-layout:fixed; }
-  .strip .cell { width:20%; box-sizing:border-box; text-align:left; padding:12px; border:1px solid #E4E8EE; border-radius:12px; vertical-align:middle; min-height:86px; }
+  .strip .cell { width:20%; box-sizing:border-box; text-align:left; padding:12px; border:1px solid #E4E8EE; border-radius:12px; background:#fff; vertical-align:middle; min-height:86px; }
   .strip .lbl { font-size:12px; font-weight:700; color:#64748B; margin-bottom:6px; white-space:nowrap; }
   .strip .val { font-size:20px; font-weight:800; color:#0b2545; white-space:nowrap; font-variant-numeric:tabular-nums; }
   .strip .chg { font-size:12px; font-weight:700; margin-top:4px; white-space:nowrap; font-variant-numeric:tabular-nums; }
@@ -31,45 +31,93 @@
   .down { color:#2E5EE5; font-weight:700; }
   .flat { color:#666; }
 
-  /* 시장 온도 — 상태명+막대+마커(2026-07-22 신설). 내부 판정 점수는 절대 노출하지
-     않고(site_narrative._judge_temperature의 명시적 원칙), label enum 5단계의
-     순서 위치만 막대 위 마커 좌표로 변환한다(새 숫자 생성 아님, 이미 확정된
-     범주값의 시각화). 색상은 기존 등락 색상 규칙(상승=red #D93636 / 하락=blue
-     #2E5EE5)과 동일한 의미축을 따른다 — 위험선호(상승 심리)=red 계열,
-     위험회피(하락 심리)=blue 계열, 중립=gray. */
-  .mood-wrap { margin:14px 0 0; }
-  .mood { background:#0b2545; color:#fff; border-radius:10px; padding:13px 16px; font-size:15px; font-weight:600; line-height:1.6; }
-  .mood .mood-lbl { display:inline-block; vertical-align:middle; margin-right:8px; background:#f5b301; color:#0b2545; font-size:12px; font-weight:800; padding:4px 11px; border-radius:12px; letter-spacing:.02em; white-space:nowrap; }
-  .mood-bar-wrap { position:relative; margin-top:13px; padding:0 2px; }
-  .mood-bar-marker { position:absolute; top:-3px; width:12px; height:12px; margin-left:-6px; border-radius:50%; background:#f5b301; border:2px solid #ffffff; box-shadow:0 0 0 1px #0b2545; }
-  .mood-bar-labels td { font-size:12px; color:rgba(255,255,255,.6); text-align:center; font-weight:700; padding-top:6px; letter-spacing:-.02em; line-height:1.25; }
-  .headline { font-size:18px; font-weight:700; color:#0b2545; border-left:4px solid #d32f2f; padding:8px 14px; margin:18px 0; line-height:1.5; word-break:keep-all; overflow-wrap:break-word; }
+  /* 시장 온도 — 2026-07-22 브라우저 고도화 라운드: 대형 네이비 패널 → 밝은 Stitch형
+     상태 패널로 전환, 상승/하락(red/blue)과 겹치지 않는 파스텔 오렌지→회색→그린
+     축으로 색상 체계를 분리했다(상태명·본문 반복 표현 제거, 판단근거 최대 3개
+     bullet). 상태명·마커 위치는 여전히 동일한 label enum(5단계)에서만 계산한다
+     (내부 점수 노출 없음, [[market-temperature]] canonical 원칙 유지). */
+  .mt-panel { background:#fff; border:1px solid #E4E8EE; border-radius:12px; padding:16px 18px 15px; margin:14px 0 0; }
+  .mt-top { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px 12px; margin-bottom:11px; }
+  .mt-eyebrow { font-size:11px; font-weight:800; letter-spacing:.08em; color:#8a94a3; text-transform:uppercase; }
+  .mt-status { font-size:15px; font-weight:800; color:#0b2545; }
+  .mt-summary { font-size:15px; line-height:1.6; color:#333; margin:0 0 12px; }
+  .mood-bar-wrap { position:relative; margin-top:6px; padding:0 2px; }
+  .mood-bar-marker { position:absolute; top:-3px; width:12px; height:12px; margin-left:-6px; border-radius:50%; background:#0b2545; border:2px solid #ffffff; box-shadow:0 0 0 1px #E4E8EE; }
+  .mood-bar-labels td { font-size:11px; color:#8a94a3; text-align:center; font-weight:700; padding-top:6px; letter-spacing:-.02em; line-height:1.25; word-break:keep-all; }
+  /* "강한위험선호"(6자)만 320px에서 글자 단위로 세로 줄바꿈되는 문제 실측 확인
+     (2026-07-23 SP1, Gmail 가독성 계약 §3-4) — 실제 캐노니컬 상태값·enum은
+     그대로 두고, 축(axis) 캡션 텍스트만 모바일 전용 축약 문구로 전환한다
+     (해당 텍스트는 5단계 눈금의 정적 라벨일 뿐 data.marketTemperature.label/
+     displayLabel과는 별개 필드 — 상단에 크게 표시되는 실제 상태명(mt-status)은
+     항상 전체 표기 그대로 유지된다). */
+  .mtl-short { display:none; }
+  .mt-reasons { list-style:none; margin:12px 0 0; padding:10px 0 0; border-top:1px solid #eceef1; display:flex; flex-wrap:wrap; gap:5px 16px; }
+  .mt-reasons li { font-size:12.5px; color:#5a6b82; padding-left:12px; position:relative; }
+  .mt-reasons li::before { content:''; position:absolute; left:0; top:6px; width:5px; height:5px; border-radius:50%; background:#f5b301; }
+  .headline { font-size:18px; font-weight:700; color:#0b2545; border-left:4px solid #0b2545; padding:8px 14px; margin:18px 0; line-height:1.5; word-break:keep-all; overflow-wrap:break-word; }
 
-  /* 오늘의 3줄 — 번호 배지 제거(2026-07-22), 굵은 문장 + 얇은 구분선으로만 항목 분리 */
-  .summary { background:#F3F4F5; border-radius:12px; padding:14px 16px; margin:12px 0; }
-  .summary .sm-lbl { font-size:12px; font-weight:800; color:#0b2545; letter-spacing:.5px; margin-bottom:6px; padding-left:8px; border-left:3px solid #f5b301; }
-  .summary ul { margin:0; padding:0; list-style:none; }
-  .summary li { margin:0; font-size:15px; font-weight:600; line-height:1.6; padding:10px 0; color:#1f2937; }
-  .summary li:first-child { padding-top:8px; }
-  .summary li:last-child { padding-bottom:0; }
-  .summary li.sm-div { border-top:1px solid #e3e6ea; }
+  /* 오늘의 3줄 — GLOBAL/KOREA/MOO:VIEW 역할 라벨(2026-07-22, llm.py가 이미 이
+     순서로 고정). 데스크톱·모바일 동일 DOM(flex행: 라벨칩+문장), 라벨 폭만
+     --d3-lw 변수로 화면폭별 전환(desktop 76px 넓은 칩, mobile 56px 축약) —
+     실제 복구된 Stitch mobile sandbox(mooconomy-design-sandbox-2026-07-22/
+     mobile/sandbox.css)의 .d3-label 패턴을 그대로 채택했다(합성 대안 A/B/C/D
+     스코어링 대신 실제 참고자료를 우선 사용, 정정 지시 §1의 우선순위 1번 근거). */
+  :root { --d3-lw:76px; }
+  .summary { background:#F3F4F5; border-radius:12px; padding:6px 16px; margin:12px 0; }
+  .summary .sm-lbl { font-size:12px; font-weight:800; color:#0b2545; letter-spacing:.5px; margin:10px 0 2px; padding-left:8px; border-left:3px solid #f5b301; }
+  .d3-row { display:flex; align-items:flex-start; gap:12px; padding:12px 0; }
+  .d3-row + .d3-row { border-top:1px solid #e3e6ea; }
+  .d3-label { flex:0 0 var(--d3-lw); width:var(--d3-lw); box-sizing:border-box; text-align:center; padding:3px 4px; background:#0b2545; color:#fff; font-size:10.5px; font-weight:800; letter-spacing:.03em; border-radius:4px; margin-top:3px; }
+  .d3-label.mv { background:#f5b301; color:#0b2545; }
+  .d3-text { flex:1; min-width:0; font-size:15px; font-weight:600; line-height:1.6; color:#1f2937; margin:0; }
 
   /* 개장 전 관전포인트 / 체크포인트 — eyebrow 라벨 + 4px 액센트로 카드 두 유형을
      시각적으로 구분(2026-07-22 강화, 기존엔 얇은 보더 하나뿐이었음) */
   .insight { border:1px solid #E4E8EE; border-left:4px solid #f5b301; background:#FAFBFC; padding:12px 14px; margin:8px 0; border-radius:0 10px 10px 0; }
-  .insight .i-eyebrow { font-size:12px; font-weight:800; letter-spacing:.06em; color:#a3790a; text-transform:uppercase; margin-bottom:5px; }
   .insight .i-title { font-size:15px; font-weight:700; color:#0b2545; margin-bottom:4px; }
   .insight .i-detail { font-size:15px; line-height:1.6; color:#444; }
+  /* 관전포인트 3단 구조(2026-07-22 리메디에이션) — 섹션 헤더(h3)가 이미 한 번만
+     노출되므로 항목별 반복 eyebrow는 제거하고, 필드 라벨만 항목별로 붙인다. */
+  .insight .i-field-lbl { display:inline-block; font-size:11px; font-weight:800; letter-spacing:.05em; color:#a3790a; text-transform:uppercase; margin-right:8px; min-width:56px; vertical-align:top; }
+  .insight .i-target { font-size:15px; font-weight:700; color:#0b2545; margin-bottom:6px; }
+  .insight .i-cond, .insight .i-impact { font-size:15px; line-height:1.6; color:#444; margin-top:4px; }
+  .insight .i-cond .i-field-lbl, .insight .i-impact .i-field-lbl { color:#8a94a3; }
+  /* 공시·실적 근거 메타(2026-07-22) — 실제 데이터가 있는 필드만 표시(count/asOf),
+     추정 금지. data.공시가 없으면 이 줄 자체를 숨긴다(템플릿 조건부). */
+  .insight .fi-meta { font-size:12px; color:#8a94a3; margin-top:8px; padding-top:6px; border-top:1px dashed #E4E8EE; }
   .cp { border:1px solid #E4E8EE; border-left:4px solid #0b2545; padding:12px 14px; margin:8px 0; border-radius:0 10px 10px 0; background:#fff; }
   .cp .cp-eyebrow { font-size:12px; font-weight:800; letter-spacing:.06em; color:#5a6b82; text-transform:uppercase; margin-bottom:5px; }
   .cp .cp-head { font-size:15px; font-weight:700; color:#0b2545; margin-bottom:4px; }
   .cp .cp-date { display:inline-block; background:#0b2545; color:#fff; font-size:12px; border-radius:3px; padding:2px 7px; margin-right:6px; font-weight:600; }
   .cp .cp-watch { font-size:15px; line-height:1.6; color:#444; }
   .cp .cp-watch b { color:#1565c0; }
+  /* 체크포인트 재정의(2026-07-22) — 이슈·조건·기준일 3단 구조.
+     기존 issue=관전대상, watch=확인조건, date=관련사실(기준일) 필드를 그대로
+     재라벨링만 한다(신규 필드·LLM 호출 없음). */
+  .cp .cp-f-lbl { display:block; font-size:11px; font-weight:800; letter-spacing:.05em; color:#8a94a3; text-transform:uppercase; margin:8px 0 2px; }
+  .cp .cp-f-lbl:first-of-type { margin-top:0; }
+  .cp .cp-fact { font-size:15px; line-height:1.6; color:#444; }
+
+  /* MOO:VIEW · 오늘의 시선(2026-07-22 신설) — Daily 3의 GLOBAL/KOREA 두 줄과
+     관전포인트 첫 항목을 사실/해석/확인 3단으로 확장한다. 새 사실을
+     지어내지 않고 이미 존재하는 canonical 필드(data.글로벌/data.국내 수치,
+     c.three_line_summary, c.today_focus)를 renderer._build_moo_view()가
+     재구성만 한다 — LLM 신규 호출 없음. */
+  .moo-view { border:1px solid #E4E8EE; border-radius:12px; background:#fff; margin:12px 0; overflow:hidden; }
+  .mv-row { padding:13px 16px; }
+  .mv-row + .mv-row { border-top:1px solid #eceef1; }
+  .mv-tag { display:inline-block; font-size:11px; font-weight:800; letter-spacing:.05em; background:#0b2545; color:#fff; padding:3px 9px; border-radius:4px; margin-bottom:8px; }
+  .mv-tag.mv-accent { background:#f5b301; color:#0b2545; }
+  .mv-f { display:flex; gap:8px; margin-top:5px; }
+  .mv-f:first-of-type { margin-top:0; }
+  .mv-f-lbl { flex:0 0 44px; font-size:11px; font-weight:800; color:#8a94a3; letter-spacing:.03em; padding-top:1px; }
+  .mv-f-txt { flex:1; min-width:0; font-size:14.5px; line-height:1.6; color:#333; }
+  .mv-f.mv-interp .mv-f-txt { color:#0b2545; font-weight:600; }
 
   /* MOO:Q / MOO:CHECK */
-  .mooq { background:#0B2545; border-radius:14px; padding:16px 16px; margin:12px 0; overflow:hidden; }
-  .moocheck { background:#F3F4F5; border-left:3px solid #f5b301; border-radius:0 10px 10px 0; padding:13px 16px; margin:12px 0; overflow:hidden; }
+  .mooq { background:#0B2545; border-radius:12px; padding:16px 16px; margin:12px 0; overflow:hidden; }
+  .moocheck { background:#F3F4F5; border:1px solid #E4E8EE; border-radius:12px; padding:16px; margin:12px 0; overflow:hidden; }
+  .moocheck-compact { font-size:12.5px; font-weight:600; color:#8a94a3; text-align:left; margin:6px 2px 14px; padding:0; }
   .mooq-lbl { font-size:12px; font-weight:800; color:#f5b301; letter-spacing:.5px; margin-bottom:9px; }
   .moocheck .mooq-lbl { color:#0b2545; padding-left:0; border-left:none; }
   .mooq-item { margin:9px 0; padding-top:9px; border-top:1px solid rgba(255,255,255,.12); }
@@ -84,12 +132,25 @@
   .mooq-disclaimer { font-size:12px; color:rgba(255,255,255,.45); line-height:1.6; margin-top:12px; }
 
   /* 연결고리 흐름(2026-07-22 신설) — data.connection을 최초로 실제 렌더링 */
-  .sc-node { border:1px solid #E4E8EE; border-left:4px solid #f5b301; border-radius:0 10px 10px 0; padding:11px 14px; margin:0; background:#FAFBFC; }
-  .sc-role { font-size:12px; font-weight:800; letter-spacing:.08em; color:#a3790a; text-transform:uppercase; margin-bottom:4px; }
+  /* 연결고리 흐름을 홈페이지 매너앤톤으로 이식(2026-07-22) — mooconomy-web #view-home의
+     .connection-node(밝은 카드+골드 좌측 액센트) 언어를 가져오되, 커넥터를
+     rail+dot 형태로 명시해 "독립된 4장 카드"가 아니라 하나의 흐름으로 인식되게
+     한다. 세로 rail은 데스크톱·모바일 공통(스펙 §10 "혼합 흐름 허용" 범위 내 —
+     HTML 이메일에서 flex-row 가로배치는 Outlook 등에서 깨질 위험이 있어 안전한
+     세로 통일을 택함, 대신 번호+eyebrow로 체인 진행을 명확히 표시). */
+  .sc-chain { position:relative; padding-left:26px; margin-top:4px; }
+  /* rail 색상 강화(2026-07-23) — 기존 #E4E8EE는 노드의 4px 골드 좌측 보더에
+     시선이 뺏겨 "연결선"으로 인지되기 어렵다는 실제 320/390/430px 스크린샷
+     육안 확인 결과에 따른 조정(색상만, 위치/두께 구조는 유지). */
+  .sc-rail { position:absolute; left:9px; top:10px; bottom:10px; width:3px; background:#aebccf; }
+  .sc-node { position:relative; border:1px solid #E4E8EE; border-left:4px solid #f5b301; border-radius:0 10px 10px 0; padding:11px 14px; margin:0 0 10px; background:#fff; }
+  .sc-node:last-child { margin-bottom:0; }
+  .sc-dot { position:absolute; left:-26px; top:15px; width:11px; height:11px; border-radius:50%; background:#0b2545; border:2px solid #fff; box-shadow:0 0 0 1px #E4E8EE; }
+  .sc-node:last-child .sc-dot { background:#f5b301; }
+  .sc-role { font-size:11.5px; font-weight:800; letter-spacing:.06em; color:#a3790a; text-transform:uppercase; margin-bottom:4px; }
   .sc-label { font-size:15px; font-weight:700; color:#0b2545; margin-bottom:2px; word-break:keep-all; overflow-wrap:break-word; }
   .sc-detail { font-size:14px; color:#444; font-variant-numeric:tabular-nums; word-break:keep-all; overflow-wrap:break-word; }
-  .sc-arrow { text-align:center; color:#c7cdd6; font-size:16px; line-height:1; margin:3px 0; }
-  .sc-summary { border-left:4px solid #f5b301; background:#fff; border:1px solid #E4E8EE; padding:12px 14px; margin-top:10px; font-size:15px; font-weight:700; color:#0b2545; line-height:1.6; border-radius:0 10px 10px 0; word-break:keep-all; overflow-wrap:break-word; }
+  .sc-summary { border-left:4px solid #f5b301; background:#fff; border:1px solid #E4E8EE; padding:12px 14px; margin-top:6px; font-size:15px; font-weight:700; color:#0b2545; line-height:1.6; border-radius:0 10px 10px 0; word-break:keep-all; overflow-wrap:break-word; }
   .sc-summary-lbl { font-size:12px; font-weight:800; color:#a3790a; text-transform:uppercase; letter-spacing:.06em; margin-bottom:4px; }
   .sc-counter { border-left:3px solid #8a94a3; background:#fafbfc; padding:10px 14px; margin-top:8px; font-size:13.5px; color:#5a6b82; line-height:1.6; border-radius:0 8px 8px 0; word-break:keep-all; overflow-wrap:break-word; }
   .sc-counter-lbl { font-size:12px; font-weight:700; color:#8a94a3; text-transform:uppercase; letter-spacing:.06em; margin-bottom:3px; }
@@ -108,13 +169,29 @@
   /* 터치 타깃 44px 보장(2026-07-22): min-height+flex 정렬로 콘텐츠 길이와 무관하게
      항상 44px 이상을 보장한다(이전엔 padding만으로 짧은 1줄 출처가 30~32px에
      그쳐 터치 타깃 기준 미달이었음). */
-  .news .n-src a { color:#5a6b82; text-decoration:none; display:flex; align-items:center; flex-wrap:wrap; min-height:44px; padding:8px 0; margin:0; }
+  .news .n-src a { color:#5a6b82; text-decoration:none; display:flex; align-items:center; flex-wrap:wrap; min-height:44px; padding:8px 0; margin:0; overflow-wrap:anywhere; word-break:break-word; max-width:100%; }
   .news .n-src a:hover { text-decoration:underline; }
-  .news .n-src .paper { display:inline-block; background:#eef1f5; color:#0b2545; border-radius:3px; padding:1px 6px; margin-right:6px; font-weight:600; }
+  /* 출처 배지 축소(2026-07-22) — 본문보다 커 보이던 회색 박스를 얇은 텍스트+약한
+     pill로 축소. 터치 영역은 배지가 아니라 <a> 행 전체(위 min-height:44px)가
+     이미 담당하므로 배지 자체 높이는 줄여도 무방하다. */
+  .news .n-src .paper { display:inline-block; background:transparent; color:#5a6b82; border:1px solid #E4E8EE; border-radius:3px; padding:0 5px; margin-right:6px; font-weight:600; font-size:11px; line-height:16px; }
   .news .n-src .src-date { display:inline-block; color:#8a94a3; font-size:12px; margin-right:6px; font-weight:600; }
 
   .cp, .insight { }
   table { width:100%; border-collapse:collapse; margin:6px 0; font-size:13px; }
+
+  /* 미국 실적 캘린더 모바일 카드(2026-07-22 리메디에이션) — 데스크톱은 기존
+     6열 표(.earn-table) 그대로 유지, 모바일(≤600px)에서만 회사당 2행 카드형
+     .earn-mobile로 전환한다(CSS display 토글, 필드 생략 없음). */
+  .earn-mobile { display:none; }
+  .earn-card { border:1px solid #E4E8EE; border-radius:12px; background:#fff; padding:10px 12px; margin:8px 0; box-sizing:border-box; overflow:hidden; }
+  .earn-row1 { display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:6px; font-size:14px; }
+  .earn-co { font-weight:700; color:#0b2545; min-width:0; word-break:break-word; overflow-wrap:anywhere; flex:1 1 auto; }
+  .earn-tk { color:#8a94a3; font-size:13px; font-weight:400; margin-left:2px; word-break:break-word; overflow-wrap:anywhere; }
+  .earn-dt { color:#5a6b82; font-size:13px; font-variant-numeric:tabular-nums; word-break:keep-all; overflow-wrap:break-word; }
+  .earn-row2 { display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:6px; margin-top:6px; padding-top:6px; border-top:1px solid #eceef1; font-size:13px; color:#333; }
+  .earn-eps { color:#333; word-break:break-word; overflow-wrap:anywhere; }
+  .earn-status { font-weight:700; white-space:nowrap; }
   th, td { border-bottom:1px solid #eceef1; padding:7px 7px; text-align:left; }
   th { background:#f0f3f7; color:#0b2545; font-weight:600; border-bottom:1px solid #d3d8de; }
   td.num, th.num { text-align:right; }
@@ -144,11 +221,24 @@
   .claims-miss { color:#c62828; font-weight:800; }
   .claims-neutral { color:#5a6b82; font-weight:800; }
 
+  /* 전체 출처(2026-07-22) — 항목 삭제·축약 없이 카테고리+출처를 한 행에 배치해
+     세로 길이만 줄인다(스펙 §16, 리스트는 그대로 유지). */
+  .src-list { text-align:left; margin:6px 0 0; }
+  .src-row { display:flex; flex-wrap:wrap; gap:2px 6px; padding:4px 0; font-size:12px; line-height:1.55; color:#5a6b82; }
+  .src-row .f-cat { flex:0 0 76px; font-weight:700; color:#0b2545; }
+
+  /* MOO:conomy 구독 CTA(2026-07-22 신설) — 출처 목록과 법적고지/수신거부 사이에
+     독립 브랜드 블록. 기존 무료구독 URL(#home/subscribe) 그대로 재사용, 신규
+     URL 없음. 황소·외부이미지 없이 텍스트 워드마크만 사용. */
+  .cta-block { background:#0B2545; border-radius:12px; padding:22px 20px; margin:22px 0 16px; text-align:center; }
+  .cta-block .cta-brand { font-size:20px; font-weight:800; color:#fff; letter-spacing:-.3px; margin-bottom:8px; }
+  .cta-block .cta-brand .cta-colon { color:#f5b301; }
+  .cta-block .cta-copy { font-size:13.5px; color:rgba(255,255,255,.75); line-height:1.6; margin-bottom:16px; }
+  .cta-block .cta-btn { display:inline-block; min-height:44px; line-height:44px; padding:0 22px; background:#f5b301; color:#0b2545; font-size:14.5px; font-weight:800; text-decoration:none; border-radius:6px; }
+
   /* Footer */
-  .footer { color:#8a94a3; font-size:11px; margin-top:18px; border-top:1px solid #e3e6ea; padding-top:9px; line-height:1.6; text-align:center; }
+  .footer { color:#8a94a3; font-size:11px; margin-top:10px; border-top:1px solid #e3e6ea; padding-top:9px; line-height:1.6; text-align:center; }
   .footer .f-head { font-size:12px; font-weight:700; color:#5a6b82; margin-bottom:6px; }
-  .footer .f-src { line-height:1.65; text-align:center; }
-  .footer .f-src .f-cat { font-weight:700; color:#0b2545; }
   .sign { margin-top:6px; font-size:13px; letter-spacing:1px; color:#5a6b82; }
   .sign b { color:#0b2545; letter-spacing:2px; }
   .sign .moo { color:#f5b301; }
@@ -161,6 +251,7 @@
      값과 겹치는 속성에 !important를 안 붙이면 이 블록 자체가 무력화된다.
      앞으로 이 블록에 규칙을 추가/수정할 때도 반드시 !important를 기본으로 붙일 것. */
   @media (max-width:600px) {
+    :root { --d3-lw:56px !important; }
     html, body { margin: 0 !important; padding: 0 !important; }
     body { background: #fff !important; }
     .wrap { border-radius: 0 !important; box-shadow: none !important; border: none !important; }
@@ -190,41 +281,78 @@
       box-sizing:border-box !important;
     }
     .strip .lbl { font-size:12px !important; margin-bottom:4px !important; }
-    .strip .val { font-size:15px !important; }
-    .strip .chg { font-size:12px !important; }
+    /* 숫자·등락률 겹침 방지(2026-07-23 SP1, Gmail 가독성 계약 §4) — 기존
+       base 규칙(28~29행)의 white-space:nowrap이 카드 폭(47%, box-sizing:
+       border-box라 자체 붕괴는 없지만)보다 긴 값이 들어오면 줄바꿈 없이
+       카드 밖으로 흘러넘쳐 옆 카드와 겹칠 위험이 있었다. 모바일에서만
+       줄바꿈을 허용해 항상 카드 내부에 담기게 한다(원본 값·formatter는
+       그대로, 표시 줄바꿈만 허용 — 데이터 변경 아님). */
+    .strip .val { font-size:18px !important; white-space:normal !important; word-break:break-word !important; }
+    .strip .chg { font-size:12px !important; white-space:normal !important; }
 
-    /* 일반 데이터 테이블 좌쏠림 제거 및 100% 가로 밀착 */
-    .sec table:not(.strip) {
+    /* 일반 데이터 테이블 좌쏠림 제거 및 100% 가로 밀착 — .earn-table은 바로
+       아래 규칙에서 별도로(카드형 전환을 위해 display:none) 다루므로 여기서는
+       명시적으로 제외한다(2026-07-23 수정). 제외하지 않으면 :not(.strip)의
+       특이도(0,2,1)가 .earn-table 단독 선택자의 특이도(0,1,0)보다 높아, 두
+       규칙이 똑같이 !important를 써도 이 규칙의 display:table이 아래
+       .earn-table의 display:none을 이겨버려 표와 카드가 동시에 렌더되는
+       실제 회귀가 있었다(320~430px, 이메일 인라인 렌더에서도 동일 재현). */
+    .sec table:not(.strip):not(.earn-table) {
       display: table !important;
       width: 100% !important;
       table-layout: fixed !important;
       margin: 12px 0 !important;
     }
-    .sec table:not(.strip) th,
-    .sec table:not(.strip) td {
+    .sec table:not(.strip):not(.earn-table) th,
+    .sec table:not(.strip):not(.earn-table) td {
       white-space: normal !important;
       word-break: keep-all !important;
       overflow-wrap: break-word !important;
       padding: 7px 5px !important;
     }
 
+    /* 미국 실적표만 표(6열) 대신 카드형으로 전환 — 데이터 생략 없이 회사당
+       2행으로 재배치(2026-07-22 리메디에이션) */
+    .earn-table { display:none !important; }
+    .earn-mobile { display:block !important; }
+
     .headline { font-size:15.5px !important; padding:8px 12px !important; margin: 12px -12px !important; line-height:1.5 !important; }
     h2 { font-size:15px !important; margin: 20px 0 9px !important; }
     .summary { margin: 10px 0 !important; padding: 10px 14px !important; }
     .summary li { font-size:15px !important; line-height: 1.7 !important; padding: 9px 0 !important; }
+    /* Daily 3 모바일 라벨(2026-07-23 SP1, Gmail 가독성 계약 §3-2) — 데스크톱은
+       라벨+본문 인라인 배치를 그대로 유지하되, 모바일에서만 라벨을 본문 위
+       작은 배지로 올리고 본문이 카드 전체 폭을 쓰도록 세로로 쌓는다. 항목·
+       순서·문구는 전혀 바꾸지 않고 배치만 전환(데이터 계약 §5 유지). */
+    .d3-row { flex-direction:column !important; align-items:flex-start !important; gap:4px !important; padding:10px 0 !important; }
+    .d3-label { flex:0 0 auto !important; width:auto !important; display:inline-block !important; padding:3px 9px !important; margin-top:0 !important; }
+    .d3-text { width:100% !important; font-size:15px !important; }
     .mooq, .moocheck { margin: 10px -12px !important; padding: 12px !important; border-radius: 0 !important; }
     .mooq-question { font-size:15.5px !important; }
     .mooq-text { font-size:15px !important; }
     .news { padding: 9px 2px !important; }
     .news .n-title { font-size:15px !important; }
     .news .n-body { font-size:15px !important; line-height: 1.65 !important; }
-    .mood-wrap { margin: 14px -12px 0 !important; }
-    .mood { font-size:15px !important; padding: 10px !important; border-radius: 0 !important; }
-    .mood .mood-lbl { display:block !important; margin-right:0 !important; margin-bottom:7px !important; }
-    .mood .mood-text { display:block !important; font-size:15px !important; font-weight:700 !important; }
+    .mt-panel { margin:10px -12px 0 !important; border-radius:0 !important; border-left:none !important; border-right:none !important; padding:14px 12px !important; }
+    .mt-summary { font-size:14.5px !important; }
+    .mt-reasons { gap:4px 12px !important; }
+    .mood-bar-labels td { font-size:10.5px !important; }
+    .mtl-full { display:none !important; }
+    .mtl-short { display:inline !important; }
+    .moo-view { margin:10px -12px !important; border-radius:0 !important; border-left:none !important; border-right:none !important; }
+    .mv-row { padding:12px !important; }
+    .mv-f-txt { font-size:14.5px !important; }
+    .sc-chain { padding-left:22px !important; }
+    .sc-dot { left:-22px !important; }
+    .cta-block { margin:18px -12px 12px !important; border-radius:0 !important; }
+    .cta-block .cta-btn { display:block !important; }
+    .src-row .f-cat { flex-basis:100% !important; margin-bottom:2px !important; }
     .insight { padding: 10px 12px !important; }
     .insight .i-title { font-size:15.5px !important; }
     .insight .i-detail { font-size:15px !important; line-height:1.65 !important; }
+    .insight .i-target { font-size:15.5px !important; }
+    .insight .i-cond, .insight .i-impact { font-size:15px !important; line-height:1.65 !important; }
+    .insight .i-field-lbl { display:block !important; margin-bottom:2px !important; }
     .cp { padding: 10px 12px !important; }
     .cp .cp-head { font-size:15.5px !important; }
     .cp .cp-watch { font-size:15px !important; line-height:1.65 !important; }
@@ -239,6 +367,42 @@
     .comment { font-size:15px !important; padding: 12px 14px !important; }
     .band { margin: 16px -12px 8px !important; font-size: 12px !important; padding: 6px 12px !important; border-radius: 0 !important; }
   }
+
+  /* ══════════ 데스크톱 연결고리 섹션 가로 rail(2026-07-23) ══════════
+     주의: 이 주석 블록은 조건부 렌더링 밖(<style> 안, data.connection 유무와
+     무관하게 항상 출력)이므로 영문 브랜드 문구를 리터럴로 쓰면 안 됨 — 과거
+     라운드에서 같은 실수(주석에 남은 문자열이 test_no_connect_markup_when_none을
+     항상 실패시킴)가 반복된 적이 있어 여기서는 한글 명칭만 사용한다.
+     사용자 확정사항 §5 "데스크톱은 가로 rail 구조를 유지한다"에 따라 900px
+     이상(=.wrap의 실제 렌더 폭이 max-width:860px에 근접하는 지점)에서만 활성화.
+     세로 rail+dot 구조(위 base 규칙)는 그대로 두고 건드리지 않는다 — 이 구조는
+     media query를 지원하지 않는 구형 이메일 클라이언트(Outlook 데스크톱 등)의
+     안전한 폴백으로 계속 쓰인다. 노드 마크업(data-role/label/detail)과 데이터
+     순서는 전혀 변경하지 않고, 순수 CSS로 세로→가로만 전환한다. rail/dot은
+     가로 버전에서 숨기고, 대신 각 노드 사이에 화살표 커넥터(::after)를 넣는다
+     — 얇은 rail 위에 dot을 정확히 겹치도록 좌표를 맞추는 것보다 훨씬 안정적이고
+     시인성이 높다(이 방식도 FIX-2의 "커넥터 시인성 강화" 요구를 데스크톱에서
+     함께 충족). ::after 규칙은 media query 안에 있어 mailer.py의 css_inline이
+     인라인 처리하지 않고 <style> 블록에 그대로 남기므로, 이 규칙을 지원하는
+     이메일 클라이언트에서만 적용되고 지원하지 않는 클라이언트는 세로 폴백을
+     그대로 본다(이 파일의 기존 반응형 이메일 패턴과 동일). */
+  @media (min-width:900px) {
+    .sc-chain { display:flex !important; align-items:stretch; gap:22px; padding-left:0 !important; padding-top:2px; }
+    .sc-rail { display:none; }
+    .sc-node { flex:1 1 0; min-width:0; margin:0 !important; }
+    .sc-dot { display:none; }
+    .sc-node:not(:last-child)::after {
+      content:"\2192";
+      position:absolute;
+      right:-19px;
+      top:50%;
+      transform:translateY(-50%);
+      font-size:18px;
+      font-weight:700;
+      color:#8a94a3;
+      line-height:1;
+    }
+  }
 </style>
 </head>
 <body>
@@ -247,121 +411,188 @@
   <div class="top">
     <span class="brand-edition">Daily</span> <span class="brand-text">MOO<span class="brand-colon">:</span>conomy</span>
     <div class="tagline">잠든 사이 움직인 지표와 뉴스, 매일 아침 배달</div>
-    <div class="date">발행 2026년 07월 22일(수) 06:43 · 증시 마감 기준: 국내 2026-07-21, 미국 2026-07-21</div>
+    <div class="date">발행 2026년 07월 23일(목) 06:43 · 증시 마감 기준: 국내 2026-07-22, 미국 2026-07-22</div>
   </div>
 
   <div class="inner">
 
-  <div class="headline">코스피, 반도체 랠리에 3%대 급등; 미 증시도 기술주 강세</div>
+  <div class="headline">미국 무역 관세 발표 임박, 빅테크 실적 시험대에 국내 증시 숨고르기</div>
 
-  <!-- Section 1: Daily 3 -->
+  <!-- Section 1: Daily 3 — GLOBAL/KOREA/MOO:VIEW 역할 라벨(2026-07-22).
+       c.three_line_summary는 llm.py가 이미 이 순서로 고정 생성한다(간밤 글로벌→
+       전일 국내→오늘 확인할 변수). 라벨은 순서(index)로만 매핑, 신규 필드 없음. -->
+  
   
   <div class="summary">
     <div class="sm-lbl">MOO:conomy Daily 3줄 · 오늘 이것만 봐도 됩니다</div>
-    <ul>
-    <li>지난 거래일 코스피가 반도체 업종 주도로 3%대 급등 마감했습니다.</li><li class="sm-div">뉴욕 증시도 반도체주 반등에 힘입어 상승했으며, 주요 기업 실적이 예정되어 있습니다.</li><li class="sm-div">국제유가 상승세가 지속되는 가운데, 글로벌 무역정책 불확실성도 관찰됩니다.</li>
-    </ul>
+    
+    <div class="d3-row">
+      <span class="d3-label">GLOBAL</span>
+      <p class="d3-text">간밤 미 증시는 기술주 실적 우려와 에너지 가격 상승에 혼조세를 보였습니다.</p>
+    </div>
+    
+    <div class="d3-row">
+      <span class="d3-label">KOREA</span>
+      <p class="d3-text">국내 증시는 코스피 상승, 코스닥 하락 속 외국인 매수세가 유입되었습니다.</p>
+    </div>
+    
+    <div class="d3-row">
+      <span class="d3-label mv">MOO:VIEW</span>
+      <p class="d3-text">오늘은 미국의 무역 관세 조치 발표와 빅테크 실적 발표에 시선이 모입니다.</p>
+    </div>
+    
   </div>
   
 
-  <!-- Section 2: Market Temperature (state + bar + marker) -->
+  <!-- Section 2: Market Temperature — 밝은 패널 + 파스텔 오렌지→회색→그린
+       (2026-07-22, 상승/하락 red/blue와 색축 분리). 상태명·마커는 여전히 동일
+       label enum(5단계)에서만 계산(내부 점수 비노출). -->
   
   
   
   
   
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#0b2545" class="mood-wrap" style="width:100%;background-color:#0b2545;border-radius:6px;margin:18px 0 0;border-collapse:collapse;">
-    <tr>
-      <td class="mood" bgcolor="#0b2545" style="background-color:#0b2545;padding:11px 16px 14px;color:#ffffff;border-radius:6px;font-size:14px;font-weight:700;line-height:1.45;">
-        <span class="mood-lbl" style="display:inline-block;vertical-align:middle;margin-right:8px;background-color:#f5b301;color:#0b2545;font-size:12px;font-weight:800;padding:4px 11px;border-radius:12px;letter-spacing:.02em;white-space:nowrap;">오늘의 시장 온도</span><span class="mood-text" style="color:#ffffff;">위험선호 · 간밤 미국 증시의 상승세와 더불어 국내 증시가 크게 오르고 외국인 순매수가 유입된 점은 현재 시장의 위험선호 분위기를 나타내는 것으로 보입니다.</span>
+  <div class="mt-panel">
+    <div class="mt-top">
+      <span class="mt-eyebrow">MARKET TEMPERATURE · 오늘의 시장 온도</span>
+      <span class="mt-status">위험선호</span>
+    </div>
+    <div class="mood-bar-wrap">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:collapse;">
+        <tr style="height:6px;">
+          <td width="20%" bgcolor="#E8A970" style="background:#E8A970;font-size:0;line-height:0;height:6px;">&nbsp;</td><td width="20%" bgcolor="#F0C79A" style="background:#F0C79A;font-size:0;line-height:0;height:6px;">&nbsp;</td><td width="20%" bgcolor="#C7CDD6" style="background:#C7CDD6;font-size:0;line-height:0;height:6px;">&nbsp;</td><td width="20%" bgcolor="#A9CDB0" style="background:#A9CDB0;font-size:0;line-height:0;height:6px;">&nbsp;</td><td width="20%" bgcolor="#5F9E6E" style="background:#5F9E6E;font-size:0;line-height:0;height:6px;">&nbsp;</td>
+        </tr>
+      </table>
+      <div class="mood-bar-marker" style="left:70%;"></div>
+    </div>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="mood-bar-labels" style="width:100%;margin-top:5px;border-collapse:collapse;">
+      <tr>
+        <td width="20%">위험회피</td>
+        <td width="20%">경계</td>
+        <td width="20%">중립</td>
+        <td width="20%">위험선호</td>
+        <td width="20%"><span class="mtl-full">강한위험선호</span><span class="mtl-short">강한선호</span></td>
+      </tr>
+    </table>
+    <div class="mt-summary" style="margin-top:12px;">국내 증시는 0.74% 상승하고 외국인의 코스피 순매수가 26,211억원 기록하며 위험선호 분위기가 관찰됩니다. 이러한 흐름은 시장에 긍정적인 영향을 미친 것으로 보입니다.</div>
+    
+    <ul class="mt-reasons"><li>국내 증시 +0.74% 상승</li><li>외국인 코스피 순매수 26,211억원</li></ul>
+    
+  </div>
+  
 
-        <div class="mood-bar-wrap">
-          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:collapse;">
-            <tr style="height:6px;">
-              <td width="20%" bgcolor="#2E5EE5" style="background:#2E5EE5;font-size:0;line-height:0;height:6px;">&nbsp;</td><td width="20%" bgcolor="#7c96d6" style="background:#7c96d6;font-size:0;line-height:0;height:6px;">&nbsp;</td><td width="20%" bgcolor="#8a94a3" style="background:#8a94a3;font-size:0;line-height:0;height:6px;">&nbsp;</td><td width="20%" bgcolor="#e08a8a" style="background:#e08a8a;font-size:0;line-height:0;height:6px;">&nbsp;</td><td width="20%" bgcolor="#D93636" style="background:#D93636;font-size:0;line-height:0;height:6px;">&nbsp;</td>
-            </tr>
-          </table>
-          <div class="mood-bar-marker" style="left:70%;"></div>
-        </div>
-        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="mood-bar-labels" style="width:100%;margin-top:5px;border-collapse:collapse;">
-          <tr>
-            <td width="20%">위험회피</td>
-            <td width="20%">경계</td>
-            <td width="20%">중립</td>
-            <td width="20%">위험선호</td>
-            <td width="20%">강한위험선호</td>
-          </tr>
-        </table>
-      </td>
+  <!-- Section 5 (moved up, 2026-07-22 Stitch sprint reorder): Core Metrics (6 items) —
+       spec requires metrics to appear before the longer watch-point/connection-flow prose,
+       directly after Market Temperature. Markup/data bindings unchanged, position only. -->
+  
+  <div style="font-size:12px;color:#8a94a3;margin:16px 0 -6px;text-align:right;">※ 아래 지표는 2026-07-22 국내 증시 마감 및 간밤 뉴욕장 기준입니다.</div>
+  
+  
+  <table class="strip" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+    <tr>
+    
+      <td class="cell" width="33%" style="width:33.33%;"><div class="lbl">코스피</div>
+        <div class="val">6,798</div>
+        <div class="chg"><span class="up">▲ +0.74%</span></div></td>
+    
+    
+      <td class="cell" width="33%" style="width:33.33%;"><div class="lbl">코스닥</div>
+        <div class="val">751</div>
+        <div class="chg"><span class="down">▼ -0.30%</span></div></td>
+    
+    
+      <td class="cell" width="33%" style="width:33.33%;"><div class="lbl">나스닥</div>
+        <div class="val">25,691</div>
+        <div class="chg"><span class="down">▼ -0.57%</span></div></td>
+    
+    </tr>
+    <tr>
+    
+      <td class="cell" width="33%" style="width:33.33%;"><div class="lbl">S&amp;P500</div>
+        <div class="val">7,499</div>
+        <div class="chg"><span class="down">▼ -0.14%</span></div></td>
+    
+    
+      <td class="cell" width="33%" style="width:33.33%;"><div class="lbl">원/달러</div>
+        <div class="val">1476.62</div>
+        <div class="chg">
+          
+          
+            <span class="down">▼ -3.1원</span>
+            
+          
+        </div></td>
+    
+    
+      <td class="cell" width="33%" style="width:33.33%;"><div class="lbl">브렌트유</div>
+        <div class="val">93.88</div>
+        <div class="chg"><span class="up">▲ +3.15%</span></div></td>
+    
     </tr>
   </table>
   
 
-  <!-- Section 3: Pre-market Watch Points and Checkpoints -->
+  <!-- Section 6: MOO:VIEW · 오늘의 시선(2026-07-22 신설) — Daily 3의 GLOBAL/KOREA
+       두 줄과 관전포인트 첫 항목을 사실/해석/확인 3행으로 확장한다.
+       renderer.build_moo_view()가 canonical 필드만 재구성(신규 LLM 호출 없음),
+       필드가 없으면 문구를 지어내지 않고 해당 줄만 숨긴다. -->
   
   <div class="sec">
-    <h2>개장 전 관전포인트 & 체크포인트</h2>
-
-    
-    <h3 class="sub ntr">개장 전 관전포인트</h3>
-    
-    <div class="insight">
-      <div class="i-eyebrow">오늘의 관전포인트</div>
-      <div class="i-title">미국 주요 기술 기업 실적 발표 예정</div>
-      <div class="i-detail">오늘 Alphabet과 Tesla의 실적 발표가 예정되어 있어, 글로벌 기술주 전반의 투자 심리에 영향을 미칠 것으로 보입니다. AI 관련 성장성에 대한 시장의 기대가 높은 만큼, 실적 내용과 함께 경영진의 향후 전망에 관심이 집중될 것으로 예상됩니다.</div>
-    </div>
-    
-    <div class="insight">
-      <div class="i-eyebrow">오늘의 관전포인트</div>
-      <div class="i-title">미국 무역정책 후속 조치 발표 여부</div>
-      <div class="i-detail">미국 무역대표부(USTR) 대표가 이번 주 만료되는 관세에 대한 후속 조치를 곧 발표할 것이라고 언급했습니다. 이는 글로벌 무역 환경에 새로운 변수로 작용할 수 있으며, 국내 수출 기업들에 대한 잠재적 영향력을 확인하는 것이 중요해 보입니다.</div>
-    </div>
-    
-    <div class="insight">
-      <div class="i-eyebrow">오늘의 관전포인트</div>
-      <div class="i-title">국제유가 및 에너지 시장 동향 지속 관찰</div>
-      <div class="i-detail">이란 사태로 인한 국제유가 상승세가 지속되고 있으며, 이에 따라 에너지 관련 기업들의 주가 흐름이 주목되는 모습입니다. 유가 변동성이 국내외 물가 및 기업 비용에 미칠 영향을 지속적으로 지켜보는 것이 필요합니다.</div>
-    </div>
-    
-    
-
-    
-    <h3 class="sub ntr">오늘의 체크포인트</h3>
-    
-    <div class="cp">
-      <div class="cp-eyebrow">체크포인트</div>
-      <div class="cp-head">
-        <span class="cp-date">2026-07-22</span>알파벳 실적발표
+    <h2>MOO:VIEW · 오늘의 시선</h2>
+    <div class="moo-view">
+      
+      
+      
+      <div class="mv-row">
+        <span class="mv-tag">GLOBAL</span>
+        <div class="mv-f"><span class="mv-f-lbl">사실</span><span class="mv-f-txt">나스닥 -0.57%, S&P500 -0.14%</span></div>
+        <div class="mv-f mv-interp"><span class="mv-f-lbl">해석</span><span class="mv-f-txt">간밤 미 증시는 기술주 실적 우려와 에너지 가격 상승에 혼조세를 보였습니다.</span></div>
+        <div class="mv-f"><span class="mv-f-lbl">확인</span><span class="mv-f-txt">미국 GDP</span></div>
       </div>
-      <div class="cp-watch"><b>관전포인트</b> · 클라우드 및 광고 부문의 성장세와 AI 투자 관련 코멘트가 주요 관전 포인트로 꼽힙니다.</div>
-    </div>
-    
-    <div class="cp">
-      <div class="cp-eyebrow">체크포인트</div>
-      <div class="cp-head">
-        <span class="cp-date">2026-07-22</span>테슬라 실적발표
+      
+      
+      
+      
+      <div class="mv-row">
+        <span class="mv-tag">KOREA</span>
+        <div class="mv-f"><span class="mv-f-lbl">사실</span><span class="mv-f-txt">코스피 +0.74%, 코스닥 -0.30%</span></div>
+        <div class="mv-f mv-interp"><span class="mv-f-lbl">해석</span><span class="mv-f-txt">국내 증시는 코스피 상승, 코스닥 하락 속 외국인 매수세가 유입되었습니다.</span></div>
+        
       </div>
-      <div class="cp-watch"><b>관전포인트</b> · 전기차 판매량, 마진율 변화, 그리고 로봇택시 등 신사업 관련 진행 상황이 주요하게 다루어질 것으로 보입니다.</div>
+      
+      
+      
+      
+      <div class="mv-row">
+        <span class="mv-tag mv-accent">MOO:VIEW</span>
+        <div class="mv-f"><span class="mv-f-lbl">사실</span><span class="mv-f-txt">미국 무역법 301조 관세 최종 발표 여부</span></div>
+        <div class="mv-f mv-interp"><span class="mv-f-lbl">해석</span><span class="mv-f-txt">미국 트럼프 정부가 이르면 오늘(현지시간) 한국을 포함한 60여 개국에 강제노동 관세를 최종 확정할 것으로 예상됩니다.</span></div>
+        <div class="mv-f"><span class="mv-f-lbl">확인</span><span class="mv-f-txt">이 조치가 국내 주요 수출 산업에 미칠 파급 효과와 구체적인 적용 범위에 대한 시장의 관심이 쏠리는 모습입니다.</span></div>
+      </div>
+      
+      
     </div>
-    
-    
   </div>
   
 
-  <!-- Section 4: MOO:Q / MOO:CHECK -- same canonical claims data as home.json -->
+  <!-- Section 4: MOO:Q / MOO:CHECK -- same canonical claims data as home.json.
+       2026-07-23 SP1: MOO:Q/CHECK를 MOO:VIEW 바로 아래로 복구 배치(사용자
+       확정사항 우선순위 최신 요구). 어제의 명제(claimsTeaser)도 여기로 옮겨
+       MOO:CHECK와 같은 클러스터로 연결한다(기존에는 페이지 하단에 분리돼
+       있었음 — 콘텐츠·데이터 자체는 그대로, 위치만 이동). -->
   
   <div class="mooq">
     <div class="mooq-lbl">MOO:Q · 오늘의 경제 질문</div>
     
     <div class="mooq-item">
-      <div class="mooq-question">원/달러 환율은 다음 거래일까지 상승세를 이어갈까?</div>
+      <div class="mooq-question">원/달러 환율은 다음 거래일까지 하락세를 이어갈까?</div>
       
       <div class="mooq-why">
-        <div>· 원/달러 환율은 1,479.7원을 기록하며 4.66원 상승했습니다.</div>
-        <div>· 외국인 코스피 순매수 유입에도 불구하고 원화 약세 흐름이 지속될지 여부가 주목되는 상황입니다.</div>
+        <div>· 원/달러 환율은 1,476.6원으로 전일 대비 3.10원 하락했습니다.</div>
+        <div>· 현재 관찰된 하락 흐름이 다음 거래일까지 이어지는지가 확인 대상입니다.</div>
       </div>
       
-      <div class="mooq-meta">확인 예정일 2026-07-23 · 현재 상태: 확인 중</div>
+      <div class="mooq-meta">확인 예정일 2026-07-24 · 현재 상태: 확인 중</div>
     </div>
     
     <div class="mooq-disclaimer">예측보다 검증 가능한 질문을 남깁니다. 투자 매수·매도를 권유하지 않습니다.</div>
@@ -369,20 +600,96 @@
   
 
   
-  <div class="moocheck">
-    <div class="mooq-lbl">MOO:CHECK · 지난 질문의 결과</div>
     
-      <div class="mooq-item"><div class="mooq-meta">첫 질문을 확인 중입니다.</div></div>
+    <div class="moocheck">
+      <div class="mooq-lbl">MOO:CHECK · 지난 질문의 결과</div>
+      
+      <div class="mooq-item">
+        <div class="mooq-text">원/달러 환율은 다음 거래일까지 상승세를 이어갈까?</div>
+        <div class="mooq-meta">
+          결과: 중립
+           · 변화폭이 중립 구간(±0.2%) 이내에 머물러 뚜렷한 방향이 나타나지 않았습니다.
+        </div>
+      </div>
+      
+      
+      
+      <div class="mooq-totals">누적 5건 —
+        일치 1 · 불일치 2 · 중립 1 · 확인중 1</div>
+      
+    </div>
+    <div style="text-align:center;margin:4px 0 0;">
+      <div style="font-size:12px;color:#6b7280;margin-bottom:0;">지난 질문은 어떻게 됐을까요?</div>
+      <a href="https://mooconomy.co.kr/#moo-q-check" target="_blank" style="display:inline-block;min-height:44px;line-height:44px;font-size:12.5px;font-weight:700;color:#0b2545;text-decoration:underline;">MOO:CHECK에서 결과 확인하기 →</a>
+    </div>
     
-    
-    
-    <div class="mooq-totals">누적 1건 —
-      일치 0 · 불일치 0 · 중립 0 · 확인중 1</div>
-    
+  
+
+  <!-- 어제의 명제 — 3층 명제 검증 MVP 티저(상세 Scorecard는 홈페이지에서만).
+       2026-07-23 SP1: MOO:CHECK 바로 아래로 이동(어제 명제 결과를 MOO:Q/CHECK
+       클러스터에 연결). 콘텐츠·데이터 변경 없음, 위치만 이동. -->
+  
+  <div class="sec">
+    <h2>어제의 명제는 어떻게 됐을까요?</h2>
+    <div class="analysis">
+      <p>
+        판정 완료 <b>1건</b> 중
+        
+        
+        
+        <span class="claims-neutral">1건은 중립</span>
+        했습니다.
+        
+      </p>
+      
+      <p style="margin-top:8px;color:#5a6b82;">가장 눈에 띈 명제: “원/달러 환율은 다음 거래일까지 상승세를 이어갈까?”</p>
+      
+    </div>
+    <div class="comment-note">※ 실험 운영 중입니다. 판정 표본이 적어 적중률만으로 예측 성능을 판단하기 어렵습니다. 결과와 판정 근거는 홈페이지에서 확인하실 수 있습니다.</div>
   </div>
-  <div style="text-align:center;margin:4px 0 0;">
-    <div style="font-size:12px;color:#6b7280;margin-bottom:0;">지난 질문은 어떻게 됐을까요?</div>
-    <a href="https://mooconomy.co.kr/#moo-q-check" target="_blank" style="display:inline-block;min-height:44px;line-height:44px;font-size:12.5px;font-weight:700;color:#0b2545;text-decoration:underline;">MOO:CHECK에서 결과 확인하기 →</a>
+  
+
+  <!-- Section 7: 체크포인트 섹션(2026-07-22 역할 재정의) — 단순 일정명 나열이
+       아니라 이슈·조건·기준일 3단 필드로 구조화(라벨 텍스트는 아래 렌더 블록
+       참고). c.today_focus[1:](MOO:VIEW가 소비하지 않은 나머지 관전포인트)를
+       같은 3단 카드로 폴드인해 콘텐츠 손실 없이 이 섹션으로 통합한다. -->
+  
+  <div class="sec">
+    <h2>오늘의 체크포인트</h2>
+    
+    
+    <div class="cp">
+      <div class="cp-eyebrow">체크포인트</div>
+      <span class="cp-f-lbl">관전 대상</span>
+      <div class="cp-fact">미국 GDP 발표</div>
+      <span class="cp-f-lbl">확인 조건</span>
+      <div class="cp-fact">미국 경제의 성장세를 가늠할 수 있는 핵심 지표인 GDP 발표에 이목이 집중됩니다. 예상치를 상회하거나 하회할 경우 글로벌 경기 전망과 연방준비제도(Fed)의 통화 정책 스탠스에 영향을 줄 수 있어 면밀한 관찰이 필요한 구간으로 판단됩니다.</div>
+      <span class="cp-f-lbl">관련 사실 · 기준일</span><div class="cp-fact">2026-07-30</div>
+    </div>
+    
+    <div class="cp">
+      <div class="cp-eyebrow">체크포인트</div>
+      <span class="cp-f-lbl">관전 대상</span>
+      <div class="cp-fact">미국 개인소득·지출(PCE) 발표</div>
+      <span class="cp-f-lbl">확인 조건</span>
+      <div class="cp-fact">연준이 선호하는 물가 지표인 개인소득·지출(PCE) 발표는 인플레이션 압력과 소비 동향을 파악하는 데 중요한 단서가 됩니다. 물가 상승세 둔화 여부와 개인의 구매력 변화가 향후 금리 정책 방향에 영향을 미칠 여지가 있습니다.</div>
+      <span class="cp-f-lbl">관련 사실 · 기준일</span><div class="cp-fact">2026-07-30</div>
+    </div>
+    
+    
+    
+    
+    
+    <div class="cp">
+      <div class="cp-eyebrow">체크포인트</div>
+      <span class="cp-f-lbl">관전 대상</span>
+      <div class="cp-fact">미국 주요 빅테크 기업 실적 발표 동향</div>
+      <span class="cp-f-lbl">확인 조건</span>
+      <div class="cp-fact">테슬라와 IBM이 시장의 기대에 못 미치는 실적과 가이던스를 발표하면서 기술주 전반에 대한 우려가 확산되고 있습니다.</div>
+      <span class="cp-f-lbl">관련 사실</span><div class="cp-fact">고유가·고금리 환경 속에서 알파벳 등 주요 빅테크 기업들의 실적 발표가 예정되어 있어, AI 투자 경쟁 지속 여부와 함께 국내 관련 업종에 미칠 영향이 주목됩니다.</div>
+    </div>
+    
+    
   </div>
   
 
@@ -390,93 +697,47 @@
   
   <div class="sec">
     <h2>오늘의 연결고리 · Signal Chain</h2>
-    <div class="key" style="background:#fafbfc;border-left-color:#8a94a3;color:#8a94a3;">아래 흐름은 오늘 실제로 수집된 지표(미국채 금리·환율·수급·증시)를 그대로 이어붙인 것이며, 새로 계산하거나 지어낸 값이 아닙니다.</div>
+    <div class="key" style="background:#fafbfc;border-left-color:#8a94a3;color:#8a94a3;">아래 흐름은 오늘 실제로 수집된 지표(미국채 금리·환율·수급·증시)를 그대로 이어붙인 것이며, 새로 계산하거나 지어낸 값이 아닙니다. 인과관계를 단정하는 것이 아니라 오늘 함께 움직인 지표의 확인 순서를 보여줍니다.</div>
     
-    
-    <div class="sc-node">
-      <div class="sc-role">원인</div>
-      <div class="sc-label">미국채10년 금리</div>
-      <div class="sc-detail">4.63% · +0.03%p 상승</div>
+    <div class="sc-chain">
+      <div class="sc-rail"></div>
+      
+      <div class="sc-node">
+        <div class="sc-dot"></div>
+        <div class="sc-role">01 · 출발 지표</div>
+        <div class="sc-label">미국채10년 금리</div>
+        <div class="sc-detail">4.66% · +0.03%p 상승</div>
+      </div>
+      
+      <div class="sc-node">
+        <div class="sc-dot"></div>
+        <div class="sc-role">02 · 동시 변화</div>
+        <div class="sc-label">원/달러 환율</div>
+        <div class="sc-detail">1,476.6원 · -3.10원 하락(원화 강세)</div>
+      </div>
+      
+      <div class="sc-node">
+        <div class="sc-dot"></div>
+        <div class="sc-role">03 · 수급 확인</div>
+        <div class="sc-label">외국인 수급</div>
+        <div class="sc-detail">코스피 +26,211억원 순매수</div>
+      </div>
+      
+      <div class="sc-node">
+        <div class="sc-dot"></div>
+        <div class="sc-role">04 · 시장 결과</div>
+        <div class="sc-label">국내 증시(코스피)</div>
+        <div class="sc-detail">6,797.70 · +0.74% 상승</div>
+      </div>
+      
     </div>
-    <div class="sc-arrow">↓</div>
     
-    <div class="sc-node">
-      <div class="sc-role">전이 경로</div>
-      <div class="sc-label">원/달러 환율</div>
-      <div class="sc-detail">1,479.7원 · +4.66원 상승(원화 약세)</div>
-    </div>
-    <div class="sc-arrow">↓</div>
-    
-    <div class="sc-node">
-      <div class="sc-role">시장 반응</div>
-      <div class="sc-label">외국인 수급</div>
-      <div class="sc-detail">코스피 +2,952억원 순매수</div>
-    </div>
-    <div class="sc-arrow">↓</div>
-    
-    <div class="sc-node">
-      <div class="sc-role">확인 지표</div>
-      <div class="sc-label">국내 증시(코스피)</div>
-      <div class="sc-detail">6,747.95 · +3.56% 상승</div>
-    </div>
+    <div class="sc-summary"><div class="sc-summary-lbl">오늘의 해석</div>미국채10년 금리 4.66% · +0.03%p 상승, 원/달러 환율 1,476.6원 · -3.10원 하락(원화 강세), 외국인 수급 코스피 +26,211억원 순매수이(가) 동시에 관찰됐으며, 국내 증시(코스피) 6,797.70 · +0.74% 상승에 영향을 준 요인 중 하나로 해석할 수 있습니다. 다만 지수 움직임에는 업종별 수급과 대외 뉴스 등 다른 요인도 함께 작용할 수 있습니다.</div>
     
     
-    
-    <div class="sc-summary"><div class="sc-summary-lbl">오늘의 해석</div>미국채10년 금리의 소폭 상승과 원/달러 환율 상승(원화 약세)에도 불구하고 외국인의 코스피 순매수가 관찰되며 국내 증시 코스피가 3.56% 상승한 점은 주목할 만합니다. 이는 외국인 수급 및 주도 업종인 반도체와 반도체장비의 강세 등 다양한 요인이 복합적으로 작용한 결과로 해석될 수 있습니다.</div>
-    
-    
-    <div class="sc-counter"><div class="sc-counter-lbl">반대 시나리오</div>미국채10년 금리 상승과 원/달러 환율의 원화 약세 흐름이 지속될 경우, 시장의 상승 모멘텀에 주의가 필요할 수 있습니다.</div>
+    <div class="sc-counter"><div class="sc-counter-lbl">반대 시나리오</div>다만, 글로벌 증시의 전반적인 약세 흐름은 국내 증시의 상승세를 지속적으로 견인하기 어려울 수 있다는 점을 고려할 필요가 있어 보입니다.</div>
     
   </div>
-  
-
-  <!-- Section 6: Core Metrics (6 items) -->
-  
-  <div style="font-size:12px;color:#8a94a3;margin:16px 0 -6px;text-align:right;">※ 아래 지표는 2026-07-21 국내 증시 마감 및 간밤 뉴욕장 기준입니다.</div>
-  
-  
-  <table class="strip" cellpadding="0" cellspacing="0" role="presentation" width="100%">
-    <tr>
-    
-      <td class="cell" width="33%" style="width:33.33%;"><div class="lbl">코스피</div>
-        <div class="val">6747.95</div>
-        <div class="chg"><span class="up">▲ +3.56%</span></div></td>
-    
-    
-      <td class="cell" width="33%" style="width:33.33%;"><div class="lbl">코스닥</div>
-        <div class="val">753.34</div>
-        <div class="chg"><span class="up">▲ +0.49%</span></div></td>
-    
-    
-      <td class="cell" width="33%" style="width:33.33%;"><div class="lbl">나스닥</div>
-        <div class="val">25837.21</div>
-        <div class="chg"><span class="up">▲ +1.29%</span></div></td>
-    
-    </tr>
-    <tr>
-    
-      <td class="cell" width="33%" style="width:33.33%;"><div class="lbl">S&amp;P500</div>
-        <div class="val">7509.2</div>
-        <div class="chg"><span class="up">▲ +0.89%</span></div></td>
-    
-    
-      <td class="cell" width="33%" style="width:33.33%;"><div class="lbl">원/달러</div>
-        <div class="val">1479.67</div>
-        <div class="chg">
-          
-          
-            <span class="up">▲ +4.66원</span>
-            
-          
-        </div></td>
-    
-    
-      <td class="cell" width="33%" style="width:33.33%;"><div class="lbl">브렌트유</div>
-        <div class="val">91.44</div>
-        <div class="chg"><span class="up">▲ +2.49%</span></div></td>
-    
-    </tr>
-  </table>
   
 
   <!-- ═══════ PART 1. 오늘의 인사이트 ═══════ -->
@@ -490,50 +751,48 @@
     <h3 class="sub">국내 경제 주요 뉴스</h3>
     
     <div class="news">
-      <div class="n-title">정부, 4755조 메가프로젝트 추진</div>
-      <div class="n-body">한국 경제의 잠재성장률 3% 달성을 위한 4755조 규모의 메가프로젝트 추진 노력이 대통령의 언급을 통해 확인되는 모습입니다. 이는 한국 경제의 성장 동력 확보와 관련한 정책적 의지가 반영된 것으로 보입니다.</div>
+      <div class="n-title">금융사기 정보 공유, 피해 예방 강화</div>
+      <div class="n-body">다음 달부터 보이스피싱, 노쇼 사기 등 금융사기범과 피해자의 계좌 정보가 금융사, 통신사, 수사기관에 동시에 공유됩니다. 범죄 초기 단계부터 신속하게 대응하여 사기 피해를 줄일 것으로 기대되는 대목입니다.</div>
       
       <div class="n-src">
         
-        <a href="https://www.mk.co.kr/news/economy/12103701" target="_blank"><span class="paper">매일경제</span><span class="src-date">2026-07-22</span>“4755조 메가프로젝트로도 역부족” … 잠재성장률 3% ‘마지막 퍼즐’은</a>
+        <a href="https://www.mk.co.kr/news/economy/12105014" target="_blank"><span class="paper">매일경제</span><span class="src-date">2026-07-23</span>“사기범죄 계좌에 입금중”…은행·통신사·경찰 피싱정보 공유한다</a>
         
       </div>
       
     </div>
     
     <div class="news">
-      <div class="n-title">생산자물가 10개월 만에 보합</div>
-      <div class="n-body">지난 6월 국내 생산자물가가 국제 유가 하락 등의 영향으로 10개월 만에 상승세를 멈추고 보합세를 기록한 것으로 나타났습니다. 이는 소비자물가에 선행하는 지표로, 물가 안정에 대한 기대감을 높일 수 있는 흐름으로 관찰됩니다.</div>
+      <div class="n-title">美 무역법 301조 관세, 韓 포함 60개국 대상</div>
+      <div class="n-body">미국 정부가 이르면 23일(현지시간) 무역법 301조에 근거한 강제노동 관세 조치를 최종 확정할 것으로 보입니다. 한국을 포함한 60개 무역 파트너국이 대상이 되는 만큼 국내 산업계에 미칠 영향에 대한 관심이 모입니다.</div>
       
       <div class="n-src">
         
-        <a href="https://www.yna.co.kr/view/AKR20260721154100002" target="_blank"><span class="paper">연합뉴스</span><span class="src-date">2026-07-22</span>유가 하락에 6월 생산자물가 10개월 만에 보합</a>
-        
-        <a href="https://www.fnnews.com/news/202607211813340066" target="_blank"><span class="paper">파이낸셜뉴스</span><span class="src-date">2026-07-21</span>다시 치솟는 국제유가… 정부, 석유 최고가격 재상향 시사</a>
+        <a href="https://www.mt.co.kr/world/2026/07/23/2026072306181299980" target="_blank"><span class="paper">머니투데이</span><span class="src-date">2026-07-23</span>美, 이르면 내일 '무역법 301조' 관세 발표…한국 등 60개국 대상</a>
         
       </div>
       
     </div>
     
     <div class="news">
-      <div class="n-title">외환보유액 달러·금 비중 환율 완충</div>
-      <div class="n-body">중앙은행의 미국 달러화와 금 보유량이 많을수록 미국의 금리 인상에 따른 자국 통화 가치 절하 충격을 완화할 수 있다는 분석이 제기되었습니다. 이는 외환시장 변동성 확대 시 외환보유액 구성의 중요성이 부각되는 대목으로 보입니다.</div>
+      <div class="n-title">하도급대금 연동제, 인지 부족으로 미반영</div>
+      <div class="n-body">대·중소기업 거래 행태 개선을 위해 도입된 하도급대금 연동제에도 불구하고, 수급사업자의 41%가 제도를 인지하지 못해 계약에 반영하지 못하는 것으로 조사되었습니다. 제도의 실효성을 높이기 위한 추가적인 노력이 필요한 것으로 풀이됩니다.</div>
       
       <div class="n-src">
         
-        <a href="https://www.yna.co.kr/view/AKR20260721163600002" target="_blank"><span class="paper">연합뉴스</span><span class="src-date">2026-07-22</span>"외환보유액에 달러·금 많으면 美 금리 인상 환율 충격 적어"</a>
+        <a href="https://www.yna.co.kr/view/AKR20260722138000002" target="_blank"><span class="paper">연합뉴스</span><span class="src-date">2026-07-23</span>하도급대금 연동제에도…수급업자 41% "몰라서 계약 반영 안 해"</a>
         
       </div>
       
     </div>
     
     <div class="news">
-      <div class="n-title">코스닥 ETF 수익률 부진 지속</div>
-      <div class="n-body">지난 거래일 코스닥 시장의 상장지수펀드(ETF)들이 전반적으로 부진한 수익률을 기록한 것으로 나타났습니다. 이는 코스닥 시장 전반의 투자심리 위축 가능성과 함께, 액티브 ETF에서도 유사한 흐름이 관찰되는 모습입니다.</div>
+      <div class="n-title">노란봉투법 기준 손질, 노동쟁의 범위 재조정</div>
+      <div class="n-body">정부가 노란봉투법(개정 노동조합법) 시행 4개월 만에 노동쟁의 대상의 경계선을 재조정할 방침으로 알려졌습니다. 호남 지역 대규모 반도체 투자 등과 관련하여 사업경영상 결정 및 성과급 요구의 쟁의 대상 인정 범위가 어떻게 달라질지 주목됩니다.</div>
       
       <div class="n-src">
         
-        <a href="https://www.hankyung.com/article/2026072176291" target="_blank"><span class="paper">한국경제증권</span><span class="src-date">2026-07-21</span>코스닥 ETF 전부 마이너스…액티브도 전멸</a>
+        <a href="https://www.fnnews.com/news/202607221825293648" target="_blank"><span class="paper">파이낸셜뉴스</span><span class="src-date">2026-07-22</span>호남반도체 ‘쟁의 차단’ 노봉법 기준 손질한다 [노란봉투법 손본다]</a>
         
       </div>
       
@@ -544,52 +803,52 @@
     <h3 class="sub gl">해외 경제 주요 토픽</h3>
     
     <div class="news">
-      <div class="n-title">미 USTR 대표, 관세 후속 조치 예고</div>
-      <div class="n-body">미국 무역대표부(USTR) 대표가 이번 주 만료 예정인 10% 관세에 대한 후속 조치를 곧 발표할 것이라고 밝혔습니다. 이는 글로벌 무역 환경의 불확실성을 가중시킬 수 있으며, 한국 수출 기업들에게도 영향을 미칠 가능성에 유의할 대목으로 보입니다.</div>
+      <div class="n-title">IBM, AI 투자 열기 속 매출 전망 하향</div>
+      <div class="n-body">미국 기술기업 IBM이 AI 투자 열기에서 상대적으로 소외되며 올해 연간 매출 전망을 하향 조정했습니다. 이는 기술 섹터 전반의 투자심리에 영향을 미칠 수 있으며, 국내 AI 관련주에도 간접적인 영향이 미칠 가능성이 있습니다.</div>
       
       <div class="n-src">
         
-        <a href="https://www.hankyung.com/article/202607217964i" target="_blank"><span class="paper">한국경제</span><span class="src-date">2026-07-22</span>美 USTR 대표 "금주 만료될 10% 관세 후속 조치 곧 발표"</a>
+        <a href="https://www.marketwatch.com/story/ibm-just-cut-its-outlook-why-its-stock-is-bouncing-anyway-9d36e22a?mod=mw_rss_topstories" target="_blank"><span class="paper">MarketWatch</span><span class="src-date">2026-07-22</span>IBM just cut its outlook, but not by as much as investors feared</a>
         
-        <a href="https://www.cnbc.com/2026/07/21/trump-trade-tariffs-greer-section-301.html" target="_blank"><span class="paper">CNBC</span><span class="src-date">2026-07-21</span>White House teases new trade action 'soon' as it works to re-create global tariff regime</a>
+        <a href="https://www.cnbc.com/2026/07/22/ibm-q2-earnings-report-2026.html" target="_blank"><span class="paper">CNBC</span><span class="src-date">2026-07-22</span>IBM lowers full-year forecast after earnings warning</a>
         
       </div>
       
     </div>
     
     <div class="news">
-      <div class="n-title">마이크론 등 반도체주 강한 반등</div>
-      <div class="n-body">최근 조정세를 보였던 마이크론 등 주요 반도체 기업들의 주가가 강하게 반등하는 흐름이 관찰되었습니다. 이는 오픈소스 AI 모델 확대에 따른 메모리 수요 증가 기대감이 작용한 것으로 분석되며, 국내 반도체 관련주 투자 심리에도 긍정적인 영향을 줄 수 있을 것으로 예상됩니다.</div>
+      <div class="n-title">이란 전쟁 여파, 유가 100달러 임박</div>
+      <div class="n-body">이란 전쟁의 격화로 에너지 시장에 충격이 가해지며 유가가 배럴당 100달러에 근접하고 있습니다. 고유가 상황은 글로벌 인플레이션 압력을 높이고 경기 둔화 우려를 심화시켜 국내 증시의 투자심리를 위축시킬 여지가 있습니다.</div>
       
       <div class="n-src">
         
-        <a href="https://www.marketwatch.com/story/why-micron-and-other-chip-stocks-are-bouncing-back-so-strongly-3f6d3cee?mod=mw_rss_topstories" target="_blank"><span class="paper">MarketWatch</span><span class="src-date">2026-07-21</span>Why Micron and other chip stocks are bouncing back so strongly</a>
+        <a href="https://www.cnbc.com/2026/07/22/iran-war-energy-markets-gas-diesel-prices-us-economy-analysis.html" target="_blank"><span class="paper">CNBC</span><span class="src-date">2026-07-22</span>Analysis: Iran war energy shock hits the U.S. economy as gas and diesel prices climb</a>
+        
+        <a href="https://www.investing.com/news/economy-news/trading-day-100-oil-looms-4807079" target="_blank"><span class="paper">Investing</span><span class="src-date">2026-07-22</span>Trading Day: $100 oil looms</a>
         
       </div>
       
     </div>
     
     <div class="news">
-      <div class="n-title">국제유가 상승, 에너지주 주목</div>
-      <div class="n-body">이란 사태에 대한 우려로 국제유가가 상승세를 지속하는 가운데, 에너지 관련 기업들의 주가 흐름이 주목받고 있습니다. 에너지 종목들이 여전히 저평가되어 있다는 분석도 제기되는 만큼, 유가 흐름과 함께 관련 섹터의 동향을 살피는 모습이 나타날 수 있습니다.</div>
+      <div class="n-title">美 의회, 중국 자동차 규제 법안 추진</div>
+      <div class="n-body">미국 상원 위원회에서 중국산 자동차를 규제하는 법안이 추진되고 있으며, 이는 중국 국영기업이 주요 주주인 메르세데스-벤츠 같은 기업에도 영향을 미칠 수 있습니다. 글로벌 자동차 산업의 공급망 및 통상 환경 변화가 국내 자동차 및 부품 업종에도 영향을 줄지 살펴볼 필요가 있습니다.</div>
       
       <div class="n-src">
         
-        <a href="https://www.marketwatch.com/story/why-energy-stocks-still-look-so-cheap-even-after-their-big-rally-this-month-7f1a298b?mod=mw_rss_topstories" target="_blank"><span class="paper">MarketWatch</span><span class="src-date">2026-07-21</span>Why energy stocks still look so cheap, even after their big rally this month</a>
-        
-        <a href="https://www.investing.com/news/economy-news/treasury-yields-hit-twomonth-high-on-iran-tensions-oil-surge-93CH-4804025" target="_blank"><span class="paper">Investing</span><span class="src-date">2026-07-21</span>Treasury yields hit two-month high on Iran tensions, oil surge</a>
+        <a href="https://www.cnbc.com/2026/07/22/ted-cruz-china-auto-bill-mercedes-benz-gm.html" target="_blank"><span class="paper">CNBC</span><span class="src-date">2026-07-22</span>Senate panel advances China auto bill that could bar Mercedes-Benz from U.S.</a>
         
       </div>
       
     </div>
     
     <div class="news">
-      <div class="n-title">골드만삭스, 사모시장 플랫폼 출시</div>
-      <div class="n-body">골드만삭스가 고액 자산가 및 패밀리 오피스를 대상으로 사모 기업에 직접 투자할 수 있는 새로운 대안 투자 플랫폼을 출시했습니다. 이는 부유한 투자자들이 비상장 기업 투자 기회를 모색하는 최근의 흐름을 반영하는 것으로 보이며, 글로벌 자본 시장의 변화에 영향을 미 줄 가능성이 관찰됩니다.</div>
+      <div class="n-title">AI 주식 매도세에도 시장은 여전히 기대</div>
+      <div class="n-body">최근 AI 관련 주식의 매도세가 나타났으나, 일부 스마트 투자자들은 이를 매수 기회로 보고 있다는 분석이 나옵니다. AI 기술의 장기적인 성장 잠재력에 대한 기대는 여전히 유효하며, 국내 AI 관련 기술주에도 투자심리 측면에서 긍정적인 여지를 남깁니다.</div>
       
       <div class="n-src">
         
-        <a href="https://www.cnbc.com/2026/07/21/goldman-sachs-private-markets-platform.html" target="_blank"><span class="paper">CNBC</span><span class="src-date">2026-07-21</span>Goldman Sachs creates private markets platform as rich investors seek the next SpaceX and Stripe</a>
+        <a href="https://www.marketwatch.com/story/yes-the-ai-stock-selloff-looks-terrifying-but-it-might-actually-save-the-bull-market-3bef59be?mod=mw_rss_topstories" target="_blank"><span class="paper">MarketWatch</span><span class="src-date">2026-07-22</span>Yes, the AI stock selloff looks terrifying. But it might actually save the bull market.</a>
         
       </div>
       
@@ -605,13 +864,35 @@
     <h2>주목할 공시·실적</h2>
     
     <div class="insight">
-      <div class="i-title">[실적 시즌] 다양한 업종에서 잠정실적 발표 및 예고 이어져</div>
-      <div class="i-detail">지난 거래일 에프앤가이드(코스닥), 동일스틸럭스(코스닥), 부광약품(유가), 화인베스틸(유가) 등이 잠정 실적을 공정 공시했습니다. 또한, 한국항공우주(유가), 강원랜드(유가), 지누스(유가), 한화엔진(유가), 넥써쓰(코스닥) 등은 결산실적 공시를 예고하며 실적 시즌의 본격적인 흐름이 관찰되는 모습입니다. 각 기업의 실적 내용과 시장 예상치 부합 여부가 주목됩니다.</div>
+      <div class="i-title">[게임] 주요 게임사 2분기 실적 발표 예고</div>
+      <div class="i-detail">카카오게임즈, 컴투스홀딩스, 컴투스 등 코스닥 상장 게임사들이 2분기 결산 실적 공시를 예고했습니다. 이는 게임 산업의 전반적인 실적 흐름을 확인하고, 하반기 신작 모멘텀과 시장 경쟁 구도를 가늠하는 계기가 될 것으로 보입니다.</div>
+      
+      <div class="fi-meta">근거 · DART 공시 주요공시 15건 · 실적공시 15건 · 기준일 20260722</div>
+      
     </div>
     
     <div class="insight">
-      <div class="i-title">[IT 서비스/장비] 다수 기업의 대규모 공급 계약 체결 소식</div>
-      <div class="i-detail">웹케시(코스닥), 셀피글로벌(코스닥), 아이크래프트(코스닥), 예스티(코스닥), 에스넷(코스닥), 효성 ITX(유가) 등 다수의 IT 서비스 및 반도체 장비 관련 기업들이 단일판매·공급 계약 체결을 공시했습니다. 이는 기업들의 매출 성장 동력 확보와 관련한 긍정적인 신호로 해석될 수 있으며, 관련 섹터에 대한 투자 심리에 영향을 줄 수 있을 것으로 보입니다.</div>
+      <div class="i-title">[건설] 대형 건설사 2분기 잠정 실적 예고</div>
+      <div class="i-detail">DL이앤씨, DL, GS건설, 대우건설 등 유가증권시장 상장 건설사들이 2분기 결산 실적 공시를 안내했습니다. 이는 고금리, 부동산 경기 둔화 등 어려운 환경 속에서 건설사들의 수익성 및 재무 건전성을 점검하는 중요한 지표로 활용될 대목입니다.</div>
+      
+      <div class="fi-meta">근거 · DART 공시 주요공시 15건 · 실적공시 15건 · 기준일 20260722</div>
+      
+    </div>
+    
+    <div class="insight">
+      <div class="i-title">[금융] 은행·증권사 2분기 잠정 실적 발표 주목</div>
+      <div class="i-detail">제주은행이 연결재무제표 기준 영업 잠정 실적을 공시했으며, 키움증권은 결산 실적 공시를 예고했습니다. 기준금리 상승 및 부동산 시장 변동성 확대 등 거시경제 변화가 은행과 증권사의 실적에 어떤 영향을 미 미쳤는지 확인하는 시간이 될 것으로 판단됩니다.</div>
+      
+      <div class="fi-meta">근거 · DART 공시 주요공시 15건 · 실적공시 15건 · 기준일 20260722</div>
+      
+    </div>
+    
+    <div class="insight">
+      <div class="i-title">[화학·소재·디스플레이] 주요 기업 2분기 실적 윤곽 드러나</div>
+      <div class="i-detail">OCI, 유니드, 코스모신소재, LG디스플레이 등 화학, 소재, 디스플레이 관련 주요 기업들이 2분기 잠정 실적을 발표하거나 예고했습니다. 이는 글로벌 경기 둔화와 원자재 가격 변동성이 이들 산업에 미친 영향을 확인하고, 하반기 업황 회복 가능성을 탐색하는 신호로 읽힙니다.</div>
+      
+      <div class="fi-meta">근거 · DART 공시 주요공시 15건 · 실적공시 15건 · 기준일 20260722</div>
+      
     </div>
     
   </div>
@@ -624,20 +905,20 @@
   
   <div class="sec">
     <h2>국내 증시</h2>
-    <div class="key">반도체 주도 코스피 급등, 외국인·기관 순매수</div>
+    <div class="key">코스피 외국인 매수세 유입 속 상승, 코스닥은 하락 마감</div>
     <table>
       <tr><th>지수</th><th class="num">종가</th><th class="num">등락률</th></tr>
       
         
         
-        <tr><td>코스피</td><td class="num"><b>6747.95</b></td>
-            <td class="num"><span class="up">▲ +3.56%</span></td></tr>
+        <tr><td>코스피</td><td class="num"><b>6797.7</b></td>
+            <td class="num"><span class="up">▲ +0.74%</span></td></tr>
         
       
         
         
-        <tr><td>코스닥</td><td class="num"><b>753.34</b></td>
-            <td class="num"><span class="up">▲ +0.49%</span></td></tr>
+        <tr><td>코스닥</td><td class="num"><b>751.09</b></td>
+            <td class="num"><span class="down">▼ -0.30%</span></td></tr>
         
       
     </table>
@@ -657,7 +938,7 @@
             
             <td class="num">
             
-              <span class="down">-16,421</span>
+              <span class="down">-12,176</span>
               
             
             </td>
@@ -665,7 +946,7 @@
             
             <td class="num">
             
-              <span class="up">+2,952</span>
+              <span class="up">+26,211</span>
               
             
             </td>
@@ -673,7 +954,7 @@
             
             <td class="num">
             
-              <span class="up">+13,744</span>
+              <span class="down">-13,963</span>
               
             
             </td>
@@ -689,7 +970,7 @@
             
             <td class="num">
             
-              <span class="up">+1,474</span>
+              <span class="up">+2,636</span>
               
             
             </td>
@@ -697,7 +978,7 @@
             
             <td class="num">
             
-              <span class="down">-1,360</span>
+              <span class="down">-815</span>
               
             
             </td>
@@ -705,7 +986,7 @@
             
             <td class="num">
             
-              <span class="down">-129</span>
+              <span class="down">-1,914</span>
               
             
             </td>
@@ -717,16 +998,92 @@
     
 
     
-    <div class="analysis"><div class="a-lbl">상세 분석</div><p>지난 거래일(2026-07-21) 국내 증시는 코스피가 3.56% 급등한 6747.95를 기록하며 강세를 보였고, 코스닥은 0.49% 상승한 753.34로 마감했습니다. 코스피에서는 반도체와반도체장비(5.16%), 복합기업(4.75%), 생명보험(4.39%) 등이 상승을 주도한 반면, 문구류(-29.89%), 생물공학(-3.01%) 등은 하락세를 보였습니다. 수급 측면에서는 코스피에서 외국인 +2,952억원, 기관계 +13,744억원 순매수하며 지수 상승을 견인했고, 개인은 -16,421억원 순매도했습니다. 코스닥에서는 개인이 +1,474억원 순매수했으나, 외국인 -1,360억원, 기관계 -129억원 순매도하며 매도 우위가 나타났습니다. 글로벌 변동성 지수(VIX)가 -8.58% 하락했음에도 불구하고, 원/달러 환율은 0.32% 상승한 1479.67원을 기록하며 원화 약세가 관찰되는 모습입니다. 이는 미국채 10년물 금리 상승 및 달러 인덱스 강세 등 전반적인 달러 강세 흐름의 영향을 받는 것으로 보입니다.</p></div>
+    <div class="analysis"><div class="a-lbl">상세 분석</div><p>지난 거래일(2026-07-22) 국내 증시는 코스피가 외국인의 매수세에 힘입어 빨간불을 켰습니다. 코스피는 전일 대비 +0.74% 상승한 6797.7로 마감하며 373,810,110주의 거래량을 기록했습니다. 반면 코스닥은 전일 대비 -0.3% 하락한 751.09로 마감하며 501,117,725주의 거래량을 보였습니다. 수급별로는 코스피 시장에서 외국인이 +26,211억원 순매수하며 시장 상승을 견인한 반면, 개인은 -12,176억원, 기관계는 -13,963억원 순매도를 기록했습니다. 코스닥 시장에서는 개인이 +2,636억원 순매수했으나 외국인 -815억원, 기관계 -1,914억원 순매도로 지수 하락 압력이 작용한 것으로 풀이됩니다. 업종별로는 무선통신서비스(+8.45%), 기계(+5.49%), 전자제품(+5.45%) 등이 강세를 보인 반면, 문구류(-20.08%), 생물공학(-3.65%), 건강관리장비와용품(-3.21%) 등은 하락세를 나타냈습니다.</p></div>
     
   </div>
   
 
-  <!-- 거시·채권·금리 (한·미 대비 통합표) -->
+  <!-- 간밤 미국·글로벌(2026-07-22 재배치 — 국내증시 다음, 거시보다 앞: 국내→미국
+       "시장 리뷰" 흐름으로 연속 배치, 거시는 그 뒤 "배경 변수"로 이동) -->
+  
+  <div class="sec">
+    <h2>간밤 미국·글로벌</h2>
+    <div class="key">미국 증시 기술주 부진에 혼조세, 유가 및 금 가격 상승</div>
+    <table>
+      <tr><th>지표</th><th class="num">종가</th><th class="num">등락률</th></tr>
+      
+        
+        <tr><td>다우</td><td class="num"><b>52218.58</b></td>
+            <td class="num"><span class="down">▼ -0.01%</span></td></tr>
+        
+      
+        
+        <tr><td>S&P500</td><td class="num"><b>7498.96</b></td>
+            <td class="num"><span class="down">▼ -0.14%</span></td></tr>
+        
+      
+        
+        <tr><td>나스닥</td><td class="num"><b>25690.9</b></td>
+            <td class="num"><span class="down">▼ -0.57%</span></td></tr>
+        
+      
+        
+        <tr><td>닛케이</td><td class="num"><b>66232.19</b></td>
+            <td class="num"><span class="up">▲ +3.26%</span></td></tr>
+        
+      
+        
+        <tr><td>상해종합</td><td class="num"><b>3864.37</b></td>
+            <td class="num"><span class="up">▲ +1.79%</span></td></tr>
+        
+      
+        
+        <tr><td>원/달러</td><td class="num"><b>1476.62</b></td>
+            <td class="num"><span class="down">▼ -0.21%</span></td></tr>
+        
+      
+        
+        <tr><td>WTI</td><td class="num"><b>86.48</b></td>
+            <td class="num"><span class="up">▲ +1.85%</span></td></tr>
+        
+      
+        
+        <tr><td>브렌트유</td><td class="num"><b>93.88</b></td>
+            <td class="num"><span class="up">▲ +3.15%</span></td></tr>
+        
+      
+        
+        <tr><td>금</td><td class="num"><b>4135.0</b></td>
+            <td class="num"><span class="up">▲ +1.57%</span></td></tr>
+        
+      
+        
+        <tr><td>VIX</td><td class="num"><b>16.64</b></td>
+            <td class="num"><span class="down">▼ -2.40%</span></td></tr>
+        
+      
+        
+        <tr><td>미국채10년</td><td class="num"><b>4.66</b></td>
+            <td class="num"><span class="up">▲ +0.63%</span></td></tr>
+        
+      
+        
+        <tr><td>달러인덱스</td><td class="num"><b>101.13</b></td>
+            <td class="num"><span class="down">▼ -0.05%</span></td></tr>
+        
+      
+    </table>
+    
+    <div class="analysis"><div class="a-lbl">상세 분석</div><p>지난 거래일(2026-07-22) 뉴욕 증시는 주요 기업들의 실적 우려와 유가 상승 압력 속에 혼조세를 보였습니다. 다우 지수는 -0.01% 하락한 52218.58, S&P500 지수도 -0.14% 하락한 7498.96을 기록했으며, 나스닥 지수는 기술주 부진의 영향으로 -0.57% 하락한 25690.9로 마감했습니다. 아시아 증시 중 닛케이 지수는 2026-07-21 기준 +3.26% 상승한 66232.19, 상해종합 지수는 2026-07-21 기준 +1.79% 상승한 3864.37을 기록했습니다. 국제 유가는 이란 전쟁 우려로 급등하며 WTI는 +1.85% 상승한 86.48달러, 브렌트유는 +3.15% 상승한 93.88달러를 나타냈습니다. 국제 금 가격 또한 +1.57% 상승한 4135.0달러를 기록했습니다. 원/달러 환율은 -0.21% 하락한 1476.62원을 기록하며 원화 가치가 소폭 강세를 보였습니다. 시장의 변동성 지표인 VIX는 -2.4% 하락한 16.64를 기록하며 위험 선호 심리가 다소 회복되는 모습이었으나, 미국채 10년물 금리는 +0.03%p 상승한 4.66%를 나타내며 긴축 경계감이 유지되는 흐름이 관찰됩니다. 달러인덱스는 -0.05% 하락한 101.13을 기록하며 달러화의 약세가 나타났습니다. 이 같은 흐름은 외국인 자금의 국내 유입 가능성에 긍정적인 요인이 될 수 있지만, 높은 미국채 금리는 여전히 부담으로 작용할 여지가 있습니다.</p></div>
+    
+  </div>
+  
+
+  <!-- 거시·채권·금리 (한·미 대비 통합표) — 시장 리뷰(국내→미국) 다음의 배경 변수로 이동 -->
   
   <div class="sec">
     <h2>거시·채권·금리</h2>
-    <div class="key">한·미 금리차 지속 속 미국채 금리 상승, 국내 생산자물가 보합</div>
+    <div class="key">한미 금리차 확대 속 국내 물가 불안정 지속</div>
     <div class="key" style="background:#fafbfc;border-left-color:#8a94a3;color:#8a94a3;">
       같은 지표는 같은 행에서 한·미를 비교합니다. 한쪽에만 있는 지표는 ― 로 표시됩니다.
       미국 지표 옆 날짜는 발표 기준월입니다. 이 표의 미국채 수치는 美 연준 FRED
@@ -745,27 +1102,27 @@
         <td>기준금리</td>
         <td class="num"><b>2.75%</b></td>
         <td class="num"><b>3.75%</b>
-          <div style="color:#8a94a3;font-size:12px;font-weight:400;">2026-07-21</div></td>
+          <div style="color:#8a94a3;font-size:12px;font-weight:400;">2026-07-22</div></td>
       </tr>
       <!-- 국채 2년물 (미국만) -->
       <tr>
         <td>국채 2년물</td>
         <td class="num"><b>―</b></td>
-        <td class="num"><b>4.21%</b>
-          <div style="color:#8a94a3;font-size:12px;font-weight:400;">2026-07-20</div></td>
+        <td class="num"><b>4.26%</b>
+          <div style="color:#8a94a3;font-size:12px;font-weight:400;">2026-07-21</div></td>
       </tr>
       <!-- 국고채 3년물 (한국만) -->
       <tr>
         <td>국고채 3년물</td>
-        <td class="num"><b>3.87%</b></td>
+        <td class="num"><b>3.91%</b></td>
         <td class="num"><b>―</b></td>
       </tr>
       <!-- 국채 10년물 -->
       <tr>
         <td>국채 10년물<span style="display:block;color:#8a94a3;font-size:12px;font-weight:400;">(FRED 기준, 실시간 시세는 위 지표 카드 참고)</span></td>
-        <td class="num"><b>4.33%</b></td>
-        <td class="num"><b>4.6%</b>
-          <div style="color:#8a94a3;font-size:12px;font-weight:400;">2026-07-20</div></td>
+        <td class="num"><b>4.39%</b></td>
+        <td class="num"><b>4.63%</b>
+          <div style="color:#8a94a3;font-size:12px;font-weight:400;">2026-07-21</div></td>
       </tr>
       <!-- 소비자물가 YoY -->
       <tr>
@@ -791,134 +1148,45 @@
     </table>
 
     
-    <div class="analysis"><div class="a-lbl">상세 분석</div><p>지난 거래일(2026-07-21) 국내 국고채 3년물과 10년물 금리는 각각 -0.03%p, -0.01%p 하락하며 전반적으로 안정세를 보였습니다. 한국은행 기준금리는 2.75%를 유지하고 있습니다. 국내 6월 소비자물가지수(총지수)는 전월 대비 0.07% 상승, 전년 동월 대비 3.16% 상승했습니다. 반면, 미국은 2026년 7월 21일 기준 기준금리(정책금리 상단)가 3.75%로 한국과의 금리차가 100bp 유지되고 있습니다. 미국채 10년물 금리는 0.65% 상승한 4.63%를 기록했고, 미국채 2년물 금리도 2026년 7월 20일 기준 4.21%를 기록하며 상승 압력이 관찰되었습니다. 이는 이란 사태와 유가 상승 등에 따른 것으로 보입니다. 미국 6월 소비자물가(CPI)는 전년 동월 대비 3.73%, 5월 근원 PCE 물가는 3.41%를 기록하며 한국보다 높은 물가 수준이 유지되고 있습니다. 원/달러 환율은 0.32% 상승하며 원화 약세 흐름이 나타나는 모습입니다.</p></div>
+    <div class="analysis"><div class="a-lbl">상세 분석</div><p>지난 거래일(2026-07-22) 한국 국고채 3년물 금리는 전일 대비 +0.05%p 상승한 3.91%를, 국고채 10년물 금리는 전일 대비 +0.07%p 상승한 4.39%를 기록했습니다. 한국은행 기준금리는 2026-07-20 기준 2.75%를 유지하고 있습니다. 미국 기준금리(정책금리 상단)는 2026-07-22 기준 3.75%로 한국 기준금리 대비 높은 수준을 유지하며, 한미 금리차가 지속되는 모습입니다. 미국 국채 2년물 금리는 2026-07-21 기준 4.26%를 기록했습니다. 한국의 2026년 6월 소비자물가 총지수는 전월 대비 +0.07% 상승한 119.99를 기록했으며, 전년 동월 대비 상승률(YoY)은 3.16%로 여전히 높은 수준을 유지하고 있습니다. 미국의 2026년 6월 소비자물가(CPI) 전년 동월 대비 상승률은 3.73%를, 2026년 5월 근원 PCE 물가는 3.41%를 기록하며 높은 물가 압력이 지속되는 모습을 보입니다. 실업률의 경우 한국은 2026년 5월 기준 2.8%로 안정적인 반면, 미국은 2026년 6월 기준 4.2%로 전월 대비 -0.1%p 하락하며 노동 시장의 견조함을 시사하는 대목입니다. 글로벌 고금리 기조와 높은 물가 수준은 국내 통화 정책에도 영향을 미칠 수 있는 요인으로 판단됩니다.</p></div>
     
   </div>
   
 
-  <!-- 미국 실적 캘린더 -->
-  
-  <div class="sec">
-    <h2>이번 주 미국 주요 실적 발표</h2>
-    <div class="key">미국 현지 발표 일정 기준입니다. EPS 예상치는 시장 컨센서스이며 확정치가 아닙니다. 발표 완료 건만 실제치가 표시됩니다.</div>
-    <table>
-      <tr><th>기업</th><th>발표일</th><th>시간대</th><th class="num">EPS 예상</th><th class="num">EPS 실제</th><th class="num">상태</th></tr>
-      
-      <tr>
-        <td><b>알파벳</b> <span style="color:#8a94a3;font-size:12px;">(GOOGL)</span></td>
-        <td>2026-07-22</td>
-        <td>장 마감 후</td>
-        <td class="num">$2.98</td>
-        <td class="num">―</td>
-        <td class="num">발표 예정</td>
-      </tr>
-      
-      <tr>
-        <td><b>테슬라</b> <span style="color:#8a94a3;font-size:12px;">(TSLA)</span></td>
-        <td>2026-07-22</td>
-        <td>장 마감 후</td>
-        <td class="num">$0.51</td>
-        <td class="num">―</td>
-        <td class="num">발표 예정</td>
-      </tr>
-      
-    </table>
-  </div>
+  <!-- 미국 실적 캘린더 — 예정·완료 두 그룹으로 분리(2026-07-22). 여러 날에 걸친
+       아카이브(웹 별도 저장소)는 이번 라운드 범위 밖으로 명시 보류(§14 참고,
+       fixture/mock 없이 이번 발행에 실제로 존재하는 payload만 예정/결과로 나눔) -->
   
 
-  <!-- 간밤 미국·글로벌 -->
+  <!-- 오늘의 타임라인(조건부, 2026-07-22 재정의) — 스펙 §15는 "시간이 특정된
+       이벤트 2개 이상"을 조건으로 요구하지만, 이 파이프라인의 캘린더 소스
+       (FRED releases/dates, Finnhub 실적예고)는 애초에 시각(HH:MM) 정보를
+       수집한 적이 없고 날짜 단위만 제공한다(site_narrative.build_calendar_items
+       확인 결과 — 신규 수집기 추가는 이번 라운드 범위 밖). 시간(HH:MM) 기준을
+       문자 그대로 적용하면 이 섹션이 사실상 항상 숨겨져, 이전 라운드에서 별도로
+       복원했던 지난 일정 결과 기능이 다시 회귀하게 된다("기존 섹션 삭제 금지"
+       원칙과 충돌). 따라서 날짜 단위 이벤트라도 "행동 가능한 시점 정보"로 보고,
+       총 이벤트(지난+예정) 2건 미만일 때만 숨기는 것으로 조건을 대체 적용한다
+       (1건뿐이고 체크포인트/실적표에 이미 포함된 경우를 자연히 걸러내는 효과는
+       동일하게 유지). -->
+  
   
   <div class="sec">
-    <h2>간밤 미국·글로벌</h2>
-    <div class="key">미 뉴욕 증시 반도체 강세에 상승 마감, 유가 상승 지속</div>
-    <table>
-      <tr><th>지표</th><th class="num">종가</th><th class="num">등락률</th></tr>
-      
-        
-        <tr><td>다우</td><td class="num"><b>52224.64</b></td>
-            <td class="num"><span class="up">▲ +0.74%</span></td></tr>
-        
-      
-        
-        <tr><td>S&P500</td><td class="num"><b>7509.2</b></td>
-            <td class="num"><span class="up">▲ +0.89%</span></td></tr>
-        
-      
-        
-        <tr><td>나스닥</td><td class="num"><b>25837.21</b></td>
-            <td class="num"><span class="up">▲ +1.29%</span></td></tr>
-        
-      
-        
-        <tr><td>닛케이</td><td class="num"><b>64141.12</b></td>
-            <td class="num"><span class="down">▼ -4.03%</span></td></tr>
-        
-      
-        
-        <tr><td>상해종합</td><td class="num"><b>3796.28</b></td>
-            <td class="num"><span class="up">▲ +0.85%</span></td></tr>
-        
-      
-        
-        <tr><td>원달러</td><td class="num"><b>1479.67</b></td>
-            <td class="num"><span class="up">▲ +0.32%</span></td></tr>
-        
-      
-        
-        <tr><td>WTI</td><td class="num"><b>84.54</b></td>
-            <td class="num"><span class="up">▲ +1.57%</span></td></tr>
-        
-      
-        
-        <tr><td>브렌트유</td><td class="num"><b>91.44</b></td>
-            <td class="num"><span class="up">▲ +2.49%</span></td></tr>
-        
-      
-        
-        <tr><td>금</td><td class="num"><b>4082.2</b></td>
-            <td class="num"><span class="up">▲ +1.79%</span></td></tr>
-        
-      
-        
-        <tr><td>VIX</td><td class="num"><b>17.05</b></td>
-            <td class="num"><span class="down">▼ -8.58%</span></td></tr>
-        
-      
-        
-        <tr><td>미국채10년</td><td class="num"><b>4.63</b></td>
-            <td class="num"><span class="up">▲ +0.65%</span></td></tr>
-        
-      
-        
-        <tr><td>달러인덱스</td><td class="num"><b>101.2</b></td>
-            <td class="num"><span class="up">▲ +0.20%</span></td></tr>
-        
-      
-    </table>
-    
-    <div class="analysis"><div class="a-lbl">상세 분석</div><p>간밤(2026-07-21) 뉴욕 증시는 다우 0.74%, S&P500 0.89%, 나스닥 1.29% 각각 상승하며 강세를 보였습니다. 특히 반도체 기업들의 반등이 나스닥 지수 상승을 이끈 것으로 분석됩니다. 국제유가는 이란 사태에 대한 우려가 지속되면서 WTI가 1.57% 상승한 84.54달러, 브렌트유가 2.49% 상승한 91.44달러를 기록하는 등 상승세를 이어갔습니다. 미 국채 10년물 금리는 0.65% 상승한 4.63%를 기록하며 높은 수준을 유지했으며, 달러 인덱스도 0.2% 상승한 101.2를 나타내 전반적인 달러 강세 흐름이 관찰되었습니다.</p></div>
-    
-  </div>
-  
-
-  <!-- 일정(지난/예정, 2026-07-22 신설) -->
-  
-  <div class="sec">
-    <h2>오늘의 일정 체크</h2>
+    <h2>오늘의 타임라인</h2>
     
     
     <h3 class="sub ntr">예정 일정</h3>
     
-    <div class="sch-item sch-upcoming ">
-      <span class="sch-date">2026-07-22</span>
-      <span class="sch-title">알파벳 실적발표</span>
-      
+    <div class="sch-item sch-upcoming sch-high">
+      <span class="sch-date">2026-07-30</span>
+      <span class="sch-title">미국 GDP</span>
+      <span class="sch-badge">주요</span>
     </div>
     
-    <div class="sch-item sch-upcoming ">
-      <span class="sch-date">2026-07-22</span>
-      <span class="sch-title">테슬라 실적발표</span>
-      
+    <div class="sch-item sch-upcoming sch-high">
+      <span class="sch-date">2026-07-30</span>
+      <span class="sch-title">미국 개인소득·지출(PCE)</span>
+      <span class="sch-badge">주요</span>
     </div>
     
     
@@ -930,7 +1198,7 @@
   <div class="sec">
     <h2>리스크 요인</h2>
     <div class="risk"><ul>
-      <li>이란 사태 등으로 인한 국제유가 상승 지속과 글로벌 인플레이션 압력 확대 가능성</li><li>미국 무역대표부(USTR)의 관세 정책 후속 조치 발표에 따른 글로벌 무역 환경 불확실성 증대</li><li>미국 기준금리 정책 방향성과 한미 금리차 변화에 따른 국내 자본 유출입 변동성</li>
+      <li>미국발 강제노동 관세 조치 등 보호무역주의 확산 우려</li><li>글로벌 인플레이션 압력 가중 및 주요국 통화 긴축 장기화 가능성</li><li>미국 빅테크 기업 실적 부진에 따른 기술주 투자심리 위축</li>
     </ul></div>
   </div>
   
@@ -939,24 +1207,34 @@
   
   <div class="sec">
     <h2>오늘의 관전 코멘트</h2>
-    <div class="comment">반도체 업종의 강세가 시장의 위험 선호 심리를 북돋는 모습이지만, 국제유가와 글로벌 무역정책 관련 불확실성에는 지속적인 관심이 필요한 시점으로 보입니다.</div>
+    <div class="comment">글로벌 무역 정책과 주요국 기업 실적 발표가 국내 증시의 방향성을 결정하는 핵심 변수로 작용할 것으로 보입니다.</div>
     <div class="comment-note">※ 위 내용은 시장 상황에 대한 관점·참고 정보이며, 특정 종목의 매매를 권유하지 않습니다. 투자 판단과 책임은 이용자 본인에게 있습니다.</div>
   </div>
   
 
-  <!-- 어제의 명제 — 3층 명제 검증 MVP 티저(상세 Scorecard는 홈페이지에서만) -->
-  
-
-  <div class="footer">
+  <!-- 전체 데이터 출처(2026-07-22) — 항목 삭제·축약 없이 유지, 카테고리+출처를
+       한 행으로 압축해 세로 길이만 줄인다(스펙 §16). -->
+  <div class="footer" style="text-align:left;">
     <div class="f-head">📊 이 리포트는 아래 공식·공신력 있는 데이터를 종합해 자동 생성됩니다</div>
-    <div class="f-src">
-      <div><span class="f-cat">시장·지수</span> · FinanceDataReader · 네이버 금융</div>
-      <div><span class="f-cat">거시·금리</span> · 한국은행 ECOS · 美 연준 FRED</div>
-      <div><span class="f-cat">공시·실적</span> · 금융감독원 DART · Finnhub</div>
-      <div><span class="f-cat">국내 뉴스</span> · 연합뉴스 · 한국경제 · 매일경제 · 머니투데이 · 파이낸셜뉴스</div>
-      <div><span class="f-cat">해외 뉴스</span> · MarketWatch · CNBC · Investing.com</div>
+    <div class="src-list">
+      <div class="src-row"><span class="f-cat">시장·지수</span><span>FinanceDataReader · 네이버 금융</span></div>
+      <div class="src-row"><span class="f-cat">거시·금리</span><span>한국은행 ECOS · 美 연준 FRED</span></div>
+      <div class="src-row"><span class="f-cat">공시·실적</span><span>금융감독원 DART · Finnhub</span></div>
+      <div class="src-row"><span class="f-cat">국내 뉴스</span><span>연합뉴스 · 한국경제 · 매일경제 · 머니투데이 · 파이낸셜뉴스</span></div>
+      <div class="src-row"><span class="f-cat">해외 뉴스</span><span>MarketWatch · CNBC · Investing.com</span></div>
     </div>
-    <div style="color:#b0b8c4;margin-top:10px;">본 리포트는 투자 참고용이며 투자 판단의 책임은 이용자 본인에게 있습니다.</div>
+  </div>
+
+  <!-- MOO:conomy 구독 CTA(2026-07-22 신설) — 기존 무료구독 URL 그대로 재사용,
+       법적고지·수신거부와 분리된 독립 브랜드 블록. 황소·외부이미지 없음. -->
+  <div class="cta-block">
+    <div class="cta-brand">MOO<span class="cta-colon">:</span>conomy</div>
+    <div class="cta-copy">잠든 사이 움직인 지표와 뉴스, 매일 아침 정리합니다.</div>
+    <a class="cta-btn" href="https://mooconomy.co.kr/#home/subscribe" target="_blank">매일 아침 무료로 받아보기</a>
+  </div>
+
+  <div class="footer" style="text-align:center;">
+    <div style="color:#b0b8c4;">본 리포트는 투자 참고용이며 투자 판단의 책임은 이용자 본인에게 있습니다.</div>
     <div class="sign">Curated by <b>MOO:conomy</b> · © 2026 All rights reserved.</div>
     <div style="margin-top:2px;"><a href="https://mooconomy.co.kr/" target="_blank" style="display:inline-block;min-height:44px;line-height:44px;font-size:11px;color:#8a94a3;text-decoration:underline;">MOO:conomy 홈페이지</a></div>
 
