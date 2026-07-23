@@ -23,7 +23,7 @@
 
   /* 핵심지표 카드 — 정확히 6개, 3열×2행(데스크톱)/2열×3행(모바일 미디어쿼리에서 재정의) */
   .strip { width:100%; border-collapse:separate; border-spacing:8px; margin:16px -6px; table-layout:fixed; }
-  .strip .cell { width:20%; box-sizing:border-box; text-align:left; padding:12px; border:1px solid #E4E8EE; border-radius:12px; background:#fff; vertical-align:middle; min-height:86px; }
+  .strip .cell { width:20%; box-sizing:border-box; text-align:center; padding:12px; border:1px solid #E4E8EE; border-radius:12px; background:#fff; vertical-align:middle; min-height:86px; }
   .strip .lbl { font-size:12px; font-weight:700; color:#64748B; margin-bottom:6px; white-space:nowrap; }
   .strip .val { font-size:20px; font-weight:800; color:#0b2545; white-space:nowrap; font-variant-numeric:tabular-nums; }
   .strip .chg { font-size:12px; font-weight:700; margin-top:4px; white-space:nowrap; font-variant-numeric:tabular-nums; }
@@ -54,6 +54,40 @@
   .mt-reasons { list-style:none; margin:12px 0 0; padding:10px 0 0; border-top:1px solid #eceef1; display:flex; flex-wrap:wrap; gap:5px 16px; }
   .mt-reasons li { font-size:12.5px; color:#5a6b82; padding-left:12px; position:relative; }
   .mt-reasons li::before { content:''; position:absolute; left:0; top:6px; width:5px; height:5px; border-radius:50%; background:#f5b301; }
+    /* 오늘의 시장 한눈에 — 핵심 지표와 시장 온도를 하나의 상위 섹션으로 묶는다. */
+  .market-overview-title {
+    font-size:17px;
+    font-weight:800;
+    color:#0b2545;
+    border-bottom:2px solid #0b2545;
+    padding-bottom:6px;
+    margin:28px 0 12px;
+  }
+  .metric-panel {
+    background:#FAFBFC;
+    border:1px solid #E4E8EE;
+    border-radius:12px;
+    padding:14px 14px 10px;
+    margin:12px 0;
+  }
+  .metric-heading {
+    font-size:12px;
+    font-weight:800;
+    color:#0b2545;
+    letter-spacing:.04em;
+    margin:0 2px 8px;
+  }
+  .metric-note {
+    font-size:12px;
+    line-height:1.5;
+    color:#8a94a3;
+    text-align:center;
+    margin:7px 2px 2px;
+  }
+  .metric-panel .strip {
+    width:100%;
+    margin:7px 0;
+  }
   .headline { font-size:18px; font-weight:700; color:#0b2545; border-left:4px solid #0b2545; padding:8px 14px; margin:18px 0; line-height:1.5; word-break:keep-all; overflow-wrap:break-word; }
 
   /* 오늘의 3줄 — GLOBAL/KOREA/MOO:VIEW 역할 라벨(2026-07-22, llm.py가 이미 이
@@ -274,7 +308,7 @@
       border:1px solid #E4E8EE !important;
       border-radius:10px !important;
       padding:9px !important;
-      text-align:left !important;
+      text-align:center !important;
       vertical-align:top !important;
       min-height:0 !important;
       margin:1.5% 1% !important;
@@ -333,6 +367,24 @@
     .news { padding: 9px 2px !important; }
     .news .n-title { font-size:15px !important; }
     .news .n-body { font-size:15px !important; line-height: 1.65 !important; }
+        .market-overview-title {
+      font-size:15px !important;
+      margin:20px 0 9px !important;
+    }
+    .metric-panel {
+      margin:10px -12px !important;
+      padding:12px 10px 9px !important;
+      border-radius:0 !important;
+      border-left:none !important;
+      border-right:none !important;
+    }
+    .metric-heading {
+      margin:0 4px 6px !important;
+    }
+    .metric-note {
+      font-size:11.5px !important;
+      margin:6px 4px 2px !important;
+    }
     .mt-panel { margin:10px -12px 0 !important; border-radius:0 !important; border-left:none !important; border-right:none !important; padding:14px 12px !important; }
     .mt-summary { font-size:14.5px !important; }
     .mt-reasons { gap:4px 12px !important; }
@@ -411,12 +463,12 @@
   <div class="top">
     <span class="brand-edition">Daily</span> <span class="brand-text">MOO<span class="brand-colon">:</span>conomy</span>
     <div class="tagline">잠든 사이 움직인 지표와 뉴스, 매일 아침 배달</div>
-    <div class="date">발행 2026년 07월 23일(목) 06:43 · 증시 마감 기준: 국내 2026-07-22, 미국 2026-07-22</div>
+    <div class="date">발행 2026년 07월 24일(금) 06:44 · 증시 마감 기준: 국내 2026-07-23, 미국 2026-07-23</div>
   </div>
 
   <div class="inner">
 
-  <div class="headline">미국 무역 관세 발표 임박, 빅테크 실적 시험대에 국내 증시 숨고르기</div>
+  <div class="headline">고유가·美 금리인상 우려 속 국내 증시 반등, 외국인 순매수</div>
 
   <!-- Section 1: Daily 3 — GLOBAL/KOREA/MOO:VIEW 역할 라벨(2026-07-22).
        c.three_line_summary는 llm.py가 이미 이 순서로 고정 생성한다(간밤 글로벌→
@@ -428,17 +480,17 @@
     
     <div class="d3-row">
       <span class="d3-label">GLOBAL</span>
-      <p class="d3-text">간밤 미 증시는 기술주 실적 우려와 에너지 가격 상승에 혼조세를 보였습니다.</p>
+      <p class="d3-text">간밤 글로벌 증시는 고유가와 기술주 약세로 하락세를 보였습니다.</p>
     </div>
     
     <div class="d3-row">
       <span class="d3-label">KOREA</span>
-      <p class="d3-text">국내 증시는 코스피 상승, 코스닥 하락 속 외국인 매수세가 유입되었습니다.</p>
+      <p class="d3-text">전일 국내 증시는 외국인 순매수에 힘입어 강한 반등세를 나타냈습니다.</p>
     </div>
     
     <div class="d3-row">
       <span class="d3-label mv">MOO:VIEW</span>
-      <p class="d3-text">오늘은 미국의 무역 관세 조치 발표와 빅테크 실적 발표에 시선이 모입니다.</p>
+      <p class="d3-text">오늘은 미국 PCE 지표 및 글로벌 기업 실적 발표에 관심이 모입니다.</p>
     </div>
     
   </div>
@@ -447,6 +499,64 @@
   <!-- Section 2: Market Temperature — 밝은 패널 + 파스텔 오렌지→회색→그린
        (2026-07-22, 상승/하락 red/blue와 색축 분리). 상태명·마커는 여전히 동일
        label enum(5단계)에서만 계산(내부 점수 비노출). -->
+
+  <!-- Section 5 (moved up, 2026-07-22 Stitch sprint reorder): Core Metrics (6 items) —
+       spec requires metrics to appear before the longer watch-point/connection-flow prose,
+       directly after Market Temperature. Markup/data bindings unchanged, position only. -->
+  <div class="market-overview-title">오늘의 시장 한눈에</div>
+
+  
+  <div class="metric-panel">
+    <div class="metric-heading">핵심 시장 지표</div>
+    <table class="strip" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+    <tr>
+    
+      <td class="cell" width="33%" style="width:33.33%;"><div class="lbl">코스피</div>
+        <div class="val">7,097</div>
+        <div class="chg"><span class="up">▲ +4.40%</span></div></td>
+    
+    
+      <td class="cell" width="33%" style="width:33.33%;"><div class="lbl">코스닥</div>
+        <div class="val">790</div>
+        <div class="chg"><span class="up">▲ +5.22%</span></div></td>
+    
+    
+      <td class="cell" width="33%" style="width:33.33%;"><div class="lbl">나스닥</div>
+        <div class="val">25,138</div>
+        <div class="chg"><span class="down">▼ -2.15%</span></div></td>
+    
+    </tr>
+    <tr>
+    
+      <td class="cell" width="33%" style="width:33.33%;"><div class="lbl">S&amp;P500</div>
+        <div class="val">7,408</div>
+        <div class="chg"><span class="down">▼ -1.21%</span></div></td>
+    
+    
+      <td class="cell" width="33%" style="width:33.33%;"><div class="lbl">원/달러</div>
+        <div class="val">1474.12</div>
+        <div class="chg">
+          
+          
+            <span class="down">▼ -1.51원</span>
+            
+          
+        </div></td>
+    
+    
+      <td class="cell" width="33%" style="width:33.33%;"><div class="lbl">브렌트유</div>
+        <div class="val">100.55</div>
+        <div class="chg"><span class="up">▲ +6.89%</span></div></td>
+    
+    </tr>
+    </table>
+
+    
+    <div class="metric-note">※ 위 지표는 2026-07-23 국내 증시 마감 및 간밤 뉴욕장 기준입니다.</div>
+    
+  </div>
+  
+
   
   
   
@@ -455,7 +565,7 @@
   <div class="mt-panel">
     <div class="mt-top">
       <span class="mt-eyebrow">MARKET TEMPERATURE · 오늘의 시장 온도</span>
-      <span class="mt-status">위험선호</span>
+      <span class="mt-status">중립</span>
     </div>
     <div class="mood-bar-wrap">
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:collapse;">
@@ -463,7 +573,7 @@
           <td width="20%" bgcolor="#E8A970" style="background:#E8A970;font-size:0;line-height:0;height:6px;">&nbsp;</td><td width="20%" bgcolor="#F0C79A" style="background:#F0C79A;font-size:0;line-height:0;height:6px;">&nbsp;</td><td width="20%" bgcolor="#C7CDD6" style="background:#C7CDD6;font-size:0;line-height:0;height:6px;">&nbsp;</td><td width="20%" bgcolor="#A9CDB0" style="background:#A9CDB0;font-size:0;line-height:0;height:6px;">&nbsp;</td><td width="20%" bgcolor="#5F9E6E" style="background:#5F9E6E;font-size:0;line-height:0;height:6px;">&nbsp;</td>
         </tr>
       </table>
-      <div class="mood-bar-marker" style="left:70%;"></div>
+      <div class="mood-bar-marker" style="left:50%;"></div>
     </div>
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="mood-bar-labels" style="width:100%;margin-top:5px;border-collapse:collapse;">
       <tr>
@@ -474,65 +584,15 @@
         <td width="20%"><span class="mtl-full">강한위험선호</span><span class="mtl-short">강한선호</span></td>
       </tr>
     </table>
-    <div class="mt-summary" style="margin-top:12px;">국내 증시는 0.74% 상승하고 외국인의 코스피 순매수가 26,211억원 기록하며 위험선호 분위기가 관찰됩니다. 이러한 흐름은 시장에 긍정적인 영향을 미친 것으로 보입니다.</div>
+    <div class="mt-summary" style="margin-top:12px;">간밤 미국 증시가 하락했음에도 불구하고, 국내 증시는 큰 폭으로 상승하며 중립적인 시장 온도를 나타내고 있습니다. 특히 외국인 투자자들의 코스피 순매수가 관찰됩니다.</div>
     
-    <ul class="mt-reasons"><li>국내 증시 +0.74% 상승</li><li>외국인 코스피 순매수 26,211억원</li></ul>
+    <ul class="mt-reasons"><li>간밤 미국 증시 평균 -1.44% 하락</li><li>국내 증시 +4.40% 상승</li><li>외국인 코스피 순매수 21,359억원</li></ul>
     
   </div>
   
 
-  <!-- Section 5 (moved up, 2026-07-22 Stitch sprint reorder): Core Metrics (6 items) —
-       spec requires metrics to appear before the longer watch-point/connection-flow prose,
-       directly after Market Temperature. Markup/data bindings unchanged, position only. -->
-  
-  <div style="font-size:12px;color:#8a94a3;margin:16px 0 -6px;text-align:right;">※ 아래 지표는 2026-07-22 국내 증시 마감 및 간밤 뉴욕장 기준입니다.</div>
-  
-  
-  <table class="strip" cellpadding="0" cellspacing="0" role="presentation" width="100%">
-    <tr>
-    
-      <td class="cell" width="33%" style="width:33.33%;"><div class="lbl">코스피</div>
-        <div class="val">6,798</div>
-        <div class="chg"><span class="up">▲ +0.74%</span></div></td>
-    
-    
-      <td class="cell" width="33%" style="width:33.33%;"><div class="lbl">코스닥</div>
-        <div class="val">751</div>
-        <div class="chg"><span class="down">▼ -0.30%</span></div></td>
-    
-    
-      <td class="cell" width="33%" style="width:33.33%;"><div class="lbl">나스닥</div>
-        <div class="val">25,691</div>
-        <div class="chg"><span class="down">▼ -0.57%</span></div></td>
-    
-    </tr>
-    <tr>
-    
-      <td class="cell" width="33%" style="width:33.33%;"><div class="lbl">S&amp;P500</div>
-        <div class="val">7,499</div>
-        <div class="chg"><span class="down">▼ -0.14%</span></div></td>
-    
-    
-      <td class="cell" width="33%" style="width:33.33%;"><div class="lbl">원/달러</div>
-        <div class="val">1476.62</div>
-        <div class="chg">
-          
-          
-            <span class="down">▼ -3.1원</span>
-            
-          
-        </div></td>
-    
-    
-      <td class="cell" width="33%" style="width:33.33%;"><div class="lbl">브렌트유</div>
-        <div class="val">93.88</div>
-        <div class="chg"><span class="up">▲ +3.15%</span></div></td>
-    
-    </tr>
-  </table>
-  
-
-  <!-- Section 6: MOO:VIEW · 오늘의 시선(2026-07-22 신설) — Daily 3의 GLOBAL/KOREA
+  <!-- Section 6: MOO:VIEW
+ · 오늘의 시선(2026-07-22 신설) — Daily 3의 GLOBAL/KOREA
        두 줄과 관전포인트 첫 항목을 사실/해석/확인 3행으로 확장한다.
        renderer.build_moo_view()가 canonical 필드만 재구성(신규 LLM 호출 없음),
        필드가 없으면 문구를 지어내지 않고 해당 줄만 숨긴다. -->
@@ -545,9 +605,9 @@
       
       <div class="mv-row">
         <span class="mv-tag">GLOBAL</span>
-        <div class="mv-f"><span class="mv-f-lbl">사실</span><span class="mv-f-txt">나스닥 -0.57%, S&P500 -0.14%</span></div>
-        <div class="mv-f mv-interp"><span class="mv-f-lbl">해석</span><span class="mv-f-txt">간밤 미 증시는 기술주 실적 우려와 에너지 가격 상승에 혼조세를 보였습니다.</span></div>
-        <div class="mv-f"><span class="mv-f-lbl">확인</span><span class="mv-f-txt">미국 GDP</span></div>
+        <div class="mv-f"><span class="mv-f-lbl">사실</span><span class="mv-f-txt">나스닥 -2.15%, S&P500 -1.21%</span></div>
+        <div class="mv-f mv-interp"><span class="mv-f-lbl">해석</span><span class="mv-f-txt">간밤 글로벌 증시는 고유가와 기술주 약세로 하락세를 보였습니다.</span></div>
+        <div class="mv-f"><span class="mv-f-lbl">확인</span><span class="mv-f-txt">메타 실적발표</span></div>
       </div>
       
       
@@ -555,8 +615,8 @@
       
       <div class="mv-row">
         <span class="mv-tag">KOREA</span>
-        <div class="mv-f"><span class="mv-f-lbl">사실</span><span class="mv-f-txt">코스피 +0.74%, 코스닥 -0.30%</span></div>
-        <div class="mv-f mv-interp"><span class="mv-f-lbl">해석</span><span class="mv-f-txt">국내 증시는 코스피 상승, 코스닥 하락 속 외국인 매수세가 유입되었습니다.</span></div>
+        <div class="mv-f"><span class="mv-f-lbl">사실</span><span class="mv-f-txt">코스피 +4.40%, 코스닥 +5.22%</span></div>
+        <div class="mv-f mv-interp"><span class="mv-f-lbl">해석</span><span class="mv-f-txt">전일 국내 증시는 외국인 순매수에 힘입어 강한 반등세를 나타냈습니다.</span></div>
         
       </div>
       
@@ -565,9 +625,9 @@
       
       <div class="mv-row">
         <span class="mv-tag mv-accent">MOO:VIEW</span>
-        <div class="mv-f"><span class="mv-f-lbl">사실</span><span class="mv-f-txt">미국 무역법 301조 관세 최종 발표 여부</span></div>
-        <div class="mv-f mv-interp"><span class="mv-f-lbl">해석</span><span class="mv-f-txt">미국 트럼프 정부가 이르면 오늘(현지시간) 한국을 포함한 60여 개국에 강제노동 관세를 최종 확정할 것으로 예상됩니다.</span></div>
-        <div class="mv-f"><span class="mv-f-lbl">확인</span><span class="mv-f-txt">이 조치가 국내 주요 수출 산업에 미칠 파급 효과와 구체적인 적용 범위에 대한 시장의 관심이 쏠리는 모습입니다.</span></div>
+        <div class="mv-f"><span class="mv-f-lbl">사실</span><span class="mv-f-txt">고유가와 글로벌 인플레이션 압력</span></div>
+        <div class="mv-f mv-interp"><span class="mv-f-lbl">해석</span><span class="mv-f-txt">중동 긴장 고조로 국제유가가 배럴당 100달러를 돌파하며 글로벌 인플레이션 우려가 다시 부각되는 모습입니다.</span></div>
+        <div class="mv-f"><span class="mv-f-lbl">확인</span><span class="mv-f-txt">이는 미국 주택담보대출 금리 상승으로 이어져 미국 연준의 긴축 장기화 가능성을 높이는 대목으로, 국내 증시의 투자심리에도 영향을 줄 수 있는 변수입니다.</span></div>
       </div>
       
       
@@ -585,14 +645,14 @@
     <div class="mooq-lbl">MOO:Q · 오늘의 경제 질문</div>
     
     <div class="mooq-item">
-      <div class="mooq-question">원/달러 환율은 다음 거래일까지 하락세를 이어갈까?</div>
+      <div class="mooq-question">원/달러 환율은 다음 거래일까지 하락세를 이어갈까요?</div>
       
       <div class="mooq-why">
-        <div>· 원/달러 환율은 1,476.6원으로 전일 대비 3.10원 하락했습니다.</div>
-        <div>· 현재 관찰된 하락 흐름이 다음 거래일까지 이어지는지가 확인 대상입니다.</div>
+        <div>· 원/달러 환율이 전일 대비 -1.51원 하락하며 원화 강세 흐름을 보였습니다.</div>
+        <div>· 이는 외국인 투자자의 국내 증시 순매수에 긍정적인 영향을 미친 것으로 해석될 수 있습니다.</div>
       </div>
       
-      <div class="mooq-meta">확인 예정일 2026-07-24 · 현재 상태: 확인 중</div>
+      <div class="mooq-meta">확인 예정일 2026-07-25 · 현재 상태: 확인 중</div>
     </div>
     
     <div class="mooq-disclaimer">예측보다 검증 가능한 질문을 남깁니다. 투자 매수·매도를 권유하지 않습니다.</div>
@@ -605,7 +665,7 @@
       <div class="mooq-lbl">MOO:CHECK · 지난 질문의 결과</div>
       
       <div class="mooq-item">
-        <div class="mooq-text">원/달러 환율은 다음 거래일까지 상승세를 이어갈까?</div>
+        <div class="mooq-text">원/달러 환율은 다음 거래일까지 하락세를 이어갈까?</div>
         <div class="mooq-meta">
           결과: 중립
            · 변화폭이 중립 구간(±0.2%) 이내에 머물러 뚜렷한 방향이 나타나지 않았습니다.
@@ -614,13 +674,12 @@
       
       
       
-      <div class="mooq-totals">누적 5건 —
-        일치 1 · 불일치 2 · 중립 1 · 확인중 1</div>
+      <div class="mooq-totals">누적 6건 —
+        일치 1 · 불일치 2 · 중립 2 · 확인중 1</div>
       
-    </div>
-    <div style="text-align:center;margin:4px 0 0;">
-      <div style="font-size:12px;color:#6b7280;margin-bottom:0;">지난 질문은 어떻게 됐을까요?</div>
-      <a href="https://mooconomy.co.kr/#moo-q-check" target="_blank" style="display:inline-block;min-height:44px;line-height:44px;font-size:12.5px;font-weight:700;color:#0b2545;text-decoration:underline;">MOO:CHECK에서 결과 확인하기 →</a>
+      <div style="text-align:center;margin:6px 0 0;">
+        <a href="https://mooconomy.co.kr/#moo-q-check" target="_blank" style="display:inline-block;min-height:44px;line-height:44px;font-size:12.5px;font-weight:700;color:#0b2545;text-decoration:underline;">MOO:CHECK · 지난 질문의 누적 결과 확인하기 →</a>
+      </div>
     </div>
     
   
@@ -628,26 +687,6 @@
   <!-- 어제의 명제 — 3층 명제 검증 MVP 티저(상세 Scorecard는 홈페이지에서만).
        2026-07-23 SP1: MOO:CHECK 바로 아래로 이동(어제 명제 결과를 MOO:Q/CHECK
        클러스터에 연결). 콘텐츠·데이터 변경 없음, 위치만 이동. -->
-  
-  <div class="sec">
-    <h2>어제의 명제는 어떻게 됐을까요?</h2>
-    <div class="analysis">
-      <p>
-        판정 완료 <b>1건</b> 중
-        
-        
-        
-        <span class="claims-neutral">1건은 중립</span>
-        했습니다.
-        
-      </p>
-      
-      <p style="margin-top:8px;color:#5a6b82;">가장 눈에 띈 명제: “원/달러 환율은 다음 거래일까지 상승세를 이어갈까?”</p>
-      
-    </div>
-    <div class="comment-note">※ 실험 운영 중입니다. 판정 표본이 적어 적중률만으로 예측 성능을 판단하기 어렵습니다. 결과와 판정 근거는 홈페이지에서 확인하실 수 있습니다.</div>
-  </div>
-  
 
   <!-- Section 7: 체크포인트 섹션(2026-07-22 역할 재정의) — 단순 일정명 나열이
        아니라 이슈·조건·기준일 3단 필드로 구조화(라벨 텍스트는 아래 렌더 블록
@@ -661,18 +700,18 @@
     <div class="cp">
       <div class="cp-eyebrow">체크포인트</div>
       <span class="cp-f-lbl">관전 대상</span>
-      <div class="cp-fact">미국 GDP 발표</div>
+      <div class="cp-fact">메타(Meta) 실적발표</div>
       <span class="cp-f-lbl">확인 조건</span>
-      <div class="cp-fact">미국 경제의 성장세를 가늠할 수 있는 핵심 지표인 GDP 발표에 이목이 집중됩니다. 예상치를 상회하거나 하회할 경우 글로벌 경기 전망과 연방준비제도(Fed)의 통화 정책 스탠스에 영향을 줄 수 있어 면밀한 관찰이 필요한 구간으로 판단됩니다.</div>
-      <span class="cp-f-lbl">관련 사실 · 기준일</span><div class="cp-fact">2026-07-30</div>
+      <div class="cp-fact">글로벌 빅테크 기업의 실적 발표는 인공지능(AI) 관련 투자와 광고 시장 회복 여부를 가늠하는 중요한 지표로 여겨집니다. 메타의 실적이 국내 IT 및 플랫폼 관련 기업들의 투자 심리에 영향을 줄 수 있는지 지켜볼 필요가 있습니다.</div>
+      <span class="cp-f-lbl">관련 사실 · 기준일</span><div class="cp-fact">2026-07-29</div>
     </div>
     
     <div class="cp">
       <div class="cp-eyebrow">체크포인트</div>
       <span class="cp-f-lbl">관전 대상</span>
-      <div class="cp-fact">미국 개인소득·지출(PCE) 발표</div>
+      <div class="cp-fact">미국 개인소득·지출(PCE)</div>
       <span class="cp-f-lbl">확인 조건</span>
-      <div class="cp-fact">연준이 선호하는 물가 지표인 개인소득·지출(PCE) 발표는 인플레이션 압력과 소비 동향을 파악하는 데 중요한 단서가 됩니다. 물가 상승세 둔화 여부와 개인의 구매력 변화가 향후 금리 정책 방향에 영향을 미칠 여지가 있습니다.</div>
+      <div class="cp-fact">미국 연준이 중요하게 여기는 물가 지표인 개인소득 및 지출(PCE) 발표가 예정되어 있습니다. 이 지표는 인플레이션 압력과 연준의 통화정책 방향을 가늠하는 데 핵심적인 역할을 할 것으로 보입니다.</div>
       <span class="cp-f-lbl">관련 사실 · 기준일</span><div class="cp-fact">2026-07-30</div>
     </div>
     
@@ -683,10 +722,20 @@
     <div class="cp">
       <div class="cp-eyebrow">체크포인트</div>
       <span class="cp-f-lbl">관전 대상</span>
-      <div class="cp-fact">미국 주요 빅테크 기업 실적 발표 동향</div>
+      <div class="cp-fact">미국 무역 정책 변화와 통상 마찰</div>
       <span class="cp-f-lbl">확인 조건</span>
-      <div class="cp-fact">테슬라와 IBM이 시장의 기대에 못 미치는 실적과 가이던스를 발표하면서 기술주 전반에 대한 우려가 확산되고 있습니다.</div>
-      <span class="cp-f-lbl">관련 사실</span><div class="cp-fact">고유가·고금리 환경 속에서 알파벳 등 주요 빅테크 기업들의 실적 발표가 예정되어 있어, AI 투자 경쟁 지속 여부와 함께 국내 관련 업종에 미칠 영향이 주목됩니다.</div>
+      <div class="cp-fact">트럼프 행정부의 광범위한 신규 관세 부과와 한국의 환율 관찰대상국 재지정은 글로벌 무역 환경의 불확실성을 키울 수 있습니다.</div>
+      <span class="cp-f-lbl">관련 사실</span><div class="cp-fact">국내 수출 기업들의 통상 환경 변화에 대한 면밀한 관찰이 필요한 시점입니다.</div>
+    </div>
+    
+    
+    <div class="cp">
+      <div class="cp-eyebrow">체크포인트</div>
+      <span class="cp-f-lbl">관전 대상</span>
+      <div class="cp-fact">글로벌 빅테크 기업의 AI 투자 동향</div>
+      <span class="cp-f-lbl">확인 조건</span>
+      <div class="cp-fact">알파벳의 대규모 AI 인프라 투자 발표와 인텔의 호실적은 AI 반도체 수요에 대한 긍정적인 신호로 읽힙니다.</div>
+      <span class="cp-f-lbl">관련 사실</span><div class="cp-fact">관련 국내 반도체 및 기술주들의 흐름이 주요 관전 포인트로 꼽힙니다.</div>
     </div>
     
     
@@ -706,36 +755,36 @@
         <div class="sc-dot"></div>
         <div class="sc-role">01 · 출발 지표</div>
         <div class="sc-label">미국채10년 금리</div>
-        <div class="sc-detail">4.66% · +0.03%p 상승</div>
+        <div class="sc-detail">4.70% · +0.05%p 상승</div>
       </div>
       
       <div class="sc-node">
         <div class="sc-dot"></div>
         <div class="sc-role">02 · 동시 변화</div>
         <div class="sc-label">원/달러 환율</div>
-        <div class="sc-detail">1,476.6원 · -3.10원 하락(원화 강세)</div>
+        <div class="sc-detail">1,474.1원 · -1.51원 하락(원화 강세)</div>
       </div>
       
       <div class="sc-node">
         <div class="sc-dot"></div>
         <div class="sc-role">03 · 수급 확인</div>
         <div class="sc-label">외국인 수급</div>
-        <div class="sc-detail">코스피 +26,211억원 순매수</div>
+        <div class="sc-detail">코스피 +21,359억원 순매수</div>
       </div>
       
       <div class="sc-node">
         <div class="sc-dot"></div>
         <div class="sc-role">04 · 시장 결과</div>
         <div class="sc-label">국내 증시(코스피)</div>
-        <div class="sc-detail">6,797.70 · +0.74% 상승</div>
+        <div class="sc-detail">7,096.89 · +4.40% 상승</div>
       </div>
       
     </div>
     
-    <div class="sc-summary"><div class="sc-summary-lbl">오늘의 해석</div>미국채10년 금리 4.66% · +0.03%p 상승, 원/달러 환율 1,476.6원 · -3.10원 하락(원화 강세), 외국인 수급 코스피 +26,211억원 순매수이(가) 동시에 관찰됐으며, 국내 증시(코스피) 6,797.70 · +0.74% 상승에 영향을 준 요인 중 하나로 해석할 수 있습니다. 다만 지수 움직임에는 업종별 수급과 대외 뉴스 등 다른 요인도 함께 작용할 수 있습니다.</div>
+    <div class="sc-summary"><div class="sc-summary-lbl">오늘의 해석</div>미국채 10년 금리가 상승하는 가운데, 원/달러 환율은 하락하며 원화 강세를 보였고, 이는 외국인 투자자의 코스피 대규모 순매수와 국내 증시의 상승으로 이어지는 모습이 관찰되었습니다. 다만, 이와 같은 현상은 단순히 지표 간의 연결뿐 아니라 업종별 수급이나 대외 뉴스 등 다양한 요인이 복합적으로 작용했을 가능성이 있습니다.</div>
     
     
-    <div class="sc-counter"><div class="sc-counter-lbl">반대 시나리오</div>다만, 글로벌 증시의 전반적인 약세 흐름은 국내 증시의 상승세를 지속적으로 견인하기 어려울 수 있다는 점을 고려할 필요가 있어 보입니다.</div>
+    <div class="sc-counter"><div class="sc-counter-lbl">반대 시나리오</div>현재 나타난 긍정적인 시장 흐름에도 불구하고, 글로벌 불확실성이나 예상치 못한 외부 변수의 변화는 언제든 시장의 방향성을 바꿀 수 있다는 점에 유의할 필요가 있습니다.</div>
     
   </div>
   
@@ -751,48 +800,48 @@
     <h3 class="sub">국내 경제 주요 뉴스</h3>
     
     <div class="news">
-      <div class="n-title">금융사기 정보 공유, 피해 예방 강화</div>
-      <div class="n-body">다음 달부터 보이스피싱, 노쇼 사기 등 금융사기범과 피해자의 계좌 정보가 금융사, 통신사, 수사기관에 동시에 공유됩니다. 범죄 초기 단계부터 신속하게 대응하여 사기 피해를 줄일 것으로 기대되는 대목입니다.</div>
+      <div class="n-title">한미 '환율 관찰대상국' 재지정</div>
+      <div class="n-body">미국 정부가 한국을 환율 관찰대상국 명단에 재포함했습니다. 외환시장 개방 노력은 긍정적으로 평가했으나, 원화 약세에 대한 미국의 지속적인 관찰이 예상됩니다.</div>
       
       <div class="n-src">
         
-        <a href="https://www.mk.co.kr/news/economy/12105014" target="_blank"><span class="paper">매일경제</span><span class="src-date">2026-07-23</span>“사기범죄 계좌에 입금중”…은행·통신사·경찰 피싱정보 공유한다</a>
+        <a href="https://www.mk.co.kr/news/economy/12106276" target="_blank"><span class="paper">매일경제</span><span class="src-date">2026-07-24</span>‘원화 계속 약세’ 콕 집은 美…한국 ‘환율 관찰대상국’에 또 올려</a>
         
       </div>
       
     </div>
     
     <div class="news">
-      <div class="n-title">美 무역법 301조 관세, 韓 포함 60개국 대상</div>
-      <div class="n-body">미국 정부가 이르면 23일(현지시간) 무역법 301조에 근거한 강제노동 관세 조치를 최종 확정할 것으로 보입니다. 한국을 포함한 60개 무역 파트너국이 대상이 되는 만큼 국내 산업계에 미칠 영향에 대한 관심이 모입니다.</div>
+      <div class="n-title">빅테크 AI 투자 확대, 반도체 기대</div>
+      <div class="n-body">구글 모회사 알파벳 등 글로벌 빅테크 기업들이 AI 인프라 설비투자를 대폭 늘릴 계획을 발표했습니다. 이는 AI 메모리 수요 둔화 우려를 해소하며 삼성전자, SK하이닉스 등 국내 반도체 기업에 긍정적인 영향을 미친 것으로 풀이됩니다.</div>
       
       <div class="n-src">
         
-        <a href="https://www.mt.co.kr/world/2026/07/23/2026072306181299980" target="_blank"><span class="paper">머니투데이</span><span class="src-date">2026-07-23</span>美, 이르면 내일 '무역법 301조' 관세 발표…한국 등 60개국 대상</a>
+        <a href="https://www.fnnews.com/news/202607231925165859" target="_blank"><span class="paper">파이낸셜뉴스</span><span class="src-date">2026-07-24</span>"300조 쏟아붓는다"…알파벳 한마디에 삼성·SK 웃었다</a>
         
       </div>
       
     </div>
     
     <div class="news">
-      <div class="n-title">하도급대금 연동제, 인지 부족으로 미반영</div>
-      <div class="n-body">대·중소기업 거래 행태 개선을 위해 도입된 하도급대금 연동제에도 불구하고, 수급사업자의 41%가 제도를 인지하지 못해 계약에 반영하지 못하는 것으로 조사되었습니다. 제도의 실효성을 높이기 위한 추가적인 노력이 필요한 것으로 풀이됩니다.</div>
+      <div class="n-title">미래에셋증권 대규모 자사주 소각</div>
+      <div class="n-body">미래에셋증권이 5,024억원 규모의 자사주를 소각하는 결정을 발표했습니다. 이는 역대 최대 규모로, 주주가치 제고에 대한 시장의 긍정적인 평가가 기대되는 대목입니다.</div>
       
       <div class="n-src">
         
-        <a href="https://www.yna.co.kr/view/AKR20260722138000002" target="_blank"><span class="paper">연합뉴스</span><span class="src-date">2026-07-23</span>하도급대금 연동제에도…수급업자 41% "몰라서 계약 반영 안 해"</a>
+        <a href="https://www.yna.co.kr/view/AKR20260723184000008" target="_blank"><span class="paper">연합뉴스마켓</span><span class="src-date">2026-07-24</span>[코스피·코스닥 전 거래일(23일) 주요공시] ▲ 미래에셋증권[006800], 5천24억원 자사주 소각…"역대 최대 규모"</a>
         
       </div>
       
     </div>
     
     <div class="news">
-      <div class="n-title">노란봉투법 기준 손질, 노동쟁의 범위 재조정</div>
-      <div class="n-body">정부가 노란봉투법(개정 노동조합법) 시행 4개월 만에 노동쟁의 대상의 경계선을 재조정할 방침으로 알려졌습니다. 호남 지역 대규모 반도체 투자 등과 관련하여 사업경영상 결정 및 성과급 요구의 쟁의 대상 인정 범위가 어떻게 달라질지 주목됩니다.</div>
+      <div class="n-title">한미 조선협력센터 공식 출범</div>
+      <div class="n-body">한미 양국이 1,500억 달러 규모의 조선 협력을 위한 한미 조선협력센터(KUSPC)를 공식 출범시켰습니다. 이는 국내 조선업계의 미국 시장 진출 확대에 긍정적인 영향을 미칠 것으로 예상됩니다.</div>
       
       <div class="n-src">
         
-        <a href="https://www.fnnews.com/news/202607221825293648" target="_blank"><span class="paper">파이낸셜뉴스</span><span class="src-date">2026-07-22</span>호남반도체 ‘쟁의 차단’ 노봉법 기준 손질한다 [노란봉투법 손본다]</a>
+        <a href="https://www.fnnews.com/news/202607231458458283" target="_blank"><span class="paper">파이낸셜뉴스</span><span class="src-date">2026-07-23</span>대미 전략투자 1호 에너지 우선 논의…한미 조선협력센터 출범</a>
         
       </div>
       
@@ -803,52 +852,52 @@
     <h3 class="sub gl">해외 경제 주요 토픽</h3>
     
     <div class="news">
-      <div class="n-title">IBM, AI 투자 열기 속 매출 전망 하향</div>
-      <div class="n-body">미국 기술기업 IBM이 AI 투자 열기에서 상대적으로 소외되며 올해 연간 매출 전망을 하향 조정했습니다. 이는 기술 섹터 전반의 투자심리에 영향을 미칠 수 있으며, 국내 AI 관련주에도 간접적인 영향이 미칠 가능성이 있습니다.</div>
+      <div class="n-title">중동 긴장 고조, 국제유가 급등</div>
+      <div class="n-body">중동 지역 긴장 고조로 국제유가가 급등하며 브렌트유가 배럴당 100달러를 재돌파했습니다. 이는 글로벌 인플레이션 우려를 키우며 뉴욕 증시 하락에 영향을 미쳤으며, 국내 증시에도 원가 부담 확대 가능성이 제기됩니다.</div>
       
       <div class="n-src">
         
-        <a href="https://www.marketwatch.com/story/ibm-just-cut-its-outlook-why-its-stock-is-bouncing-anyway-9d36e22a?mod=mw_rss_topstories" target="_blank"><span class="paper">MarketWatch</span><span class="src-date">2026-07-22</span>IBM just cut its outlook, but not by as much as investors feared</a>
+        <a href="https://www.yna.co.kr/view/AKR20260724006851072" target="_blank"><span class="paper">연합뉴스마켓</span><span class="src-date">2026-07-24</span>중동 긴장·고유가에 뉴욕증시 일제히 하락…나스닥 2.2%↓(종합)</a>
         
-        <a href="https://www.cnbc.com/2026/07/22/ibm-q2-earnings-report-2026.html" target="_blank"><span class="paper">CNBC</span><span class="src-date">2026-07-22</span>IBM lowers full-year forecast after earnings warning</a>
+        <a href="https://www.investing.com/news/economy-news/asian-stocks-rise-after-us-tech-earnings-oil-at-sixweek-highs-4807381" target="_blank"><span class="paper">Investing</span><span class="src-date">2026-07-23</span>Stocks sink on Big Tech cash burn; oil hits $100 for first time since May</a>
         
       </div>
       
     </div>
     
     <div class="news">
-      <div class="n-title">이란 전쟁 여파, 유가 100달러 임박</div>
-      <div class="n-body">이란 전쟁의 격화로 에너지 시장에 충격이 가해지며 유가가 배럴당 100달러에 근접하고 있습니다. 고유가 상황은 글로벌 인플레이션 압력을 높이고 경기 둔화 우려를 심화시켜 국내 증시의 투자심리를 위축시킬 여지가 있습니다.</div>
+      <div class="n-title">미국 트럼프 행정부 신규 관세 부과</div>
+      <div class="n-body">트럼프 미국 행정부가 무역법 301조에 의거한 '강제노동 관세' 부과와 함께 60개 무역 파트너에 '전면적인' 신규 관세 부과를 발표했습니다. 이는 글로벌 무역 긴장을 다시 고조시키며 국내 수출 기업에 불확실성을 가중시킬 가능성이 있습니다.</div>
       
       <div class="n-src">
         
-        <a href="https://www.cnbc.com/2026/07/22/iran-war-energy-markets-gas-diesel-prices-us-economy-analysis.html" target="_blank"><span class="paper">CNBC</span><span class="src-date">2026-07-22</span>Analysis: Iran war energy shock hits the U.S. economy as gas and diesel prices climb</a>
+        <a href="https://www.mk.co.kr/news/economy/12106263" target="_blank"><span class="paper">매일경제</span><span class="src-date">2026-07-24</span>[속보] 미국 USTR, 무역법 301조 ‘강제노동 관세’ 부과</a>
         
-        <a href="https://www.investing.com/news/economy-news/trading-day-100-oil-looms-4807079" target="_blank"><span class="paper">Investing</span><span class="src-date">2026-07-22</span>Trading Day: $100 oil looms</a>
+        <a href="https://www.cnbc.com/2026/07/23/trump-tariffs-trade-deadline.html" target="_blank"><span class="paper">CNBC</span><span class="src-date">2026-07-23</span>Trump to slap 'sweeping' new tariffs on 60 trade partners as global duties expire</a>
         
       </div>
       
     </div>
     
     <div class="news">
-      <div class="n-title">美 의회, 중국 자동차 규제 법안 추진</div>
-      <div class="n-body">미국 상원 위원회에서 중국산 자동차를 규제하는 법안이 추진되고 있으며, 이는 중국 국영기업이 주요 주주인 메르세데스-벤츠 같은 기업에도 영향을 미칠 수 있습니다. 글로벌 자동차 산업의 공급망 및 통상 환경 변화가 국내 자동차 및 부품 업종에도 영향을 줄지 살펴볼 필요가 있습니다.</div>
+      <div class="n-title">인텔 실적 호조, AI 반도체 기대감</div>
+      <div class="n-body">인텔이 예상을 뛰어넘는 실적을 발표하며 주가가 급등했습니다. AI 붐에 힘입어 15년 만에 가장 빠른 매출 성장을 기록한 것으로, 국내 반도체 관련 기업들의 투자 심리에도 긍정적인 영향을 미칠 것으로 보입니다.</div>
       
       <div class="n-src">
         
-        <a href="https://www.cnbc.com/2026/07/22/ted-cruz-china-auto-bill-mercedes-benz-gm.html" target="_blank"><span class="paper">CNBC</span><span class="src-date">2026-07-22</span>Senate panel advances China auto bill that could bar Mercedes-Benz from U.S.</a>
+        <a href="https://www.cnbc.com/2026/07/23/intel-intc-earnings-report-q2-2026.html" target="_blank"><span class="paper">CNBC</span><span class="src-date">2026-07-23</span>Intel's stock jumps as chipmaker rides AI boom to fastest revenue growth in almost 15 years</a>
         
       </div>
       
     </div>
     
     <div class="news">
-      <div class="n-title">AI 주식 매도세에도 시장은 여전히 기대</div>
-      <div class="n-body">최근 AI 관련 주식의 매도세가 나타났으나, 일부 스마트 투자자들은 이를 매수 기회로 보고 있다는 분석이 나옵니다. AI 기술의 장기적인 성장 잠재력에 대한 기대는 여전히 유효하며, 국내 AI 관련 기술주에도 투자심리 측면에서 긍정적인 여지를 남깁니다.</div>
+      <div class="n-title">미 주택담보대출 금리 11개월來 최고</div>
+      <div class="n-body">중동 위기 재고조에 따른 국제유가 반등이 인플레이션 상승 우려를 키우면서 미국의 주택담보대출 금리가 11개월 만에 최고치를 기록했습니다. 이는 미국 연준의 금리 인하 기대감을 약화시키고, 긴축 장기화 가능성을 시사하는 대목으로 풀이됩니다.</div>
       
       <div class="n-src">
         
-        <a href="https://www.marketwatch.com/story/yes-the-ai-stock-selloff-looks-terrifying-but-it-might-actually-save-the-bull-market-3bef59be?mod=mw_rss_topstories" target="_blank"><span class="paper">MarketWatch</span><span class="src-date">2026-07-22</span>Yes, the AI stock selloff looks terrifying. But it might actually save the bull market.</a>
+        <a href="https://www.yna.co.kr/view/AKR20260724008900072" target="_blank"><span class="paper">연합뉴스</span><span class="src-date">2026-07-24</span>인플레 우려에 미 주택담보대출 금리 11개월 만에 최고</a>
         
       </div>
       
@@ -864,34 +913,34 @@
     <h2>주목할 공시·실적</h2>
     
     <div class="insight">
-      <div class="i-title">[게임] 주요 게임사 2분기 실적 발표 예고</div>
-      <div class="i-detail">카카오게임즈, 컴투스홀딩스, 컴투스 등 코스닥 상장 게임사들이 2분기 결산 실적 공시를 예고했습니다. 이는 게임 산업의 전반적인 실적 흐름을 확인하고, 하반기 신작 모멘텀과 시장 경쟁 구도를 가늠하는 계기가 될 것으로 보입니다.</div>
+      <div class="i-title">[반도체] 주요 부품사 잠정실적 발표</div>
+      <div class="i-detail">한솔아이원스와 유진테크놀로지 등 반도체 부품 및 장비 기업들이 잠정 실적을 발표했습니다. 이는 최근 빅테크 기업들의 AI 투자 확대 기조 속에서 반도체 업황 개선 여부를 가늠하는 중요한 지표로 여겨집니다.</div>
       
-      <div class="fi-meta">근거 · DART 공시 주요공시 15건 · 실적공시 15건 · 기준일 20260722</div>
-      
-    </div>
-    
-    <div class="insight">
-      <div class="i-title">[건설] 대형 건설사 2분기 잠정 실적 예고</div>
-      <div class="i-detail">DL이앤씨, DL, GS건설, 대우건설 등 유가증권시장 상장 건설사들이 2분기 결산 실적 공시를 안내했습니다. 이는 고금리, 부동산 경기 둔화 등 어려운 환경 속에서 건설사들의 수익성 및 재무 건전성을 점검하는 중요한 지표로 활용될 대목입니다.</div>
-      
-      <div class="fi-meta">근거 · DART 공시 주요공시 15건 · 실적공시 15건 · 기준일 20260722</div>
+      <div class="fi-meta">근거 · DART 공시 주요공시 15건 · 실적공시 15건 · 기준일 20260723</div>
       
     </div>
     
     <div class="insight">
-      <div class="i-title">[금융] 은행·증권사 2분기 잠정 실적 발표 주목</div>
-      <div class="i-detail">제주은행이 연결재무제표 기준 영업 잠정 실적을 공시했으며, 키움증권은 결산 실적 공시를 예고했습니다. 기준금리 상승 및 부동산 시장 변동성 확대 등 거시경제 변화가 은행과 증권사의 실적에 어떤 영향을 미 미쳤는지 확인하는 시간이 될 것으로 판단됩니다.</div>
+      <div class="i-title">[바이오·제약] 주요 기업 실적 공시 예고</div>
+      <div class="i-detail">HK이노엔, 에스티팜, 제이브이엠 등 바이오·제약 관련 기업들이 결산 실적 공시 예고를 발표했습니다. 해당 기업들의 실적은 하반기 제약·바이오 섹터의 투자심리에 영향을 줄 수 있는 변수로 판단됩니다.</div>
       
-      <div class="fi-meta">근거 · DART 공시 주요공시 15건 · 실적공시 15건 · 기준일 20260722</div>
+      <div class="fi-meta">근거 · DART 공시 주요공시 15건 · 실적공시 15건 · 기준일 20260723</div>
       
     </div>
     
     <div class="insight">
-      <div class="i-title">[화학·소재·디스플레이] 주요 기업 2분기 실적 윤곽 드러나</div>
-      <div class="i-detail">OCI, 유니드, 코스모신소재, LG디스플레이 등 화학, 소재, 디스플레이 관련 주요 기업들이 2분기 잠정 실적을 발표하거나 예고했습니다. 이는 글로벌 경기 둔화와 원자재 가격 변동성이 이들 산업에 미친 영향을 확인하고, 하반기 업황 회복 가능성을 탐색하는 신호로 읽힙니다.</div>
+      <div class="i-title">[건설] 건설업계 잠정실적 발표 이어져</div>
+      <div class="i-detail">SGC E&C와 IPARK현대산업개발 등 건설 관련 기업들의 잠정 실적이 공시되었습니다. 이는 건설 업황의 현재 상황을 반영하며, 향후 정부 정책 및 부동산 시장 변화와 함께 건설 섹터의 움직임을 살펴보는 계기가 될 것으로 보입니다.</div>
       
-      <div class="fi-meta">근거 · DART 공시 주요공시 15건 · 실적공시 15건 · 기준일 20260722</div>
+      <div class="fi-meta">근거 · DART 공시 주요공시 15건 · 실적공시 15건 · 기준일 20260723</div>
+      
+    </div>
+    
+    <div class="insight">
+      <div class="i-title">[금융] JB금융지주 잠정실적 공개</div>
+      <div class="i-detail">JB금융지주를 비롯한 금융 섹터 기업의 잠정실적이 발표되었습니다. 금리 인상 사이클과 경기 불확실성 속에서 금융회사의 실적은 전반적인 금융 시장 건전성과 투자 심리에 영향을 미칠 수 있습니다.</div>
+      
+      <div class="fi-meta">근거 · DART 공시 주요공시 15건 · 실적공시 15건 · 기준일 20260723</div>
       
     </div>
     
@@ -905,20 +954,20 @@
   
   <div class="sec">
     <h2>국내 증시</h2>
-    <div class="key">코스피 외국인 매수세 유입 속 상승, 코스닥은 하락 마감</div>
+    <div class="key">외국인 순매수에 힘입어 코스피·코스닥 동반 급등</div>
     <table>
       <tr><th>지수</th><th class="num">종가</th><th class="num">등락률</th></tr>
       
         
         
-        <tr><td>코스피</td><td class="num"><b>6797.7</b></td>
-            <td class="num"><span class="up">▲ +0.74%</span></td></tr>
+        <tr><td>코스피</td><td class="num"><b>7096.89</b></td>
+            <td class="num"><span class="up">▲ +4.40%</span></td></tr>
         
       
         
         
-        <tr><td>코스닥</td><td class="num"><b>751.09</b></td>
-            <td class="num"><span class="down">▼ -0.30%</span></td></tr>
+        <tr><td>코스닥</td><td class="num"><b>790.28</b></td>
+            <td class="num"><span class="up">▲ +5.22%</span></td></tr>
         
       
     </table>
@@ -938,7 +987,7 @@
             
             <td class="num">
             
-              <span class="down">-12,176</span>
+              <span class="down">-22,077</span>
               
             
             </td>
@@ -946,7 +995,7 @@
             
             <td class="num">
             
-              <span class="up">+26,211</span>
+              <span class="up">+21,359</span>
               
             
             </td>
@@ -954,7 +1003,7 @@
             
             <td class="num">
             
-              <span class="down">-13,963</span>
+              <span class="up">+976</span>
               
             
             </td>
@@ -970,7 +1019,7 @@
             
             <td class="num">
             
-              <span class="up">+2,636</span>
+              <span class="down">-2,373</span>
               
             
             </td>
@@ -978,7 +1027,7 @@
             
             <td class="num">
             
-              <span class="down">-815</span>
+              <span class="up">+1,675</span>
               
             
             </td>
@@ -986,7 +1035,7 @@
             
             <td class="num">
             
-              <span class="down">-1,914</span>
+              <span class="up">+643</span>
               
             
             </td>
@@ -998,7 +1047,7 @@
     
 
     
-    <div class="analysis"><div class="a-lbl">상세 분석</div><p>지난 거래일(2026-07-22) 국내 증시는 코스피가 외국인의 매수세에 힘입어 빨간불을 켰습니다. 코스피는 전일 대비 +0.74% 상승한 6797.7로 마감하며 373,810,110주의 거래량을 기록했습니다. 반면 코스닥은 전일 대비 -0.3% 하락한 751.09로 마감하며 501,117,725주의 거래량을 보였습니다. 수급별로는 코스피 시장에서 외국인이 +26,211억원 순매수하며 시장 상승을 견인한 반면, 개인은 -12,176억원, 기관계는 -13,963억원 순매도를 기록했습니다. 코스닥 시장에서는 개인이 +2,636억원 순매수했으나 외국인 -815억원, 기관계 -1,914억원 순매도로 지수 하락 압력이 작용한 것으로 풀이됩니다. 업종별로는 무선통신서비스(+8.45%), 기계(+5.49%), 전자제품(+5.45%) 등이 강세를 보인 반면, 문구류(-20.08%), 생물공학(-3.65%), 건강관리장비와용품(-3.21%) 등은 하락세를 나타냈습니다.</p></div>
+    <div class="analysis"><div class="a-lbl">상세 분석</div><p>지난 거래일(2026-07-23) 기준, 코스피는 전일 대비 4.4% 상승한 7096.89, 코스닥은 5.22% 상승한 790.28을 기록하며 동반 급등했습니다. 코스피에서는 외국인 +21,359억원, 기관계 +976억원 순매수, 개인 -22,077억원 순매도를 보였습니다. 코스닥 역시 외국인 +1,675억원, 기관계 +643억원 순매수, 개인 -2,373억원 순매도로 마감했습니다. 에너지장비및서비스(+16.39%), 전기장비(+11.53%), 건설(+9.95%) 업종이 크게 상승한 반면, 문구류(-5.41%)는 하락했습니다. 국내 증시는 글로벌 증시 하락세와는 대조적으로 강한 반등세를 보였으며, 특히 외국인과 기관의 동반 순매수가 시장 상승을 견인하는 모습입니다. 빅테크 기업들의 AI 투자 확대 소식이 국내 반도체 관련 종목들의 상승을 부추긴 것으로 풀이됩니다.</p></div>
     
   </div>
   
@@ -1008,73 +1057,73 @@
   
   <div class="sec">
     <h2>간밤 미국·글로벌</h2>
-    <div class="key">미국 증시 기술주 부진에 혼조세, 유가 및 금 가격 상승</div>
+    <div class="key">고유가와 금리인상 우려에 미국 주요 지수 일제히 하락</div>
     <table>
       <tr><th>지표</th><th class="num">종가</th><th class="num">등락률</th></tr>
       
         
-        <tr><td>다우</td><td class="num"><b>52218.58</b></td>
-            <td class="num"><span class="down">▼ -0.01%</span></td></tr>
+        <tr><td>다우</td><td class="num"><b>51711.65</b></td>
+            <td class="num"><span class="down">▼ -0.97%</span></td></tr>
         
       
         
-        <tr><td>S&P500</td><td class="num"><b>7498.96</b></td>
-            <td class="num"><span class="down">▼ -0.14%</span></td></tr>
+        <tr><td>S&P500</td><td class="num"><b>7408.3</b></td>
+            <td class="num"><span class="down">▼ -1.21%</span></td></tr>
         
       
         
-        <tr><td>나스닥</td><td class="num"><b>25690.9</b></td>
-            <td class="num"><span class="down">▼ -0.57%</span></td></tr>
+        <tr><td>나스닥</td><td class="num"><b>25137.69</b></td>
+            <td class="num"><span class="down">▼ -2.15%</span></td></tr>
         
       
         
-        <tr><td>닛케이</td><td class="num"><b>66232.19</b></td>
-            <td class="num"><span class="up">▲ +3.26%</span></td></tr>
+        <tr><td>닛케이</td><td class="num"><b>66115.6</b></td>
+            <td class="num"><span class="down">▼ -0.18%</span></td></tr>
         
       
         
-        <tr><td>상해종합</td><td class="num"><b>3864.37</b></td>
-            <td class="num"><span class="up">▲ +1.79%</span></td></tr>
+        <tr><td>상해종합</td><td class="num"><b>3867.03</b></td>
+            <td class="num"><span class="up">▲ +0.07%</span></td></tr>
         
       
         
-        <tr><td>원/달러</td><td class="num"><b>1476.62</b></td>
-            <td class="num"><span class="down">▼ -0.21%</span></td></tr>
+        <tr><td>원/달러</td><td class="num"><b>1474.12</b></td>
+            <td class="num"><span class="down">▼ -0.10%</span></td></tr>
         
       
         
-        <tr><td>WTI</td><td class="num"><b>86.48</b></td>
-            <td class="num"><span class="up">▲ +1.85%</span></td></tr>
+        <tr><td>WTI</td><td class="num"><b>92.36</b></td>
+            <td class="num"><span class="up">▲ +6.37%</span></td></tr>
         
       
         
-        <tr><td>브렌트유</td><td class="num"><b>93.88</b></td>
-            <td class="num"><span class="up">▲ +3.15%</span></td></tr>
+        <tr><td>브렌트유</td><td class="num"><b>100.55</b></td>
+            <td class="num"><span class="up">▲ +6.89%</span></td></tr>
         
       
         
-        <tr><td>금</td><td class="num"><b>4135.0</b></td>
-            <td class="num"><span class="up">▲ +1.57%</span></td></tr>
+        <tr><td>금</td><td class="num"><b>4052.3</b></td>
+            <td class="num"><span class="down">▼ -2.28%</span></td></tr>
         
       
         
-        <tr><td>VIX</td><td class="num"><b>16.64</b></td>
-            <td class="num"><span class="down">▼ -2.40%</span></td></tr>
+        <tr><td>VIX</td><td class="num"><b>18.7</b></td>
+            <td class="num"><span class="up">▲ +12.38%</span></td></tr>
         
       
         
-        <tr><td>미국채10년</td><td class="num"><b>4.66</b></td>
-            <td class="num"><span class="up">▲ +0.63%</span></td></tr>
+        <tr><td>미국채10년</td><td class="num"><b>4.7</b></td>
+            <td class="num"><span class="up">▲ +0.99%</span></td></tr>
         
       
         
-        <tr><td>달러인덱스</td><td class="num"><b>101.13</b></td>
-            <td class="num"><span class="down">▼ -0.05%</span></td></tr>
+        <tr><td>달러인덱스</td><td class="num"><b>101.44</b></td>
+            <td class="num"><span class="up">▲ +0.30%</span></td></tr>
         
       
     </table>
     
-    <div class="analysis"><div class="a-lbl">상세 분석</div><p>지난 거래일(2026-07-22) 뉴욕 증시는 주요 기업들의 실적 우려와 유가 상승 압력 속에 혼조세를 보였습니다. 다우 지수는 -0.01% 하락한 52218.58, S&P500 지수도 -0.14% 하락한 7498.96을 기록했으며, 나스닥 지수는 기술주 부진의 영향으로 -0.57% 하락한 25690.9로 마감했습니다. 아시아 증시 중 닛케이 지수는 2026-07-21 기준 +3.26% 상승한 66232.19, 상해종합 지수는 2026-07-21 기준 +1.79% 상승한 3864.37을 기록했습니다. 국제 유가는 이란 전쟁 우려로 급등하며 WTI는 +1.85% 상승한 86.48달러, 브렌트유는 +3.15% 상승한 93.88달러를 나타냈습니다. 국제 금 가격 또한 +1.57% 상승한 4135.0달러를 기록했습니다. 원/달러 환율은 -0.21% 하락한 1476.62원을 기록하며 원화 가치가 소폭 강세를 보였습니다. 시장의 변동성 지표인 VIX는 -2.4% 하락한 16.64를 기록하며 위험 선호 심리가 다소 회복되는 모습이었으나, 미국채 10년물 금리는 +0.03%p 상승한 4.66%를 나타내며 긴축 경계감이 유지되는 흐름이 관찰됩니다. 달러인덱스는 -0.05% 하락한 101.13을 기록하며 달러화의 약세가 나타났습니다. 이 같은 흐름은 외국인 자금의 국내 유입 가능성에 긍정적인 요인이 될 수 있지만, 높은 미국채 금리는 여전히 부담으로 작용할 여지가 있습니다.</p></div>
+    <div class="analysis"><div class="a-lbl">상세 분석</div><p>지난 거래일(2026-07-23) 기준, 뉴욕 증시는 다우(-0.97%), S&P500(-1.21%), 나스닥(-2.15%) 모두 하락했습니다. 아시아 증시에서는 닛케이(-0.18%)가 하락한 반면 상해종합(+0.07%)은 강보합을 나타냈습니다. 국제유가는 중동 긴장 고조로 WTI가 6.37% 상승한 92.36달러, 브렌트유는 6.89% 상승한 100.55달러를 기록하며 배럴당 100달러를 재돌파했습니다. 변동성 지수(VIX)는 전일 대비 12.38% 상승한 18.7을 기록했으며, 미국채 10년물 금리는 0.05%p 상승한 4.70%를 보였습니다. 달러인덱스도 0.3% 상승한 101.44를 기록했습니다. 간밤 뉴욕 증시는 국제유가 급등과 거대 기술 기업들의 AI 관련 불확실성으로 인해 하락 압력을 받은 것으로 풀이됩니다.</p></div>
     
   </div>
   
@@ -1083,7 +1132,7 @@
   
   <div class="sec">
     <h2>거시·채권·금리</h2>
-    <div class="key">한미 금리차 확대 속 국내 물가 불안정 지속</div>
+    <div class="key">미국 인플레이션 우려 고조 속 한미 금리차 및 환율 변동성 주시</div>
     <div class="key" style="background:#fafbfc;border-left-color:#8a94a3;color:#8a94a3;">
       같은 지표는 같은 행에서 한·미를 비교합니다. 한쪽에만 있는 지표는 ― 로 표시됩니다.
       미국 지표 옆 날짜는 발표 기준월입니다. 이 표의 미국채 수치는 美 연준 FRED
@@ -1100,7 +1149,7 @@
       <!-- 기준금리 -->
       <tr>
         <td>기준금리</td>
-        <td class="num"><b>2.75%</b></td>
+        <td class="num"><b>―</b></td>
         <td class="num"><b>3.75%</b>
           <div style="color:#8a94a3;font-size:12px;font-weight:400;">2026-07-22</div></td>
       </tr>
@@ -1108,26 +1157,26 @@
       <tr>
         <td>국채 2년물</td>
         <td class="num"><b>―</b></td>
-        <td class="num"><b>4.26%</b>
-          <div style="color:#8a94a3;font-size:12px;font-weight:400;">2026-07-21</div></td>
+        <td class="num"><b>4.31%</b>
+          <div style="color:#8a94a3;font-size:12px;font-weight:400;">2026-07-22</div></td>
       </tr>
       <!-- 국고채 3년물 (한국만) -->
       <tr>
         <td>국고채 3년물</td>
-        <td class="num"><b>3.91%</b></td>
+        <td class="num"><b>―</b></td>
         <td class="num"><b>―</b></td>
       </tr>
       <!-- 국채 10년물 -->
       <tr>
         <td>국채 10년물<span style="display:block;color:#8a94a3;font-size:12px;font-weight:400;">(FRED 기준, 실시간 시세는 위 지표 카드 참고)</span></td>
-        <td class="num"><b>4.39%</b></td>
-        <td class="num"><b>4.63%</b>
-          <div style="color:#8a94a3;font-size:12px;font-weight:400;">2026-07-21</div></td>
+        <td class="num"><b>―</b></td>
+        <td class="num"><b>4.67%</b>
+          <div style="color:#8a94a3;font-size:12px;font-weight:400;">2026-07-22</div></td>
       </tr>
       <!-- 소비자물가 YoY -->
       <tr>
         <td>소비자물가(YoY)</td>
-        <td class="num"><b>3.16%</b></td>
+        <td class="num"><b>―</b></td>
         <td class="num"><b>3.73%</b>
           <div style="color:#8a94a3;font-size:12px;font-weight:400;">2026-06-01</div></td>
       </tr>
@@ -1148,7 +1197,7 @@
     </table>
 
     
-    <div class="analysis"><div class="a-lbl">상세 분석</div><p>지난 거래일(2026-07-22) 한국 국고채 3년물 금리는 전일 대비 +0.05%p 상승한 3.91%를, 국고채 10년물 금리는 전일 대비 +0.07%p 상승한 4.39%를 기록했습니다. 한국은행 기준금리는 2026-07-20 기준 2.75%를 유지하고 있습니다. 미국 기준금리(정책금리 상단)는 2026-07-22 기준 3.75%로 한국 기준금리 대비 높은 수준을 유지하며, 한미 금리차가 지속되는 모습입니다. 미국 국채 2년물 금리는 2026-07-21 기준 4.26%를 기록했습니다. 한국의 2026년 6월 소비자물가 총지수는 전월 대비 +0.07% 상승한 119.99를 기록했으며, 전년 동월 대비 상승률(YoY)은 3.16%로 여전히 높은 수준을 유지하고 있습니다. 미국의 2026년 6월 소비자물가(CPI) 전년 동월 대비 상승률은 3.73%를, 2026년 5월 근원 PCE 물가는 3.41%를 기록하며 높은 물가 압력이 지속되는 모습을 보입니다. 실업률의 경우 한국은 2026년 5월 기준 2.8%로 안정적인 반면, 미국은 2026년 6월 기준 4.2%로 전월 대비 -0.1%p 하락하며 노동 시장의 견조함을 시사하는 대목입니다. 글로벌 고금리 기조와 높은 물가 수준은 국내 통화 정책에도 영향을 미칠 수 있는 요인으로 판단됩니다.</p></div>
+    <div class="analysis"><div class="a-lbl">상세 분석</div><p>미국 기준금리(정책금리 상단)는 2026년 7월 22일 기준 3.75%로 유지되고 있습니다. 미국채 10년물 금리는 전일 대비 +0.05%p 상승한 4.70%를 기록하며 인플레이션 우려가 고조되는 모습입니다. 원달러 환율은 전일 대비 -0.1% 하락한 1474.12원으로 소폭 하락하며 원화 약세 흐름 속에서 일시적인 진정세가 관찰됩니다. 반면 달러인덱스는 전일 대비 +0.3% 상승한 101.44를 기록했습니다. 한국 실업률은 2026년 5월 기준 2.8%로 안정적인 수준을 유지하고 있으나, 미국 물가 지표와 금리 흐름은 한미 금리차 및 글로벌 유동성 환경에 중요한 변수로 작용할 수 있습니다. 특히 한국이 미국의 환율 관찰대상국으로 재지정된 점은 향후 원화의 방향성에 중요한 대목으로 보입니다.</p></div>
     
   </div>
   
@@ -1156,6 +1205,48 @@
   <!-- 미국 실적 캘린더 — 예정·완료 두 그룹으로 분리(2026-07-22). 여러 날에 걸친
        아카이브(웹 별도 저장소)는 이번 라운드 범위 밖으로 명시 보류(§14 참고,
        fixture/mock 없이 이번 발행에 실제로 존재하는 payload만 예정/결과로 나눔) -->
+  
+  
+  
+  <div class="sec">
+    <h2>미국 실적 발표 캘린더</h2>
+    <div class="key">미국 현지 발표 일정 기준입니다. EPS 예상치는 시장 컨센서스이며 확정치가 아닙니다. 발표 완료 건만 실제치가 표시됩니다.</div>
+
+    
+    
+    
+    
+    <h3 class="sub ntr">발표 예정</h3>
+    <table class="earn-table">
+      <tr><th>기업</th><th>발표일</th><th>시간대</th><th class="num">EPS 예상</th><th class="num">EPS 실제</th><th class="num">상태</th></tr>
+      
+      <tr>
+        <td><b>메타</b> <span style="color:#8a94a3;font-size:12px;">(META)</span></td>
+        <td>2026-07-29</td>
+        <td>장 마감 후</td>
+        <td class="num">$7.38</td>
+        <td class="num">―</td>
+        <td class="num">발표 예정</td>
+      </tr>
+      
+    </table>
+    <div class="earn-mobile">
+      
+      <div class="earn-card">
+        <div class="earn-row1">
+          <span class="earn-co"><b>메타</b><span class="earn-tk">(META)</span></span>
+          <span class="earn-dt">2026-07-29 · 장 마감 후</span>
+        </div>
+        <div class="earn-row2">
+          <span class="earn-eps">예상 $7.38 / 실제 ―</span>
+          <span class="earn-status">발표 예정</span>
+        </div>
+      </div>
+      
+    </div>
+    
+    
+  </div>
   
 
   <!-- 오늘의 타임라인(조건부, 2026-07-22 재정의) — 스펙 §15는 "시간이 특정된
@@ -1177,10 +1268,10 @@
     
     <h3 class="sub ntr">예정 일정</h3>
     
-    <div class="sch-item sch-upcoming sch-high">
-      <span class="sch-date">2026-07-30</span>
-      <span class="sch-title">미국 GDP</span>
-      <span class="sch-badge">주요</span>
+    <div class="sch-item sch-upcoming ">
+      <span class="sch-date">2026-07-29</span>
+      <span class="sch-title">메타 실적발표</span>
+      
     </div>
     
     <div class="sch-item sch-upcoming sch-high">
@@ -1198,7 +1289,7 @@
   <div class="sec">
     <h2>리스크 요인</h2>
     <div class="risk"><ul>
-      <li>미국발 강제노동 관세 조치 등 보호무역주의 확산 우려</li><li>글로벌 인플레이션 압력 가중 및 주요국 통화 긴축 장기화 가능성</li><li>미국 빅테크 기업 실적 부진에 따른 기술주 투자심리 위축</li>
+      <li>중동 긴장 고조에 따른 고유가 지속 및 글로벌 인플레이션 심화 우려</li><li>미국 트럼프 행정부의 무역 관세 확대 등 통상 마찰 가능성 고조</li>
     </ul></div>
   </div>
   
@@ -1207,7 +1298,7 @@
   
   <div class="sec">
     <h2>오늘의 관전 코멘트</h2>
-    <div class="comment">글로벌 무역 정책과 주요국 기업 실적 발표가 국내 증시의 방향성을 결정하는 핵심 변수로 작용할 것으로 보입니다.</div>
+    <div class="comment">고유가와 글로벌 금리 경계감이 높아지는 가운데, 국내 증시는 외국인 순매수에 힘입어 AI 반도체 관련 섹터를 중심으로 차별적인 흐름을 이어갈 것으로 보입니다.</div>
     <div class="comment-note">※ 위 내용은 시장 상황에 대한 관점·참고 정보이며, 특정 종목의 매매를 권유하지 않습니다. 투자 판단과 책임은 이용자 본인에게 있습니다.</div>
   </div>
   

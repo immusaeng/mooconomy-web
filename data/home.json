@@ -1,18 +1,19 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-23T06:43:08+09:00",
-  "publishDate": "2026-07-23",
-  "marketDateKr": "2026-07-22",
-  "marketDateUs": "2026-07-22",
+  "generatedAt": "2026-07-24T06:44:16+09:00",
+  "publishDate": "2026-07-24",
+  "marketDateKr": "2026-07-23",
+  "marketDateUs": "2026-07-23",
   "isDelayed": true,
   "status": "ok",
   "marketTemperature": {
-    "label": "risk_on",
-    "displayLabel": "위험선호",
-    "summary": "국내 증시는 0.74% 상승하고 외국인의 코스피 순매수가 26,211억원 기록하며 위험선호 분위기가 관찰됩니다. 이러한 흐름은 시장에 긍정적인 영향을 미친 것으로 보입니다.",
+    "label": "neutral",
+    "displayLabel": "중립",
+    "summary": "간밤 미국 증시가 하락했음에도 불구하고, 국내 증시는 큰 폭으로 상승하며 중립적인 시장 온도를 나타내고 있습니다. 특히 외국인 투자자들의 코스피 순매수가 관찰됩니다.",
     "reasons": [
-      "국내 증시 +0.74% 상승",
-      "외국인 코스피 순매수 26,211억원"
+      "간밤 미국 증시 평균 -1.44% 하락",
+      "국내 증시 +4.40% 상승",
+      "외국인 코스피 순매수 21,359억원"
     ],
     "watchItems": [
       "원/달러 환율",
@@ -24,19 +25,19 @@
     {
       "id": "overnight-global",
       "title": "간밤 글로벌 시장",
-      "text": "나스닥 -0.57%, S&P500 -0.14%, 다우 -0.01%, VIX 16.64, 미국채10년 4.66%.",
+      "text": "간밤 글로벌 증시는 나스닥이 -2.15% 하락하는 등 전반적으로 약세를 보였으며, 미국채 10년 금리는 4.70%를 기록했습니다.",
       "status": "ok"
     },
     {
       "id": "today-domestic",
       "title": "전일 국내 시장",
-      "text": "코스피 +0.74%, 코스닥 -0.30%, 외국인 코스피 순매수 26,211억원, 원/달러 -0.21%.",
+      "text": "전일 국내 증시는 코스피와 코스닥 모두 크게 상승했으며, 외국인 투자자들이 코스피에서 21,359억 원 순매수하는 흐름이 관찰되었습니다.",
       "status": "ok"
     },
     {
       "id": "today-checkpoint",
       "title": "오늘의 체크포인트",
-      "text": "간밤 글로벌 시장의 약세에도 불구하고 국내 증시는 외국인 순매수에 힘입어 상승하는 흐름이 나타났으며, 시장은 원/달러 환율과 외국인 수급의 방향성을 중요한 지표로 주시하는 분위기입니다.",
+      "text": "간밤 글로벌 시장의 약세에도 불구하고 국내 증시는 크게 반등했으나, 경기 침체 및 유동성 스트레스 관련 신호들은 앞으로 원/달러 환율과 외국인 수급의 흐름을 지켜볼 필요가 있다는 점을 시사하는 분위기입니다.",
       "status": "ok"
     }
   ],
@@ -44,23 +45,23 @@
     "nodes": [
       {
         "label": "미국채10년 금리",
-        "detail": "4.66% · +0.03%p 상승"
+        "detail": "4.70% · +0.05%p 상승"
       },
       {
         "label": "원/달러 환율",
-        "detail": "1,476.6원 · -3.10원 하락(원화 강세)"
+        "detail": "1,474.1원 · -1.51원 하락(원화 강세)"
       },
       {
         "label": "외국인 수급",
-        "detail": "코스피 +26,211억원 순매수"
+        "detail": "코스피 +21,359억원 순매수"
       },
       {
         "label": "국내 증시(코스피)",
-        "detail": "6,797.70 · +0.74% 상승"
+        "detail": "7,096.89 · +4.40% 상승"
       }
     ],
-    "summary": "미국채10년 금리 4.66% · +0.03%p 상승, 원/달러 환율 1,476.6원 · -3.10원 하락(원화 강세), 외국인 수급 코스피 +26,211억원 순매수이(가) 동시에 관찰됐으며, 국내 증시(코스피) 6,797.70 · +0.74% 상승에 영향을 준 요인 중 하나로 해석할 수 있습니다. 다만 지수 움직임에는 업종별 수급과 대외 뉴스 등 다른 요인도 함께 작용할 수 있습니다.",
-    "counterScenario": "다만, 글로벌 증시의 전반적인 약세 흐름은 국내 증시의 상승세를 지속적으로 견인하기 어려울 수 있다는 점을 고려할 필요가 있어 보입니다.",
+    "summary": "미국채 10년 금리가 상승하는 가운데, 원/달러 환율은 하락하며 원화 강세를 보였고, 이는 외국인 투자자의 코스피 대규모 순매수와 국내 증시의 상승으로 이어지는 모습이 관찰되었습니다. 다만, 이와 같은 현상은 단순히 지표 간의 연결뿐 아니라 업종별 수급이나 대외 뉴스 등 다양한 요인이 복합적으로 작용했을 가능성이 있습니다.",
+    "counterScenario": "현재 나타난 긍정적인 시장 흐름에도 불구하고, 글로벌 불확실성이나 예상치 못한 외부 변수의 변화는 언제든 시장의 방향성을 바꿀 수 있다는 점에 유의할 필요가 있습니다.",
     "status": "ok"
   },
   "koreaWatch": {
@@ -68,55 +69,70 @@
       {
         "id": "foreign",
         "label": "외국인 수급",
-        "value": 26211,
-        "displayValue": "+26,211억원",
+        "value": 21359,
+        "displayValue": "+21,359억원",
         "direction": "up",
         "status": "ok"
       },
       {
         "id": "institution",
         "label": "기관 수급",
-        "value": -13963,
-        "displayValue": "-13,963억원",
-        "direction": "down",
+        "value": 976,
+        "displayValue": "+976억원",
+        "direction": "up",
         "status": "ok"
       },
       {
         "id": "individual",
         "label": "개인 수급",
-        "value": -12176,
-        "displayValue": "-12,176억원",
+        "value": -22077,
+        "displayValue": "-22,077억원",
         "direction": "down",
         "status": "ok"
       },
       {
         "id": "usdkrw",
         "label": "원/달러",
-        "value": 1476.62,
-        "displayValue": "1,476.6원",
+        "value": 1474.12,
+        "displayValue": "1,474.1원",
         "direction": "down",
         "status": "ok"
       },
       {
         "id": "leading-sector",
         "label": "주도 업종",
-        "value": 8.45,
-        "displayValue": "무선통신서비스 +8.45%",
+        "value": 16.39,
+        "displayValue": "에너지장비및서비스 +16.39%",
         "direction": "up",
         "status": "ok"
       }
     ],
-    "summary": "전일 국내 시장에서는 외국인이 26,211억원 순매수하며 수급을 견인했으나 기관과 개인은 순매도한 가운데, 무선통신서비스 업종이 8.45% 상승하며 시장을 주도한 것으로 관찰됩니다.",
+    "summary": "전일 국내 시장에서는 외국인과 기관이 각각 순매수를 기록한 반면 개인 투자자는 순매도하였으며, 에너지장비및서비스 업종이 주도적인 상승세를 보였습니다.",
     "status": "ok"
   },
-  "risks": [],
+  "risks": [
+    {
+      "id": "vix-volatility",
+      "title": "변동성 확대 국면",
+      "detail": "변동성 지수(VIX)가 전일 대비 상승하며 시장 내 변동성 확대 국면에 대한 우려가 관찰되는 모습입니다.",
+      "level": "주의",
+      "status": "ok"
+    },
+    {
+      "id": "kr-swing",
+      "title": "국내 증시 큰 변동",
+      "detail": "전일 코스피가 큰 폭으로 상승하면서 국내 증시 자체의 높은 변동성이 나타난 점은 리스크 요인으로 볼 수 있습니다.",
+      "level": "관찰",
+      "status": "ok"
+    }
+  ],
   "calendar": [
     {
-      "id": "us-2026-07-30-미국 GDP",
-      "time": "2026-07-30",
+      "id": "us-earn-2026-07-29-메타",
+      "time": "2026-07-29",
       "country": "US",
-      "title": "미국 GDP",
-      "importance": "high",
+      "title": "메타 실적발표",
+      "importance": "medium",
       "status": "ok"
     },
     {
@@ -131,143 +147,143 @@
   "news": {
     "items": [
       {
-        "id": "news-매일경제-“사기범죄 계좌에 입금중”…은행·통신사·경찰 피싱정보 공유한다",
+        "id": "news-매일경제-‘원화 계속 약세’ 콕 집은 美…한국 ‘환율 관찰대상국’에 또 올려",
         "category": "news",
         "source": "매일경제",
-        "title": "“사기범죄 계좌에 입금중”…은행·통신사·경찰 피싱정보 공유한다",
-        "url": "https://www.mk.co.kr/news/economy/12105014",
-        "publishedAt": "2026-07-23",
+        "title": "‘원화 계속 약세’ 콕 집은 美…한국 ‘환율 관찰대상국’에 또 올려",
+        "url": "https://www.mk.co.kr/news/economy/12106276",
+        "publishedAt": "2026-07-24",
         "status": "ok"
       },
       {
-        "id": "news-연합뉴스마켓-시장 기대에 못 미친 테슬라…2분기 순이익 전년비 5% 감소",
+        "id": "news-매일경제-[속보] 미국 USTR, 무역법 301조 ‘강제노동 관세’ 부과",
+        "category": "news",
+        "source": "매일경제",
+        "title": "[속보] 미국 USTR, 무역법 301조 ‘강제노동 관세’ 부과",
+        "url": "https://www.mk.co.kr/news/economy/12106263",
+        "publishedAt": "2026-07-24",
+        "status": "ok"
+      },
+      {
+        "id": "news-연합뉴스마켓-중동 긴장·고유가에 뉴욕증시 일제히 하락…나스닥 2.2%↓(종합)",
         "category": "news",
         "source": "연합뉴스마켓",
-        "title": "시장 기대에 못 미친 테슬라…2분기 순이익 전년비 5% 감소",
-        "url": "https://www.yna.co.kr/view/AKR20260723013800075",
-        "publishedAt": "2026-07-23",
+        "title": "중동 긴장·고유가에 뉴욕증시 일제히 하락…나스닥 2.2%↓(종합)",
+        "url": "https://www.yna.co.kr/view/AKR20260724006851072",
+        "publishedAt": "2026-07-24",
         "status": "ok"
       },
       {
-        "id": "news-머니투데이-美, 이르면 내일 '무역법 301조' 관세 발표…한국 등 60개국 대상",
-        "category": "news",
-        "source": "머니투데이",
-        "title": "美, 이르면 내일 '무역법 301조' 관세 발표…한국 등 60개국 대상",
-        "url": "https://www.mt.co.kr/world/2026/07/23/2026072306181299980",
-        "publishedAt": "2026-07-23",
-        "status": "ok"
-      },
-      {
-        "id": "news-머니투데이-\"냉동실에 신생아 시신\" 탯줄로 칭칭, 충격 모습...반포서 무슨 일[뉴스속오늘]",
-        "category": "news",
-        "source": "머니투데이",
-        "title": "\"냉동실에 신생아 시신\" 탯줄로 칭칭, 충격 모습...반포서 무슨 일[뉴스속오늘]",
-        "url": "https://www.mt.co.kr/society/2026/07/23/2026072210255543711",
-        "publishedAt": "2026-07-23",
-        "status": "ok"
-      },
-      {
-        "id": "news-연합뉴스마켓-AI 경쟁 뒤처진 IBM, 연간 매출 전망 하향조정",
+        "id": "news-연합뉴스마켓-[코스피·코스닥 전 거래일(23일) 주요공시]",
         "category": "news",
         "source": "연합뉴스마켓",
-        "title": "AI 경쟁 뒤처진 IBM, 연간 매출 전망 하향조정",
-        "url": "https://www.yna.co.kr/view/AKR20260723010200072",
-        "publishedAt": "2026-07-23",
+        "title": "[코스피·코스닥 전 거래일(23일) 주요공시]",
+        "url": "https://www.yna.co.kr/view/AKR20260723184000008",
+        "publishedAt": "2026-07-24",
         "status": "ok"
       },
       {
-        "id": "news-연합뉴스-농식품부, '농촌 사회연대경제 협력모델' 모집…각 1천만원 지원",
+        "id": "news-연합뉴스-우수 중견회계법인, 대형사 감사 맡는다…군 상향 특례 도입",
         "category": "news",
         "source": "연합뉴스",
-        "title": "농식품부, '농촌 사회연대경제 협력모델' 모집…각 1천만원 지원",
-        "url": "https://www.yna.co.kr/view/AKR20260722150800030",
-        "publishedAt": "2026-07-23",
+        "title": "우수 중견회계법인, 대형사 감사 맡는다…군 상향 특례 도입",
+        "url": "https://www.yna.co.kr/view/AKR20260723190000002",
+        "publishedAt": "2026-07-24",
         "status": "ok"
       },
       {
-        "id": "news-연합뉴스-하도급대금 연동제에도…수급업자 41% \"몰라서 계약 반영 안 해\"",
+        "id": "news-연합뉴스-인플레 우려에 미 주택담보대출 금리 11개월 만에 최고",
         "category": "news",
         "source": "연합뉴스",
-        "title": "하도급대금 연동제에도…수급업자 41% \"몰라서 계약 반영 안 해\"",
-        "url": "https://www.yna.co.kr/view/AKR20260722138000002",
-        "publishedAt": "2026-07-23",
+        "title": "인플레 우려에 미 주택담보대출 금리 11개월 만에 최고",
+        "url": "https://www.yna.co.kr/view/AKR20260724008900072",
+        "publishedAt": "2026-07-24",
         "status": "ok"
       },
       {
-        "id": "news-한국경제증권-테슬라, 2분기 매출 26%↑…사상 최대 실적에도 영업이익은 반토막",
+        "id": "news-파이낸셜뉴스-\"300조 쏟아붓는다\"…알파벳 한마디에 삼성·SK 웃었다",
+        "category": "news",
+        "source": "파이낸셜뉴스",
+        "title": "\"300조 쏟아붓는다\"…알파벳 한마디에 삼성·SK 웃었다",
+        "url": "https://www.fnnews.com/news/202607231925165859",
+        "publishedAt": "2026-07-24",
+        "status": "ok"
+      },
+      {
+        "id": "news-한국경제증권-결국 100달러 넘어선 유가...옛말 된 '현금부자 빅테크' [빈난새의 개장전요것만]",
         "category": "news",
         "source": "한국경제증권",
-        "title": "테슬라, 2분기 매출 26%↑…사상 최대 실적에도 영업이익은 반토막",
-        "url": "https://www.hankyung.com/article/202607230480i",
+        "title": "결국 100달러 넘어선 유가...옛말 된 '현금부자 빅테크' [빈난새의 개장전요것만]",
+        "url": "https://www.hankyung.com/article/202607233008i",
+        "publishedAt": "2026-07-24",
+        "status": "ok"
+      },
+      {
+        "id": "news-MarketWatch-ServiceNow’s stock falls as a new AI threat overshadows earning",
+        "category": "news",
+        "source": "MarketWatch",
+        "title": "ServiceNow’s stock falls as a new AI threat overshadows earnings beat",
+        "url": "https://www.marketwatch.com/story/why-servicenows-stock-is-a-rare-bright-spot-while-the-rest-of-tech-stumbles-383f7f20?mod=mw_rss_topstories",
         "publishedAt": "2026-07-23",
         "status": "ok"
       },
       {
-        "id": "news-MarketWatch-IBM just cut its outlook, but not by as much as investors feare",
+        "id": "news-CNBC-Trump to slap 'sweeping' new tariffs on 60 trade partners as global du",
+        "category": "news",
+        "source": "CNBC",
+        "title": "Trump to slap 'sweeping' new tariffs on 60 trade partners as global duties expire",
+        "url": "https://www.cnbc.com/2026/07/23/trump-tariffs-trade-deadline.html",
+        "publishedAt": "2026-07-23",
+        "status": "ok"
+      },
+      {
+        "id": "news-CNBC-Intel's stock jumps as chipmaker rides AI boom to fastest revenue grow",
+        "category": "news",
+        "source": "CNBC",
+        "title": "Intel's stock jumps as chipmaker rides AI boom to fastest revenue growth in almost 15 years",
+        "url": "https://www.cnbc.com/2026/07/23/intel-intc-earnings-report-q2-2026.html",
+        "publishedAt": "2026-07-23",
+        "status": "ok"
+      },
+      {
+        "id": "news-MarketWatch-Trump rolls out a new wave of tariffs. Here are the latest rate",
         "category": "news",
         "source": "MarketWatch",
-        "title": "IBM just cut its outlook, but not by as much as investors feared",
-        "url": "https://www.marketwatch.com/story/ibm-just-cut-its-outlook-why-its-stock-is-bouncing-anyway-9d36e22a?mod=mw_rss_topstories",
-        "publishedAt": "2026-07-22",
+        "title": "Trump rolls out a new wave of tariffs. Here are the latest rates.",
+        "url": "https://www.marketwatch.com/story/trump-rolls-out-a-new-wave-of-tariffs-here-are-the-latest-rates-449af1d3?mod=mw_rss_topstories",
+        "publishedAt": "2026-07-23",
         "status": "ok"
       },
       {
-        "id": "news-CNBC-IBM lowers full-year forecast after earnings warning",
-        "category": "news",
-        "source": "CNBC",
-        "title": "IBM lowers full-year forecast after earnings warning",
-        "url": "https://www.cnbc.com/2026/07/22/ibm-q2-earnings-report-2026.html",
-        "publishedAt": "2026-07-22",
-        "status": "ok"
-      },
-      {
-        "id": "news-CNBC-Analysis: Iran war energy shock hits the U.S. economy as gas and diese",
-        "category": "news",
-        "source": "CNBC",
-        "title": "Analysis: Iran war energy shock hits the U.S. economy as gas and diesel prices climb",
-        "url": "https://www.cnbc.com/2026/07/22/iran-war-energy-markets-gas-diesel-prices-us-economy-analysis.html",
-        "publishedAt": "2026-07-22",
-        "status": "ok"
-      },
-      {
-        "id": "news-CNBC-Senate panel advances China auto bill that could bar Mercedes-Benz fro",
-        "category": "news",
-        "source": "CNBC",
-        "title": "Senate panel advances China auto bill that could bar Mercedes-Benz from U.S.",
-        "url": "https://www.cnbc.com/2026/07/22/ted-cruz-china-auto-bill-mercedes-benz-gm.html",
-        "publishedAt": "2026-07-22",
-        "status": "ok"
-      },
-      {
-        "id": "news-Investing-Trading Day: $100 oil looms",
-        "category": "news",
-        "source": "Investing",
-        "title": "Trading Day: $100 oil looms",
-        "url": "https://www.investing.com/news/economy-news/trading-day-100-oil-looms-4807079",
-        "publishedAt": "2026-07-22",
-        "status": "ok"
-      },
-      {
-        "id": "news-MarketWatch-Yes, the AI stock selloff looks terrifying. But it might actual",
+        "id": "news-MarketWatch-These 16 states are offering tax-free shopping days as back-to-",
         "category": "news",
         "source": "MarketWatch",
-        "title": "Yes, the AI stock selloff looks terrifying. But it might actually save the bull market.",
-        "url": "https://www.marketwatch.com/story/yes-the-ai-stock-selloff-looks-terrifying-but-it-might-actually-save-the-bull-market-3bef59be?mod=mw_rss_topstories",
-        "publishedAt": "2026-07-22",
+        "title": "These 16 states are offering tax-free shopping days as back-to-school costs soar to over $800 per student",
+        "url": "https://www.marketwatch.com/story/these-16-states-are-offering-tax-holidays-as-back-to-school-costs-soar-to-over-800-per-student-0ec92464?mod=mw_rss_topstories",
+        "publishedAt": "2026-07-23",
         "status": "ok"
       },
       {
-        "id": "news-Investing-Wall Street indexes dip with technology earnings, rising oil in f",
+        "id": "news-Investing-Stocks sink on Big Tech cash burn; oil hits $100 for first time s",
         "category": "news",
         "source": "Investing",
-        "title": "Wall Street indexes dip with technology earnings, rising oil in focus",
-        "url": "https://www.investing.com/news/economy-news/wall-st-futures-edge-lower-as-caution-builds-ahead-of-big-tech-earnings-4805079",
-        "publishedAt": "2026-07-22",
+        "title": "Stocks sink on Big Tech cash burn; oil hits $100 for first time since May",
+        "url": "https://www.investing.com/news/economy-news/asian-stocks-rise-after-us-tech-earnings-oil-at-sixweek-highs-4807381",
+        "publishedAt": "2026-07-23",
+        "status": "ok"
+      },
+      {
+        "id": "news-CNBC-Cerebras stock gains on AMD partnership",
+        "category": "news",
+        "source": "CNBC",
+        "title": "Cerebras stock gains on AMD partnership",
+        "url": "https://www.cnbc.com/2026/07/23/cerebras-stock-gains-on-amd-partnership.html",
+        "publishedAt": "2026-07-23",
         "status": "ok"
       }
     ],
     "clusters": [],
-    "summary": "미국이 이르면 내일 무역법 301조 관세를 발표할 예정이며, 이는 한국을 포함한 60개국에 영향을 미칠 가능성이 있어 글로벌 무역 긴장감에 대한 우려가 확산되는 모습입니다.",
+    "summary": "중동 지역의 긴장 고조와 고유가 우려로 뉴욕 증시가 일제히 하락하는 가운데, 미국이 한국을 환율 관찰대상국에 다시 올렸다는 소식이 전해지며 시장의 주목을 받고 있습니다.",
     "status": "ok"
   },
   "latestBriefing": null,
@@ -275,47 +291,64 @@
     {
       "id": "kospi",
       "name": "코스피",
-      "value": 6797.7,
-      "displayValue": "6,797.70",
-      "change": 0.74,
+      "value": 7096.89,
+      "displayValue": "7,096.89",
+      "change": 4.4,
       "changeUnit": "%",
       "displayMode": "pct",
       "direction": "up",
-      "asOf": "2026-07-22",
+      "asOf": "2026-07-23",
       "source": "KRX",
       "sourceUrl": "",
       "frequency": "daily",
       "isDelayed": true,
       "status": "ok",
-      "insight": "전일 대비 상승"
+      "insight": "전일 대비 큰 폭 상승"
     },
     {
       "id": "kosdaq",
       "name": "코스닥",
-      "value": 751.09,
-      "displayValue": "751.09",
-      "change": -0.3,
+      "value": 790.28,
+      "displayValue": "790.28",
+      "change": 5.22,
       "changeUnit": "%",
       "displayMode": "pct",
-      "direction": "down",
-      "asOf": "2026-07-22",
+      "direction": "up",
+      "asOf": "2026-07-23",
       "source": "KRX",
       "sourceUrl": "",
       "frequency": "daily",
       "isDelayed": true,
       "status": "ok",
-      "insight": "전일 대비 하락"
+      "insight": "전일 대비 큰 폭 상승"
     },
     {
       "id": "nasdaq",
       "name": "나스닥",
-      "value": 25690.9,
-      "displayValue": "25,690.90",
-      "change": -0.57,
+      "value": 25137.69,
+      "displayValue": "25,137.69",
+      "change": -2.15,
       "changeUnit": "%",
       "displayMode": "pct",
       "direction": "down",
-      "asOf": "2026-07-22",
+      "asOf": "2026-07-23",
+      "source": "FinanceDataReader",
+      "sourceUrl": "",
+      "frequency": "daily",
+      "isDelayed": true,
+      "status": "ok",
+      "insight": "전일 대비 큰 폭 하락"
+    },
+    {
+      "id": "sp500",
+      "name": "S&P500",
+      "value": 7408.3,
+      "displayValue": "7,408.30",
+      "change": -1.21,
+      "changeUnit": "%",
+      "displayMode": "pct",
+      "direction": "down",
+      "asOf": "2026-07-23",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
@@ -324,32 +357,15 @@
       "insight": "전일 대비 하락"
     },
     {
-      "id": "sp500",
-      "name": "S&P500",
-      "value": 7498.96,
-      "displayValue": "7,498.96",
-      "change": -0.14,
-      "changeUnit": "%",
-      "displayMode": "pct",
-      "direction": "down",
-      "asOf": "2026-07-22",
-      "source": "FinanceDataReader",
-      "sourceUrl": "",
-      "frequency": "daily",
-      "isDelayed": true,
-      "status": "ok",
-      "insight": "전일 대비 소폭 하락"
-    },
-    {
       "id": "usdkrw",
       "name": "원/달러",
-      "value": 1476.62,
-      "displayValue": "1,476.6",
-      "change": -3.1,
+      "value": 1474.12,
+      "displayValue": "1,474.1",
+      "change": -1.51,
       "changeUnit": "원",
       "displayMode": "delta",
       "direction": "down",
-      "asOf": "2026-07-22",
+      "asOf": "2026-07-23",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
@@ -360,30 +376,30 @@
     {
       "id": "us10y",
       "name": "미국채10년",
-      "value": 4.66,
-      "displayValue": "4.66%",
-      "change": 0.03,
+      "value": 4.7,
+      "displayValue": "4.70%",
+      "change": 0.05,
       "changeUnit": "%p",
       "displayMode": "delta",
       "direction": "up",
-      "asOf": "2026-07-22",
+      "asOf": "2026-07-23",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
       "isDelayed": true,
       "status": "ok",
-      "insight": "보합권"
+      "insight": "전일 대비 소폭 상승"
     },
     {
       "id": "wti",
       "name": "WTI",
-      "value": 86.48,
-      "displayValue": "$86.48",
-      "change": 1.85,
+      "value": 92.36,
+      "displayValue": "$92.36",
+      "change": 6.37,
       "changeUnit": "%",
       "displayMode": "pct",
       "direction": "up",
-      "asOf": "2026-07-22",
+      "asOf": "2026-07-23",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
@@ -394,19 +410,19 @@
     {
       "id": "vix",
       "name": "VIX",
-      "value": 16.64,
-      "displayValue": "16.64",
-      "change": -2.4,
+      "value": 18.7,
+      "displayValue": "18.70",
+      "change": 12.38,
       "changeUnit": "%",
       "displayMode": "pct",
-      "direction": "down",
-      "asOf": "2026-07-22",
+      "direction": "up",
+      "asOf": "2026-07-23",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
       "isDelayed": true,
       "status": "ok",
-      "insight": "전일 대비 큰 폭 하락"
+      "insight": "전일 대비 큰 폭 상승"
     }
   ],
   "signals": [
@@ -414,36 +430,67 @@
       "id": "recession",
       "name": "경기침체 경보등",
       "color": "green",
-      "value": 0.37,
-      "valueLabel": "+0.37%p",
+      "value": 0.36,
+      "valueLabel": "+0.36%p",
       "insight": "장단기 금리차가 정상 범위에 있어 침체 신호는 뚜렷하지 않습니다.",
       "sourceLabel": "장단기 금리차 (미국채 10Y-2Y)",
-      "asOf": "2026-07-23"
-    },
-    {
-      "id": "rate-gap",
-      "name": "한미 기준금리차",
-      "color": "green",
-      "value": 1.0,
-      "valueLabel": "+1.00%p",
-      "insight": "한미 금리차가 관리 가능한 수준이라 자본유출 압력은 크지 않습니다.",
-      "sourceLabel": "한미 기준금리차 (Fed-한은)",
-      "asOf": "2026-07-23"
+      "asOf": "2026-07-24"
     },
     {
       "id": "liquidity-stress",
       "name": "유동성 스트레스",
       "color": "green",
-      "value": 2.69,
-      "valueLabel": "2.69%p",
+      "value": 2.68,
+      "valueLabel": "2.68%p",
       "insight": "신용시장 스프레드가 평상 수준이라 유동성 경색 신호는 없습니다.",
       "sourceLabel": "하이일드 스프레드 (BAMLH0A0HYM2)",
-      "asOf": "2026-07-23"
+      "asOf": "2026-07-24"
     }
   ],
   "claims": {
     "status": "ok",
     "todayClaims": [
+      {
+        "schemaVersion": 1,
+        "claimId": "2026-07-24-c1",
+        "publicationId": "2026-07-24",
+        "issuedAt": "2026-07-24T06:44:34+09:00",
+        "dataCutoffAt": "2026-07-24T06:44:34+09:00",
+        "lockedAt": "2026-07-24T06:44:34+09:00",
+        "claimMode": "auto",
+        "verificationType": "proxy",
+        "topic": "원/달러 환율의 향방",
+        "sourceNewsIds": [],
+        "observationText": "원/달러 환율이 전일 대비 -1.51원 하락하며 원화 강세 흐름을 보였습니다.",
+        "interpretationText": "이는 외국인 투자자의 국내 증시 순매수에 긍정적인 영향을 미친 것으로 해석될 수 있습니다.",
+        "claimText": "원/달러 환율은 다음 거래일까지 하락세를 이어갈까요?",
+        "metricId": "usdkrw",
+        "benchmarkMetricId": null,
+        "comparisonType": "absolute_return",
+        "expectedDirection": "down",
+        "horizon": {
+          "type": "next_close",
+          "market": "KR",
+          "resolutionAt": "2026-07-25"
+        },
+        "thresholdRuleId": "pct_020",
+        "confidence": null,
+        "status": "unresolved",
+        "revision": {
+          "version": 1,
+          "contentHash": "6b84bb780d1f5a23a99c368233869cd330d9e90e951e89ef71686b7340142062",
+          "correctedFrom": null
+        },
+        "baseline": {
+          "value": 1474.12,
+          "asOf": "2026-07-23",
+          "benchmarkValue": null,
+          "benchmarkAsOf": null
+        },
+        "resolution": null
+      }
+    ],
+    "previousClaims": [
       {
         "schemaVersion": 1,
         "claimId": "2026-07-23-c1",
@@ -469,7 +516,7 @@
         },
         "thresholdRuleId": "pct_020",
         "confidence": null,
-        "status": "unresolved",
+        "status": "neutral",
         "revision": {
           "version": 1,
           "contentHash": "341801fd8a737a9589babbe244231625d3c7a18b4ca67d93520645831eb37223",
@@ -481,57 +528,16 @@
           "benchmarkValue": null,
           "benchmarkAsOf": null
         },
-        "resolution": null
-      }
-    ],
-    "previousClaims": [
-      {
-        "schemaVersion": 1,
-        "claimId": "2026-07-22-c1",
-        "publicationId": "2026-07-22",
-        "issuedAt": "2026-07-22T08:05:18+09:00",
-        "dataCutoffAt": "2026-07-22T08:05:18+09:00",
-        "lockedAt": "2026-07-22T08:05:18+09:00",
-        "claimMode": "auto",
-        "verificationType": "proxy",
-        "topic": "원/달러 환율 동향",
-        "sourceNewsIds": [],
-        "observationText": "전일 원/달러 환율이 4.77원 상승하며 원화 약세를 보였습니다.",
-        "interpretationText": "미국채 10년물 금리가 소폭 상승하는 가운데 원화 약세가 관찰된 점은 다음 거래일에도 주목할 지점입니다.",
-        "claimText": "원/달러 환율은 다음 거래일까지 상승세를 이어갈까?",
-        "metricId": "usdkrw",
-        "benchmarkMetricId": null,
-        "comparisonType": "absolute_return",
-        "expectedDirection": "up",
-        "horizon": {
-          "type": "next_close",
-          "market": "KR",
-          "resolutionAt": "2026-07-23"
-        },
-        "thresholdRuleId": "pct_020",
-        "confidence": null,
-        "status": "neutral",
-        "revision": {
-          "version": 1,
-          "contentHash": "7bcad9ca6718442a5c2d1af5494207a6303c06b593f4bb72f4869814ee69d26c",
-          "correctedFrom": null
-        },
-        "baseline": {
-          "value": 1479.78,
-          "asOf": "2026-07-21",
-          "benchmarkValue": null,
-          "benchmarkAsOf": null
-        },
         "resolution": {
-          "resolutionId": "2026-07-22-c1-res",
-          "claimId": "2026-07-22-c1",
-          "resolvedAt": "2026-07-22T10:14:46+09:00",
+          "resolutionId": "2026-07-23-c1-res",
+          "claimId": "2026-07-23-c1",
+          "resolvedAt": "2026-07-24T06:44:34+09:00",
           "verdict": "neutral",
           "metricId": "usdkrw",
           "comparisonType": "absolute_return",
-          "startValue": 1479.78,
-          "endValue": 1479.18,
-          "changeValue": -0.040546567733035256,
+          "startValue": 1476.62,
+          "endValue": 1474.12,
+          "changeValue": -0.16930557624845932,
           "changeUnit": "%",
           "benchmarkMetricId": null,
           "benchmarkStartValue": null,
@@ -541,28 +547,28 @@
           "neutralBand": 0.2,
           "dataProvider": "FinanceDataReader",
           "sourceUrl": "",
-          "observedAt": "2026-07-22",
+          "observedAt": "2026-07-23",
           "explanation": "변화폭이 중립 구간(±0.2%) 이내에 머물러 뚜렷한 방향이 나타나지 않았습니다."
         }
       }
     ],
-    "previousPublicationId": "2026-07-22",
+    "previousPublicationId": "2026-07-23",
     "totals": {
       "hit": 1,
       "miss": 2,
-      "neutral": 1,
+      "neutral": 2,
       "unresolved": 1,
       "invalidated": 0,
       "error": 0
     }
   },
   "newsletterClaimsTeaser": {
-    "publicationId": "2026-07-22",
+    "publicationId": "2026-07-23",
     "resolvedCount": 1,
     "hitCount": 0,
     "missCount": 0,
     "neutralCount": 1,
     "unresolvedCount": 0,
-    "highlightText": "원/달러 환율은 다음 거래일까지 상승세를 이어갈까?"
+    "highlightText": "원/달러 환율은 다음 거래일까지 하락세를 이어갈까?"
   }
 }
