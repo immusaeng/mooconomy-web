@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-07-27",
+  "generatedAt": "2026-07-27T06:43:44+09:00",
+  "indicators": [
+    {
+      "id": "kospi",
+      "value": 6690.62,
+      "change": -5.72,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "kosdaq",
+      "value": 748.22,
+      "change": -5.32,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "nasdaq",
+      "value": 24975.82,
+      "change": -0.64,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "sp500",
+      "value": 7411.98,
+      "change": 0.05,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1459.42,
+      "change": -14.62,
+      "displayMode": "delta",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "us10y",
+      "value": 4.68,
+      "change": -0.02,
+      "displayMode": "delta",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "wti",
+      "value": 89.31,
+      "change": -3.12,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "vix",
+      "value": 18.58,
+      "change": -0.64,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    }
+  ],
+  "signals": [
+    {
+      "id": "recession",
+      "color": "green",
+      "value": 0.34
+    },
+    {
+      "id": "rate-gap",
+      "color": "green",
+      "value": 1.0
+    },
+    {
+      "id": "liquidity-stress",
+      "color": "green",
+      "value": 2.77
+    }
+  ],
+  "calendarSnapshot": [
+    {
+      "id": "us-earn-2026-07-29-메타",
+      "time": "2026-07-29",
+      "country": "US",
+      "title": "메타 실적발표",
+      "importance": "medium"
+    },
+    {
+      "id": "us-earn-2026-07-29-마이크로소프트",
+      "time": "2026-07-29",
+      "country": "US",
+      "title": "마이크로소프트 실적발표",
+      "importance": "medium"
+    },
+    {
+      "id": "us-2026-07-30-미국 개인소득·지출(PCE)",
+      "time": "2026-07-30",
+      "country": "US",
+      "title": "미국 개인소득·지출(PCE)",
+      "importance": "high"
+    }
+  ]
+}

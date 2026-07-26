@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-25T06:43:55+09:00",
+  "updatedAt": "2026-07-27T06:43:44+09:00",
   "claims": {
     "2026-07-19-c1": {
       "schemaVersion": 1,
@@ -387,7 +387,7 @@
       },
       "thresholdRuleId": "pct_020",
       "confidence": null,
-      "status": "unresolved",
+      "status": "neutral",
       "revision": {
         "version": 1,
         "contentHash": "5c4cd376e2d3f6e6670152cfce5367110a9e9af071d8cd1f040cf2b33b6f2994",
@@ -395,6 +395,66 @@
       },
       "baseline": {
         "value": 1459.42,
+        "asOf": "2026-07-24",
+        "benchmarkValue": null,
+        "benchmarkAsOf": null
+      },
+      "resolution": {
+        "resolutionId": "2026-07-25-c1-res",
+        "claimId": "2026-07-25-c1",
+        "resolvedAt": "2026-07-27T06:43:44+09:00",
+        "verdict": "neutral",
+        "metricId": "usdkrw",
+        "comparisonType": "absolute_return",
+        "startValue": 1459.42,
+        "endValue": 1459.42,
+        "changeValue": 0.0,
+        "changeUnit": "%",
+        "benchmarkMetricId": null,
+        "benchmarkStartValue": null,
+        "benchmarkEndValue": null,
+        "neutralLower": -0.2,
+        "neutralUpper": 0.2,
+        "neutralBand": 0.2,
+        "dataProvider": "FinanceDataReader",
+        "sourceUrl": "",
+        "observedAt": "2026-07-26",
+        "explanation": "변화폭이 중립 구간(±0.2%) 이내에 머물러 뚜렷한 방향이 나타나지 않았습니다."
+      }
+    },
+    "2026-07-27-c1": {
+      "schemaVersion": 1,
+      "claimId": "2026-07-27-c1",
+      "publicationId": "2026-07-27",
+      "issuedAt": "2026-07-27T06:43:44+09:00",
+      "dataCutoffAt": "2026-07-27T06:43:44+09:00",
+      "lockedAt": "2026-07-27T06:43:44+09:00",
+      "claimMode": "auto",
+      "verificationType": "proxy",
+      "topic": "코스피 지수 다음 거래일 방향",
+      "sourceNewsIds": [],
+      "observationText": "코스피 지수는 6,690.62로 전일 대비 5.72% 하락했습니다.",
+      "interpretationText": "현재 관찰된 하락 흐름이 다음 거래일까지 이어지는지가 확인 대상입니다.",
+      "claimText": "코스피 지수는 다음 거래일까지 하락세를 이어갈까?",
+      "metricId": "kospi",
+      "benchmarkMetricId": null,
+      "comparisonType": "absolute_return",
+      "expectedDirection": "down",
+      "horizon": {
+        "type": "next_close",
+        "market": "KR",
+        "resolutionAt": "2026-07-28"
+      },
+      "thresholdRuleId": "pct_030",
+      "confidence": null,
+      "status": "unresolved",
+      "revision": {
+        "version": 1,
+        "contentHash": "22532db6795f28bb9ab760813abe8a6d64be03c803dd901a599de7e9db7d7365",
+        "correctedFrom": null
+      },
+      "baseline": {
+        "value": 6690.62,
         "asOf": "2026-07-24",
         "benchmarkValue": null,
         "benchmarkAsOf": null
