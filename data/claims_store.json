@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-27T06:43:44+09:00",
+  "updatedAt": "2026-07-28T06:43:49+09:00",
   "claims": {
     "2026-07-19-c1": {
       "schemaVersion": 1,
@@ -447,7 +447,7 @@
       },
       "thresholdRuleId": "pct_030",
       "confidence": null,
-      "status": "unresolved",
+      "status": "miss",
       "revision": {
         "version": 1,
         "contentHash": "22532db6795f28bb9ab760813abe8a6d64be03c803dd901a599de7e9db7d7365",
@@ -456,6 +456,66 @@
       "baseline": {
         "value": 6690.62,
         "asOf": "2026-07-24",
+        "benchmarkValue": null,
+        "benchmarkAsOf": null
+      },
+      "resolution": {
+        "resolutionId": "2026-07-27-c1-res",
+        "claimId": "2026-07-27-c1",
+        "resolvedAt": "2026-07-28T06:43:49+09:00",
+        "verdict": "miss",
+        "metricId": "kospi",
+        "comparisonType": "absolute_return",
+        "startValue": 6690.62,
+        "endValue": 6755.75,
+        "changeValue": 0.9734523855786177,
+        "changeUnit": "%",
+        "benchmarkMetricId": null,
+        "benchmarkStartValue": null,
+        "benchmarkEndValue": null,
+        "neutralLower": -0.3,
+        "neutralUpper": 0.3,
+        "neutralBand": 0.3,
+        "dataProvider": "KRX",
+        "sourceUrl": "",
+        "observedAt": "2026-07-27",
+        "explanation": "실제 변화가 예상한 하락 방향과 다르게 움직였습니다."
+      }
+    },
+    "2026-07-28-c1": {
+      "schemaVersion": 1,
+      "claimId": "2026-07-28-c1",
+      "publicationId": "2026-07-28",
+      "issuedAt": "2026-07-28T06:43:49+09:00",
+      "dataCutoffAt": "2026-07-28T06:43:49+09:00",
+      "lockedAt": "2026-07-28T06:43:49+09:00",
+      "claimMode": "auto",
+      "verificationType": "proxy",
+      "topic": "원/달러 환율 추이",
+      "sourceNewsIds": [],
+      "observationText": "전일 원/달러 환율이 +7.78원 상승하며 원화 약세가 관찰되었습니다.",
+      "interpretationText": "외국인의 코스피 순매도 또한 지속되며 환율 상승 압력으로 작용했을 가능성이 있습니다.",
+      "claimText": "원/달러 환율은 다음 거래일까지 상승세를 이어갈까요?",
+      "metricId": "usdkrw",
+      "benchmarkMetricId": null,
+      "comparisonType": "absolute_return",
+      "expectedDirection": "up",
+      "horizon": {
+        "type": "next_close",
+        "market": "KR",
+        "resolutionAt": "2026-07-29"
+      },
+      "thresholdRuleId": "pct_020",
+      "confidence": null,
+      "status": "unresolved",
+      "revision": {
+        "version": 1,
+        "contentHash": "b8a5b19554cceea240ab134cd5dd82b74da618a68ae515f051d71a24ae979fb8",
+        "correctedFrom": null
+      },
+      "baseline": {
+        "value": 1465.79,
+        "asOf": "2026-07-27",
         "benchmarkValue": null,
         "benchmarkAsOf": null
       },

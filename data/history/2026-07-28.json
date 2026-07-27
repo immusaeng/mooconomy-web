@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-07-28",
+  "generatedAt": "2026-07-28T06:43:49+09:00",
+  "indicators": [
+    {
+      "id": "kospi",
+      "value": 6755.75,
+      "change": 0.97,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "kosdaq",
+      "value": 764.86,
+      "change": 2.22,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "nasdaq",
+      "value": 24932.08,
+      "change": -0.18,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "sp500",
+      "value": 7413.18,
+      "change": 0.02,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1465.79,
+      "change": 7.78,
+      "displayMode": "delta",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "us10y",
+      "value": 4.64,
+      "change": -0.04,
+      "displayMode": "delta",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "wti",
+      "value": 81.91,
+      "change": -8.29,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "vix",
+      "value": 18.67,
+      "change": 0.48,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    }
+  ],
+  "signals": [
+    {
+      "id": "recession",
+      "color": "green",
+      "value": 0.36
+    },
+    {
+      "id": "rate-gap",
+      "color": "green",
+      "value": 1.0
+    },
+    {
+      "id": "liquidity-stress",
+      "color": "green",
+      "value": 2.79
+    }
+  ],
+  "calendarSnapshot": [
+    {
+      "id": "us-earn-2026-07-29-메타",
+      "time": "2026-07-29",
+      "country": "US",
+      "title": "메타 실적발표",
+      "importance": "medium"
+    },
+    {
+      "id": "us-earn-2026-07-29-마이크로소프트",
+      "time": "2026-07-29",
+      "country": "US",
+      "title": "마이크로소프트 실적발표",
+      "importance": "medium"
+    },
+    {
+      "id": "us-2026-07-30-미국 개인소득·지출(PCE)",
+      "time": "2026-07-30",
+      "country": "US",
+      "title": "미국 개인소득·지출(PCE)",
+      "importance": "high"
+    }
+  ]
+}
