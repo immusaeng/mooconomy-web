@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-07-29",
+  "generatedAt": "2026-07-29T06:43:27+09:00",
+  "indicators": [
+    {
+      "id": "kospi",
+      "value": 6023.66,
+      "change": -10.84,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "kosdaq",
+      "value": 705.85,
+      "change": -7.72,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "nasdaq",
+      "value": 24876.91,
+      "change": -0.22,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "sp500",
+      "value": 7428.78,
+      "change": 0.21,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1453.87,
+      "change": -10.57,
+      "displayMode": "delta",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "us10y",
+      "value": 4.6,
+      "change": -0.04,
+      "displayMode": "delta",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "wti",
+      "value": 79.13,
+      "change": -4.21,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "vix",
+      "value": 18.21,
+      "change": -2.46,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    }
+  ],
+  "signals": [
+    {
+      "id": "recession",
+      "color": "green",
+      "value": 0.34
+    },
+    {
+      "id": "rate-gap",
+      "color": "green",
+      "value": 1.0
+    },
+    {
+      "id": "liquidity-stress",
+      "color": "green",
+      "value": 2.81
+    }
+  ],
+  "calendarSnapshot": [
+    {
+      "id": "us-2026-07-30-미국 개인소득·지출(PCE)",
+      "time": "2026-07-30",
+      "country": "US",
+      "title": "미국 개인소득·지출(PCE)",
+      "importance": "high"
+    },
+    {
+      "id": "us-earn-2026-07-30-애플",
+      "time": "2026-07-30",
+      "country": "US",
+      "title": "애플 실적발표",
+      "importance": "medium"
+    },
+    {
+      "id": "us-earn-2026-07-30-아마존",
+      "time": "2026-07-30",
+      "country": "US",
+      "title": "아마존 실적발표",
+      "importance": "medium"
+    }
+  ]
+}

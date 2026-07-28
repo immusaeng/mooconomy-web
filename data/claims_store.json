@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-28T06:43:49+09:00",
+  "updatedAt": "2026-07-29T06:43:27+09:00",
   "claims": {
     "2026-07-19-c1": {
       "schemaVersion": 1,
@@ -507,7 +507,7 @@
       },
       "thresholdRuleId": "pct_020",
       "confidence": null,
-      "status": "unresolved",
+      "status": "miss",
       "revision": {
         "version": 1,
         "contentHash": "b8a5b19554cceea240ab134cd5dd82b74da618a68ae515f051d71a24ae979fb8",
@@ -516,6 +516,66 @@
       "baseline": {
         "value": 1465.79,
         "asOf": "2026-07-27",
+        "benchmarkValue": null,
+        "benchmarkAsOf": null
+      },
+      "resolution": {
+        "resolutionId": "2026-07-28-c1-res",
+        "claimId": "2026-07-28-c1",
+        "resolvedAt": "2026-07-29T06:43:27+09:00",
+        "verdict": "miss",
+        "metricId": "usdkrw",
+        "comparisonType": "absolute_return",
+        "startValue": 1465.79,
+        "endValue": 1453.87,
+        "changeValue": -0.8132133525266289,
+        "changeUnit": "%",
+        "benchmarkMetricId": null,
+        "benchmarkStartValue": null,
+        "benchmarkEndValue": null,
+        "neutralLower": -0.2,
+        "neutralUpper": 0.2,
+        "neutralBand": 0.2,
+        "dataProvider": "FinanceDataReader",
+        "sourceUrl": "",
+        "observedAt": "2026-07-28",
+        "explanation": "실제 변화가 예상한 상승 방향과 다르게 움직였습니다."
+      }
+    },
+    "2026-07-29-c1": {
+      "schemaVersion": 1,
+      "claimId": "2026-07-29-c1",
+      "publicationId": "2026-07-29",
+      "issuedAt": "2026-07-29T06:43:27+09:00",
+      "dataCutoffAt": "2026-07-29T06:43:27+09:00",
+      "lockedAt": "2026-07-29T06:43:27+09:00",
+      "claimMode": "auto",
+      "verificationType": "proxy",
+      "topic": "원/달러 환율 동향",
+      "sourceNewsIds": [],
+      "observationText": "전일 원/달러 환율이 하락하며 원화 강세가 나타났습니다.",
+      "interpretationText": "이는 국내 증시 하락 및 외국인 순매도가 동반된 상황에서 관찰된 흐름으로, 환율 변동성 지속 여부에 대한 관심이 필요해 보입니다.",
+      "claimText": "원/달러 환율은 다음 거래일까지 원화 강세 흐름을 이어갈까?",
+      "metricId": "usdkrw",
+      "benchmarkMetricId": null,
+      "comparisonType": "absolute_return",
+      "expectedDirection": "down",
+      "horizon": {
+        "type": "next_close",
+        "market": "KR",
+        "resolutionAt": "2026-07-30"
+      },
+      "thresholdRuleId": "pct_020",
+      "confidence": null,
+      "status": "unresolved",
+      "revision": {
+        "version": 1,
+        "contentHash": "cc4f859cf3daaf46b35c07bbf0b3a63dce22f85acf3355b8a53ce3b2587b0f42",
+        "correctedFrom": null
+      },
+      "baseline": {
+        "value": 1453.87,
+        "asOf": "2026-07-28",
         "benchmarkValue": null,
         "benchmarkAsOf": null
       },
