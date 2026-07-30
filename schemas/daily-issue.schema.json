@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mooconomy.co.kr/schemas/daily-issue.schema.json",
+  "title": "DailyIssue",
+  "type": "object",
+  "required": ["issue_id", "issue_date", "published_at", "title", "market_temperature_status", "source_snapshot_id", "canonical_url", "content_version", "correction_status", "created_at", "updated_at"],
+  "properties": {
+    "issue_id": { "type": "string" },
+    "issue_date": { "type": "string", "format": "date" },
+    "published_at": { "type": "string", "format": "date-time" },
+    "title": { "type": "string" },
+    "short_summary": { "type": ["string", "null"] },
+    "main_thesis": { "type": ["string", "null"] },
+    "market_temperature_status": { "type": "string", "enum": ["risk_off", "cautious", "neutral", "risk_on", "strong_risk_on"] },
+    "market_temperature_score": { "type": ["number", "null"], "description": "항상 null(TemperatureObservation.score와 동일 사유)" },
+    "moo_view": { "type": ["string", "null"] },
+    "moo_q_id": { "type": ["string", "null"] },
+    "moo_check_id": { "type": ["string", "null"] },
+    "source_snapshot_id": { "type": "string" },
+    "canonical_url": { "type": "string", "format": "uri" },
+    "content_version": { "type": "integer", "minimum": 1, "default": 1 },
+    "correction_status": { "type": "string", "enum": ["none", "corrected"], "default": "none" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "updated_at": { "type": "string", "format": "date-time" }
+  },
+  "$comment": "이번 라운드 기준 실제 인스턴스 0건 — 과거 발행물 원문이 보존돼 있지 않아 소급 생성하지 않는다(02-data-completeness-report.md 참고). 첫 export 실행일부터 새로 쌓기 시작한다."
+}

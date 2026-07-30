@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mooconomy.co.kr/schemas/question-record.schema.json",
+  "title": "QuestionRecord",
+  "type": "object",
+  "required": ["question_id", "question", "issued_at", "observation_value", "observation_unit", "observation_as_of", "expected_direction", "check_due_at", "status", "method_version", "locked_at"],
+  "properties": {
+    "question_id": { "type": "string", "description": "claims_store.json의 claimId 그대로 재사용" },
+    "question": { "type": "string" },
+    "issued_at": { "type": "string", "format": "date-time" },
+    "observation_value": { "type": "number" },
+    "observation_unit": { "type": "string" },
+    "observation_as_of": { "type": "string", "format": "date" },
+    "expected_direction": { "type": "string", "enum": ["up", "down"] },
+    "check_due_at": { "type": "string", "format": "date" },
+    "result_value": { "type": ["number", "null"] },
+    "result_unit": { "type": ["string", "null"] },
+    "actual_direction": { "type": ["string", "null"], "enum": ["up", "down", "flat", null] },
+    "verdict": { "type": "string", "enum": ["hit", "miss", "neutral", "unresolved"] },
+    "evidence": { "type": ["string", "null"] },
+    "status": { "type": "string", "enum": ["hit", "miss", "neutral", "unresolved"] },
+    "method_version": { "type": "string", "description": "verificationType+thresholdRuleId 조합, 예: 'proxy-pct_020'" },
+    "locked_at": { "type": "string", "format": "date-time" },
+    "corrected_at": { "type": ["string", "null"], "format": "date-time" },
+    "correction_reason": { "type": ["string", "null"] }
+  },
+  "$comment": "issued_at/observation_value/observation_unit/observation_as_of/expected_direction/locked_at는 lock 이후 불변(04-immutability-and-correction-policy.md 참고)."
+}

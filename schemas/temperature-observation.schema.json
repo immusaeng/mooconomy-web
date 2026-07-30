@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mooconomy.co.kr/schemas/temperature-observation.schema.json",
+  "title": "TemperatureObservation",
+  "type": "object",
+  "required": ["observation_id", "date", "observed_at", "status", "formula_version", "correction_version", "linked_snapshot_id"],
+  "properties": {
+    "observation_id": { "type": "string" },
+    "date": { "type": "string", "format": "date" },
+    "observed_at": { "type": "string", "format": "date-time" },
+    "status": { "type": "string", "enum": ["risk_off", "cautious", "neutral", "risk_on", "strong_risk_on"] },
+    "score": {
+      "type": ["number", "null"],
+      "description": "현재 산식은 5단계 라벨만 산출하며 수치 점수가 없다 — 지어내지 않고 항상 null."
+    },
+    "previous_status": { "type": ["string", "null"], "enum": ["risk_off", "cautious", "neutral", "risk_on", "strong_risk_on", null] },
+    "direction": { "type": ["string", "null"], "enum": ["improved", "worsened", "unchanged", null] },
+    "reason_codes": {
+      "type": ["array", "null"],
+      "items": { "type": "string" },
+      "description": "문장→코드 매핑 규칙이 아직 없어 현재는 항상 null(reason_text만 사용)."
+    },
+    "reason_text": {
+      "type": ["array", "null"],
+      "items": { "type": "string" },
+      "maxItems": 3
+    },
+    "linked_snapshot_id": { "type": "string" },
+    "formula_version": { "type": "string", "default": "v1" },
+    "correction_version": { "type": "integer", "minimum": 1, "default": 1 }
+  }
+}
