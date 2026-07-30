@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>데이터·방법론 · Daily MOO:conomy</title>
+<meta name="description" content="Daily MOO:conomy가 지표를 수집하는 방식, 시장 온도 판정 기준, MOO:Q·MOO:CHECK 공개 검증 원칙, LLM 활용과 오류 정정 정책을 투명하게 설명합니다.">
+<link rel="canonical" href="https://mooconomy.co.kr/methodology/">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="데이터·방법론 · Daily MOO:conomy">
+<meta property="og:description" content="지표 수집·시장 온도·MOO:Q/MOO:CHECK·LLM 활용과 정정 원칙을 투명하게 설명합니다.">
+<meta property="og:image" content="https://raw.githubusercontent.com/immusaeng/mooconomy-assets/main/og_mooconomy_v2.png">
+<meta property="og:url" content="https://mooconomy.co.kr/methodology/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="데이터·방법론 · Daily MOO:conomy">
+<meta name="twitter:description" content="지표 수집·시장 온도·MOO:Q/MOO:CHECK·LLM 활용과 정정 원칙을 투명하게 설명합니다.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "데이터·방법론",
+  "url": "https://mooconomy.co.kr/methodology/",
+  "isPartOf": { "@type": "WebSite", "name": "Daily MOO:conomy", "url": "https://mooconomy.co.kr" },
+  "description": "Daily MOO:conomy의 데이터 수집·시장 온도·MOO:Q/MOO:CHECK·LLM 활용 방법론."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://mooconomy.co.kr/" },
+    { "@type": "ListItem", "position": 2, "name": "데이터·방법론", "item": "https://mooconomy.co.kr/methodology/" }
+  ]
+}
+</script>
+
+<style>
+  :root { --bg:#0B1220; --card:#141C2E; --ink:#E8ECF3; --sub:#95A2BA; --gold:#F2C94C; --line:rgba(124,138,165,.18); }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',Arial,sans-serif; line-height:1.65; }
+  .wrap { max-width:840px; margin:0 auto; padding:0 20px; }
+  header.mh { padding:22px 0; border-bottom:1px solid var(--line); }
+  .brand { font-size:18px; font-weight:800; text-decoration:none; color:var(--ink); }
+  .brand .g { color:var(--gold); }
+  nav.crumb { font-size:12px; color:var(--sub); margin-top:10px; }
+  nav.crumb a { color:var(--sub); }
+  main { padding:44px 0 64px; }
+  .eyebrow { font-size:11px; font-weight:700; letter-spacing:.08em; color:var(--gold); text-transform:uppercase; margin-bottom:12px; }
+  h1 { font-size:27px; line-height:1.35; margin:0 0 14px; word-break:keep-all; }
+  .lead { font-size:14.5px; color:var(--sub); margin:0 0 40px; word-break:keep-all; }
+  section { margin-bottom:40px; }
+  h2 { font-size:18.5px; margin:0 0 12px; word-break:keep-all; }
+  p, li { font-size:13.5px; color:#C7CEDB; word-break:keep-all; }
+  ul { padding-left:20px; margin:10px 0; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:16px 18px; margin-top:12px; }
+  .tag { display:inline-block; font-size:10.5px; font-weight:700; color:var(--gold); background:rgba(242,201,76,.12); padding:2px 9px; border-radius:12px; margin-right:6px; }
+  footer { border-top:1px solid var(--line); padding:28px 0; font-size:12px; color:var(--sub); }
+  footer a { color:var(--gold); text-decoration:none; }
+</style>
+</head>
+<body>
+  <header class="mh"><div class="wrap">
+    <a class="brand" href="/">MOO<span class="g">:</span>conomy</a>
+    <nav class="crumb"><a href="/">홈</a> / 데이터·방법론</nav>
+  </div></header>
+
+  <main class="wrap">
+    <div class="eyebrow">METHODOLOGY</div>
+    <h1>숫자는 어디서 오고, 판단은 어떻게 검증되나요</h1>
+    <p class="lead">Daily MOO:conomy가 지표를 모으는 방식, 시장 온도를 판정하는 기준, 오늘의 질문(MOO:Q)과 그 결과 검증(MOO:CHECK)의 원칙을 그대로 공개합니다.</p>
+
+    <section>
+      <h2>1. 데이터 수집</h2>
+      <p>국내외 증시·환율·금리·원자재·수급·뉴스를 매일 아침 자동으로 수집합니다. 핵심 지표는 가능한 한 공식·1차 데이터를 우선합니다.</p>
+      <div class="card">
+        <span class="tag">거시·금리</span> 한국은행 ECOS, 美 연준 FRED<br>
+        <span class="tag">시장·지수</span> FinanceDataReader, 네이버 금융<br>
+        <span class="tag">공시·실적</span> 금융감독원 DART, Finnhub<br>
+        <span class="tag">뉴스</span> 연합뉴스, 한국경제, 매일경제, MarketWatch, CNBC 등 RSS
+      </div>
+      <p style="margin-top:14px;">데이터를 가져오지 못하면 이전 값을 오늘 값처럼 표시하지 않습니다 — 해당 항목은 "데이터 없음"으로 표시되거나 화면에서 제외됩니다.</p>
+    </section>
+
+    <section>
+      <h2>2. 시장 온도</h2>
+      <p>그날의 위험 선호/회피 정도를 위험회피·경계·중립·위험선호·강한선호 5단계로 표시합니다. 국내외 증시 등락, VIX, 수급 등 이미 수집된 지표를 기준으로 판정하며, 판정 근거(예: "VIX 20.66로 경계 구간")를 함께 공개합니다.</p>
+    </section>
+
+    <section>
+      <h2>3. MOO:Q — 오늘의 질문</h2>
+      <p>매일 하나의 검증 가능한 질문을 발행 시점의 실제 데이터를 근거로 제시합니다. 예: "원/달러 환율은 다음 거래일까지 하락세를 이어갈까?" 질문이 만들어진 시점의 기준값은 이후 다시 바뀌지 않도록 고정(lock)됩니다.</p>
+    </section>
+
+    <section>
+      <h2>4. MOO:CHECK — 결과 검증</h2>
+      <p>다음 거래일, 고정된 기준값과 실제 결과를 대조해 적중/부분적중/불일치/판단보류 중 하나로 표시합니다. 결과가 아직 없는 날은 섹션 자체를 표시하지 않으며, 빗나간 질문을 숨기거나 삭제하지 않습니다.</p>
+    </section>
+
+    <section>
+      <h2>5. LLM 활용과 정정 원칙</h2>
+      <p>해설 문장 생성에 LLM(1차 Gemini, 실패 시 규칙 기반 템플릿으로 대체)을 사용합니다. LLM은 이미 수집된 사실 안에서만 문장을 구성하도록 지시되며, 새로운 숫자·날짜·출처를 만들어내지 않습니다.</p>
+      <ul>
+        <li>같은 지표는 한 발행물 안에서 항상 같은 기준(스냅샷)의 값을 사용합니다.</li>
+        <li>과거 발행물의 확정된 숫자는 이후에 조용히 덮어쓰지 않습니다.</li>
+        <li>오류가 발견되면 원래 값과 정정 값, 정정 사유를 함께 남깁니다.</li>
+      </ul>
+    </section>
+
+    <p>실제 오늘의 데이터는 <a href="/markets.html" style="color:var(--gold);">지표 터미널</a>에서, 그동안의 질문과 결과는 <a href="/" style="color:var(--gold);">홈</a>의 최신 발행물에서 확인할 수 있습니다.</p>
+  </main>
+
+  <footer><div class="wrap">
+    Daily MOO:conomy · mooconomy.co.kr<br>
+    © 2026 MOO:conomy. All rights reserved.
+  </div></footer>
+</body>
+</html>
