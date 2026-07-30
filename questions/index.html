@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MOO:Q 질문 기록 | 무코노미 경제 질문과 결과</title>
+<meta name="description" content="매일 발행한 경제 질문과 다음 거래일 실제 결과를 공개합니다. 발행 당시 기준값, 예상 방향, 확인 결과와 판정 근거를 확인하세요.">
+<link rel="canonical" href="https://mooconomy.co.kr/questions/">
+<meta name="robots" content="index,follow">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="MOO:Q 질문 기록 | 무코노미 경제 질문과 결과">
+<meta property="og:description" content="매일 발행한 경제 질문과 다음 거래일 실제 결과를 공개합니다.">
+<meta property="og:image" content="https://raw.githubusercontent.com/immusaeng/mooconomy-assets/main/og_mooconomy_v2.png">
+<meta property="og:url" content="https://mooconomy.co.kr/questions/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MOO:Q 질문 기록 | 무코노미 경제 질문과 결과">
+<meta name="twitter:description" content="매일 발행한 경제 질문과 다음 거래일 실제 결과를 공개합니다.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "MOO:Q 질문 기록",
+  "url": "https://mooconomy.co.kr/questions/",
+  "isPartOf": { "@type": "WebSite", "name": "Daily MOO:conomy", "url": "https://mooconomy.co.kr" },
+  "description": "매일 발행한 경제 질문과 다음 거래일 실제 결과를 공개합니다."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://mooconomy.co.kr/" },
+    { "@type": "ListItem", "position": 2, "name": "MOO:Q 질문 기록", "item": "https://mooconomy.co.kr/questions/" }
+  ]
+}
+</script>
+
+<style>
+  :root { --bg:#0B1220; --card:#141C2E; --ink:#E8ECF3; --sub:#95A2BA; --gold:#F2C94C; --line:rgba(124,138,165,.18); --up:#FF6B6B; --down:#5B8DEF; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',Arial,sans-serif; line-height:1.6; }
+  .wrap { max-width:880px; margin:0 auto; padding:0 20px; }
+  header.mh { padding:22px 0; border-bottom:1px solid var(--line); }
+  .brand { font-size:18px; font-weight:800; text-decoration:none; color:var(--ink); }
+  .brand .g { color:var(--gold); }
+  nav.topnav { margin-top:12px; font-size:12.5px; }
+  nav.topnav a { color:var(--sub); text-decoration:none; margin-right:16px; }
+  nav.topnav a.current { color:var(--gold); font-weight:700; }
+  nav.crumb { font-size:12px; color:var(--sub); margin-top:10px; }
+  nav.crumb a { color:var(--sub); }
+  main { padding:40px 0 64px; }
+  .eyebrow { font-size:11px; font-weight:700; letter-spacing:.08em; color:var(--gold); text-transform:uppercase; margin-bottom:12px; }
+  h1 { font-size:26px; line-height:1.4; margin:0 0 14px; word-break:keep-all; }
+  .lead { font-size:14px; color:var(--sub); margin:0 0 32px; word-break:keep-all; max-width:640px; }
+  .summary { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:40px; }
+  @media (max-width:640px) { .summary { grid-template-columns:repeat(2,1fr); } }
+  .stat { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 16px; }
+  .stat .n { font-size:22px; font-weight:800; color:var(--gold); }
+  .stat .l { font-size:11.5px; color:var(--sub); margin-top:4px; }
+  .qlist { display:flex; flex-direction:column; gap:12px; }
+  .qcard { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:16px 18px; word-break:keep-all; }
+  .qcard .qtext { font-size:14.5px; font-weight:700; margin-bottom:10px; }
+  .qmeta { display:grid; grid-template-columns:repeat(2,1fr); gap:6px 16px; font-size:12px; color:#C7CEDB; margin-bottom:10px; }
+  @media (max-width:640px) { .qmeta { grid-template-columns:1fr; } }
+  .qmeta b { color:var(--sub); font-weight:600; }
+  .verdict { display:inline-block; font-size:11px; font-weight:800; padding:3px 10px; border-radius:12px; }
+  .verdict.hit { background:rgba(255,107,107,.14); color:var(--up); }
+  .verdict.miss { background:rgba(91,141,239,.14); color:var(--down); }
+  .verdict.neutral, .verdict.unresolved { background:rgba(149,162,186,.14); color:var(--sub); }
+  .evidence { font-size:12.5px; color:#C7CEDB; margin-top:8px; padding-top:8px; border-top:1px solid var(--line); }
+  .cta { margin-top:40px; font-size:13px; color:var(--sub); }
+  .cta a { color:var(--gold); text-decoration:none; }
+  footer { border-top:1px solid var(--line); padding:28px 0; font-size:12px; color:var(--sub); }
+  footer a { color:var(--gold); text-decoration:none; }
+  .disclaimer { font-size:11px; color:#6B7A99; margin-top:10px; }
+</style>
+</head>
+<body>
+  <header class="mh"><div class="wrap">
+    <a class="brand" href="/">MOO<span class="g">:</span>conomy</a>
+    <nav class="topnav">
+      <a href="/">TODAY</a><a href="/questions/" class="current">QUESTIONS</a><a href="/methodology/">METHODOLOGY</a><a href="/#subscribe">SUBSCRIBE</a>
+    </nav>
+    <nav class="crumb"><a href="/">홈</a> / MOO:Q 질문 기록</nav>
+  </div></header>
+
+  <main class="wrap">
+    <div class="eyebrow">QUESTIONS · MOO:Q ARCHIVE</div>
+    <h1>오늘의 질문은 내일의 기록이 됩니다</h1>
+    <p class="lead">MOO:Q는 발행 당시의 질문과 기준값을 고정하고, 다음 거래일 실제 결과를 공개하는 무코노미의 시장 질문 기록입니다.</p>
+
+    <div class="summary">
+      <div class="stat"><div class="n">11</div><div class="l">전체 질문</div></div>
+      <div class="stat"><div class="n">10</div><div class="l">판정 완료</div></div>
+      <div class="stat"><div class="n">1</div><div class="l">확인 중</div></div>
+      <div class="stat"><div class="n">3·3·4·1</div><div class="l">일치·부분일치·불일치·판단보류</div></div>
+    </div>
+
+    <div class="qlist">
+      <div class="qcard">
+        <div class="qtext">미국채 10년물 금리는 다음 거래일까지 상승세를 이어갈까?</div>
+        <div class="qmeta">
+          <div><b>발행일</b> 2026-07-30</div>
+          <div><b>발행 시 기준값</b> 4.62 %p (2026-07-29 기준)</div>
+          <div><b>예상 방향</b> 상승</div>
+          <div><b>확인 예정일</b> 2026-07-31</div>
+          <div><b>실제 결과</b> 확인 중</div>
+          <div><b>상태</b> <span class="verdict unresolved">판단보류</span></div>
+        </div>
+      </div>
+      <div class="qcard">
+        <div class="qtext">원/달러 환율은 다음 거래일까지 원화 강세 흐름을 이어갈까?</div>
+        <div class="qmeta">
+          <div><b>발행일</b> 2026-07-29</div>
+          <div><b>발행 시 기준값</b> 1,453.87 원 (2026-07-28 기준)</div>
+          <div><b>예상 방향</b> 하락</div>
+          <div><b>확인 예정일</b> 2026-07-30</div>
+          <div><b>실제 결과</b> 1,443.80%</div>
+          <div><b>상태</b> <span class="verdict hit">일치</span></div>
+        </div>
+        <div class="evidence">실제 변화가 예상한 하락 방향과 일치했습니다.</div>
+      </div>
+      <div class="qcard">
+        <div class="qtext">원/달러 환율은 다음 거래일까지 상승세를 이어갈까요?</div>
+        <div class="qmeta">
+          <div><b>발행일</b> 2026-07-28</div>
+          <div><b>발행 시 기준값</b> 1,465.79 원 (2026-07-27 기준)</div>
+          <div><b>예상 방향</b> 상승</div>
+          <div><b>확인 예정일</b> 2026-07-29</div>
+          <div><b>실제 결과</b> 1,453.87%</div>
+          <div><b>상태</b> <span class="verdict miss">불일치</span></div>
+        </div>
+        <div class="evidence">실제 변화가 예상한 상승 방향과 다르게 움직였습니다.</div>
+      </div>
+      <div class="qcard">
+        <div class="qtext">코스피 지수는 다음 거래일까지 하락세를 이어갈까?</div>
+        <div class="qmeta">
+          <div><b>발행일</b> 2026-07-27</div>
+          <div><b>발행 시 기준값</b> 6,690.62 kospi (2026-07-24 기준)</div>
+          <div><b>예상 방향</b> 하락</div>
+          <div><b>확인 예정일</b> 2026-07-28</div>
+          <div><b>실제 결과</b> 6,755.75%</div>
+          <div><b>상태</b> <span class="verdict miss">불일치</span></div>
+        </div>
+        <div class="evidence">실제 변화가 예상한 하락 방향과 다르게 움직였습니다.</div>
+      </div>
+      <div class="qcard">
+        <div class="qtext">원/달러 환율은 다음 거래일에도 하락세를 이어갈까?</div>
+        <div class="qmeta">
+          <div><b>발행일</b> 2026-07-25</div>
+          <div><b>발행 시 기준값</b> 1,459.42 원 (2026-07-24 기준)</div>
+          <div><b>예상 방향</b> 하락</div>
+          <div><b>확인 예정일</b> 2026-07-26</div>
+          <div><b>실제 결과</b> 1,459.42%</div>
+          <div><b>상태</b> <span class="verdict neutral">부분일치</span></div>
+        </div>
+        <div class="evidence">변화폭이 중립 구간(±0.2%) 이내에 머물러 뚜렷한 방향이 나타나지 않았습니다.</div>
+      </div>
+      <div class="qcard">
+        <div class="qtext">원/달러 환율은 다음 거래일까지 하락세를 이어갈까요?</div>
+        <div class="qmeta">
+          <div><b>발행일</b> 2026-07-24</div>
+          <div><b>발행 시 기준값</b> 1,474.12 원 (2026-07-23 기준)</div>
+          <div><b>예상 방향</b> 하락</div>
+          <div><b>확인 예정일</b> 2026-07-25</div>
+          <div><b>실제 결과</b> 1,459.42%</div>
+          <div><b>상태</b> <span class="verdict hit">일치</span></div>
+        </div>
+        <div class="evidence">실제 변화가 예상한 하락 방향과 일치했습니다.</div>
+      </div>
+      <div class="qcard">
+        <div class="qtext">원/달러 환율은 다음 거래일까지 하락세를 이어갈까?</div>
+        <div class="qmeta">
+          <div><b>발행일</b> 2026-07-23</div>
+          <div><b>발행 시 기준값</b> 1,476.62 원 (2026-07-22 기준)</div>
+          <div><b>예상 방향</b> 하락</div>
+          <div><b>확인 예정일</b> 2026-07-24</div>
+          <div><b>실제 결과</b> 1,474.12%</div>
+          <div><b>상태</b> <span class="verdict neutral">부분일치</span></div>
+        </div>
+        <div class="evidence">변화폭이 중립 구간(±0.2%) 이내에 머물러 뚜렷한 방향이 나타나지 않았습니다.</div>
+      </div>
+      <div class="qcard">
+        <div class="qtext">원/달러 환율은 다음 거래일까지 상승세를 이어갈까?</div>
+        <div class="qmeta">
+          <div><b>발행일</b> 2026-07-22</div>
+          <div><b>발행 시 기준값</b> 1,479.78 원 (2026-07-21 기준)</div>
+          <div><b>예상 방향</b> 상승</div>
+          <div><b>확인 예정일</b> 2026-07-23</div>
+          <div><b>실제 결과</b> 1,479.18%</div>
+          <div><b>상태</b> <span class="verdict neutral">부분일치</span></div>
+        </div>
+        <div class="evidence">변화폭이 중립 구간(±0.2%) 이내에 머물러 뚜렷한 방향이 나타나지 않았습니다.</div>
+      </div>
+      <div class="qcard">
+        <div class="qtext">다음 거래일까지 원/달러 환율이 상승세를 이어갈 가능성이 있습니다.</div>
+        <div class="qmeta">
+          <div><b>발행일</b> 2026-07-20</div>
+          <div><b>발행 시 기준값</b> 1,486.53 원 (2026-07-19 기준)</div>
+          <div><b>예상 방향</b> 상승</div>
+          <div><b>확인 예정일</b> 2026-07-21</div>
+          <div><b>실제 결과</b> 1,481.21%</div>
+          <div><b>상태</b> <span class="verdict miss">불일치</span></div>
+        </div>
+        <div class="evidence">실제 변화가 예상한 상승 방향과 다르게 움직였습니다.</div>
+      </div>
+      <div class="qcard">
+        <div class="qtext">다음 거래일까지 코스피 지수가 하락 흐름을 지속하거나 변동성이 높게 유지될 가능성이 있습니다.</div>
+        <div class="qmeta">
+          <div><b>발행일</b> 2026-07-20</div>
+          <div><b>발행 시 기준값</b> 6,820.60 kospi (2026-07-16 기준)</div>
+          <div><b>예상 방향</b> 하락</div>
+          <div><b>확인 예정일</b> 2026-07-21</div>
+          <div><b>실제 결과</b> 6,516.27%</div>
+          <div><b>상태</b> <span class="verdict hit">일치</span></div>
+        </div>
+        <div class="evidence">실제 변화가 예상한 하락 방향과 일치했습니다.</div>
+      </div>
+      <div class="qcard">
+        <div class="qtext">원/달러 환율이 다음 거래일까지 추가 상승할지 관찰이 필요합니다.</div>
+        <div class="qmeta">
+          <div><b>발행일</b> 2026-07-19</div>
+          <div><b>발행 시 기준값</b> 1,487.46 원 (2026-07-17 기준)</div>
+          <div><b>예상 방향</b> 상승</div>
+          <div><b>확인 예정일</b> 2026-07-20</div>
+          <div><b>실제 결과</b> 1,481.21%</div>
+          <div><b>상태</b> <span class="verdict miss">불일치</span></div>
+        </div>
+        <div class="evidence">실제 변화가 예상한 상승 방향과 다르게 움직였습니다.</div>
+      </div>
+    </div>
+
+    <p class="cta">판정 기준과 데이터 처리 원칙은 <a href="/methodology/">방법론 페이지</a>에서 확인하세요.</p>
+  </main>
+
+  <footer><div class="wrap">
+    Daily MOO:conomy · mooconomy.co.kr<br>
+    © 2026 MOO:conomy. All rights reserved.
+    <div class="disclaimer">MOO:Q는 투자 권유가 아니며, 발행 시점 데이터를 근거로 한 시장 관찰 기록입니다.</div>
+  </div></footer>
+</body>
+</html>
