@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-30T06:43:33+09:00",
+  "updatedAt": "2026-07-31T08:53:23+09:00",
   "claims": {
     "2026-07-19-c1": {
       "schemaVersion": 1,
@@ -627,7 +627,7 @@
       },
       "thresholdRuleId": "abs_003pp",
       "confidence": null,
-      "status": "unresolved",
+      "status": "hit",
       "revision": {
         "version": 1,
         "contentHash": "f82a80eab2151e2b2e1f77ced5292199ab9eb497887863b7c25e91f5c37cd125",
@@ -636,6 +636,66 @@
       "baseline": {
         "value": 4.62,
         "asOf": "2026-07-29",
+        "benchmarkValue": null,
+        "benchmarkAsOf": null
+      },
+      "resolution": {
+        "resolutionId": "2026-07-30-c1-res",
+        "claimId": "2026-07-30-c1",
+        "resolvedAt": "2026-07-31T08:53:23+09:00",
+        "verdict": "hit",
+        "metricId": "us10y",
+        "comparisonType": "absolute_return",
+        "startValue": 4.62,
+        "endValue": 4.66,
+        "changeValue": 0.040000000000000036,
+        "changeUnit": "%p",
+        "benchmarkMetricId": null,
+        "benchmarkStartValue": null,
+        "benchmarkEndValue": null,
+        "neutralLower": -0.03,
+        "neutralUpper": 0.03,
+        "neutralBand": 0.03,
+        "dataProvider": "FinanceDataReader",
+        "sourceUrl": "",
+        "observedAt": "2026-07-30",
+        "explanation": "실제 변화가 예상한 상승 방향과 일치했습니다."
+      }
+    },
+    "2026-07-31-c1": {
+      "schemaVersion": 1,
+      "claimId": "2026-07-31-c1",
+      "publicationId": "2026-07-31",
+      "issuedAt": "2026-07-31T08:53:23+09:00",
+      "dataCutoffAt": "2026-07-31T08:53:23+09:00",
+      "lockedAt": "2026-07-31T08:53:23+09:00",
+      "claimMode": "auto",
+      "verificationType": "proxy",
+      "topic": "코스닥 다음 거래일 방향",
+      "sourceNewsIds": [],
+      "observationText": "코스닥은 644.78로 전일 대비 2.70% 하락했습니다.",
+      "interpretationText": "현재 관찰된 하락 흐름이 다음 거래일까지 이어지는지가 확인 대상입니다.",
+      "claimText": "코스닥은 다음 거래일까지 하락세를 이어갈까?",
+      "metricId": "kosdaq",
+      "benchmarkMetricId": null,
+      "comparisonType": "absolute_return",
+      "expectedDirection": "down",
+      "horizon": {
+        "type": "next_close",
+        "market": "KR",
+        "resolutionAt": "2026-08-01"
+      },
+      "thresholdRuleId": "pct_030",
+      "confidence": null,
+      "status": "unresolved",
+      "revision": {
+        "version": 1,
+        "contentHash": "699646165f28444d54e5c621c26a5cca09f5817ae8da85e51674007f8c54429c",
+        "correctedFrom": null
+      },
+      "baseline": {
+        "value": 644.78,
+        "asOf": "2026-07-30",
         "benchmarkValue": null,
         "benchmarkAsOf": null
       },
