@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-08-01",
+  "generatedAt": "2026-08-01T06:44:07+09:00",
+  "indicators": [
+    {
+      "id": "kospi",
+      "value": 6595.45,
+      "change": 17.91,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "kosdaq",
+      "value": 719.76,
+      "change": 11.63,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "nasdaq",
+      "value": 25373.85,
+      "change": 1.0,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "sp500",
+      "value": 7489.72,
+      "change": 0.7,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1442.07,
+      "change": 21.47,
+      "displayMode": "delta",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "us10y",
+      "value": 4.74,
+      "change": 0.08,
+      "displayMode": "delta",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "wti",
+      "value": 86.8,
+      "change": 3.84,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "vix",
+      "value": 15.99,
+      "change": -6.44,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    }
+  ],
+  "signals": [
+    {
+      "id": "recession",
+      "color": "green",
+      "value": 0.45
+    },
+    {
+      "id": "rate-gap",
+      "color": "green",
+      "value": 1.0
+    },
+    {
+      "id": "liquidity-stress",
+      "color": "green",
+      "value": 2.84
+    }
+  ],
+  "calendarSnapshot": [
+    {
+      "id": "us-2026-08-07-미국 고용보고서(비농업고용·실업률)",
+      "time": "2026-08-07",
+      "country": "US",
+      "title": "미국 고용보고서(비농업고용·실업률)",
+      "importance": "high"
+    }
+  ],
+  "marketTemperature": {
+    "label": "risk_on",
+    "displayLabel": "위험선호",
+    "status": "ok"
+  }
+}

@@ -1,24 +1,23 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-31T08:53:07+09:00",
-  "publishDate": "2026-07-31",
-  "marketDateKr": "2026-07-30",
-  "marketDateUs": "2026-07-30",
+  "generatedAt": "2026-08-01T06:43:45+09:00",
+  "publishDate": "2026-08-01",
+  "marketDateKr": "2026-07-31",
+  "marketDateUs": "2026-07-31",
   "isDelayed": true,
   "status": "ok",
   "marketTemperature": {
     "label": "risk_on",
     "displayLabel": "위험선호",
-    "summary": "간밤 미국 증시가 큰 폭으로 상승했음에도 불구하고, 국내 증시는 하락세를 보이며 상반된 흐름이 관찰됩니다. 원/달러 환율의 원화 강세와 외국인 코스피 순매수는 위험 선호 심리가 존재할 가능성을 시사합니다.",
+    "summary": "간밤 미국 증시 상승과 함께 국내 증시도 크게 올랐으며, 외국인 순매수가 강하게 유입되면서 전반적인 위험선호 분위기가 감지됩니다. 다만 원/달러 환율이 상승하며 원화 약세가 나타난 점도 관찰됩니다.",
     "reasons": [
-      "간밤 미국 증시 평균 +1.88% 상승",
-      "국내 증시 -1.23% 하락",
-      "원/달러 -1.44%(원화 강세)",
-      "외국인 코스피 순매수 13,280억원"
+      "간밤 미국 증시 평균 +0.74% 상승",
+      "국내 증시 +17.91% 상승",
+      "원/달러 +1.51%(원화 약세)",
+      "외국인 코스피 순매수 72,410억원"
     ],
     "watchItems": [
-      "원/달러 환율",
-      "외국인 수급"
+      "원/달러 환율"
     ],
     "status": "ok"
   },
@@ -26,19 +25,19 @@
     {
       "id": "overnight-global",
       "title": "간밤 글로벌 시장",
-      "text": "간밤 글로벌 증시에서는 나스닥이 2.78%, S&P500이 1.66%, 다우가 1.19% 상승하며 전반적으로 강세를 보였습니다.",
+      "text": "간밤 뉴욕 증시는 나스닥이 1% 상승하는 등 주요 지수들이 대체로 강세를 보이며 마감했으며, VIX 지수와 미국채 10년 금리도 함께 확인됩니다.",
       "status": "ok"
     },
     {
       "id": "today-domestic",
       "title": "전일 국내 시장",
-      "text": "코스피 -1.23%, 코스닥 -2.70%, 외국인 코스피 순매수 13,280억원, 원/달러 -1.44%.",
+      "text": "전일 국내 증시에서는 코스피와 코스닥이 모두 상승 마감했고, 특히 외국인 투자자들의 코스피 대규모 순매수가 두드러졌습니다. 이와 함께 원/달러 환율은 원화 약세 흐름을 보였습니다.",
       "status": "ok"
     },
     {
       "id": "today-checkpoint",
       "title": "오늘의 체크포인트",
-      "text": "글로벌 시장의 강세에도 불구하고 국내 증시는 하락 흐름을 보였으며, 이는 확인할 지표들과 함께 시장이 방향성을 탐색하는 모습으로 해석됩니다.",
+      "text": "간밤 글로벌 증시의 긍정적 흐름과 국내 증시의 강한 상승세가 나타난 가운데, 시장은 추가적인 경기 관련 지표와 환율 흐름에 대한 점검의 필요성을 시사하는 모습입니다.",
       "status": "ok"
     }
   ],
@@ -46,23 +45,23 @@
     "nodes": [
       {
         "label": "미국채10년 금리",
-        "detail": "4.66% · +0.04%p 상승"
+        "detail": "4.74% · +0.08%p 상승"
       },
       {
         "label": "원/달러 환율",
-        "detail": "1,421.5원 · -20.81원 하락(원화 강세)"
+        "detail": "1,442.1원 · +21.47원 상승(원화 약세)"
       },
       {
         "label": "외국인 수급",
-        "detail": "코스피 +13,280억원 순매수"
+        "detail": "코스피 +72,410억원 순매수"
       },
       {
         "label": "국내 증시(코스피)",
-        "detail": "5,593.56 · -1.23% 하락"
+        "detail": "6,595.45 · +17.91% 상승"
       }
     ],
-    "summary": "미국채 10년 금리가 소폭 상승하는 가운데 원/달러 환율은 하락하며 원화 강세를 보였고, 외국인 투자자들은 코스피에서 순매수를 기록했지만 국내 증시는 하락 마감했습니다. 이러한 지표들이 동시에 나타난 현상으로 보이며, 업종별 수급이나 대외 뉴스 등 다른 요인들도 함께 국내 증시에 영향을 미쳤을 가능성이 있습니다.",
-    "counterScenario": "외국인 순매수가 관찰되었음에도 국내 증시가 하락한 점을 볼 때, 추가적인 대외 변수나 국내 요인들이 시장에 불확실성을 가중시킬 수 있다는 점을 고려할 필요가 있습니다.",
+    "summary": "미국채 10년 금리의 상승과 함께 원/달러 환율이 상승하며 원화 약세가 나타났고, 이러한 상황 속에서도 외국인 투자자들의 코스피 순매수가 대규모로 유입되며 국내 증시 상승에 영향을 준 요인 중 하나로 해석될 수 있습니다. 다만, 특정 업종의 강세나 대외 뉴스 등 다양한 요인이 복합적으로 작용했을 가능성도 함께 고려될 필요가 있습니다.",
+    "counterScenario": "현재 강한 증시 흐름 속에서도 미국채 금리 변동성이나 환율의 추가적인 움직임이 시장에 다른 영향을 미칠 가능성도 있습니다.",
     "status": "ok"
   },
   "koreaWatch": {
@@ -70,52 +69,59 @@
       {
         "id": "foreign",
         "label": "외국인 수급",
-        "value": 13280,
-        "displayValue": "+13,280억원",
+        "value": 72410,
+        "displayValue": "+72,410억원",
         "direction": "up",
         "status": "ok"
       },
       {
         "id": "institution",
         "label": "기관 수급",
-        "value": 805,
-        "displayValue": "+805억원",
+        "value": 11503,
+        "displayValue": "+11,503억원",
         "direction": "up",
         "status": "ok"
       },
       {
         "id": "individual",
         "label": "개인 수급",
-        "value": -14309,
-        "displayValue": "-14,309억원",
+        "value": -82840,
+        "displayValue": "-82,840억원",
         "direction": "down",
         "status": "ok"
       },
       {
         "id": "usdkrw",
         "label": "원/달러",
-        "value": 1421.47,
-        "displayValue": "1,421.5원",
-        "direction": "down",
+        "value": 1442.07,
+        "displayValue": "1,442.1원",
+        "direction": "up",
         "status": "ok"
       },
       {
         "id": "leading-sector",
         "label": "주도 업종",
-        "value": 0.0,
-        "displayValue": "음료 +0.00%",
+        "value": 28.03,
+        "displayValue": "반도체와반도체장비 +28.03%",
         "direction": "up",
         "status": "ok"
       }
     ],
-    "summary": "외국인 수급 +13,280억원, 기관 수급 +805억원, 개인 수급 -14,309억원, 원/달러 1,421.5원, 주도 업종 음료 +0.00%.",
+    "summary": "국내 증시에서는 외국인과 기관이 순매수를 기록한 반면 개인 투자자들은 순매도를 보였으며, 반도체 및 반도체 장비 업종이 주도 업종으로 강한 상승세를 보였습니다.",
     "status": "ok"
   },
   "risks": [
     {
+      "id": "kr-swing",
+      "title": "국내 증시 큰 변동",
+      "detail": "전일 코스피가 +17.91% 상승하는 등 국내 증시의 큰 변동성이 관찰되었습니다.",
+      "level": "관찰",
+      "status": "ok"
+    },
+    {
       "id": "fx-swing",
       "title": "환율 변동성",
-      "detail": "원/달러 -1.44%로 환율 움직임이 커진 점이 관찰됩니다.",
+      "detail": "원/달러 환율이 +1.51% 상승하며 환율 변동성이 확대되는 모습이 포착됩니다.",
       "level": "관찰",
       "status": "ok"
     }
@@ -133,143 +139,143 @@
   "news": {
     "items": [
       {
-        "id": "news-매일경제-“예금·주식·연금으로 5분만에 쪼개진다” … 한국인이 269조 굴리는 방법",
+        "id": "news-매일경제-역대급 이익에 부실채권 확 줄여도…은행 건전성은 뒷걸음질",
         "category": "news",
         "source": "매일경제",
-        "title": "“예금·주식·연금으로 5분만에 쪼개진다” … 한국인이 269조 굴리는 방법",
-        "url": "https://www.mk.co.kr/news/economy/12112090",
-        "publishedAt": "2026-07-31",
+        "title": "역대급 이익에 부실채권 확 줄여도…은행 건전성은 뒷걸음질",
+        "url": "https://www.mk.co.kr/news/economy/12114132",
+        "publishedAt": "2026-08-01",
         "status": "ok"
       },
       {
-        "id": "news-파이낸셜뉴스-구윤철 \"KIC에 초기자본 20조 국부펀드 신설..투자수익 국민과 공유\"",
+        "id": "news-매일경제-엔화 개입 하루 만에 다시 160엔대 … 금리 동결한 일본은행, 12월엔 올릴까",
         "category": "news",
-        "source": "파이낸셜뉴스",
-        "title": "구윤철 \"KIC에 초기자본 20조 국부펀드 신설..투자수익 국민과 공유\"",
-        "url": "https://www.fnnews.com/news/202607310842167251",
-        "publishedAt": "2026-07-31",
+        "source": "매일경제",
+        "title": "엔화 개입 하루 만에 다시 160엔대 … 금리 동결한 일본은행, 12월엔 올릴까",
+        "url": "https://www.mk.co.kr/news/economy/12113664",
+        "publishedAt": "2026-08-01",
         "status": "ok"
       },
       {
-        "id": "news-연합뉴스마켓-iM증권 \"세아베스틸, 하반기 업종 최선호주\"…투자의견 '매수'로 상향",
-        "category": "news",
-        "source": "연합뉴스마켓",
-        "title": "iM증권 \"세아베스틸, 하반기 업종 최선호주\"…투자의견 '매수'로 상향",
-        "url": "https://www.yna.co.kr/view/AKR20260731027100008",
-        "publishedAt": "2026-07-31",
-        "status": "ok"
-      },
-      {
-        "id": "news-연합뉴스마켓-삼성증권, 키움증권 목표가 하향하면서도 \"절대적 저평가\"",
+        "id": "news-연합뉴스마켓-엔비디아, 나흘 만에 시가총액 1위 복귀…애플, 7%대 폭락",
         "category": "news",
         "source": "연합뉴스마켓",
-        "title": "삼성증권, 키움증권 목표가 하향하면서도 \"절대적 저평가\"",
-        "url": "https://www.yna.co.kr/view/AKR20260731030500008",
-        "publishedAt": "2026-07-31",
+        "title": "엔비디아, 나흘 만에 시가총액 1위 복귀…애플, 7%대 폭락",
+        "url": "https://www.yna.co.kr/view/AKR20260801008600091",
+        "publishedAt": "2026-08-01",
         "status": "ok"
       },
       {
-        "id": "news-파이낸셜뉴스-20조원 전략형 국부펀드 띄운다…AI·반도체 장기 투자",
+        "id": "news-연합뉴스-[부동산캘린더] 내주 부산 '더샵트리센트' 등 전국 3천34가구 분양",
+        "category": "news",
+        "source": "연합뉴스",
+        "title": "[부동산캘린더] 내주 부산 '더샵트리센트' 등 전국 3천34가구 분양",
+        "url": "https://www.yna.co.kr/view/AKR20260731123500003",
+        "publishedAt": "2026-08-01",
+        "status": "ok"
+      },
+      {
+        "id": "news-연합뉴스마켓-뉴욕증시, 아마존 실적 훈풍에 강세 마감…나스닥 1%↑(종합)",
+        "category": "news",
+        "source": "연합뉴스마켓",
+        "title": "뉴욕증시, 아마존 실적 훈풍에 강세 마감…나스닥 1%↑(종합)",
+        "url": "https://www.yna.co.kr/view/AKR20260801006551072",
+        "publishedAt": "2026-08-01",
+        "status": "ok"
+      },
+      {
+        "id": "news-파이낸셜뉴스-외국인 \"지금이 기회\" 8.7조 폭풍 매수할 때...10조 털고 나간 개미들 '눈물'",
         "category": "news",
         "source": "파이낸셜뉴스",
-        "title": "20조원 전략형 국부펀드 띄운다…AI·반도체 장기 투자",
-        "url": "https://www.fnnews.com/news/202607310831260589",
-        "publishedAt": "2026-07-31",
+        "title": "외국인 \"지금이 기회\" 8.7조 폭풍 매수할 때...10조 털고 나간 개미들 '눈물'",
+        "url": "https://www.fnnews.com/news/202607312133096580",
+        "publishedAt": "2026-08-01",
         "status": "ok"
       },
       {
-        "id": "news-파이낸셜뉴스-화재 위험 우려 전국 19만동+α 공장·창고 대규모 실태조사 나선다",
+        "id": "news-연합뉴스-국제유가, 호르무즈 유조선 피습에 1% 상승…브렌트 90달러대",
         "category": "news",
-        "source": "파이낸셜뉴스",
-        "title": "화재 위험 우려 전국 19만동+α 공장·창고 대규모 실태조사 나선다",
-        "url": "https://www.fnnews.com/news/202607301418384960",
-        "publishedAt": "2026-07-31",
+        "source": "연합뉴스",
+        "title": "국제유가, 호르무즈 유조선 피습에 1% 상승…브렌트 90달러대",
+        "url": "https://www.yna.co.kr/view/AKR20260801005500072",
+        "publishedAt": "2026-08-01",
         "status": "ok"
       },
       {
-        "id": "news-한국경제-정부 '외국인 유치' 칼 뺐다…경주·해운대 '글로벌 관광특구' 선정",
+        "id": "news-한국경제증권-韓·美·日 '환율공조'…원·달러 1418원",
         "category": "news",
-        "source": "한국경제",
-        "title": "정부 '외국인 유치' 칼 뺐다…경주·해운대 '글로벌 관광특구' 선정",
-        "url": "https://www.hankyung.com/article/202607316893g",
+        "source": "한국경제증권",
+        "title": "韓·美·日 '환율공조'…원·달러 1418원",
+        "url": "https://www.hankyung.com/article/2026073186461",
         "publishedAt": "2026-07-31",
         "status": "ok"
       },
       {
-        "id": "news-한국경제-[속보] 6월 산업생산 2.3%·소비 2.7%·투자 5.8%↑…트리플 증가",
-        "category": "news",
-        "source": "한국경제",
-        "title": "[속보] 6월 산업생산 2.3%·소비 2.7%·투자 5.8%↑…트리플 증가",
-        "url": "https://www.hankyung.com/article/2026073169497",
-        "publishedAt": "2026-07-31",
-        "status": "ok"
-      },
-      {
-        "id": "news-CNBC-Fast-fashion retailer Shein’s 3-year IPO odyssey cost it the ‘golden t",
+        "id": "news-CNBC-Fintech broker Clear Street offers investors pre-IPO access to $188 bi",
         "category": "news",
         "source": "CNBC",
-        "title": "Fast-fashion retailer Shein’s 3-year IPO odyssey cost it the ‘golden time’ to go public",
-        "url": "https://www.cnbc.com/2026/07/31/shein-ipo-hong-kong-ftc-investigation-tariffs-fast-fashion-.html",
-        "publishedAt": "2026-07-30",
+        "title": "Fintech broker Clear Street offers investors pre-IPO access to $188 billion AI giant Databricks",
+        "url": "https://www.cnbc.com/2026/07/31/clear-street-pre-ipo-platform-databricks.html",
+        "publishedAt": "2026-07-31",
         "status": "ok"
       },
       {
-        "id": "news-CNBC-Microsoft's Xbox chief lays out plan to pass rivals on margin by 2030 ",
-        "category": "news",
-        "source": "CNBC",
-        "title": "Microsoft's Xbox chief lays out plan to pass rivals on margin by 2030 in memo to employees",
-        "url": "https://www.cnbc.com/2026/07/30/microsoft-xbox-asha-sharma-2030-plans.html",
-        "publishedAt": "2026-07-30",
-        "status": "ok"
-      },
-      {
-        "id": "news-CNBC-Meta sinks 8%, continuing record losing streak, while Microsoft jumps ",
-        "category": "news",
-        "source": "CNBC",
-        "title": "Meta sinks 8%, continuing record losing streak, while Microsoft jumps 15% as AI trade splits",
-        "url": "https://www.cnbc.com/2026/07/30/microsoft-msft-meta-stock-today-earnings.html",
-        "publishedAt": "2026-07-30",
-        "status": "ok"
-      },
-      {
-        "id": "news-MarketWatch-Jersey Mike’s spent almost ‘zero dollars’ on digital marketing.",
+        "id": "news-MarketWatch-S&P 500 ends with its first July decline since 2014. Here are t",
         "category": "news",
         "source": "MarketWatch",
-        "title": "Jersey Mike’s spent almost ‘zero dollars’ on digital marketing. That’s now changing.",
-        "url": "https://www.marketwatch.com/story/jersey-mikes-spent-almost-zero-dollars-on-digital-marketing-thats-now-changing-9738485d?mod=mw_rss_topstories",
-        "publishedAt": "2026-07-30",
+        "title": "S&P 500 ends with its first July decline since 2014. Here are the stocks that led the selloff.",
+        "url": "https://www.marketwatch.com/story/s-p-500-heads-for-the-first-july-decline-since-2014-here-are-the-stocks-that-led-the-selloff-5677f63b?mod=mw_rss_topstories",
+        "publishedAt": "2026-07-31",
         "status": "ok"
       },
       {
-        "id": "news-MarketWatch-Implosion of Situational Awareness hedge fund has Wall Street b",
-        "category": "news",
-        "source": "MarketWatch",
-        "title": "Implosion of Situational Awareness hedge fund has Wall Street betting the bottom is in for the AI trade",
-        "url": "https://www.marketwatch.com/story/implosion-of-situational-awareness-has-wall-street-betting-the-bottom-is-in-for-the-ai-trade-05d9f346?mod=mw_rss_topstories",
-        "publishedAt": "2026-07-30",
-        "status": "ok"
-      },
-      {
-        "id": "news-MarketWatch-Get ready to buy the dip in tech stocks. Why the recent selling",
-        "category": "news",
-        "source": "MarketWatch",
-        "title": "Get ready to buy the dip in tech stocks. Why the recent selling won’t break the bull market.",
-        "url": "https://www.marketwatch.com/story/get-ready-to-buy-the-dip-in-tech-stocks-why-the-recent-selling-wont-break-the-bull-market-900699f5?mod=mw_rss_topstories",
-        "publishedAt": "2026-07-30",
-        "status": "ok"
-      },
-      {
-        "id": "news-Investing-BOJ to keep rates steady, deliver hawkish signal as price pressur",
+        "id": "news-Investing-Stocks boosted by tech earnings; bond yields hit multi-year highs",
         "category": "news",
         "source": "Investing",
-        "title": "BOJ to keep rates steady, deliver hawkish signal as price pressures mount",
-        "url": "https://www.investing.com/news/economy-news/boj-to-keep-rates-steady-deliver-hawkish-signal-as-price-pressures-mount-4826275",
-        "publishedAt": "2026-07-30",
+        "title": "Stocks boosted by tech earnings; bond yields hit multi-year highs",
+        "url": "https://www.investing.com/news/economy-news/asia-stocks-surge-yen-in-the-spotlight-after-suspected-intervention-4826666",
+        "publishedAt": "2026-07-31",
+        "status": "ok"
+      },
+      {
+        "id": "news-Investing-Warsh raised changing frequency of Fed policy meetings, NYT repor",
+        "category": "news",
+        "source": "Investing",
+        "title": "Warsh raised changing frequency of Fed policy meetings, NYT reports",
+        "url": "https://www.investing.com/news/economy-news/warsh-raised-changing-frequency-of-fed-policy-meetings-nyt-reports-4829263",
+        "publishedAt": "2026-07-31",
+        "status": "ok"
+      },
+      {
+        "id": "news-MarketWatch-Did China build a top-tier AI model by itself? A new report sug",
+        "category": "news",
+        "source": "MarketWatch",
+        "title": "Did China build a top-tier AI model by itself? A new report suggests Nvidia chips played a role.",
+        "url": "https://www.marketwatch.com/story/did-china-build-a-top-tier-ai-model-by-itself-a-new-report-suggests-nvidia-chips-played-a-role-ad4644cd?mod=mw_rss_topstories",
+        "publishedAt": "2026-07-31",
+        "status": "ok"
+      },
+      {
+        "id": "news-CNBC-Alphabet, Amazon and Microsoft added nearly $1.5 trillion in combined ",
+        "category": "news",
+        "source": "CNBC",
+        "title": "Alphabet, Amazon and Microsoft added nearly $1.5 trillion in combined value this week",
+        "url": "https://www.cnbc.com/2026/07/31/apple-aapl-amazon-amzn-stock-today.html",
+        "publishedAt": "2026-07-31",
+        "status": "ok"
+      },
+      {
+        "id": "news-CNBC-Eaton shares jump as its earnings and outlook show resilience of the A",
+        "category": "news",
+        "source": "CNBC",
+        "title": "Eaton shares jump as its earnings and outlook show resilience of the AI buildout",
+        "url": "https://www.cnbc.com/2026/07/31/eaton-jumps-as-its-earnings-and-outlook-signal-hope-for-the-ai-buildout.html",
+        "publishedAt": "2026-07-31",
         "status": "ok"
       }
     ],
     "clusters": [],
-    "summary": "정부의 20조원 규모 국부펀드 신설 계획과 함께 AI, 반도체 등 핵심 산업에 대한 장기 투자 가능성이 주요 뉴스로 주목받고 있습니다.",
+    "summary": "외국인 투자자들의 대규모 순매수가 국내 증시에 유입되며 개인 투자자들의 매도세와 대비되는 극명한 수급 흐름이 주요 뉴스로 부각되었습니다.",
     "status": "ok"
   },
   "latestBriefing": null,
@@ -277,64 +283,81 @@
     {
       "id": "kospi",
       "name": "코스피",
-      "value": 5593.56,
-      "displayValue": "5,593.56",
-      "change": -1.23,
+      "value": 6595.45,
+      "displayValue": "6,595.45",
+      "change": 17.91,
       "changeUnit": "%",
       "displayMode": "pct",
-      "direction": "down",
-      "asOf": "2026-07-30",
+      "direction": "up",
+      "asOf": "2026-07-31",
       "source": "KRX",
       "sourceUrl": "",
       "frequency": "daily",
       "isDelayed": true,
       "status": "ok",
-      "insight": "전일 대비 하락"
+      "insight": "전일 대비 큰 폭 상승"
     },
     {
       "id": "kosdaq",
       "name": "코스닥",
-      "value": 644.78,
-      "displayValue": "644.78",
-      "change": -2.7,
+      "value": 719.76,
+      "displayValue": "719.76",
+      "change": 11.63,
       "changeUnit": "%",
       "displayMode": "pct",
-      "direction": "down",
-      "asOf": "2026-07-30",
+      "direction": "up",
+      "asOf": "2026-07-31",
       "source": "KRX",
       "sourceUrl": "",
       "frequency": "daily",
       "isDelayed": true,
       "status": "ok",
-      "insight": "전일 대비 큰 폭 하락"
+      "insight": "전일 대비 큰 폭 상승"
     },
     {
       "id": "nasdaq",
       "name": "나스닥",
-      "value": 25122.18,
-      "displayValue": "25,122.18",
-      "change": 2.78,
+      "value": 25373.85,
+      "displayValue": "25,373.85",
+      "change": 1.0,
       "changeUnit": "%",
       "displayMode": "pct",
       "direction": "up",
-      "asOf": "2026-07-30",
+      "asOf": "2026-07-31",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
       "isDelayed": true,
       "status": "ok",
-      "insight": "전일 대비 큰 폭 상승"
+      "insight": "전일 대비 상승"
     },
     {
       "id": "sp500",
       "name": "S&P500",
-      "value": 7437.63,
-      "displayValue": "7,437.63",
-      "change": 1.66,
+      "value": 7489.72,
+      "displayValue": "7,489.72",
+      "change": 0.7,
       "changeUnit": "%",
       "displayMode": "pct",
       "direction": "up",
-      "asOf": "2026-07-30",
+      "asOf": "2026-07-31",
+      "source": "FinanceDataReader",
+      "sourceUrl": "",
+      "frequency": "daily",
+      "isDelayed": true,
+      "status": "ok",
+      "insight": "전일 대비 상승"
+    },
+    {
+      "id": "usdkrw",
+      "name": "원/달러",
+      "value": 1442.07,
+      "displayValue": "1,442.1",
+      "change": 21.47,
+      "changeUnit": "원",
+      "displayMode": "delta",
+      "direction": "up",
+      "asOf": "2026-07-31",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
@@ -343,66 +366,49 @@
       "insight": "전일 대비 큰 폭 상승"
     },
     {
-      "id": "usdkrw",
-      "name": "원/달러",
-      "value": 1421.47,
-      "displayValue": "1,421.5",
-      "change": -20.81,
-      "changeUnit": "원",
-      "displayMode": "delta",
-      "direction": "down",
-      "asOf": "2026-07-30",
-      "source": "FinanceDataReader",
-      "sourceUrl": "",
-      "frequency": "daily",
-      "isDelayed": true,
-      "status": "ok",
-      "insight": "전일 대비 큰 폭 하락"
-    },
-    {
       "id": "us10y",
       "name": "미국채10년",
-      "value": 4.66,
-      "displayValue": "4.66%",
-      "change": 0.04,
+      "value": 4.74,
+      "displayValue": "4.74%",
+      "change": 0.08,
       "changeUnit": "%p",
       "displayMode": "delta",
       "direction": "up",
-      "asOf": "2026-07-30",
+      "asOf": "2026-07-31",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
       "isDelayed": true,
       "status": "ok",
-      "insight": "보합권"
+      "insight": "전일 대비 소폭 상승"
     },
     {
       "id": "wti",
       "name": "WTI",
-      "value": 84.06,
-      "displayValue": "$84.06",
-      "change": -0.47,
+      "value": 86.8,
+      "displayValue": "$86.80",
+      "change": 3.84,
       "changeUnit": "%",
       "displayMode": "pct",
-      "direction": "down",
-      "asOf": "2026-07-30",
+      "direction": "up",
+      "asOf": "2026-07-31",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
       "isDelayed": true,
       "status": "ok",
-      "insight": "전일 대비 하락"
+      "insight": "전일 대비 큰 폭 상승"
     },
     {
       "id": "vix",
       "name": "VIX",
-      "value": 17.09,
-      "displayValue": "17.09",
-      "change": -17.28,
+      "value": 15.99,
+      "displayValue": "15.99",
+      "change": -6.44,
       "changeUnit": "%",
       "displayMode": "pct",
       "direction": "down",
-      "asOf": "2026-07-30",
+      "asOf": "2026-07-31",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
@@ -420,7 +426,7 @@
       "valueLabel": "+0.45%p",
       "insight": "장단기 금리차가 정상 범위에 있어 침체 신호는 뚜렷하지 않습니다.",
       "sourceLabel": "장단기 금리차 (미국채 10Y-2Y)",
-      "asOf": "2026-07-31"
+      "asOf": "2026-08-01"
     },
     {
       "id": "rate-gap",
@@ -430,22 +436,63 @@
       "valueLabel": "+1.00%p",
       "insight": "한미 금리차가 관리 가능한 수준이라 자본유출 압력은 크지 않습니다.",
       "sourceLabel": "한미 기준금리차 (Fed-한은)",
-      "asOf": "2026-07-31"
+      "asOf": "2026-08-01"
     },
     {
       "id": "liquidity-stress",
       "name": "유동성 스트레스",
       "color": "green",
-      "value": 2.87,
-      "valueLabel": "2.87%p",
+      "value": 2.84,
+      "valueLabel": "2.84%p",
       "insight": "신용시장 스프레드가 평상 수준이라 유동성 경색 신호는 없습니다.",
       "sourceLabel": "하이일드 스프레드 (BAMLH0A0HYM2)",
-      "asOf": "2026-07-31"
+      "asOf": "2026-08-01"
     }
   ],
   "claims": {
     "status": "ok",
     "todayClaims": [
+      {
+        "schemaVersion": 1,
+        "claimId": "2026-08-01-c1",
+        "publicationId": "2026-08-01",
+        "issuedAt": "2026-08-01T06:44:07+09:00",
+        "dataCutoffAt": "2026-08-01T06:44:07+09:00",
+        "lockedAt": "2026-08-01T06:44:07+09:00",
+        "claimMode": "auto",
+        "verificationType": "proxy",
+        "topic": "코스피 다음 거래일 방향",
+        "sourceNewsIds": [],
+        "observationText": "코스피는 6,595.45로 전일 대비 17.91% 상승했습니다.",
+        "interpretationText": "현재 관찰된 상승 흐름이 다음 거래일까지 이어지는지가 확인 대상입니다.",
+        "claimText": "코스피는 다음 거래일까지 상승세를 이어갈까?",
+        "metricId": "kospi",
+        "benchmarkMetricId": null,
+        "comparisonType": "absolute_return",
+        "expectedDirection": "up",
+        "horizon": {
+          "type": "next_close",
+          "market": "KR",
+          "resolutionAt": "2026-08-02"
+        },
+        "thresholdRuleId": "pct_030",
+        "confidence": null,
+        "status": "unresolved",
+        "revision": {
+          "version": 1,
+          "contentHash": "95ddb6eed2f39d3c5a42a549d5fc3d38a7e1f97a102fd87796f4a4e2b43aaafc",
+          "correctedFrom": null
+        },
+        "baseline": {
+          "value": 6595.45,
+          "asOf": "2026-07-31",
+          "benchmarkValue": null,
+          "benchmarkAsOf": null
+        },
+        "resolution": null
+      }
+    ],
+    "previousClaims": [
       {
         "schemaVersion": 1,
         "claimId": "2026-07-31-c1",
@@ -471,7 +518,7 @@
         },
         "thresholdRuleId": "pct_030",
         "confidence": null,
-        "status": "unresolved",
+        "status": "miss",
         "revision": {
           "version": 1,
           "contentHash": "699646165f28444d54e5c621c26a5cca09f5817ae8da85e51674007f8c54429c",
@@ -483,75 +530,34 @@
           "benchmarkValue": null,
           "benchmarkAsOf": null
         },
-        "resolution": null
-      }
-    ],
-    "previousClaims": [
-      {
-        "schemaVersion": 1,
-        "claimId": "2026-07-30-c1",
-        "publicationId": "2026-07-30",
-        "issuedAt": "2026-07-30T06:43:33+09:00",
-        "dataCutoffAt": "2026-07-30T06:43:33+09:00",
-        "lockedAt": "2026-07-30T06:43:33+09:00",
-        "claimMode": "auto",
-        "verificationType": "proxy",
-        "topic": "미국채 10년물 금리 다음 거래일 방향",
-        "sourceNewsIds": [],
-        "observationText": "미국채 10년물 금리는 4.62%로 전일 대비 0.02%p 상승했습니다.",
-        "interpretationText": "현재 관찰된 상승 흐름이 다음 거래일까지 이어지는지가 확인 대상입니다.",
-        "claimText": "미국채 10년물 금리는 다음 거래일까지 상승세를 이어갈까?",
-        "metricId": "us10y",
-        "benchmarkMetricId": null,
-        "comparisonType": "absolute_return",
-        "expectedDirection": "up",
-        "horizon": {
-          "type": "next_close",
-          "market": "US",
-          "resolutionAt": "2026-07-31"
-        },
-        "thresholdRuleId": "abs_003pp",
-        "confidence": null,
-        "status": "hit",
-        "revision": {
-          "version": 1,
-          "contentHash": "f82a80eab2151e2b2e1f77ced5292199ab9eb497887863b7c25e91f5c37cd125",
-          "correctedFrom": null
-        },
-        "baseline": {
-          "value": 4.62,
-          "asOf": "2026-07-29",
-          "benchmarkValue": null,
-          "benchmarkAsOf": null
-        },
         "resolution": {
-          "resolutionId": "2026-07-30-c1-res",
-          "claimId": "2026-07-30-c1",
-          "resolvedAt": "2026-07-31T08:53:23+09:00",
-          "verdict": "hit",
-          "metricId": "us10y",
+          "resolutionId": "2026-07-31-c1-res",
+          "claimId": "2026-07-31-c1",
+          "resolvedAt": "2026-08-01T06:44:07+09:00",
+          "verdict": "miss",
+          "metricId": "kosdaq",
           "comparisonType": "absolute_return",
-          "startValue": 4.62,
-          "endValue": 4.66,
-          "changeValue": 0.040000000000000036,
-          "changeUnit": "%p",
+          "startValue": 644.78,
+          "endValue": 719.76,
+          "changeValue": 11.628772604609328,
+          "changeUnit": "%",
           "benchmarkMetricId": null,
           "benchmarkStartValue": null,
           "benchmarkEndValue": null,
-          "neutralLower": -0.03,
-          "neutralUpper": 0.03,
-          "neutralBand": 0.03,
-          "dataProvider": "FinanceDataReader",
+          "neutralLower": -0.3,
+          "neutralUpper": 0.3,
+          "neutralBand": 0.3,
+          "dataProvider": "KRX",
           "sourceUrl": "",
-          "observedAt": "2026-07-30",
-          "explanation": "실제 변화가 예상한 상승 방향과 일치했습니다."
+          "observedAt": "2026-07-31",
+          "explanation": "실제 변화가 예상한 하락 방향과 다르게 움직였습니다."
         }
       }
     ],
-    "previousPublicationId": "2026-07-30",
+    "previousPublicationId": "2026-07-31",
     "totals": {
       "hit": 4,
-      "miss": 4,
+      "miss": 5,
       "neutral": 3,
       "unresolved": 1,
       "invalidated": 0,
@@ -559,12 +565,12 @@
     }
   },
   "newsletterClaimsTeaser": {
-    "publicationId": "2026-07-30",
+    "publicationId": "2026-07-31",
     "resolvedCount": 1,
-    "hitCount": 1,
-    "missCount": 0,
+    "hitCount": 0,
+    "missCount": 1,
     "neutralCount": 0,
     "unresolvedCount": 0,
-    "highlightText": "미국채 10년물 금리는 다음 거래일까지 상승세를 이어갈까?"
+    "highlightText": "코스닥은 다음 거래일까지 하락세를 이어갈까?"
   }
 }
