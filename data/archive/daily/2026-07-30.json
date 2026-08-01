@@ -1,0 +1,146 @@
+{
+  "content_version": 1,
+  "created_at": "2026-07-30T06:43:14+09:00",
+  "domestic_market_date": "2026-07-29",
+  "formula_version": "v1",
+  "indicators": [
+    {
+      "as_of": "2026-07-29",
+      "change": -5.98,
+      "change_unit": "%",
+      "direction": "down",
+      "id": "kospi",
+      "source": "KRX",
+      "status": "ok",
+      "value": 5663.24
+    },
+    {
+      "as_of": "2026-07-29",
+      "change": -6.12,
+      "change_unit": "%",
+      "direction": "down",
+      "id": "kosdaq",
+      "source": "KRX",
+      "status": "ok",
+      "value": 662.68
+    },
+    {
+      "as_of": "2026-07-29",
+      "change": -1.74,
+      "change_unit": "%",
+      "direction": "down",
+      "id": "nasdaq",
+      "source": "FinanceDataReader",
+      "status": "ok",
+      "value": 24442.94
+    },
+    {
+      "as_of": "2026-07-29",
+      "change": -1.52,
+      "change_unit": "%",
+      "direction": "down",
+      "id": "sp500",
+      "source": "FinanceDataReader",
+      "status": "ok",
+      "value": 7316.15
+    },
+    {
+      "as_of": "2026-07-29",
+      "change": -9.36,
+      "change_unit": "원",
+      "direction": "down",
+      "id": "usdkrw",
+      "source": "FinanceDataReader",
+      "status": "ok",
+      "value": 1443.8
+    },
+    {
+      "as_of": "2026-07-29",
+      "change": 0.02,
+      "change_unit": "%p",
+      "direction": "up",
+      "id": "us10y",
+      "source": "FinanceDataReader",
+      "status": "ok",
+      "value": 4.62
+    },
+    {
+      "as_of": "2026-07-29",
+      "change": 6.74,
+      "change_unit": "%",
+      "direction": "up",
+      "id": "wti",
+      "source": "FinanceDataReader",
+      "status": "ok",
+      "value": 84.6
+    },
+    {
+      "as_of": "2026-07-29",
+      "change": 13.45,
+      "change_unit": "%",
+      "direction": "up",
+      "id": "vix",
+      "source": "FinanceDataReader",
+      "status": "ok",
+      "value": 20.66
+    }
+  ],
+  "issue_date": "2026-07-30",
+  "korea_watch": [
+    {
+      "direction": "down",
+      "id": "foreign",
+      "label": "외국인 수급",
+      "status": "ok",
+      "value": -12502
+    },
+    {
+      "direction": "up",
+      "id": "institution",
+      "label": "기관 수급",
+      "status": "ok",
+      "value": 31769
+    },
+    {
+      "direction": "down",
+      "id": "individual",
+      "label": "개인 수급",
+      "status": "ok",
+      "value": -19701
+    },
+    {
+      "direction": "down",
+      "id": "usdkrw",
+      "label": "원/달러",
+      "status": "ok",
+      "value": 1443.8
+    },
+    {
+      "direction": "up",
+      "id": "leading-sector",
+      "label": "주도 업종",
+      "status": "ok",
+      "value": 1.21
+    }
+  ],
+  "market_temperature": {
+    "reasons": [
+      "간밤 미국 증시 평균 -1.82% 하락",
+      "국내 증시 -5.98% 하락",
+      "VIX 20.66로 경계 구간",
+      "원/달러 -0.64%(원화 강세)",
+      "외국인 코스피 순매도 12,502억원"
+    ],
+    "score": null,
+    "status": "cautious"
+  },
+  "moo_view": null,
+  "observed_at": "2026-07-30T06:43:14+09:00",
+  "question_id": "2026-07-30-c1",
+  "source_references": [
+    "FinanceDataReader",
+    "KRX"
+  ],
+  "source_snapshot_id": "2026-07-30-snapshot",
+  "us_market_date": "2026-07-29"
+}

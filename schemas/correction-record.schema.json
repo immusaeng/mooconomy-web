@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mooconomy.co.kr/schemas/correction-record.schema.json",
+  "title": "CorrectionRecord",
+  "type": "object",
+  "required": ["correction_id", "target_type", "target_id", "field_name", "previous_value", "corrected_value", "reason", "corrected_at", "correction_version"],
+  "properties": {
+    "correction_id": { "type": "string" },
+    "target_type": { "type": "string", "enum": ["daily_issue", "market_snapshot", "temperature_observation", "question_record"] },
+    "target_id": { "type": "string" },
+    "field_name": { "type": "string" },
+    "previous_value": {},
+    "corrected_value": {},
+    "reason": { "type": "string" },
+    "corrected_at": { "type": "string", "format": "date-time" },
+    "correction_version": { "type": "integer", "minimum": 1 },
+    "public_note": { "type": ["string", "null"] }
+  },
+  "$comment": "append-only — 기존 CorrectionRecord를 절대 수정하지 않는다. 이번 라운드 기준 실제 인스턴스 0건(claims.py의 revision.correctedFrom 필드가 항상 null)."
+}

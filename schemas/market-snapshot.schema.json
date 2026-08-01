@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mooconomy.co.kr/schemas/market-snapshot.schema.json",
+  "title": "MarketSnapshot",
+  "type": "object",
+  "required": ["snapshot_id", "observed_at", "domestic_market_date", "us_market_date", "snapshot_version", "collection_status", "created_at", "updated_at"],
+  "properties": {
+    "snapshot_id": { "type": "string" },
+    "observed_at": { "type": "string", "format": "date" },
+    "domestic_market_date": { "type": "string", "format": "date" },
+    "us_market_date": { "type": ["string", "null"], "format": "date" },
+    "kospi": { "$ref": "#/$defs/metric" },
+    "kosdaq": { "$ref": "#/$defs/metric" },
+    "nasdaq": { "$ref": "#/$defs/metric" },
+    "sp500": { "$ref": "#/$defs/metric" },
+    "krw_usd": { "$ref": "#/$defs/metric" },
+    "treasury_10y": { "$ref": "#/$defs/metric" },
+    "vix": { "$ref": "#/$defs/metric" },
+    "oil": { "$ref": "#/$defs/metric" },
+    "foreign_flow": { "$ref": "#/$defs/flow" },
+    "institution_flow": { "$ref": "#/$defs/flow" },
+    "source_references": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "collection_status": { "type": "string", "enum": ["ok", "partial", "missing"] },
+    "snapshot_version": { "type": "integer", "minimum": 1 },
+    "created_at": { "type": "string", "format": "date-time" },
+    "updated_at": { "type": "string", "format": "date-time" }
+  },
+  "$defs": {
+    "metric": {
+      "type": ["object", "null"],
+      "properties": {
+        "value": { "type": ["number", "null"] },
+        "change": { "type": ["number", "null"] },
+        "change_unit": { "type": ["string", "null"], "enum": ["pct", "delta", null] },
+        "direction": { "type": ["string", "null"], "enum": ["up", "down", "flat", null] },
+        "status": { "type": "string", "enum": ["ok", "missing"] }
+      }
+    },
+    "flow": {
+      "type": ["object", "null"],
+      "description": "역사 데이터 12일치는 이 필드가 항상 null이다(01/02 문서 참고) — 영속 계층이 이 값을 저장하기 시작한 날짜부터만 값이 채워진다.",
+      "properties": {
+        "value": { "type": ["number", "null"] },
+        "unit": { "const": "억원" },
+        "status": { "type": "string", "enum": ["ok", "missing"] }
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mooconomy.co.kr/schemas/monthly-report.schema.json",
+  "title": "MonthlyReport",
+  "type": "object",
+  "required": ["report_id", "year_month", "title", "period_start", "period_end", "linked_issue_ids", "generated_at", "report_version", "publication_status"],
+  "properties": {
+    "report_id": { "type": "string" },
+    "year_month": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}$" },
+    "title": { "type": "string" },
+    "period_start": { "type": "string", "format": "date" },
+    "period_end": { "type": "string", "format": "date" },
+    "temperature_summary": { "type": ["string", "null"] },
+    "dominant_factors": { "type": ["array", "null"], "items": { "type": "string" } },
+    "question_summary": { "type": ["object", "null"] },
+    "turning_points": { "type": ["array", "null"], "items": { "type": "string" } },
+    "linked_issue_ids": { "type": "array", "items": { "type": "string" } },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "reviewed_at": { "type": ["string", "null"], "format": "date-time" },
+    "report_version": { "type": "integer", "minimum": 1, "default": 1 },
+    "publication_status": { "type": "string", "enum": ["draft", "insufficient_data", "published"] }
+  },
+  "$comment": "이번 라운드는 계약만 정의, 공개 페이지 없음. linked_issue_ids는 DailyIssue가 실제로 쌓이기 시작한 뒤에야 채울 수 있어 첫 발행은 최소 1개월 데이터 축적 후 가능(publication_status=insufficient_data로 표시)."
+}
