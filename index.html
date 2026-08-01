@@ -129,7 +129,6 @@
     transition:height .25s ease;
   }
   .nav .logo-wrap { display:flex; align-items:center; gap:10px; text-decoration:none; z-index:2; cursor:pointer; }
-  .nav .logo-wrap img { width:30px; transition:width .25s ease; }
   .nav .logo-wrap .nm { color:#fff; font-weight:800; font-size:16px; }
   .nav .logo-wrap .nm .brand-colon { color:var(--gold); }
   .nav ul {
@@ -720,7 +719,6 @@
     .sec-title, .final h2 { font-size:24px; }
 
     :root { --nav-h:48px; --ticker-h:34px; }
-    .nav .logo-wrap img { width:24px; }
     .nav .logo-wrap .nm { font-size:15px; }
     .ticker .item { font-size:12px; padding:0 20px; }
     body.scrolled .ticker { height:0; opacity:0; border-top:0; }
@@ -798,9 +796,8 @@
 
   <div class="topbar">
     <nav class="nav">
-      <a class="logo-wrap" onclick="switchView('home')">
-        <img src="https://raw.githubusercontent.com/immusaeng/mooconomy-assets/main/bull-gold.png" alt="">
-        <span class="nm">Daily MOO<span class="brand-colon">:</span>conomy</span>
+      <a class="logo-wrap" href="/" onclick="switchView('home')">
+        <span class="nm">MOO<span class="brand-colon">:</span>conomy</span>
       </a>
       <ul id="navmenu">
         <li><a onclick="switchView('about')" class="nav-link" id="gnb-about-btn">ABOUT</a></li>
