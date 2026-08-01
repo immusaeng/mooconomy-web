@@ -185,6 +185,9 @@
   .hero .subnote { font-size:13px; color:#9fb0c4; margin-top:18px; }
   .hero .preview-jump { display:inline-block; margin-top:16px; color:#c8d3e0; font-size:14px; font-weight:600; text-decoration:underline; text-underline-offset:3px; cursor:pointer; }
   .hero .preview-jump:hover { color:#fff; }
+  .hero-dock { display:flex; flex-wrap:wrap; justify-content:center; gap:4px 12px; margin-top:20px; }
+  .hero-dock a { display:inline-flex; align-items:center; min-height:44px; color:#c8d3e0; font-size:13.5px; font-weight:700; text-decoration:none; padding:6px 10px; border-bottom:1px solid rgba(255,255,255,.25); }
+  .hero-dock a:hover { color:var(--gold); border-bottom-color:var(--gold); }
 
   .subscribe-form { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; max-width:520px; margin:0 auto; }
   .subscribe-form .field { flex:1; min-width:240px; }
@@ -850,6 +853,12 @@
 
         <div class="subnote">완전 무료 · 월~토 아침 배달 · 1초 만에 해지</div>
         <a class="preview-jump" onclick="switchView('home', 'latest')">👀 실제 배달되는 브리핑 미리 보기</a>
+
+        <nav class="hero-dock" aria-label="아카이브 바로가기">
+          <a href="/questions/">MOO:Q 질문 기록</a>
+          <a href="/markets.html">시장 데이터</a>
+          <a href="/methodology/">방법론</a>
+        </nav>
       </div>
     </section>
 
@@ -932,6 +941,7 @@
             <span class="placeholder-text">준비중 · 곧 추가됩니다</span>
           </div>
         </div>
+        <a class="sig-more-link" href="/questions/">MOO:Q 전체 질문 기록 보기 →</a>
       </div>
     </section>
 
