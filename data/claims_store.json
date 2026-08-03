@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-01T06:44:07+09:00",
+  "updatedAt": "2026-08-03T06:43:26+09:00",
   "claims": {
     "2026-07-19-c1": {
       "schemaVersion": 1,
@@ -755,6 +755,45 @@
       },
       "baseline": {
         "value": 6595.45,
+        "asOf": "2026-07-31",
+        "benchmarkValue": null,
+        "benchmarkAsOf": null
+      },
+      "resolution": null
+    },
+    "2026-08-03-c1": {
+      "schemaVersion": 1,
+      "claimId": "2026-08-03-c1",
+      "publicationId": "2026-08-03",
+      "issuedAt": "2026-08-03T06:43:26+09:00",
+      "dataCutoffAt": "2026-08-03T06:43:26+09:00",
+      "lockedAt": "2026-08-03T06:43:26+09:00",
+      "claimMode": "auto",
+      "verificationType": "proxy",
+      "topic": "코스닥 다음 거래일 방향",
+      "sourceNewsIds": [],
+      "observationText": "코스닥은 719.76로 전일 대비 11.63% 상승했습니다.",
+      "interpretationText": "현재 관찰된 상승 흐름이 다음 거래일까지 이어지는지가 확인 대상입니다.",
+      "claimText": "코스닥은 다음 거래일까지 상승세를 이어갈까?",
+      "metricId": "kosdaq",
+      "benchmarkMetricId": null,
+      "comparisonType": "absolute_return",
+      "expectedDirection": "up",
+      "horizon": {
+        "type": "next_close",
+        "market": "KR",
+        "resolutionAt": "2026-08-04"
+      },
+      "thresholdRuleId": "pct_030",
+      "confidence": null,
+      "status": "unresolved",
+      "revision": {
+        "version": 1,
+        "contentHash": "b663d58be82ca9b0079c69c1dec9bc05ed49510df066efddf5b09c345dfd31fd",
+        "correctedFrom": null
+      },
+      "baseline": {
+        "value": 719.76,
         "asOf": "2026-07-31",
         "benchmarkValue": null,
         "benchmarkAsOf": null
