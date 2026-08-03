@@ -129,7 +129,7 @@
     transition:height .25s ease;
   }
   .nav .logo-wrap { display:flex; align-items:center; gap:10px; text-decoration:none; z-index:2; cursor:pointer; }
-  .nav .logo-wrap .nm { color:#fff; font-weight:800; font-size:16px; }
+  .nav .logo-wrap .nm { color:#fff; font-weight:800; font-size:19px; }
   .nav .logo-wrap .nm .brand-colon { color:var(--gold); }
   .nav ul {
     list-style:none; display:flex; gap:40px; align-items:center;
@@ -139,8 +139,8 @@
               transition:.2s; padding:6px 0; border-bottom:2px solid transparent; cursor:pointer; }
   .nav ul a:hover { color:#fff; }
   .nav ul a.active { color:var(--gold); border-bottom-color:var(--gold); }
-  .nav .nav-cta { background:var(--gold); color:var(--navy); padding:9px 18px; border-radius:8px;
-                  font-size:12.5px; font-weight:800; letter-spacing:.5px; text-decoration:none; z-index:2; border:0; cursor:pointer; }
+  .nav .nav-cta { background:var(--gold); color:var(--navy); padding:9px 14px; border-radius:8px;
+                  font-size:12px; font-weight:800; letter-spacing:.2px; text-decoration:none; z-index:2; border:0; cursor:pointer; white-space:nowrap; }
   .nav .menu-btn { display:none; background:none; border:none; color:#fff; font-size:22px; cursor:pointer; z-index:2; }
 
   /* 모바일 하단 내비게이션(2026-08-02 최종 확정): 아이콘+짧은 한글 라벨,
@@ -191,50 +191,57 @@
      절대 높이를 강제하지 않고 padding·margin을 최소로 눌러 자연스럽게 맞춘다.
      Hero 아래 대시보드(.insight-hub)는 이미 좌측 정렬이라 영향 없음. */
   .hero { background:linear-gradient(160deg,var(--navy),var(--navy2)); color:#fff; text-align:center; padding:18px 0 16px; }
-  .hero-copy { max-width:600px; margin:0 auto; }
-  .hero-wordmark { margin-bottom:6px; }
-  .hero-wordmark .wordmark { font-size:15px; font-weight:800; letter-spacing:-0.3px; color:#fff; }
+  /* 워드마크는 Hero 안에서 hero-copy와 분리된 형제 블록이다 — 모바일은 중앙
+     상단(기존과 동일), 데스크톱/태블릿은 좌측 상단 브랜드 앵커로 분리 배치한다(§4·§5). */
+  .hero-wordmark { text-align:center; margin-bottom:8px; }
+  .hero-wordmark .wordmark { font-size:18px; font-weight:800; letter-spacing:-0.3px; color:#fff; }
   .hero-wordmark-label { display:block; font-size:10px; letter-spacing:1.6px; color:#9fb0c4; font-weight:700; margin-top:2px; }
-  .hero h1 { font-size:clamp(22px,2.8vw,28px); font-weight:800; line-height:1.26; margin-bottom:6px; }
+  .hero-copy { max-width:600px; margin:0 auto; }
+  .hero h1 { font-size:clamp(22px,2.8vw,28px); font-weight:800; line-height:1.3; margin-bottom:6px; }
   .hero h1 .hl { color:var(--gold); }
   .hero p.lead { font-size:14px; color:#c8d3e0; max-width:480px; margin:0 auto 10px; }
+  /* 데스크톱에서만 숨기는 쉼표·강제 줄바꿈 — 모바일 두 줄 카피와 데스크톱 한 줄
+     카피가 문구 자체는 다르므로(§4) 텍스트를 복제하지 않고 이 두 토큰만 토글한다. */
+  .hero h1 .hero-title-comma { display:inline; }
+  .hero h1 br.hero-title-break { display:inline; }
 
   .cta { display:inline-block; background:var(--gold); color:var(--navy); font-size:17px; font-weight:800; padding:17px 46px; border-radius:12px; text-decoration:none; transition:.2s; box-shadow:0 8px 24px rgba(217,164,65,.35); border:0; cursor:pointer; font-family:inherit; }
   .cta:hover { background:var(--gold-d); transform:translateY(-2px); }
-  .hero-cta-row { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:8px 14px; }
-  .hero-cta-row .cta { padding:12px 30px; font-size:15px; }
-  /* CTA 2차 — 골드 버튼보다 낮은 강조의 테두리형(3차 밑줄 텍스트링크보다는 높은 강조) */
-  .hero-cta-secondary { display:inline-block; padding:12px 26px; border:1px solid rgba(255,255,255,.4); border-radius:10px; color:#fff; font-size:14.5px; font-weight:700; text-decoration:none; transition:.2s; }
-  .hero-cta-secondary:hover { border-color:var(--gold); color:var(--gold); }
-  .hero .preview-jump { display:inline-block; color:#c8d3e0; font-size:14px; font-weight:600; text-decoration:underline; text-underline-offset:3px; cursor:pointer; }
-  .hero .preview-jump:hover { color:#fff; }
   .hero .subnote { font-size:13px; color:#9fb0c4; }
-  .hero-cta-row a:focus-visible { outline:2px solid var(--gold); outline-offset:2px; }
-  /* 2026-08-03 터치 영역 보정: 1440/1024/390/360px 실측 결과 세 CTA 모두(데스크톱·
-     태블릿에서 3개 전부, 모바일에서 3번째 텍스트링크) 44px 미만이었다. 기존 색상·
-     너비·radius·우선순위·반응형 정렬은 그대로 두고 클릭 영역 높이만 보정한다. */
-  .hero-cta-row a { box-sizing:border-box; min-height:44px; display:inline-flex; align-items:center; justify-content:center; }
 
-  /* 데스크톱·태블릿(≥900px) Hero 재정렬(§5.1) — 모바일 중앙집중 구성을 단순
-     확대하지 않고 좌측 정렬 편집형 레이아웃으로 넓은 폭을 쓴다. CTA 3개도
-     동일 박스 체계로 통일한다(§5.4) — "최신 리포트"만 텍스트링크로 남기지 않음.
-     모바일(≤899px)의 중앙 정렬·현재 균형은 그대로 보존된다. */
+  /* Hero CTA 4개(§6) — 모바일·태블릿 2×2, 1200px 이상 4열 한 줄. 높이(≥44px)·
+     radius·간격을 4개 전부 동일하게 통일하고, 텍스트링크(밑줄) 스타일의 CTA는
+     두지 않는다(전부 박스형). 오늘의 경제뉴스만 골드 채움으로 우선 강조한다. */
+  .hero-cta-row { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-top:2px; }
+  .hero-cta-row a {
+    box-sizing:border-box; min-height:44px; display:inline-flex; align-items:center; justify-content:center;
+    padding:11px 12px; border-radius:10px; font-size:13.5px; font-weight:800; line-height:1.3;
+    text-align:center; text-decoration:none; transition:.2s;
+  }
+  .hero-cta-row a:focus-visible { outline:2px solid var(--gold); outline-offset:2px; }
+  .hero-cta-row .cta { background:var(--gold); color:var(--navy); box-shadow:0 6px 18px rgba(217,164,65,.3); }
+  .hero-cta-row .cta:hover { background:var(--gold-d); }
+  .hero-cta-row .hero-cta-secondary { border:1px solid rgba(255,255,255,.35); color:#fff; background:rgba(255,255,255,.05); }
+  .hero-cta-row .hero-cta-secondary:hover { border-color:var(--gold); color:var(--gold); background:rgba(255,255,255,.09); }
+  @media (min-width:1200px) {
+    .hero-cta-row { grid-template-columns:repeat(4,1fr); gap:12px; }
+  }
+
+  /* 데스크톱·태블릿(≥900px) Hero 혼합 정렬(§4) — 브랜드 앵커(워드마크)는 좌측
+     상단, 제목·설명·데이터상태·CTA는 별도로 중앙 정렬한 콘텐츠 영역으로 배치한다.
+     모바일(≤899px)의 중앙 정렬·현재 균형은 그대로 보존된다(재설계 아님). */
   @media (min-width:900px) {
-    .hero { text-align:left; padding:20px 0 18px; }
-    .hero-copy { max-width:820px; margin:0; }
-    .hero p.lead { margin:0 0 10px; max-width:640px; }
-    .dsb-row { justify-content:flex-start; }
-    .hero-cta-row { justify-content:flex-start; }
-    .hero-cta-row .cta,
-    .hero-cta-row .hero-cta-secondary,
-    .hero-cta-row .preview-jump {
-      padding:10px 26px; font-size:14.5px; border-radius:10px; line-height:1.3;
-    }
-    .hero-cta-row .preview-jump {
-      display:inline-block; border:1px solid rgba(255,255,255,.25); background:rgba(255,255,255,.05);
-      color:#fff; text-decoration:none;
-    }
-    .hero-cta-row .preview-jump:hover { border-color:var(--gold); color:var(--gold); background:rgba(255,255,255,.09); }
+    .hero { padding:24px 0 22px; }
+    .hero-wordmark { text-align:left; margin-bottom:20px; }
+    .hero-wordmark .wordmark { font-size:21px; }
+    .hero-copy { max-width:880px; margin:0 auto; }
+    .hero h1 { font-size:clamp(28px,2.6vw,36px); max-width:860px; margin:0 auto 14px; }
+    .hero p.lead { margin:0 auto 14px; max-width:640px; }
+    .dsb-row-desktop { justify-content:center; }
+    /* 1200px 이상(1440 목표)에서는 강제 줄바꿈 없이 한 줄을 우선한다. 1024px은
+       자연스러운 줄바꿈만 허용하고 강제 <br>는 넣지 않는다(§4 DesktopForcedTitleBreak=False). */
+    .hero h1 .hero-title-comma { display:none; }
+    .hero h1 br.hero-title-break { display:none; }
   }
 
   .subscribe-form { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; max-width:520px; margin:0 auto; }
@@ -289,6 +296,17 @@
   .insight-hub .sig-more-link { color:var(--gold); }
   .insight-hub .placeholder-pending { background:rgba(255,255,255,.05); border-color:rgba(255,255,255,.18); color:#a9b8ce; }
   .insight-hub .placeholder-dot { background:#5c7292; }
+  /* MOO: 뉴스 승격(§11) — .news-item 계열은 원래 밝은 배경(var(--card)/--ink/--gray)
+     전용 카드 토큰(공유 .mc-card 규칙, 04~10 라이트 리포트 섹션 기준)이라
+     insight-hub의 다크 표면 안에서만 배경·테두리·텍스트 대비를 맞춘다. */
+  .insight-hub .news-summary { color:#fff; background:rgba(255,255,255,.05); border-color:rgba(255,255,255,.14); }
+  .insight-hub .news-item { background:rgba(255,255,255,.05); border-color:rgba(255,255,255,.14); }
+  .insight-hub .news-item .news-badge { background:rgba(255,255,255,.12); color:#e5edf6; }
+  .insight-hub .news-item.cat-disclosure .news-badge { color:var(--gold); }
+  .insight-hub .news-item .news-title { color:#fff; }
+  .insight-hub .news-item .news-meta { color:#a9b8ce; }
+  .insight-hub .news-item .news-related a { color:#7d8ea6; }
+  .insight-hub .news-item .news-related a:hover { color:var(--gold); }
   .insight-hub-block { margin-bottom:var(--sp-4); }
   .insight-hub-block:last-child { margin-bottom:0; }
 
@@ -334,19 +352,20 @@
   /* 축적 기록 메시지(.qm-accumulated-message)가 핵심 문장으로 먼저 읽히도록,
      전체질문/판정완료 대형 숫자는 보조 위계로 약 40% 축소한다(§5.5, 이전
      clamp(34px,4vw,46px)→clamp(20px,2.4vw,28px), 숫자는 삭제하지 않음). */
-  .qm-accumulated-message { margin-bottom:6px; }
-  .qm-headline-row { display:flex; flex-wrap:wrap; align-items:baseline; gap:var(--sp-5); margin-bottom:var(--sp-4); }
-  .qm-big-value { font-size:clamp(20px,2.4vw,28px); font-weight:800; color:#fff; line-height:1; font-variant-numeric:tabular-nums; }
-  .qm-big-label { font-size:11px; font-weight:700; color:#9fb0c4; text-transform:uppercase; letter-spacing:.4px; margin-top:4px; }
-  .qm-stats { display:grid; grid-template-columns:repeat(4,1fr); gap:var(--sp-2); }
-  .qm-stat { background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.14); border-left:4px solid var(--flat-gray); border-radius:var(--radius-card); padding:var(--sp-2); min-width:0; }
-  .qm-stat-label { font-size:11px; font-weight:700; color:#9fb0c4; text-transform:uppercase; letter-spacing:.3px; }
-  .qm-stat-value { font-size:18px; font-weight:800; color:#fff; margin-top:4px; font-variant-numeric:tabular-nums; }
+  .qm-accumulated-message { margin-bottom:10px; }
+  /* 누적 통계 6카드(§7) — 시장기록/MOO:Q/판정완료/일치/불일치/중립. 모바일
+     2열×3행, 481px 이상 3열×2행. 기존 대형 숫자(qm-big-*) 위계를 없애고
+     6장 모두 같은 크기의 카드로 통일해 세로 길이를 줄인다. */
+  .qm-card-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:var(--sp-2); }
+  @media (min-width:481px) {
+    .qm-card-grid { grid-template-columns:repeat(3,1fr); }
+  }
+  .qm-card { background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.14); border-left:4px solid var(--flat-gray); border-radius:var(--radius-card); padding:10px 12px; min-width:0; }
+  .qm-card-label { font-size:10.5px; font-weight:700; color:#9fb0c4; text-transform:uppercase; letter-spacing:.3px; }
+  .qm-card-value { font-size:19px; font-weight:800; color:#fff; margin-top:4px; font-variant-numeric:tabular-nums; }
   .qm-accent-hit { border-left-color:#5fce7a; }
   .qm-accent-miss { border-left-color:#ff8a80; }
-  @media (max-width:480px) {
-    .qm-stats { grid-template-columns:repeat(2,1fr); }
-  }
+  .qm-unresolved-note { font-size:12.5px; color:#a9b8ce; margin-top:var(--sp-2); }
 
   /* 14일 지표 — 대시보드형 카드벽 대신 편집형 행 목록(Stitch 데스크톱 참고).
      이름/기준일 · 시작~최근값 · 변화를 한 줄로 정렬, 모바일은 이름 행 +
@@ -380,6 +399,8 @@
   .temp-kospi-table td { color:#fff; font-variant-numeric:tabular-nums; }
   .temp-kospi-table td.dir-up { color:#ff9a90; }
   .temp-kospi-table td.dir-down { color:#7fb4ff; }
+  /* §2 fast-fix — 코스피 값 아래 실제 시장 asOf를 작은 보조 텍스트로 병기 */
+  .temp-kospi-asof { display:block; font-size:11px; font-weight:600; color:#7d8ea6; margin-top:2px; }
   @media (max-width:640px) {
     .temp-kospi-table thead { display:none; }
     .temp-kospi-table, .temp-kospi-table tbody, .temp-kospi-table tr, .temp-kospi-table td { display:block; width:100%; }
@@ -388,26 +409,51 @@
     .temp-kospi-table td::before { content:attr(data-label); font-size:10.5px; font-weight:700; color:#7d8ea6; text-transform:uppercase; flex:0 0 auto; }
   }
 
+  /* 오늘의 투자자 수급(§9) — 최신 거래일 값만 3칸 카드로 표시. 시계열이 아니므로
+     temp-kospi-table과 다른 단순 그리드를 쓴다(가로 스크롤 없음). */
+  .flow-context { margin-top:var(--sp-4); }
+  .flow-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:var(--sp-2); margin-top:8px; }
+  @media (max-width:480px) { .flow-grid { grid-template-columns:1fr; } }
+  .flow-item { background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.14); border-radius:var(--radius-card); padding:10px 12px; min-width:0; }
+  .flow-label { font-size:11px; font-weight:700; color:#9fb0c4; }
+  .flow-value { font-size:14.5px; font-weight:800; color:#fff; margin-top:4px; font-variant-numeric:tabular-nums; }
+  .flow-value.dir-up { color:#ff9a90; }
+  .flow-value.dir-down { color:#7fb4ff; }
+
   /* MOO: 해석 — 사실/관찰/한계를 제목 구조로 분리(§10·§13 접근성). */
   .moo-interp-block { margin-bottom:var(--sp-3); }
   .moo-interp-block:last-of-type { margin-bottom:0; }
   .moo-interp-label { font-size:11px; font-weight:800; color:var(--gold); text-transform:uppercase; letter-spacing:.3px; margin-bottom:4px; }
   .moo-interp-text { font-size:14px; color:#e5edf6; line-height:1.6; }
 
+  .visually-hidden {
+    position:absolute !important; width:1px !important; height:1px !important;
+    padding:0 !important; margin:-1px !important; overflow:hidden !important;
+    clip:rect(0,0,0,0) !important; white-space:nowrap !important; border:0 !important;
+  }
+
   /* Data Status Bar — 실시간 가격 티커가 아니라 데이터 신선도 메타데이터 행.
      2026-08-03: 제목 가까이 배치하기 위해 Hero 내부(설명 아래)로 이동했다(§5.3) —
-     더 이상 페이지 폭 전체의 어두운 띠가 아니라 Hero 안의 가벼운 텍스트 행이다. */
-  .data-status-bar { color:#c8d3e0; font-size:12.5px; margin-bottom:12px; }
-  .dsb-row { display:flex; flex-wrap:wrap; gap:5px 22px; align-items:center; }
+     더 이상 페이지 폭 전체의 어두운 띠가 아니라 Hero 안의 가벼운 텍스트 행이다.
+     2026-08-04 fast-fix: "데이터 정상 수신"을 핵심 메타데이터(기록일·시장기준·
+     질문·판정·시장온도)와 같은 위계로 두지 않는다(§1) — 별도 줄의 작은 상태
+     배지(dsb-status-badge)로 분리해 우측 정렬하고, 본문 행 정렬에는 영향을 주지
+     않는다. 기록일과 시장 기준일(§2)도 이제 분리된 항목으로 표시한다. */
+  .data-status-bar { display:flex; flex-direction:column; color:#c8d3e0; font-size:12.5px; margin-bottom:12px; }
+  .dsb-status-badge { align-self:flex-end; display:inline-flex; align-items:center; gap:5px; font-size:11px; font-weight:700; color:#9fb0c4; margin-bottom:4px; }
+  .dsb-status-dot { width:6px; height:6px; border-radius:50%; background:#5fce7a; display:inline-block; flex:0 0 auto; }
+  .dsb-status-badge.status-error .dsb-status-dot { background:#ff8a80; }
+  .dsb-row-desktop, .dsb-row-mobile { display:flex; flex-wrap:wrap; gap:5px 22px; align-items:center; }
   .dsb-item { display:inline-flex; gap:6px; align-items:baseline; white-space:nowrap; }
   .dsb-label { color:#7d8ea6; font-weight:700; text-transform:uppercase; font-size:10.5px; letter-spacing:.3px; }
   .dsb-value { color:#fff; font-weight:700; font-variant-numeric:tabular-nums; }
-  .dsb-dot { width:6px; height:6px; border-radius:50%; background:#5fce7a; display:inline-block; flex:0 0 auto; }
-  @media (max-width:640px) {
-    .dsb-row { gap:3px 12px; font-size:11px; justify-content:center; }
-    /* Hero 높이 목표(300~360px) 확보를 위해 모바일에서는 가장 긴 항목(관찰기간)만
-       숨긴다 — 데이터 자체는 그대로 존재하며 기준일이 이미 핵심 날짜를 전달한다. */
-    .dsb-row .dsb-item:nth-child(3) { display:none; }
+  /* 모바일(§1·§2)은 압축된 2줄 텍스트를 쓰고, 데스크톱은 라벨+값 항목 행을 쓴다. */
+  .dsb-row-desktop { display:none; }
+  .dsb-row-mobile { flex-direction:column; gap:2px; }
+  .dsb-mobile-line { font-size:12px; color:#e5edf6; font-weight:600; white-space:nowrap; }
+  @media (min-width:900px) {
+    .dsb-row-mobile { display:none; }
+    .dsb-row-desktop { display:flex; }
   }
 
   /* 오늘의 상세 리포트 — 기본 접힘 <details>(Rapid Redesign). 네이티브 요소라
@@ -948,7 +994,7 @@
     .sec-title { font-size:24px; }
 
     :root { --nav-h:48px; --ticker-h:34px; }
-    .nav .logo-wrap .nm { font-size:15px; }
+    .nav .logo-wrap .nm { font-size:18px; }
     .ticker .item { font-size:12px; padding:0 20px; }
     body.scrolled .ticker { height:0; opacity:0; border-top:0; }
     body.scrolled .spacer { height:var(--nav-h); }
@@ -1041,7 +1087,7 @@
         <li><a href="/latest.html" class="nav-link">MOO: 리포트</a></li>
         <li><a href="/methodology/" class="nav-link">MOO: 철학</a></li>
       </ul>
-      <a class="nav-cta" onclick="switchView('home', 'subscribe')">MOO: 구독</a>
+      <a class="nav-cta" onclick="switchView('home', 'subscribe')" aria-label="MOO:conomy 뉴스레터 무료 구독">MOO:conomy 무료 구독</a>
       <button class="menu-btn" id="menuBtn" aria-label="메뉴">☰</button>
     </nav>
     <div class="ticker">
@@ -1080,22 +1126,24 @@
          스크린리더가 실제 텍스트로 읽도록 aria-hidden을 제거했다(§7). -->
     <section class="hero" id="top">
       <div class="inner">
+        <div class="hero-wordmark">
+          <span class="wordmark">MOO<span class="brand-colon">:</span>conomy</span>
+          <span class="hero-wordmark-label">MARKET RECORD &amp; INTERPRETATION</span>
+        </div>
         <div class="hero-copy">
-          <div class="hero-wordmark">
-            <span class="wordmark">MOO<span class="brand-colon">:</span>conomy</span>
-            <span class="hero-wordmark-label">MARKET RECORD &amp; INTERPRETATION</span>
-          </div>
-          <h1>매일 쌓인 <span class="hl">시장 기록</span>에서,<br>지금의 <span class="hl">흐름</span>을 읽습니다</h1>
+          <h1>매일 쌓인 <span class="hl">시장 기록</span>에서<span class="hero-title-comma">,</span><br class="hero-title-break"> 지금의 <span class="hl">흐름</span>을 읽습니다</h1>
           <p class="lead">MOO:conomy가 발행하며 축적한 지표와 질문·검증 기록을 통해 시장의 변화를 살펴보세요.</p>
           <div class="data-status-bar" id="dataStatusBar">
-            <div class="dsb-row" id="dataStatusBarBody">
-              <span class="dsb-item"><span class="dsb-value">데이터 상태 확인 중…</span></span>
+            <span class="dsb-status-badge" id="dsbStatusBadge"></span>
+            <div id="dataStatusBarBody">
+              <div class="dsb-row-mobile"><div class="dsb-mobile-line">데이터 상태 확인 중…</div></div>
             </div>
           </div>
           <div class="hero-cta-row">
-            <a class="cta" href="#insight-hub">시장 기록 보기</a>
+            <a class="cta" href="#marketMetricsCard">시장 기록 보기</a>
+            <a class="hero-cta-secondary" href="#news-disclosure">오늘의 경제뉴스</a>
             <a class="hero-cta-secondary" href="/questions/">MOO:Q 검증 보기</a>
-            <a class="preview-jump" href="/latest.html">최신 리포트 보기 →</a>
+            <a class="hero-cta-secondary" href="/latest.html">최신 뉴스레터</a>
           </div>
         </div>
       </div>
@@ -1127,19 +1175,10 @@
           </div>
         </nav>
 
-        <!-- 1) Question Memory — 페이지에서 가장 강조되는 단독 모듈(누적기록 다음으로 최상단) -->
-        <div class="mc-card insight-card qm-module insight-hub-block" id="questionMemoryCard">
-          <div class="insight-card-label">MOO:Q · 편집 검증 원장</div>
-          <div class="sec-body" id="questionMemoryBody" data-status="pending">
-            <div class="placeholder-pending">
-              <span class="placeholder-dot"></span>
-              <span class="placeholder-text">준비중 · 곧 추가됩니다</span>
-            </div>
-          </div>
-          <a class="sig-more-link" href="/questions/">MOO:Q 전체 질문 기록 보기 →</a>
-        </div>
-
-        <!-- 2) 14-day(수집된 표본 기준) Market Metrics — 편집형 행 목록 -->
+        <!-- 2026-08-04 fast-fix(§4): 시장 기록·시장온도 요약을 최우선, 경제뉴스를
+             MOO:Q보다 앞에 배치한다. Question Memory 카드는 뉴스 카드 다음으로
+             이동했다(콘텐츠 복제 없음, id·데이터 동일). -->
+        <!-- 1) 14-day(수집된 표본 기준) Market Metrics — 편집형 행 목록 -->
         <div class="mc-card insight-card insight-hub-block anchor" id="marketMetricsCard">
           <div class="insight-card-label">MOO: 지표 · 14일 관찰</div>
           <div class="sec-body" id="marketMetricsBody" data-status="pending">
@@ -1176,6 +1215,32 @@
           </div>
         </div>
 
+        <!-- 3-2) MOO: 뉴스 — 경제뉴스를 핵심 콘텐츠로 승격(§11). 기존 "오늘의 상세
+             리포트"(접힘 details) 04번 섹션에 있던 뉴스 블록을 그대로 옮겨왔다(같은
+             #newsBody id, 같은 renderNews() 재사용, 데이터·링크·마크업 복제 없음).
+             Hero의 "오늘의 경제뉴스" CTA(href="#news-disclosure")가 여기로 연결된다. -->
+        <div class="mc-card insight-card insight-hub-block anchor" id="news-disclosure">
+          <div class="insight-card-label">MOO: 뉴스 · 오늘의 경제뉴스 한눈에</div>
+          <div class="sec-body" id="newsBody" data-status="pending">
+            <div class="placeholder-pending">
+              <span class="placeholder-dot"></span>
+              <span class="placeholder-text">준비중 · 곧 추가됩니다</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3) Question Memory — 경제뉴스 다음, 뉴스레터 이전(§4) -->
+        <div class="mc-card insight-card qm-module insight-hub-block" id="questionMemoryCard">
+          <div class="insight-card-label">MOO:Q · 편집 검증 원장</div>
+          <div class="sec-body" id="questionMemoryBody" data-status="pending">
+            <div class="placeholder-pending">
+              <span class="placeholder-dot"></span>
+              <span class="placeholder-text">준비중 · 곧 추가됩니다</span>
+            </div>
+          </div>
+          <a class="sig-more-link" href="/questions/">MOO:Q 전체 질문 기록 보기 →</a>
+        </div>
+
         <!-- 4) Newsletter Status — 단독 전체폭 카드("이 데이터는 매일의 뉴스레터에서
              시작됩니다"라는 관계를 데이터센터보다 먼저 전달) -->
         <div class="mc-card insight-card insight-hub-block" id="newsletterStatusCard">
@@ -1188,7 +1253,7 @@
           </div>
           <div class="insight-card-cta-row">
             <a class="sig-more-link" href="/latest.html">오늘의 뉴스레터 보기 →</a>
-            <a class="sig-more-link" onclick="switchView('home','subscribe')">구독하기 →</a>
+            <a class="sig-more-link" onclick="switchView('home','subscribe')" aria-label="MOO:conomy 뉴스레터 무료 구독">무료 구독 →</a>
           </div>
         </div>
 
@@ -1312,20 +1377,10 @@
       </div>
     </section>
 
-    <!-- 04 / 주요 뉴스 및 공시 (2026-07-18 IA 개편: 09→04, 오늘의3줄 다음으로) -->
-    <section class="sec-pad anchor" id="news-disclosure">
-      <div class="inner">
-        <div class="sec-num">04 / TODAY'S NEWS</div>
-        <div class="sec-title">오늘의 뉴스 흐름</div>
-        <div class="sec-sub">국내·글로벌 뉴스를 시간순으로 모아 보여줍니다</div>
-        <div class="sec-body" id="newsBody" data-status="pending">
-          <div class="placeholder-pending">
-            <span class="placeholder-dot"></span>
-            <span class="placeholder-text">준비중 · 곧 추가됩니다</span>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- 04 / 주요 뉴스 및 공시 — 2026-08-03 승격(§11)으로 위 insight-hub 안
+         #news-disclosure(MOO: 뉴스)로 이동했다. 같은 #newsBody id를 두 번 만들 수
+         없어 이 자리의 섹션은 제거했다(doc-nav "뉴스 흐름" 링크는 위 이동된
+         섹션으로 그대로 스크롤된다, 별도 처리 불필요). -->
 
     <!-- 05 / 핵심 시장 지표 -->
     <section class="sec-pad anchor" id="key-indicators">
@@ -2615,6 +2670,36 @@
       return Math.round((db - da) / 86400000);
     }
 
+    /* 실제 market asOf 계산(§1 fast-fix) — 파이프라인은 매일 06시대 개장 전에
+       수집되어 파일 날짜(publish date)가 아니라 "그 직전 영업일"의 종가를 담는다
+       (토·일 발행분도 직전 금요일 종가를 그대로 반복 게재). 공휴일 캘린더는 없어
+       주말만 건너뛰는 최소 규칙을 쓴다 — 이것만으로 2026-08-03 파일의 코스피가
+       실제로는 2026-07-31(금) 종가임이 정확히 재현된다. history JSON은 수정하지
+       않고 화면 라벨만 이 실제 기준일로 교정한다. */
+    /* §7 fast-fix — 같은 market asOf(코스피 실제 거래일)를 참조하는 발행 기록을
+       시장 관찰 횟수·방향 통계에서 중복 집계하지 않는다. 표에 보이는 발행 기록
+       행 자체는 지우지 않고(paired 원본 유지), 집계용으로만 첫 등장 asOf 기준
+       1건으로 축약한 배열을 만든다. */
+    function _dedupeByMarketAsOf(paired) {
+      var seen = {};
+      return paired.filter(function (row) {
+        var key = (row.kospiAvailable && row.kospiAsOf) ? row.kospiAsOf : ('no-asof-' + row.date);
+        if (seen[key]) return false;
+        seen[key] = true;
+        return true;
+      });
+    }
+
+    function _mostRecentWeekdayBefore(dateStr) {
+      var p = dateStr.split('-').map(Number);
+      var d = new Date(Date.UTC(p[0], p[1] - 1, p[2]));
+      d.setUTCDate(d.getUTCDate() - 1);
+      while (d.getUTCDay() === 0 || d.getUTCDay() === 6) { d.setUTCDate(d.getUTCDate() - 1); }
+      var mm = String(d.getUTCMonth() + 1).padStart(2, '0');
+      var dd = String(d.getUTCDate()).padStart(2, '0');
+      return d.getUTCFullYear() + '-' + mm + '-' + dd;
+    }
+
     async function collectHistorySeries(anchorDate) {
       if (!anchorDate) return [];
       var candidates = [];
@@ -2657,7 +2742,7 @@
     /* 2) Question Memory — home.claims.totals 재사용(누적 요약만, 오늘의 개별 질문 카드는 복제하지 않음).
        Stitch 비교 후 통합: 판정 완료를 미판정과 분리해 먼저 보여주고, 상태별 결과를 색+텍스트
        라벨을 모두 가진 절제된 그리드로 표시(승률처럼 보이지 않게 "건" 단위만 사용). */
-    function renderQuestionMemory(el, claims, observationDays) {
+    function renderQuestionMemory(el, claims, entries) {
       if (!claims || !claims.totals) { renderHomeError(el, '질문 검증 기록을 불러오지 못했습니다.'); return; }
       el.setAttribute('data-status', 'ok');
       el.innerHTML = '';
@@ -2665,13 +2750,18 @@
       var resolved = (t.hit||0)+(t.miss||0)+(t.neutral||0);
       var unresolvedCount = (t.unresolved||0)+(t.invalidated||0)+(t.error||0);
       var total = resolved + unresolvedCount;
+      var recordCount = (entries && entries.length) || 0;
 
-      // 축적된 기록이 의미하는 한 줄 메시지(§5.5) — 실제 관찰일수·질문·판정 건수로만
-      // 동적 구성한다(하드코딩 없음). observationDays가 없으면 "누적"으로만 표현한다.
+      // 축적된 기록이 의미하는 한 줄 메시지(§7 표현 교정) — 기록 "횟수"(history 파일
+      // 개수)와 달력 일수를 혼동하지 않는다. "N일 동안"처럼 파일 개수를 날짜 수로
+      // 오인시키는 표현을 쓰지 않고, 실제 관찰 구간(첫~마지막 날짜)과 기록 "회"
+      // 단위를 그대로 노출한다. 구간이 없으면 "누적"으로만 표현한다(하드코딩 없음).
       var headlineMsg = document.createElement('div');
       headlineMsg.className = 'insight-lead qm-accumulated-message';
-      headlineMsg.textContent = (observationDays ? observationDays + '일 동안 ' : '누적 ') +
-        total + '개의 시장 질문을 기록하고, ' + resolved + '개의 판정 결과를 공개했습니다.';
+      headlineMsg.textContent = (entries && entries.length
+          ? entries[0].date + '부터 ' + entries[entries.length - 1].date + '까지 시장 기록 ' + recordCount + '회를 남기며 '
+          : '누적 시장 기록 ' + recordCount + '회와 ') +
+        'MOO:Q ' + total + '건을 공개했습니다.';
       el.appendChild(headlineMsg);
 
       var editorial = document.createElement('div');
@@ -2680,46 +2770,38 @@
       editorial.textContent = '투자 성과가 아니라 방향 일치 여부만 확인하며, 불리한 판정도 숨기지 않습니다.';
       el.appendChild(editorial);
 
-      function bigStat(label, value) {
+      // 누적 통계 6카드(§7) — 시장 기록/MOO:Q/판정 완료/일치/불일치/중립. 미판정은
+      // 별도 대형 카드로 두지 않고 카드 아래 보조문으로만 표시한다.
+      function card(label, value, unit, accentClass) {
         var box = document.createElement('div');
-        var v = document.createElement('div');
-        v.className = 'qm-big-value';
-        v.textContent = value + '건';
+        box.className = 'qm-card' + (accentClass ? ' ' + accentClass : '');
         var l = document.createElement('div');
-        l.className = 'qm-big-label';
-        l.textContent = label;
-        box.appendChild(v);
-        box.appendChild(l);
-        return box;
-      }
-
-      var headline = document.createElement('div');
-      headline.className = 'qm-headline-row';
-      headline.appendChild(bigStat('전체 질문', total));
-      headline.appendChild(bigStat('판정 완료', resolved));
-      el.appendChild(headline);
-
-      function statBox(label, value, accentClass) {
-        var box = document.createElement('div');
-        box.className = 'qm-stat' + (accentClass ? ' ' + accentClass : '');
-        var l = document.createElement('div');
-        l.className = 'qm-stat-label';
+        l.className = 'qm-card-label';
         l.textContent = label;
         var v = document.createElement('div');
-        v.className = 'qm-stat-value';
-        v.textContent = value + '건';
+        v.className = 'qm-card-value';
+        v.textContent = value + unit;
         box.appendChild(l);
         box.appendChild(v);
         return box;
       }
 
-      var statusGrid = document.createElement('div');
-      statusGrid.className = 'qm-stats';
-      statusGrid.appendChild(statBox('적중', t.hit||0, 'qm-accent-hit'));
-      statusGrid.appendChild(statBox('불일치', t.miss||0, 'qm-accent-miss'));
-      statusGrid.appendChild(statBox('중립', t.neutral||0));
-      statusGrid.appendChild(statBox('미판정', unresolvedCount));
-      el.appendChild(statusGrid);
+      var grid = document.createElement('div');
+      grid.className = 'qm-card-grid';
+      grid.appendChild(card('시장 기록', recordCount, '회'));
+      grid.appendChild(card('MOO:Q', total, '건'));
+      grid.appendChild(card('판정 완료', resolved, '건'));
+      grid.appendChild(card('일치', t.hit||0, '건', 'qm-accent-hit'));
+      grid.appendChild(card('불일치', t.miss||0, '건', 'qm-accent-miss'));
+      grid.appendChild(card('중립', t.neutral||0, '건'));
+      el.appendChild(grid);
+
+      if (unresolvedCount > 0) {
+        var note = document.createElement('div');
+        note.className = 'qm-unresolved-note';
+        note.textContent = '현재 확인 중인 질문 ' + unresolvedCount + '건이 있습니다.';
+        el.appendChild(note);
+      }
     }
 
     /* 3) 최근 지표 변화 — 수집된 history 배열의 첫 값 대비 마지막 값(값 자체를 직접 비교,
@@ -2730,13 +2812,48 @@
        #keyIndicatorsBody(기존 섹션 05)는 여전히 renderKeyIndicators()가 별도로
        그리며 이 함수는 건드리지 않는다(indicator-grid/indicator-card 클래스와
        무관한 새 클래스만 사용). */
+    /* 14일 관찰 계약(§8, 2026-08-03 fast-fix로 anchor 보정) — 기준일(anchorDate)은
+       최신 파일의 발행일(last.date)이 아니라 그 발행일이 실제로 담고 있는 시장
+       asOf(_mostRecentWeekdayBefore)다. 목표 비교일은 그 asOf-14 calendar days.
+       비교 후보(first)는 여전히 각 history 파일의 실제 발행일(entries[i].date)로
+       찾는다 — 발행일 자체가 목표일보다 늦으면(§1 예시: 07-18 > 07-17) 비교
+       불가로 처리하고 과거값을 임의로 보간하지 않는다. */
     function renderMarketMetricsRows(el, entries, home) {
       if (!entries || entries.length < 2) { renderHomeError(el, '최근 지표 변화를 계산할 수 있는 기록이 부족합니다.'); return; }
 
       var meta = {};
       (home.indicators || []).forEach(function (it) { meta[it.id] = it; });
 
-      var first = entries[0], last = entries[entries.length - 1];
+      var last = entries[entries.length - 1];
+      var anchorDate = _mostRecentWeekdayBefore(last.date);
+      var targetDate = _shiftDateStr(anchorDate, -14);
+      var first = null;
+      for (var i = 0; i < entries.length; i++) {
+        if (entries[i].date <= targetDate) first = entries[i];
+      }
+      if (!first) {
+        el.setAttribute('data-status', 'pending');
+        el.innerHTML = '';
+        // sec-body[data-status="pending"]는 display:flex(행 방향)라 자식을 하나로
+        // 묶어야 세로로 쌓인다(안내문 + 보조문이 한 줄에 나란히 붙는 것 방지).
+        var wrap = document.createElement('div');
+        var insufficient = document.createElement('div');
+        insufficient.className = 'placeholder-pending';
+        insufficient.innerHTML = '<span class="placeholder-dot"></span><span class="placeholder-text">14일 비교에 필요한 과거 관찰값이 아직 충분하지 않습니다.</span>';
+        wrap.appendChild(insufficient);
+        var insufficientNote = document.createElement('div');
+        insufficientNote.className = 'insight-sub';
+        insufficientNote.style.marginTop = 'var(--sp-2)';
+        insufficientNote.textContent = '최신 시장 기준일 ' + anchorDate + ' · 목표 비교일 ' + targetDate;
+        wrap.appendChild(insufficientNote);
+        el.appendChild(wrap);
+        return;
+      }
+      var exactMatch = first.date === targetDate;
+      var windowLabel = exactMatch
+        ? '14일 전 대비 · ' + first.date + ' → ' + anchorDate
+        : '14일 전 기준 비교 · 목표일 ' + targetDate + ' / 실제 비교 관찰일 ' + first.date + ' → ' + anchorDate;
+
       var firstMap = {}; first.indicators.forEach(function (i) { firstMap[i.id] = i; });
       var lastMap = {}; last.indicators.forEach(function (i) { lastMap[i.id] = i; });
 
@@ -2776,7 +2893,7 @@
         nameCell.textContent = name;
         var dateEl = document.createElement('span');
         dateEl.className = 'mr-date';
-        dateEl.textContent = first.date + ' → ' + last.date;
+        dateEl.textContent = windowLabel;
         nameCell.appendChild(dateEl);
 
         var values = document.createElement('div');
@@ -2819,7 +2936,7 @@
       var note = document.createElement('div');
       note.className = 'insight-sub';
       note.style.marginTop = 'var(--sp-3)';
-      note.textContent = entries.length + '건 기록 기준(' + first.date + ' → ' + last.date + ') 시작값 대비 마지막값 단순 비교이며 패턴을 의미하지 않습니다.';
+      note.textContent = windowLabel + (exactMatch ? '' : ' (동일 거래일 데이터가 없어 이전 가장 가까운 거래일로 대체)') + ' 값 단순 비교이며 패턴을 의미하지 않습니다.';
       el.appendChild(note);
     }
 
@@ -2845,6 +2962,10 @@
           kospiChange: kospiOk ? kospi.change : null,
           kospiDirection: kospiOk ? kospi.direction : null,
           kospiAvailable: kospiOk,
+          // §2 fast-fix — 이 행의 코스피 값이 실제로 속한 시장일. 발행 기록일(date)과
+          // 다를 수 있다(주말 발행분은 직전 금요일 종가를 그대로 담기 때문). 서로
+          // 다른 발행일이 같은 코스피 asOf를 가리키면 동일 시장 관찰이라는 뜻이다.
+          kospiAsOf: kospiOk ? _mostRecentWeekdayBefore(e.date) : null,
         };
       });
     }
@@ -2852,14 +2973,26 @@
     /* 접근 가능한 <table> 하나로 데스크톱·모바일을 모두 처리한다(JS 분기 없이
        CSS만으로 모바일 카드형 전환). 범주형 시장 온도를 코스피와 같은 숫자축
        선그래프로 그리지 않는다(§9.B 금지) — 기존 .temp-badge 색상 언어만 재사용. */
-    function renderTemperatureKospiHistory(el, paired) {
+    function renderTemperatureKospiHistory(el, paired, koreaWatch) {
       el.innerHTML = '';
       el.setAttribute('data-status', paired.length ? 'ok' : 'pending');
 
+      // 시장온도≠수급 정의(§9) — 데이터 유무와 무관하게 항상 표시하는 고정 문구다.
+      // 시장온도는 지수·환율·변동성·수급 등을 종합한 관찰 상태이고, 수급은 그중
+      // 하나의 구성요소일 뿐이라는 관계를 명확히 한다.
+      var def = document.createElement('div');
+      def.className = 'insight-sub';
+      def.style.marginBottom = 'var(--sp-2)';
+      def.textContent = '시장 온도는 국내외 지수·환율·변동성·수급 등 여러 지표를 종합한 관찰 상태입니다. 투자자 수급은 이를 구성하는 요소 중 하나입니다.';
+      el.appendChild(def);
+
+      // §7 fast-fix — 발행 기록 행수가 아니라 unique market asOf 기준으로 "관찰"
+      // 횟수를 센다(같은 시장일을 중복 발행분까지 겹쳐 세지 않는다).
+      var uniqueCoverage = _dedupeByMarketAsOf(paired).length;
       var coverage = document.createElement('div');
       coverage.className = 'insight-sub';
       coverage.style.marginBottom = 'var(--sp-3)';
-      coverage.textContent = '관찰 ' + paired.length + '/7 · ' + (paired.length < 7 ? '부분 기록' : '전체 기록');
+      coverage.textContent = '관찰 ' + uniqueCoverage + '/7 · ' + (uniqueCoverage < 7 ? '부분 기록' : '전체 기록');
       el.appendChild(coverage);
 
       if (!paired.length) {
@@ -2867,6 +3000,7 @@
         empty.className = 'placeholder-pending';
         empty.innerHTML = '<span class="placeholder-dot"></span><span class="placeholder-text">아직 기록 없음</span>';
         el.appendChild(empty);
+        renderFlowContext(el, koreaWatch);
         return;
       }
 
@@ -2876,6 +3010,14 @@
       var thead = document.createElement('thead');
       thead.innerHTML = '<tr><th scope="col">기준일</th><th scope="col">시장 온도</th><th scope="col">코스피</th><th scope="col">일간 변화</th></tr>';
       table.appendChild(thead);
+      // §2·§7 fast-fix — 같은 코스피 asOf를 참조하는 발행 기록이 몇 건인지 미리
+      // 센다. 2건 이상이면 "동일 시장 스냅샷" 보조 라벨을 붙여 서로 다른 거래일의
+      // 코스피 관찰처럼 보이지 않게 한다(발행 기록 행 자체는 삭제하지 않는다).
+      var asOfCounts = {};
+      paired.forEach(function (row) {
+        if (row.kospiAsOf) asOfCounts[row.kospiAsOf] = (asOfCounts[row.kospiAsOf] || 0) + 1;
+      });
+
       var tbody = document.createElement('tbody');
       paired.forEach(function (row) {
         var tr = document.createElement('tr');
@@ -2886,21 +3028,87 @@
         var changeText = (row.kospiAvailable && typeof row.kospiChange === 'number')
           ? arrow + (row.kospiChange >= 0 ? '+' : '') + row.kospiChange.toFixed(2) + '%'
           : '확인 불가';
+        var kospiAsOfLine = '';
+        if (row.kospiAvailable && row.kospiAsOf) {
+          var isDup = asOfCounts[row.kospiAsOf] > 1;
+          kospiAsOfLine = '<span class="temp-kospi-asof">코스피 기준 ' + row.kospiAsOf + (isDup ? ' · 동일 시장 스냅샷' : '') + '</span>';
+        }
         tr.innerHTML =
           '<td data-label="기준일">' + row.date + '</td>' +
           '<td data-label="시장 온도"><span class="temp-badge ' + row.temperature.label + '">' + tempLabel + '</span></td>' +
-          '<td data-label="코스피">' + kospiText + '</td>' +
+          '<td data-label="코스피"><span class="temp-kospi-value-wrap">' + kospiText + kospiAsOfLine + '</span></td>' +
           '<td data-label="일간 변화" class="' + dirCls + '">' + changeText + '</td>';
         tbody.appendChild(tr);
       });
       table.appendChild(tbody);
       el.appendChild(table);
 
+      var asOfNote = document.createElement('div');
+      asOfNote.className = 'insight-sub';
+      asOfNote.style.marginTop = 'var(--sp-2)';
+      asOfNote.textContent = '기준일은 발행 기록일이며, 코스피 값은 그 발행 시점 기준 가장 최근 실제 거래일의 종가입니다. 주말·휴일 발행 기록은 같은 최근 시장 기준일을 참조할 수 있습니다.';
+      el.appendChild(asOfNote);
+
       var limit = document.createElement('div');
       limit.className = 'insight-sub';
       limit.style.marginTop = 'var(--sp-3)';
       limit.textContent = '시장 온도는 범주형 상태라 코스피와 같은 숫자 축으로 비교하지 않습니다. 최근 확인된 상태이며 장기 추세를 의미하지 않습니다.';
       el.appendChild(limit);
+
+      renderFlowContext(el, koreaWatch);
+    }
+
+    /* 오늘의 투자자 수급(§9) — home.koreaWatch는 최신 거래일 값만 담고 있고
+       history 파일에는 수급 시계열이 없어(0일치) 관찰 기간 누적을 계산할 수
+       없다. 최신 거래일 값만 표시하고, 없는 날짜를 0으로 채우거나 발행일
+       중복을 합산하지 않는다. 과거 수급이 쌓이기 전까지는 이 상태를 유지한다. */
+    function renderFlowContext(el, koreaWatch) {
+      var wrap = document.createElement('div');
+      wrap.className = 'flow-context';
+
+      var label = document.createElement('div');
+      label.className = 'insight-card-label';
+      label.textContent = '오늘의 투자자 수급 · 최신 거래일';
+      wrap.appendChild(label);
+
+      var flowIds = ['foreign', 'institution', 'individual'];
+      var items = ((koreaWatch && koreaWatch.items) || []).filter(function (it) {
+        return flowIds.indexOf(it.id) !== -1 && it.status === 'ok';
+      });
+
+      if (items.length) {
+        var grid = document.createElement('div');
+        grid.className = 'flow-grid';
+        items.forEach(function (it) {
+          var dirCls = it.direction === 'up' ? 'dir-up' : (it.direction === 'down' ? 'dir-down' : '');
+          var arrow = it.direction === 'up' ? '▲ ' : (it.direction === 'down' ? '▼ ' : '');
+          var cell = document.createElement('div');
+          cell.className = 'flow-item';
+          var l = document.createElement('div');
+          l.className = 'flow-label';
+          l.textContent = it.label;
+          var v = document.createElement('div');
+          v.className = 'flow-value ' + dirCls;
+          v.textContent = arrow + (it.displayValue || '—');
+          cell.appendChild(l);
+          cell.appendChild(v);
+          grid.appendChild(cell);
+        });
+        wrap.appendChild(grid);
+
+        var note = document.createElement('div');
+        note.className = 'insight-sub';
+        note.style.marginTop = 'var(--sp-2)';
+        note.textContent = '최신 거래일 기준이며, 과거 수급 기록이 아직 충분히 쌓이지 않아 관찰 기간 누적 수급은 제공하지 않습니다.';
+        wrap.appendChild(note);
+      } else {
+        var pending = document.createElement('div');
+        pending.className = 'placeholder-pending';
+        pending.innerHTML = '<span class="placeholder-dot"></span><span class="placeholder-text">수급 기록 축적 중</span>';
+        wrap.appendChild(pending);
+      }
+
+      el.appendChild(wrap);
     }
 
     /* MOO: 해석 — 사실/관찰/한계/연결을 분리해 표시(§10). 원인 추정·전망·매수매도
@@ -2933,13 +3141,17 @@
 
       var latest = paired[paired.length - 1];
       var latestTempLabel = TEMP_LABEL_KR[latest.temperature.label] || latest.temperature.label;
-      var factText = latest.date + ' 기준 시장 온도는 ' + latestTempLabel + '이며, 같은 날 코스피는 ' +
+      // §2·§6 — "같은 날 코스피"라고 하지 않는다. 발행 기록일과 코스피의 실제
+      // 시장 기준일(kospiAsOf)이 다를 수 있으므로 그 기준일을 그대로 명시한다.
+      var factText = latest.date + ' 기준 시장 온도는 ' + latestTempLabel + '이며, 코스피는 ' +
         (latest.kospiAvailable
-          ? latest.kospiValue.toLocaleString('ko-KR', { maximumFractionDigits: 2 }) + '(' + (latest.kospiChange >= 0 ? '+' : '') + latest.kospiChange.toFixed(2) + '%)'
+          ? '(시장 기준 ' + latest.kospiAsOf + ') ' + latest.kospiValue.toLocaleString('ko-KR', { maximumFractionDigits: 2 }) + '(' + (latest.kospiChange >= 0 ? '+' : '') + latest.kospiChange.toFixed(2) + '%)'
           : '미제공') + '를 기록했습니다.';
       el.appendChild(block('확인된 사실', factText));
 
-      var withDirection = paired.filter(function (r) { return r.kospiAvailable && r.kospiDirection; });
+      // §7 — 같은 market asOf를 참조하는 발행 기록은 하나의 시장 관찰로만 센다.
+      var uniqueRows = _dedupeByMarketAsOf(paired);
+      var withDirection = uniqueRows.filter(function (r) { return r.kospiAvailable && r.kospiDirection; });
       var aligned = withDirection.filter(function (r) {
         var riskOnFamily = r.temperature.label === 'risk_on' || r.temperature.label === 'strong_risk_on';
         var riskOffFamily = r.temperature.label === 'risk_off';
@@ -2958,7 +3170,7 @@
       }
       el.appendChild(block('MOO: 관찰', obsText));
 
-      var limitText = '관찰 기록 ' + paired.length + '/7건' + (paired.length < 7 ? ' · 부분 기록' : '') +
+      var limitText = '관찰 기록 ' + uniqueRows.length + '/7건' + (uniqueRows.length < 7 ? ' · 부분 기록' : '') +
         '. 표본이 적어 방향성을 확정하지 않으며, 시장 온도와 코스피가 항상 같은 방향으로 움직이는 것은 아닙니다.';
       el.appendChild(block('해석 한계', limitText));
 
@@ -2995,51 +3207,64 @@
     /* Data Status Bar(Rapid Redesign 신규) — 실시간 가격 티커가 아니라 데이터 신선도
        메타데이터 행. home.json/history 응답을 재사용(신규 fetch 없음). 값이 없으면
        "확인 불가"만 표시하고 0이나 가짜 값을 넣지 않는다. */
+    /* Hero 데이터 상태(§1·§2 fast-fix) — "데이터 정상 수신"은 핵심 메타데이터와
+       분리된 작은 배지(#dsbStatusBadge)로, 기록일(publishDate)과 실제 시장
+       기준일(marketAsOf = _mostRecentWeekdayBefore(publishDate))은 서로 다른
+       항목으로 분리해 표시한다. 데스크톱은 라벨+값 행, 모바일은 압축 2줄이다. */
     function renderDataStatusBar(el, home, entries, claims, temperature) {
       el.innerHTML = '';
-      // el(#dataStatusBarBody) 자체가 정적 HTML에서 이미 class="dsb-row"를 갖고
-      // 있으므로 별도 wrap div로 다시 감싸지 않는다(이중 중첩 방지).
-      var wrap = el;
+      var ok = !!(home && home.publishDate);
+      var marketAsOf = ok ? _mostRecentWeekdayBefore(home.publishDate) : null;
 
-      function item(label, value, withDot) {
+      var badge = document.getElementById('dsbStatusBadge');
+      if (badge) {
+        badge.className = 'dsb-status-badge' + (ok ? '' : ' status-error');
+        badge.innerHTML = '<span class="dsb-status-dot" aria-hidden="true"></span>' +
+          '<span aria-hidden="true">' + (ok ? '정상' : '오류') + '</span>' +
+          '<span class="visually-hidden">' + (ok ? '데이터 정상 수신' : '데이터 확인 불가') + '</span>';
+      }
+
+      var t = claims && claims.totals;
+      var qResolved = t ? (t.hit||0)+(t.miss||0)+(t.neutral||0) : null;
+      var qTotal = t ? qResolved + (t.unresolved||0)+(t.invalidated||0)+(t.error||0) : null;
+      var tempLabel = (temperature && temperature.label) ? (TEMP_LABEL_KR[temperature.label] || temperature.label) : null;
+
+      function item(label, value) {
         var d = document.createElement('span');
         d.className = 'dsb-item';
-        if (withDot) {
-          var dot = document.createElement('span');
-          dot.className = 'dsb-dot';
-          d.appendChild(dot);
-        } else {
-          var l = document.createElement('span');
-          l.className = 'dsb-label';
-          l.textContent = label;
-          d.appendChild(l);
-        }
+        var l = document.createElement('span');
+        l.className = 'dsb-label';
+        l.textContent = label;
         var v = document.createElement('span');
         v.className = 'dsb-value';
         v.textContent = value;
+        d.appendChild(l);
         d.appendChild(v);
         return d;
       }
 
-      wrap.appendChild(item(null, (home && home.publishDate) ? '데이터 정상 수신' : '데이터 확인 불가', true));
-      wrap.appendChild(item('기준일', (home && home.publishDate) || '확인 불가'));
-      wrap.appendChild(item('관찰기간', (entries && entries.length) ? (entries[0].date + ' ~ ' + entries[entries.length - 1].date) : '확인 불가'));
+      var desktopRow = document.createElement('div');
+      desktopRow.className = 'dsb-row-desktop';
+      desktopRow.appendChild(item('기록일', ok ? home.publishDate : '확인 불가'));
+      desktopRow.appendChild(item('시장 기준', ok ? marketAsOf : '확인 불가'));
+      desktopRow.appendChild(item('질문', t ? (qTotal + '건 · 판정 ' + qResolved + '건') : '확인 불가'));
+      desktopRow.appendChild(item('시장온도', tempLabel || '확인 불가'));
+      el.appendChild(desktopRow);
 
-      var t = claims && claims.totals;
-      if (t) {
-        var qResolved = (t.hit||0)+(t.miss||0)+(t.neutral||0);
-        var qTotal = qResolved + (t.unresolved||0)+(t.invalidated||0)+(t.error||0);
-        wrap.appendChild(item('질문', qTotal + '건 · 판정 ' + qResolved + '건'));
-      } else {
-        wrap.appendChild(item('질문', '확인 불가'));
-      }
-
-      // Hero의 "오늘의 데이터 Snapshot"을 별도 패널로 중복시키지 않고 이 바에 흡수한다.
-      if (temperature && temperature.label) {
-        wrap.appendChild(item('시장온도', TEMP_LABEL_KR[temperature.label] || temperature.label));
-      } else {
-        wrap.appendChild(item('시장온도', '확인 불가'));
-      }
+      function shortDate(dateStr) { return dateStr.slice(5).replace('-', '.'); }
+      var mobileRow = document.createElement('div');
+      mobileRow.className = 'dsb-row-mobile';
+      var line1 = document.createElement('div');
+      line1.className = 'dsb-mobile-line';
+      line1.textContent = ok ? ('기록 ' + shortDate(home.publishDate) + ' · 시장 ' + shortDate(marketAsOf)) : '데이터 확인 불가';
+      mobileRow.appendChild(line1);
+      var line2 = document.createElement('div');
+      line2.className = 'dsb-mobile-line';
+      line2.textContent = t
+        ? ('질문 ' + qTotal + ' · 판정 ' + qResolved + (tempLabel ? ' · ' + tempLabel : ''))
+        : '확인 불가';
+      mobileRow.appendChild(line2);
+      el.appendChild(mobileRow);
     }
 
     async function loadHome() {
@@ -3118,13 +3343,13 @@
         if (coverageBody) renderDataCoverage(coverageBody, historyEntries);
         if (marketMetricsBody) renderMarketMetricsRows(marketMetricsBody, historyEntries, home);
         if (dataStatusBarBody) renderDataStatusBar(dataStatusBarBody, home, historyEntries, home.claims, home.marketTemperature);
-        // Question Memory의 "N일 동안 축적" 메시지는 Data Coverage와 같은 실제
-        // 관찰일수(historyEntries.length)를 재사용한다 — 별도 하드코딩 없음.
-        if (questionMemoryBody) renderQuestionMemory(questionMemoryBody, home.claims, historyEntries && historyEntries.length);
+        // Question Memory의 축적 메시지는 Data Coverage와 같은 historyEntries를
+        // 그대로 재사용해 첫~마지막 관찰일과 기록 횟수를 계산한다(별도 하드코딩 없음).
+        if (questionMemoryBody) renderQuestionMemory(questionMemoryBody, home.claims, historyEntries);
         if (insightTempBody || mooInterpretationBody) {
           var tempWindow = getRollingTemperatureWindow(historyEntries);
           var pairedTempKospi = pairTemperatureWithKospi(tempWindow);
-          if (insightTempBody) renderTemperatureKospiHistory(insightTempBody, pairedTempKospi);
+          if (insightTempBody) renderTemperatureKospiHistory(insightTempBody, pairedTempKospi, home.koreaWatch);
           if (mooInterpretationBody) renderMooInterpretation(mooInterpretationBody, pairedTempKospi);
         }
       }
