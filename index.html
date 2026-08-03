@@ -141,6 +141,10 @@
   .nav ul a.active { color:var(--gold); border-bottom-color:var(--gold); }
   .nav .nav-cta { background:var(--gold); color:var(--navy); padding:9px 14px; border-radius:8px;
                   font-size:12px; font-weight:800; letter-spacing:.2px; text-decoration:none; z-index:2; border:0; cursor:pointer; white-space:nowrap; }
+  /* 모바일 헤더 구독 CTA — .nav-cta는 900px 미만에서 숨기므로(로고+메뉴 버튼과
+     공간 경쟁), 짧은 라벨의 소형 버전을 별도로 둔다. 데스크톱에서는 숨김. */
+  .nav .nav-cta-mobile { display:none; background:var(--gold); color:var(--navy); padding:7px 11px; border-radius:7px;
+                  font-size:11.5px; font-weight:800; letter-spacing:.2px; text-decoration:none; z-index:2; border:0; cursor:pointer; white-space:nowrap; }
   .nav .menu-btn { display:none; background:none; border:none; color:#fff; font-size:22px; cursor:pointer; z-index:2; }
 
   /* 모바일 하단 내비게이션(2026-08-02 최종 확정): 아이콘+짧은 한글 라벨,
@@ -215,23 +219,33 @@
      카피가 문구 자체는 다르므로(§4) 텍스트를 복제하지 않고 이 두 토큰만 토글한다. */
   .hero h1 .hero-title-comma { display:inline; }
   .hero h1 br.hero-title-break { display:inline; }
+  /* 모바일 뉴스레터 정체성 고지 — 데스크톱 워드마크 라벨은 "MARKET RECORD &
+     INTERPRETATION"으로 유지하고, 이 문구는 ≤899px에서만 별도로 노출해 무료
+     뉴스레터 서비스라는 사실을 첫 화면에서 바로 알 수 있게 한다. */
+  .hero-identity-mobile { display:block; font-size:12.5px; font-weight:700; color:var(--gold); margin:0 auto 10px; }
+  @media (min-width:900px) { .hero-identity-mobile { display:none; } }
 
   .cta { display:inline-block; background:var(--gold); color:var(--navy); font-size:17px; font-weight:800; padding:17px 46px; border-radius:12px; text-decoration:none; transition:.2s; box-shadow:0 8px 24px rgba(217,164,65,.35); border:0; cursor:pointer; font-family:inherit; }
   .cta:hover { background:var(--gold-d); transform:translateY(-2px); }
   .hero .subnote { font-size:13px; color:#9fb0c4; }
 
-  /* Hero CTA 4개(§6) — 모바일·태블릿 2×2, 1200px 이상 4열 한 줄. 높이(≥44px)·
+  /* Hero 최우선 구독 CTA — 첫 화면의 유일한 gold primary 액션. 아래 4개 퀵링크
+     행(.hero-cta-row)은 전부 secondary/outline으로 통일해 구독과 시각적으로
+     경쟁하지 않게 한다. */
+  .hero-cta-primary { display:flex; align-items:center; justify-content:center; width:100%; box-sizing:border-box;
+    min-height:48px; margin-top:10px; padding:13px 20px; font-size:15.5px; }
+  .hero-cta-primary:focus-visible { outline:2px solid var(--gold); outline-offset:2px; }
+
+  /* Hero 퀵링크 4개(§6) — 모바일·태블릿 2×2, 1200px 이상 4열 한 줄. 높이(≥44px)·
      radius·간격을 4개 전부 동일하게 통일하고, 텍스트링크(밑줄) 스타일의 CTA는
-     두지 않는다(전부 박스형). 오늘의 경제뉴스만 골드 채움으로 우선 강조한다. */
-  .hero-cta-row { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-top:2px; }
+     두지 않는다(전부 박스형). 전부 secondary/outline — gold는 구독 CTA 전용. */
+  .hero-cta-row { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-top:10px; }
   .hero-cta-row a {
     box-sizing:border-box; min-height:44px; display:inline-flex; align-items:center; justify-content:center;
     padding:11px 12px; border-radius:10px; font-size:13.5px; font-weight:800; line-height:1.3;
     text-align:center; text-decoration:none; transition:.2s;
   }
   .hero-cta-row a:focus-visible { outline:2px solid var(--gold); outline-offset:2px; }
-  .hero-cta-row .cta { background:var(--gold); color:var(--navy); box-shadow:0 6px 18px rgba(217,164,65,.3); }
-  .hero-cta-row .cta:hover { background:var(--gold-d); }
   .hero-cta-row .hero-cta-secondary { border:1px solid rgba(255,255,255,.35); color:#fff; background:rgba(255,255,255,.05); }
   .hero-cta-row .hero-cta-secondary:hover { border-color:var(--gold); color:var(--gold); background:rgba(255,255,255,.09); }
   @media (min-width:1200px) {
@@ -447,13 +461,23 @@
   /* 오늘의 투자자 수급(§9) — 최신 거래일 값만 3칸 카드로 표시. 시계열이 아니므로
      temp-kospi-table과 다른 단순 그리드를 쓴다(가로 스크롤 없음). */
   .flow-context { margin-top:var(--sp-4); }
+  .flow-context-head { display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 10px; margin-bottom:2px; }
+  .flow-context-asof { font-size:11px; font-weight:700; color:#9fb0c4; }
+  /* 코스피 수급 카드(§C) — 외국인·기관·개인 3열을 항상 유지한다. 390/430px에서도
+     1열로 무너뜨리지 않고(예전엔 대형 카드 3개로 쌓였다) 패딩·폰트만 압축한다.
+     overflow-wrap은 "-12,502억원"처럼 공백 없는 한글+숫자 토큰이 keep-all과
+     만나 좁은 칸에서 가로로 넘치는 것을 막는 안전장치(.claim-text와 동일 패턴). */
   .flow-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:var(--sp-2); margin-top:8px; }
-  @media (max-width:480px) { .flow-grid { grid-template-columns:1fr; } }
   .flow-item { background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.14); border-radius:var(--radius-card); padding:10px 12px; min-width:0; }
   .flow-label { font-size:11px; font-weight:700; color:#9fb0c4; }
-  .flow-value { font-size:14.5px; font-weight:800; color:#fff; margin-top:4px; font-variant-numeric:tabular-nums; }
+  .flow-value { font-size:14.5px; font-weight:800; color:#fff; margin-top:4px; font-variant-numeric:tabular-nums; overflow-wrap:anywhere; }
   .flow-value.dir-up { color:#ff9a90; }
   .flow-value.dir-down { color:#7fb4ff; }
+  @media (max-width:480px) {
+    .flow-item { padding:8px 6px; }
+    .flow-label { font-size:9.5px; }
+    .flow-value { font-size:12px; }
+  }
 
   /* MOO: 해석 — 사실/관찰/한계를 제목 구조로 분리(§10·§13 접근성). */
   .moo-interp-block { margin-bottom:var(--sp-3); }
@@ -1042,6 +1066,7 @@
     .nav ul a.active { border-bottom-color:rgba(255,255,255,.06); }
     .nav .menu-btn { display:block; }
     .nav .nav-cta { display:none; }
+    .nav .nav-cta-mobile { display:inline-flex; align-items:center; justify-content:center; }
 
     body { display:flex; flex-direction:column; }
     .topbar { order:0; }
@@ -1121,6 +1146,7 @@
         <li><a href="/methodology/" class="nav-link">MOO: 철학</a></li>
       </ul>
       <a class="nav-cta" onclick="switchView('home', 'subscribe')" aria-label="MOO:conomy 뉴스레터 무료 구독">MOO:conomy 무료 구독</a>
+      <a class="nav-cta-mobile" onclick="switchView('home', 'subscribe')" aria-label="MOO:conomy 뉴스레터 무료 구독">무료 구독</a>
       <button class="menu-btn" id="menuBtn" aria-label="메뉴">☰</button>
     </nav>
     <div class="ticker" tabindex="0" aria-label="시장 지표 티커, 자동 스크롤">
@@ -1129,11 +1155,13 @@
   </div>
   <div class="spacer"></div>
 
-  <!-- 모바일 하단 내비게이션(2026-08-02 최종 확정, 정확히 4개):
-       홈(SPA 최상단)·지표(홈 내부 14일 지표 앵커, /markets.html의 demo
-       fallback 상태와 무관하게 항상 실제 데이터가 있는 곳으로 연결)는
-       switchView()로 SPA 내 이동, 검증·리포트는 실제 별도 페이지라
-       평범한 <a href>로 연결한다(placeholder 없음, 신규 아이콘
+  <!-- 모바일 하단 내비게이션(정확히 4개): 홈(SPA 최상단)·지표(홈 내부 14일
+       지표 앵커)는 switchView()로 SPA 내 이동, 검증은 실제 별도 페이지라
+       평범한 <a href>로 연결한다. 뉴스레터 무료 구독 서비스라는 정체성이
+       모바일 첫 화면에서 바로 드러나야 한다는 요구에 따라 기존 "리포트"
+       항목(→ /latest.html)을 "구독"(→ 구독 폼 앵커)으로 교체했다 — 리포트
+       접근은 헤더 햄버거 메뉴("MOO: 리포트")와 hero의 "최신 뉴스레터"
+       버튼, 본문 DAILY 탭에서 그대로 유지된다(placeholder 없음, 신규 아이콘
        라이브러리 없음, 기존 Lucide만 재사용). -->
   <nav class="mobile-nav" aria-label="모바일 주요 메뉴">
     <button onclick="switchView('home')" class="mobile-nav-item active" id="m-nav-home" aria-label="MOO:conomy 홈">
@@ -1145,9 +1173,9 @@
     <a href="/questions/" class="mobile-nav-item" id="m-nav-verify" aria-label="MOO:Q 질문과 검증 기록">
       <i data-lucide="list-checks" aria-hidden="true"></i><span>검증</span>
     </a>
-    <a href="/latest.html" class="mobile-nav-item" id="m-nav-report" aria-label="최신 리포트">
-      <i data-lucide="newspaper" aria-hidden="true"></i><span>리포트</span>
-    </a>
+    <button onclick="switchView('home', 'subscribe')" class="mobile-nav-item" id="m-nav-subscribe" aria-label="무료 뉴스레터 구독">
+      <i data-lucide="mail-plus" aria-hidden="true"></i><span>구독</span>
+    </button>
   </nav>
 
   <!-- [VIEW 1] LANDING PAGE -->
@@ -1164,6 +1192,7 @@
           <span class="hero-wordmark-label">MARKET RECORD &amp; INTERPRETATION</span>
         </div>
         <div class="hero-copy">
+          <span class="hero-identity-mobile">매일 아침 배달되는 무료 경제 뉴스레터</span>
           <h1>매일 쌓인 <span class="hl">시장 기록</span>에서<span class="hero-title-comma">,</span><br class="hero-title-break"> 지금의 <span class="hl">흐름</span>을 읽습니다</h1>
           <p class="lead">MOO:conomy가 발행하며 축적한 지표와 질문·검증 기록을 통해 시장의 변화를 살펴보세요.</p>
           <div class="data-status-bar" id="dataStatusBar">
@@ -1172,8 +1201,9 @@
               <div class="dsb-row-mobile"><div class="dsb-mobile-line">데이터 상태 확인 중…</div></div>
             </div>
           </div>
+          <a class="cta hero-cta-primary" href="#subscribe">매일 아침 무료로 구독하기</a>
           <div class="hero-cta-row">
-            <a class="cta" href="#marketMetricsCard">시장 기록 보기</a>
+            <a class="hero-cta-secondary" href="#marketMetricsCard">시장 기록 보기</a>
             <a class="hero-cta-secondary" href="#news-disclosure">오늘의 경제뉴스</a>
             <a class="hero-cta-secondary" href="/questions/">MOO:Q 검증 보기</a>
             <a class="hero-cta-secondary" href="/latest.html">최신 뉴스레터</a>
@@ -1531,7 +1561,7 @@
     <!-- 12 / 뉴스레터 구독 (기존 #subscribe 이동) -->
     <section class="final anchor" id="subscribe">
       <div class="inner">
-        <div class="sec-num on-dark">12 / SUBSCRIBE</div>
+        <div class="sec-num on-dark">무료 아침 뉴스레터</div>
         <h2>내일 아침, <span class="hl">첫 메일</span>부터 확인해보세요</h2>
         <p>Daily MOO:conomy는 완전 무료입니다. 마음에 안 들면 메일 하단 버튼 한 번으로 1초 만에 해지할 수 있습니다.</p>
         <div class="cond">구독하면 다음 발행일 <b>(월~토) 아침</b> 첫 브리핑이 도착합니다.</div>
@@ -1833,13 +1863,15 @@
       document.querySelectorAll('.mobile-nav-item').forEach(function(el){ el.classList.remove('active'); });
 
       if (viewId === 'home') {
-        // 모바일 하단 내비게이션 4개(홈/지표/검증/리포트)·데스크톱 메뉴 중
+        // 모바일 하단 내비게이션 4개(홈/지표/검증/구독)·데스크톱 메뉴 중
         // "검증"·"최신 리포트"·"운영 철학"은 실제 별도 페이지로 나가는
         // <a href>라 이 SPA 안에서는 활성 상태를 표시할 대상이 아니다(그
         // 페이지에 있을 때만 의미가 있음, 이번 라운드 범위는 index.html뿐).
         if (targetAnchorId === 'marketMetricsCard') {
           var mMet = document.getElementById('m-nav-metrics'); if (mMet) mMet.classList.add('active');
           var gnbM = document.getElementById('gnb-metrics-btn'); if (gnbM) gnbM.classList.add('active');
+        } else if (targetAnchorId === 'subscribe') {
+          var mSub = document.getElementById('m-nav-subscribe'); if (mSub) mSub.classList.add('active');
         } else {
           var mHome = document.getElementById('m-nav-home');
           if (mHome) mHome.classList.add('active');
@@ -2863,18 +2895,21 @@
        주말만 건너뛰는 최소 규칙을 쓴다 — 이것만으로 2026-08-03 파일의 코스피가
        실제로는 2026-07-31(금) 종가임이 정확히 재현된다. history JSON은 수정하지
        않고 화면 라벨만 이 실제 기준일로 교정한다. */
-    /* §7 fast-fix — 같은 market asOf(코스피 실제 거래일)를 참조하는 발행 기록을
-       시장 관찰 횟수·방향 통계에서 중복 집계하지 않는다. 표에 보이는 발행 기록
-       행 자체는 지우지 않고(paired 원본 유지), 집계용으로만 첫 등장 asOf 기준
-       1건으로 축약한 배열을 만든다. */
+    /* §7/§D fast-fix — 같은 market asOf(실제 시장 거래일)를 참조하는 발행 기록을
+       시장 관찰 횟수·방향 통계·화면 표시 모두에서 중복 집계하지 않는다. 같은
+       asOf가 여러 번 나오면(주말·휴일 발행 반복 게재) 그중 가장 나중에 발행된
+       기록(= paired 배열에서 더 뒤에 나오는, 더 최신 publish 기록) 하나만
+       남긴다 — 더 최신 발행분이 더 정제된 온도 해설을 담고 있을 수 있어서다.
+       원본 paired 배열은 이 함수 밖에서 그대로 유지된다(불변). */
     function _dedupeByMarketAsOf(paired) {
-      var seen = {};
-      return paired.filter(function (row) {
-        var key = (row.kospiAvailable && row.kospiAsOf) ? row.kospiAsOf : ('no-asof-' + row.date);
-        if (seen[key]) return false;
-        seen[key] = true;
-        return true;
+      var byKey = {};
+      var order = [];
+      paired.forEach(function (row) {
+        var key = row.marketAsOf || (row.kospiAvailable && row.kospiAsOf) || ('no-asof-' + row.date);
+        if (!byKey[key]) order.push(key);
+        byKey[key] = row; // 뒤에서 다시 만나면 더 최신 기록으로 덮어쓴다
       });
+      return order.map(function (key) { return byKey[key]; });
     }
 
     function _mostRecentWeekdayBefore(dateStr) {
@@ -3171,8 +3206,13 @@
       return windowEntries.map(function (e) {
         var kospi = (e.indicators || []).find(function (i) { return i.id === 'kospi'; });
         var kospiOk = !!(kospi && kospi.status === 'ok' && typeof kospi.value === 'number');
+        // §D fast-fix — 시장 기준일(marketAsOf)은 코스피 값 존재 여부와 무관하게
+        // 항상 계산한다(온도 관찰 자체의 시장일이지, 코스피 한 지표에 종속된 값이
+        // 아니다). kospiAsOf는 기존 호출부 호환을 위해 같은 값을 그대로 별칭한다.
+        var marketAsOf = _mostRecentWeekdayBefore(e.date);
         return {
           date: e.date,
+          marketAsOf: marketAsOf,
           temperature: e.marketTemperature,
           kospiValue: kospiOk ? kospi.value : null,
           kospiChange: kospiOk ? kospi.change : null,
@@ -3181,7 +3221,7 @@
           // §2 fast-fix — 이 행의 코스피 값이 실제로 속한 시장일. 발행 기록일(date)과
           // 다를 수 있다(주말 발행분은 직전 금요일 종가를 그대로 담기 때문). 서로
           // 다른 발행일이 같은 코스피 asOf를 가리키면 동일 시장 관찰이라는 뜻이다.
-          kospiAsOf: kospiOk ? _mostRecentWeekdayBefore(e.date) : null,
+          kospiAsOf: marketAsOf,
         };
       });
     }
@@ -3189,9 +3229,19 @@
     /* 접근 가능한 <table> 하나로 데스크톱·모바일을 모두 처리한다(JS 분기 없이
        CSS만으로 모바일 카드형 전환). 범주형 시장 온도를 코스피와 같은 숫자축
        선그래프로 그리지 않는다(§9.B 금지) — 기존 .temp-badge 색상 언어만 재사용. */
-    function renderTemperatureKospiHistory(el, paired, koreaWatch) {
+    function renderTemperatureKospiHistory(el, paired, koreaWatch, marketDateKr) {
       el.innerHTML = '';
-      el.setAttribute('data-status', paired.length ? 'ok' : 'pending');
+
+      // §D fast-fix — 같은 시장 기준일(marketAsOf)이 여러 발행 기록으로 겹쳐
+      // 들어오면(주말·휴일 반복 게재) 화면에는 그 시장일당 최신 발행 기록
+      // 하나만 보여준다(_dedupeByMarketAsOf가 최신 발행분을 남긴다). 그 뒤
+      // 최신 시장 기준일이 맨 위로 오도록 내림차순 정렬한다 — paired 원본은
+      // 건드리지 않는다.
+      var deduped = _dedupeByMarketAsOf(paired);
+      var rows = deduped.slice().sort(function (a, b) {
+        return a.marketAsOf < b.marketAsOf ? 1 : (a.marketAsOf > b.marketAsOf ? -1 : 0);
+      });
+      el.setAttribute('data-status', rows.length ? 'ok' : 'pending');
 
       // 시장온도≠수급 정의(§9) — 데이터 유무와 무관하게 항상 표시하는 고정 문구다.
       // 시장온도는 지수·환율·변동성·수급 등을 종합한 관찰 상태이고, 수급은 그중
@@ -3203,39 +3253,33 @@
       el.appendChild(def);
 
       // §7 fast-fix — 발행 기록 행수가 아니라 unique market asOf 기준으로 "관찰"
-      // 횟수를 센다(같은 시장일을 중복 발행분까지 겹쳐 세지 않는다).
-      var uniqueCoverage = _dedupeByMarketAsOf(paired).length;
+      // 횟수를 센다(같은 시장일을 중복 발행분까지 겹쳐 세지 않는다). rows는 이미
+      // 그 unique 기준으로 축약된 배열이므로 그대로 길이를 쓴다.
+      var uniqueCoverage = rows.length;
       var coverage = document.createElement('div');
       coverage.className = 'insight-sub';
       coverage.style.marginBottom = 'var(--sp-3)';
       coverage.textContent = '관찰 ' + uniqueCoverage + '/7 · ' + (uniqueCoverage < 7 ? '부분 기록' : '전체 기록');
       el.appendChild(coverage);
 
-      if (!paired.length) {
+      if (!rows.length) {
         var empty = document.createElement('div');
         empty.className = 'placeholder-pending';
         empty.innerHTML = '<span class="placeholder-dot"></span><span class="placeholder-text">아직 기록 없음</span>';
         el.appendChild(empty);
-        renderFlowContext(el, koreaWatch);
+        renderFlowContext(el, koreaWatch, marketDateKr);
         return;
       }
 
       var table = document.createElement('table');
       table.className = 'temp-kospi-table';
-      table.setAttribute('aria-label', '최근 관찰일 시장 온도와 코스피');
+      table.setAttribute('aria-label', '최근 관찰일 시장 온도와 코스피, 시장 기준일 내림차순');
       var thead = document.createElement('thead');
-      thead.innerHTML = '<tr><th scope="col">기준일</th><th scope="col">시장 온도</th><th scope="col">코스피</th><th scope="col">일간 변화</th></tr>';
+      thead.innerHTML = '<tr><th scope="col">시장 기준일</th><th scope="col">시장 온도</th><th scope="col">코스피</th><th scope="col">일간 변화</th></tr>';
       table.appendChild(thead);
-      // §2·§7 fast-fix — 같은 코스피 asOf를 참조하는 발행 기록이 몇 건인지 미리
-      // 센다. 2건 이상이면 "동일 시장 스냅샷" 보조 라벨을 붙여 서로 다른 거래일의
-      // 코스피 관찰처럼 보이지 않게 한다(발행 기록 행 자체는 삭제하지 않는다).
-      var asOfCounts = {};
-      paired.forEach(function (row) {
-        if (row.kospiAsOf) asOfCounts[row.kospiAsOf] = (asOfCounts[row.kospiAsOf] || 0) + 1;
-      });
 
       var tbody = document.createElement('tbody');
-      paired.forEach(function (row) {
+      rows.forEach(function (row) {
         var tr = document.createElement('tr');
         var tempLabel = TEMP_LABEL_KR[row.temperature.label] || row.temperature.label;
         var kospiText = row.kospiAvailable ? row.kospiValue.toLocaleString('ko-KR', { maximumFractionDigits: 2 }) : '미제공';
@@ -3244,15 +3288,15 @@
         var changeText = (row.kospiAvailable && typeof row.kospiChange === 'number')
           ? arrow + (row.kospiChange >= 0 ? '+' : '') + row.kospiChange.toFixed(2) + '%'
           : '확인 불가';
-        var kospiAsOfLine = '';
-        if (row.kospiAvailable && row.kospiAsOf) {
-          var isDup = asOfCounts[row.kospiAsOf] > 1;
-          kospiAsOfLine = '<span class="temp-kospi-asof">코스피 기준 ' + row.kospiAsOf + (isDup ? ' · 동일 시장 스냅샷' : '') + '</span>';
-        }
+        // 발행 기록일(row.date)이 시장 기준일과 다른 경우(주말·휴일 발행)에만
+        // 보조 텍스트로 발행일을 작게 병기한다 — 필요할 때만, 기본은 시장
+        // 기준일만 보인다.
+        var recordNote = (row.date !== row.marketAsOf)
+          ? '<span class="temp-kospi-asof">발행 기록 ' + row.date + '</span>' : '';
         tr.innerHTML =
-          '<td data-label="기준일">' + row.date + '</td>' +
+          '<td data-label="시장 기준일"><span class="temp-kospi-value-wrap">' + row.marketAsOf + recordNote + '</span></td>' +
           '<td data-label="시장 온도"><span class="temp-badge ' + row.temperature.label + '">' + tempLabel + '</span></td>' +
-          '<td data-label="코스피"><span class="temp-kospi-value-wrap">' + kospiText + kospiAsOfLine + '</span></td>' +
+          '<td data-label="코스피"><span class="temp-kospi-value-wrap">' + kospiText + '</span></td>' +
           '<td data-label="일간 변화" class="' + dirCls + '">' + changeText + '</td>';
         tbody.appendChild(tr);
       });
@@ -3262,7 +3306,7 @@
       var asOfNote = document.createElement('div');
       asOfNote.className = 'insight-sub';
       asOfNote.style.marginTop = 'var(--sp-2)';
-      asOfNote.textContent = '기준일은 발행 기록일이며, 코스피 값은 그 발행 시점 기준 가장 최근 실제 거래일의 종가입니다. 주말·휴일 발행 기록은 같은 최근 시장 기준일을 참조할 수 있습니다.';
+      asOfNote.textContent = '시장 기준일은 그 관찰이 실제로 속한 거래일이며, 최신 시장 기준일부터 내림차순으로 표시합니다. 같은 시장 기준일을 반복 게재한 발행 기록은 그중 가장 최근 발행분 하나만 남겼습니다. 발행 기록일이 시장 기준일과 다른 경우(주말·휴일 발행)에만 발행 기록일을 보조로 병기합니다.';
       el.appendChild(asOfNote);
 
       var limit = document.createElement('div');
@@ -3271,21 +3315,35 @@
       limit.textContent = '시장 온도는 범주형 상태라 코스피와 같은 숫자 축으로 비교하지 않습니다. 최근 확인된 상태이며 장기 추세를 의미하지 않습니다.';
       el.appendChild(limit);
 
-      renderFlowContext(el, koreaWatch);
+      renderFlowContext(el, koreaWatch, marketDateKr);
     }
 
     /* 오늘의 투자자 수급(§9) — home.koreaWatch는 최신 거래일 값만 담고 있고
        history 파일에는 수급 시계열이 없어(0일치) 관찰 기간 누적을 계산할 수
        없다. 최신 거래일 값만 표시하고, 없는 날짜를 0으로 채우거나 발행일
        중복을 합산하지 않는다. 과거 수급이 쌓이기 전까지는 이 상태를 유지한다. */
-    function renderFlowContext(el, koreaWatch) {
+    function renderFlowContext(el, koreaWatch, marketDateKr) {
       var wrap = document.createElement('div');
       wrap.className = 'flow-context';
 
+      // §C fast-fix — 코스닥이 아니라 코스피 수급임을 카드 제목에서 바로
+      // 밝히고, 이 수급이 어느 시장 기준일 값인지 명시한다. marketDateKr은
+      // home.json의 기존 필드(renderTodayStatus가 이미 "증시 마감 기준: 국내"로
+      // 쓰는 값)를 그대로 재사용한다 — 새로 추정하지 않는다.
+      var head = document.createElement('div');
+      head.className = 'flow-context-head';
       var label = document.createElement('div');
       label.className = 'insight-card-label';
-      label.textContent = '오늘의 투자자 수급 · 최신 거래일';
-      wrap.appendChild(label);
+      label.style.marginBottom = '0';
+      label.textContent = '코스피 수급 · 외국인·기관·개인';
+      head.appendChild(label);
+      if (marketDateKr) {
+        var asOf = document.createElement('span');
+        asOf.className = 'flow-context-asof';
+        asOf.textContent = '시장 기준일 ' + marketDateKr;
+        head.appendChild(asOf);
+      }
+      wrap.appendChild(head);
 
       var flowIds = ['foreign', 'institution', 'individual'];
       var items = ((koreaWatch && koreaWatch.items) || []).filter(function (it) {
@@ -3565,7 +3623,7 @@
         if (insightTempBody || mooInterpretationBody) {
           var tempWindow = getRollingTemperatureWindow(historyEntries);
           var pairedTempKospi = pairTemperatureWithKospi(tempWindow);
-          if (insightTempBody) renderTemperatureKospiHistory(insightTempBody, pairedTempKospi, home.koreaWatch);
+          if (insightTempBody) renderTemperatureKospiHistory(insightTempBody, pairedTempKospi, home.koreaWatch, home.marketDateKr);
           if (mooInterpretationBody) renderMooInterpretation(mooInterpretationBody, pairedTempKospi);
         }
       }
