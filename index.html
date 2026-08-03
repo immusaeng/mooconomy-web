@@ -170,14 +170,25 @@
   .mobile-nav-item span { white-space: nowrap; }
   .mobile-nav-item:focus-visible { outline: 2px solid var(--gold); outline-offset: -2px; border-radius: 8px; }
 
-  /* Compact Market Bar(2026-08-02 최종 정리) — 실시간 시세처럼 자동 이동하지 않는
-     정적 행. 실 데이터 5개로 제한(JS에서 slice), 자동 스크롤 애니메이션 제거. */
-  .ticker { height:var(--ticker-h); min-width:0; background:var(--navy2); border-top:1px solid rgba(255,255,255,.08); overflow:hidden; display:flex; align-items:center; justify-content:center; transition:height .25s ease, opacity .25s ease; }
-  .ticker .track { display:flex; flex-wrap:nowrap; white-space:nowrap; }
+  /* §B fast-fix(2026-08-03) — 일별 수집된 유효 지표 전체가 흐르는 횡스크롤
+     티커로 복원한다. track 안에 동일 항목 두 벌(.ticker-set)을 이어붙이고
+     -50% 이동시키면 이음매 없이 순환한다. 두 번째 벌은 JS에서 aria-hidden
+     처리(스크린리더 중복 낭독 방지). hover/focus-within에서 정지, reduced
+     motion에서는 자동 이동 대신 내부 가로 스크롤로 대체한다. */
+  .ticker { height:var(--ticker-h); min-width:0; background:var(--navy2); border-top:1px solid rgba(255,255,255,.08); overflow:hidden; display:flex; align-items:center; transition:height .25s ease, opacity .25s ease; }
+  .ticker:focus-visible { outline:2px solid var(--gold); outline-offset:-2px; }
+  .ticker .track { display:flex; flex-wrap:nowrap; white-space:nowrap; width:max-content; animation:ticker-scroll 34s linear infinite; }
+  .ticker:hover .track, .ticker:focus-within .track { animation-play-state:paused; }
+  .ticker .ticker-set { display:flex; flex-wrap:nowrap; white-space:nowrap; flex:0 0 auto; }
   .ticker .item { color:#e5edf6; font-size:13px; font-weight:600; padding:0 26px; display:inline-flex; align-items:center; gap:8px; font-variant-numeric:tabular-nums; font-feature-settings:"tnum"; }
   .ticker .item .nm { color:#9fb0c4; }
   .ticker .up { color:#ff6b6b; font-weight:700; }
   .ticker .down { color:#5aa9ff; font-weight:700; }
+  @keyframes ticker-scroll { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) {
+    .ticker { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+    .ticker .track { animation:none; }
+  }
 
   .spacer { height:calc(var(--nav-h) + var(--ticker-h)); }
 
@@ -1049,8 +1060,6 @@
     .inner { padding: 0 12px; }
     .sec-pad { padding:60px 0; }
     .hero { padding:14px 0 14px; }
-    /* Compact Market Bar: 모바일은 최대 2개만(§9) */
-    .ticker .item:nth-child(n+3) { display:none; }
     .hero h1 { font-size:23px; }
     .hero p.lead { font-size:13.5px; margin-bottom:8px; }
     .qr-box { flex-direction:column; text-align:center; }
@@ -1114,7 +1123,7 @@
       <a class="nav-cta" onclick="switchView('home', 'subscribe')" aria-label="MOO:conomy 뉴스레터 무료 구독">MOO:conomy 무료 구독</a>
       <button class="menu-btn" id="menuBtn" aria-label="메뉴">☰</button>
     </nav>
-    <div class="ticker">
+    <div class="ticker" tabindex="0" aria-label="시장 지표 티커, 자동 스크롤">
       <div class="track" id="tickerTrack"></div>
     </div>
   </div>
@@ -1757,8 +1766,10 @@
       {name:"나스닥", value:"—", change:null},{name:"S&P500", value:"—", change:null},
       {name:"원/달러", value:"—", change:null},{name:"WTI", value:"—", change:null}
     ];
-    /* Compact Market Bar: 검증된 지표만, 데스크톱·모바일 공통 최대 5개(자동
-       스크롤 없는 정적 행이라 항목이 많으면 오히려 줄바꿈 위험이 커진다). */
+    /* §B fast-fix — 유효 지표 전체를 사용한다(고정 개수 제한 없음). 값이 없는
+       항목만 제외하고, 같은 지표명이 중복되면 첫 값만 남긴다. 무한 횡스크롤을
+       위해 같은 목록을 두 벌 그리되 두 번째 벌은 aria-hidden으로 숨겨
+       스크린리더가 중복 낭독하지 않게 한다. */
     function renderTicker(items){
       var track = document.getElementById('tickerTrack');
       function cell(it){
@@ -1768,7 +1779,17 @@
                   : '<span class="'+cls+'">'+arrow+Math.abs(Number(it.change)).toFixed(2)+'%</span>';
         return '<span class="item"><span class="nm">'+it.name+'</span> '+it.value+' '+chg+'</span>';
       }
-      track.innerHTML = items.slice(0, 5).map(cell).join('');
+      var seen = {};
+      var valid = (items || []).filter(function(it){
+        if (!it || it.value === null || it.value === undefined || it.value === '') return false;
+        var key = String(it.name).trim();
+        if (seen[key]) return false;
+        seen[key] = true;
+        return true;
+      });
+      var html = valid.map(cell).join('');
+      track.innerHTML = '<div class="ticker-set">' + html + '</div>' +
+                         '<div class="ticker-set" aria-hidden="true">' + html + '</div>';
     }
     fetch('ticker.json?v=' + Date.now())
       .then(function(r){ if(!r.ok) throw new Error('no ticker'); return r.json(); })
@@ -2978,12 +2999,21 @@
        #keyIndicatorsBody(기존 섹션 05)는 여전히 renderKeyIndicators()가 별도로
        그리며 이 함수는 건드리지 않는다(indicator-grid/indicator-card 클래스와
        무관한 새 클래스만 사용). */
-    /* 14일 관찰 계약(§8, 2026-08-03 fast-fix로 anchor 보정) — 기준일(anchorDate)은
-       최신 파일의 발행일(last.date)이 아니라 그 발행일이 실제로 담고 있는 시장
-       asOf(_mostRecentWeekdayBefore)다. 목표 비교일은 그 asOf-14 calendar days.
-       비교 후보(first)는 여전히 각 history 파일의 실제 발행일(entries[i].date)로
-       찾는다 — 발행일 자체가 목표일보다 늦으면(§1 예시: 07-18 > 07-17) 비교
-       불가로 처리하고 과거값을 임의로 보간하지 않는다. */
+    /* 14일 관찰 계약(§8/§A, 2026-08-03 fast-fix) — 기준일(anchorDate)은 최신
+       파일의 발행일(last.date)이 아니라 그 발행일이 실제로 담고 있는 시장
+       marketAsOf다. 목표 비교일은 그 marketAsOf-14 calendar days. 비교 후보
+       (first)도 각 history 파일의 발행일이 아니라 marketAsOf 기준으로 찾는다 —
+       발행일 자체는 목표일보다 늦어도(§1 예시: 07-18 발행 > 07-17 목표) 그
+       marketAsOf가 목표일과 같으면 유효한 비교 대상이다. */
+    /* record date(발행일)와 marketAsOf(실제 시장 기준일)를 혼동하지 않는다.
+       명시적 marketAsOf/asOf 필드가 있으면 그 값을 쓰고, 없을 때만 발행일
+       직전 평일로 fallback한다(주말·아침 발행 지연 보정). */
+    function _entryMarketAsOf(entry) {
+      if (entry.marketAsOf) return entry.marketAsOf;
+      if (entry.asOf) return entry.asOf;
+      return _mostRecentWeekdayBefore(entry.date);
+    }
+
     function renderMarketMetricsRows(el, entries, home) {
       if (!entries || entries.length < 2) { renderHomeError(el, '최근 지표 변화를 계산할 수 있는 기록이 부족합니다.'); return; }
 
@@ -2991,11 +3021,18 @@
       (home.indicators || []).forEach(function (it) { meta[it.id] = it; });
 
       var last = entries[entries.length - 1];
-      var anchorDate = _mostRecentWeekdayBefore(last.date);
+      var anchorDate = _entryMarketAsOf(last);
       var targetDate = _shiftDateStr(anchorDate, -14);
+      // entries는 발행일 오름차순이다. 주말 발행분이 같은 marketAsOf를 반복
+      // 게재할 수 있어(예: 07-18/07-19/07-20 모두 marketAsOf=07-17), 그 시장일을
+      // 처음 담은 발행 기록 하나만 후보로 남긴다(이후 같은 asOf 재게재는 건너뜀).
+      var seenAsOf = {};
       var first = null;
       for (var i = 0; i < entries.length; i++) {
-        if (entries[i].date <= targetDate) first = entries[i];
+        var eAsOf = _entryMarketAsOf(entries[i]);
+        if (seenAsOf[eAsOf]) continue;
+        seenAsOf[eAsOf] = true;
+        if (eAsOf <= targetDate) first = entries[i];
       }
       if (!first) {
         el.setAttribute('data-status', 'pending');
@@ -3015,10 +3052,12 @@
         el.appendChild(wrap);
         return;
       }
-      var exactMatch = first.date === targetDate;
-      var windowLabel = exactMatch
-        ? '14일 전 대비 · ' + first.date + ' → ' + anchorDate
-        : '14일 전 기준 비교 · 목표일 ' + targetDate + ' / 실제 비교 관찰일 ' + first.date + ' → ' + anchorDate;
+      // record date(first.date)가 아니라 marketAsOf(firstAsOf)를 라벨에 쓴다 —
+      // 주말 발행 기록의 record date를 marketAsOf로 잘못 표시하지 않기 위함.
+      var firstAsOf = _entryMarketAsOf(first);
+      var exactMatch = firstAsOf === targetDate;
+      var windowLabel = '시장 기준 ' + firstAsOf + ' → ' + anchorDate;
+      var recordDiffersFromAsOf = first.date !== firstAsOf;
 
       var firstMap = {}; first.indicators.forEach(function (i) { firstMap[i.id] = i; });
       var lastMap = {}; last.indicators.forEach(function (i) { lastMap[i.id] = i; });
@@ -3102,8 +3141,19 @@
       var note = document.createElement('div');
       note.className = 'insight-sub';
       note.style.marginTop = 'var(--sp-3)';
-      note.textContent = windowLabel + (exactMatch ? '' : ' (동일 거래일 데이터가 없어 이전 가장 가까운 거래일로 대체)') + ' 값 단순 비교이며 패턴을 의미하지 않습니다.';
+      note.textContent = windowLabel + (exactMatch ? '' : ' (동일 시장 기준일 관찰이 없어 그 이전 가장 가까운 관찰로 대체)') + ' 값 단순 비교이며 패턴을 의미하지 않습니다.';
       el.appendChild(note);
+
+      // 발행 기록일이 실제 시장 기준일과 다른 경우(주말·휴일 발행)에만 보조
+      // 문구를 작은 위계로 병기해 record date를 marketAsOf로 오인하지 않게 한다.
+      if (recordDiffersFromAsOf) {
+        var recordNote = document.createElement('div');
+        recordNote.className = 'insight-sub';
+        recordNote.style.marginTop = 'var(--sp-1)';
+        recordNote.style.fontSize = '11px';
+        recordNote.textContent = '과거 기록 ' + first.date + ' · 시장 기준 ' + firstAsOf;
+        el.appendChild(recordNote);
+      }
     }
 
     /* MOO: 온도 — Rolling 7 관찰일(§8). marketTemperature가 실제로 있는 기록만
