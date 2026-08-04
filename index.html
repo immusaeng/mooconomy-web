@@ -2895,21 +2895,23 @@
        주말만 건너뛰는 최소 규칙을 쓴다 — 이것만으로 2026-08-03 파일의 코스피가
        실제로는 2026-07-31(금) 종가임이 정확히 재현된다. history JSON은 수정하지
        않고 화면 라벨만 이 실제 기준일로 교정한다. */
-    /* §7/§D fast-fix — 같은 market asOf(실제 시장 거래일)를 참조하는 발행 기록을
-       시장 관찰 횟수·방향 통계·화면 표시 모두에서 중복 집계하지 않는다. 같은
-       asOf가 여러 번 나오면(주말·휴일 발행 반복 게재) 그중 가장 나중에 발행된
-       기록(= paired 배열에서 더 뒤에 나오는, 더 최신 publish 기록) 하나만
-       남긴다 — 더 최신 발행분이 더 정제된 온도 해설을 담고 있을 수 있어서다.
-       원본 paired 배열은 이 함수 밖에서 그대로 유지된다(불변). */
+    /* §D correction(2026-08-04) — _mostRecentWeekdayBefore()는 발행일에서 주말만
+       건너뛰는 추정치일 뿐, 공휴일·임시휴장·특별 세션을 반영하지 못해 신뢰할 수
+       있는 marketAsOf 근거가 아니다(권위 있는 marketAsOf/marketDateKr 필드는
+       data/history/*.json에 아예 없다 — 확인됨). 화면(renderTemperatureKospiHistory)
+       에서는 더 이상 이 추정값을 marketAsOf 소스·중복 제거 키·표시 날짜로
+       쓰지 않는다(발행일 기준 표시로 대체). 이 함수는 renderMooInterpretation()의
+       기존(이번 교정 이전부터 있던) 방향 일치 통계 용도로만 남아 있으며, 그
+       계산은 이번 교정 범위 밖이라 건드리지 않는다 — 원래(commit 72af3ad 이전)
+       동작으로 되돌린 것뿐이다. */
     function _dedupeByMarketAsOf(paired) {
-      var byKey = {};
-      var order = [];
-      paired.forEach(function (row) {
-        var key = row.marketAsOf || (row.kospiAvailable && row.kospiAsOf) || ('no-asof-' + row.date);
-        if (!byKey[key]) order.push(key);
-        byKey[key] = row; // 뒤에서 다시 만나면 더 최신 기록으로 덮어쓴다
+      var seen = {};
+      return paired.filter(function (row) {
+        var key = (row.kospiAvailable && row.kospiAsOf) ? row.kospiAsOf : ('no-asof-' + row.date);
+        if (seen[key]) return false;
+        seen[key] = true;
+        return true;
       });
-      return order.map(function (key) { return byKey[key]; });
     }
 
     function _mostRecentWeekdayBefore(dateStr) {
@@ -3206,22 +3208,18 @@
       return windowEntries.map(function (e) {
         var kospi = (e.indicators || []).find(function (i) { return i.id === 'kospi'; });
         var kospiOk = !!(kospi && kospi.status === 'ok' && typeof kospi.value === 'number');
-        // §D fast-fix — 시장 기준일(marketAsOf)은 코스피 값 존재 여부와 무관하게
-        // 항상 계산한다(온도 관찰 자체의 시장일이지, 코스피 한 지표에 종속된 값이
-        // 아니다). kospiAsOf는 기존 호출부 호환을 위해 같은 값을 그대로 별칭한다.
-        var marketAsOf = _mostRecentWeekdayBefore(e.date);
         return {
           date: e.date,
-          marketAsOf: marketAsOf,
           temperature: e.marketTemperature,
           kospiValue: kospiOk ? kospi.value : null,
           kospiChange: kospiOk ? kospi.change : null,
           kospiDirection: kospiOk ? kospi.direction : null,
           kospiAvailable: kospiOk,
-          // §2 fast-fix — 이 행의 코스피 값이 실제로 속한 시장일. 발행 기록일(date)과
-          // 다를 수 있다(주말 발행분은 직전 금요일 종가를 그대로 담기 때문). 서로
-          // 다른 발행일이 같은 코스피 asOf를 가리키면 동일 시장 관찰이라는 뜻이다.
-          kospiAsOf: marketAsOf,
+          // §D correction(2026-08-04) — kospiAsOf는 여전히 renderMooInterpretation()의
+          // 기존(교정 이전부터 있던) "확인된 사실" 문구에서만 쓰인다. 그 필드는
+          // 이번 교정 범위 밖이라 원래 조건부 계산(코스피 값이 있을 때만)으로
+          // 되돌렸다 — 화면에 보이는 시장온도 기록 표는 더 이상 이 값을 쓰지 않는다.
+          kospiAsOf: kospiOk ? _mostRecentWeekdayBefore(e.date) : null,
         };
       });
     }
@@ -3232,14 +3230,17 @@
     function renderTemperatureKospiHistory(el, paired, koreaWatch, marketDateKr) {
       el.innerHTML = '';
 
-      // §D fast-fix — 같은 시장 기준일(marketAsOf)이 여러 발행 기록으로 겹쳐
-      // 들어오면(주말·휴일 반복 게재) 화면에는 그 시장일당 최신 발행 기록
-      // 하나만 보여준다(_dedupeByMarketAsOf가 최신 발행분을 남긴다). 그 뒤
-      // 최신 시장 기준일이 맨 위로 오도록 내림차순 정렬한다 — paired 원본은
-      // 건드리지 않는다.
-      var deduped = _dedupeByMarketAsOf(paired);
-      var rows = deduped.slice().sort(function (a, b) {
-        return a.marketAsOf < b.marketAsOf ? 1 : (a.marketAsOf > b.marketAsOf ? -1 : 0);
+      // §D correction(2026-08-04) — data/history/*.json에는 marketAsOf/asOf 같은
+      // 권위 있는 시장 기준일 필드가 없다(확인됨). 발행일에서 주말만 건너뛰는
+      // 추정(_mostRecentWeekdayBefore)은 공휴일·임시휴장·특별 세션을 반영하지
+      // 못해 "시장 기준일"이라고 부를 수 없다 — 그 추정값을 marketAsOf 소스로도,
+      // 중복 제거 키로도, 표시 날짜로도 쓰지 않는다. 이 표는 있는 그대로의
+      // 발행 기록을 발행일(record date) 기준으로만 보여주고, 서로 다른 발행
+      // 기록이 같은 시장일을 가리킨다고 단정하지 않는다(중복 제거 없음). 권위
+      // 있는 marketAsOf/marketDateKr 필드가 history 파일에 저장되기 전까지는
+      // 이 방식을 유지한다.
+      var rows = paired.slice().sort(function (a, b) {
+        return a.date < b.date ? 1 : (a.date > b.date ? -1 : 0);
       });
       el.setAttribute('data-status', rows.length ? 'ok' : 'pending');
 
@@ -3252,14 +3253,12 @@
       def.textContent = '시장 온도는 국내외 지수·환율·변동성·수급 등 여러 지표를 종합한 관찰 상태입니다. 투자자 수급은 이를 구성하는 요소 중 하나입니다.';
       el.appendChild(def);
 
-      // §7 fast-fix — 발행 기록 행수가 아니라 unique market asOf 기준으로 "관찰"
-      // 횟수를 센다(같은 시장일을 중복 발행분까지 겹쳐 세지 않는다). rows는 이미
-      // 그 unique 기준으로 축약된 배열이므로 그대로 길이를 쓴다.
-      var uniqueCoverage = rows.length;
+      // §D correction — 신뢰할 수 있는 시장 기준일이 없어 "고유 시장일 수"를
+      // 주장할 수 없다. 발행 기록 건수만 그대로 센다(중복 제거 없음).
       var coverage = document.createElement('div');
       coverage.className = 'insight-sub';
       coverage.style.marginBottom = 'var(--sp-3)';
-      coverage.textContent = '관찰 ' + uniqueCoverage + '/7 · ' + (uniqueCoverage < 7 ? '부분 기록' : '전체 기록');
+      coverage.textContent = '발행 기록 ' + rows.length + '/7건 · 과거 기록은 발행일 기준으로 표시됩니다.';
       el.appendChild(coverage);
 
       if (!rows.length) {
@@ -3273,9 +3272,9 @@
 
       var table = document.createElement('table');
       table.className = 'temp-kospi-table';
-      table.setAttribute('aria-label', '최근 관찰일 시장 온도와 코스피, 시장 기준일 내림차순');
+      table.setAttribute('aria-label', '최근 발행 기록의 시장 온도와 코스피, 발행일 내림차순');
       var thead = document.createElement('thead');
-      thead.innerHTML = '<tr><th scope="col">시장 기준일</th><th scope="col">시장 온도</th><th scope="col">코스피</th><th scope="col">일간 변화</th></tr>';
+      thead.innerHTML = '<tr><th scope="col">발행일</th><th scope="col">시장 온도</th><th scope="col">코스피</th><th scope="col">일간 변화</th></tr>';
       table.appendChild(thead);
 
       var tbody = document.createElement('tbody');
@@ -3288,13 +3287,8 @@
         var changeText = (row.kospiAvailable && typeof row.kospiChange === 'number')
           ? arrow + (row.kospiChange >= 0 ? '+' : '') + row.kospiChange.toFixed(2) + '%'
           : '확인 불가';
-        // 발행 기록일(row.date)이 시장 기준일과 다른 경우(주말·휴일 발행)에만
-        // 보조 텍스트로 발행일을 작게 병기한다 — 필요할 때만, 기본은 시장
-        // 기준일만 보인다.
-        var recordNote = (row.date !== row.marketAsOf)
-          ? '<span class="temp-kospi-asof">발행 기록 ' + row.date + '</span>' : '';
         tr.innerHTML =
-          '<td data-label="시장 기준일"><span class="temp-kospi-value-wrap">' + row.marketAsOf + recordNote + '</span></td>' +
+          '<td data-label="발행일">' + row.date + '</td>' +
           '<td data-label="시장 온도"><span class="temp-badge ' + row.temperature.label + '">' + tempLabel + '</span></td>' +
           '<td data-label="코스피"><span class="temp-kospi-value-wrap">' + kospiText + '</span></td>' +
           '<td data-label="일간 변화" class="' + dirCls + '">' + changeText + '</td>';
@@ -3306,7 +3300,7 @@
       var asOfNote = document.createElement('div');
       asOfNote.className = 'insight-sub';
       asOfNote.style.marginTop = 'var(--sp-2)';
-      asOfNote.textContent = '시장 기준일은 그 관찰이 실제로 속한 거래일이며, 최신 시장 기준일부터 내림차순으로 표시합니다. 같은 시장 기준일을 반복 게재한 발행 기록은 그중 가장 최근 발행분 하나만 남겼습니다. 발행 기록일이 시장 기준일과 다른 경우(주말·휴일 발행)에만 발행 기록일을 보조로 병기합니다.';
+      asOfNote.textContent = '과거 기록은 발행일 기준으로 표시됩니다(최신 발행일이 먼저 나옵니다). 신뢰할 수 있는 시장 기준일(marketAsOf) 정보가 아직 저장되지 않아, 서로 다른 발행 기록이 같은 시장일을 가리키는지 여부는 판단하지 않으며 중복으로 묶어 표시하지 않습니다.';
       el.appendChild(asOfNote);
 
       var limit = document.createElement('div');
