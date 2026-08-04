@@ -361,6 +361,29 @@
 
   .insight-card { padding:var(--sp-3) var(--sp-4); margin-bottom:0; }
   .insight-card-label { font-size:11.5px; font-weight:800; color:var(--gray-soft); text-transform:uppercase; letter-spacing:.3px; margin-bottom:8px; }
+
+  /* MOO 콘텐츠 위계(2026-08-04, ADR — 브랜드 골드 사용 기준 통일):
+     영역명(eyebrow, 중립) → 주요 제목(title, 골드·h2) → 설명(description, 중립)
+     → 내부 소제목(subsection, 밝은 중립·h3) → 본문 → 메타데이터 → 하단 메뉴.
+     골드는 주요 제목과 최우선 CTA에만 쓰고, 내부 소제목·메타데이터·하단
+     메뉴 기본 상태는 전부 중립색으로 통일한다. */
+  .moo-section-header { margin-bottom:18px; }
+  .moo-section-eyebrow { font-size:10.5px; font-weight:700; color:#9fb0c4; text-transform:uppercase; letter-spacing:.06em; }
+  .moo-section-title { font-size:clamp(17px,1.5vw,21px); font-weight:800; color:var(--gold); line-height:1.3; margin:5px 0 0; }
+  .moo-section-description { font-size:12.5px; color:#a9b8ce; line-height:1.6; margin-top:6px; }
+
+  /* 해석 섹션 내부 소제목(확인된 사실 / MOO의 관점 / 해석 한계) — 세 항목
+     모두 동일 등급·동일 스타일. 브랜드 골드 대신 밝은 중립색(흰색)만 쓴다. */
+  .moo-subsection-title { font-size:13.5px; font-weight:800; color:#fff; letter-spacing:.2px; margin-bottom:4px; }
+
+  /* 하단 탐색 메뉴(최신 리포트 보기 / MOO:Q 검증 보기) — 기본은 중립색 텍스트
+     링크, hover·keyboard focus에서만 골드로 전환한다(구독 CTA 같은 골드
+     채움 버튼으로 만들지 않음). */
+  .moo-section-actions { margin-top:var(--sp-3); padding-top:var(--sp-3); border-top:1px solid rgba(255,255,255,.12); }
+  .moo-section-actions .sig-more-link { color:#c8d3e0; }
+  .moo-section-actions .sig-more-link:hover, .moo-section-actions .sig-more-link:focus-visible { color:var(--gold); }
+  .moo-section-actions .sig-more-link:focus-visible { outline:2px solid var(--gold); outline-offset:2px; }
+
   .insight-lead { font-size:16px; font-weight:800; color:var(--ink); line-height:1.5; margin-bottom:4px; }
   .insight-sub { font-size:13px; color:var(--gray); line-height:1.6; }
   /* Data Center Entrance(모듈) — .mc-card를 앵커 태그로 감싼 카드형 링크. */
@@ -482,8 +505,7 @@
   /* MOO: 해석 — 사실/관찰/한계를 제목 구조로 분리(§10·§13 접근성). */
   .moo-interp-block { margin-bottom:var(--sp-3); }
   .moo-interp-block:last-of-type { margin-bottom:0; }
-  .moo-interp-label { font-size:11px; font-weight:800; color:var(--gold); text-transform:uppercase; letter-spacing:.3px; margin-bottom:4px; }
-  .moo-interp-text { font-size:14px; color:#e5edf6; line-height:1.6; }
+  .moo-interp-text { font-size:14px; color:#e5edf6; line-height:1.6; font-weight:400; }
 
   .visually-hidden {
     position:absolute !important; width:1px !important; height:1px !important;
@@ -1243,7 +1265,10 @@
              이동했다(콘텐츠 복제 없음, id·데이터 동일). -->
         <!-- 1) 14-day(수집된 표본 기준) Market Metrics — 편집형 행 목록 -->
         <div class="mc-card insight-card insight-hub-block anchor" id="marketMetricsCard">
-          <div class="insight-card-label">MOO: 지표 · 14일 관찰</div>
+          <header class="moo-section-header">
+            <div class="moo-section-eyebrow">MOO: 지표</div>
+            <h2 class="moo-section-title">14일 시장 관찰</h2>
+          </header>
           <div class="sec-body" id="marketMetricsBody" data-status="pending">
             <div class="placeholder-pending">
               <span class="placeholder-dot"></span>
@@ -1256,7 +1281,10 @@
              getRollingTemperatureWindow()/pairTemperatureWithKospi()/
              renderTemperatureKospiHistory()가 채운다(§8·§9). -->
         <div class="mc-card insight-card insight-hub-block" id="insightTempCard">
-          <div class="insight-card-label">MOO: 온도 · 최근 7개 관찰일</div>
+          <header class="moo-section-header">
+            <div class="moo-section-eyebrow">MOO: 온도</div>
+            <h2 class="moo-section-title">최근 7개 시장온도</h2>
+          </header>
           <div class="sec-body" id="insightTempBody" data-status="pending">
             <div class="placeholder-pending">
               <span class="placeholder-dot"></span>
@@ -1269,7 +1297,10 @@
              renderMooInterpretation()이 채운다. 검증된 해석이 없으면
              "MOO: 해석 준비 중" 문구만 노출한다(가짜 인과관계 생성 금지). -->
         <div class="mc-card insight-card insight-hub-block" id="mooInterpretationCard">
-          <div class="insight-card-label">MOO: 해석</div>
+          <header class="moo-section-header">
+            <div class="moo-section-eyebrow">MOO: 해석</div>
+            <h2 class="moo-section-title">시장 흐름 해석</h2>
+          </header>
           <div class="sec-body" id="mooInterpretationBody" data-status="pending">
             <div class="placeholder-pending">
               <span class="placeholder-dot"></span>
@@ -1283,7 +1314,10 @@
              #newsBody id, 같은 renderNews() 재사용, 데이터·링크·마크업 복제 없음).
              Hero의 "오늘의 경제뉴스" CTA(href="#news-disclosure")가 여기로 연결된다. -->
         <div class="mc-card insight-card insight-hub-block anchor" id="news-disclosure">
-          <div class="insight-card-label">MOO: 뉴스 · 오늘의 경제뉴스 한눈에</div>
+          <header class="moo-section-header">
+            <div class="moo-section-eyebrow">MOO: 뉴스</div>
+            <h2 class="moo-section-title">오늘의 경제뉴스 한눈에</h2>
+          </header>
           <div class="sec-body" id="newsBody" data-status="pending">
             <div class="placeholder-pending">
               <span class="placeholder-dot"></span>
@@ -3396,8 +3430,10 @@
       function block(labelText, bodyText) {
         var wrap = document.createElement('div');
         wrap.className = 'moo-interp-block';
-        var h = document.createElement('div');
-        h.className = 'moo-interp-label';
+        // §해석 섹션 내부 위계 통일 — 확인된 사실/MOO의 관점/해석 한계는 동일
+        // 등급의 실제 h3(브랜드 골드 아님, 밝은 중립색)로 통일한다.
+        var h = document.createElement('h3');
+        h.className = 'moo-subsection-title';
         h.textContent = labelText;
         var p = document.createElement('div');
         p.className = 'moo-interp-text';
@@ -3436,14 +3472,14 @@
       } else {
         obsText = '확인된 ' + withDirection.length + '개 관찰일 중 ' + aligned + '개는 시장 온도와 코스피 방향이 함께 움직였고, ' + diverged + '개는 엇갈렸습니다.';
       }
-      el.appendChild(block('MOO: 관찰', obsText));
+      el.appendChild(block('MOO의 관점', obsText));
 
       var limitText = '관찰 기록 ' + uniqueRows.length + '/7건' + (uniqueRows.length < 7 ? ' · 부분 기록' : '') +
         '. 표본이 적어 방향성을 확정하지 않으며, 시장 온도와 코스피가 항상 같은 방향으로 움직이는 것은 아닙니다.';
       el.appendChild(block('해석 한계', limitText));
 
       var linkRow = document.createElement('div');
-      linkRow.className = 'insight-card-cta-row';
+      linkRow.className = 'insight-card-cta-row moo-section-actions';
       var l1 = document.createElement('a');
       l1.className = 'sig-more-link';
       l1.href = '/latest.html';
