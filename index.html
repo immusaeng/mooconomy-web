@@ -337,19 +337,23 @@
      낮은 높이의 compact row. 다크(insight-hub) 전용이라 별도 라이트 오버라이드가
      필요 없다(이 컴포넌트는 항상 insight-hub 안에서만 쓰인다). */
   .news-headline-item { display:block; text-decoration:none; margin-bottom:var(--sp-3); }
+  .news-headline-item:focus-visible { outline:2px solid var(--gold); outline-offset:3px; border-radius:4px; }
   .news-headline-title {
     display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden;
     font-size:17px; font-weight:800; color:#fff; line-height:1.4;
   }
   .news-headline-item:hover .news-headline-title { text-decoration:underline; }
   .news-headline-meta { display:block; font-size:12px; font-weight:600; color:#a9b8ce; margin-top:6px; }
-  .news-group-label { font-size:11px; font-weight:800; color:#9fb0c4; text-transform:uppercase; letter-spacing:.3px; margin:var(--sp-3) 0 8px; }
+  /* .moo-subsection-title와 동일 등급(2026-08-04 시각 톤 보정) — 함께 볼 기사·
+     국내/글로벌 브리핑 그룹 라벨도 확인된 사실/MOO의 관점과 같은 중립 위계. */
+  .news-group-label { font-size:13px; font-weight:700; color:#e5edf6; text-transform:none; letter-spacing:.2px; margin:var(--sp-3) 0 8px; }
   .news-compact-list { display:flex; flex-direction:column; gap:8px; }
   .news-compact-item {
     display:block; text-decoration:none; padding:9px 12px; border-radius:10px;
     background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12);
   }
   .news-compact-item:hover { border-color:rgba(255,255,255,.3); }
+  .news-compact-item:focus-visible { outline:2px solid var(--gold); outline-offset:2px; border-color:rgba(255,255,255,.3); }
   .news-compact-title {
     display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
     font-size:13.5px; font-weight:700; color:#fff; line-height:1.4;
@@ -362,19 +366,21 @@
   .insight-card { padding:var(--sp-3) var(--sp-4); margin-bottom:0; }
   .insight-card-label { font-size:11.5px; font-weight:800; color:var(--gray-soft); text-transform:uppercase; letter-spacing:.3px; margin-bottom:8px; }
 
-  /* MOO 콘텐츠 위계(2026-08-04, ADR — 브랜드 골드 사용 기준 통일):
-     영역명(eyebrow, 중립) → 주요 제목(title, 골드·h2) → 설명(description, 중립)
-     → 내부 소제목(subsection, 밝은 중립·h3) → 본문 → 메타데이터 → 하단 메뉴.
-     골드는 주요 제목과 최우선 CTA에만 쓰고, 내부 소제목·메타데이터·하단
-     메뉴 기본 상태는 전부 중립색으로 통일한다. */
-  .moo-section-header { margin-bottom:18px; }
-  .moo-section-eyebrow { font-size:10.5px; font-weight:700; color:#9fb0c4; text-transform:uppercase; letter-spacing:.06em; }
-  .moo-section-title { font-size:clamp(17px,1.5vw,21px); font-weight:800; color:var(--gold); line-height:1.3; margin:5px 0 0; }
+  /* MOO 콘텐츠 위계(2026-08-04 시각 톤 보정 — ADR-Web-006 정정):
+     영역명(eyebrow, 영문·중립) → 주요 제목(title, 밝은 중립·h2) → 설명
+     (description, 중립) → 내부 소제목(subsection, 중립·h3) → 본문 →
+     메타데이터 → 하단 메뉴. 골드 전체 반복 사용을 폐기하고 구독 CTA·
+     선택 상태·hover/focus·짧은 포인트 요소로만 제한한다(§ADR-006 정정
+     섹션 참고). */
+  .moo-section-header { margin-bottom:14px; }
+  .moo-section-eyebrow { font-size:10px; font-weight:700; color:#9fb0c4; text-transform:uppercase; letter-spacing:.1em; }
+  .moo-section-title { font-size:clamp(16px,1.3vw,18px); font-weight:700; color:#fff; line-height:1.35; margin:5px 0 0; }
   .moo-section-description { font-size:12.5px; color:#a9b8ce; line-height:1.6; margin-top:6px; }
 
-  /* 해석 섹션 내부 소제목(확인된 사실 / MOO의 관점 / 해석 한계) — 세 항목
-     모두 동일 등급·동일 스타일. 브랜드 골드 대신 밝은 중립색(흰색)만 쓴다. */
-  .moo-subsection-title { font-size:13.5px; font-weight:800; color:#fff; letter-spacing:.2px; margin-bottom:4px; }
+  /* 해석 섹션 내부 소제목(확인된 사실 / MOO의 관점 / 해석 한계) 및 뉴스
+     그룹 라벨(함께 볼 기사 등, .news-group-label과 동일 등급으로 통일)
+     — 전부 동일 스타일. 브랜드 골드 대신 중립색만 쓴다. */
+  .moo-subsection-title { font-size:13px; font-weight:700; color:#e5edf6; letter-spacing:.2px; margin-bottom:4px; }
 
   /* 하단 탐색 메뉴(최신 리포트 보기 / MOO:Q 검증 보기) — 기본은 중립색 텍스트
      링크, hover·keyboard focus에서만 골드로 전환한다(구독 CTA 같은 골드
@@ -383,6 +389,14 @@
   .moo-section-actions .sig-more-link { color:#c8d3e0; }
   .moo-section-actions .sig-more-link:hover, .moo-section-actions .sig-more-link:focus-visible { color:var(--gold); }
   .moo-section-actions .sig-more-link:focus-visible { outline:2px solid var(--gold); outline-offset:2px; }
+
+  /* MOO의 한줄 브리핑(2026-08-04 신설) — MOOconomy 편집 의견 1줄. 실제
+     기사 카드(.news-headline-item/.news-compact-item)와 뚜렷이 구분되는
+     테두리·배경 없는 코멘트 블록. 클릭 불가(a 아님), 좌측 짧은 골드
+     포인트 선만 절제해서 쓴다(§7). */
+  .moo-editorial-brief { padding-left:10px; border-left:2px solid var(--gold); margin-bottom:var(--sp-3); }
+  .moo-editorial-brief-label { font-size:10.5px; font-weight:700; color:#9fb0c4; text-transform:uppercase; letter-spacing:.08em; margin-bottom:3px; }
+  .moo-editorial-brief-text { font-size:13.5px; font-weight:400; color:#e5edf6; line-height:1.6; margin:0; }
 
   .insight-lead { font-size:16px; font-weight:800; color:var(--ink); line-height:1.5; margin-bottom:4px; }
   .insight-sub { font-size:13px; color:var(--gray); line-height:1.6; }
@@ -1266,7 +1280,7 @@
         <!-- 1) 14-day(수집된 표본 기준) Market Metrics — 편집형 행 목록 -->
         <div class="mc-card insight-card insight-hub-block anchor" id="marketMetricsCard">
           <header class="moo-section-header">
-            <div class="moo-section-eyebrow">MOO: 지표</div>
+            <div class="moo-section-eyebrow">MOO: INDICATORS</div>
             <h2 class="moo-section-title">14일 시장 관찰</h2>
           </header>
           <div class="sec-body" id="marketMetricsBody" data-status="pending">
@@ -1282,7 +1296,7 @@
              renderTemperatureKospiHistory()가 채운다(§8·§9). -->
         <div class="mc-card insight-card insight-hub-block" id="insightTempCard">
           <header class="moo-section-header">
-            <div class="moo-section-eyebrow">MOO: 온도</div>
+            <div class="moo-section-eyebrow">MOO: TEMPERATURE</div>
             <h2 class="moo-section-title">최근 7개 시장온도</h2>
           </header>
           <div class="sec-body" id="insightTempBody" data-status="pending">
@@ -1298,7 +1312,7 @@
              "MOO: 해석 준비 중" 문구만 노출한다(가짜 인과관계 생성 금지). -->
         <div class="mc-card insight-card insight-hub-block" id="mooInterpretationCard">
           <header class="moo-section-header">
-            <div class="moo-section-eyebrow">MOO: 해석</div>
+            <div class="moo-section-eyebrow">MOO: INSIGHT</div>
             <h2 class="moo-section-title">시장 흐름 해석</h2>
           </header>
           <div class="sec-body" id="mooInterpretationBody" data-status="pending">
@@ -1315,7 +1329,7 @@
              Hero의 "오늘의 경제뉴스" CTA(href="#news-disclosure")가 여기로 연결된다. -->
         <div class="mc-card insight-card insight-hub-block anchor" id="news-disclosure">
           <header class="moo-section-header">
-            <div class="moo-section-eyebrow">MOO: 뉴스</div>
+            <div class="moo-section-eyebrow">MOO: NEWS</div>
             <h2 class="moo-section-title">오늘의 경제뉴스 한눈에</h2>
           </header>
           <div class="sec-body" id="newsBody" data-status="pending">
@@ -2680,7 +2694,7 @@
       }
 
       function groupLabel(text) {
-        var d = document.createElement('div');
+        var d = document.createElement('h3');
         d.className = 'news-group-label';
         d.textContent = text;
         return d;
@@ -2693,12 +2707,23 @@
         return wrap;
       }
 
-      // 대표기사 — 기존 데이터에 있는 news.summary만 재사용(임의 요약 생성 없음).
+      // MOO의 한줄 브리핑(2026-08-04 시각 톤 보정) — 기존 데이터에 있는
+      // news.summary만 그대로 재사용(임의 요약 생성 없음, 문장 자체는 무변경).
+      // 실제 기사가 아니라 MOOconomy 편집 의견이므로 기사 카드(news-headline-item/
+      // news-compact-item)와 다른, 테두리·배경 없는 코멘트 블록으로 표시하고
+      // 클릭 가능한 요소로 만들지 않는다(p 텍스트일 뿐, a 아님).
       if (news && news.summary) {
-        var summary = document.createElement('div');
-        summary.className = 'news-summary';
-        summary.textContent = news.summary;
-        el.appendChild(summary);
+        var briefWrap = document.createElement('div');
+        briefWrap.className = 'moo-editorial-brief';
+        var briefLabel = document.createElement('div');
+        briefLabel.className = 'moo-editorial-brief-label';
+        briefLabel.textContent = 'MOO의 한줄 브리핑';
+        var briefText = document.createElement('p');
+        briefText.className = 'moo-editorial-brief-text';
+        briefText.textContent = news.summary;
+        briefWrap.appendChild(briefLabel);
+        briefWrap.appendChild(briefText);
+        el.appendChild(briefWrap);
       }
 
       var headline = document.createElement('a');
