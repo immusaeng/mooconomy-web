@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-08-07",
+  "generatedAt": "2026-08-07T06:43:26+09:00",
+  "indicators": [
+    {
+      "id": "kospi",
+      "value": 6296.38,
+      "change": -4.58,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "kosdaq",
+      "value": 801.67,
+      "change": 0.26,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "nasdaq",
+      "value": 26348.35,
+      "change": -0.06,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "sp500",
+      "value": 7709.96,
+      "change": -0.18,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1422.69,
+      "change": 1.53,
+      "displayMode": "delta",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "us10y",
+      "value": 4.67,
+      "change": 0.05,
+      "displayMode": "delta",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "wti",
+      "value": 78.23,
+      "change": 4.0,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "vix",
+      "value": 15.15,
+      "change": -4.17,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    }
+  ],
+  "signals": [
+    {
+      "id": "recession",
+      "color": "green",
+      "value": 0.45
+    },
+    {
+      "id": "rate-gap",
+      "color": "green",
+      "value": 1.0
+    },
+    {
+      "id": "liquidity-stress",
+      "color": "green",
+      "value": 2.75
+    }
+  ],
+  "calendarSnapshot": [
+    {
+      "id": "us-2026-08-07-미국 고용보고서(비농업고용·실업률)",
+      "time": "2026-08-07",
+      "country": "US",
+      "title": "미국 고용보고서(비농업고용·실업률)",
+      "importance": "high"
+    },
+    {
+      "id": "us-2026-08-12-미국 소비자물가(CPI)",
+      "time": "2026-08-12",
+      "country": "US",
+      "title": "미국 소비자물가(CPI)",
+      "importance": "high"
+    }
+  ],
+  "marketTemperature": {
+    "label": "cautious",
+    "displayLabel": "경계",
+    "status": "ok"
+  },
+  "connectionTopology": "A_RATES_FX_FLOW_INDEX"
+}

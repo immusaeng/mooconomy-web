@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-05T06:43:34+09:00",
+  "updatedAt": "2026-08-07T06:43:26+09:00",
   "claims": {
     "2026-07-19-c1": {
       "schemaVersion": 1,
@@ -927,7 +927,7 @@
       },
       "thresholdRuleId": "pct_020",
       "confidence": null,
-      "status": "unresolved",
+      "status": "miss",
       "revision": {
         "version": 1,
         "contentHash": "620f64829c23badf7ad01881330fd50ab1ec4f6ce65c45bc9fa4e929710595e3",
@@ -936,6 +936,66 @@
       "baseline": {
         "value": 1429.35,
         "asOf": "2026-08-04",
+        "benchmarkValue": null,
+        "benchmarkAsOf": null
+      },
+      "resolution": {
+        "resolutionId": "2026-08-05-c1-res",
+        "claimId": "2026-08-05-c1",
+        "resolvedAt": "2026-08-07T06:43:26+09:00",
+        "verdict": "miss",
+        "metricId": "usdkrw",
+        "comparisonType": "absolute_return",
+        "startValue": 1429.35,
+        "endValue": 1422.69,
+        "changeValue": -0.46594605939761813,
+        "changeUnit": "%",
+        "benchmarkMetricId": null,
+        "benchmarkStartValue": null,
+        "benchmarkEndValue": null,
+        "neutralLower": -0.2,
+        "neutralUpper": 0.2,
+        "neutralBand": 0.2,
+        "dataProvider": "FinanceDataReader",
+        "sourceUrl": "",
+        "observedAt": "2026-08-06",
+        "explanation": "실제 변화가 예상한 상승 방향과 다르게 움직였습니다."
+      }
+    },
+    "2026-08-07-c1": {
+      "schemaVersion": 1,
+      "claimId": "2026-08-07-c1",
+      "publicationId": "2026-08-07",
+      "issuedAt": "2026-08-07T06:43:26+09:00",
+      "dataCutoffAt": "2026-08-07T06:43:26+09:00",
+      "lockedAt": "2026-08-07T06:43:26+09:00",
+      "claimMode": "auto",
+      "verificationType": "proxy",
+      "topic": "나스닥 다음 거래일 방향",
+      "sourceNewsIds": [],
+      "observationText": "나스닥은 26,348.35로 전일 대비 0.06% 하락했습니다.",
+      "interpretationText": "현재 관찰된 하락 흐름이 다음 거래일까지 이어지는지가 확인 대상입니다.",
+      "claimText": "나스닥은 다음 거래일까지 하락세를 이어갈까?",
+      "metricId": "nasdaq",
+      "benchmarkMetricId": null,
+      "comparisonType": "absolute_return",
+      "expectedDirection": "down",
+      "horizon": {
+        "type": "next_close",
+        "market": "US",
+        "resolutionAt": "2026-08-08"
+      },
+      "thresholdRuleId": "pct_030",
+      "confidence": null,
+      "status": "unresolved",
+      "revision": {
+        "version": 1,
+        "contentHash": "3ee1c482faf4a5d2c4317221cb2e9e30bb9ce6f469bf6da05341e39577f5e95c",
+        "correctedFrom": null
+      },
+      "baseline": {
+        "value": 26348.35,
+        "asOf": "2026-08-06",
         "benchmarkValue": null,
         "benchmarkAsOf": null
       },
