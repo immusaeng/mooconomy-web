@@ -8,23 +8,15 @@
 <style>
   /* 다크 에디토리얼 뉴스레터 — table/block만 사용, JS·외부 폰트·이미지·
      flex·grid 없음. 바깥 프레임은 밝게, 실제 뉴스레터 캔버스만 다크
-     네이비로 제한 폭(데스크톱 760px) 표시한다.
+     네이비로 렌더한다.
 
-     2026-08-08(daily-editorial-voice-and-visual-baseline): 2026-08-07
-     11:38 KST 커밋(f9f953e, TASK_ID=MOBILE_COMPAT_EDITORIAL)이 폭·패딩·
-     본문 폰트 크기를 광범위하게 바꿨다 — 코드상으로는 의도적인 변경이었지만
-     사용자는 이 시각 변경 자체를 승인한 적이 없어 2026-08-07 발송본(golden
-     baseline) 대비 승인 범위를 벗어난 회귀로 판단됐다. 아래 폭/패딩/폰트
-     크기·행간 값은 2026-08-07 발송 당시 값으로 선택 복구한 것이다(PR#4~7
-     기능·Editorial Context 구조 등 비시각 변경은 그대로 유지). 원본
-     RESPONSIVE_FALLBACK_INCOMPATIBILITY 우려(미디어쿼리 미지원 클라이언트에서
-     고정폭이 그대로 축소되는 문제) 자체가 근거 없다고 결론 낸 것은 아니다 —
-     다만 그 문제의 해결 방식(고정폭 완전 제거)이 시각 디자인을 사용자 승인
-     없이 바꾸는 방식이었다는 점이 이번 복구의 사유이므로, 같은 문제가 다시
-     제기되면 폭 대신 다른 해결책(예: 서버사이드 UA 분기)을 별도로 검토한다. */
+     일반 클라이언트: .wrap은 유동폭(width:100%)이며 데스크톱에서만
+     max-width:760px으로 상한을 둔다. Outlook(Windows) 전용 고정폭은
+     본문의 MSO 조건부 주석(<!--[if mso]>...<![endif]-->) wrapper
+     안에서만 처리하며, 그 밖에서는 고정폭을 쓰지 않는다. */
   body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',Arial,sans-serif; background:#F2F3F5; color:#E8ECF3; margin:0; padding:0; -webkit-text-size-adjust:100%; text-size-adjust:100%; line-height:1.55; font-size:13px; }
   .outer-pad { padding:28px 16px; }
-  .wrap { width:760px; max-width:760px; margin:0 auto; background:#0B1220; border-radius:12px; }
+  .wrap { width:100%; max-width:760px; margin:0 auto; background:#0B1220; border-radius:12px; }
   .inner { padding:0 17px; }
   @media (max-width:780px) {
     .wrap { width:100% !important; max-width:100% !important; border-radius:0 !important; }
@@ -252,7 +244,7 @@
 <body bgcolor="#F2F3F5">
 
 
-<div style="display:none;font-size:1px;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;mso-hide:all;">미국채 10년 금리 하락과 원/달러 환율 하락에도 불구하고 코스피가 하락한 점은 외국인의 순매도세가 영향을 준 요인 중 하나로 해석할 수 있습니다. 다만 전자제품…&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;</div>
+<div style="display:none;font-size:1px;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;mso-hide:all;">미국채 금리 상승과 원/달러 환율 오름세가 외국인 순매도 및 코스피 지수에 영향을 준 요인 중 하나로 해석할 수 있습니다. 다만 업종별 수급 차별화나 대외 변수…&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;</div>
 
 
 <div class="fx-view-in-browser">
@@ -260,7 +252,10 @@
 </div>
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#F2F3F5">
 <tr><td align="center" class="outer-pad">
-<table role="presentation" width="760" cellpadding="0" cellspacing="0" border="0" class="wrap">
+<!--[if mso]>
+<table role="presentation" width="760" cellpadding="0" cellspacing="0" border="0" align="center"><tr><td>
+<![endif]-->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="wrap">
 <tr><td bgcolor="#0B1220">
 
   <div class="inner">
@@ -278,8 +273,8 @@
       </tr>
     </table>
     <div class="fx-mh-tagline">잠든 사이 움직인 시장과 뉴스, 오늘의 판단에 필요한 맥락만 정리합니다.</div>
-    <div class="fx-mh-pubdate">발행 2026년 08월 10일(월) 06:43 KST</div>
-    <div class="fx-mh-sub">국내 2026-08-07 종가 · 미국 2026-08-07 종가</div>
+    <div class="fx-mh-pubdate">발행 2026년 08월 11일(화) 06:43 KST</div>
+    <div class="fx-mh-sub">국내 2026-08-10 종가 · 미국 2026-08-10 종가</div>
   </div>
 
   
@@ -287,7 +282,7 @@
   <div class="fx-mt-rule"></div>
   <div class="fx-mt">
     <div class="fx-mt-label">Morning Thesis — 오늘의 관점</div>
-    <div class="fx-mt-headline">원/달러 환율 15.05원 하락 및 미국 나스닥 1.3% 상승</div>
+    <div class="fx-mt-headline">코스닥 6.97% 폭등 속 원/달러 환율 1417.67원 상승</div>
   </div>
   
 
@@ -299,19 +294,19 @@
   
   <tr>
     <td class="fx-t3-mark" valign="top">&#10003;</td>
-    <td class="fx-t3-text" valign="top">간밤 미국 증시는 나스닥이 1.3% 오르고 S&P500이 0.62% 상승하며 강세를 보였습니다.</td>
+    <td class="fx-t3-text" valign="top">간밤 뉴욕증시는 국제 유가 상승과 국채금리 오름세에 소폭 하락했습니다.</td>
   </tr>
   
   
   <tr>
     <td class="fx-t3-mark" valign="top">&#10003;</td>
-    <td class="fx-t3-text" valign="top">지난 거래일 코스피는 0.6% 내린 6258.77pt, 코스닥은 0.36% 하락한 798.81pt로 마감했습니다.</td>
+    <td class="fx-t3-text" valign="top">지난 거래일 국내 증시는 코스닥이 6.97% 폭등하며 대형 반등을 기록했습니다.</td>
   </tr>
   
   
   <tr class="last">
     <td class="fx-t3-mark" valign="top">&#10003;</td>
-    <td class="fx-t3-text" valign="top">오늘은 원/달러 환율의 하락세 지속 여부와 외국인 수급 향방이 관건입니다.</td>
+    <td class="fx-t3-text" valign="top">오늘은 원/달러 환율 상승세 속 외국인 수급 향방이 주요 변수입니다.</td>
   </tr>
   
   </table>
@@ -341,43 +336,43 @@
   <tr>
     <td class="fx-mbox" width="33.33%" bgcolor="#141C2E" style="background:#141C2E;">
       <div class="fx-mlabel">코스피</div>
-      <div class="fx-mvalue">6,259</div><div class="fx-mchip down" style="color:#5B8DEF;">▼ -0.60%</div>
+      <div class="fx-mvalue">6,300</div><div class="fx-mchip up" style="color:#FF6B6B;">▲ +0.65%</div>
       
     </td>
   
     <td class="fx-mbox" width="33.33%" bgcolor="#141C2E" style="background:#141C2E;">
       <div class="fx-mlabel">코스닥</div>
-      <div class="fx-mvalue">799</div><div class="fx-mchip down" style="color:#5B8DEF;">▼ -0.36%</div>
+      <div class="fx-mvalue">854</div><div class="fx-mchip up" style="color:#FF6B6B;">▲ +6.97%</div>
       
     </td>
   
     <td class="fx-mbox" width="33.33%" bgcolor="#141C2E" style="background:#141C2E;">
       <div class="fx-mlabel">나스닥</div>
-      <div class="fx-mvalue">26,691</div><div class="fx-mchip up" style="color:#FF6B6B;">▲ +1.30%</div>
+      <div class="fx-mvalue">26,605</div><div class="fx-mchip down" style="color:#5B8DEF;">▼ -0.32%</div>
       
     </td>
   </tr>
   <tr>
     <td class="fx-mbox" width="33.33%" bgcolor="#141C2E" style="background:#141C2E;">
       <div class="fx-mlabel">S&P 500</div>
-      <div class="fx-mvalue">7,758</div><div class="fx-mchip up" style="color:#FF6B6B;">▲ +0.62%</div>
+      <div class="fx-mvalue">7,753</div><div class="fx-mchip down" style="color:#5B8DEF;">▼ -0.06%</div>
       
     </td>
   
     <td class="fx-mbox" width="33.33%" bgcolor="#141C2E" style="background:#141C2E;">
       <div class="fx-mlabel">원/달러</div>
-      <div class="fx-mvalue fx-mvalue-fx">1,407</div><div class="fx-mchip down" style="color:#5B8DEF;">▼ -15.05원</div>
+      <div class="fx-mvalue fx-mvalue-fx">1,418</div><div class="fx-mchip up" style="color:#FF6B6B;">▲ +10.67원</div>
       
     </td>
   
     <td class="fx-mbox" width="33.33%" bgcolor="#141C2E" style="background:#141C2E;">
       <div class="fx-mlabel">브렌트유</div>
-      <div class="fx-mvalue">83.55</div><div class="fx-mchip up" style="color:#FF6B6B;">▲ +1.29%</div>
+      <div class="fx-mvalue">87.85</div><div class="fx-mchip up" style="color:#FF6B6B;">▲ +5.15%</div>
       
     </td>
   </tr>
   </table>
-  <div class="fx-asof">AS OF 2026-08-07 KST / 2026-08-07 ET</div>
+  <div class="fx-asof">AS OF 2026-08-10 KST / 2026-08-10 ET</div>
   
 
   
@@ -386,7 +381,7 @@
   <div class="fx-label">MARKET TEMPERATURE</div>
   <div class="fx-temp-card" style="background:#141C2E;">
     <div class="fx-temp-status">중립</div>
-    <div class="fx-temp-summary">간밤 미 증시 상승과 원/달러 환율 하락은 심리 회복에 긍정적이나, 국내 증시의 외국인 순매도세로 인해 중립적인 분위기가 관찰됩니다. 미 CPI 발표를 앞둔 관망세와 외국인 수급 흐름이 향후 시장 방향성에 영향을 줄 가능성이 있습니다.</div>
+    <div class="fx-temp-summary">국내 증시 상승에도 불구하고 환율 상승과 외국인 매도세가 이어지며 시장 온도는 중립으로 평가됩니다. 코스닥 급반등 속에서도 유가 상승과 수급 부담이 상존하는 차별화 장세가 관찰됩니다.</div>
     
     <table class="fx-temp-bar" cellpadding="0" cellspacing="0" role="presentation" width="100%"><tr>
       
@@ -418,10 +413,10 @@
     
     
     <div class="fx-temp-reasons">
-      <div class="fx-temp-reason-item up" style="color:#FF6B6B;">· 간밤 미국 증시 평균 +0.73% 상승</div><div class="fx-temp-reason-item down" style="color:#5B8DEF;">· 국내 증시 -0.60% 하락</div><div class="fx-temp-reason-item flat" style="color:#95A2BA;">· 원/달러 -1.06%(원화 강세)</div>
+      <div class="fx-temp-reason-item up" style="color:#FF6B6B;">· 국내 증시 +0.65% 상승</div><div class="fx-temp-reason-item flat" style="color:#95A2BA;">· 원/달러 +0.76%(원화 약세)</div><div class="fx-temp-reason-item down" style="color:#5B8DEF;">· 외국인 코스피 순매도 14,909억원</div>
     </div>
     
-    <div class="fx-temp-asof">기준 2026-08-07</div>
+    <div class="fx-temp-asof">기준 2026-08-10</div>
   </div>
   
 
@@ -429,50 +424,43 @@
   
   
   <div class="fx-label">MAIN STORY</div>
-  <div class="fx-story-h">정부 주택 공급 및 금융 합리화 방안 조만간 발표</div>
-  <div class="fx-story-meta">파이낸셜뉴스 · 2026-08-09</div>
+  <div class="fx-story-h">엔비디아 대규모 자금 조달</div>
+  <div class="fx-story-meta">CNBC · 2026-08-10</div>
   <span class="fx-story-fact-lbl">THE FACT</span>
-  <div class="fx-story-fact">부동산 세제 개편에 따른 전월세 시장 불안을 완화하기 위해 주택공급 확대와 금융 합리화 대책이 준비되고 있습니다. 시장에서는 세부 대책의 수립 및 발표 시점에 집중하고 있습니다.</div>
+  <div class="fx-story-fact">엔비디아가 AI 데이터센터 투자를 가속하기 위해 5,000억 달러 규모의 자금 조달을 추진 중입니다. 젠슨 황 CEO는 자사 칩을 투자 가치가 높은 자산으로 강조했습니다.</div>
   
   <div class="fx-story-src">
   
-  <div class="fx-story-src-item"><a href="https://www.fnnews.com/news/202608091608508737" target="_blank" class="fx-story-src-link">파이낸셜뉴스 · 2026-08-09 — 구윤철 "주택 공급·금융 합리화 방안 조만간 발표"</a></div>
+  <div class="fx-story-src-item"><a href="https://www.cnbc.com/2026/08/10/nvidia-wall-street-asset-managers-500-billion-ai-push.html" target="_blank" class="fx-story-src-link">CNBC · 2026-08-10 — Nvidia lines up $500 billion in financing as CEO Jensen Huang tells CNBC his chips are ‘investable asset’</a></div>
   
   </div>
   
   
+  
   <div class="fx-story-why">
-    <span class="fx-story-why-lbl">EDITORIAL CONTEXT</span>
+    <span class="fx-story-why-lbl">WHY THIS STORY</span>
     
     <div class="fx-ec-block">
-      <span class="fx-ec-lbl">TRANSMISSION</span>
-      
-      <div class="fx-ec-row">미국 증시 강세 및 환율 하락 → 외국인 투자 심리 및 국내 외환 안정 → 국내 증시 하방 압력 완화 가능성</div>
-      
+      <span class="fx-ec-lbl">SELECTED BECAUSE</span>
+      <div class="fx-ec-row">오늘의 핵심 판단과 직접 연결되고 공식·주요 매체가 보도했으며 실제 시장 변수에 영향을 준 것으로 판단되고 메인 스토리로 선정했습니다.</div>
     </div>
     
     
     <div class="fx-ec-block">
-      <span class="fx-ec-lbl">INDICATOR</span>
-      
-      <div class="fx-ec-row">원/달러 환율 하락에 따른 외환 시장 변동성 완화</div>
-      
-      <div class="fx-ec-row">미국 주요 지수 상승 및 변동성 지수 하락으로 위험선호 일부 개선</div>
-      
+      <span class="fx-ec-lbl">WHY NOW</span>
+      <div class="fx-ec-row">코스닥 지수의 급반등에도 불구하고 환율 상승과 유가 급등으로 인해 코스피 외국인 매도세가 지속되는 차별화 장세가 나타났습니다.</div>
     </div>
     
     
     <div class="fx-ec-block">
-      <span class="fx-ec-lbl">EDITORIAL VIEW</span>
-      <div class="fx-ec-row">원/달러 환율의 큰 폭 하락과 미 증시 상승은 위험선호 심리 회복에 긍정적이나, 국내 증시 외국인 순매도세와 미 CPI 발표 대기로 관망세가 병존합니다.</div>
+      <span class="fx-ec-lbl">IMPACT</span>
+      <div class="fx-ec-row">유가 및 미 국채금리 상승의 변화가 원/달러 환율 상방 압력 확대를 거쳐 코스피 외국인 대규모 순매도 및 코스닥 상대적 강세에 영향을 줄 수 있습니다.</div>
     </div>
     
     
     <div class="fx-ec-block">
       <span class="fx-ec-lbl">WATCH</span>
-      
-      <div class="fx-ec-row">외국인 코스피 순매수 전환 여부 — 환율 하락이 실제 외국인 자금 유입으로 이어지는지 확인하는 지표가 됩니다.</div>
-      
+      <div class="fx-ec-row">원/달러 환율 1,410원선 하회 여부 — 외국인의 코스피 매수 전환 진입 요건으로 작용할 수 있기 때문입니다.</div>
     </div>
     
   </div>
@@ -485,20 +473,29 @@
   
   
   <div class="fx-news-item">
-    <div class="fx-news-title">HUG 부동산 PF 보증잔액 20조원 돌파</div>
-    <div class="fx-news-fact">주택도시보증공사의 부동산 PF 보증 잔액이 1년 반 만에 2배로 늘어나 20조원을 넘어선 것으로 집계됐습니다.</div>
+    <div class="fx-news-title">원자재 가격 폭등과 대응</div>
+    <div class="fx-news-fact">구리와 코발트 등 원자재 가격이 급등하면서 산업계 전반에 부담이 가중되고 있습니다.</div>
     <div class="fx-news-meta">
-      연합뉴스 · 2026-08-10
-       · <a href="https://www.yna.co.kr/view/AKR20260810003500003" target="_blank">원문</a>
+      매일경제 · 2026-08-11
+       · <a href="https://www.mk.co.kr/news/economy/12123615" target="_blank">원문</a>
+    </div>
+  </div>
+  
+  <div class="fx-news-item">
+    <div class="fx-news-title">상장폐지 기준 강화 여파</div>
+    <div class="fx-news-fact">부실기업 정리를 위한 상장폐지 기준이 강화된 지 한 달 만에 국내 상장사의 7.4%가 시가총액 요건에 미달한 것으로 나타났습니다.</div>
+    <div class="fx-news-meta">
+      연합뉴스마켓 · 2026-08-11
+       · <a href="https://www.yna.co.kr/view/AKR20260810129600003" target="_blank">원문(원어)</a>
     </div>
   </div>
   
   <div class="fx-news-item last">
-    <div class="fx-news-title">저축은행 예금 금리 인하로 수신 전략 선회</div>
-    <div class="fx-news-fact">증시로 빠져나갔던 자금이 다시 들어오면서 저축은행들의 수신금리 인상 흐름이 정체됐습니다.</div>
+    <div class="fx-news-title">기업 자금조달 창구 위축</div>
+    <div class="fx-news-fact">시중 유동성과 달리 상장사들의 자금 조달은 회사채와 유상증자 정정 요구 등으로 위축되는 양상입니다.</div>
     <div class="fx-news-meta">
-      매일경제 · 2026-08-09
-       · <a href="https://www.mk.co.kr/news/economy/12122259" target="_blank">원문</a>
+      머니투데이 · 2026-08-11
+       · <a href="https://www.mt.co.kr/stock/2026/08/11/2026081021370124511" target="_blank">원문</a>
     </div>
   </div>
   
@@ -508,21 +505,12 @@
   <div class="fx-label">GLOBAL NEWS</div>
   
   
-  <div class="fx-news-item">
-    <div class="fx-news-title">미국 7월 CPI 발표 앞두고 물가 지표에 주목</div>
-    <div class="fx-news-fact">미국 증시의 사상 최고치 경신 흐름 속에 이번 주 공개되는 7월 소비자물가지수(CPI)가 시장의 금리 인하 기대를 시험할 전망입니다. 물가 지표의 안정 여부가 향후 연준 정책 경로를 좌우할 핵심 변수입니다.</div>
-    <div class="fx-news-meta">
-      CNBC · 2026-08-09
-       · <a href="https://www.cnbc.com/2026/08/09/here-are-the-2-big-things-were-watching-in-the-stock-market-in-the-week-ahead.html" target="_blank">원문(원어)</a>
-    </div>
-  </div>
-  
   <div class="fx-news-item last">
-    <div class="fx-news-title">S&P 500 상회 종목 비중 4년 내 최고치 기록</div>
-    <div class="fx-news-fact">평균적인 개별 종목이 전체 시장 지수 수익률을 넘어서는 비중이 4년 만에 가장 높은 수준을 나타냈습니다. 빅테크 중심의 상승세에서 벗어나 시장 전반으로 온기가 확산하는지 살펴볼 수 있습니다.</div>
+    <div class="fx-news-title">유가·금리 상승에 미 증시 숨고르기</div>
+    <div class="fx-news-fact">국제 유가와 국채금리가 동반 상승하면서 뉴욕증시는 하락 압력을 받았습니다. 투자자들은 미 물가 지표 발표를 기다리며 관망세를 보이고 있습니다.</div>
     <div class="fx-news-meta">
-      MarketWatch · 2026-08-09
-       · <a href="https://www.marketwatch.com/story/the-number-of-stocks-beating-the-s-p-500-is-the-highest-in-4-years-why-that-number-should-rise-b9bd05b3?mod=mw_rss_topstories" target="_blank">원문(원어)</a>
+      Investing · 2026-08-10
+       · <a href="https://www.investing.com/news/economy-news/us-treasuries-fall-as-investors-await-inflation-data-93CH-4849978" target="_blank">원문(원어)</a>
     </div>
   </div>
   
@@ -534,16 +522,16 @@
     <div class="fx-mv-head">MOO:VIEW</div>
     
     
-    <div class="fx-mv-p first">간밤 미국 증시는 나스닥 지수가 1.3% 상승한 26690.62를 기록하고 S&P500이 0.62% 오른 7757.64로 마감하는 등 위험선호 심리가 다소 개선된 모습을 보인 것으로 나타납니다. 아울러 S&P 500을 상회하는 종목 비중이 4년 내 최고치를 기록한 가운데 원자재 시장의 브렌트유도 1.29% 오르며 83.55달러 선을 나타낸 점이 관찰됩니다.</div>
+    <div class="fx-mv-p first">글로벌 증시는 브렌트유가 87.85달러로 5.15% 상승하는 등 유가 상승 부담 속에 나스닥이 0.32%, S&P500이 0.06% 하락하며 숨고르기 양상을 나타냈습니다. 이러한 환경 속에서 엔비디아가 AI 데이터센터 투자를 가속하기 위해 5,000억 달러 규모의 자금 조달을 추진한다는 발표가 부각되었습니다.</div>
     
-    <div class="fx-mv-p">글로벌 증시의 흐름과 달리 국내 증시는 코스피가 0.6% 내린 6258.77, 코스닥 지수가 0.36% 하락한 798.81로 마감하며 상대적 약세를 보인 것으로 파악됩니다. 원/달러 환율이 15.05원 하락하며 1407.25원(-1.06%)으로 외환 시장의 변동성이 완화되는 양상을 보였으나 지수의 동반 상승으로는 이어지지 못한 것으로 분석됩니다.</div>
+    <div class="fx-mv-p">국내 증시는 원/달러 환율이 10.67원 오른 1417.67원을 기록하는 원화 약세 속에서도 코스피가 6299.66으로 0.65% 상승하고 코스닥은 854.47로 6.97% 급등했습니다. 미 증시의 약세 흐름과 비교해 국내 지수가 상대적인 상승 구도를 나타낸 점이 특징적입니다.</div>
     
-    <div class="fx-mv-p">수급 측면에서는 코스피 시장에서 8,651억 원 규모를 순매도한 외국인 수급 이탈이 확인된 가운데, 기관과 개인이 각각 5,854억 원 및 2,675억 원을 매수했으나 지수 방어에는 한계가 있었던 것으로 보입니다. 세부 업종별로는 전자제품(5.4%)과 전기제품(4.9%)이 상승세를 나타낸 반면, 비철금속(-7.23%)과 생명보험(-3.62%) 업종은 약세를 나타내며 뚜렷한 업종별 온도 차이가 관찰됩니다.</div>
+    <div class="fx-mv-p">코스피에서는 외국인이 14,909억원의 순매도를 기록한 반면, 코스닥에서는 외국인 1,027억원과 기관 5,667억원의 순매수가 유입되는 차별화가 나타났습니다. 업종별로는 복합유틸리티가 11.63%, 비철금속이 10.01% 상승한 반면 무선통신서비스(-2.71%)와 은행(-2.67%)은 약세를 형성했습니다.</div>
     
-    <div class="fx-mv-p">단기적으로는 미국 7월 CPI 발표를 앞두고 물가 지표 관련 관망세가 짙어질 가능성이 주요 변수로 평가됩니다. 또한 HUG 부동산 PF 보증잔액이 20조원을 돌파한 가운데 정부가 조만간 발표할 주택 공급 및 금융 합리화 방안과 전월세 시장 완화 대책의 세부 내용이 주요 확인 지점으로 거론될 가능성이 있습니다.</div>
+    <div class="fx-mv-p">원자재 가격 폭등과 기업 자금조달 창구 위축, 상장폐지 기준 강화 여파 등 불확실성 요소가 시장에 상존하고 있습니다. 향후 1410원대 환율 추이와 브렌트유의 가격 흐름, 코스피 외국인 수급의 향방을 다각도로 점검해 볼 수 있습니다.</div>
     
     
-    <div class="fx-mv-meta">기준 2026-08-07</div>
+    <div class="fx-mv-meta">기준 2026-08-10</div>
   </div>
   </div>
 
@@ -552,11 +540,11 @@
   
   <div class="fx-q-wrap" style="background:#1B2740;">
     <div class="fx-q-lbl">MOO:Q · 오늘의 질문</div>
-    <div class="fx-q-text">나스닥은 다음 거래일까지 상승세를 이어갈까?</div>
+    <div class="fx-q-text">외국인 순매도 흐름 속에서 코스피가 반등할까요?</div>
     
-    <div class="fx-q-why">나스닥은 26,690.62로 전일 대비 1.30% 상승했습니다. 현재 관찰된 상승 흐름이 다음 거래일까지 이어지는지가 확인 대상입니다.</div>
+    <div class="fx-q-why">코스피는 6,299.66로 전일 대비 0.65% 상승했습니다. 외국인 순매도 흐름 속에서 상승 흐름이 다음 거래일까지 이어지는지가 확인 대상입니다.</div>
     
-    <div class="fx-q-meta">관찰 시점 2026-08-10 · 확인 예정일 2026-08-11</div>
+    <div class="fx-q-meta">관찰 시점 2026-08-11 · 확인 예정일 2026-08-12</div>
   </div>
   
   
@@ -564,11 +552,11 @@
   
   <div class="fx-check-wrap" style="background:#202A3D;">
     <div class="fx-check-lbl">MOO:CHECK · 지난 질문의 결과</div>
-    <div class="fx-check-q">코스닥은 다음 거래일까지 하락세를 이어갈까?</div>
-    <div class="fx-check-row"><span class="k">질문 시점</span>2026-08-08</div>
-    
-    
-    <span class="fx-check-verdict INSUFFICIENT_DATA">INSUFFICIENT_DATA</span>
+    <div class="fx-check-q">나스닥은 다음 거래일까지 상승세를 이어갈까?</div>
+    <div class="fx-check-row"><span class="k">질문 시점</span>2026-08-10</div>
+    <div class="fx-check-row"><span class="k">실제 결과</span>26690.62 → 26605.36 (-0.32%)</div>
+    <div class="fx-check-row">실제 변화가 예상한 상승 방향과 다르게 움직였습니다.</div>
+    <span class="fx-check-verdict MISS">MISS</span>
   </div>
   
 
@@ -580,11 +568,11 @@
     <div class="fx-kf-market-lbl">코스피 수급</div>
     <table class="fx-kf-table" role="presentation" width="100%" cellpadding="0" cellspacing="0">
       
-      <tr><td class="fx-kf-who">개인</td><td class="fx-kf-val up" style="color:#FF6B6B;">+2,675억원</td></tr>
+      <tr><td class="fx-kf-who">개인</td><td class="fx-kf-val up" style="color:#FF6B6B;">+9,003억원</td></tr>
       
-      <tr><td class="fx-kf-who">외국인</td><td class="fx-kf-val down" style="color:#5B8DEF;">-8,651억원</td></tr>
+      <tr><td class="fx-kf-who">외국인</td><td class="fx-kf-val down" style="color:#5B8DEF;">-14,909억원</td></tr>
       
-      <tr class="last"><td class="fx-kf-who">기관</td><td class="fx-kf-val up" style="color:#FF6B6B;">+5,854억원</td></tr>
+      <tr class="last"><td class="fx-kf-who">기관</td><td class="fx-kf-val up" style="color:#FF6B6B;">+5,692억원</td></tr>
       
     </table>
     
@@ -592,22 +580,22 @@
     <div class="fx-kf-market-lbl">코스닥 수급</div>
     <table class="fx-kf-table" role="presentation" width="100%" cellpadding="0" cellspacing="0">
       
-      <tr><td class="fx-kf-who">개인</td><td class="fx-kf-val up" style="color:#FF6B6B;">+3,402억원</td></tr>
+      <tr><td class="fx-kf-who">개인</td><td class="fx-kf-val down" style="color:#5B8DEF;">-6,729억원</td></tr>
       
-      <tr><td class="fx-kf-who">외국인</td><td class="fx-kf-val down" style="color:#5B8DEF;">-2,522억원</td></tr>
+      <tr><td class="fx-kf-who">외국인</td><td class="fx-kf-val up" style="color:#FF6B6B;">+1,027억원</td></tr>
       
-      <tr class="last"><td class="fx-kf-who">기관</td><td class="fx-kf-val down" style="color:#5B8DEF;">-1,044억원</td></tr>
+      <tr class="last"><td class="fx-kf-who">기관</td><td class="fx-kf-val up" style="color:#FF6B6B;">+5,667억원</td></tr>
       
     </table>
     
     
     <div class="fx-sector-row">
-      상승 전자제품(+5.40%), 전기제품(+4.90%)
+      상승 복합유틸리티(+11.63%), 비철금속(+10.01%)
        · 
-      하락 비철금속(-7.23%), 생명보험(-3.62%)
+      하락 무선통신서비스(-2.71%), 은행(-2.67%)
     </div>
     
-    <div class="fx-interp">코스피는 외국인 순매도(-8,651억원)가 두드러졌습니다, 코스닥는 개인 순매수(+3,402억원)가 두드러졌습니다.</div>
+    <div class="fx-interp">코스피는 외국인 순매도(-14,909억원)가 두드러졌습니다, 코스닥는 개인 순매도(-6,729억원)가 두드러졌습니다.</div>
   </div>
   
 
@@ -620,18 +608,18 @@
     <table class="fx-og-table" role="presentation" width="100%" cellpadding="0" cellspacing="0">
       
       <tr>
-        <td class="fx-og-label">다우존스</td><td class="fx-og-val">54,036.93</td>
-        <td class="fx-og-chg up" style="color:#FF6B6B;">▲ +0.28%</td>
+        <td class="fx-og-label">다우존스</td><td class="fx-og-val">53,975.98</td>
+        <td class="fx-og-chg down" style="color:#5B8DEF;">▼ -0.11%</td>
       </tr>
       
       <tr>
-        <td class="fx-og-label">나스닥</td><td class="fx-og-val">26,690.62</td>
-        <td class="fx-og-chg up" style="color:#FF6B6B;">▲ +1.30%</td>
+        <td class="fx-og-label">나스닥</td><td class="fx-og-val">26,605.36</td>
+        <td class="fx-og-chg down" style="color:#5B8DEF;">▼ -0.32%</td>
       </tr>
       
       <tr>
-        <td class="fx-og-label">S&P 500</td><td class="fx-og-val">7,757.64</td>
-        <td class="fx-og-chg up" style="color:#FF6B6B;">▲ +0.62%</td>
+        <td class="fx-og-label">S&P 500</td><td class="fx-og-val">7,753.11</td>
+        <td class="fx-og-chg down" style="color:#5B8DEF;">▼ -0.06%</td>
       </tr>
       
       <tr>
@@ -651,18 +639,18 @@
     <table class="fx-og-table" role="presentation" width="100%" cellpadding="0" cellspacing="0">
       
       <tr>
-        <td class="fx-og-label">미국채10년</td><td class="fx-og-val">4.66%</td>
-        <td class="fx-og-chg down" style="color:#5B8DEF;">▼ -1.00bp</td>
+        <td class="fx-og-label">미국채10년</td><td class="fx-og-val">4.70%</td>
+        <td class="fx-og-chg up" style="color:#FF6B6B;">▲ +4.00bp</td>
       </tr>
       
       <tr>
-        <td class="fx-og-label">달러인덱스</td><td class="fx-og-val">99.60</td>
-        <td class="fx-og-chg down" style="color:#5B8DEF;">▼ -0.37%</td>
+        <td class="fx-og-label">달러인덱스</td><td class="fx-og-val">99.81</td>
+        <td class="fx-og-chg up" style="color:#FF6B6B;">▲ +0.21%</td>
       </tr>
       
       <tr>
-        <td class="fx-og-label">원/달러</td><td class="fx-og-val">1,407.2</td>
-        <td class="fx-og-chg down" style="color:#5B8DEF;">▼ -1.06%</td>
+        <td class="fx-og-label">원/달러</td><td class="fx-og-val">1,417.7</td>
+        <td class="fx-og-chg up" style="color:#FF6B6B;">▲ +0.76%</td>
       </tr>
       
     </table>
@@ -672,23 +660,23 @@
     <table class="fx-og-table" role="presentation" width="100%" cellpadding="0" cellspacing="0">
       
       <tr>
-        <td class="fx-og-label">WTI</td><td class="fx-og-val">78.18</td>
-        <td class="fx-og-chg up" style="color:#FF6B6B;">▲ +1.15%</td>
+        <td class="fx-og-label">WTI</td><td class="fx-og-val">82.30</td>
+        <td class="fx-og-chg up" style="color:#FF6B6B;">▲ +5.27%</td>
       </tr>
       
       <tr>
-        <td class="fx-og-label">브렌트유</td><td class="fx-og-val">83.55</td>
-        <td class="fx-og-chg up" style="color:#FF6B6B;">▲ +1.29%</td>
+        <td class="fx-og-label">브렌트유</td><td class="fx-og-val">87.85</td>
+        <td class="fx-og-chg up" style="color:#FF6B6B;">▲ +5.15%</td>
       </tr>
       
       <tr>
-        <td class="fx-og-label">금</td><td class="fx-og-val">4,399.70</td>
-        <td class="fx-og-chg up" style="color:#FF6B6B;">▲ +3.72%</td>
+        <td class="fx-og-label">금</td><td class="fx-og-val">4,448.60</td>
+        <td class="fx-og-chg up" style="color:#FF6B6B;">▲ +2.49%</td>
       </tr>
       
       <tr>
-        <td class="fx-og-label">VIX</td><td class="fx-og-val">14.90</td>
-        <td class="fx-og-chg down" style="color:#5B8DEF;">▼ -1.65%</td>
+        <td class="fx-og-label">VIX</td><td class="fx-og-val">15.46</td>
+        <td class="fx-og-chg up" style="color:#FF6B6B;">▲ +3.76%</td>
       </tr>
       
     </table>
@@ -710,12 +698,12 @@
       </tr>
       
       <tr class="last">
-        <td class="fx-og-label">美 기준금리</td><td class="fx-og-val" colspan="2">3.75% <span style="color:#6B7A99;">(2026-08-09)</span></td>
+        <td class="fx-og-label">美 기준금리</td><td class="fx-og-val" colspan="2">3.75% <span style="color:#6B7A99;">(2026-08-10)</span></td>
       </tr>
       
     </table>
     
-    <div class="fx-interp">미국·아시아 지수는 5개 중 4개 상승, 1개 하락으로 마감했습니다, VIX는 14.9로 관찰됩니다.</div>
+    <div class="fx-interp">미국·아시아 지수는 5개 중 1개 상승, 4개 하락으로 마감했습니다, VIX는 15.46로 관찰됩니다.</div>
   </div>
   
 
@@ -730,13 +718,13 @@
     <td class="fx-sc-chip" width="50%" bgcolor="#141C2E" style="background:#141C2E;">
       <div class="fx-sc-role">출발</div>
       <div class="fx-sc-label">미국채10년 금리</div>
-      <div class="fx-sc-detail down" style="color:#5B8DEF;">4.66% · -0.01%p 하락</div>
+      <div class="fx-sc-detail up" style="color:#FF6B6B;">4.70% · +0.04%p 상승</div>
     </td>
     
     <td class="fx-sc-chip" width="50%" bgcolor="#141C2E" style="background:#141C2E;">
       <div class="fx-sc-role">동시변화</div>
       <div class="fx-sc-label">원/달러 환율</div>
-      <div class="fx-sc-detail down" style="color:#5B8DEF;">1,407원 · -15.05원 하락(원화 강세)</div>
+      <div class="fx-sc-detail up" style="color:#FF6B6B;">1,418원 · +10.67원 상승(원화 약세)</div>
     </td>
     
     </tr>
@@ -746,13 +734,13 @@
     <td class="fx-sc-chip" width="50%" bgcolor="#141C2E" style="background:#141C2E;">
       <div class="fx-sc-role">수급</div>
       <div class="fx-sc-label">외국인 수급</div>
-      <div class="fx-sc-detail down" style="color:#5B8DEF;">코스피 -8,651억원 순매도</div>
+      <div class="fx-sc-detail down" style="color:#5B8DEF;">코스피 -14,909억원 순매도</div>
     </td>
     
     <td class="fx-sc-chip outcome" width="50%" bgcolor="#141C2E" style="background:#141C2E;">
       <div class="fx-sc-role">결과</div>
       <div class="fx-sc-label">국내 증시(코스피)</div>
-      <div class="fx-sc-detail down" style="color:#5B8DEF;">6,258.77 · -0.60% 하락</div>
+      <div class="fx-sc-detail up" style="color:#FF6B6B;">6,299.66 · +0.65% 상승</div>
     </td>
     
     </tr>
@@ -766,31 +754,31 @@
     <td class="fx-sc-chip" width="25%" bgcolor="#141C2E" style="background:#141C2E;">
       <div class="fx-sc-role">출발</div>
       <div class="fx-sc-label">미국채10년 금리</div>
-      <div class="fx-sc-detail down" style="color:#5B8DEF;">4.66% · -0.01%p 하락</div>
+      <div class="fx-sc-detail up" style="color:#FF6B6B;">4.70% · +0.04%p 상승</div>
     </td>
     
     <td class="fx-sc-chip" width="25%" bgcolor="#141C2E" style="background:#141C2E;">
       <div class="fx-sc-role">동시변화</div>
       <div class="fx-sc-label">원/달러 환율</div>
-      <div class="fx-sc-detail down" style="color:#5B8DEF;">1,407원 · -15.05원 하락(원화 강세)</div>
+      <div class="fx-sc-detail up" style="color:#FF6B6B;">1,418원 · +10.67원 상승(원화 약세)</div>
     </td>
     
     <td class="fx-sc-chip" width="25%" bgcolor="#141C2E" style="background:#141C2E;">
       <div class="fx-sc-role">수급</div>
       <div class="fx-sc-label">외국인 수급</div>
-      <div class="fx-sc-detail down" style="color:#5B8DEF;">코스피 -8,651억원 순매도</div>
+      <div class="fx-sc-detail down" style="color:#5B8DEF;">코스피 -14,909억원 순매도</div>
     </td>
     
     <td class="fx-sc-chip outcome" width="25%" bgcolor="#141C2E" style="background:#141C2E;">
       <div class="fx-sc-role">결과</div>
       <div class="fx-sc-label">국내 증시(코스피)</div>
-      <div class="fx-sc-detail down" style="color:#5B8DEF;">6,258.77 · -0.60% 하락</div>
+      <div class="fx-sc-detail up" style="color:#FF6B6B;">6,299.66 · +0.65% 상승</div>
     </td>
     
     </tr>
   </table>
   </div>
-  <div class="fx-sc-note">미국채 10년 금리 하락과 원/달러 환율 하락에도 불구하고 코스피가 하락한 점은 외국인의 순매도세가 영향을 준 요인 중 하나로 해석할 수 있습니다.</div>
+  <div class="fx-sc-note">미국채 금리 상승과 원/달러 환율 오름세가 외국인 순매도 및 코스피 지수에 영향을 준 요인 중 하나로 해석할 수 있습니다.</div>
   <div class="fx-sc-strength">해석 강도: 제한적 · 동일 시점에 관찰된 흐름을 연결한 가정입니다.</div>
   
 
@@ -801,20 +789,20 @@
     
     <table class="fx-watch-row first" role="presentation" cellpadding="0" cellspacing="0"><tr>
       <td class="fx-watch-num" width="18" valign="top">1</td>
-      <td class="fx-watch-txt" valign="top">미국 7월 CPI 발표 지표 수치 및 수급 흐름</td>
+      <td class="fx-watch-txt" valign="top">엔비디아의 5,000억 달러 규모 AI 데이터센터 투자 자금 조달 추진 및 젠슨 황 CEO 발표</td>
     </tr></table>
     
     <table class="fx-watch-row" role="presentation" cellpadding="0" cellspacing="0"><tr>
       <td class="fx-watch-num" width="18" valign="top">2</td>
-      <td class="fx-watch-txt" valign="top">정부 주택 공급 및 금융 합리화 방안 발표 일정</td>
+      <td class="fx-watch-txt" valign="top">브렌트유 87.85달러(5.15% 상승) 등 원자재 가격 폭등 추이</td>
     </tr></table>
     
     <table class="fx-watch-row" role="presentation" cellpadding="0" cellspacing="0"><tr>
       <td class="fx-watch-num" width="18" valign="top">3</td>
-      <td class="fx-watch-txt" valign="top">HUG 부동산 PF 보증잔액 20조원 돌파 관련 정책 후속 대책</td>
+      <td class="fx-watch-txt" valign="top">원/달러 환율 1417.67원(등락폭 10.67원)과 코스피 외국인 14,909억원 순매도 동향</td>
     </tr></table>
     
-    <div class="fx-watch-oneliner">미 증시 상승과 원/달러 환율 하락에도 불구하고 외국인 순매도와 미국 7월 CPI 발표 대기로 관망세가 상존하는 흐름으로 보입니다.</div>
+    <div class="fx-watch-oneliner">원/달러 환율 1410원대 돌파와 유가 상승 부담 속에서 코스닥의 6.97% 급반등이 보여준 뚜렷한 수급 차별화 장세에 주목할 수 있습니다.</div>
   </div>
   
 
@@ -825,7 +813,7 @@
   
   <div class="fx-risk">
     <div class="fx-risk-lbl">RISK · 관찰</div>
-    <div class="fx-risk-text">미국 7월 CPI 및 PPI 등 주요 물가 지표 발표에 따른 금리 변동성 확대 가능성<br>부동산 PF 보증 잔액 증가 등 국내 금융 리스크 관련 불확실성</div>
+    <div class="fx-risk-text">원자재 가격(구리·코발트·WTI) 폭등에 따른 인플레이션 상방 압력<br>원/달러 환율 1,410원대 진입에 따른 코스피 외국인 자금 이탈 우려</div>
   </div>
   
 
@@ -835,7 +823,7 @@
     <div class="fx-src-row"><span class="f-cat">공시·실적</span> 금융감독원 DART · Finnhub</div>
     
     
-    <div class="fx-src-row"><span class="f-cat">뉴스</span> 연합뉴스 · 매일경제 · CNBC · MarketWatch</div>
+    <div class="fx-src-row"><span class="f-cat">뉴스</span> 매일경제 · 연합뉴스마켓 · 머니투데이 · Investing</div>
     
   </div>
 
@@ -858,6 +846,9 @@
   </div>
 </td></tr>
 </table>
+<!--[if mso]>
+</td></tr></table>
+<![endif]-->
 </td></tr>
 </table>
 </body>
