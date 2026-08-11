@@ -1906,7 +1906,92 @@
     /* ===== 뷰 스위칭 (URL/뒤로가기 지원) ===== */
     var spreadChartInstance = null;
 
+    /* 2026-08-11(TASK_ID=FIX_LATEST_ANCHOR_ASYNC_LAYOUT_SHIFT): 운영에서
+       #latest 진입 시 시세·신호등 등 비동기 위젯이 초기 scrollIntoView
+       이후에도 계속 로드돼 타겟 위/콘텐츠 높이가 늘어나면서 스크롤이
+       목표 지점보다 위(약 2,200px)에서 멈추는 문제가 발견됨(운영 실측).
+       setTimeout을 단순히 늘리는 대신, requestAnimationFrame으로 매
+       프레임 목표 위치를 확인해 어긋났을 때만 auto(non-smooth)로
+       재정렬하는 bounded 안정화 루프를 둔다 — 최대 시간/최대 재정렬
+       횟수를 넘기면 반드시 종료, 허용 오차 안 상태가 일정 시간(800ms)
+       연속되면 그 즉시 종료, 사용자가 직접 스크롤(wheel/touch/pointer/
+       keydown)하면 즉시 취소한다. ResizeObserver 대신 rAF 위치 폴링만 쓰는 이유: 리사이즈뿐
+       아니라 이미지 로드·폰트 스왑·동적 삽입 등 모든 레이아웃 변동 원인을
+       한 가지 방식으로 프레임 단위로 잡아내고, ResizeObserver 유무와
+       무관하게 동일하게 동작해 미지원 브라우저 fallback이 별도 분기 없이
+       자연히 성립한다. .anchor에 이미 있는 scroll-margin-top(고정
+       헤더/티커 높이 보정)은 scrollIntoView 재사용으로 그대로 존중한다. */
+    var _anchorStabilizerCleanup = null;
+    var _ANCHOR_STABILIZE_CANCEL_EVENTS = ['wheel', 'touchstart', 'pointerdown', 'keydown'];
+    var _ANCHOR_STABILIZE_MAX_MS = 4000;
+    var _ANCHOR_STABILIZE_MAX_CORRECTIONS = 8;
+    var _ANCHOR_STABILIZE_TOLERANCE_PX = 3;
+    // 실제 운영에서는 시세/신호등/홈 데이터 등 여러 비동기 위젯이 각자
+    // 다른 시점에 순차적으로 로드를 끝내며 레이아웃을 밀어낸다(회귀
+    // 테스트로 위젯 간 약 500~600ms 간격 재현·확인). 단일 프레임만으로
+    // "안정됨"을 판단하면 다음 위젯이 아직 안 끝난 짧은 소강 구간에서
+    // 너무 일찍 종료해 이후 shift를 놓친다 — 오차 안 상태가 최소
+    // 800ms(=위젯 간 간격보다 충분히 긴 값) 연속돼야 종료한다.
+    var _ANCHOR_STABILIZE_STABLE_MS = 800;
+
+    function _cancelAnchorStabilizer() {
+      if (_anchorStabilizerCleanup) { _anchorStabilizerCleanup(); _anchorStabilizerCleanup = null; }
+    }
+
+    function _stabilizeAnchorScroll(target) {
+      _cancelAnchorStabilizer();
+      var _now = function () { return (window.performance && performance.now) ? performance.now() : Date.now(); };
+      var startTime = _now();
+      var corrections = 0;
+      var stableSince = null;
+      var rafId = null;
+      var cancelled = false;
+
+      function expectedTopOffset(el) {
+        var v = parseFloat(getComputedStyle(el).scrollMarginTop);
+        return isNaN(v) ? 0 : v;
+      }
+      function onUserInput() { cancelled = true; cleanup(); }
+      function cleanup() {
+        if (rafId) cancelAnimationFrame(rafId);
+        _ANCHOR_STABILIZE_CANCEL_EVENTS.forEach(function (ev) {
+          window.removeEventListener(ev, onUserInput, true);
+        });
+        _anchorStabilizerCleanup = null;
+      }
+      _ANCHOR_STABILIZE_CANCEL_EVENTS.forEach(function (ev) {
+        window.addEventListener(ev, onUserInput, { capture: true, passive: true });
+      });
+      _anchorStabilizerCleanup = cleanup;
+
+      function tick() {
+        if (cancelled) return;
+        var t = _now();
+        if (t - startTime > _ANCHOR_STABILIZE_MAX_MS) { cleanup(); return; }
+        if (!document.body.contains(target)) { cleanup(); return; }
+
+        var delta = target.getBoundingClientRect().top - expectedTopOffset(target);
+        if (Math.abs(delta) <= _ANCHOR_STABILIZE_TOLERANCE_PX) {
+          if (stableSince === null) stableSince = t;
+          if (t - stableSince >= _ANCHOR_STABILIZE_STABLE_MS) { cleanup(); return; }
+        } else {
+          stableSince = null;
+          if (corrections >= _ANCHOR_STABILIZE_MAX_CORRECTIONS) { cleanup(); return; }
+          corrections++;
+          // scrollIntoView({behavior:'auto'})는 사이트 전역 CSS의
+          // scroll-behavior:smooth를 그대로 물려받아 매 보정이 다시
+          // 애니메이션으로 실행되는 문제가 있었다(연속 재정렬 시 서로
+          // 간섭·오차 누적 원인) — 'instant'는 CSS와 무관하게 항상
+          // 즉시 이동하므로 명시적으로 목표 절대 위치를 계산해 사용한다.
+          window.scrollTo({ top: window.scrollY + delta, behavior: 'instant' });
+        }
+        rafId = requestAnimationFrame(tick);
+      }
+      rafId = requestAnimationFrame(tick);
+    }
+
     function applyView(viewId, targetAnchorId) {
+      _cancelAnchorStabilizer();
       document.querySelectorAll('.view-session').forEach(function(el){ el.classList.remove('active'); });
       var activeView = document.getElementById('view-' + viewId);
       if (activeView) activeView.classList.add('active');
@@ -1943,6 +2028,9 @@
             var containingDetails = target.closest('details');
             if (containingDetails && !containingDetails.open) containingDetails.open = true;
             target.scrollIntoView({ behavior: 'smooth' });
+            // 최초 스크롤 이후 비동기 위젯이 레이아웃을 밀어내도 bounded
+            // 재정렬로 안착시킨다(위 _stabilizeAnchorScroll 주석 참고).
+            _stabilizeAnchorScroll(target);
           }
         }, 100);
       } else {
