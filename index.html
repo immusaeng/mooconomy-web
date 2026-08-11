@@ -949,17 +949,20 @@
   .mail-bar .dot.red{background:#ff5f56;} .mail-bar .dot.yellow{background:#ffbd2e;} .mail-bar .dot.green{background:#27c93f;}
   .mail-bar .mail-label { margin-left:12px; color:#6b7688; font-size:12.5px; letter-spacing:.5px; }
   .mail-bar .mail-date { margin-left:auto; color:#6b7688; font-size:12.5px; letter-spacing:.5px; }
-  .mail-body { padding:18px; background:#fff; }
+  .mail-body { padding:18px; background:#0B1220; }
   /* 11 미리보기 — 항상 '의도적으로 잘린 미리보기' 상태만 있고(펼치기 없음),
      전체를 보려면 실제 최신 발송본(latest.html)으로 이동한다(2026-07-18 개편).
      페이드를 더 길고 다단계로 만들어 텍스트가 갑자기 끊기지 않고 자연스럽게 흐려지게 한다.
-     종착색은 mail-frame이 흰색이 됐으므로 흰색으로 맞춘다(뉴스레터 자체의 연회색
-     본문 배경은 이메일 템플릿 고유 색이라 건드리지 않는다 — 이 fade는 미리보기
-     프레임 색과의 이음매만 감춘다). */
+     2026-08-11(TASK_ID=MERGE_PR14_AND_START_MOOCONOMY_WEB_ARCHIVE_SHARE): latest.html이
+     구형 라이트 템플릿에서 실제 발송되는 V2 다크 에디토리얼(#0B1220 캔버스)로
+     바뀌면서, 흰색 종착색 fade가 다크 콘텐츠 위에서 탁한 회청색으로 보이는
+     문제가 있었다 — mail-body 배경과 fade 종착색을 전부 뉴스레터 실제 캔버스
+     색(#0B1220)으로 맞춘다. mail-frame(흰 브라우저 모의 UI)·mail-bar(제목줄)는
+     기존 그대로 — "밝은 브라우저 프레임 안의 다크 웹페이지"라는 은유는 유지. */
   .letter-wrap { position:relative; max-height:520px; overflow:hidden; border-radius:var(--radius-card); }
   .letter-wrap iframe { width:100%; height:1600px; border:0; display:block; pointer-events:none; }
   .letter-fade { position:absolute; left:0; right:0; bottom:0; height:220px; pointer-events:none;
-    background:linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,.35) 30%, rgba(255,255,255,.75) 60%, rgba(255,255,255,.96) 85%, #fff 100%); }
+    background:linear-gradient(to bottom, rgba(11,18,32,0) 0%, rgba(11,18,32,.35) 30%, rgba(11,18,32,.75) 60%, rgba(11,18,32,.96) 85%, #0B1220 100%); }
   .expand-btn {
     display:flex; align-items:center; justify-content:center; gap:6px;
     margin:18px auto 4px; padding:11px 30px; background:var(--gold);
@@ -1179,6 +1182,7 @@
         <li><a onclick="switchView('home', 'marketMetricsCard')" class="nav-link" id="gnb-metrics-btn">MOO: 지표</a></li>
         <li><a href="/questions/" class="nav-link">MOO:Q 검증</a></li>
         <li><a href="/latest.html" class="nav-link">MOO: 리포트</a></li>
+        <li><a href="/archive/" class="nav-link">MOO: 지난호</a></li>
         <li><a href="/methodology/" class="nav-link">MOO: 철학</a></li>
       </ul>
       <a class="nav-cta" onclick="switchView('home', 'subscribe')" aria-label="MOO:conomy 뉴스레터 무료 구독">MOO:conomy 무료 구독</a>
@@ -1966,7 +1970,15 @@
     // 달리 뷰 이름 없이 앵커 id만 온다 — 화이트리스트에 있는 정적 앵커일
     // 때만 홈 뷰로 라우팅해서 알 수 없는 해시값이 우연히 앵커로 오인되지
     // 않게 한다.
-    var _BARE_HOME_ANCHORS = ['moo-q-check'];
+    // 2026-08-11(TASK_ID=FINAL_WEB_BROWSER_VERIFICATION_BEFORE_LOCAL_COMMIT):
+    // 'latest'(11 / LATEST ISSUE 섹션, id="latest") 추가 — 실브라우저 검증 중
+    // 외부 링크가 "#latest" 단독 해시로 진입하면(예: switchView()를 거치지
+    // 않는 북마크·외부 링크) routeFromHash()가 이를 인식 못 해 홈 맨 위로만
+    // 이동하고 실제 섹션으로 스크롤하지 않는 문제를 발견해 화이트리스트에
+    // 등록한다(같은 파일 1424행의 "최신호" 링크는 switchView('home','latest')를
+    // 직접 호출해 원래도 정상 동작했음 — 이 수정은 그 경로를 거치지 않는
+    // 외부 진입만 보강한다).
+    var _BARE_HOME_ANCHORS = ['moo-q-check', 'latest'];
 
     function routeFromHash() {
       var h = (location.hash || '').replace('#', '');
