@@ -3,933 +3,1254 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="x-apple-disable-message-reformatting">
 <title>Daily MOO:conomy</title>
-<link rel="canonical" href="https://mooconomy.co.kr/issues/2026-08-11.html">
-<meta property="og:type" content="article">
-<meta property="og:title" content="엔비디아 대규모 자금 조달">
-<meta property="og:description" content="코스닥 6.97% 폭등 속 원/달러 환율 1417.67원 상승">
-<meta property="og:url" content="https://mooconomy.co.kr/issues/2026-08-11.html">
-<meta property="og:image" content="https://raw.githubusercontent.com/immusaeng/mooconomy-assets/main/og_mooconomy_v2.png">
 <style>
-  /* 다크 에디토리얼 뉴스레터 — table/block만 사용, JS·외부 폰트·이미지·
-     flex·grid 없음. 바깥 프레임은 밝게, 실제 뉴스레터 캔버스만 다크
-     네이비로 렌더한다.
+  /* ══════════ Navy/Gold 프로덕션 디자인 시스템 — 2026-07-22 자율 재설계 라운드.
+     body의 Jinja 섹션·조건부 렌더링·문구·URL·데이터 바인딩은 이전 프로덕션과
+     동일하게 유지하되, (1) 섹션 순서를 사용자 흐름 우선순위로 재배치하고
+     (2) 시장 온도 막대+마커, 연결고리 흐름, 일정(지난/예정) 3개 섹션을 신설했다.
+     골드 색상은 기존 브랜드 골드 #f5b301을 그대로 유지한다. */
+  body { font-family:Pretendard,-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif; background:#f5f6f8; color:#1f2937; margin:0; padding:20px; -webkit-text-size-adjust:100%; text-size-adjust:100%; }
+  .wrap { max-width:1000px; margin:0 auto; background:#fff; padding:0 0 30px; border-radius:8px; box-shadow:0 1px 6px rgba(0,0,0,.1); overflow:hidden; }
+  .top { background:#001026; color:#fff; padding:24px 28px 20px; border-bottom:3px solid #f5b301; }
+  .top .brand-table { border-collapse:collapse; }
+  .top .brand-text { font-family:Pretendard,-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif; font-size:26px; font-weight:800; letter-spacing:-0.5px; line-height:1; color:#ffffff; }
+  .top .brand-colon { color:#f5b301; }
+  .top .brand-edition { font-size:12px; font-weight:700; color:#a8c0e0; letter-spacing:.02em; vertical-align:middle; margin-right:2px; }
+  .top .tagline { font-size:13px; color:#a8c0e0; margin-top:10px; letter-spacing:.3px; }
+  .top .date { font-size:12px; font-weight:400; line-height:1.45; color:#a8c0e0; margin-top:4px; }
+  .inner { padding:0 28px; }
 
-     일반 클라이언트: .wrap은 유동폭(width:100%)이며 데스크톱에서만
-     max-width:760px으로 상한을 둔다. Outlook(Windows) 전용 고정폭은
-     본문의 MSO 조건부 주석(<!--[if mso]>...<![endif]-->) wrapper
-     안에서만 처리하며, 그 밖에서는 고정폭을 쓰지 않는다. */
-  body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',Arial,sans-serif; background:#F2F3F5; color:#E8ECF3; margin:0; padding:0; -webkit-text-size-adjust:100%; text-size-adjust:100%; line-height:1.55; font-size:13px; }
-  .outer-pad { padding:28px 16px; }
-  .wrap { width:100%; max-width:760px; margin:0 auto; background:#0B1220; border-radius:12px; }
-  .inner { padding:0 17px; }
-  @media (max-width:780px) {
-    .wrap { width:100% !important; max-width:100% !important; border-radius:0 !important; }
-    .outer-pad { padding:14px 8px !important; }
+  /* 핵심지표 카드 — 정확히 6개, 3열×2행(데스크톱)/2열×3행(모바일 미디어쿼리에서 재정의) */
+  .strip { width:100%; border-collapse:separate; border-spacing:8px; margin:16px -6px; table-layout:fixed; }
+  .strip .cell { width:20%; box-sizing:border-box; text-align:center; padding:12px; border:1px solid #E4E8EE; border-radius:12px; background:#fff; vertical-align:middle; min-height:86px; }
+  .strip .lbl { font-size:12px; font-weight:700; color:#64748B; margin-bottom:6px; white-space:nowrap; }
+  .strip .val { font-size:18px; font-weight:800; color:#0b2545; white-space:nowrap; font-variant-numeric:tabular-nums; }
+  .strip .chg { font-size:12px; font-weight:700; margin-top:4px; white-space:nowrap; font-variant-numeric:tabular-nums; }
+  .up { color:#D93636; font-weight:700; }
+  .down { color:#2E5EE5; font-weight:700; }
+  .flat { color:#666; }
+
+  /* 시장 온도 — 2026-07-22 브라우저 고도화 라운드: 대형 네이비 패널 → 밝은 Stitch형
+     상태 패널로 전환, 상승/하락(red/blue)과 겹치지 않는 파스텔 오렌지→회색→그린
+     축으로 색상 체계를 분리했다(상태명·본문 반복 표현 제거, 판단근거 최대 3개
+     bullet). 상태명·마커 위치는 여전히 동일한 label enum(5단계)에서만 계산한다
+     (내부 점수 노출 없음, [[market-temperature]] canonical 원칙 유지). */
+  .mt-panel { background:#fff; border:1px solid #E4E8EE; border-radius:12px; padding:16px 18px 15px; margin:14px 0 0; }
+  .mt-top { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px 12px; margin-bottom:11px; }
+  .mt-eyebrow { font-size:12px; font-weight:700; letter-spacing:.08em; color:#8a94a3; text-transform:uppercase; }
+  /* 2026-07-25: 상태 텍스트를 이 자리(우측 상단)가 아니라 막대 마커 위에
+     한 번만 표시한다(.mt-marker-label) — 중복 상태 문구 제거 확정 결정. */
+  .mt-marker-label { position:absolute; top:-22px; transform:translateX(-50%); font-size:13px; font-weight:700; color:#0b2545; white-space:nowrap; }
+  .mtl-active { color:#a3790a; font-weight:800; }
+  .mt-summary { font-size:14px; font-weight:700; line-height:1.60; color:#333; margin:0 0 12px; }
+  .mood-bar-wrap { position:relative; margin-top:6px; padding:0 2px; }
+  .mood-bar-marker { position:absolute; top:-3px; width:12px; height:12px; margin-left:-6px; border-radius:50%; background:#0b2545; border:2px solid #ffffff; box-shadow:0 0 0 1px #E4E8EE; }
+  /* 2026-07-25 확정 결정: 차트 주석 예외로 T1~T6 강제 대상에서 제외하되,
+     12px 최소 원칙과 400 굵기(주석은 강조 대상이 아님)로 정렬한다. */
+  .mood-bar-labels td { font-size:12px; color:#8a94a3; text-align:center; font-weight:400; padding-top:6px; letter-spacing:-.02em; line-height:1.45; word-break:keep-all; }
+  /* "강한위험선호"(6자)만 320px에서 글자 단위로 세로 줄바꿈되는 문제 실측 확인
+     (2026-07-23 SP1, Gmail 가독성 계약 §3-4) — 실제 캐노니컬 상태값·enum은
+     그대로 두고, 축(axis) 캡션 텍스트만 모바일 전용 축약 문구로 전환한다
+     (해당 텍스트는 5단계 눈금의 정적 라벨일 뿐 data.marketTemperature.label/
+     displayLabel과는 별개 필드 — 상단에 크게 표시되는 실제 상태명(mt-status)은
+     항상 전체 표기 그대로 유지된다). */
+  .mtl-short { display:none; }
+  .mt-reasons { list-style:none; margin:12px 0 0; padding:10px 0 0; border-top:1px solid #eceef1; display:flex; flex-wrap:wrap; gap:5px 16px; }
+  .mt-reasons li { font-size:13px; line-height:1.55; color:#5a6b82; padding-left:12px; position:relative; }
+  .mt-reasons li::before { content:''; position:absolute; left:0; top:6px; width:5px; height:5px; border-radius:50%; background:#f5b301; }
+    /* 오늘의 시장 한눈에 — 핵심 지표와 시장 온도를 하나의 상위 섹션으로 묶는다. */
+  .market-overview-title {
+    font-size:17px;
+    font-weight:800;
+    line-height:1.35;
+    color:#0b2545;
+    border-bottom:2px solid #0b2545;
+    padding-bottom:6px;
+    margin:28px 0 12px;
+  }
+  .metric-panel {
+    background:#FAFBFC;
+    border:1px solid #E4E8EE;
+    border-radius:12px;
+    padding:14px 14px 10px;
+    margin:12px 0;
+  }
+  .metric-heading {
+    font-size:12px;
+    font-weight:700;
+    color:#0b2545;
+    letter-spacing:.04em;
+    margin:0 2px 8px;
+  }
+  .metric-note {
+    font-size:12px;
+    line-height:1.45;
+    color:#8a94a3;
+    text-align:center;
+    margin:7px 2px 2px;
+  }
+  .metric-panel .strip {
+    width:100%;
+    margin:7px 0;
+  }
+  .headline { font-size:14px; font-weight:700; color:#0b2545; border-left:4px solid #0b2545; padding:8px 14px; margin:18px 0; line-height:1.60; word-break:keep-all; overflow-wrap:break-word; }
+
+  /* 오늘의 3줄 — GLOBAL/KOREA/MOO:VIEW 역할 라벨(2026-07-22, llm.py가 이미 이
+     순서로 고정). 데스크톱·모바일 동일 DOM(flex행: 라벨칩+문장), 라벨 폭만
+     --d3-lw 변수로 화면폭별 전환(desktop 76px 넓은 칩, mobile 56px 축약) —
+     실제 복구된 Stitch mobile sandbox(mooconomy-design-sandbox-2026-07-22/
+     mobile/sandbox.css)의 .d3-label 패턴을 그대로 채택했다(합성 대안 A/B/C/D
+     스코어링 대신 실제 참고자료를 우선 사용, 정정 지시 §1의 우선순위 1번 근거). */
+  :root { --d3-lw:76px; }
+  .summary { background:#F3F4F5; border-radius:12px; padding:6px 16px; margin:12px 0; }
+  /* 2026-07-25 확정 결정: L1_LABEL로 확정(카드 내부 라벨, T1 풀사이즈 아님). */
+  .summary .sm-lbl { font-size:12px; font-weight:700; color:#0b2545; letter-spacing:.5px; margin:10px 0 2px; padding-left:8px; border-left:3px solid #f5b301; }
+  .d3-row { display:flex; align-items:flex-start; gap:12px; padding:12px 0; }
+  .d3-row + .d3-row { border-top:1px solid #e3e6ea; }
+  .d3-label { flex:0 0 var(--d3-lw); width:var(--d3-lw); box-sizing:border-box; text-align:center; padding:3px 4px; background:#0b2545; color:#fff; font-size:12px; font-weight:700; letter-spacing:.03em; border-radius:4px; margin-top:3px; }
+  .d3-label.mv { background:#f5b301; color:#0b2545; }
+  .d3-text { flex:1; min-width:0; font-size:14px; font-weight:700; line-height:1.60; color:#1f2937; margin:0; }
+
+  /* 개장 전 관전포인트 / 체크포인트 — eyebrow 라벨 + 4px 액센트로 카드 두 유형을
+     시각적으로 구분(2026-07-22 강화, 기존엔 얇은 보더 하나뿐이었음) */
+  .insight { border:1px solid #E4E8EE; border-left:4px solid #f5b301; background:#FAFBFC; padding:12px 14px; margin:8px 0; border-radius:0 10px 10px 0; }
+  .insight .i-title { font-size:15px; font-weight:700; line-height:1.45; color:#0b2545; margin-bottom:4px; }
+  .insight .i-detail { font-size:14px; line-height:1.65; color:#444; }
+  /* 관전포인트 3단 구조(2026-07-22 리메디에이션) — 섹션 헤더(h3)가 이미 한 번만
+     노출되므로 항목별 반복 eyebrow는 제거하고, 필드 라벨만 항목별로 붙인다. */
+  .insight .i-field-lbl { display:inline-block; font-size:12px; font-weight:700; letter-spacing:.05em; color:#a3790a; text-transform:uppercase; margin-right:8px; min-width:56px; vertical-align:top; }
+  .insight .i-target { font-size:15px; font-weight:700; line-height:1.45; color:#0b2545; margin-bottom:6px; }
+  .insight .i-cond, .insight .i-impact { font-size:13px; line-height:1.55; color:#444; margin-top:4px; }
+  .insight .i-cond .i-field-lbl, .insight .i-impact .i-field-lbl { color:#8a94a3; }
+  /* 공시·실적 근거 메타(2026-07-22) — 실제 데이터가 있는 필드만 표시(count/asOf),
+     추정 금지. data.공시가 없으면 이 줄 자체를 숨긴다(템플릿 조건부). */
+  .insight .fi-meta { font-size:12px; line-height:1.45; color:#8a94a3; margin-top:8px; padding-top:6px; border-top:1px dashed #E4E8EE; }
+  .cp { border:1px solid #E4E8EE; border-left:4px solid #0b2545; padding:12px 14px; margin:8px 0; border-radius:0 10px 10px 0; background:#fff; }
+  .cp .cp-eyebrow { font-size:12px; font-weight:700; letter-spacing:.06em; color:#5a6b82; text-transform:uppercase; margin-bottom:5px; }
+  .cp .cp-head { font-size:15px; font-weight:700; color:#0b2545; margin-bottom:4px; }
+  .cp .cp-date { display:inline-block; background:#0b2545; color:#fff; font-size:12px; border-radius:3px; padding:2px 7px; margin-right:6px; font-weight:600; }
+  .cp .cp-watch { font-size:15px; line-height:1.6; color:#444; }
+  .cp .cp-watch b { color:#1565c0; }
+  /* 체크포인트 재정의(2026-07-22) — 이슈·조건·기준일 3단 구조.
+     기존 issue=관전대상, watch=확인조건, date=관련사실(기준일) 필드를 그대로
+     재라벨링만 한다(신규 필드·LLM 호출 없음).
+     2026-07-25 타이포그래피 v1.0 적용: cp-fact 클래스 하나가 관전대상(T4)·
+     확인조건(T5)·기준일(T6) 세 역할을 동시에 담당하고 있어(docs/
+     MOO_TYPOGRAPHY_MAPPING.md SPLIT_REQUIRED) 역할별 하위 선택자로 분리한다.
+     기본 .cp-fact는 하위 선택자가 없을 때의 안전한 폴백(T4 값)으로 유지. */
+  .cp .cp-f-lbl { display:block; font-size:12px; font-weight:700; letter-spacing:.05em; color:#8a94a3; text-transform:uppercase; margin:8px 0 2px; }
+  .cp .cp-f-lbl:first-of-type { margin-top:0; }
+  .cp .cp-fact { font-size:14px; line-height:1.65; color:#444; }
+  .cp .cp-fact.cp-fact-condition { font-size:13px; line-height:1.55; }
+  .cp .cp-fact.cp-fact-date { font-size:12px; line-height:1.45; }
+
+  /* MOO:VIEW · 오늘의 시선(2026-07-22 신설) — Daily 3의 GLOBAL/KOREA 두 줄과
+     관전포인트 첫 항목을 사실/해석/확인 3단으로 확장한다. 새 사실을
+     지어내지 않고 이미 존재하는 canonical 필드(data.글로벌/data.국내 수치,
+     c.three_line_summary, c.today_focus)를 renderer._build_moo_view()가
+     재구성만 한다 — LLM 신규 호출 없음. */
+  .moo-view { border:1px solid #E4E8EE; border-radius:12px; background:#fff; margin:12px 0; overflow:hidden; }
+  .mv-row { padding:13px 16px; }
+  .mv-row + .mv-row { border-top:1px solid #eceef1; }
+  .mv-tag { display:inline-block; font-size:12px; font-weight:700; letter-spacing:.05em; background:#0b2545; color:#fff; padding:3px 9px; border-radius:4px; margin-bottom:8px; }
+  .mv-tag.mv-accent { background:#f5b301; color:#0b2545; }
+  .mv-f { display:flex; gap:8px; margin-top:5px; }
+  .mv-f:first-of-type { margin-top:0; }
+  .mv-f-lbl { flex:0 0 60px; font-size:12px; font-weight:700; color:#8a94a3; letter-spacing:.03em; padding-top:1px; }
+  /* 2026-07-25 타이포그래피 v1.0 적용: mv-f-txt 하나가 사실(T4)·해석(T3)·
+     확인(T5) 세 역할을 겸하고 있어(docs/MOO_TYPOGRAPHY_MAPPING.md
+     SPLIT_REQUIRED) 부모 .mv-f 종류별로 크기를 분리한다. 기본값은 "사실"
+     행의 T4, .mv-interp(해석)는 T3, .mv-check(확인)는 T5. */
+  .mv-f-txt { flex:1; min-width:0; font-size:14px; line-height:1.65; color:#333; }
+  .mv-f.mv-interp .mv-f-txt { font-size:14px; line-height:1.60; color:#0b2545; font-weight:700; }
+  .mv-f.mv-check .mv-f-txt { font-size:13px; line-height:1.55; }
+
+  /* MOO:Q / MOO:CHECK */
+  .mooq { background:#0B2545; border-radius:12px; padding:16px 16px; margin:12px 0; overflow:hidden; }
+  .moocheck { background:#F3F4F5; border:1px solid #E4E8EE; border-radius:12px; padding:16px; margin:12px 0; overflow:hidden; }
+  .moocheck-compact { font-size:13px; font-weight:700; color:#8a94a3; text-align:left; margin:6px 2px 14px; padding:0; }
+  /* 2026-07-25 확정 결정: L1_LABEL로 확정(카드 내부 라벨, T1 풀사이즈 아님). */
+  .mooq-lbl { font-size:12px; font-weight:700; color:#f5b301; letter-spacing:.5px; margin-bottom:9px; }
+  .moocheck .mooq-lbl { color:#0b2545; padding-left:0; border-left:none; }
+  .mooq-item { margin:9px 0; padding-top:9px; border-top:1px solid rgba(255,255,255,.12); }
+  .moocheck .mooq-item { border-top:1px solid rgba(0,0,0,.06); }
+  .mooq-item:first-of-type { margin-top:0; padding-top:0; border-top:none; }
+  .mooq-question { font-size:15px; font-weight:700; color:#fff; line-height:1.45; word-break:keep-all; overflow-wrap:break-word; margin-bottom:6px; }
+  .mooq-text { font-size:15px; font-weight:700; color:#0b2545; line-height:1.45; word-break:keep-all; overflow-wrap:break-word; margin-bottom:4px; }
+  .mooq-why { font-size:13px; color:rgba(255,255,255,.78); line-height:1.55; word-break:keep-all; overflow-wrap:break-word; margin-bottom:4px; }
+  .mooq-meta { font-size:12px; color:rgba(255,255,255,.5); line-height:1.45; word-break:keep-all; overflow-wrap:break-word; }
+  .moocheck .mooq-meta { color:#6b7280; }
+  .mooq-totals { font-size:13px; font-weight:700; color:#3a4a5c; margin-top:10px; padding-top:10px; border-top:1px solid rgba(11,37,69,.08); }
+  .mooq-disclaimer { font-size:12px; color:rgba(255,255,255,.45); line-height:1.45; margin-top:12px; }
+
+  /* 연결고리 흐름(2026-07-22 신설) — data.connection을 최초로 실제 렌더링 */
+  /* 연결고리 흐름을 홈페이지 매너앤톤으로 이식(2026-07-22) — mooconomy-web #view-home의
+     .connection-node(밝은 카드+골드 좌측 액센트) 언어를 가져오되, 커넥터를
+     rail+dot 형태로 명시해 "독립된 4장 카드"가 아니라 하나의 흐름으로 인식되게
+     한다. 세로 rail은 데스크톱·모바일 공통(스펙 §10 "혼합 흐름 허용" 범위 내 —
+     HTML 이메일에서 flex-row 가로배치는 Outlook 등에서 깨질 위험이 있어 안전한
+     세로 통일을 택함, 대신 번호+eyebrow로 체인 진행을 명확히 표시). */
+  .sc-chain { position:relative; padding-left:26px; margin-top:4px; }
+  /* rail 색상 강화(2026-07-23) — 기존 #E4E8EE는 노드의 4px 골드 좌측 보더에
+     시선이 뺏겨 "연결선"으로 인지되기 어렵다는 실제 320/390/430px 스크린샷
+     육안 확인 결과에 따른 조정(색상만, 위치/두께 구조는 유지). */
+  .sc-rail { position:absolute; left:9px; top:10px; bottom:10px; width:3px; background:#aebccf; }
+  .sc-node { position:relative; border:1px solid #E4E8EE; border-left:4px solid #f5b301; border-radius:0 10px 10px 0; padding:11px 14px; margin:0 0 10px; background:#fff; }
+  .sc-node:last-child { margin-bottom:0; }
+  .sc-dot { position:absolute; left:-26px; top:15px; width:11px; height:11px; border-radius:50%; background:#0b2545; border:2px solid #fff; box-shadow:0 0 0 1px #E4E8EE; }
+  .sc-node:last-child .sc-dot { background:#f5b301; }
+  .sc-role { font-size:12px; font-weight:700; letter-spacing:.06em; color:#a3790a; text-transform:uppercase; margin-bottom:4px; }
+  .sc-label { font-size:15px; font-weight:700; line-height:1.45; color:#0b2545; margin-bottom:2px; word-break:keep-all; overflow-wrap:break-word; }
+  .sc-detail { font-size:13px; line-height:1.55; color:#444; font-variant-numeric:tabular-nums; word-break:keep-all; overflow-wrap:break-word; }
+  .sc-summary { border-left:4px solid #f5b301; background:#fff; border:1px solid #E4E8EE; padding:12px 14px; margin-top:6px; font-size:14px; font-weight:700; color:#0b2545; line-height:1.60; border-radius:0 10px 10px 0; word-break:keep-all; overflow-wrap:break-word; }
+  .sc-summary-lbl { font-size:12px; font-weight:700; color:#a3790a; text-transform:uppercase; letter-spacing:.06em; margin-bottom:4px; }
+  .sc-counter { border-left:3px solid #8a94a3; background:#fafbfc; padding:10px 14px; margin-top:8px; font-size:13px; color:#5a6b82; line-height:1.55; border-radius:0 8px 8px 0; word-break:keep-all; overflow-wrap:break-word; }
+  .sc-counter-lbl { font-size:12px; font-weight:700; color:#8a94a3; text-transform:uppercase; letter-spacing:.06em; margin-bottom:3px; }
+
+  h2 { font-size:17px; color:#0b2545; border-bottom:2px solid #0b2545; padding-bottom:6px; margin:28px 0 12px; }
+  /* 2026-07-25 확정 결정: 전수조사 결과 h3.sub 6곳 전부 상위 h2 섹션에 중첩된
+     "내부 이슈" 소제목이라 독립 섹션 사례가 없음 — T2로 통일한다. */
+  h3.sub { font-size:15px; font-weight:700; line-height:1.45; color:#d32f2f; margin:13px 0 6px; padding-left:8px; border-left:3px solid #d32f2f; }
+  h3.sub.gl { color:#1565c0; border-left-color:#1565c0; }
+  h3.sub.ntr { color:#0b2545; border-left-color:#0b2545; }
+
+  /* 뉴스 */
+  /* 2026-07-25 확정 결정: 기사 간 여백 축소. */
+  .news { border-bottom:1px solid #E9ECEF; padding:7px 4px; }
+  .news:last-child { border-bottom:none; }
+  .news .n-title { font-size:15px; font-weight:700; color:#0b2545; margin-bottom:4px; line-height:1.45; }
+  .news .n-body { font-size:14px; line-height:1.65; color:#333; }
+  .news .n-src { margin-top:6px; font-size:12px; }
+  /* 터치 타깃 44px 보장(2026-07-22): min-height+flex 정렬로 콘텐츠 길이와 무관하게
+     항상 44px 이상을 보장한다(이전엔 padding만으로 짧은 1줄 출처가 30~32px에
+     그쳐 터치 타깃 기준 미달이었음). */
+  .news .n-src a { color:#5a6b82; text-decoration:none; display:flex; align-items:center; flex-wrap:wrap; min-height:44px; padding:8px 0; margin:0; overflow-wrap:anywhere; word-break:break-word; max-width:100%; }
+  .news .n-src a:hover { text-decoration:underline; }
+  /* 출처 배지 축소(2026-07-22) — 본문보다 커 보이던 회색 박스를 얇은 텍스트+약한
+     pill로 축소. 터치 영역은 배지가 아니라 <a> 행 전체(위 min-height:44px)가
+     이미 담당하므로 배지 자체 높이는 줄여도 무방하다. */
+  .news .n-src .paper { display:inline-block; background:transparent; color:#5a6b82; border:1px solid #E4E8EE; border-radius:3px; padding:0 5px; margin-right:6px; font-weight:400; font-size:12px; line-height:16px; }
+  .news .n-src .src-date { display:inline-block; color:#8a94a3; font-size:12px; margin-right:6px; font-weight:400; }
+
+  .cp, .insight { }
+  table { width:100%; border-collapse:collapse; margin:6px 0; font-size:13px; line-height:1.55; }
+
+  /* 미국 실적 캘린더 모바일 카드(2026-07-22 리메디에이션) — 데스크톱은 기존
+     6열 표(.earn-table) 그대로 유지, 모바일(≤600px)에서만 회사당 2행 카드형
+     .earn-mobile로 전환한다(CSS display 토글, 필드 생략 없음). */
+  .earn-mobile { display:none; }
+  .earn-card { border:1px solid #E4E8EE; border-radius:12px; background:#fff; padding:10px 12px; margin:8px 0; box-sizing:border-box; overflow:hidden; }
+  .earn-row1 { display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:6px; font-size:14px; }
+  .earn-co { font-weight:700; color:#0b2545; min-width:0; word-break:break-word; overflow-wrap:anywhere; flex:1 1 auto; }
+  .earn-tk { color:#8a94a3; font-size:13px; font-weight:400; margin-left:2px; word-break:break-word; overflow-wrap:anywhere; }
+  .earn-dt { color:#5a6b82; font-size:13px; font-variant-numeric:tabular-nums; word-break:keep-all; overflow-wrap:break-word; }
+  .earn-row2 { display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:6px; margin-top:6px; padding-top:6px; border-top:1px solid #eceef1; font-size:13px; color:#333; }
+  .earn-eps { color:#333; word-break:break-word; overflow-wrap:anywhere; }
+  .earn-status { font-weight:700; white-space:nowrap; }
+  th, td { border-bottom:1px solid #eceef1; padding:7px 7px; text-align:left; }
+  th { background:#f0f3f7; color:#0b2545; font-weight:600; border-bottom:1px solid #d3d8de; }
+  td.num, th.num { text-align:right; }
+  .key { background:#eef4fb; color:#0b2545; border-left:3px solid #1565c0; padding:7px 9px; font-size:13px; line-height:1.55; margin:6px 0; }
+  .analysis { background:#FAFBFC; border:1px solid #E4E8EE; border-radius:10px; padding:9px 13px; margin:6px 0; }
+  .analysis .a-lbl { font-size:12px; color:#8a94a3; font-weight:700; margin-bottom:4px; letter-spacing:.5px; }
+  .analysis p { margin:0; font-size:14px; line-height:1.65; color:#444; }
+
+  /* 일정(지난/예정, 2026-07-22 신설) */
+  .sch-item { display:flex; align-items:baseline; gap:8px; border-bottom:1px solid #E9ECEF; padding:9px 2px; font-size:15px; }
+  .sch-item:last-child { border-bottom:none; }
+  .sch-date { flex:0 0 82px; color:#8a94a3; font-size:12px; font-weight:400; font-variant-numeric:tabular-nums; }
+  .sch-title { flex:1; color:#0b2545; font-weight:700; line-height:1.45; word-break:keep-all; overflow-wrap:break-word; }
+  .sch-result { color:#5a6b82; font-size:13px; font-weight:700; word-break:keep-all; overflow-wrap:break-word; }
+  .sch-recorded .sch-result { color:#1a7d36; font-weight:700; }
+  .sch-pending .sch-result { color:#8a94a3; font-weight:700; }
+  .sch-badge { background:#f5b301; color:#0b2545; font-size:12px; font-weight:700; padding:2px 7px; border-radius:8px; white-space:nowrap; }
+  .sch-high .sch-title { font-weight:800; }
+
+  /* 리스크 */
+  .risk { background:#FDF2F2; border:1px solid #F5D6D6; border-left:3px solid #d32f2f; padding:11px 14px; border-radius:0 10px 10px 0; }
+  .risk li { color:#a01818; margin:4px 0; font-size:14px; line-height:1.65; }
+  .comment { background:#0b2545; color:#fff; padding:13px 16px; border-radius:10px; font-weight:700; font-size:14px; margin:10px 0; line-height:1.60; }
+  .comment-note { font-size:12px; color:#8a94a3; line-height:1.45; margin:6px 2px 0; }
+  .claims-teaser-counts { font-size:13px; color:#0b2545; margin:6px 0 4px; }
+  .claims-hit { color:#1a7d36; font-weight:800; }
+  .claims-miss { color:#c62828; font-weight:800; }
+  .claims-neutral { color:#5a6b82; font-weight:800; }
+
+  /* 전체 출처(2026-07-22) — 항목 삭제·축약 없이 카테고리+출처를 한 행에 배치해
+     세로 길이만 줄인다(스펙 §16, 리스트는 그대로 유지). */
+  .src-list { text-align:left; margin:6px 0 0; }
+  .src-row { display:flex; flex-wrap:wrap; gap:2px 6px; padding:4px 0; font-size:12px; line-height:1.45; color:#5a6b82; }
+  .src-row .f-cat { flex:0 0 76px; font-weight:700; color:#0b2545; }
+  /* A1_LINK — 2026-07-25 타이포그래피 v1.0 적용: 이전엔 행동 링크가 전부
+     인라인 style로만 존재해 선택자 단위 변경이 불가능했다(docs/
+     MOO_TYPOGRAPHY_MAPPING.md). 공식 A1 토큰(13px/700)을 위한 클래스를
+     신설하고, 아래 CTA·푸터의 각 링크에 적용한다. */
+  .a1-link { font-size:13px; font-weight:700; }
+
+  /* MOO:conomy 구독 CTA(2026-07-22 신설) — 출처 목록과 법적고지/수신거부 사이에
+     독립 브랜드 블록. 기존 무료구독 URL(#home/subscribe) 그대로 재사용, 신규
+     URL 없음. 황소·외부이미지 없이 텍스트 워드마크만 사용. */
+  .cta-block { background:#0B2545; border-radius:12px; padding:22px 20px; margin:22px 0 16px; text-align:center; }
+  .cta-block .cta-brand { font-size:20px; font-weight:800; color:#fff; letter-spacing:-.3px; margin-bottom:8px; }
+  .cta-block .cta-brand .cta-colon { color:#f5b301; }
+  .cta-block .cta-copy { font-size:13px; color:rgba(255,255,255,.75); line-height:1.55; margin-bottom:16px; }
+  .cta-block .cta-btn { display:inline-block; min-height:44px; line-height:44px; padding:0 22px; background:#f5b301; color:#0b2545; font-size:13px; font-weight:700; text-decoration:none; border-radius:6px; }
+
+  /* Footer */
+  .footer { color:#8a94a3; font-size:12px; margin-top:10px; border-top:1px solid #e3e6ea; padding-top:9px; line-height:1.45; text-align:center; }
+  .footer .f-head { font-size:12px; font-weight:700; color:#5a6b82; margin-bottom:6px; }
+  .sign { margin-top:6px; font-size:13px; letter-spacing:1px; color:#5a6b82; }
+  .sign b { color:#0b2545; letter-spacing:2px; }
+  .sign .moo { color:#f5b301; }
+  /* 2026-07-25 확정 결정: T1~T6 강제 대상이 아닌 "챕터 내비게이션 컴포넌트"
+     예외로 문서화(PART 1/2 구분 — 여러 h2 섹션을 묶는 T1보다 상위 위계라
+     같은 격자에 억지로 편입하지 않는다). 값은 기존 그대로 유지. */
+  .band { background:#001026; color:#f5b301; font-size:13px; font-weight:700; padding:8px 14px; border-radius:6px; margin:18px 0 8px; letter-spacing:.5px; }
+
+  /* ══════════ 모바일 반응형 (600px 이하) ══════════ */
+  /* 주의: mailer.py의 css_inline이 데스크톱 기본 규칙만 각 요소의 style=""로
+     인라인 처리하고 미디어쿼리는 <style>에 그대로 남겨둔다. 인라인 style은
+     !important 없는 한 <style> 안의 어떤 규칙보다도 항상 이기므로, 데스크톱
+     값과 겹치는 속성에 !important를 안 붙이면 이 블록 자체가 무력화된다.
+     앞으로 이 블록에 규칙을 추가/수정할 때도 반드시 !important를 기본으로 붙일 것. */
+  @media (max-width:600px) {
+    :root { --d3-lw:56px !important; }
+    html, body { margin: 0 !important; padding: 0 !important; }
+    body { background: #fff !important; }
+    .wrap { border-radius: 0 !important; box-shadow: none !important; border: none !important; }
+
+    .top { padding:14px 16px 12px !important; }
+    .top .brand-text { font-size:24px !important; }
+    .top .brand-edition { font-size:11px !important; }
+    .top .tagline { font-size:11.5px !important; }
+
+    .inner { padding:0 16px !important; }
+
+    /* 핵심지표: 2열×3행(스펙 4.4) — table/tr을 block으로 풀고 td를 inline-block
+       47%로 만들어 6개가 2개씩 3줄로 흐르게 한다(도이 프로젝트가 이미 07/08
+       홈페이지 카드에서 쓰던 것과 동일한 반응형 테이블 기법). */
+    .strip { width:100% !important; margin:10px 0 !important; border-spacing:0 !important; }
+    .strip, .strip tbody, .strip tr { display:block !important; width:100% !important; }
+    .strip .cell {
+      display:inline-block !important;
+      width:47% !important;
+      border:1px solid #E4E8EE !important;
+      border-radius:10px !important;
+      padding:9px !important;
+      text-align:center !important;
+      vertical-align:top !important;
+      min-height:0 !important;
+      margin:1.5% 1% !important;
+      box-sizing:border-box !important;
+    }
+    .strip .lbl { font-size:12px !important; margin-bottom:4px !important; }
+    /* 숫자·등락률 겹침 방지(2026-07-23 SP1, Gmail 가독성 계약 §4) — 기존
+       base 규칙(28~29행)의 white-space:nowrap이 카드 폭(47%, box-sizing:
+       border-box라 자체 붕괴는 없지만)보다 긴 값이 들어오면 줄바꿈 없이
+       카드 밖으로 흘러넘쳐 옆 카드와 겹칠 위험이 있었다. 모바일에서만
+       줄바꿈을 허용해 항상 카드 내부에 담기게 한다(원본 값·formatter는
+       그대로, 표시 줄바꿈만 허용 — 데이터 변경 아님). */
+    .strip .val { font-size:18px !important; white-space:normal !important; word-break:break-word !important; }
+    .strip .chg { font-size:12px !important; white-space:normal !important; }
+
+    /* 일반 데이터 테이블 좌쏠림 제거 및 100% 가로 밀착 — .earn-table은 바로
+       아래 규칙에서 별도로(카드형 전환을 위해 display:none) 다루므로 여기서는
+       명시적으로 제외한다(2026-07-23 수정). 제외하지 않으면 :not(.strip)의
+       특이도(0,2,1)가 .earn-table 단독 선택자의 특이도(0,1,0)보다 높아, 두
+       규칙이 똑같이 !important를 써도 이 규칙의 display:table이 아래
+       .earn-table의 display:none을 이겨버려 표와 카드가 동시에 렌더되는
+       실제 회귀가 있었다(320~430px, 이메일 인라인 렌더에서도 동일 재현). */
+    .sec table:not(.strip):not(.earn-table) {
+      display: table !important;
+      width: 100% !important;
+      table-layout: fixed !important;
+      margin: 12px 0 !important;
+    }
+    .sec table:not(.strip):not(.earn-table) th,
+    .sec table:not(.strip):not(.earn-table) td {
+      white-space: normal !important;
+      word-break: keep-all !important;
+      overflow-wrap: break-word !important;
+      padding: 7px 5px !important;
+    }
+
+    /* 미국 실적표만 표(6열) 대신 카드형으로 전환 — 데이터 생략 없이 회사당
+       2행으로 재배치(2026-07-22 리메디에이션) */
+    .earn-table { display:none !important; }
+    .earn-mobile { display:block !important; }
+
+    .headline { font-size:14px !important; padding:8px 12px !important; margin: 12px -12px !important; line-height:1.60 !important; }
+    h2 { font-size:15px !important; margin: 20px 0 9px !important; }
+    .summary { margin: 10px 0 !important; padding: 10px 14px !important; }
+    .summary li { font-size:15px !important; line-height: 1.7 !important; padding: 9px 0 !important; }
+    /* Daily 3 모바일 라벨(2026-07-23 SP1, Gmail 가독성 계약 §3-2) — 데스크톱은
+       라벨+본문 인라인 배치를 그대로 유지하되, 모바일에서만 라벨을 본문 위
+       작은 배지로 올리고 본문이 카드 전체 폭을 쓰도록 세로로 쌓는다. 항목·
+       순서·문구는 전혀 바꾸지 않고 배치만 전환(데이터 계약 §5 유지). */
+    .d3-row { flex-direction:column !important; align-items:flex-start !important; gap:4px !important; padding:10px 0 !important; }
+    .d3-label { flex:0 0 auto !important; width:auto !important; display:inline-block !important; padding:3px 9px !important; margin-top:0 !important; }
+    .d3-text { width:100% !important; font-size:14px !important; }
+    .mooq, .moocheck { margin: 10px -12px !important; padding: 12px !important; border-radius: 0 !important; }
+    .mooq-question { font-size:15px !important; }
+    .mooq-text { font-size:15px !important; }
+    .news { padding: 9px 2px !important; }
+    .news .n-title { font-size:15px !important; }
+    .news .n-body { font-size:14px !important; line-height: 1.65 !important; }
+        .market-overview-title {
+      font-size:15px !important;
+      margin:20px 0 9px !important;
+    }
+    .metric-panel {
+      margin:10px -12px !important;
+      padding:12px 10px 9px !important;
+      border-radius:0 !important;
+      border-left:none !important;
+      border-right:none !important;
+    }
+    .metric-heading {
+      margin:0 4px 6px !important;
+    }
+    .metric-note {
+      font-size:12px !important;
+      margin:6px 4px 2px !important;
+    }
+    .mt-panel { margin:10px -12px 0 !important; border-radius:0 !important; border-left:none !important; border-right:none !important; padding:14px 12px !important; }
+    .mt-summary { font-size:14px !important; }
+    .mt-reasons { gap:4px 12px !important; }
+    .mood-bar-labels td { font-size:12px !important; }
+    .mtl-full { display:none !important; }
+    .mtl-short { display:inline !important; }
+    .moo-view { margin:10px -12px !important; border-radius:0 !important; border-left:none !important; border-right:none !important; }
+    .mv-row { padding:12px !important; }
+    .sc-chain { padding-left:22px !important; }
+    .sc-dot { left:-22px !important; }
+    .cta-block { margin:18px -12px 12px !important; border-radius:0 !important; }
+    .cta-block .cta-btn { display:block !important; }
+    .src-row .f-cat { flex-basis:100% !important; margin-bottom:2px !important; }
+    .insight { padding: 10px 12px !important; }
+    .insight .i-title { font-size:15px !important; }
+    .insight .i-detail { font-size:14px !important; line-height:1.65 !important; }
+    .insight .i-target { font-size:15px !important; }
+    .insight .i-cond, .insight .i-impact { font-size:13px !important; line-height:1.55 !important; }
+    .insight .i-field-lbl { display:block !important; margin-bottom:2px !important; }
+    .cp { padding: 10px 12px !important; }
+    .cp .cp-head { font-size:15px !important; }
+    .cp .cp-watch { font-size:14px !important; line-height:1.65 !important; }
+    .sc-node { padding: 10px 12px !important; }
+    .sc-label { font-size:15px !important; }
+    .sc-detail { font-size:13px !important; }
+    .sc-summary { padding: 10px 12px !important; font-size:14px !important; }
+    .sch-item { flex-wrap:wrap !important; padding:8px 2px !important; }
+    .sch-date { flex:0 0 100% !important; margin-bottom:2px !important; }
+    .key { padding: 6px 8px !important; }
+    .analysis { padding: 8px 11px !important; }
+    .comment { font-size:14px !important; padding: 12px 14px !important; }
+    .band { margin: 16px -12px 8px !important; font-size: 12px !important; padding: 6px 12px !important; border-radius: 0 !important; }
   }
 
-  /* ===== 01. DARK MASTHEAD ===== */
-  .fx-mh { padding:18px 0 2px; }
-  .fx-mh-table { width:100%; border-collapse:collapse; }
-  .fx-brand { font-size:20px; font-weight:800; color:#E8ECF3; }
-  .fx-brand .g { color:#F2C94C; }
-  .fx-status { text-align:right; }
-  .fx-status-chip { display:inline-block; font-size:10.5px; font-weight:700; color:#F2C94C; background:rgba(242,201,76,.15); padding:3px 9px; border-radius:20px; }
-  .fx-mh-tagline { font-size:11.5px; font-weight:500; color:#95A2BA; line-height:1.5; margin-top:7px; word-break:keep-all; }
-  .fx-mh-pubdate { font-size:9.5px; font-weight:500; color:#6B7A99; margin-top:8px; }
-  .fx-mh-sub { font-size:10.5px; font-weight:600; color:#7C8AA5; letter-spacing:.03em; margin-top:3px; }
-
-  /* 공용 section 라벨(모듈 섹션용, gold caps) */
-  .fx-label { font-size:11.5px; font-weight:800; color:#F2C94C; letter-spacing:.08em; margin:26px 0 12px; text-transform:uppercase; word-break:keep-all; overflow-wrap:break-word; }
-  .fx-label.first { margin-top:4px; }
-
-  /* ===== 02. MORNING THESIS — 카드 없는 독립 편집 영역, 절제된 헤드라인(축소) ===== */
-  .fx-mt { padding:2px 0 8px; }
-  .fx-mt-label { font-size:10px; font-weight:800; color:#F2C94C; letter-spacing:.12em; text-transform:uppercase; margin-bottom:9px; }
-  .fx-mt-headline { font-size:18px; font-weight:700; color:#F4F6FA; line-height:1.35; letter-spacing:-.2px; word-break:keep-all; overflow-wrap:break-word; max-height:3.6em; overflow:hidden; }
-  .fx-mt-rule { height:1px; background:rgba(124,138,165,.22); margin-top:15px; }
-  @media (min-width:701px) {
-    .fx-mt-headline { font-size:21px !important; max-height:none !important; }
+  /* ══════════ 데스크톱 연결고리 섹션 가로 rail(2026-07-23) ══════════
+     주의: 이 주석 블록은 조건부 렌더링 밖(<style> 안, data.connection 유무와
+     무관하게 항상 출력)이므로 영문 브랜드 문구를 리터럴로 쓰면 안 됨 — 과거
+     라운드에서 같은 실수(주석에 남은 문자열이 test_no_connect_markup_when_none을
+     항상 실패시킴)가 반복된 적이 있어 여기서는 한글 명칭만 사용한다.
+     사용자 확정사항 §5 "데스크톱은 가로 rail 구조를 유지한다"에 따라 900px
+     이상(=.wrap의 실제 렌더 폭이 max-width:1000px에 근접하는 지점)에서만 활성화.
+     세로 rail+dot 구조(위 base 규칙)는 그대로 두고 건드리지 않는다 — 이 구조는
+     media query를 지원하지 않는 구형 이메일 클라이언트(Outlook 데스크톱 등)의
+     안전한 폴백으로 계속 쓰인다. 노드 마크업(data-role/label/detail)과 데이터
+     순서는 전혀 변경하지 않고, 순수 CSS로 세로→가로만 전환한다. rail/dot은
+     가로 버전에서 숨기고, 대신 각 노드 사이에 화살표 커넥터(::after)를 넣는다
+     — 얇은 rail 위에 dot을 정확히 겹치도록 좌표를 맞추는 것보다 훨씬 안정적이고
+     시인성이 높다(이 방식도 FIX-2의 "커넥터 시인성 강화" 요구를 데스크톱에서
+     함께 충족). ::after 규칙은 media query 안에 있어 mailer.py의 css_inline이
+     인라인 처리하지 않고 <style> 블록에 그대로 남기므로, 이 규칙을 지원하는
+     이메일 클라이언트에서만 적용되고 지원하지 않는 클라이언트는 세로 폴백을
+     그대로 본다(이 파일의 기존 반응형 이메일 패턴과 동일). */
+  @media (min-width:900px) {
+    .sc-chain { display:flex !important; align-items:stretch; gap:22px; padding-left:0 !important; padding-top:2px; }
+    .sc-rail { display:none; }
+    .sc-node { flex:1 1 0; min-width:0; margin:0 !important; }
+    .sc-dot { display:none; }
+    .sc-node:not(:last-child)::after {
+      content:"\2192";
+      position:absolute;
+      right:-19px;
+      top:50%;
+      transform:translateY(-50%);
+      font-size:18px;
+      font-weight:700;
+      color:#8a94a3;
+      line-height:1;
+    }
   }
-
-  /* ===== 03. TODAY 3 SIGNALS — 카드 아님, 컴팩트 inline row ===== */
-  .fx-t3-table { width:100%; border-collapse:collapse; margin-top:2px; }
-  .fx-t3-table td { padding:4px 0 5px; border-bottom:1px solid rgba(124,138,165,.12); }
-  .fx-t3-table tr.last td { border-bottom:none; }
-  .fx-t3-mark { width:18px; font-size:13px; font-weight:800; color:#F2C94C; }
-  .fx-t3-text { font-size:13px; font-weight:600; color:#E8ECF3; line-height:1.5; word-break:keep-all; overflow-wrap:break-word; }
-
-  /* ===== 04. MAIN 6 METRICS — 단일 3열×2행 테이블(모바일/데스크톱 공용) ===== */
-  .fx-mgrid { width:100%; border-collapse:separate; border-spacing:6px; margin:10px -6px 0; table-layout:fixed; }
-  .fx-mbox { box-sizing:border-box; background:#141C2E; border-radius:8px; padding:9px 8px; vertical-align:top; }
-  .fx-mlabel { font-size:9.5px; font-weight:700; color:#7C8AA5; letter-spacing:.02em; }
-  .fx-mvalue { font-size:18px; font-weight:800; color:#E8ECF3; margin-top:5px; font-variant-numeric:tabular-nums; white-space:nowrap; }
-  .fx-mvalue-missing { color:#4a5570; }
-  .fx-mchip { display:inline-block; font-size:10px; font-weight:700; padding:2px 7px; border-radius:20px; margin-top:6px; font-variant-numeric:tabular-nums; white-space:nowrap; }
-  .fx-mchip.up { background:rgba(255,107,107,.16); color:#FF6B6B; }
-  .fx-mchip.down { background:rgba(91,141,239,.16); color:#5B8DEF; }
-  .fx-mchip.flat { background:rgba(124,138,165,.16); color:#7C8AA5; }
-  .fx-asof { font-size:10.5px; color:#7C8AA5; margin:10px 2px 0; }
-  @media (max-width:400px) {
-    .fx-mvalue { font-size:17px !important; }
-    .fx-mvalue.fx-mvalue-fx { font-size:15.5px !important; }
-    .fx-mchip { font-size:9.5px !important; padding:2px 5px !important; }
-  }
-
-  /* ===== 05. MARKET TEMPERATURE — 신규 독립 섹션 ===== */
-  .fx-temp-card { background:#141C2E; border-radius:10px; padding:16px 15px; }
-  .fx-temp-status { font-size:14px; font-weight:750; color:#F4F6FA; }
-  .fx-temp-summary { word-break:keep-all;overflow-wrap:break-word;font-size:12.5px; color:#C7CEDB; line-height:1.55; margin-top:7px; }
-  .fx-temp-bar { width:100%; border-collapse:separate; border-spacing:3px 0; margin-top:14px; table-layout:fixed; }
-  .fx-temp-seg { height:6px; background:#2A3450; border-radius:3px; font-size:0; line-height:0; }
-  .fx-temp-seg.active { background:#F2C94C; }
-  .fx-temp-labels { width:100%; border-collapse:separate; border-spacing:3px 0; margin-top:6px; table-layout:fixed; }
-  .fx-temp-labels td { font-size:9.5px; color:#6B7A99; text-align:center; }
-  .fx-temp-labels td.active { color:#F2C94C; font-weight:700; }
-  .fx-temp-reasons { margin-top:13px; }
-  .fx-temp-reason-item { word-break:keep-all;overflow-wrap:break-word;font-size:12px; color:#95A2BA; line-height:1.5; margin-top:4px; }
-  .fx-temp-reason-item.up { color:#FF6B6B; }
-  .fx-temp-reason-item.down { color:#5B8DEF; }
-  .fx-temp-asof { font-size:10.5px; color:#7C8AA5; margin-top:12px; }
-
-  /* 시장 온도 미니 추이(최근 최대 5거래일, table/막대만 사용) */
-  .fx-temp-trend { width:100%; border-collapse:separate; border-spacing:4px 0; margin-top:14px; table-layout:fixed; }
-  .fx-temp-trend-col { text-align:center; }
-  .fx-temp-trend-bar-wrap { height:26px; }
-  .fx-temp-trend-lbl { font-size:9px; color:#6B7A99; margin-top:4px; }
-  .fx-temp-trend-lbl.today { color:#F2C94C; font-weight:700; }
-
-  /* ===== 06. MAIN STORY ===== */
-  .fx-story-h { font-size:19px; font-weight:750; color:#F4F6FA; line-height:1.32; margin-bottom:8px; word-break:keep-all; overflow-wrap:break-word; }
-  .fx-story-meta { font-size:10.5px; color:#7C8AA5; font-weight:600; margin-bottom:13px; }
-  .fx-story-fact-lbl { display:block; font-size:10px; font-weight:800; color:#95A2BA; letter-spacing:.06em; text-transform:uppercase; }
-  .fx-story-fact { word-break:keep-all;overflow-wrap:break-word;font-size:13.5px; color:#C7CEDB; line-height:1.58; margin-top:6px; }
-  .fx-story-why { margin-top:16px; background:#1B2740; border-left:3px solid #F2C94C; padding:11px 13px; border-radius:0 6px 6px 0; }
-  .fx-story-why-lbl { display:block; font-size:10px; font-weight:800; color:#F2C94C; letter-spacing:.06em; text-transform:uppercase; }
-  .fx-story-why-txt { word-break:keep-all;overflow-wrap:break-word;font-size:13.5px; color:#D9DFEA; line-height:1.55; margin-top:6px; }
-  .fx-ec-block { margin-top:11px; }
-  .fx-ec-block:first-of-type { margin-top:9px; }
-  .fx-ec-lbl { display:block; font-size:10.5px; font-weight:800; color:#95A2BA; letter-spacing:.05em; text-transform:uppercase; }
-  .fx-ec-row { word-break:keep-all;overflow-wrap:break-word;font-size:14px; color:#D9DFEA; line-height:1.5; margin-top:4px; }
-  .fx-ec-tag { display:inline-block; font-size:10px; font-weight:700; color:#95A2BA; background:rgba(149,162,186,.16); padding:1px 6px; border-radius:20px; margin-left:4px; }
-  .fx-story-signal { display:inline-block; font-size:10.5px; font-weight:700; color:#F2C94C; background:rgba(242,201,76,.14); padding:3px 9px; border-radius:20px; margin-top:13px; }
-  .fx-story-src { margin-top:8px; }
-  .fx-story-src-item { display:block; margin-top:3px; }
-  .fx-story-src-link { display:block; min-height:26px; padding:4px 0; color:#8996AE; text-decoration:underline; font-size:10.5px; line-height:1.4; }
-  .fx-story-src-label { display:block; padding:4px 0; color:#8996AE; font-size:10.5px; line-height:1.4; }
-
-  /* ===== 07/08. DOMESTIC / GLOBAL NEWS — 컴팩트 에디토리얼 리스트(카드 아님) ===== */
-  .fx-news-item { padding:12px 0; border-bottom:1px solid rgba(124,138,165,.14); }
-  .fx-news-item.last { border-bottom:none; }
-  .fx-news-title { font-size:13.5px; font-weight:700; color:#E8ECF3; line-height:1.45; word-break:keep-all; }
-  .fx-news-fact { word-break:keep-all;overflow-wrap:break-word;font-size:12.5px; color:#C7CEDB; line-height:1.5; margin-top:5px; }
-  .fx-news-meta { font-size:10.5px; color:#7C8AA5; margin-top:7px; }
-  .fx-news-meta a { color:#8996AE; text-decoration:underline; }
-  .fx-news-empty { word-break:keep-all;overflow-wrap:break-word;font-size:12.5px; color:#6B7A99; padding:6px 0; }
-
-  /* ===== 09. MOO:VIEW — flagship, 유일한 장문 섹션(단일 자연스러운 컬럼) ===== */
-  .fx-mv-wrap { margin-top:26px; }
-  .fx-mv-card { background:#1B2740; border-radius:10px; padding:20px 17px; }
-  .fx-mv-head { font-size:10px; font-weight:800; color:#F2C94C; letter-spacing:.1em; text-transform:uppercase; margin-bottom:13px; }
-  .fx-mv-p { word-break:keep-all;overflow-wrap:break-word;font-size:13px; color:#D9DFEA; line-height:1.65; margin-top:11px; }
-  .fx-mv-p.first { margin-top:0; }
-  .fx-mv-meta { font-size:10.5px; color:#6B7A99; margin-top:16px; padding-top:11px; border-top:1px solid rgba(248,250,253,.1); }
-
-  /* ===== 10. MOO:Q + MOO:CHECK — 연속 배치, MOO:CHECK는 한 단계 밝은 surface ===== */
-  .fx-q-wrap { margin-top:22px; background:#1B2740; border:1px solid rgba(242,201,76,.3); border-radius:10px; padding:16px 15px; }
-  .fx-q-lbl { font-size:10px; font-weight:800; color:#F2C94C; letter-spacing:.08em; text-transform:uppercase; margin-bottom:9px; }
-  .fx-q-text { word-break:keep-all;overflow-wrap:break-word;font-size:14px; font-weight:650; color:#E8ECF3; line-height:1.55; }
-  .fx-q-why { word-break:keep-all;overflow-wrap:break-word;font-size:12.5px; color:#95A2BA; line-height:1.5; margin-top:7px; }
-  .fx-q-meta { font-size:10.5px; color:#7C8AA5; margin-top:9px; }
-
-  .fx-check-wrap { margin-top:8px; background:#202A3D; border:1px solid rgba(124,138,165,.3); border-radius:10px; padding:16px 15px; }
-  .fx-check-lbl { font-size:10px; font-weight:800; color:#95A2BA; letter-spacing:.08em; text-transform:uppercase; margin-bottom:9px; }
-  .fx-check-q { word-break:keep-all;overflow-wrap:break-word;font-size:13px; font-weight:650; color:#E8ECF3; line-height:1.5; }
-  .fx-check-row { word-break:keep-all;overflow-wrap:break-word;font-size:12px; color:#C7CEDB; line-height:1.55; margin-top:8px; }
-  .fx-check-row .k { color:#7C8AA5; font-weight:700; margin-right:5px; }
-  .fx-check-verdict { display:inline-block; font-size:10.5px; font-weight:800; padding:3px 9px; border-radius:20px; margin-top:9px; }
-  .fx-check-verdict.MATCH { background:rgba(255,107,107,.16); color:#FF6B6B; }
-  .fx-check-verdict.MISS { background:rgba(91,141,239,.16); color:#5B8DEF; }
-  .fx-check-verdict.PARTIAL, .fx-check-verdict.PENDING, .fx-check-verdict.INSUFFICIENT_DATA { background:rgba(124,138,165,.16); color:#95A2BA; }
-  .fx-check-empty { word-break:keep-all;overflow-wrap:break-word;font-size:12px; color:#6B7A99; }
-
-  /* ===== 11. KOREA MARKET & FLOW ===== */
-  .fx-kf-card { background:#141C2E; border-radius:10px; padding:14px; margin-top:4px; }
-  .fx-kf-market-lbl { font-size:11px; font-weight:700; color:#E8ECF3; margin-bottom:7px; }
-  .fx-kf-market-lbl:not(:first-child) { margin-top:13px; }
-  .fx-kf-table { width:100%; border-collapse:collapse; }
-  .fx-kf-table td { padding:4px 2px; font-size:12px; border-bottom:1px solid rgba(124,138,165,.1); font-variant-numeric:tabular-nums; }
-  .fx-kf-table tr.last td { border-bottom:none; }
-  .fx-kf-who { color:#95A2BA; }
-  .fx-kf-val { text-align:right; font-weight:700; }
-  .fx-kf-val.up { color:#FF6B6B; }
-  .fx-kf-val.down { color:#5B8DEF; }
-  .fx-kf-val.flat { color:#95A2BA; }
-  .fx-sector-row { margin-top:11px; font-size:11.5px; color:#95A2BA; }
-  .fx-interp { word-break:keep-all;overflow-wrap:break-word;font-size:12px; color:#C7CEDB; line-height:1.55; margin-top:12px; padding-top:11px; border-top:1px solid rgba(124,138,165,.14); }
-
-  /* ===== 12. OVERNIGHT GLOBAL & MACRO ===== */
-  .fx-og-card { background:#141C2E; border-radius:10px; padding:14px; margin-top:4px; }
-  .fx-og-group-lbl { font-size:9.5px; font-weight:700; color:#7C8AA5; letter-spacing:.05em; text-transform:uppercase; margin-bottom:6px; }
-  .fx-og-group-lbl:not(:first-child) { margin-top:13px; }
-  .fx-og-table { width:100%; border-collapse:collapse; }
-  .fx-og-table td { padding:4px 2px; font-size:12px; border-bottom:1px solid rgba(124,138,165,.1); font-variant-numeric:tabular-nums; }
-  .fx-og-table tr.last td { border-bottom:none; }
-  .fx-og-label { color:#E8ECF3; font-weight:600; }
-  .fx-og-val { text-align:right; color:#C7CEDB; }
-  .fx-og-chg { text-align:right; font-weight:700; width:70px; }
-  .fx-og-chg.up { color:#FF6B6B; }
-  .fx-og-chg.down { color:#5B8DEF; }
-  .fx-og-chg.flat { color:#95A2BA; }
-
-  /* ===== 13. SIGNAL CHAIN — 모바일/태블릿 2행x2열, 데스크톱 1행x4열 ===== */
-  .fx-sc-grid { width:100%; border-collapse:separate; border-spacing:6px; margin:0 -6px; table-layout:fixed; }
-  .fx-sc-chip { box-sizing:border-box; background:#141C2E; border-radius:8px; padding:11px 10px; vertical-align:top; }
-  .fx-sc-chip.outcome { border:1px solid rgba(242,201,76,.55); background:#171F30; }
-  .fx-sc-role { font-size:9.5px; font-weight:700; color:#7C8AA5; text-transform:uppercase; letter-spacing:.03em; }
-  .fx-sc-chip.outcome .fx-sc-role { color:#F2C94C; }
-  .fx-sc-label { font-size:12px; font-weight:700; color:#E8ECF3; margin-top:5px; word-break:keep-all; }
-  .fx-sc-detail { font-size:11px; color:#95A2BA; margin-top:4px; word-break:keep-all; line-height:1.45; }
-  .fx-sc-detail.up { color:#FF6B6B; }
-  .fx-sc-detail.down { color:#5B8DEF; }
-  .fx-sc-note { word-break:keep-all;overflow-wrap:break-word;font-size:11.5px; color:#7C8AA5; line-height:1.55; margin-top:12px; }
-  .fx-sc-strength { font-size:11px; color:#6B7A99; line-height:1.5; margin-top:8px; }
-  .fx-sc-mobile { display:block; }
-  .fx-sc-desktop { display:none; }
-  @media (min-width:701px) {
-    .fx-sc-mobile { display:none !important; }
-    .fx-sc-desktop { display:block !important; }
-  }
-
-  /* ===== 14. TODAY'S WATCH ===== */
-  .fx-watch-card { background:#141C2E; border-radius:10px; padding:14px 15px; }
-  .fx-watch-row { width:100%; border-collapse:collapse; margin-top:8px; }
-  .fx-watch-row.first { margin-top:0; }
-  .fx-watch-num { font-size:11px; font-weight:700; color:#F2C94C; padding:1px 6px 0 0; }
-  .fx-watch-txt { word-break:keep-all;overflow-wrap:break-word;font-size:12.5px; color:#D9DFEA; line-height:1.55; }
-  .fx-watch-oneliner { word-break:keep-all;overflow-wrap:break-word;font-size:12.5px; font-weight:600; color:#E8ECF3; line-height:1.55; margin-top:11px; padding-top:11px; border-top:1px solid rgba(124,138,165,.16); }
-
-  /* ===== 14.5 MOO:워드 — footer 직전 마지막 콘텐츠 섹션(§10) ===== */
-  .fx-word-card { background:#1B2740; border-radius:10px; padding:14px 15px; }
-  .fx-word-term { font-size:15px; font-weight:800; color:#F2C94C; }
-  .fx-word-def { word-break:keep-all;overflow-wrap:break-word;font-size:14px; color:#D9DFEA; line-height:1.55; margin-top:6px; }
-  .fx-word-why { word-break:keep-all;overflow-wrap:break-word;font-size:12.5px; color:#95A2BA; line-height:1.5; margin-top:8px; }
-  .fx-word-hook { word-break:keep-all;overflow-wrap:break-word;font-size:12.5px; color:#C7CEDB; line-height:1.5; margin-top:6px; }
-  .fx-word-src { font-size:11px; color:#6B7A99; margin-top:9px; }
-
-  /* ===== 15. RISK / SOURCE / CTA / FOOTER ===== */
-  .fx-risk { margin-top:22px; border-left:3px solid #C9A227; background:rgba(201,162,39,.08); padding:10px 12px; border-radius:0 6px 6px 0; }
-  .fx-risk-lbl { font-size:10px; font-weight:800; color:#D8B84A; letter-spacing:.06em; text-transform:uppercase; }
-  .fx-risk-text { word-break:keep-all;overflow-wrap:break-word;font-size:12.5px; color:#D9DFEA; line-height:1.5; margin-top:5px; }
-  .fx-src { margin-top:20px; }
-  .fx-src-row { padding:3px 0; font-size:10.5px; line-height:1.45; color:#8996AE; }
-  .fx-src-row .f-cat { font-weight:700; color:#9FACC4; }
-  .fx-terminal-note { font-size:11px; color:#7C8AA5; margin-top:16px; }
-  .fx-home-pill-wrap { width:100%; border-collapse:collapse; margin-top:14px; }
-  .fx-home-pill-cell { border:1px solid #F2C94C; border-radius:20px; background:#141C2E; }
-  /* 2026-08-08(PR#10 재검수): fx-home-pill-link/fx-unsubscribe-link의 44px
-     min-height와 fx-copyright의 11.5px는 2026-08-07 golden baseline(c904a36)
-     에 존재하지 않았다 — git pickaxe로 확인한 결과 이 값들이 main 계보에
-     처음 들어온 지점은 f9f953e(2026-08-07 11:38 KST)이며, 그 이전에는
-     36px/22px/11px였다(별도 접근성 승인 기록 없음). "접근성 목적이므로
-     예외로 유지한다"는 판단은 사용자가 명시적으로 금지했으므로, 목적과
-     무관하게 승인되지 않은 시각 변경으로 취급해 2026-08-07 값으로 되돌린다. */
-  .fx-home-pill-link { display:inline-block; min-height:36px; line-height:36px; padding:0 18px; color:#F2C94C; text-decoration:none; font-size:11.5px; font-weight:700; }
-  .fx-copyright { font-size:11px; color:#7C8AA5; margin-top:16px; }
-  .fx-unsubscribe-link { display:inline-block; min-height:22px; padding:3px 0; color:#6B7A99; text-decoration:underline; font-size:10px; }
-  .fx-signoff { font-size:10.5px; color:#7C8AA5; line-height:1.5; margin-top:4px; }
-  /* item 5: 최상단 "웹에서 보기" 링크 — 밝은 바깥 배경(#F2F3F5) 위에 놓이므로
-     다크카드용 색(#8996AE, 대비 2.69:1)이 아니라 대비 9.33:1인 어두운 색을
-     사용한다(밝은 배경 전용 팔레트, 다른 다크카드 footer 링크와는 배경이
-     다르다는 점에 유의). */
-  .fx-view-in-browser { text-align:center; padding:8px 0 4px; }
-  .fx-view-in-browser a { display:inline-block; min-height:32px; line-height:32px; color:#334155; text-decoration:underline; font-size:11.5px; }
-</style>
-<style>
-.fx-share-row { display:flex; align-items:center; gap:10px; margin-top:16px; flex-wrap:wrap; }
-.fx-share-btn { font-size:12.5px; font-weight:700; color:#0B1220; background:#F2C94C; border:none; border-radius:20px; padding:8px 16px; min-height:36px; cursor:pointer; }
-.fx-share-btn.secondary { background:transparent; color:#F2C94C; border:1px solid #F2C94C; }
-.fx-share-status { font-size:11.5px; color:#95A2BA; }
-.fx-share-status.show { color:#F2C94C; }
-
-.fx-issue-nav { display:flex; justify-content:space-between; gap:12px; margin-top:22px; padding-top:16px; border-top:1px solid rgba(124,138,165,.18); font-size:12.5px; }
-.fx-issue-nav a { color:#95A2BA; text-decoration:none; }
-.fx-issue-nav a:hover { color:#F2C94C; }
-.fx-archive-link { text-align:center; margin-top:14px; font-size:12.5px; }
-.fx-archive-link a { color:#F2C94C; text-decoration:none; }
 </style>
 </head>
-<body bgcolor="#F2F3F5">
+<body>
+<div class="wrap">
 
-
-<div style="display:none;font-size:1px;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;mso-hide:all;">미국채 금리 상승과 원/달러 환율 오름세가 외국인 순매도 및 코스피 지수에 영향을 준 요인 중 하나로 해석할 수 있습니다. 다만 업종별 수급 차별화나 대외 변수…&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;</div>
-
-
-<div class="fx-view-in-browser">
-  <a href="https://mooconomy.co.kr/latest-email.html" target="_blank">메일이 작게 보이거나 깨져 보이나요? 웹에서 보기</a>
-</div>
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#F2F3F5">
-<tr><td align="center" class="outer-pad">
-<!--[if mso]>
-<table role="presentation" width="760" cellpadding="0" cellspacing="0" border="0" align="center"><tr><td>
-<![endif]-->
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="wrap">
-<tr><td bgcolor="#0B1220">
+  <div class="top">
+    <span class="brand-edition">Daily</span> <span class="brand-text">MOO<span class="brand-colon">:</span>conomy</span>
+    <div class="tagline">잠든 사이 움직인 지표와 뉴스, 매일 아침 배달</div>
+    
+    <div class="date">발행 08/12 06:43 · 마감 국내 08/11 · 미국 08/11</div>
+  </div>
 
   <div class="inner">
 
+  <div class="headline">코스피 0.73% 상승 속 호르무즈 불확실성에 뉴욕증시 하락</div>
 
-  <div class="fx-mh">
-    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="fx-mh-table">
+  <!-- Section 1: Daily 3 — GLOBAL/KOREA/MOO:VIEW 역할 라벨(2026-07-22).
+       c.three_line_summary는 llm.py가 이미 이 순서로 고정 생성한다(간밤 글로벌→
+       전일 국내→오늘 확인할 변수). 라벨은 순서(index)로만 매핑, 신규 필드 없음. -->
+  
+  
+  <div class="summary">
+    <div class="sm-lbl">MOO:conomy Daily 3줄 · 오늘 이것만 봐도 됩니다</div>
+    
+    <div class="d3-row">
+      <span class="d3-label">GLOBAL</span>
+      <p class="d3-text">중동 지경학 리스크와 CPI 경계로 미국 증시 하락</p>
+    </div>
+    
+    <div class="d3-row">
+      <span class="d3-label">KOREA</span>
+      <p class="d3-text">지난 거래일 코스피 0.73% 상승, 외국인 순매수</p>
+    </div>
+    
+    <div class="d3-row">
+      <span class="d3-label mv">MOO:VIEW</span>
+      <p class="d3-text">오늘 밤 발표될 미국 CPI 결과가 주요 변수</p>
+    </div>
+    
+  </div>
+  
+
+  <!-- Section 2: Market Temperature — 밝은 패널 + 파스텔 오렌지→회색→그린
+       (2026-07-22, 상승/하락 red/blue와 색축 분리). 상태명·마커는 여전히 동일
+       label enum(5단계)에서만 계산(내부 점수 비노출). -->
+
+  <!-- Section 5 (moved up, 2026-07-22 Stitch sprint reorder): Core Metrics (6 items) —
+       spec requires metrics to appear before the longer watch-point/connection-flow prose,
+       directly after Market Temperature. Markup/data bindings unchanged, position only. -->
+  <div class="market-overview-title">오늘의 시장 한눈에</div>
+
+  
+  <div class="metric-panel">
+    <div class="metric-heading">핵심 시장 지표</div>
+    <table class="strip" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+    <tr>
+    
+      <td class="cell" width="33%" style="width:33.33%;"><div class="lbl">코스피</div>
+        <div class="val">6,346</div>
+        <div class="chg"><span class="up">▲ +0.73%</span></div></td>
+    
+    
+      <td class="cell" width="33%" style="width:33.33%;"><div class="lbl">코스닥</div>
+        <div class="val">858</div>
+        <div class="chg"><span class="up">▲ +0.39%</span></div></td>
+    
+    
+      <td class="cell" width="33%" style="width:33.33%;"><div class="lbl">나스닥</div>
+        <div class="val">26,445</div>
+        <div class="chg"><span class="down">▼ -0.60%</span></div></td>
+    
+    </tr>
+    <tr>
+    
+      <td class="cell" width="33%" style="width:33.33%;"><div class="lbl">S&amp;P500</div>
+        <div class="val">7,728</div>
+        <div class="chg"><span class="down">▼ -0.32%</span></div></td>
+    
+    
+      <td class="cell" width="33%" style="width:33.33%;"><div class="lbl">원/달러</div>
+        <div class="val">1412.16</div>
+        <div class="chg">
+          
+          
+            <span class="down">▼ -5.15원</span>
+            
+          
+        </div></td>
+    
+    
+      <td class="cell" width="33%" style="width:33.33%;"><div class="lbl">브렌트유</div>
+        <div class="val">88.95</div>
+        <div class="chg"><span class="up">▲ +1.40%</span></div></td>
+    
+    </tr>
+    </table>
+
+    
+    <div class="metric-note">※ 위 지표는 2026-08-11 국내 증시 마감 및 간밤 뉴욕장 기준입니다.</div>
+    
+  </div>
+  
+
+  
+  
+  
+  
+  
+  
+  
+  <!-- 2026-07-25 컴팩트 개편 확정 결정: 우측 상단(.mt-status) 상태 배지를
+       없애고, 막대 마커 위에 상태 텍스트를 한 번만 표시한다(색상 축+텍스트
+       이중 전달 원칙은 유지 — 색상만으로 상태를 전달하지 않음). 5단계 범례
+       중 현재 구간은 Gold로 강조한다. -->
+  <div class="mt-panel">
+    <div class="mt-top">
+      <span class="mt-eyebrow">MARKET TEMPERATURE · 오늘의 시장 온도</span>
+    </div>
+    <div class="mood-bar-wrap">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:collapse;">
+        <tr style="height:6px;">
+          <td width="20%" bgcolor="#E8A970" style="background:#E8A970;font-size:0;line-height:0;height:6px;">&nbsp;</td><td width="20%" bgcolor="#F0C79A" style="background:#F0C79A;font-size:0;line-height:0;height:6px;">&nbsp;</td><td width="20%" bgcolor="#C7CDD6" style="background:#C7CDD6;font-size:0;line-height:0;height:6px;">&nbsp;</td><td width="20%" bgcolor="#A9CDB0" style="background:#A9CDB0;font-size:0;line-height:0;height:6px;">&nbsp;</td><td width="20%" bgcolor="#5F9E6E" style="background:#5F9E6E;font-size:0;line-height:0;height:6px;">&nbsp;</td>
+        </tr>
+      </table>
+      <div class="mood-bar-marker" style="left:70%;"></div>
+      <div class="mt-marker-label" style="left:70%;">위험선호</div>
+    </div>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="mood-bar-labels" style="width:100%;margin-top:18px;border-collapse:collapse;">
       <tr>
-        <td class="fx-brand">MOO<span class="g">:</span>conomy</td>
-        <td class="fx-status">
-
-          <span class="fx-status-chip">중립</span>
-
+        
+        <td width="20%" class="">
+          <span class="mtl-full">위험회피</span><span class="mtl-short">위험회피</span>
         </td>
+        
+        <td width="20%" class="">
+          <span class="mtl-full">경계</span><span class="mtl-short">경계</span>
+        </td>
+        
+        <td width="20%" class="">
+          <span class="mtl-full">중립</span><span class="mtl-short">중립</span>
+        </td>
+        
+        <td width="20%" class="mtl-active">
+          <span class="mtl-full">위험선호</span><span class="mtl-short">위험선호</span>
+        </td>
+        
+        <td width="20%" class="">
+          <span class="mtl-full">강한위험선호</span><span class="mtl-short">강한선호</span>
+        </td>
+        
       </tr>
     </table>
-    <div class="fx-mh-tagline">잠든 사이 움직인 시장과 뉴스, 오늘의 판단에 필요한 맥락만 정리합니다.</div>
-    <div class="fx-mh-pubdate">발행 2026년 08월 11일(화) 06:43 KST</div>
-    <div class="fx-mh-sub">국내 2026-08-10 종가 · 미국 2026-08-10 종가</div>
+    <div class="mt-summary" style="margin-top:12px;">환율 하락과 외국인 매수세에 힘입어 국내 증시가 상승하며 위험선호 심리가 유효한 것으로 보입니다. 지정학적 불확실성 속에서도 수급 여건이 소폭 개선되며 지수가 반등을 보인 점이 관찰됩니다.</div>
+    
+    <ul class="mt-reasons"><li>국내 증시 +0.73% 상승</li><li>외국인 코스피 순매수 535억원</li></ul>
+    
   </div>
-
-
-
-  <div class="fx-mt-rule"></div>
-  <div class="fx-mt">
-    <div class="fx-mt-label">Morning Thesis — 오늘의 관점</div>
-    <div class="fx-mt-headline">코스닥 6.97% 폭등 속 원/달러 환율 1417.67원 상승</div>
-  </div>
-
-
-
-
-  <div class="fx-label first">TODAY'S 3 SIGNALS — 오늘 포착한 핵심 신호</div>
-  <table class="fx-t3-table" role="presentation" cellpadding="0" cellspacing="0" width="100%">
-
-
-  <tr>
-    <td class="fx-t3-mark" valign="top">&#10003;</td>
-    <td class="fx-t3-text" valign="top">간밤 뉴욕증시는 국제 유가 상승과 국채금리 오름세에 소폭 하락했습니다.</td>
-  </tr>
-
-
-  <tr>
-    <td class="fx-t3-mark" valign="top">&#10003;</td>
-    <td class="fx-t3-text" valign="top">지난 거래일 국내 증시는 코스닥이 6.97% 폭등하며 대형 반등을 기록했습니다.</td>
-  </tr>
-
-
-  <tr class="last">
-    <td class="fx-t3-mark" valign="top">&#10003;</td>
-    <td class="fx-t3-text" valign="top">오늘은 원/달러 환율 상승세 속 외국인 수급 향방이 주요 변수입니다.</td>
-  </tr>
-
-  </table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <div class="fx-label">MAIN 6 METRICS</div>
-  <table class="fx-mgrid" cellpadding="0" cellspacing="0" role="presentation" width="100%">
-  <tr>
-    <td class="fx-mbox" width="33.33%" bgcolor="#141C2E" style="background:#141C2E;">
-      <div class="fx-mlabel">코스피</div>
-      <div class="fx-mvalue">6,300</div><div class="fx-mchip up" style="color:#FF6B6B;">▲ +0.65%</div>
-
-    </td>
-
-    <td class="fx-mbox" width="33.33%" bgcolor="#141C2E" style="background:#141C2E;">
-      <div class="fx-mlabel">코스닥</div>
-      <div class="fx-mvalue">854</div><div class="fx-mchip up" style="color:#FF6B6B;">▲ +6.97%</div>
-
-    </td>
-
-    <td class="fx-mbox" width="33.33%" bgcolor="#141C2E" style="background:#141C2E;">
-      <div class="fx-mlabel">나스닥</div>
-      <div class="fx-mvalue">26,605</div><div class="fx-mchip down" style="color:#5B8DEF;">▼ -0.32%</div>
-
-    </td>
-  </tr>
-  <tr>
-    <td class="fx-mbox" width="33.33%" bgcolor="#141C2E" style="background:#141C2E;">
-      <div class="fx-mlabel">S&P 500</div>
-      <div class="fx-mvalue">7,753</div><div class="fx-mchip down" style="color:#5B8DEF;">▼ -0.06%</div>
-
-    </td>
-
-    <td class="fx-mbox" width="33.33%" bgcolor="#141C2E" style="background:#141C2E;">
-      <div class="fx-mlabel">원/달러</div>
-      <div class="fx-mvalue fx-mvalue-fx">1,418</div><div class="fx-mchip up" style="color:#FF6B6B;">▲ +10.67원</div>
-
-    </td>
-
-    <td class="fx-mbox" width="33.33%" bgcolor="#141C2E" style="background:#141C2E;">
-      <div class="fx-mlabel">브렌트유</div>
-      <div class="fx-mvalue">87.85</div><div class="fx-mchip up" style="color:#FF6B6B;">▲ +5.15%</div>
-
-    </td>
-  </tr>
-  </table>
-  <div class="fx-asof">AS OF 2026-08-10 KST / 2026-08-10 ET</div>
-
-
-
-
-
-  <div class="fx-label">MARKET TEMPERATURE</div>
-  <div class="fx-temp-card" style="background:#141C2E;">
-    <div class="fx-temp-status">중립</div>
-    <div class="fx-temp-summary">국내 증시 상승에도 불구하고 환율 상승과 외국인 매도세가 이어지며 시장 온도는 중립으로 평가됩니다. 코스닥 급반등 속에서도 유가 상승과 수급 부담이 상존하는 차별화 장세가 관찰됩니다.</div>
-
-    <table class="fx-temp-bar" cellpadding="0" cellspacing="0" role="presentation" width="100%"><tr>
-
-      <td class="fx-temp-seg" width="20.0%">&nbsp;</td>
-
-      <td class="fx-temp-seg" width="20.0%">&nbsp;</td>
-
-      <td class="fx-temp-seg active" width="20.0%">&nbsp;</td>
-
-      <td class="fx-temp-seg" width="20.0%">&nbsp;</td>
-
-      <td class="fx-temp-seg" width="20.0%">&nbsp;</td>
-
-    </tr></table>
-    <table class="fx-temp-labels" cellpadding="0" cellspacing="0" role="presentation" width="100%"><tr>
-
-      <td class="" width="20.0%">위험회피</td>
-
-      <td class="" width="20.0%">경계</td>
-
-      <td class="active" width="20.0%">중립</td>
-
-      <td class="" width="20.0%">위험선호</td>
-
-      <td class="" width="20.0%">강한선호</td>
-
-    </tr></table>
-
-
-
-    <div class="fx-temp-reasons">
-      <div class="fx-temp-reason-item up" style="color:#FF6B6B;">· 국내 증시 +0.65% 상승</div><div class="fx-temp-reason-item flat" style="color:#95A2BA;">· 원/달러 +0.76%(원화 약세)</div><div class="fx-temp-reason-item down" style="color:#5B8DEF;">· 외국인 코스피 순매도 14,909억원</div>
-    </div>
-
-    <div class="fx-temp-asof">기준 2026-08-10</div>
-  </div>
-
-
-
-
-
-  <div class="fx-label">MAIN STORY</div>
-  <div class="fx-story-h">엔비디아 대규모 자금 조달</div>
-  <div class="fx-story-meta">CNBC · 2026-08-10</div>
-  <span class="fx-story-fact-lbl">THE FACT</span>
-  <div class="fx-story-fact">엔비디아가 AI 데이터센터 투자를 가속하기 위해 5,000억 달러 규모의 자금 조달을 추진 중입니다. 젠슨 황 CEO는 자사 칩을 투자 가치가 높은 자산으로 강조했습니다.</div>
-
-  <div class="fx-story-src">
-
-  <div class="fx-story-src-item"><a href="https://www.cnbc.com/2026/08/10/nvidia-wall-street-asset-managers-500-billion-ai-push.html" target="_blank" class="fx-story-src-link">CNBC · 2026-08-10 — Nvidia lines up $500 billion in financing as CEO Jensen Huang tells CNBC his chips are ‘investable asset’</a></div>
-
-  </div>
-
-
-
-  <div class="fx-story-why">
-    <span class="fx-story-why-lbl">WHY THIS STORY</span>
-
-    <div class="fx-ec-block">
-      <span class="fx-ec-lbl">SELECTED BECAUSE</span>
-      <div class="fx-ec-row">오늘의 핵심 판단과 직접 연결되고 공식·주요 매체가 보도했으며 실제 시장 변수에 영향을 준 것으로 판단되고 메인 스토리로 선정했습니다.</div>
-    </div>
-
-
-    <div class="fx-ec-block">
-      <span class="fx-ec-lbl">WHY NOW</span>
-      <div class="fx-ec-row">코스닥 지수의 급반등에도 불구하고 환율 상승과 유가 급등으로 인해 코스피 외국인 매도세가 지속되는 차별화 장세가 나타났습니다.</div>
-    </div>
-
-
-    <div class="fx-ec-block">
-      <span class="fx-ec-lbl">IMPACT</span>
-      <div class="fx-ec-row">유가 및 미 국채금리 상승의 변화가 원/달러 환율 상방 압력 확대를 거쳐 코스피 외국인 대규모 순매도 및 코스닥 상대적 강세에 영향을 줄 수 있습니다.</div>
-    </div>
-
-
-    <div class="fx-ec-block">
-      <span class="fx-ec-lbl">WATCH</span>
-      <div class="fx-ec-row">원/달러 환율 1,410원선 하회 여부 — 외국인의 코스피 매수 전환 진입 요건으로 작용할 수 있기 때문입니다.</div>
-    </div>
-
-  </div>
-
-
-
-
-
-  <div class="fx-label">DOMESTIC NEWS</div>
-
-
-  <div class="fx-news-item">
-    <div class="fx-news-title">원자재 가격 폭등과 대응</div>
-    <div class="fx-news-fact">구리와 코발트 등 원자재 가격이 급등하면서 산업계 전반에 부담이 가중되고 있습니다.</div>
-    <div class="fx-news-meta">
-      매일경제 · 2026-08-11
-       · <a href="https://www.mk.co.kr/news/economy/12123615" target="_blank">원문</a>
+  
+
+  <!-- Section 6: MOO:VIEW · 오늘의 시선
+       2026-07-25 1차 컴팩트 개편: "Daily 3줄 전체 반복 금지" 원칙에 따라
+       GLOBAL/KOREA 행(Daily 3의 1·2번째 줄과 리터럴 중복이던 부분,
+       renderer.build_moo_view()의 global.interp=tls[0]/korea.interp=tls[1]
+       참고)은 이 섹션에서 더 이상 렌더하지 않는다 — Daily 3에 이미 있으므로.
+       2차 축소(같은 날 후속): Daily 3의 MOO 한 줄(=view.fact, today_focus[0]
+       제목)에 대한 정량 이유 최대 2개(사실/해석)로만 구성한다. 기존 "확인"
+       (view.check, today_focus[0] 상세의 영향 부분)은 이 섹션에서 제거하고
+       아래 다음 섹션(Section 7)으로 이동한다(같은 3개 cap에 참여) —
+       "확인 변수는 체크포인트로 이동" 확정 결정. 주의: 이 주석은 render_html()
+       에서 제거되지 않으므로 아래 섹션의 실제 h2 텍스트를 그대로 반복해서
+       적으면 안 된다(과거 test_no_connect_markup_when_none과 동일한 함정 —
+       주석 속 리터럴 문자열이 assertNotIn 테스트를 오염시킴). renderer.
+       build_moo_view()의 반환 구조·다른 필드(global/korea/focus_rest)는
+       호환성을 위해 그대로 두고 템플릿 소비 방식만 바꾼다(신규 LLM 호출·
+       데이터 계산 없음). -->
+  
+  <div class="sec">
+    <h2>MOO:VIEW · 오늘의 시선</h2>
+    <div class="moo-view">
+      <div class="mv-row">
+        <span class="mv-tag mv-accent">MOO</span>
+        <div class="mv-f"><span class="mv-f-lbl">사실</span><span class="mv-f-txt">미국 7월 CPI 발표 영향</span></div>
+        <div class="mv-f mv-interp"><span class="mv-f-lbl">해석</span><span class="mv-f-txt">오늘 밤 예정된 미국 소비자물가지수(CPI) 결과는 연준의 금리 행보 및 달러 향방을 결정할 핵심 변수입니다.</span></div>
+      </div>
     </div>
   </div>
+  
 
-  <div class="fx-news-item">
-    <div class="fx-news-title">상장폐지 기준 강화 여파</div>
-    <div class="fx-news-fact">부실기업 정리를 위한 상장폐지 기준이 강화된 지 한 달 만에 국내 상장사의 7.4%가 시가총액 요건에 미달한 것으로 나타났습니다.</div>
-    <div class="fx-news-meta">
-      연합뉴스마켓 · 2026-08-11
-       · <a href="https://www.yna.co.kr/view/AKR20260810129600003" target="_blank">원문(원어)</a>
+  <!-- Section 4: MOO:Q / MOO:CHECK -- same canonical claims data as home.json.
+       2026-07-23 SP1: MOO:Q/CHECK를 MOO:VIEW 바로 아래로 복구 배치(사용자
+       확정사항 우선순위 최신 요구). 어제의 명제(claimsTeaser)도 여기로 옮겨
+       MOO:CHECK와 같은 클러스터로 연결한다(기존에는 페이지 하단에 분리돼
+       있었음 — 콘텐츠·데이터 자체는 그대로, 위치만 이동). -->
+  
+  <div class="mooq">
+    <div class="mooq-lbl">MOO:Q · 오늘의 경제 질문</div>
+    
+    <div class="mooq-item">
+      <div class="mooq-question">CPI 발표 뒤 S&P500가 하락세를 이어갈까요?</div>
+      
+      <div class="mooq-why">
+        <div>· S&P500는 7,728.20로 전일 대비 0.32% 하락했습니다.</div>
+        <div>· CPI 발표 뒤 하락 흐름이 다음 거래일까지 이어지는지가 확인 대상입니다.</div>
+      </div>
+      
+      <div class="mooq-meta">확인 예정일 2026-08-13 · 현재 상태: 확인 중</div>
     </div>
+    
+    <div class="mooq-disclaimer">예측보다 검증 가능한 질문을 남깁니다. 투자 매수·매도를 권유하지 않습니다.</div>
   </div>
+  
 
-  <div class="fx-news-item last">
-    <div class="fx-news-title">기업 자금조달 창구 위축</div>
-    <div class="fx-news-fact">시중 유동성과 달리 상장사들의 자금 조달은 회사채와 유상증자 정정 요구 등으로 위축되는 양상입니다.</div>
-    <div class="fx-news-meta">
-      머니투데이 · 2026-08-11
-       · <a href="https://www.mt.co.kr/stock/2026/08/11/2026081021370124511" target="_blank">원문</a>
+  
+    
+    <div class="moocheck">
+      <div class="mooq-lbl">MOO:CHECK · 지난 질문의 결과</div>
+      
+      <div class="mooq-item">
+        <div class="mooq-text">외국인 순매도 흐름 속에서 코스피가 반등할까요?</div>
+        <div class="mooq-meta">
+          결과: 일치
+           · 실제 변화가 예상한 상승 방향과 일치했습니다.
+        </div>
+      </div>
+      
+      
+      
+      <div class="mooq-totals">누적 21건 —
+        일치 6 · 불일치 11 · 중립 3 · 확인중 1</div>
+      
+      <div style="text-align:center;margin:6px 0 0;">
+        <a href="https://mooconomy.co.kr/#moo-q-check" target="_blank" class="a1-link" style="display:inline-block;min-height:44px;line-height:44px;color:#0b2545;text-decoration:underline;">MOO:CHECK · 지난 질문의 누적 결과 확인하기 →</a>
+      </div>
     </div>
-  </div>
+    
+  
 
+  <!-- 어제의 명제 — 3층 명제 검증 MVP 티저(상세 Scorecard는 홈페이지에서만).
+       2026-07-23 SP1: MOO:CHECK 바로 아래로 이동(어제 명제 결과를 MOO:Q/CHECK
+       클러스터에 연결). 콘텐츠·데이터 변경 없음, 위치만 이동. -->
 
-
-
-  <div class="fx-label">GLOBAL NEWS</div>
-
-
-  <div class="fx-news-item last">
-    <div class="fx-news-title">유가·금리 상승에 미 증시 숨고르기</div>
-    <div class="fx-news-fact">국제 유가와 국채금리가 동반 상승하면서 뉴욕증시는 하락 압력을 받았습니다. 투자자들은 미 물가 지표 발표를 기다리며 관망세를 보이고 있습니다.</div>
-    <div class="fx-news-meta">
-      Investing · 2026-08-10
-       · <a href="https://www.investing.com/news/economy-news/us-treasuries-fall-as-investors-await-inflation-data-93CH-4849978" target="_blank">원문(원어)</a>
+  <!-- Section 7: 체크포인트 섹션(2026-07-22 역할 재정의) — 단순 일정명 나열이
+       아니라 이슈·조건·기준일 3단 필드로 구조화(라벨 텍스트는 아래 렌더 블록
+       참고). c.today_focus[1:](MOO:VIEW가 소비하지 않은 나머지 관전포인트)를
+       같은 3단 카드로 폴드인해 콘텐츠 손실 없이 이 섹션으로 통합한다.
+       2026-07-25 후속: MOO:VIEW의 "확인"(view.check)도 여기로 이동해 같은
+       3개 cap에 참여한다(우선순위 최상단 — 오늘의 핵심 판단과 직결). -->
+  
+  <div class="sec">
+    <h2>오늘의 체크포인트</h2>
+    
+    
+    
+    
+    <div class="cp">
+      <div class="cp-eyebrow">체크포인트 · MOO:VIEW 확인변수</div>
+      <span class="cp-f-lbl">관전 대상</span>
+      <div class="cp-fact">미국 7월 CPI 발표 영향</div>
+      <span class="cp-f-lbl">확인 조건</span>
+      <div class="cp-fact cp-fact-condition">물가 안정 흐름이 확인될 경우 위험자산 선호 심리가 살아날 가능성이 있습니다.</div>
     </div>
+    
+    
+    
+    
+    
+    <div class="cp">
+      <div class="cp-eyebrow">체크포인트</div>
+      <span class="cp-f-lbl">관전 대상</span>
+      <div class="cp-fact">미국 소비자물가(CPI) 발표</div>
+      <span class="cp-f-lbl">확인 조건</span>
+      <div class="cp-fact cp-fact-condition">전년 대비 상승률 수치에 따른 미 국채 금리 및 달러화 움직임을 관찰할 필요가 있습니다.</div>
+      <span class="cp-f-lbl">관련 사실 · 기준일</span><div class="cp-fact cp-fact-date">2026-08-12</div>
+    </div>
+    
+    
+    
+    
+    <div class="cp">
+      <div class="cp-eyebrow">체크포인트</div>
+      <span class="cp-f-lbl">관전 대상</span>
+      <div class="cp-fact">미국 생산자물가(PPI) 발표</div>
+      <span class="cp-f-lbl">확인 조건</span>
+      <div class="cp-fact cp-fact-condition">도매 물가 수치를 통해 미국 도매 단계 인플레이션 압력이 완화되는지 점검해볼 만합니다.</div>
+      <span class="cp-f-lbl">관련 사실 · 기준일</span><div class="cp-fact cp-fact-date">2026-08-13</div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
   </div>
+  
 
+  <!-- Section 5: Connection Flow (data.connection, newly rendered) -->
+  
 
+  <!-- ═══════ PART 1. 오늘의 인사이트 ═══════ -->
+  <div class="band">PART 1. 오늘의 인사이트</div>
 
-
-  <div class="fx-mv-wrap">
-  <div class="fx-mv-card" style="background:#1B2740;">
-    <div class="fx-mv-head">MOO:VIEW</div>
-
-
-    <div class="fx-mv-p first">글로벌 증시는 브렌트유가 87.85달러로 5.15% 상승하는 등 유가 상승 부담 속에 나스닥이 0.32%, S&P500이 0.06% 하락하며 숨고르기 양상을 나타냈습니다. 이러한 환경 속에서 엔비디아가 AI 데이터센터 투자를 가속하기 위해 5,000억 달러 규모의 자금 조달을 추진한다는 발표가 부각되었습니다.</div>
-
-    <div class="fx-mv-p">국내 증시는 원/달러 환율이 10.67원 오른 1417.67원을 기록하는 원화 약세 속에서도 코스피가 6299.66으로 0.65% 상승하고 코스닥은 854.47로 6.97% 급등했습니다. 미 증시의 약세 흐름과 비교해 국내 지수가 상대적인 상승 구도를 나타낸 점이 특징적입니다.</div>
-
-    <div class="fx-mv-p">코스피에서는 외국인이 14,909억원의 순매도를 기록한 반면, 코스닥에서는 외국인 1,027억원과 기관 5,667억원의 순매수가 유입되는 차별화가 나타났습니다. 업종별로는 복합유틸리티가 11.63%, 비철금속이 10.01% 상승한 반면 무선통신서비스(-2.71%)와 은행(-2.67%)은 약세를 형성했습니다.</div>
-
-    <div class="fx-mv-p">원자재 가격 폭등과 기업 자금조달 창구 위축, 상장폐지 기준 강화 여파 등 불확실성 요소가 시장에 상존하고 있습니다. 향후 1410원대 환율 추이와 브렌트유의 가격 흐름, 코스피 외국인 수급의 향방을 다각도로 점검해 볼 수 있습니다.</div>
-
-
-    <div class="fx-mv-meta">기준 2026-08-10</div>
+  <!-- 뉴스 브리핑 -->
+  
+  <div class="sec">
+    <h2>오늘의 경제 뉴스 브리핑</h2>
+    
+    <h3 class="sub">국내 경제 주요 뉴스</h3>
+    
+    <div class="news">
+      <div class="n-title">농산물·유가 급등에 물가 우려</div>
+      <div class="n-body">폭염에 따른 농산물 가격 상승과 중동 리스크로 인한 국제유가 오름세가 겹치며 하반기 물가 부담이 커지고 있습니다. 장바구니 물가와 에너지 비용이 동시에 상승하는 양상입니다.</div>
+      
+      <div class="n-src">
+        
+        <a href="https://www.mk.co.kr/news/economy/12124744" target="_blank"><span class="paper">매일경제</span><span class="src-date">2026-08-12</span>“시금치·상추 다 녹아버렸습니다”…물가상승률 ‘도로 3%’ 공포</a>
+        
+      </div>
+      
+    </div>
+    
+    <div class="news">
+      <div class="n-title">8월 초 수출 213억달러 기록</div>
+      <div class="n-body">8월 1일부터 10일까지 수출액이 200억달러를 넘어서며 반도체 중심의 수출 호조가 이어졌습니다. 상위 기업으로의 무역 집중도 역시 높은 수준을 유지하고 있습니다.</div>
+      
+      <div class="n-src">
+        
+        <a href="https://www.fnnews.com/news/202608111824038195" target="_blank"><span class="paper">파이낸셜뉴스</span><span class="src-date">2026-08-11</span>8월 수출 213억弗 '역대 최대'... 반도체가 절반 차지하며 견인</a>
+        
+      </div>
+      
+    </div>
+    
+    <div class="news">
+      <div class="n-title">공정위 해외기업 동일 집행 원칙</div>
+      <div class="n-body">공정거래위원회가 국내외 기업 구분 없이 동일한 법 집행 원칙을 적용하겠다는 방침을 재확인했습니다. 영세 음식점 대상 우대수수료 등 정책도 추진됩니다.</div>
+      
+      <div class="n-src">
+        
+        <a href="https://www.mk.co.kr/news/economy/12124546" target="_blank"><span class="paper">매일경제</span><span class="src-date">2026-08-11</span>한국 정부가 차별?...주병기 “쿠팡이든 네이버든 다 똑같이 법 집행”</a>
+        
+      </div>
+      
+    </div>
+    
+    
+    
+    <h3 class="sub gl">해외 경제 주요 토픽</h3>
+    
+    <div class="news">
+      <div class="n-title">호르무즈 악재에 미 증시 하락</div>
+      <div class="n-body">호르무즈 해협 관련 통항 불확실성과 인플레이션 우려로 뉴욕증시 3대 지수가 밀렸습니다. 유가 상승 압력이 증시에 하방 요인으로 작용했습니다.</div>
+      
+      <div class="n-src">
+        
+        <a href="https://www.yna.co.kr/view/AKR20260812004751072" target="_blank"><span class="paper">MarketWatch</span><span class="src-date">2026-08-12</span>뉴욕증시, 호르무즈 불확실성 지속에 하락…다우 0.3%↓(종합)</a>
+        
+      </div>
+      
+    </div>
+    
+    <div class="news">
+      <div class="n-title">CoreWeave AI 호조 실적 발표</div>
+      <div class="n-body">CoreWeave가 AI 인프라 수요 증가에 힘입어 매출 호조를 기록하며 주가가 큰 폭으로 올랐습니다. 반면 인프라 확장을 위한 부채 규모도 함께 주목받고 있습니다.</div>
+      
+      <div class="n-src">
+        
+        <a href="https://www.cnbc.com/2026/08/11/coreweave-crwv-q2-earnings-report-2026.html" target="_blank"><span class="paper">CNBC</span><span class="src-date">2026-08-11</span>CoreWeave stock pops 14% as revenue doubles on accelerating AI infrastructure demand</a>
+        
+      </div>
+      
+    </div>
+    
+    <div class="news">
+      <div class="n-title">미 금값 2개월 만에 최고치</div>
+      <div class="n-body">미국 CPI 발표를 앞두고 물가 상승세 둔화 기대가 반영되며 금 가격이 강세를 나타냈습니다. 인플레이션 지표 향방에 따라 원자재 시장 변동성이 이어질 수 있습니다.</div>
+      
+      <div class="n-src">
+        
+        <a href="https://www.hankyung.com/article/202608125372i" target="_blank"><span class="paper">MarketWatch</span><span class="src-date">2026-08-12</span>금값, 2개월 만에 최고치…내일 CPI 상승 둔화시 랠리 기대</a>
+        
+      </div>
+      
+    </div>
+    
+    
   </div>
+  
+
+  <!-- 공시 쟁점 해설 -->
+  
+  <div class="sec">
+    <h2>주목할 공시·실적</h2>
+    
+    <div class="insight">
+      <div class="i-title">[게임] 펄어비스 실적 호조</div>
+      <div class="i-detail">펄어비스가 2분기 영업이익 676억 원을 기록했다고 공시했습니다. 전년 동기 대비 큰 폭의 실적 개선이 확인됨에 따라 관련 테마에 대한 시장의 관심이 형성될 수 있습니다.</div>
+      
+      <div class="fi-meta">근거 · DART 공시 주요공시 15건 · 실적공시 15건 · 기준일 20260811</div>
+      
+    </div>
+    
+    <div class="insight">
+      <div class="i-title">[개별] 2분기 잠정실적 공시 집중</div>
+      <div class="i-detail">펌텍코리아, 레이크머티리얼즈, 태광, 바텍, 휴온스, NHN KCP 등이 2분기 잠정실적을 발표했습니다. 실적 수치 발표에 따라 개별 종목별 차별화 흐름이 나타날 수 있습니다.</div>
+      
+      <div class="fi-meta">근거 · DART 공시 주요공시 15건 · 실적공시 15건 · 기준일 20260811</div>
+      
+    </div>
+    
   </div>
+  
 
+  <!-- ═══════ PART 2. 데이터 점검 ═══════ -->
+  <div class="band">PART 2. 데이터 점검</div>
 
-
-
-  <div class="fx-q-wrap" style="background:#1B2740;">
-    <div class="fx-q-lbl">MOO:Q · 오늘의 질문</div>
-    <div class="fx-q-text">외국인 순매도 흐름 속에서 코스피가 반등할까요?</div>
-
-    <div class="fx-q-why">코스피는 6,299.66로 전일 대비 0.65% 상승했습니다. 외국인 순매도 흐름 속에서 상승 흐름이 다음 거래일까지 이어지는지가 확인 대상입니다.</div>
-
-    <div class="fx-q-meta">관찰 시점 2026-08-11 · 확인 예정일 2026-08-12</div>
-  </div>
-
-
-
-
-  <div class="fx-check-wrap" style="background:#202A3D;">
-    <div class="fx-check-lbl">MOO:CHECK · 지난 질문의 결과</div>
-    <div class="fx-check-q">나스닥은 다음 거래일까지 상승세를 이어갈까?</div>
-    <div class="fx-check-row"><span class="k">질문 시점</span>2026-08-10</div>
-    <div class="fx-check-row"><span class="k">실제 결과</span>26690.62 → 26605.36 (-0.32%)</div>
-    <div class="fx-check-row">실제 변화가 예상한 상승 방향과 다르게 움직였습니다.</div>
-    <span class="fx-check-verdict MISS">MISS</span>
-  </div>
-
-
-
-
-  <div class="fx-label">KOREA MARKET &amp; FLOW</div>
-  <div class="fx-kf-card" style="background:#141C2E;">
-
-    <div class="fx-kf-market-lbl">코스피 수급</div>
-    <table class="fx-kf-table" role="presentation" width="100%" cellpadding="0" cellspacing="0">
-
-      <tr><td class="fx-kf-who">개인</td><td class="fx-kf-val up" style="color:#FF6B6B;">+9,003억원</td></tr>
-
-      <tr><td class="fx-kf-who">외국인</td><td class="fx-kf-val down" style="color:#5B8DEF;">-14,909억원</td></tr>
-
-      <tr class="last"><td class="fx-kf-who">기관</td><td class="fx-kf-val up" style="color:#FF6B6B;">+5,692억원</td></tr>
-
+  <!-- 국내 증시 -->
+  
+  <div class="sec">
+    <h2>국내 증시</h2>
+    <div class="key">코스피 6345.53pt(+0.73%), 외국인 순매수</div>
+    <table>
+      <tr><th>지수</th><th class="num">종가</th><th class="num">등락률</th></tr>
+      
+        
+        
+        <tr><td>코스피</td><td class="num"><b>6345.53</b></td>
+            <td class="num"><span class="up">▲ +0.73%</span></td></tr>
+        
+      
+        
+        
+        <tr><td>코스닥</td><td class="num"><b>857.84</b></td>
+            <td class="num"><span class="up">▲ +0.39%</span></td></tr>
+        
+      
     </table>
 
-
-    <div class="fx-kf-market-lbl">코스닥 수급</div>
-    <table class="fx-kf-table" role="presentation" width="100%" cellpadding="0" cellspacing="0">
-
-      <tr><td class="fx-kf-who">개인</td><td class="fx-kf-val down" style="color:#5B8DEF;">-6,729억원</td></tr>
-
-      <tr><td class="fx-kf-who">외국인</td><td class="fx-kf-val up" style="color:#FF6B6B;">+1,027억원</td></tr>
-
-      <tr class="last"><td class="fx-kf-who">기관</td><td class="fx-kf-val up" style="color:#FF6B6B;">+5,667억원</td></tr>
-
+    <!-- 투자자 수급 (Moo's Pick) -->
+    
+    <h3 class="sub ntr">오늘 누가 샀나 · 개인 · 외국인 · 기관</h3>
+    <div class="key">대중이 가장 궁금해하는 '수급'을 매일 짚어드립니다 (단위: 억원, 순매수 +)</div>
+    <table>
+      <tr><th>구분</th><th class="num">개인</th><th class="num">외국인</th><th class="num">기관</th></tr>
+      
+        
+        
+        <tr>
+          <td>코스피</td>
+          
+            
+            <td class="num">
+            
+              <span class="down">-708</span>
+              
+            
+            </td>
+          
+            
+            <td class="num">
+            
+              <span class="up">+535</span>
+              
+            
+            </td>
+          
+            
+            <td class="num">
+            
+              <span class="up">+212</span>
+              
+            
+            </td>
+          
+        </tr>
+        
+      
+        
+        
+        <tr>
+          <td>코스닥</td>
+          
+            
+            <td class="num">
+            
+              <span class="up">+4,351</span>
+              
+            
+            </td>
+          
+            
+            <td class="num">
+            
+              <span class="down">-3,562</span>
+              
+            
+            </td>
+          
+            
+            <td class="num">
+            
+              <span class="down">-954</span>
+              
+            
+            </td>
+          
+        </tr>
+        
+      
     </table>
+    
 
+    
+    <div class="analysis"><div class="a-lbl">상세 분석</div><p>지난 거래일(2026-08-11) 코스피는 전일 대비 0.73% 상승한 6345.53pt, 코스닥은 0.39% 상승한 857.84pt로 마감했습니다. 수급 측면에서는 코스피에서 외국인이 +535억원, 기관계가 +212억원 순매수했고 개인이 -708억원 순매도했습니다. 코스닥에서는 개인이 +4,351억원 순매수한 반면 외국인 -3,562억원, 기관계 -954억원 순매도를 나타냈습니다.</p></div>
+    
+  </div>
+  
 
-    <div class="fx-sector-row">
-      상승 복합유틸리티(+11.63%), 비철금속(+10.01%)
-       ·
-      하락 무선통신서비스(-2.71%), 은행(-2.67%)
+  <!-- 간밤 미국·글로벌(2026-07-22 재배치 — 국내증시 다음, 거시보다 앞: 국내→미국
+       "시장 리뷰" 흐름으로 연속 배치, 거시는 그 뒤 "배경 변수"로 이동) -->
+  
+  <div class="sec">
+    <h2>간밤 미국·글로벌</h2>
+    <div class="key">나스닥 -0.6%, 지경학 리스크에 하락</div>
+    <table>
+      <tr><th>지표</th><th class="num">종가</th><th class="num">등락률</th></tr>
+      
+        
+        <tr><td>다우</td><td class="num"><b>53791.85</b></td>
+            <td class="num"><span class="down">▼ -0.34%</span></td></tr>
+        
+      
+        
+        <tr><td>S&P500</td><td class="num"><b>7728.2</b></td>
+            <td class="num"><span class="down">▼ -0.32%</span></td></tr>
+        
+      
+        
+        <tr><td>나스닥</td><td class="num"><b>26445.45</b></td>
+            <td class="num"><span class="down">▼ -0.60%</span></td></tr>
+        
+      
+        
+        <tr><td>닛케이</td><td class="num"><b>66970.22</b></td>
+            <td class="num"><span class="up">▲ +2.08%</span></td></tr>
+        
+      
+        
+        <tr><td>상해종합</td><td class="num"><b>3966.59</b></td>
+            <td class="num"><span class="up">▲ +0.67%</span></td></tr>
+        
+      
+        
+        <tr><td>원/달러</td><td class="num"><b>1412.16</b></td>
+            <td class="num"><span class="down">▼ -0.36%</span></td></tr>
+        
+      
+        
+        <tr><td>WTI</td><td class="num"><b>83.23</b></td>
+            <td class="num"><span class="up">▲ +1.34%</span></td></tr>
+        
+      
+        
+        <tr><td>브렌트유</td><td class="num"><b>88.95</b></td>
+            <td class="num"><span class="up">▲ +1.40%</span></td></tr>
+        
+      
+        
+        <tr><td>금</td><td class="num"><b>4427.8</b></td>
+            <td class="num"><span class="up">▲ +1.51%</span></td></tr>
+        
+      
+        
+        <tr><td>VIX</td><td class="num"><b>15.28</b></td>
+            <td class="num"><span class="down">▼ -1.16%</span></td></tr>
+        
+      
+        
+        <tr><td>미국채10년</td><td class="num"><b>4.68</b></td>
+            <td class="num"><span class="down">▼ -0.32%</span></td></tr>
+        
+      
+        
+        <tr><td>달러인덱스</td><td class="num"><b>99.83</b></td>
+            <td class="num"><span class="up">▲ +0.02%</span></td></tr>
+        
+      
+    </table>
+    
+    <div class="analysis"><div class="a-lbl">상세 분석</div><p>지난 거래일(2026-08-11) 미국 증시는 호르무즈 해협 관련 지정학적 불확실성과 물가 경계감 속에 하락했습니다. 나스닥지수는 전일 대비 -0.6% 내린 26445.45pt, S&P500은 -0.32% 하락한 7728.2pt를 기록했습니다.</p></div>
+    
+  </div>
+  
+
+  <!-- 거시·채권·금리 (한·미 대비 통합표) — 시장 리뷰(국내→미국) 다음의 배경 변수로 이동 -->
+  
+  <div class="sec">
+    <h2>거시·채권·금리</h2>
+    <div class="key">원/달러 1412.16원(-5.15원), WTI +1.34%</div>
+    <div class="key" style="background:#fafbfc;border-left-color:#8a94a3;color:#8a94a3;">
+      같은 지표는 같은 행에서 한·미를 비교합니다. 한쪽에만 있는 지표는 ― 로 표시됩니다.
+      미국 지표 옆 날짜는 발표 기준월입니다. 이 표의 미국채 수치는 美 연준 FRED
+      공식 통계 기준이며, 위 지표 카드·시장 해설의 실시간 시세와는 조회 시점이 달라
+      소수점 이하 값이 다를 수 있습니다(같은 지표를 지어낸 것이 아니라 서로 다른
+      두 공식 소스입니다).
     </div>
-
-    <div class="fx-interp">코스피는 외국인 순매도(-14,909억원)가 두드러졌습니다, 코스닥는 개인 순매도(-6,729억원)가 두드러졌습니다.</div>
-  </div>
-
-
-
-
-  <div class="fx-label">OVERNIGHT GLOBAL &amp; MACRO</div>
-  <div class="fx-og-card" style="background:#141C2E;">
-
-    <div class="fx-og-group-lbl">지수</div>
-    <table class="fx-og-table" role="presentation" width="100%" cellpadding="0" cellspacing="0">
-
+    <table>
       <tr>
-        <td class="fx-og-label">다우존스</td><td class="fx-og-val">53,975.98</td>
-        <td class="fx-og-chg down" style="color:#5B8DEF;">▼ -0.11%</td>
+        <th>지표</th>
+        <th class="num">🇰🇷 한국</th>
+        <th class="num">🇺🇸 미국</th>
       </tr>
-
+      <!-- 기준금리 -->
       <tr>
-        <td class="fx-og-label">나스닥</td><td class="fx-og-val">26,605.36</td>
-        <td class="fx-og-chg down" style="color:#5B8DEF;">▼ -0.32%</td>
+        <td>기준금리</td>
+        <td class="num"><b>2.75%</b></td>
+        <td class="num"><b>3.75%</b>
+          <div style="color:#8a94a3;font-size:12px;font-weight:400;">2026-08-11</div></td>
       </tr>
-
+      <!-- 국채 2년물 (미국만) -->
       <tr>
-        <td class="fx-og-label">S&P 500</td><td class="fx-og-val">7,753.11</td>
-        <td class="fx-og-chg down" style="color:#5B8DEF;">▼ -0.06%</td>
+        <td>국채 2년물</td>
+        <td class="num"><b>―</b></td>
+        <td class="num"><b>4.25%</b>
+          <div style="color:#8a94a3;font-size:12px;font-weight:400;">2026-08-10</div></td>
       </tr>
-
+      <!-- 국고채 3년물 (한국만) -->
       <tr>
-        <td class="fx-og-label">니케이225</td><td class="fx-og-val">65,606.71</td>
-        <td class="fx-og-chg down" style="color:#5B8DEF;">▼ -0.12%</td>
+        <td>국고채 3년물</td>
+        <td class="num"><b>3.81%</b></td>
+        <td class="num"><b>―</b></td>
       </tr>
-
+      <!-- 국채 10년물 -->
       <tr>
-        <td class="fx-og-label">상해종합</td><td class="fx-og-val">3,940.04</td>
-        <td class="fx-og-chg up" style="color:#FF6B6B;">▲ +1.02%</td>
+        <td>국채 10년물<span style="display:block;color:#8a94a3;font-size:12px;font-weight:400;">(FRED 기준, 실시간 시세는 위 지표 카드 참고)</span></td>
+        <td class="num"><b>4.3%</b></td>
+        <td class="num"><b>4.72%</b>
+          <div style="color:#8a94a3;font-size:12px;font-weight:400;">2026-08-10</div></td>
       </tr>
-
+      <!-- 소비자물가 YoY -->
+      <tr>
+        <td>소비자물가(YoY)</td>
+        <td class="num"><b>2.79%</b></td>
+        <td class="num"><b>3.73%</b>
+          <div style="color:#8a94a3;font-size:12px;font-weight:400;">2026-06-01</div></td>
+      </tr>
+      <!-- 근원 PCE (미국만) -->
+      <tr>
+        <td>근원 PCE(YoY)</td>
+        <td class="num"><b>―</b></td>
+        <td class="num"><b>3.29%</b>
+          <div style="color:#8a94a3;font-size:12px;font-weight:400;">2026-06-01</div></td>
+      </tr>
+      <!-- 실업률 (미국만) -->
+      <tr>
+        <td>실업률</td>
+        <td class="num"><b>―</b></td>
+        <td class="num"><b>4.1%</b>
+          <div style="color:#8a94a3;font-size:12px;font-weight:400;">2026-07-01</div></td>
+      </tr>
     </table>
 
+    
+    <div class="analysis"><div class="a-lbl">상세 분석</div><p>지난 거래일(2026-08-11) 원/달러 환율은 전일 대비 -5.15원 내린 1412.16원에 거래를 마쳤습니다. 미국 국채 10년물 금리는 4.68%로 전일 대비 -0.01%p 하락했습니다. WTI 유가는 83.23달러로 전일 대비 1.34% 상승했습니다.</p></div>
+    
+  </div>
+  
 
-    <div class="fx-og-group-lbl">금리 · 환율</div>
-    <table class="fx-og-table" role="presentation" width="100%" cellpadding="0" cellspacing="0">
+  <!-- 미국 실적 캘린더 — 예정·완료 두 그룹으로 분리(2026-07-22). 여러 날에 걸친
+       아카이브(웹 별도 저장소)는 이번 라운드 범위 밖으로 명시 보류(§14 참고,
+       fixture/mock 없이 이번 발행에 실제로 존재하는 payload만 예정/결과로 나눔) -->
+  
 
-      <tr>
-        <td class="fx-og-label">미국채10년</td><td class="fx-og-val">4.70%</td>
-        <td class="fx-og-chg up" style="color:#FF6B6B;">▲ +4.00bp</td>
-      </tr>
+  <!-- 오늘의 타임라인(조건부, 2026-07-22 재정의) — 스펙 §15는 "시간이 특정된
+       이벤트 2개 이상"을 조건으로 요구하지만, 이 파이프라인의 캘린더 소스
+       (FRED releases/dates, Finnhub 실적예고)는 애초에 시각(HH:MM) 정보를
+       수집한 적이 없고 날짜 단위만 제공한다(site_narrative.build_calendar_items
+       확인 결과 — 신규 수집기 추가는 이번 라운드 범위 밖). 시간(HH:MM) 기준을
+       문자 그대로 적용하면 이 섹션이 사실상 항상 숨겨져, 이전 라운드에서 별도로
+       복원했던 지난 일정 결과 기능이 다시 회귀하게 된다("기존 섹션 삭제 금지"
+       원칙과 충돌). 따라서 날짜 단위 이벤트라도 "행동 가능한 시점 정보"로 보고,
+       총 이벤트(지난+예정) 2건 미만일 때만 숨기는 것으로 조건을 대체 적용한다
+       (1건뿐이고 체크포인트/실적표에 이미 포함된 경우를 자연히 걸러내는 효과는
+       동일하게 유지). -->
+  
+  
+  <div class="sec">
+    <h2>오늘의 타임라인</h2>
+    
+    
+    <h3 class="sub ntr">예정 일정</h3>
+    
+    
+    <div class="sch-item sch-upcoming sch-high">
+      <span class="sch-date">2026-08-12</span>
+      <span class="sch-title">미국 소비자물가(CPI)</span>
+      <span class="sch-badge">주요</span>
+    </div>
+    
+    <div class="sch-item sch-upcoming ">
+      <span class="sch-date">2026-08-13</span>
+      <span class="sch-title">미국 생산자물가(PPI)</span>
+      
+    </div>
+    
+    
+  </div>
+  
 
-      <tr>
-        <td class="fx-og-label">달러인덱스</td><td class="fx-og-val">99.81</td>
-        <td class="fx-og-chg up" style="color:#FF6B6B;">▲ +0.21%</td>
-      </tr>
+  <!-- 리스크 -->
+  
+  <div class="sec">
+    <h2>리스크 요인</h2>
+    <div class="risk"><ul>
+      <li>중동 지정학적 불확실성에 따른 국제유가 상승 압력</li><li>미국 CPI 및 인플레이션 지표 경계감</li>
+    </ul></div>
+  </div>
+  
 
-      <tr>
-        <td class="fx-og-label">원/달러</td><td class="fx-og-val">1,417.7</td>
-        <td class="fx-og-chg up" style="color:#FF6B6B;">▲ +0.76%</td>
-      </tr>
+  <!-- 오늘의 관전 코멘트 -->
+  
+  <div class="sec">
+    <h2>오늘의 관전 코멘트</h2>
+    <div class="comment">미국 CPI 발표를 앞두고 유가 변동성과 외국인 수급 변화를 관찰하는 접근이 유효할 수 있습니다.</div>
+    <div class="comment-note">※ 위 내용은 시장 상황에 대한 관점·참고 정보이며, 특정 종목의 매매를 권유하지 않습니다. 투자 판단과 책임은 이용자 본인에게 있습니다.</div>
+  </div>
+  
 
-    </table>
-
-
-    <div class="fx-og-group-lbl">원자재 · 변동성</div>
-    <table class="fx-og-table" role="presentation" width="100%" cellpadding="0" cellspacing="0">
-
-      <tr>
-        <td class="fx-og-label">WTI</td><td class="fx-og-val">82.30</td>
-        <td class="fx-og-chg up" style="color:#FF6B6B;">▲ +5.27%</td>
-      </tr>
-
-      <tr>
-        <td class="fx-og-label">브렌트유</td><td class="fx-og-val">87.85</td>
-        <td class="fx-og-chg up" style="color:#FF6B6B;">▲ +5.15%</td>
-      </tr>
-
-      <tr>
-        <td class="fx-og-label">금</td><td class="fx-og-val">4,448.60</td>
-        <td class="fx-og-chg up" style="color:#FF6B6B;">▲ +2.49%</td>
-      </tr>
-
-      <tr>
-        <td class="fx-og-label">VIX</td><td class="fx-og-val">15.46</td>
-        <td class="fx-og-chg up" style="color:#FF6B6B;">▲ +3.76%</td>
-      </tr>
-
-    </table>
-
-
-    <div class="fx-og-group-lbl">주요 거시</div>
-    <table class="fx-og-table" role="presentation" width="100%" cellpadding="0" cellspacing="0">
-
-      <tr>
-        <td class="fx-og-label">美 CPI(YoY)</td><td class="fx-og-val" colspan="2">3.73% <span style="color:#6B7A99;">(2026-06-01)</span></td>
-      </tr>
-
-      <tr>
-        <td class="fx-og-label">美 근원PCE(YoY)</td><td class="fx-og-val" colspan="2">3.29% <span style="color:#6B7A99;">(2026-06-01)</span></td>
-      </tr>
-
-      <tr>
-        <td class="fx-og-label">美 실업률</td><td class="fx-og-val" colspan="2">4.1% <span style="color:#6B7A99;">(2026-07-01)</span></td>
-      </tr>
-
-      <tr class="last">
-        <td class="fx-og-label">美 기준금리</td><td class="fx-og-val" colspan="2">3.75% <span style="color:#6B7A99;">(2026-08-10)</span></td>
-      </tr>
-
-    </table>
-
-    <div class="fx-interp">미국·아시아 지수는 5개 중 1개 상승, 4개 하락으로 마감했습니다, VIX는 15.46로 관찰됩니다.</div>
+  <!-- 전체 데이터 출처(2026-07-22) — 항목 삭제·축약 없이 유지, 카테고리+출처를
+       한 행으로 압축해 세로 길이만 줄인다(스펙 §16). -->
+  <div class="footer" style="text-align:left;">
+    <div class="f-head">📊 이 리포트는 아래 공식·공신력 있는 데이터를 종합해 자동 생성됩니다</div>
+    <div class="src-list">
+      <div class="src-row"><span class="f-cat">시장·지수</span><span>FinanceDataReader · 네이버 금융</span></div>
+      <div class="src-row"><span class="f-cat">거시·금리</span><span>한국은행 ECOS · 美 연준 FRED</span></div>
+      <div class="src-row"><span class="f-cat">공시·실적</span><span>금융감독원 DART · Finnhub</span></div>
+      <div class="src-row"><span class="f-cat">국내 뉴스</span><span>연합뉴스 · 한국경제 · 매일경제 · 머니투데이 · 파이낸셜뉴스</span></div>
+      <div class="src-row"><span class="f-cat">해외 뉴스</span><span>MarketWatch · CNBC · Investing.com</span></div>
+    </div>
   </div>
 
-
-
-
-  <div class="fx-label">SIGNAL CHAIN</div>
-
-  <div class="fx-sc-mobile">
-  <table class="fx-sc-grid" cellpadding="0" cellspacing="0" role="presentation" width="100%">
-    <tr>
-
-    <td class="fx-sc-chip" width="50%" bgcolor="#141C2E" style="background:#141C2E;">
-      <div class="fx-sc-role">출발</div>
-      <div class="fx-sc-label">미국채10년 금리</div>
-      <div class="fx-sc-detail up" style="color:#FF6B6B;">4.70% · +0.04%p 상승</div>
-    </td>
-
-    <td class="fx-sc-chip" width="50%" bgcolor="#141C2E" style="background:#141C2E;">
-      <div class="fx-sc-role">동시변화</div>
-      <div class="fx-sc-label">원/달러 환율</div>
-      <div class="fx-sc-detail up" style="color:#FF6B6B;">1,418원 · +10.67원 상승(원화 약세)</div>
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td class="fx-sc-chip" width="50%" bgcolor="#141C2E" style="background:#141C2E;">
-      <div class="fx-sc-role">수급</div>
-      <div class="fx-sc-label">외국인 수급</div>
-      <div class="fx-sc-detail down" style="color:#5B8DEF;">코스피 -14,909억원 순매도</div>
-    </td>
-
-    <td class="fx-sc-chip outcome" width="50%" bgcolor="#141C2E" style="background:#141C2E;">
-      <div class="fx-sc-role">결과</div>
-      <div class="fx-sc-label">국내 증시(코스피)</div>
-      <div class="fx-sc-detail up" style="color:#FF6B6B;">6,299.66 · +0.65% 상승</div>
-    </td>
-
-    </tr>
-
-  </table>
-  </div>
-  <div class="fx-sc-desktop">
-  <table class="fx-sc-grid" cellpadding="0" cellspacing="0" role="presentation" width="100%">
-    <tr>
-
-    <td class="fx-sc-chip" width="25%" bgcolor="#141C2E" style="background:#141C2E;">
-      <div class="fx-sc-role">출발</div>
-      <div class="fx-sc-label">미국채10년 금리</div>
-      <div class="fx-sc-detail up" style="color:#FF6B6B;">4.70% · +0.04%p 상승</div>
-    </td>
-
-    <td class="fx-sc-chip" width="25%" bgcolor="#141C2E" style="background:#141C2E;">
-      <div class="fx-sc-role">동시변화</div>
-      <div class="fx-sc-label">원/달러 환율</div>
-      <div class="fx-sc-detail up" style="color:#FF6B6B;">1,418원 · +10.67원 상승(원화 약세)</div>
-    </td>
-
-    <td class="fx-sc-chip" width="25%" bgcolor="#141C2E" style="background:#141C2E;">
-      <div class="fx-sc-role">수급</div>
-      <div class="fx-sc-label">외국인 수급</div>
-      <div class="fx-sc-detail down" style="color:#5B8DEF;">코스피 -14,909억원 순매도</div>
-    </td>
-
-    <td class="fx-sc-chip outcome" width="25%" bgcolor="#141C2E" style="background:#141C2E;">
-      <div class="fx-sc-role">결과</div>
-      <div class="fx-sc-label">국내 증시(코스피)</div>
-      <div class="fx-sc-detail up" style="color:#FF6B6B;">6,299.66 · +0.65% 상승</div>
-    </td>
-
-    </tr>
-  </table>
-  </div>
-  <div class="fx-sc-note">미국채 금리 상승과 원/달러 환율 오름세가 외국인 순매도 및 코스피 지수에 영향을 준 요인 중 하나로 해석할 수 있습니다.</div>
-  <div class="fx-sc-strength">해석 강도: 제한적 · 동일 시점에 관찰된 흐름을 연결한 가정입니다.</div>
-
-
-
-
-  <div class="fx-label">TODAY'S WATCH — 오늘의 관전 포인트</div>
-  <div class="fx-watch-card" style="background:#141C2E;">
-
-    <table class="fx-watch-row first" role="presentation" cellpadding="0" cellspacing="0"><tr>
-      <td class="fx-watch-num" width="18" valign="top">1</td>
-      <td class="fx-watch-txt" valign="top">엔비디아의 5,000억 달러 규모 AI 데이터센터 투자 자금 조달 추진 및 젠슨 황 CEO 발표</td>
-    </tr></table>
-
-    <table class="fx-watch-row" role="presentation" cellpadding="0" cellspacing="0"><tr>
-      <td class="fx-watch-num" width="18" valign="top">2</td>
-      <td class="fx-watch-txt" valign="top">브렌트유 87.85달러(5.15% 상승) 등 원자재 가격 폭등 추이</td>
-    </tr></table>
-
-    <table class="fx-watch-row" role="presentation" cellpadding="0" cellspacing="0"><tr>
-      <td class="fx-watch-num" width="18" valign="top">3</td>
-      <td class="fx-watch-txt" valign="top">원/달러 환율 1417.67원(등락폭 10.67원)과 코스피 외국인 14,909억원 순매도 동향</td>
-    </tr></table>
-
-    <div class="fx-watch-oneliner">원/달러 환율 1410원대 돌파와 유가 상승 부담 속에서 코스닥의 6.97% 급반등이 보여준 뚜렷한 수급 차별화 장세에 주목할 수 있습니다.</div>
+  <!-- MOO:conomy 구독 CTA(2026-07-22 신설) — 기존 무료구독 URL 그대로 재사용,
+       법적고지·수신거부와 분리된 독립 브랜드 블록. 황소·외부이미지 없음. -->
+  <div class="cta-block">
+    <div class="cta-brand">MOO<span class="cta-colon">:</span>conomy</div>
+    <div class="cta-copy">잠든 사이 움직인 지표와 뉴스, 매일 아침 정리합니다.</div>
+    <a class="cta-btn" href="https://mooconomy.co.kr/#home/subscribe" target="_blank">매일 아침 무료로 받아보기</a>
   </div>
 
+  <div class="footer" style="text-align:center;">
+    <div style="color:#b0b8c4;">본 리포트는 투자 참고용이며 투자 판단의 책임은 이용자 본인에게 있습니다.</div>
+    <div class="sign">Curated by <b>MOO:conomy</b> · © 2026 All rights reserved.</div>
+    <div style="margin-top:2px;"><a href="https://mooconomy.co.kr/" target="_blank" class="a1-link" style="display:inline-block;min-height:44px;line-height:44px;color:#8a94a3;text-decoration:underline;">MOO:conomy 홈페이지</a></div>
 
+    <div style="margin-top:8px;padding-top:8px;border-top:1px solid #e3e6ea;color:#5a6b82;">
+      이 브리핑이 도움 될 분이 떠오른다면 이 메일을 전달해 주세요.<br>
+      전달받으셨나요? <a href="https://mooconomy.co.kr/#home/subscribe" target="_blank" class="a1-link" style="display:inline-block;min-height:44px;line-height:44px;color:#0b2545;text-decoration:underline;">Daily MOO:conomy 무료 구독하기 →</a>
+    </div>
+    <div style="margin-top:0;"><a href="https://mooconomy.co.kr/latest.html" target="_blank" class="a1-link" style="display:inline-block;min-height:44px;line-height:44px;color:#8a94a3;text-decoration:underline;">웹에서 보고 공유하기 →</a></div>
 
-
-
-
-
-  <div class="fx-risk">
-    <div class="fx-risk-lbl">RISK · 관찰</div>
-    <div class="fx-risk-text">원자재 가격(구리·코발트·WTI) 폭등에 따른 인플레이션 상방 압력<br>원/달러 환율 1,410원대 진입에 따른 코스피 외국인 자금 이탈 우려</div>
+    <div style="margin-top:6px;padding-top:6px;border-top:1px solid #e3e6ea;">
+      <a href="{{{RESEND_UNSUBSCRIBE_URL}}}" class="a1-link" style="display:inline-block;min-height:44px;line-height:44px;color:#8a94a3;text-decoration:underline;">수신거부</a>
+    </div>
   </div>
 
-
-  <div class="fx-src">
-    <div class="fx-src-row"><span class="f-cat">시장·지수</span> FinanceDataReader · 네이버 금융</div>
-    <div class="fx-src-row"><span class="f-cat">거시·금리</span> 한국은행 ECOS · 美 연준 FRED</div>
-    <div class="fx-src-row"><span class="f-cat">공시·실적</span> 금융감독원 DART · Finnhub</div>
-
-
-    <div class="fx-src-row"><span class="f-cat">뉴스</span> 매일경제 · 연합뉴스마켓 · 머니투데이 · Investing</div>
-
-  </div>
-
-  <div class="fx-terminal-note">지표 터미널은 준비 중입니다.</div>
-
-  <div class="fx-terminal-note">오늘의 흐름이 도움이 됐다면, 시장을 함께 보는 분께 이 메일을 전달해 주세요. 전달받으신 분도 무코노미 홈페이지에서 매일 아침 뉴스레터를 구독할 수 있습니다.</div>
-
-  <div class="fx-terminal-note">하루의 움직임보다 더 긴 흐름이 궁금하다면 <a class="fx-unsubscribe-link" href="https://mooconomy.co.kr/" target="_blank">무코노미 홈페이지</a>에서 누적된 시장 기록과 지표를 확인해 보세요. 주간·월간 관점의 데이터도 순차적으로 확장합니다.</div>
-
-  <table class="fx-home-pill-wrap" role="presentation" cellpadding="0" cellspacing="0"><tr><td align="center">
-    <table role="presentation" cellpadding="0" cellspacing="0"><tr>
-      <td class="fx-home-pill-cell"><a class="fx-home-pill-link" href="https://mooconomy.co.kr/#home/subscribe" target="_blank">처음 전달받으셨나요? 매일 아침 직접 받아보기 →</a></td>
-    </tr></table>
-  </td></tr></table>
-
-  <div class="fx-copyright">© 2026 Mooconomy</div>
-  <div class="fx-signoff">매일 아침 국내·해외 시장 맥락을 전달합니다.</div>
-  <div><span class="fx-unsubscribe-link">수신거부는 실제 수신한 이메일 하단에서 가능합니다</span></div>
-
-  </div>
-</td></tr>
-</table>
-<!--[if mso]>
-</td></tr></table>
-<![endif]-->
-</td></tr>
-</table>
-<div class="inner">
-<div class="fx-share-row">
-  <button type="button" id="shareBtn" class="fx-share-btn">공유하기</button>
-  <button type="button" id="copyLinkBtn" class="fx-share-btn secondary">링크 복사</button>
-  <span id="shareStatus" class="fx-share-status" role="status" aria-live="polite"></span>
-</div>
-<div class="fx-issue-nav"><a href="/issues/2026-08-10.html">← 2026-08-10</a><span></span></div><div class="fx-archive-link"><a href="/archive/">전체 발행 목록 보기</a></div>
-<script>
-(function () {
-  var btn = document.getElementById('shareBtn');
-  var copyBtn = document.getElementById('copyLinkBtn');
-  var status = document.getElementById('shareStatus');
-  var url = window.location.href.split('?')[0].split('#')[0];
-  var title = document.title;
-
-  function showStatus(msg) {
-    if (status) { status.textContent = msg; status.classList.add('show'); }
-  }
-
-  function fallbackCopy(text) {
-    var ta = document.createElement('textarea');
-    ta.value = text;
-    ta.style.position = 'fixed';
-    ta.style.left = '-9999px';
-    document.body.appendChild(ta);
-    ta.focus();
-    ta.select();
-    var ok = false;
-    try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
-    document.body.removeChild(ta);
-    return ok;
-  }
-
-  function copyLink() {
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(url).then(function () {
-        showStatus('링크가 복사됐습니다');
-      }).catch(function () {
-        showStatus(fallbackCopy(url) ? '링크가 복사됐습니다' : '복사에 실패했습니다');
-      });
-    } else {
-      showStatus(fallbackCopy(url) ? '링크가 복사됐습니다' : '복사에 실패했습니다');
-    }
-  }
-
-  if (btn) {
-    btn.addEventListener('click', function () {
-      if (navigator.share) {
-        navigator.share({ title: title, url: url }).catch(function (err) {
-          if (err && err.name === 'AbortError') return;  // 사용자가 취소
-          copyLink();
-        });
-      } else {
-        copyLink();
-      }
-    });
-  }
-  if (copyBtn) copyBtn.addEventListener('click', copyLink);
-})();
-</script>
+  </div><!-- /inner -->
 </div>
 </body>
 </html>

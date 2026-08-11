@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-08-12",
+  "generatedAt": "2026-08-12T06:43:01+09:00",
+  "indicators": [
+    {
+      "id": "kospi",
+      "value": 6345.53,
+      "change": 0.73,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "kosdaq",
+      "value": 857.84,
+      "change": 0.39,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "nasdaq",
+      "value": 26445.45,
+      "change": -0.6,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "sp500",
+      "value": 7728.2,
+      "change": -0.32,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1412.16,
+      "change": -5.15,
+      "displayMode": "delta",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "us10y",
+      "value": 4.68,
+      "change": -0.01,
+      "displayMode": "delta",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "wti",
+      "value": 83.23,
+      "change": 1.34,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "vix",
+      "value": 15.28,
+      "change": -1.16,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    }
+  ],
+  "signals": [
+    {
+      "id": "recession",
+      "color": "green",
+      "value": 0.47
+    },
+    {
+      "id": "rate-gap",
+      "color": "green",
+      "value": 1.0
+    },
+    {
+      "id": "liquidity-stress",
+      "color": "green",
+      "value": 2.7
+    }
+  ],
+  "calendarSnapshot": [
+    {
+      "id": "us-2026-08-12-미국 소비자물가(CPI)",
+      "time": "2026-08-12",
+      "country": "US",
+      "title": "미국 소비자물가(CPI)",
+      "importance": "high"
+    },
+    {
+      "id": "us-2026-08-13-미국 생산자물가(PPI)",
+      "time": "2026-08-13",
+      "country": "US",
+      "title": "미국 생산자물가(PPI)",
+      "importance": "medium"
+    }
+  ],
+  "marketTemperature": {
+    "label": "risk_on",
+    "displayLabel": "위험선호",
+    "status": "ok"
+  },
+  "connectionTopology": null
+}
