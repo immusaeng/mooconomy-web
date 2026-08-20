@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-08-21",
+  "generatedAt": "2026-08-21T06:43:21+09:00",
+  "indicators": [
+    {
+      "id": "kospi",
+      "value": 6852.58,
+      "change": 5.89,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "kosdaq",
+      "value": 840.89,
+      "change": 1.99,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "nasdaq",
+      "value": 26067.17,
+      "change": -1.0,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "sp500",
+      "value": 7641.16,
+      "change": -0.87,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1393.19,
+      "change": 3.79,
+      "displayMode": "delta",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "us10y",
+      "value": 4.7,
+      "change": 0.04,
+      "displayMode": "delta",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "wti",
+      "value": 86.21,
+      "change": 0.44,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "vix",
+      "value": 16.01,
+      "change": 7.52,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    }
+  ],
+  "signals": [
+    {
+      "id": "recession",
+      "color": "green",
+      "value": 0.46
+    },
+    {
+      "id": "rate-gap",
+      "color": "green",
+      "value": 1.0
+    },
+    {
+      "id": "liquidity-stress",
+      "color": "green",
+      "value": 2.73
+    }
+  ],
+  "calendarSnapshot": [
+    {
+      "id": "us-2026-08-26-미국 개인소득·지출(PCE)",
+      "time": "2026-08-26",
+      "country": "US",
+      "title": "미국 개인소득·지출(PCE)",
+      "importance": "high"
+    },
+    {
+      "id": "us-earn-2026-08-26-엔비디아",
+      "time": "2026-08-26",
+      "country": "US",
+      "title": "엔비디아 실적발표",
+      "importance": "medium"
+    }
+  ],
+  "marketTemperature": {
+    "label": "neutral",
+    "displayLabel": "중립",
+    "status": "ok"
+  },
+  "connectionTopology": "외국인"
+}
