@@ -1593,7 +1593,7 @@
         <div class="mail-frame">
           <div class="mail-bar">
             <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
-            <span class="mail-label">INBOX &nbsp;//&nbsp; daily@mooconomy.co.kr</span>
+            <span class="mail-label">INBOX &nbsp;//&nbsp; news@mooconomy.co.kr</span>
             <span class="mail-date" id="letterDate"></span>
           </div>
           <div class="mail-body">
@@ -1878,10 +1878,11 @@
       .then(function(r){ if(!r.ok) throw new Error('no ticker'); return r.json(); })
       .then(function(data){
         renderTicker((data && data.items) ? data.items : data);
-        if (data && data.updated) {
-          var el = document.getElementById('letterDate');
-          if (el) el.textContent = data.updated;
-        }
+        // 2026-08-21(TASK_ID=TRACK_B11_SECTION11_LABEL): letterDate는 여기서 더
+        // 이상 쓰지 않는다 -- ticker.json.updated는 latest.html과 갱신 주기가
+        // 달라 하루 어긋난 값을 보여준 적이 있다(실측: 2026-08-20 vs 실제
+        // 발행 2026-08-21). home.json.publishDate가 latest.html과 같은 실행에서
+        // 나오는 값이라 loadHome()에서만 설정한다.
       })
       .catch(function(){ renderTicker(tickerFallback); });
 
@@ -3743,6 +3744,10 @@
       }
 
       if (statusBody) renderTodayStatus(statusBody, home);
+      // 2026-08-21(TASK_ID=TRACK_B11_SECTION11_LABEL): letterDate를 여기서
+      // home.json.publishDate로 설정(ticker.json.updated 대신 -- 위 fetch 참고).
+      var letterDateEl = document.getElementById('letterDate');
+      if (letterDateEl && home.publishDate) letterDateEl.textContent = home.publishDate;
       // 02·03·05·08은 필드가 null/빈 배열이면 손대지 않고 기존 "준비중" 플레이스홀더를 그대로 둔다
       if (tempBody && home.marketTemperature) renderMarketTemperature(tempBody, home.marketTemperature);
       if (threeBody && home.dailyThree && home.dailyThree.length === 3) renderDailyThree(threeBody, home.dailyThree);
@@ -3929,6 +3934,32 @@
       targets.forEach(function (t) { observer.observe(t); });
     }
 
+    /* 2026-08-21(TASK_ID=TRACK_B11_SECTION_NUMBERING): .sec-num의 "NN / LABEL"은
+       그동안 손으로 채번한 정적 텍스트였다 -- 섹션이 추가/이동될 때마다 여러
+       라운드에 걸쳐 번호가 어긋났다(가장 최근엔 01이 두 번, 04가 없이 03→05로
+       건너뜀). 번호를 .dispatch 안 .sec-num의 실제 DOM 순서에서 매번 다시
+       계산해 라벨(″/″ 뒤 텍스트)만 마크업에 남기고 번호는 항상 최신 순서를
+       따르게 한다. "NN / LABEL" 형식이 아닌 항목(INSIGHT · ..., ABOUT · ...,
+       무료 아침 뉴스레터 등)과 #today-status 안(원래도 CSS로 숨겨져 있던 항목)은
+       건드리지 않는다. */
+    function renumberDispatchSections() {
+      var container = document.querySelector('.dispatch');
+      if (!container) return;
+      var nodes = Array.prototype.filter.call(
+        container.querySelectorAll('.sec-num'),
+        function (el) { return !el.closest('#today-status'); }
+      );
+      var n = 0;
+      nodes.forEach(function (el) {
+        var text = el.textContent || '';
+        var slashIdx = text.indexOf('/');
+        if (slashIdx === -1) return; // "NN / LABEL" 형식이 아니면 그대로 둠
+        n += 1;
+        var label = text.slice(slashIdx + 1).trim();
+        el.textContent = (n < 10 ? '0' + n : String(n)) + ' / ' + label;
+      });
+    }
+
     /* ===== 최초 로드 ===== */
     window.addEventListener('load', function(){
       if (typeof lucide !== 'undefined') lucide.createIcons();
@@ -3936,6 +3967,7 @@
       loadHome();
       routeFromHash();
       initDocNav();
+      renumberDispatchSections();
     });
   </script>
 
