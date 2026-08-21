@@ -221,6 +221,21 @@ def validate_html(html_text):
     return issues
 
 
+_RICH_EMAIL_RENDER_MARKER = 'name="x-apple-disable-message-reformatting"'
+
+
+def is_rich_email_render(html_text):
+    """True if this issue page was rendered from the actual sent email
+    (build_issue_page.render_from_public_safe_email) rather than
+    reconstructed from the leaner daily_archive JSON summary
+    (render_from_json_record). The email-client meta tag only exists in
+    the real newsletter template -- the JSON-reconstruction _PAGE_HEAD
+    never emits it. Used to keep publish_issue_archive.py from silently
+    downgrading an already-published rich page to a thinner rebuild once
+    a later run's TODAY moves past it."""
+    return _RICH_EMAIL_RENDER_MARKER in html_text
+
+
 def check_internal_links(html_text, site_root):
     """HTML 안의 절대경로(/로 시작) 내부 링크가 site_root 기준 실제
     파일로 존재하는지 확인한다. 외부(http/https) 링크·앵커(#)·mailto는
