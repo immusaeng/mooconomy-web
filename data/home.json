@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-22T06:42:56+09:00",
-  "publishDate": "2026-08-22",
+  "generatedAt": "2026-08-23T07:22:42+09:00",
+  "publishDate": "2026-08-23",
   "marketDateKr": "2026-08-21",
   "marketDateUs": "2026-08-21",
   "isDelayed": true,
@@ -9,10 +9,8 @@
   "marketTemperature": {
     "label": "neutral",
     "displayLabel": "중립",
-    "summary": "간밤 미국 증시 평균 +0.61% 상승 및 국내 증시 +0.88% 상승에도 불구하고, 코스피와 코스닥 간 수급 차별화와 외국인의 코스피 1,760억원 순매도가 이어지며 시장 온도는 중립을 보이는 것으로 관찰됩니다.",
+    "summary": "외국인의 코스피 매도세가 이어진 가운데 뚜렷한 모멘텀이 부재하여 관망 심리가 강하게 작용하는 것으로 보입니다. 시장 온도는 중립적인 흐름을 유지할 가능성이 있습니다.",
     "reasons": [
-      "간밤 미국 증시 평균 +0.61% 상승",
-      "국내 증시 +0.88% 상승",
       "외국인 코스피 순매도 1,760억원"
     ],
     "watchItems": [
@@ -24,19 +22,19 @@
     {
       "id": "overnight-global",
       "title": "간밤 글로벌 시장",
-      "text": "미 국채 10년 금리가 4.74%를 보이고 VIX가 15.13을 기록한 가운데, 저가 매수세에 힘입어 다우(+0.98%), 나스닥(+0.43%), S&P500(+0.43%) 지수가 반등한 것으로 나타났습니다.",
+      "text": "간밤 미 증시 주요 지수가 보합세를 나타낸 가운데 VIX는 15.13, 미국채 10년물 금리는 4.74%를 기록했습니다. 글로벌 시장 전반에 뚜렷한 방향성이 나타나지 않는 흐름이 관찰됩니다.",
       "status": "ok"
     },
     {
       "id": "today-domestic",
       "title": "전일 국내 시장",
-      "text": "국내 시장은 코스피가 +0.88% 상승했으나 코스닥은 -4.63% 하락하며 수급 차별화가 나타났고, 외국인의 코스피 1,760억원 순매도 속에 원/달러 환율은 -0.35% 하락한 것으로 보입니다.",
+      "text": "코스피 +0.00%, 코스닥 +0.00%, 외국인 코스피 순매도 1,760억원, 원/달러 -0.15%.",
       "status": "ok"
     },
     {
       "id": "today-checkpoint",
       "title": "오늘의 체크포인트",
-      "text": "글로벌 시장의 저가 매수 반등에도 불구하고 국내 증시의 지수 간 차별화와 경계감이 교차하면서 당분간 관망 심리가 우세를 보일 가능성이 있습니다.",
+      "text": "글로벌 및 국내 증시의 정체 흐름 속에 외국인 매도세가 이어지며, 지표 발표를 앞두고 관망 심리가 우세를 보이는 분위기입니다.",
       "status": "ok"
     }
   ],
@@ -70,8 +68,8 @@
       {
         "id": "usdkrw",
         "label": "원/달러",
-        "value": 1385.98,
-        "displayValue": "1,386.0원",
+        "value": 1383.9,
+        "displayValue": "1,383.9원",
         "direction": "down",
         "status": "ok"
       },
@@ -84,11 +82,19 @@
         "status": "ok"
       }
     ],
-    "summary": "원/달러 환율이 1,386.0원을 나타낸 가운데 개인(-11,652억원)과 외국인(-1,760억원)의 매도세 속에 기관이 +2,481억원 순매수하고 생명보험 업종이 +8.88% 상승한 것으로 관찰됩니다.",
+    "summary": "개인과 외국인의 매도세에 맞서 기관 순매수가 유입된 가운데, 생명보험 업종이 8.88% 상승하며 두드러진 흐름을 보였습니다.",
     "status": "ok"
   },
   "risks": [],
   "calendar": [
+    {
+      "id": "us-2026-08-26-미국 개인소득·지출(PCE)",
+      "time": "2026-08-26",
+      "country": "US",
+      "title": "미국 개인소득·지출(PCE)",
+      "importance": "high",
+      "status": "ok"
+    },
     {
       "id": "us-earn-2026-08-26-엔비디아",
       "time": "2026-08-26",
@@ -101,143 +107,155 @@
   "news": {
     "items": [
       {
-        "id": "news-매일경제-국제유가 불안한데 “물가가 더 불안”…석유 최고가 결국 9차 동결",
+        "id": "news-매일경제-“티끌 모아 티끌 소중함 아시겠죠?”…‘최고 연13.5%’ 고금리 적금 잇따라 출시 [알쓸금잡]",
         "category": "news",
         "source": "매일경제",
-        "title": "국제유가 불안한데 “물가가 더 불안”…석유 최고가 결국 9차 동결",
-        "url": "https://www.mk.co.kr/news/economy/12133701",
-        "publishedAt": "2026-08-22",
+        "title": "“티끌 모아 티끌 소중함 아시겠죠?”…‘최고 연13.5%’ 고금리 적금 잇따라 출시 [알쓸금잡]",
+        "url": "https://www.mk.co.kr/news/economy/12133902",
+        "publishedAt": "2026-08-23",
         "status": "ok"
       },
       {
-        "id": "news-매일경제-개인도 기업도 “달러 쌀 때 쟁여놓자”…달러예금 15조원 줍줍했다",
-        "category": "news",
-        "source": "매일경제",
-        "title": "개인도 기업도 “달러 쌀 때 쟁여놓자”…달러예금 15조원 줍줍했다",
-        "url": "https://www.mk.co.kr/news/economy/12133699",
-        "publishedAt": "2026-08-22",
-        "status": "ok"
-      },
-      {
-        "id": "news-파이낸셜뉴스-SMR 시장, '한미일 분업'과 '중러 올인원'의 대결[이유범의 에코&에너지]",
-        "category": "news",
-        "source": "파이낸셜뉴스",
-        "title": "SMR 시장, '한미일 분업'과 '중러 올인원'의 대결[이유범의 에코&에너지]",
-        "url": "https://www.fnnews.com/news/202608211511080774",
-        "publishedAt": "2026-08-22",
-        "status": "ok"
-      },
-      {
-        "id": "news-한국경제-국채 바이백의 이면은?…메모리 진출한다는 인텔[월가 백브리핑]",
-        "category": "news",
-        "source": "한국경제",
-        "title": "국채 바이백의 이면은?…메모리 진출한다는 인텔[월가 백브리핑]",
-        "url": "https://www.hankyung.com/article/202608225801i",
-        "publishedAt": "2026-08-22",
-        "status": "ok"
-      },
-      {
-        "id": "news-연합뉴스마켓-뉴욕증시, 美국채금리 상승에도 저가 매수세에 반등…다우 1%↑",
-        "category": "news",
-        "source": "연합뉴스마켓",
-        "title": "뉴욕증시, 美국채금리 상승에도 저가 매수세에 반등…다우 1%↑",
-        "url": "https://www.yna.co.kr/view/AKR20260822006200072",
-        "publishedAt": "2026-08-22",
-        "status": "ok"
-      },
-      {
-        "id": "news-연합뉴스-국제유가, 중동 불안 지속에 6일 연속 상승…브렌트유 94달러대",
+        "id": "news-연합뉴스-한국 7월 EU 철강 수출 41%↓…신철강조치 영향 일부 반영",
         "category": "news",
         "source": "연합뉴스",
-        "title": "국제유가, 중동 불안 지속에 6일 연속 상승…브렌트유 94달러대",
-        "url": "https://www.yna.co.kr/view/AKR20260822005400072",
-        "publishedAt": "2026-08-22",
+        "title": "한국 7월 EU 철강 수출 41%↓…신철강조치 영향 일부 반영",
+        "url": "https://www.yna.co.kr/view/AKR20260821179800003",
+        "publishedAt": "2026-08-23",
         "status": "ok"
       },
       {
-        "id": "news-연합뉴스마켓-비트코인 랠리에도 예측시장은 신중…\"연말 7만5천달러 안팎\"",
+        "id": "news-연합뉴스-\"담보 설명 없이 중개\"… 경기도, 불법 중개 69건 적발",
+        "category": "news",
+        "source": "연합뉴스",
+        "title": "\"담보 설명 없이 중개\"… 경기도, 불법 중개 69건 적발",
+        "url": "https://www.yna.co.kr/view/AKR20260821150000061",
+        "publishedAt": "2026-08-23",
+        "status": "ok"
+      },
+      {
+        "id": "news-연합뉴스마켓-[뉴욕증시-주간전망] '베선트 풋'에 곤란해진 워시…엔비디아 실적·PCE 지표도",
         "category": "news",
         "source": "연합뉴스마켓",
-        "title": "비트코인 랠리에도 예측시장은 신중…\"연말 7만5천달러 안팎\"",
-        "url": "https://www.yna.co.kr/view/AKR20260822005000072",
+        "title": "[뉴욕증시-주간전망] '베선트 풋'에 곤란해진 워시…엔비디아 실적·PCE 지표도",
+        "url": "https://www.yna.co.kr/view/AKR20260823005500009",
+        "publishedAt": "2026-08-23",
+        "status": "ok"
+      },
+      {
+        "id": "news-연합뉴스마켓-공급 부족 우려에 구리값 '들썩'…관련주도 우상향",
+        "category": "news",
+        "source": "연합뉴스마켓",
+        "title": "공급 부족 우려에 구리값 '들썩'…관련주도 우상향",
+        "url": "https://www.yna.co.kr/view/AKR20260822017800008",
+        "publishedAt": "2026-08-23",
+        "status": "ok"
+      },
+      {
+        "id": "news-머니투데이-금융·수출지원 기관도 지방이전?…\"수출 경쟁력 약화\" 우려도",
+        "category": "news",
+        "source": "머니투데이",
+        "title": "금융·수출지원 기관도 지방이전?…\"수출 경쟁력 약화\" 우려도",
+        "url": "https://www.mt.co.kr/economy/2026/08/23/2026082116101940672",
+        "publishedAt": "2026-08-23",
+        "status": "ok"
+      },
+      {
+        "id": "news-머니투데이-\"평생 청소부? 못해\" 이 일 뛰어들더니...'슈퍼카' 오너 된 20대[트민자]",
+        "category": "news",
+        "source": "머니투데이",
+        "title": "\"평생 청소부? 못해\" 이 일 뛰어들더니...'슈퍼카' 오너 된 20대[트민자]",
+        "url": "https://www.mt.co.kr/world/2026/08/23/2026082021231066920",
+        "publishedAt": "2026-08-23",
+        "status": "ok"
+      },
+      {
+        "id": "news-매일경제-코픽스 두 달 새 0.28%P 뛰었다…5억 주담대 이자 연 140만원↑",
+        "category": "news",
+        "source": "매일경제",
+        "title": "코픽스 두 달 새 0.28%P 뛰었다…5억 주담대 이자 연 140만원↑",
+        "url": "https://www.mk.co.kr/news/economy/12133873",
         "publishedAt": "2026-08-22",
         "status": "ok"
       },
       {
-        "id": "news-한국경제-엔비디아, 월가는 실적보다 '이것'에 더 관심[박신영의 개장전 요것만]",
-        "category": "news",
-        "source": "한국경제",
-        "title": "엔비디아, 월가는 실적보다 '이것'에 더 관심[박신영의 개장전 요것만]",
-        "url": "https://www.hankyung.com/article/202608225783i",
-        "publishedAt": "2026-08-22",
-        "status": "ok"
-      },
-      {
-        "id": "news-CNBC-Trump says U.S., Canada 'should be able' to reach trade deal as tariff",
-        "category": "news",
-        "source": "CNBC",
-        "title": "Trump says U.S., Canada 'should be able' to reach trade deal as tariff deadline looms",
-        "url": "https://www.cnbc.com/2026/08/21/trump-canada-tariffs-trade-deal-deadline.html",
-        "publishedAt": "2026-08-21",
-        "status": "ok"
-      },
-      {
-        "id": "news-CNBC-Trump to allow import of 300,000 metric tons of ground beef without ta",
-        "category": "news",
-        "source": "CNBC",
-        "title": "Trump to allow import of 300,000 metric tons of ground beef without tariff",
-        "url": "https://www.cnbc.com/2026/08/21/trump-ground-beef-import-tariff.html",
-        "publishedAt": "2026-08-21",
-        "status": "ok"
-      },
-      {
-        "id": "news-MarketWatch-Tesla’s stock jumps as the company gets cleared for a Las Vegas",
-        "category": "news",
-        "source": "MarketWatch",
-        "title": "Tesla’s stock jumps as the company gets cleared for a Las Vegas robotaxi launch",
-        "url": "https://www.marketwatch.com/story/tesla-stocks-jumps-as-the-company-gets-ready-for-a-robotaxi-push-c680f87f?mod=mw_rss_topstories",
-        "publishedAt": "2026-08-21",
-        "status": "ok"
-      },
-      {
-        "id": "news-MarketWatch-Here’s how Bessent’s newly activist Treasury Department is unde",
-        "category": "news",
-        "source": "MarketWatch",
-        "title": "Here’s how Bessent’s newly activist Treasury Department is undercutting the Fed’s Warsh",
-        "url": "https://www.marketwatch.com/story/heres-how-bessents-newly-activist-treasury-department-is-undercutting-the-feds-warsh-480455c2?mod=mw_rss_topstories",
-        "publishedAt": "2026-08-21",
-        "status": "ok"
-      },
-      {
-        "id": "news-MarketWatch-Retirees: This investment gives you a guaranteed 5% safe withdr",
-        "category": "news",
-        "source": "MarketWatch",
-        "title": "Retirees: This investment gives you a guaranteed 5% safe withdrawal rate",
-        "url": "https://www.marketwatch.com/story/retirees-this-investment-gives-you-a-guaranteed-5-safe-withdrawal-rate-facdfd76?mod=mw_rss_topstories",
-        "publishedAt": "2026-08-21",
-        "status": "ok"
-      },
-      {
-        "id": "news-CNBC-Tesla recalls 3 million vehicles in China over doorhandle safety, driv",
-        "category": "news",
-        "source": "CNBC",
-        "title": "Tesla recalls 3 million vehicles in China over doorhandle safety, driver monitoring",
-        "url": "https://www.cnbc.com/2026/08/21/tesla-recalls-cars-in-china-over-doorhandle-safety-driver-monitoring.html",
-        "publishedAt": "2026-08-21",
-        "status": "ok"
-      },
-      {
-        "id": "news-Investing-German state politician calls for EU tariffs on Chinese hybrid ca",
+        "id": "news-Investing-Iran lets Iraqi oil tankers pass Hormuz as Trump claims \"total co",
         "category": "news",
         "source": "Investing",
-        "title": "German state politician calls for EU tariffs on Chinese hybrid cars, letter shows",
-        "url": "https://www.investing.com/news/economy-news/german-state-politician-calls-for-eu-tariffs-on-chinese-hybrid-cars-letter-shows-4872022",
-        "publishedAt": "2026-08-21",
+        "title": "Iran lets Iraqi oil tankers pass Hormuz as Trump claims \"total control\"",
+        "url": "https://www.investing.com/news/economy-news/us-iran-trade-warnings-as-new-sanctions-loom-and-hormuz-oil-flows-stall-4872251",
+        "publishedAt": "2026-08-22",
+        "status": "ok"
+      },
+      {
+        "id": "news-MarketWatch-Canada announces retaliatory tariffs on U.S. goods after trade ",
+        "category": "news",
+        "source": "MarketWatch",
+        "title": "Canada announces retaliatory tariffs on U.S. goods after trade talks break down",
+        "url": "https://www.marketwatch.com/story/canada-announces-retaliatory-tariffs-on-u-s-goods-after-trade-talks-break-down-45081c2f?mod=mw_rss_topstories",
+        "publishedAt": "2026-08-22",
+        "status": "ok",
+        "related": [
+          {
+            "source": "CNBC",
+            "title": "As U.S.-Canada trade talks collapse, Carney says retaliatory tariffs will start Sept. 8",
+            "url": "https://www.cnbc.com/2026/08/22/us-canada-trade-talks-collapse-ushering-in-wave-of-new-tariffs.html",
+            "publishedAt": "2026-08-22",
+            "id": "news-CNBC-As U.S.-Canada trade talks collapse, Carney says retaliatory tariffs w"
+          },
+          {
+            "source": "Investing",
+            "title": "Canada to match U.S. tariffs dollar for dollar after trade talks collapse",
+            "url": "https://www.investing.com/news/economy-news/canada-to-match-us-tariffs-dollar-for-dollar-after-trade-talks-collapse-4872372",
+            "publishedAt": "2026-08-22",
+            "id": "news-Investing-Canada to match U.S. tariffs dollar for dollar after trade talks "
+          }
+        ]
+      },
+      {
+        "id": "news-CNBC-Nvidia customers reportedly warned about AI-related price hikes",
+        "category": "news",
+        "source": "CNBC",
+        "title": "Nvidia customers reportedly warned about AI-related price hikes",
+        "url": "https://www.cnbc.com/2026/08/22/nvidia-customers-reportedly-warned-about-ai-related-price-hikes-.html",
+        "publishedAt": "2026-08-22",
+        "status": "ok"
+      },
+      {
+        "id": "news-CNBC-Rising yields rattled the market, but we’re sticking with our favorite",
+        "category": "news",
+        "source": "CNBC",
+        "title": "Rising yields rattled the market, but we’re sticking with our favorite AI and retail stocks",
+        "url": "https://www.cnbc.com/2026/08/22/rising-yields-rattled-the-market-but-were-sticking-with-our-favorite-ai-and-retail-stocks.html",
+        "publishedAt": "2026-08-22",
+        "status": "ok"
+      },
+      {
+        "id": "news-MarketWatch-Our 4-year-old son has $100,000 in his 529 account. Is a bull m",
+        "category": "news",
+        "source": "MarketWatch",
+        "title": "Our 4-year-old son has $100,000 in his 529 account. Is a bull market a bad time to buy him stocks instead?",
+        "url": "https://www.marketwatch.com/story/our-4-year-old-son-has-100-000-in-his-529-account-should-we-buy-him-stocks-instead-3ca745b2?mod=mw_rss_topstories",
+        "publishedAt": "2026-08-22",
         "status": "ok"
       }
     ],
-    "clusters": [],
-    "summary": "중동 정세 불안으로 브렌트유가 94달러대까지 오르고 물가 경계감이 지속되는 가운데, 환율 변동성에 대응해 달러 예금을 늘리는 시장의 움직임이 주목받는 분위기입니다.",
+    "clusters": [
+      {
+        "id": "cluster-news-MarketWatch-Canada announces retaliatory tariffs on U.S. goods after trade ",
+        "title": "Canada announces retaliatory tariffs on U.S. goods after trade talks break down",
+        "summary": "3개 매체가 이 소식을 함께 보도했습니다.",
+        "leadItemId": "news-MarketWatch-Canada announces retaliatory tariffs on U.S. goods after trade ",
+        "relatedItemIds": [
+          "news-CNBC-As U.S.-Canada trade talks collapse, Carney says retaliatory tariffs w",
+          "news-Investing-Canada to match U.S. tariffs dollar for dollar after trade talks "
+        ],
+        "sourceCount": 3,
+        "topic": "Canada announces retaliatory tariffs on U.S. goods after trade talks break down",
+        "status": "ok"
+      }
+    ],
+    "summary": "엔비디아 실적과 PCE 지표 발표를 앞두고 뉴욕증시의 향방에 시장의 관심이 집중되는 것으로 보입니다.",
     "status": "ok"
   },
   "latestBriefing": null,
@@ -247,79 +265,79 @@
       "name": "코스피",
       "value": 6912.95,
       "displayValue": "6,912.95",
-      "change": 0.88,
+      "change": 0.0,
       "changeUnit": "%",
       "displayMode": "pct",
-      "direction": "up",
+      "direction": "flat",
       "asOf": "2026-08-21",
       "source": "KRX",
       "sourceUrl": "",
       "frequency": "daily",
       "isDelayed": true,
       "status": "ok",
-      "insight": "전일 대비 상승"
+      "insight": "보합권"
     },
     {
       "id": "kosdaq",
       "name": "코스닥",
       "value": 801.94,
       "displayValue": "801.94",
-      "change": -4.63,
+      "change": 0.0,
       "changeUnit": "%",
       "displayMode": "pct",
-      "direction": "down",
+      "direction": "flat",
       "asOf": "2026-08-21",
       "source": "KRX",
       "sourceUrl": "",
       "frequency": "daily",
       "isDelayed": true,
       "status": "ok",
-      "insight": "전일 대비 큰 폭 하락"
+      "insight": "보합권"
     },
     {
       "id": "nasdaq",
       "name": "나스닥",
       "value": 26180.46,
       "displayValue": "26,180.46",
-      "change": 0.43,
+      "change": 0.0,
       "changeUnit": "%",
       "displayMode": "pct",
-      "direction": "up",
+      "direction": "flat",
       "asOf": "2026-08-21",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
       "isDelayed": true,
       "status": "ok",
-      "insight": "전일 대비 상승"
+      "insight": "보합권"
     },
     {
       "id": "sp500",
       "name": "S&P500",
       "value": 7674.37,
       "displayValue": "7,674.37",
-      "change": 0.43,
+      "change": 0.0,
       "changeUnit": "%",
       "displayMode": "pct",
-      "direction": "up",
+      "direction": "flat",
       "asOf": "2026-08-21",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
       "isDelayed": true,
       "status": "ok",
-      "insight": "전일 대비 상승"
+      "insight": "보합권"
     },
     {
       "id": "usdkrw",
       "name": "원/달러",
-      "value": 1385.98,
-      "displayValue": "1,386.0",
-      "change": -4.81,
+      "value": 1383.9,
+      "displayValue": "1,383.9",
+      "change": -2.08,
       "changeUnit": "원",
       "displayMode": "delta",
       "direction": "down",
-      "asOf": "2026-08-21",
+      "asOf": "2026-08-22",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
@@ -332,10 +350,10 @@
       "name": "미국채10년",
       "value": 4.74,
       "displayValue": "4.74%",
-      "change": 0.04,
+      "change": 0.0,
       "changeUnit": "%p",
       "displayMode": "delta",
-      "direction": "up",
+      "direction": "flat",
       "asOf": "2026-08-21",
       "source": "FinanceDataReader",
       "sourceUrl": "",
@@ -347,36 +365,36 @@
     {
       "id": "wti",
       "name": "WTI",
-      "value": 86.64,
-      "displayValue": "$86.64",
-      "change": -1.35,
+      "value": 87.06,
+      "displayValue": "$87.06",
+      "change": 0.4848,
       "changeUnit": "%",
       "displayMode": "pct",
-      "direction": "down",
+      "direction": "up",
       "asOf": "2026-08-21",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
       "isDelayed": true,
       "status": "ok",
-      "insight": "전일 대비 하락"
+      "insight": "전일 대비 상승"
     },
     {
       "id": "vix",
       "name": "VIX",
       "value": 15.13,
       "displayValue": "15.13",
-      "change": -5.5,
+      "change": 0.0,
       "changeUnit": "%",
       "displayMode": "pct",
-      "direction": "down",
+      "direction": "flat",
       "asOf": "2026-08-21",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
       "isDelayed": true,
       "status": "ok",
-      "insight": "전일 대비 큰 폭 하락"
+      "insight": "보합권"
     }
   ],
   "signals": [
@@ -388,7 +406,7 @@
       "valueLabel": "+0.50%p",
       "insight": "장단기 금리차가 정상 범위에 있어 침체 신호는 뚜렷하지 않습니다.",
       "sourceLabel": "장단기 금리차 (미국채 10Y-2Y)",
-      "asOf": "2026-08-22"
+      "asOf": "2026-08-23"
     },
     {
       "id": "rate-gap",
@@ -398,7 +416,7 @@
       "valueLabel": "+1.00%p",
       "insight": "한미 금리차가 관리 가능한 수준이라 자본유출 압력은 크지 않습니다.",
       "sourceLabel": "한미 기준금리차 (Fed-한은)",
-      "asOf": "2026-08-22"
+      "asOf": "2026-08-23"
     },
     {
       "id": "liquidity-stress",
@@ -408,12 +426,53 @@
       "valueLabel": "2.75%p",
       "insight": "신용시장 스프레드가 평상 수준이라 유동성 경색 신호는 없습니다.",
       "sourceLabel": "하이일드 스프레드 (BAMLH0A0HYM2)",
-      "asOf": "2026-08-22"
+      "asOf": "2026-08-23"
     }
   ],
   "claims": {
     "status": "ok",
     "todayClaims": [
+      {
+        "schemaVersion": 1,
+        "claimId": "2026-08-23-c1",
+        "publicationId": "2026-08-23",
+        "issuedAt": "2026-08-23T07:22:51+09:00",
+        "dataCutoffAt": "2026-08-23T07:22:51+09:00",
+        "lockedAt": "2026-08-23T07:22:51+09:00",
+        "claimMode": "auto",
+        "verificationType": "proxy",
+        "topic": "WTI 다음 거래일 방향(supply_news)",
+        "sourceNewsIds": [],
+        "observationText": "WTI는 $87.06로 전일 대비 0.48% 상승했습니다.",
+        "interpretationText": "공급 불안이 이어지는 가운데 상승 흐름이 다음 거래일까지 이어지는지가 확인 대상입니다.",
+        "claimText": "공급 불안이 이어지는 가운데 WTI가 오를까요?",
+        "metricId": "wti",
+        "benchmarkMetricId": null,
+        "comparisonType": "absolute_return",
+        "expectedDirection": "up",
+        "horizon": {
+          "type": "next_close",
+          "market": "US",
+          "resolutionAt": "2026-08-24"
+        },
+        "thresholdRuleId": "pct_100",
+        "confidence": null,
+        "status": "unresolved",
+        "revision": {
+          "version": 1,
+          "contentHash": "63646083496595faab1562940a57da79e82ce661bcfa91580d106958a9504d9e",
+          "correctedFrom": null
+        },
+        "baseline": {
+          "value": 87.06,
+          "asOf": "2026-08-21",
+          "benchmarkValue": null,
+          "benchmarkAsOf": null
+        },
+        "resolution": null
+      }
+    ],
+    "previousClaims": [
       {
         "schemaVersion": 1,
         "claimId": "2026-08-22-c1",
@@ -454,85 +513,23 @@
         "resolution": null
       }
     ],
-    "previousClaims": [
-      {
-        "schemaVersion": 1,
-        "claimId": "2026-08-21-c1",
-        "publicationId": "2026-08-21",
-        "issuedAt": "2026-08-21T06:43:21+09:00",
-        "dataCutoffAt": "2026-08-21T06:43:21+09:00",
-        "lockedAt": "2026-08-21T06:43:21+09:00",
-        "claimMode": "auto",
-        "verificationType": "proxy",
-        "topic": "코스닥 다음 거래일 방향(flow_divergence)",
-        "sourceNewsIds": [],
-        "observationText": "코스닥은 840.89로 전일 대비 1.99% 상승했습니다.",
-        "interpretationText": "외국인 순매도 흐름 속에서 상승 흐름이 다음 거래일까지 이어지는지가 확인 대상입니다.",
-        "claimText": "외국인 순매도 흐름 속에서 코스닥이 반등할까요?",
-        "metricId": "kosdaq",
-        "benchmarkMetricId": null,
-        "comparisonType": "absolute_return",
-        "expectedDirection": "up",
-        "horizon": {
-          "type": "next_close",
-          "market": "KR",
-          "resolutionAt": "2026-08-22"
-        },
-        "thresholdRuleId": "pct_030",
-        "confidence": null,
-        "status": "miss",
-        "revision": {
-          "version": 1,
-          "contentHash": "bdd5f57913de2dd4b47199544b153211a0a84fbcfe78612b565f302a53299b24",
-          "correctedFrom": null
-        },
-        "baseline": {
-          "value": 840.89,
-          "asOf": "2026-08-20",
-          "benchmarkValue": null,
-          "benchmarkAsOf": null
-        },
-        "resolution": {
-          "resolutionId": "2026-08-21-c1-res",
-          "claimId": "2026-08-21-c1",
-          "resolvedAt": "2026-08-22T06:43:25+09:00",
-          "verdict": "miss",
-          "metricId": "kosdaq",
-          "comparisonType": "absolute_return",
-          "startValue": 840.89,
-          "endValue": 801.94,
-          "changeValue": -4.631997050743847,
-          "changeUnit": "%",
-          "benchmarkMetricId": null,
-          "benchmarkStartValue": null,
-          "benchmarkEndValue": null,
-          "neutralLower": -0.3,
-          "neutralUpper": 0.3,
-          "neutralBand": 0.3,
-          "dataProvider": "KRX",
-          "sourceUrl": "",
-          "observedAt": "2026-08-21",
-          "explanation": "실제 변화가 예상한 상승 방향과 다르게 움직였습니다."
-        }
-      }
-    ],
-    "previousPublicationId": "2026-08-21",
+    "previousPublicationId": "2026-08-22",
     "totals": {
       "hit": 9,
       "miss": 15,
       "neutral": 4,
-      "unresolved": 1,
+      "unresolved": 2,
       "invalidated": 0,
       "error": 0
     }
   },
   "newsletterClaimsTeaser": {
-    "publicationId": "2026-08-21",
-    "resolvedCount": 1,
+    "publicationId": "2026-08-22",
+    "resolvedCount": 0,
     "hitCount": 0,
-    "missCount": 1,
+    "missCount": 0,
     "neutralCount": 0,
-    "unresolvedCount": 0,
-    "highlightText": "외국인 순매도 흐름 속에서 코스닥이 반등할까요?"
+    "unresolvedCount": 1,
+    "highlightText": null
   }
 }

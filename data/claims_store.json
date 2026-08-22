@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-22T06:43:25+09:00",
+  "updatedAt": "2026-08-23T07:22:51+09:00",
   "claims": {
     "2026-07-19-c1": {
       "schemaVersion": 1,
@@ -1715,6 +1715,45 @@
       },
       "baseline": {
         "value": 26180.46,
+        "asOf": "2026-08-21",
+        "benchmarkValue": null,
+        "benchmarkAsOf": null
+      },
+      "resolution": null
+    },
+    "2026-08-23-c1": {
+      "schemaVersion": 1,
+      "claimId": "2026-08-23-c1",
+      "publicationId": "2026-08-23",
+      "issuedAt": "2026-08-23T07:22:51+09:00",
+      "dataCutoffAt": "2026-08-23T07:22:51+09:00",
+      "lockedAt": "2026-08-23T07:22:51+09:00",
+      "claimMode": "auto",
+      "verificationType": "proxy",
+      "topic": "WTI 다음 거래일 방향(supply_news)",
+      "sourceNewsIds": [],
+      "observationText": "WTI는 $87.06로 전일 대비 0.48% 상승했습니다.",
+      "interpretationText": "공급 불안이 이어지는 가운데 상승 흐름이 다음 거래일까지 이어지는지가 확인 대상입니다.",
+      "claimText": "공급 불안이 이어지는 가운데 WTI가 오를까요?",
+      "metricId": "wti",
+      "benchmarkMetricId": null,
+      "comparisonType": "absolute_return",
+      "expectedDirection": "up",
+      "horizon": {
+        "type": "next_close",
+        "market": "US",
+        "resolutionAt": "2026-08-24"
+      },
+      "thresholdRuleId": "pct_100",
+      "confidence": null,
+      "status": "unresolved",
+      "revision": {
+        "version": 1,
+        "contentHash": "63646083496595faab1562940a57da79e82ce661bcfa91580d106958a9504d9e",
+        "correctedFrom": null
+      },
+      "baseline": {
+        "value": 87.06,
         "asOf": "2026-08-21",
         "benchmarkValue": null,
         "benchmarkAsOf": null
