@@ -113,12 +113,20 @@ def _og_meta_block(meta, description):
         f'<meta property="og:description" content="{description}">',
         f'<meta property="og:url" content="{canonical}">',
     ]
-    # 검증된 일반 공개 이미지만 사용 — 이 저장소에서 이미 questions 페이지가
-    # 쓰는 실제 존재하는 OG 이미지를 재사용한다(가짜/미확인 이미지 금지).
+    # 검증된 일반 공개 이미지만 사용. 2026-08-24부터 mooconomy-web 저장소
+    # 자체 /assets/에 자가 호스팅(원본은 raw.githubusercontent.com/
+    # immusaeng/mooconomy-assets, 바이트 동일 — 크롤러가 외부 저장소 raw
+    # 서빙에 의존하지 않도록 이 세션에서 복제).
     lines.append(
-        '<meta property="og:image" '
-        'content="https://raw.githubusercontent.com/immusaeng/mooconomy-assets/main/og_mooconomy_v2.png">'
+        '<meta property="og:image" content="https://mooconomy.co.kr/assets/og_mooconomy_v2.png">'
     )
+    lines.append('<meta property="og:image:width" content="1200">')
+    lines.append('<meta property="og:image:height" content="630">')
+    lines.append('<meta property="og:image:alt" content="Daily MOO:conomy — 매일 아침 경제를 3줄로">')
+    lines.append('<meta name="twitter:card" content="summary_large_image">')
+    lines.append(f'<meta name="twitter:title" content="{title}">')
+    lines.append(f'<meta name="twitter:description" content="{description}">')
+    lines.append('<meta name="twitter:image" content="https://mooconomy.co.kr/assets/og_mooconomy_v2.png">')
     if meta.get("published_at") and not meta.get("published_at_is_approximate"):
         lines.append(f'<meta property="article:published_time" content="{meta["published_at"]}">')
     # published_at_is_approximate=True인 경우 article:published_time을 넣지

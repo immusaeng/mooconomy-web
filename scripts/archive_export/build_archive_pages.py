@@ -19,7 +19,14 @@ _PAGE_HEAD = """<!DOCTYPE html>
 <meta property="og:title" content="__PAGE_TITLE__ | Daily MOO:conomy">
 <meta property="og:description" content="__PAGE_DESC__">
 <meta property="og:url" content="__CANONICAL__">
-<meta property="og:image" content="https://raw.githubusercontent.com/immusaeng/mooconomy-assets/main/og_mooconomy_v2.png">
+<meta property="og:image" content="https://mooconomy.co.kr/assets/og_mooconomy_v2.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Daily MOO:conomy — 매일 아침 경제를 3줄로">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="__PAGE_TITLE__ | Daily MOO:conomy">
+<meta name="twitter:description" content="__PAGE_DESC__">
+<meta name="twitter:image" content="https://mooconomy.co.kr/assets/og_mooconomy_v2.png">
 <style>
   :root { --bg:#0B1220; --card:#141C2E; --ink:#E8ECF3; --sub:#95A2BA; --gold:#F2C94C; --line:rgba(124,138,165,.18); }
   * { box-sizing:border-box; }
