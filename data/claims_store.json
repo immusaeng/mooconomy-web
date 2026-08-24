@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-23T07:22:51+09:00",
+  "updatedAt": "2026-08-25T06:43:06+09:00",
   "claims": {
     "2026-07-19-c1": {
       "schemaVersion": 1,
@@ -1707,7 +1707,7 @@
       },
       "thresholdRuleId": "pct_030",
       "confidence": null,
-      "status": "unresolved",
+      "status": "miss",
       "revision": {
         "version": 1,
         "contentHash": "f54055a068c46eb4d191ac00e7bb3080afda5d31e4a43facf95a7dad15c28aa0",
@@ -1719,7 +1719,28 @@
         "benchmarkValue": null,
         "benchmarkAsOf": null
       },
-      "resolution": null
+      "resolution": {
+        "resolutionId": "2026-08-22-c1-res",
+        "claimId": "2026-08-22-c1",
+        "resolvedAt": "2026-08-25T06:43:06+09:00",
+        "verdict": "miss",
+        "metricId": "nasdaq",
+        "comparisonType": "absolute_return",
+        "startValue": 26180.46,
+        "endValue": 25980.19,
+        "changeValue": -0.7649598211796143,
+        "changeUnit": "%",
+        "benchmarkMetricId": null,
+        "benchmarkStartValue": null,
+        "benchmarkEndValue": null,
+        "neutralLower": -0.3,
+        "neutralUpper": 0.3,
+        "neutralBand": 0.3,
+        "dataProvider": "FinanceDataReader",
+        "sourceUrl": "",
+        "observedAt": "2026-08-24",
+        "explanation": "실제 변화가 예상한 상승 방향과 다르게 움직였습니다."
+      }
     },
     "2026-08-23-c1": {
       "schemaVersion": 1,
@@ -1746,7 +1767,7 @@
       },
       "thresholdRuleId": "pct_100",
       "confidence": null,
-      "status": "unresolved",
+      "status": "miss",
       "revision": {
         "version": 1,
         "contentHash": "63646083496595faab1562940a57da79e82ce661bcfa91580d106958a9504d9e",
@@ -1755,6 +1776,66 @@
       "baseline": {
         "value": 87.06,
         "asOf": "2026-08-21",
+        "benchmarkValue": null,
+        "benchmarkAsOf": null
+      },
+      "resolution": {
+        "resolutionId": "2026-08-23-c1-res",
+        "claimId": "2026-08-23-c1",
+        "resolvedAt": "2026-08-25T06:43:06+09:00",
+        "verdict": "miss",
+        "metricId": "wti",
+        "comparisonType": "absolute_return",
+        "startValue": 87.06,
+        "endValue": 84.98,
+        "changeValue": -2.389156903285089,
+        "changeUnit": "%",
+        "benchmarkMetricId": null,
+        "benchmarkStartValue": null,
+        "benchmarkEndValue": null,
+        "neutralLower": -1.0,
+        "neutralUpper": 1.0,
+        "neutralBand": 1.0,
+        "dataProvider": "FinanceDataReader",
+        "sourceUrl": "",
+        "observedAt": "2026-08-24",
+        "explanation": "실제 변화가 예상한 상승 방향과 다르게 움직였습니다."
+      }
+    },
+    "2026-08-25-c1": {
+      "schemaVersion": 1,
+      "claimId": "2026-08-25-c1",
+      "publicationId": "2026-08-25",
+      "issuedAt": "2026-08-25T06:43:06+09:00",
+      "dataCutoffAt": "2026-08-25T06:43:06+09:00",
+      "lockedAt": "2026-08-25T06:43:06+09:00",
+      "claimMode": "auto",
+      "verificationType": "proxy",
+      "topic": "원/달러 다음 거래일 방향(flow_fx)",
+      "sourceNewsIds": [],
+      "observationText": "원/달러는 1,382.1원으로 전일 대비 0.13% 하락했습니다.",
+      "interpretationText": "외국인 매도 흐름이 이어지는 가운데 하락 흐름이 다음 거래일까지 이어지는지가 확인 대상입니다.",
+      "claimText": "외국인 매도 흐름이 이어지는 가운데 원/달러가 내릴까요?",
+      "metricId": "usdkrw",
+      "benchmarkMetricId": null,
+      "comparisonType": "absolute_return",
+      "expectedDirection": "down",
+      "horizon": {
+        "type": "next_close",
+        "market": "US",
+        "resolutionAt": "2026-08-26"
+      },
+      "thresholdRuleId": "pct_020",
+      "confidence": null,
+      "status": "unresolved",
+      "revision": {
+        "version": 1,
+        "contentHash": "74f47a23f729d2524b665333f6f2b5c8fd52fb9ff760db84b69d5fe5ef13d5f9",
+        "correctedFrom": null
+      },
+      "baseline": {
+        "value": 1382.07,
+        "asOf": "2026-08-24",
         "benchmarkValue": null,
         "benchmarkAsOf": null
       },
