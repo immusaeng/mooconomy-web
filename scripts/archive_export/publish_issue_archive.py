@@ -48,7 +48,26 @@ def _kst_today_str():
     return (now_utc + _dt.timedelta(hours=9)).strftime("%Y-%m-%d")
 
 
-def run(dry_run_report_only=False, today=None):
+def _read_edition_mode(path):
+    """2026-08-24(TASK_ID=W7_ARCHIVE_ABORT_MITIGATION): daily-briefing의
+    main.py가 라우팅 직후 남기는 신호("daily"/"weekly")를 읽는다. 이
+    스크립트가 스스로 요일을 재계산하지 않는다 — WEEKLY_MONDAY_ENABLED
+    토글이나 요일 게이트가 나중에 바뀌어도 두 곳의 판단이 어긋날 일이
+    없다. 파일이 없거나 읽기 실패하거나 값이 "daily"/"weekly" 둘 다
+    아니면 안전측 기본값 "daily"로 처리한다 — 기존의 엄격한 오늘-검증을
+    그대로 유지하는 쪽이 기본값이라는 뜻이다(마커가 없다고 완화가 저절로
+    켜지지 않는다). 이 함수는 예외를 던지지 않는다."""
+    try:
+        with open(path, encoding="utf-8") as f:
+            mode = f.read().strip()
+        if mode in ("daily", "weekly"):
+            return mode
+    except OSError:
+        pass
+    return "daily"
+
+
+def run(dry_run_report_only=False, today=None, edition_mode_path="output/edition_mode.txt"):
     TODAY = today or _kst_today_str()
     report = {"aborted": False, "abort_reason": None, "today": TODAY}
 
@@ -69,38 +88,62 @@ def run(dry_run_report_only=False, today=None):
     report["valid_dates"] = valid_dates
     report["invalid_records"] = invalid
 
-    if TODAY not in valid_dates:
-        report["aborted"] = True
-        report["abort_reason"] = f"오늘({TODAY}) 레코드가 유효하지 않음 — 최신호 정합성 작업 불가"
-        return report
+    # 2026-08-24(TASK_ID=W7_ARCHIVE_ABORT_MITIGATION): 예전에는 오늘이
+    # valid_dates에 없으면 여기서 즉시 전체 abort했다 — 이미 유효한 어제
+    # 이전 날짜들까지 인질로 잡혀 밀리는 문제가 있었다(월요일 Weekly
+    # 전환 이후 매주 재현, W_TRACK_WEB_FULL_AUDIT 2026-08-24). 이제는
+    # "오늘"만 이번 실행의 발행 대상에서 빼고, 이미 유효한 나머지 날짜는
+    # 아래 로직이 원래도 매번 valid_dates 전체를 다시 렌더/검사/스왑하는
+    # 구조라 자동으로 catch-up된다 — 새 누적 로직을 추가한 게 아니라
+    # "오늘 하나만 뺄 수 있게" 게이트를 옮긴 것뿐이다.
+    today_included = TODAY in valid_dates
+    report["today_included"] = today_included
+    edition_mode = _read_edition_mode(edition_mode_path)
+    report["edition_mode"] = edition_mode
+    if not today_included:
+        if edition_mode == "weekly":
+            report["today_skip_reason"] = (
+                f"오늘({TODAY})은 Weekly 전용 실행(edition_mode=weekly) — "
+                "daily 레코드가 없는 게 정상, catch-up만 진행"
+            )
+        else:
+            report["today_skip_reason"] = (
+                f"오늘({TODAY}) 레코드가 유효하지 않음(edition_mode={edition_mode}) — "
+                "오늘만 제외하고 이전 유효분 catch-up 진행"
+            )
 
     metas = [lib.build_normalized_metadata(d, by_date[d]) for d in valid_dates]
     metas = lib.compute_prev_next(metas)
     meta_by_date = {m["issue_date"]: m for m in metas}
 
     # ── 오늘자 latest-email.html 발행일 검증 + public-safe 변환 ──────
-    email_path = os.path.join(ROOT, "latest-email.html")
-    if not os.path.exists(email_path):
-        report["aborted"] = True
-        report["abort_reason"] = "latest-email.html 없음"
-        return report
-    raw_email = open(email_path, encoding="utf-8").read()
-    content_date = lib.extract_kst_date_from_html(raw_email)
-    report["latest_email_content_date"] = content_date
-    if content_date != TODAY:
-        report["aborted"] = True
-        report["abort_reason"] = f"latest-email.html 콘텐츠 날짜({content_date}) != 기대값({TODAY})"
-        return report
+    # today_included가 False면(Weekly 월요일 또는 진짜 daily 실패) 오늘자
+    # 콘텐츠 자체가 없다는 뜻이라 이 블록 전체를 건너뛴다 — latest.html은
+    # 아래에서도 손대지 않는다(마지막으로 성공한 daily 상태 그대로 유지).
+    safe_email = None
+    if today_included:
+        email_path = os.path.join(ROOT, "latest-email.html")
+        if not os.path.exists(email_path):
+            report["aborted"] = True
+            report["abort_reason"] = "latest-email.html 없음"
+            return report
+        raw_email = open(email_path, encoding="utf-8").read()
+        content_date = lib.extract_kst_date_from_html(raw_email)
+        report["latest_email_content_date"] = content_date
+        if content_date != TODAY:
+            report["aborted"] = True
+            report["abort_reason"] = f"latest-email.html 콘텐츠 날짜({content_date}) != 기대값({TODAY})"
+            return report
 
-    pre_audit = lib.audit_privacy(raw_email)
-    safe_email = lib.make_public_safe_html(raw_email)
-    post_audit = lib.audit_privacy(safe_email)
-    report["latest_email_privacy_pre_strip_issues"] = pre_audit
-    report["latest_email_privacy_post_strip_issues"] = post_audit
-    if post_audit:
-        report["aborted"] = True
-        report["abort_reason"] = f"public-safe 변환 후에도 개인정보 이슈 잔존: {post_audit}"
-        return report
+        pre_audit = lib.audit_privacy(raw_email)
+        safe_email = lib.make_public_safe_html(raw_email)
+        post_audit = lib.audit_privacy(safe_email)
+        report["latest_email_privacy_pre_strip_issues"] = pre_audit
+        report["latest_email_privacy_post_strip_issues"] = post_audit
+        if post_audit:
+            report["aborted"] = True
+            report["abort_reason"] = f"public-safe 변환 후에도 개인정보 이슈 잔존: {post_audit}"
+            return report
 
     # ── 4. 임시 디렉터리에 페이지 생성 ───────────────────────────────
     # 2026-08-21(TASK_ID=TRACK_B7_ARCHIVE_AUTOMATION): 발견한 회귀 —
@@ -151,7 +194,7 @@ def run(dry_run_report_only=False, today=None):
     report["page_checks"] = page_checks
     report["passing_dates"] = passing_dates
 
-    if TODAY not in passing_dates:
+    if today_included and TODAY not in passing_dates:
         report["aborted"] = True
         report["abort_reason"] = f"오늘({TODAY}) 페이지가 검사 통과하지 못함: {page_checks.get(TODAY)}"
         return report
@@ -192,9 +235,13 @@ def run(dry_run_report_only=False, today=None):
         return report
 
     # ── latest.html 임시본 = 오늘자 issue 페이지와 동일 산출물 ───────
-    latest_tmp_path = os.path.join(BUILD_TMP, "latest.html")
-    with open(latest_tmp_path, "w", encoding="utf-8") as f:
-        f.write(rendered[TODAY])
+    # today_included가 False면 오늘자 콘텐츠 자체가 없으므로 latest.html은
+    # 만들지도, 아래 8단계에서 교체하지도 않는다(마지막 성공한 daily 상태 유지).
+    latest_tmp_path = None
+    if today_included:
+        latest_tmp_path = os.path.join(BUILD_TMP, "latest.html")
+        with open(latest_tmp_path, "w", encoding="utf-8") as f:
+            f.write(rendered[TODAY])
 
     # ── 내부 링크 존재 검사(임시 디렉터리를 site_root로 취급) ────────
     link_issues = {}
@@ -223,6 +270,30 @@ def run(dry_run_report_only=False, today=None):
         json.dump(manifest, f, ensure_ascii=False, indent=2)
     report["manifest_entry_count"] = len(manifest)
 
+    # 2026-08-24(TASK_ID=W7_ARCHIVE_ABORT_MITIGATION): "오늘만 제외"가
+    # 이제 fatal이 아니게 되면서 새로 생긴 위험 — 만약 이번 실행에서
+    # ARCHIVE_DIR 복원 자체가 어떤 이유로 비정상적으로 비거나 줄어들면
+    # (예: web_repo 복원 스텝 실패), 예전엔 오늘 검증에서 걸려 여기까지
+    # 못 왔지만 지금은 여기까지 도달해 실제 라이브 아카이브를 그 얇아진
+    # 상태로 덮어쓸 수 있다. manifest 건수가 현재 라이브보다 줄었으면
+    # 데이터 유실로 간주하고 실제 경로 교체를 중단한다(단조 증가 불변식).
+    live_manifest_path = os.path.join(ROOT, "data", "archive", "issues_manifest.json")
+    live_count = 0
+    if os.path.exists(live_manifest_path):
+        try:
+            with open(live_manifest_path, encoding="utf-8") as f:
+                live_count = len(json.load(f))
+        except Exception:
+            live_count = 0
+    report["live_manifest_count_before"] = live_count
+    if len(manifest) < live_count:
+        report["aborted"] = True
+        report["abort_reason"] = (
+            f"신규 manifest 건수({len(manifest)})가 기존 라이브 건수({live_count})보다 적음 "
+            "— 데이터 유실 의심, 실제 경로 교체 중단"
+        )
+        return report
+
     # ── sitemap.xml / rss.xml (같은 manifest에서, 같은 원자적 교체에 포함) ─
     sitemap_xml = bsm.build_sitemap(manifest)
     rss_xml = brss.build_rss(manifest)
@@ -247,12 +318,15 @@ def run(dry_run_report_only=False, today=None):
         return report
 
     # ── 8. 전체 통과 → 실제 경로로 교체(백업 포함) ───────────────────
-    backup_path = os.path.join(ROOT, "latest.html.bak")
-    if os.path.exists(os.path.join(ROOT, "latest.html")):
-        shutil.copy2(os.path.join(ROOT, "latest.html"), backup_path)
-        report["latest_html_backed_up_to"] = backup_path
+    # latest.html은 today_included일 때만 교체한다 — 오늘 것이 없으면
+    # (Weekly 월요일/진짜 daily 실패) 마지막으로 성공한 daily를 그대로 둔다.
+    if today_included:
+        backup_path = os.path.join(ROOT, "latest.html.bak")
+        if os.path.exists(os.path.join(ROOT, "latest.html")):
+            shutil.copy2(os.path.join(ROOT, "latest.html"), backup_path)
+            report["latest_html_backed_up_to"] = backup_path
 
-    shutil.copy2(latest_tmp_path, os.path.join(ROOT, "latest.html"))
+        shutil.copy2(latest_tmp_path, os.path.join(ROOT, "latest.html"))
 
     real_issues_dir = os.path.join(ROOT, "issues")
     os.makedirs(real_issues_dir, exist_ok=True)
@@ -282,6 +356,9 @@ if __name__ == "__main__":
     today_override = None
     if "--today" in sys.argv:
         today_override = sys.argv[sys.argv.index("--today") + 1]
-    result = run(dry_run_report_only=dry, today=today_override)
+    edition_mode_path = "output/edition_mode.txt"
+    if "--edition-mode-path" in sys.argv:
+        edition_mode_path = sys.argv[sys.argv.index("--edition-mode-path") + 1]
+    result = run(dry_run_report_only=dry, today=today_override, edition_mode_path=edition_mode_path)
     print(json.dumps(result, ensure_ascii=False, indent=2))
     sys.exit(1 if result["aborted"] else 0)
