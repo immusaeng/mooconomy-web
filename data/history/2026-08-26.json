@@ -1,0 +1,182 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-08-26",
+  "generatedAt": "2026-08-26T06:44:20+09:00",
+  "indicators": [
+    {
+      "id": "kospi",
+      "value": 6742.74,
+      "change": 0.6836,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "kosdaq",
+      "value": 827.15,
+      "change": 1.6992,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "nasdaq",
+      "value": 26151.3,
+      "change": 0.6586,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "sp500",
+      "value": 7677.28,
+      "change": 0.3191,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1381.6,
+      "change": -0.47,
+      "displayMode": "delta",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "us10y",
+      "value": 4.64,
+      "change": -0.06,
+      "displayMode": "delta",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "wti",
+      "value": 81.11,
+      "change": -4.554,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "vix",
+      "value": 15.45,
+      "change": -2.5237,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    }
+  ],
+  "auditIndicators": [
+    {
+      "id": "kospi",
+      "value": 6742.74,
+      "displayMode": "pct"
+    },
+    {
+      "id": "kosdaq",
+      "value": 827.15,
+      "displayMode": "pct"
+    },
+    {
+      "id": "nasdaq",
+      "value": 26151.3,
+      "displayMode": "pct"
+    },
+    {
+      "id": "sp500",
+      "value": 7677.28,
+      "displayMode": "pct"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1381.6,
+      "displayMode": "dual"
+    },
+    {
+      "id": "us10y",
+      "value": 4.64,
+      "displayMode": "delta"
+    },
+    {
+      "id": "wti",
+      "value": 81.11,
+      "displayMode": "pct"
+    },
+    {
+      "id": "vix",
+      "value": 15.45,
+      "displayMode": "pct"
+    },
+    {
+      "id": "gold",
+      "value": 4715.9,
+      "displayMode": "pct"
+    },
+    {
+      "id": "dollarindex",
+      "value": 98.91,
+      "displayMode": "pct"
+    },
+    {
+      "id": "brent",
+      "value": 85.86,
+      "displayMode": "pct"
+    },
+    {
+      "id": "dow",
+      "value": 53577.4,
+      "displayMode": "pct"
+    },
+    {
+      "id": "nikkei",
+      "value": 65528.09,
+      "displayMode": "pct"
+    },
+    {
+      "id": "shanghai",
+      "value": 3882.01,
+      "displayMode": "pct"
+    }
+  ],
+  "signals": [
+    {
+      "id": "recession",
+      "color": "green",
+      "value": 0.46
+    },
+    {
+      "id": "rate-gap",
+      "color": "green",
+      "value": 1.0
+    },
+    {
+      "id": "liquidity-stress",
+      "color": "green",
+      "value": 2.69
+    }
+  ],
+  "calendarSnapshot": [
+    {
+      "id": "us-2026-08-26-미국 개인소득·지출(PCE)",
+      "time": "2026-08-26",
+      "country": "US",
+      "title": "미국 개인소득·지출(PCE)",
+      "importance": "high"
+    },
+    {
+      "id": "us-earn-2026-08-26-엔비디아",
+      "time": "2026-08-26",
+      "country": "US",
+      "title": "엔비디아 실적발표",
+      "importance": "medium"
+    }
+  ],
+  "marketTemperature": {
+    "label": "neutral",
+    "displayLabel": "중립",
+    "status": "ok"
+  },
+  "connectionTopology": "VIX>금리>달러>미국>유가>인플레이션>환율"
+}

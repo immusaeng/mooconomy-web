@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-25T06:43:06+09:00",
+  "updatedAt": "2026-08-26T06:44:20+09:00",
   "claims": {
     "2026-07-19-c1": {
       "schemaVersion": 1,
@@ -1827,7 +1827,7 @@
       },
       "thresholdRuleId": "pct_020",
       "confidence": null,
-      "status": "unresolved",
+      "status": "neutral",
       "revision": {
         "version": 1,
         "contentHash": "74f47a23f729d2524b665333f6f2b5c8fd52fb9ff760db84b69d5fe5ef13d5f9",
@@ -1836,6 +1836,66 @@
       "baseline": {
         "value": 1382.07,
         "asOf": "2026-08-24",
+        "benchmarkValue": null,
+        "benchmarkAsOf": null
+      },
+      "resolution": {
+        "resolutionId": "2026-08-25-c1-res",
+        "claimId": "2026-08-25-c1",
+        "resolvedAt": "2026-08-26T06:44:20+09:00",
+        "verdict": "neutral",
+        "metricId": "usdkrw",
+        "comparisonType": "absolute_return",
+        "startValue": 1382.07,
+        "endValue": 1381.6,
+        "changeValue": -0.03400696057363428,
+        "changeUnit": "%",
+        "benchmarkMetricId": null,
+        "benchmarkStartValue": null,
+        "benchmarkEndValue": null,
+        "neutralLower": -0.2,
+        "neutralUpper": 0.2,
+        "neutralBand": 0.2,
+        "dataProvider": "FinanceDataReader",
+        "sourceUrl": "",
+        "observedAt": "2026-08-25",
+        "explanation": "변화폭이 중립 구간(±0.2%) 이내에 머물러 뚜렷한 방향이 나타나지 않았습니다."
+      }
+    },
+    "2026-08-26-c1": {
+      "schemaVersion": 1,
+      "claimId": "2026-08-26-c1",
+      "publicationId": "2026-08-26",
+      "issuedAt": "2026-08-26T06:44:20+09:00",
+      "dataCutoffAt": "2026-08-26T06:44:20+09:00",
+      "lockedAt": "2026-08-26T06:44:20+09:00",
+      "claimMode": "auto",
+      "verificationType": "proxy",
+      "topic": "S&P500 다음 거래일 방향(calendar)",
+      "sourceNewsIds": [],
+      "observationText": "S&P500는 7,677.28로 전일 대비 0.32% 상승했습니다.",
+      "interpretationText": "PCE 발표 뒤 상승 흐름이 다음 거래일까지 이어지는지가 확인 대상입니다.",
+      "claimText": "PCE 발표 뒤 S&P500가 상승 흐름을 이어갈까요?",
+      "metricId": "sp500",
+      "benchmarkMetricId": null,
+      "comparisonType": "absolute_return",
+      "expectedDirection": "up",
+      "horizon": {
+        "type": "next_close",
+        "market": "US",
+        "resolutionAt": "2026-08-27"
+      },
+      "thresholdRuleId": "pct_030",
+      "confidence": null,
+      "status": "unresolved",
+      "revision": {
+        "version": 1,
+        "contentHash": "015b3d89757af261af8c28d73abd2e042656ab0b39efbba43c0cd51154e4d12a",
+        "correctedFrom": null
+      },
+      "baseline": {
+        "value": 7677.28,
+        "asOf": "2026-08-25",
         "benchmarkValue": null,
         "benchmarkAsOf": null
       },

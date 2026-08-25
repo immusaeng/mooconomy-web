@@ -1,0 +1,240 @@
+{
+  "schema_version": "normalized-daily-issue/v1",
+  "edition_id": "2026-08-26",
+  "edition_date_kst": "2026-08-26",
+  "canonical_status": "production",
+  "production_status": "SEND_CONFIRMED",
+  "source_commit_sha": "60c34d7a6ccdc04055e03a79687d2a7000ee0ba7",
+  "subject": "유가 -4.55% 급락과 국채금리 안정, 기술주 주도로 증시 반등",
+  "preheader": "유가 하락과 미국채 10년물 금리의 안정세가 글로벌 위험선호 심리를 뒷받침하며 국내 증시 상승에 일정 부분 영향을 준 요인으로 해석할 수 있습니다. 다만 업종별…",
+  "thesis": {
+    "headline": "유가 -4.55% 급락과 국채금리 안정, 기술주 주도로 증시 반등",
+    "three_signals": [
+      "유가 하락과 국채금리 안정에 힘입어 간밤 미국 증시가 상승 마감했습니다.",
+      "지난 거래일 코스피는 0.68%, 코스닥은 1.70% 상승하며 거래를 마쳤습니다.",
+      "오늘은 엔비디아 실적 발표와 미국 PCE 지표 발표가 주요 변수입니다."
+    ]
+  },
+  "main_story": {
+    "headline": "유가 -4.55% 급락과 국채금리 안정, 기술주 주도로 증시 반등",
+    "verified_fact": "미국과 이란 간 지정학적 갈등 완화 기대감으로 국제유가(WTI)가 -4.55% 급락하고 미국채 10년물 금리가 -0.06%p 하락하며 기술주 중심의 증시 반등이 나타났다.",
+    "why_it_matters": null,
+    "sources": []
+  },
+  "entities": [
+    {
+      "name": "WTI",
+      "type": "commodity"
+    },
+    {
+      "name": "금",
+      "type": "commodity"
+    }
+  ],
+  "metrics": [
+    {
+      "id": "kospi",
+      "value": 6742.74,
+      "change": 0.6836,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "kosdaq",
+      "value": 827.15,
+      "change": 1.6992,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "nasdaq",
+      "value": 26151.3,
+      "change": 0.6586,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "sp500",
+      "value": 7677.28,
+      "change": 0.3191,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1381.6,
+      "change": -0.47,
+      "displayMode": "delta",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "us10y",
+      "value": 4.64,
+      "change": -0.06,
+      "displayMode": "delta",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "wti",
+      "value": 81.11,
+      "change": -4.554,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "vix",
+      "value": 15.45,
+      "change": -2.5237,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    }
+  ],
+  "market_changes": [
+    {
+      "id": "kospi",
+      "change": 0.6836,
+      "changeUnit": "%",
+      "direction": "up"
+    },
+    {
+      "id": "kosdaq",
+      "change": 1.6992,
+      "changeUnit": "%",
+      "direction": "up"
+    },
+    {
+      "id": "nasdaq",
+      "change": 0.6586,
+      "changeUnit": "%",
+      "direction": "up"
+    },
+    {
+      "id": "sp500",
+      "change": 0.3191,
+      "changeUnit": "%",
+      "direction": "up"
+    },
+    {
+      "id": "usdkrw",
+      "change": -0.47,
+      "changeUnit": "원",
+      "direction": "down"
+    },
+    {
+      "id": "us10y",
+      "change": -0.06,
+      "changeUnit": "%p",
+      "direction": "down"
+    },
+    {
+      "id": "wti",
+      "change": -4.554,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "vix",
+      "change": -2.5237,
+      "changeUnit": "%",
+      "direction": "down"
+    }
+  ],
+  "narratives": {
+    "moo_view": "미국과 이란 간 지정학적 갈등 완화 기대 속에 원자재 가격과 국채 금리가 하향 안정되며 북미 증시가 기술주 주도로 반등했습니다. 대외 통상 마찰 우려가 상존함에도 글로벌 인플레이션 부담 경감이 위험선호 심리를 자극하는 흐름을 형성했습니다.\n\n대외 온기에 힘입어 국내 증시 역시 상승 마감했으나 업종별 온도차는 뚜렷했습니다. 반도체 분야 대규모 투자 예고와 주요 산업의 설비투자 확대 소식이 국내 기업들의 자체 모멘텀으로 작용하며 지수 하단을 지지한 것으로 풀이됩니다.\n\n수급 측면에서는 코스피 시장에서 외국인의 대규모 매도세가 이어진 반면 기관과 개인이 물량을 받아내며 대비되는 행보를 그렸습니다. 업종별로는 건설 및 전력 관련 업종이 강세를 보인 반면 통신과 바이오 관련 업종은 내림세를 나타냈습니다. 반면 대규모 외국인 순매도 기조를 감안할 때 이번 지수 반등이 추세적 회복이 아닌 단기 기술적 반등에 불과하다는 대립적 시각도 존재합니다.\n\n향후 국제 유가 안정세가 지속된다면 위험자산 선호 심리가 한층 강화될 수 있고, 대외 통상 마찰이 재차 격화된다면 외국인 수급 변동성이 심화될 수 있습니다. 아울러 기업들의 현금 확보 움직임과 설비투자 발표가 개별 종목의 펀더멘털 평가에 미칠 영향을 지속해서 파악할 필요가 있습니다.",
+    "todays_watch": [
+      "글로벌 원자재 가격 및 채권 금리 안정세의 지속 가능성",
+      "코스피 시장 내 외국인 대규모 순매도 기조의 전환 여부",
+      "반도체 대규모 투자 발표와 대외 통상 마찰이 산업 전반에 미칠 영향"
+    ],
+    "todays_watch_oneliner": "유가와 채권금리 하락으로 위험선호가 회복되었으나 외국인 순매도가 지속되는 만큼 대외 통상 변수와 수급 동향을 주시할 필요가 있습니다.",
+    "content_status": "GENERATED"
+  },
+  "moo_q": {
+    "claim_id": "2026-08-26-c1",
+    "claim_text": "PCE 발표 뒤 S&P500가 상승 흐름을 이어갈까요?",
+    "topic": "S&P500 다음 거래일 방향(calendar)",
+    "resolution_at": "2026-08-27",
+    "status": "unresolved"
+  },
+  "moo_check": [
+    {
+      "previous_claim": "외국인 매도 흐름이 이어지는 가운데 원/달러가 내릴까요?",
+      "claim_date": "2026-08-25",
+      "evaluation_date": "2026-08-26T06:44:20+09:00",
+      "observed_result": "변화폭이 중립 구간(±0.2%) 이내에 머물러 뚜렷한 방향이 나타나지 않았습니다.",
+      "verdict": "PARTIAL",
+      "evidence": "1382.07 → 1381.60 (-0.03%)",
+      "source": "FinanceDataReader"
+    }
+  ],
+  "moo_word": {
+    "id": "liquidity",
+    "term": "유동성",
+    "definition": "자산을 현금으로 얼마나 빨리 바꿀 수 있는지를 뜻합니다.",
+    "why_today": null,
+    "memory_hook": "유동성이 풀리면(돈이 많아지면) 자산가격이 오르기 쉽습니다.",
+    "source_label": null,
+    "article_id": null,
+    "article_url": null,
+    "article_publisher": null,
+    "evidence_snippets": [],
+    "definition_source_name": "한국은행",
+    "definition_source_url": "https://www.bok.or.kr/",
+    "definition_priority": "P1_GLOSSARY_OFFICIAL_SOURCE",
+    "origin": "default_fallback",
+    "grounded_in_article": true,
+    "definition_evidence_verified": true,
+    "status": "ELIGIBLE_FOR_PUBLICATION",
+    "eligible_for_publication": true
+  },
+  "sources": [
+    {
+      "source_name": "머니투데이",
+      "source_url": "https://www.mt.co.kr/stock/2026/08/26/2026082600067059331",
+      "published_at": "2026-08-26",
+      "source_headline": "[고래사냥] '이노메트리·에프에스티·강원에너지·현대건설! 내일장 고래 종목은?!"
+    },
+    {
+      "source_name": "연합뉴스",
+      "source_url": "https://www.yna.co.kr/view/AKR20260825155300017",
+      "published_at": "2026-08-26",
+      "source_headline": "제약·바이오, 생산시설 투자 잇따라…글로벌 시장 공략"
+    },
+    {
+      "source_name": "연합뉴스",
+      "source_url": "https://www.yna.co.kr/view/AKR20260825136500003",
+      "published_at": "2026-08-26",
+      "source_headline": "\"배임 기소 공시 후 기업 현금 보유 확대…투자 위축 우려\""
+    },
+    {
+      "source_name": "CNBC",
+      "source_url": "https://www.cnbc.com/2026/08/25/canada-trump-tariffs-trade-carney-leblanc.html",
+      "published_at": "2026-08-25",
+      "source_headline": "Canada unveils retaliatory tariffs on about $20 billion of U.S. goods"
+    },
+    {
+      "source_name": "MarketWatch",
+      "source_url": "https://www.marketwatch.com/story/why-amd-can-beat-rivals-intel-and-nvidia-in-the-market-for-data-center-cpus-e49a53f1?mod=mw_rss_topstories",
+      "published_at": "2026-08-25",
+      "source_headline": "Why AMD can beat rivals Intel and Nvidia in the market for data-center CPUs"
+    }
+  ],
+  "public_url": "https://mooconomy.co.kr/latest-email.html",
+  "validation_status": {
+    "main_story_status": "SELECTED",
+    "content_provenance": "VALIDATED_GEMINI_36",
+    "moo_word_present": true,
+    "sources_count": 5,
+    "is_approximate": false
+  },
+  "content_hash": "2890e7bc43d79bc298ab1918f19c0bede9c20e3daf6e25d9564b29a418420b26",
+  "archived_at": "2026-08-25T21:45:48.951104+00:00"
+}
