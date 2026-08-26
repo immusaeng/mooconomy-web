@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-26T06:44:20+09:00",
+  "updatedAt": "2026-08-27T06:43:40+09:00",
   "claims": {
     "2026-07-19-c1": {
       "schemaVersion": 1,
@@ -1887,7 +1887,7 @@
       },
       "thresholdRuleId": "pct_030",
       "confidence": null,
-      "status": "unresolved",
+      "status": "neutral",
       "revision": {
         "version": 1,
         "contentHash": "015b3d89757af261af8c28d73abd2e042656ab0b39efbba43c0cd51154e4d12a",
@@ -1896,6 +1896,66 @@
       "baseline": {
         "value": 7677.28,
         "asOf": "2026-08-25",
+        "benchmarkValue": null,
+        "benchmarkAsOf": null
+      },
+      "resolution": {
+        "resolutionId": "2026-08-26-c1-res",
+        "claimId": "2026-08-26-c1",
+        "resolvedAt": "2026-08-27T06:43:40+09:00",
+        "verdict": "neutral",
+        "metricId": "sp500",
+        "comparisonType": "absolute_return",
+        "startValue": 7677.28,
+        "endValue": 7675.7,
+        "changeValue": -0.02058020548944323,
+        "changeUnit": "%",
+        "benchmarkMetricId": null,
+        "benchmarkStartValue": null,
+        "benchmarkEndValue": null,
+        "neutralLower": -0.3,
+        "neutralUpper": 0.3,
+        "neutralBand": 0.3,
+        "dataProvider": "FinanceDataReader",
+        "sourceUrl": "",
+        "observedAt": "2026-08-26",
+        "explanation": "변화폭이 중립 구간(±0.3%) 이내에 머물러 뚜렷한 방향이 나타나지 않았습니다."
+      }
+    },
+    "2026-08-27-c1": {
+      "schemaVersion": 1,
+      "claimId": "2026-08-27-c1",
+      "publicationId": "2026-08-27",
+      "issuedAt": "2026-08-27T06:43:40+09:00",
+      "dataCutoffAt": "2026-08-27T06:43:40+09:00",
+      "lockedAt": "2026-08-27T06:43:40+09:00",
+      "claimMode": "auto",
+      "verificationType": "proxy",
+      "topic": "코스피 흐름 점검",
+      "sourceNewsIds": [],
+      "observationText": "전일 코스피는 기관 매수세에 힘입어 +0.97% 상승 마감했습니다.",
+      "interpretationText": "미 증시의 약보합 마감과 엔비디아 실적 대기 분위기 속에서도 추가적인 하방 압력이 제한되는지 살펴볼 필요가 있습니다.",
+      "claimText": "코스피는 다음 거래일에도 완만한 반등 흐름을 이어갈까?",
+      "metricId": "kospi",
+      "benchmarkMetricId": null,
+      "comparisonType": "absolute_return",
+      "expectedDirection": "up",
+      "horizon": {
+        "type": "next_close",
+        "market": "KR",
+        "resolutionAt": "2026-08-28"
+      },
+      "thresholdRuleId": "pct_030",
+      "confidence": null,
+      "status": "unresolved",
+      "revision": {
+        "version": 1,
+        "contentHash": "6a88e49b88632bf178485feeae5901cb0cb0b98751bf9021e1e82b101da47365",
+        "correctedFrom": null
+      },
+      "baseline": {
+        "value": 6808.21,
+        "asOf": "2026-08-26",
         "benchmarkValue": null,
         "benchmarkAsOf": null
       },
