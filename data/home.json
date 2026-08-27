@@ -1,20 +1,22 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-27T06:43:38+09:00",
-  "publishDate": "2026-08-27",
-  "marketDateKr": "2026-08-26",
-  "marketDateUs": "2026-08-26",
+  "generatedAt": "2026-08-28T06:43:07+09:00",
+  "publishDate": "2026-08-28",
+  "marketDateKr": "2026-08-27",
+  "marketDateUs": "2026-08-27",
   "isDelayed": true,
   "status": "ok",
   "marketTemperature": {
-    "label": "neutral",
-    "displayLabel": "중립",
-    "summary": "국내 증시는 기관의 매수세가 유입되면서 코스피가 반등을 모색하는 중립적인 흐름이 관찰됩니다. 다만 엔비디아 실적 발표를 대기하는 관망세가 글로벌 증시 전반에 짙게 깔려 있는 모습입니다.",
+    "label": "risk_on",
+    "displayLabel": "위험선호",
+    "summary": "간밤 미국 증시가 평균 +0.83% 상승한 데 힘입어 국내 증시도 +1.53% 오르는 등 위험선호 심리가 우세한 것으로 보입니다. 외국인이 코스피에서 1,333억원을 순매수하며 상승세를 뒷받침하는 점이 관찰됩니다.",
     "reasons": [
-      "국내 증시 +0.97% 상승",
-      "외국인 코스피 순매도 1,148억원"
+      "간밤 미국 증시 평균 +0.83% 상승",
+      "국내 증시 +1.53% 상승",
+      "외국인 코스피 순매수 1,333억원"
     ],
     "watchItems": [
+      "원/달러 환율",
       "외국인 수급"
     ],
     "status": "ok"
@@ -23,86 +25,73 @@
     {
       "id": "overnight-global",
       "title": "간밤 글로벌 시장",
-      "text": "간밤 뉴욕증시는 엔비디아 실적 이벤트를 앞두고 나스닥 -0.08%, S&P500 -0.02%, 다우 -0.21%로 일제히 약보합 마감했습니다. 시장 변동성을 나타내는 VIX는 15.21을 기록했고, 미국채 10년물 금리는 4.66%로 집계되었습니다.",
+      "text": "나스닥이 +1.57%, S&P500이 +0.72%, 다우가 +0.20% 상승하여 주요 지수가 일제히 오름세를 보였습니다. VIX는 14.51, 미국채 10년물 금리는 4.67%를 기록했습니다.",
       "status": "ok"
     },
     {
       "id": "today-domestic",
       "title": "전일 국내 시장",
-      "text": "전일 국내 시장에서는 코스피가 +0.97% 상승한 반면 코스닥은 -0.03%로 소폭 하락했습니다. 외국인은 코스피 시장에서 1,148억 원을 순매도했고, 원/달러 환율은 +0.27% 상승했습니다.",
+      "text": "전 거래일 코스피는 +1.53%, 코스닥은 +1.30% 상승 마감했습니다. 외국인이 코스피에서 1,333억원을 순매수했고, 원/달러 환율은 -0.37% 하락한 것으로 나타납니다.",
       "status": "ok"
     },
     {
       "id": "today-checkpoint",
       "title": "오늘의 체크포인트",
-      "text": "글로벌 증시의 관망 심리와 국내의 엇갈린 수급 지표들이 맞물리며, 시장은 뚜렷한 방향성 탐색 국면에 머물러 있는 분위기입니다.",
+      "text": "글로벌 기술주 랠리와 국내외의 긍정적인 흐름 속에서, 환율과 수급 동향을 중심으로 시장의 방향성을 신중히 가늠해 볼 시점으로 보입니다.",
       "status": "ok"
     }
   ],
   "connection": {
-    "nodes": [
-      {
-        "label": "지난밤 확인된 사건",
-        "detail": "미 증시가 실적 이벤트를 앞두고 약보합 흐름으로 전환된 반면, 국내 코스피는 기관 순매수가 유입되며 상대적 강세를 보였습니다."
-      },
-      {
-        "label": "전달 경로",
-        "detail": "나스닥 및 미 증시 약보합 마감"
-      },
-      {
-        "label": "국내 증시(코스피)",
-        "detail": "6,808.21 · +0.97% 상승"
-      }
-    ],
-    "topologyId": "나스닥>순매수>실적>증시",
-    "summary": "나스닥 및 미 증시의 약보합 마감이 미친 영향 중 하나로 해석할 수 있습니다. 다만 기관의 순매수 유입을 비롯한 국내 수급 요인 등 다른 변수들이 함께 작용했을 가능성이 있습니다.",
-    "counterScenario": "대외 이벤트 경계감이 완화되지 않을 경우, 지수가 다시 제한된 박스권 안에서 등락을 거듭할 가능성이 있습니다.",
-    "status": "ok"
+    "nodes": [],
+    "topologyId": null,
+    "summary": null,
+    "counterScenario": null,
+    "status": "missing"
   },
   "koreaWatch": {
     "items": [
       {
         "id": "foreign",
         "label": "외국인 수급",
-        "value": -1148,
-        "displayValue": "-1,148억원",
-        "direction": "down",
+        "value": 1333,
+        "displayValue": "+1,333억원",
+        "direction": "up",
         "status": "ok"
       },
       {
         "id": "institution",
         "label": "기관 수급",
-        "value": 7615,
-        "displayValue": "+7,615억원",
+        "value": 1835,
+        "displayValue": "+1,835억원",
         "direction": "up",
         "status": "ok"
       },
       {
         "id": "individual",
         "label": "개인 수급",
-        "value": -22461,
-        "displayValue": "-22,461억원",
+        "value": -19116,
+        "displayValue": "-19,116억원",
         "direction": "down",
         "status": "ok"
       },
       {
         "id": "usdkrw",
         "label": "원/달러",
-        "value": 1385.28,
-        "displayValue": "1,385.3원",
-        "direction": "up",
+        "value": 1380.11,
+        "displayValue": "1,380.1원",
+        "direction": "down",
         "status": "ok"
       },
       {
         "id": "leading-sector",
         "label": "주도 업종",
-        "value": 7.65,
-        "displayValue": "생명보험 +7.65%",
+        "value": 10.3,
+        "displayValue": "전기장비 +10.30%",
         "direction": "up",
         "status": "ok"
       }
     ],
-    "summary": "외국인 수급 -1,148억원, 기관 수급 +7,615억원, 개인 수급 -22,461억원, 원/달러 1,385.3원, 주도 업종 생명보험 +7.65%.",
+    "summary": "외국인 수급 +1,333억원, 기관 수급 +1,835억원, 개인 수급 -19,116억원, 원/달러 1,380.1원, 주도 업종 전기장비 +10.30%.",
     "status": "ok"
   },
   "risks": [],
@@ -110,143 +99,143 @@
   "news": {
     "items": [
       {
-        "id": "news-매일경제-GS간판 단 주유소에서 SK 휘발유를?…‘순정’ 석유 구매방식 바뀐다",
-        "category": "news",
-        "source": "매일경제",
-        "title": "GS간판 단 주유소에서 SK 휘발유를?…‘순정’ 석유 구매방식 바뀐다",
-        "url": "https://www.mk.co.kr/news/economy/12137352",
-        "publishedAt": "2026-08-27",
-        "status": "ok"
-      },
-      {
-        "id": "news-매일경제-“금리 14% 이거 맞아요?” 급전 썼다가 당혹…카드론에 무슨 일",
-        "category": "news",
-        "source": "매일경제",
-        "title": "“금리 14% 이거 맞아요?” 급전 썼다가 당혹…카드론에 무슨 일",
-        "url": "https://www.mk.co.kr/news/economy/12137348",
-        "publishedAt": "2026-08-27",
-        "status": "ok"
-      },
-      {
-        "id": "news-머니투데이-\"IPO 올인 그만\" 세컨더리 꺼냈지만…벤처업계 \"진짜 대책은 M&A\"",
+        "id": "news-머니투데이-트럼프, '온타리오호→아메리카호' 행정명령…카니 총리 \"변경 없다\"",
         "category": "news",
         "source": "머니투데이",
-        "title": "\"IPO 올인 그만\" 세컨더리 꺼냈지만…벤처업계 \"진짜 대책은 M&A\"",
-        "url": "https://www.mt.co.kr/future/2026/08/27/2026082622505993506",
-        "publishedAt": "2026-08-27",
+        "title": "트럼프, '온타리오호→아메리카호' 행정명령…카니 총리 \"변경 없다\"",
+        "url": "https://www.mt.co.kr/world/2026/08/28/2026082806011710578",
+        "publishedAt": "2026-08-28",
         "status": "ok"
       },
       {
-        "id": "news-머니투데이-메타, '청소년 중독' 美 소송서 25조원 합의…'1일 2시간' 이용제한",
+        "id": "news-머니투데이-\"한번에 5만원 숭텅, 친구 안 만나\"…지갑 닫은 청년들, 관계도 닫는다",
         "category": "news",
         "source": "머니투데이",
-        "title": "메타, '청소년 중독' 美 소송서 25조원 합의…'1일 2시간' 이용제한",
-        "url": "https://www.mt.co.kr/world/2026/08/27/2026082705552557648",
-        "publishedAt": "2026-08-27",
+        "title": "\"한번에 5만원 숭텅, 친구 안 만나\"…지갑 닫은 청년들, 관계도 닫는다",
+        "url": "https://www.mt.co.kr/society/2026/08/28/2026082714270792163",
+        "publishedAt": "2026-08-28",
         "status": "ok"
       },
       {
-        "id": "news-연합뉴스마켓-엔비디아 실적 앞뒀던 뉴욕증시 약보합 마감…나스닥 0.08%↓",
+        "id": "news-연합뉴스마켓-엔비디아 8.7% 급등하며 기술주 랠리…나스닥 1.57%↑(종합)",
         "category": "news",
         "source": "연합뉴스마켓",
-        "title": "엔비디아 실적 앞뒀던 뉴욕증시 약보합 마감…나스닥 0.08%↓",
-        "url": "https://www.yna.co.kr/view/AKR20260827006851072",
-        "publishedAt": "2026-08-27",
+        "title": "엔비디아 8.7% 급등하며 기술주 랠리…나스닥 1.57%↑(종합)",
+        "url": "https://www.yna.co.kr/view/AKR20260828005951072",
+        "publishedAt": "2026-08-28",
         "status": "ok"
       },
       {
-        "id": "news-연합뉴스마켓-[코스피·코스닥 전 거래일(26일) 주요공시]",
+        "id": "news-연합뉴스마켓-[코스피·코스닥 전 거래일(27일) 주요공시]",
         "category": "news",
         "source": "연합뉴스마켓",
-        "title": "[코스피·코스닥 전 거래일(26일) 주요공시]",
-        "url": "https://www.yna.co.kr/view/AKR20260826174300008",
-        "publishedAt": "2026-08-27",
+        "title": "[코스피·코스닥 전 거래일(27일) 주요공시]",
+        "url": "https://www.yna.co.kr/view/AKR20260827183700008",
+        "publishedAt": "2026-08-28",
         "status": "ok"
       },
       {
-        "id": "news-연합뉴스-[유행에서 주류로] ③ \"2만원짜리가 브라질선 8만원\"…규제·관세·짝퉁 삼중고",
+        "id": "news-연합뉴스-상반기 보험사 대출채권 1.9조 증가…기업대출 연체·부실 악화",
         "category": "news",
         "source": "연합뉴스",
-        "title": "[유행에서 주류로] ③ \"2만원짜리가 브라질선 8만원\"…규제·관세·짝퉁 삼중고",
-        "url": "https://www.yna.co.kr/view/AKR20260826138100030",
-        "publishedAt": "2026-08-27",
+        "title": "상반기 보험사 대출채권 1.9조 증가…기업대출 연체·부실 악화",
+        "url": "https://www.yna.co.kr/view/AKR20260827188400002",
+        "publishedAt": "2026-08-28",
         "status": "ok"
       },
       {
-        "id": "news-연합뉴스-상반기 카드론 이용액 21%↑…중금리대출·빚투 등 영향",
+        "id": "news-연합뉴스-저축은행, 상반기 순익 7천600억대…4년 만에 반기 최대",
         "category": "news",
         "source": "연합뉴스",
-        "title": "상반기 카드론 이용액 21%↑…중금리대출·빚투 등 영향",
-        "url": "https://www.yna.co.kr/view/AKR20260826164400002",
+        "title": "저축은행, 상반기 순익 7천600억대…4년 만에 반기 최대",
+        "url": "https://www.yna.co.kr/view/AKR20260827184100002",
+        "publishedAt": "2026-08-28",
+        "status": "ok"
+      },
+      {
+        "id": "news-매일경제-“한국에 안 사는 중국인 가족까지 70만원 더 준다고?”…국민연금 수급기준 논란",
+        "category": "news",
+        "source": "매일경제",
+        "title": "“한국에 안 사는 중국인 가족까지 70만원 더 준다고?”…국민연금 수급기준 논란",
+        "url": "https://www.mk.co.kr/news/economy/12138319",
         "publishedAt": "2026-08-27",
         "status": "ok"
       },
       {
-        "id": "news-CNBC-Salesforce stock jumps 12% on AI growth and Anthropic investment gain",
+        "id": "news-매일경제-“트럼프 행정부, 반도체 대상 고강도 관세 검토”",
+        "category": "news",
+        "source": "매일경제",
+        "title": "“트럼프 행정부, 반도체 대상 고강도 관세 검토”",
+        "url": "https://www.mk.co.kr/news/economy/12138285",
+        "publishedAt": "2026-08-27",
+        "status": "ok"
+      },
+      {
+        "id": "news-MarketWatch-The S&P 500 is nearing a positive level — and the options marke",
+        "category": "news",
+        "source": "MarketWatch",
+        "title": "The S&P 500 is nearing a positive level — and the options market suggests a surge is likely",
+        "url": "https://www.marketwatch.com/story/the-s-p-500-is-nearing-an-especially-positive-price-and-the-options-market-suggests-a-surge-is-likely-a54d866d?mod=mw_rss_topstories",
+        "publishedAt": "2026-08-27",
+        "status": "ok"
+      },
+      {
+        "id": "news-CNBC-UAE ‘spy sheikh’ backs 49% stake in Trump family’s crypto bank venture",
         "category": "news",
         "source": "CNBC",
-        "title": "Salesforce stock jumps 12% on AI growth and Anthropic investment gain",
-        "url": "https://www.cnbc.com/2026/08/26/salesforce-crm-q2-earnings-report-2027.html",
-        "publishedAt": "2026-08-26",
+        "title": "UAE ‘spy sheikh’ backs 49% stake in Trump family’s crypto bank venture, WSJ reports",
+        "url": "https://www.cnbc.com/2026/08/27/uae-spy-sheikh-trump-family-crypto-bank.html",
+        "publishedAt": "2026-08-27",
         "status": "ok"
       },
       {
-        "id": "news-CNBC-Meta settles social media addiction case with California, other states",
+        "id": "news-CNBC-What Warsh will say and how the market will react, according to predic",
         "category": "news",
         "source": "CNBC",
-        "title": "Meta settles social media addiction case with California, other states for $16.7 billion",
-        "url": "https://www.cnbc.com/2026/08/26/meta-social-media-trial-settlement.html",
-        "publishedAt": "2026-08-26",
+        "title": "What Warsh will say and how the market will react, according to prediction markets",
+        "url": "https://www.cnbc.com/2026/08/27/what-warsh-will-say-and-how-the-market-will-react-according-to-prediction-markets.html",
+        "publishedAt": "2026-08-27",
         "status": "ok"
       },
       {
-        "id": "news-MarketWatch-Salesforce’s stock surges as AI momentum fuels revenue growth",
+        "id": "news-MarketWatch-Marvell is boosting its forecasts, but that’s not enough to lif",
         "category": "news",
         "source": "MarketWatch",
-        "title": "Salesforce’s stock surges as AI momentum fuels revenue growth",
-        "url": "https://www.marketwatch.com/story/salesforces-stock-surges-as-ai-momentums-fuel-revenue-growth-8c96eef3?mod=mw_rss_topstories",
-        "publishedAt": "2026-08-26",
+        "title": "Marvell is boosting its forecasts, but that’s not enough to lift its stock",
+        "url": "https://www.marketwatch.com/story/marvell-is-boosting-its-forecasts-but-thats-not-enough-to-lift-its-stock-c769556a?mod=mw_rss_topstories",
+        "publishedAt": "2026-08-27",
         "status": "ok"
       },
       {
-        "id": "news-MarketWatch-CrowdStrike’s stock soars after AI fuels the cybersecurity comp",
-        "category": "news",
-        "source": "MarketWatch",
-        "title": "CrowdStrike’s stock soars after AI fuels the cybersecurity company’s ‘best quarter in history’",
-        "url": "https://www.marketwatch.com/story/crowdstrikes-stock-soars-after-ai-fuels-the-cybersecurity-companys-best-quarter-ever-6aeae1d5?mod=mw_rss_topstories",
-        "publishedAt": "2026-08-26",
-        "status": "ok"
-      },
-      {
-        "id": "news-Investing-Wall Street stocks end tad lower after hot inflation data ahead o",
+        "id": "news-Investing-US bank regulators finalize rules defining ’unsafe’ bank practice",
         "category": "news",
         "source": "Investing",
-        "title": "Wall Street stocks end tad lower after hot inflation data ahead of Nvidia earnings",
-        "url": "https://www.investing.com/news/economy-news/us-stock-futures-subdued-in-runup-to-nvidia-results-inflation-print-4876659",
-        "publishedAt": "2026-08-26",
+        "title": "US bank regulators finalize rules defining ’unsafe’ bank practices",
+        "url": "https://www.investing.com/news/economy-news/us-bank-regulators-finalize-rules-defining-unsafe-bank-practices-4880225",
+        "publishedAt": "2026-08-27",
         "status": "ok"
       },
       {
-        "id": "news-MarketWatch-‘The relationship quickly deteriorated’: My friend’s lawyer set",
-        "category": "news",
-        "source": "MarketWatch",
-        "title": "‘The relationship quickly deteriorated’: My friend’s lawyer settled his injury case without his consent. What can he do?",
-        "url": "https://www.marketwatch.com/story/the-relationship-quickly-deteriorated-my-friends-lawyer-settled-his-injury-case-without-his-consent-what-can-he-do-a289fee9?mod=mw_rss_topstories",
-        "publishedAt": "2026-08-26",
-        "status": "ok"
-      },
-      {
-        "id": "news-Investing-Mexico central bank raises 2026 growth outlook, delays inflation ",
+        "id": "news-Investing-Anxious investors hope for clarity on Warsh’s Fed plan at Jackson",
         "category": "news",
         "source": "Investing",
-        "title": "Mexico central bank raises 2026 growth outlook, delays inflation target",
-        "url": "https://www.investing.com/news/economy-news/mexico-central-bank-raises-2026-growth-outlook-delays-inflation-target-93CH-4877792",
-        "publishedAt": "2026-08-26",
+        "title": "Anxious investors hope for clarity on Warsh’s Fed plan at Jackson Hole",
+        "url": "https://www.investing.com/news/economy-news/anxious-investors-hope-for-clarity-on-warshs-fed-plan-at-jackson-hole-4876622",
+        "publishedAt": "2026-08-27",
+        "status": "ok"
+      },
+      {
+        "id": "news-Investing-Trading Day: Tech on a tear, attention Fed chair",
+        "category": "news",
+        "source": "Investing",
+        "title": "Trading Day: Tech on a tear, attention Fed chair",
+        "url": "https://www.investing.com/news/economy-news/trading-day-tech-on-a-tear-attention-fed-chair-4880239",
+        "publishedAt": "2026-08-27",
         "status": "ok"
       }
     ],
     "clusters": [],
-    "summary": "메타의 25조 원 규모 합의 소식과 뉴욕증시의 엔비디아 실적 앞둔 약보합 마감이 글로벌 불확실성을 높이는 모습입니다.",
+    "summary": "엔비디아가 8.7% 급등하며 나스닥이 1.57% 상승하는 등 기술주 중심의 랠리가 글로벌 증시를 견인하는 모습입니다.",
     "status": "ok"
   },
   "latestBriefing": null,
@@ -254,13 +243,30 @@
     {
       "id": "kospi",
       "name": "코스피",
-      "value": 6808.21,
-      "displayValue": "6,808.21",
-      "change": 0.971,
+      "value": 6912.37,
+      "displayValue": "6,912.37",
+      "change": 1.5299,
       "changeUnit": "%",
       "displayMode": "pct",
       "direction": "up",
-      "asOf": "2026-08-26",
+      "asOf": "2026-08-27",
+      "source": "KRX",
+      "sourceUrl": "",
+      "frequency": "daily",
+      "isDelayed": true,
+      "status": "ok",
+      "insight": "전일 대비 큰 폭 상승"
+    },
+    {
+      "id": "kosdaq",
+      "name": "코스닥",
+      "value": 837.65,
+      "displayValue": "837.65",
+      "change": 1.3037,
+      "changeUnit": "%",
+      "displayMode": "pct",
+      "direction": "up",
+      "asOf": "2026-08-27",
       "source": "KRX",
       "sourceUrl": "",
       "frequency": "daily",
@@ -269,66 +275,15 @@
       "insight": "전일 대비 상승"
     },
     {
-      "id": "kosdaq",
-      "name": "코스닥",
-      "value": 826.87,
-      "displayValue": "826.87",
-      "change": -0.0339,
-      "changeUnit": "%",
-      "displayMode": "pct",
-      "direction": "down",
-      "asOf": "2026-08-26",
-      "source": "KRX",
-      "sourceUrl": "",
-      "frequency": "daily",
-      "isDelayed": true,
-      "status": "ok",
-      "insight": "보합권"
-    },
-    {
       "id": "nasdaq",
       "name": "나스닥",
-      "value": 26130.2,
-      "displayValue": "26,130.20",
-      "change": -0.0807,
+      "value": 26541.35,
+      "displayValue": "26,541.35",
+      "change": 1.5735,
       "changeUnit": "%",
       "displayMode": "pct",
-      "direction": "down",
-      "asOf": "2026-08-26",
-      "source": "FinanceDataReader",
-      "sourceUrl": "",
-      "frequency": "daily",
-      "isDelayed": true,
-      "status": "ok",
-      "insight": "전일 대비 소폭 하락"
-    },
-    {
-      "id": "sp500",
-      "name": "S&P500",
-      "value": 7675.7,
-      "displayValue": "7,675.70",
-      "change": -0.0206,
-      "changeUnit": "%",
-      "displayMode": "pct",
-      "direction": "down",
-      "asOf": "2026-08-26",
-      "source": "FinanceDataReader",
-      "sourceUrl": "",
-      "frequency": "daily",
-      "isDelayed": true,
-      "status": "ok",
-      "insight": "보합권"
-    },
-    {
-      "id": "usdkrw",
-      "name": "원/달러",
-      "value": 1385.28,
-      "displayValue": "1,385.3",
-      "change": 3.68,
-      "changeUnit": "원",
-      "displayMode": "delta",
       "direction": "up",
-      "asOf": "2026-08-26",
+      "asOf": "2026-08-27",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
@@ -337,15 +292,49 @@
       "insight": "전일 대비 큰 폭 상승"
     },
     {
+      "id": "sp500",
+      "name": "S&P500",
+      "value": 7730.99,
+      "displayValue": "7,730.99",
+      "change": 0.7203,
+      "changeUnit": "%",
+      "displayMode": "pct",
+      "direction": "up",
+      "asOf": "2026-08-27",
+      "source": "FinanceDataReader",
+      "sourceUrl": "",
+      "frequency": "daily",
+      "isDelayed": true,
+      "status": "ok",
+      "insight": "전일 대비 상승"
+    },
+    {
+      "id": "usdkrw",
+      "name": "원/달러",
+      "value": 1380.11,
+      "displayValue": "1,380.1",
+      "change": -5.17,
+      "changeUnit": "원",
+      "displayMode": "delta",
+      "direction": "down",
+      "asOf": "2026-08-27",
+      "source": "FinanceDataReader",
+      "sourceUrl": "",
+      "frequency": "daily",
+      "isDelayed": true,
+      "status": "ok",
+      "insight": "전일 대비 큰 폭 하락"
+    },
+    {
       "id": "us10y",
       "name": "미국채10년",
-      "value": 4.66,
-      "displayValue": "4.66%",
-      "change": 0.02,
+      "value": 4.67,
+      "displayValue": "4.67%",
+      "change": 0.01,
       "changeUnit": "%p",
       "displayMode": "delta",
       "direction": "up",
-      "asOf": "2026-08-26",
+      "asOf": "2026-08-27",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
@@ -356,30 +345,30 @@
     {
       "id": "wti",
       "name": "WTI",
-      "value": 81.91,
-      "displayValue": "$81.91",
-      "change": null,
+      "value": 83.54,
+      "displayValue": "$83.54",
+      "change": 1.99,
       "changeUnit": "%",
       "displayMode": "pct",
-      "direction": null,
-      "asOf": "2026-08-26",
+      "direction": "up",
+      "asOf": "2026-08-27",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
       "isDelayed": true,
       "status": "ok",
-      "insight": null
+      "insight": "전일 대비 큰 폭 상승"
     },
     {
       "id": "vix",
       "name": "VIX",
-      "value": 15.21,
-      "displayValue": "15.21",
-      "change": -1.5534,
+      "value": 14.51,
+      "displayValue": "14.51",
+      "change": -4.6022,
       "changeUnit": "%",
       "displayMode": "pct",
       "direction": "down",
-      "asOf": "2026-08-26",
+      "asOf": "2026-08-27",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
@@ -397,22 +386,73 @@
       "valueLabel": "+0.47%p",
       "insight": "장단기 금리차가 정상 범위에 있어 침체 신호는 뚜렷하지 않습니다.",
       "sourceLabel": "장단기 금리차 (미국채 10Y-2Y)",
-      "asOf": "2026-08-27"
+      "asOf": "2026-08-28"
+    },
+    {
+      "id": "rate-gap",
+      "name": "한미 기준금리차",
+      "color": "green",
+      "value": 0.75,
+      "valueLabel": "+0.75%p",
+      "insight": "한미 금리차가 관리 가능한 수준이라 자본유출 압력은 크지 않습니다.",
+      "sourceLabel": "한미 기준금리차 (Fed-한은)",
+      "asOf": "2026-08-28"
     },
     {
       "id": "liquidity-stress",
       "name": "유동성 스트레스",
       "color": "green",
-      "value": 2.7,
-      "valueLabel": "2.70%p",
+      "value": 2.67,
+      "valueLabel": "2.67%p",
       "insight": "신용시장 스프레드가 평상 수준이라 유동성 경색 신호는 없습니다.",
       "sourceLabel": "하이일드 스프레드 (BAMLH0A0HYM2)",
-      "asOf": "2026-08-27"
+      "asOf": "2026-08-28"
     }
   ],
   "claims": {
     "status": "ok",
     "todayClaims": [
+      {
+        "schemaVersion": 1,
+        "claimId": "2026-08-28-c1",
+        "publicationId": "2026-08-28",
+        "issuedAt": "2026-08-28T06:43:29+09:00",
+        "dataCutoffAt": "2026-08-28T06:43:29+09:00",
+        "lockedAt": "2026-08-28T06:43:29+09:00",
+        "claimMode": "auto",
+        "verificationType": "proxy",
+        "topic": "코스닥 다음 거래일 방향(flow_divergence)",
+        "sourceNewsIds": [],
+        "observationText": "코스닥은 837.65로 전일 대비 1.30% 상승했습니다.",
+        "interpretationText": "외국인 순매수 흐름 속에서 상승 흐름이 다음 거래일까지 이어지는지가 확인 대상입니다.",
+        "claimText": "외국인 순매수 흐름 속에서 코스닥이 반등할까요?",
+        "metricId": "kosdaq",
+        "benchmarkMetricId": null,
+        "comparisonType": "absolute_return",
+        "expectedDirection": "up",
+        "horizon": {
+          "type": "next_close",
+          "market": "KR",
+          "resolutionAt": "2026-08-29"
+        },
+        "thresholdRuleId": "pct_030",
+        "confidence": null,
+        "status": "unresolved",
+        "revision": {
+          "version": 1,
+          "contentHash": "a3e753ec50ed16c1a75340023d26fa1684703770dd6bb2a563ee9a1855269cce",
+          "correctedFrom": null
+        },
+        "baseline": {
+          "value": 837.65,
+          "asOf": "2026-08-27",
+          "benchmarkValue": null,
+          "benchmarkAsOf": null
+        },
+        "resolution": null
+      }
+    ],
+    "previousClaims": [
       {
         "schemaVersion": 1,
         "claimId": "2026-08-27-c1",
@@ -438,7 +478,7 @@
         },
         "thresholdRuleId": "pct_030",
         "confidence": null,
-        "status": "unresolved",
+        "status": "hit",
         "revision": {
           "version": 1,
           "contentHash": "6a88e49b88632bf178485feeae5901cb0cb0b98751bf9021e1e82b101da47365",
@@ -450,57 +490,16 @@
           "benchmarkValue": null,
           "benchmarkAsOf": null
         },
-        "resolution": null
-      }
-    ],
-    "previousClaims": [
-      {
-        "schemaVersion": 1,
-        "claimId": "2026-08-26-c1",
-        "publicationId": "2026-08-26",
-        "issuedAt": "2026-08-26T06:44:20+09:00",
-        "dataCutoffAt": "2026-08-26T06:44:20+09:00",
-        "lockedAt": "2026-08-26T06:44:20+09:00",
-        "claimMode": "auto",
-        "verificationType": "proxy",
-        "topic": "S&P500 다음 거래일 방향(calendar)",
-        "sourceNewsIds": [],
-        "observationText": "S&P500는 7,677.28로 전일 대비 0.32% 상승했습니다.",
-        "interpretationText": "PCE 발표 뒤 상승 흐름이 다음 거래일까지 이어지는지가 확인 대상입니다.",
-        "claimText": "PCE 발표 뒤 S&P500가 상승 흐름을 이어갈까요?",
-        "metricId": "sp500",
-        "benchmarkMetricId": null,
-        "comparisonType": "absolute_return",
-        "expectedDirection": "up",
-        "horizon": {
-          "type": "next_close",
-          "market": "US",
-          "resolutionAt": "2026-08-27"
-        },
-        "thresholdRuleId": "pct_030",
-        "confidence": null,
-        "status": "neutral",
-        "revision": {
-          "version": 1,
-          "contentHash": "015b3d89757af261af8c28d73abd2e042656ab0b39efbba43c0cd51154e4d12a",
-          "correctedFrom": null
-        },
-        "baseline": {
-          "value": 7677.28,
-          "asOf": "2026-08-25",
-          "benchmarkValue": null,
-          "benchmarkAsOf": null
-        },
         "resolution": {
-          "resolutionId": "2026-08-26-c1-res",
-          "claimId": "2026-08-26-c1",
-          "resolvedAt": "2026-08-27T06:43:40+09:00",
-          "verdict": "neutral",
-          "metricId": "sp500",
+          "resolutionId": "2026-08-27-c1-res",
+          "claimId": "2026-08-27-c1",
+          "resolvedAt": "2026-08-28T06:43:29+09:00",
+          "verdict": "hit",
+          "metricId": "kospi",
           "comparisonType": "absolute_return",
-          "startValue": 7677.28,
-          "endValue": 7675.7,
-          "changeValue": -0.02058020548944323,
+          "startValue": 6808.21,
+          "endValue": 6912.37,
+          "changeValue": 1.5299175554220545,
           "changeUnit": "%",
           "benchmarkMetricId": null,
           "benchmarkStartValue": null,
@@ -508,16 +507,16 @@
           "neutralLower": -0.3,
           "neutralUpper": 0.3,
           "neutralBand": 0.3,
-          "dataProvider": "FinanceDataReader",
+          "dataProvider": "KRX",
           "sourceUrl": "",
-          "observedAt": "2026-08-26",
-          "explanation": "변화폭이 중립 구간(±0.3%) 이내에 머물러 뚜렷한 방향이 나타나지 않았습니다."
+          "observedAt": "2026-08-27",
+          "explanation": "실제 변화가 예상한 상승 방향과 일치했습니다."
         }
       }
     ],
-    "previousPublicationId": "2026-08-26",
+    "previousPublicationId": "2026-08-27",
     "totals": {
-      "hit": 9,
+      "hit": 10,
       "miss": 17,
       "neutral": 6,
       "unresolved": 1,
@@ -526,12 +525,12 @@
     }
   },
   "newsletterClaimsTeaser": {
-    "publicationId": "2026-08-26",
+    "publicationId": "2026-08-27",
     "resolvedCount": 1,
-    "hitCount": 0,
+    "hitCount": 1,
     "missCount": 0,
-    "neutralCount": 1,
+    "neutralCount": 0,
     "unresolvedCount": 0,
-    "highlightText": "PCE 발표 뒤 S&P500가 상승 흐름을 이어갈까요?"
+    "highlightText": "코스피는 다음 거래일에도 완만한 반등 흐름을 이어갈까?"
   }
 }

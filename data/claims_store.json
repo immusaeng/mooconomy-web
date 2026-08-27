@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-27T06:43:40+09:00",
+  "updatedAt": "2026-08-28T06:43:29+09:00",
   "claims": {
     "2026-07-19-c1": {
       "schemaVersion": 1,
@@ -1947,7 +1947,7 @@
       },
       "thresholdRuleId": "pct_030",
       "confidence": null,
-      "status": "unresolved",
+      "status": "hit",
       "revision": {
         "version": 1,
         "contentHash": "6a88e49b88632bf178485feeae5901cb0cb0b98751bf9021e1e82b101da47365",
@@ -1956,6 +1956,66 @@
       "baseline": {
         "value": 6808.21,
         "asOf": "2026-08-26",
+        "benchmarkValue": null,
+        "benchmarkAsOf": null
+      },
+      "resolution": {
+        "resolutionId": "2026-08-27-c1-res",
+        "claimId": "2026-08-27-c1",
+        "resolvedAt": "2026-08-28T06:43:29+09:00",
+        "verdict": "hit",
+        "metricId": "kospi",
+        "comparisonType": "absolute_return",
+        "startValue": 6808.21,
+        "endValue": 6912.37,
+        "changeValue": 1.5299175554220545,
+        "changeUnit": "%",
+        "benchmarkMetricId": null,
+        "benchmarkStartValue": null,
+        "benchmarkEndValue": null,
+        "neutralLower": -0.3,
+        "neutralUpper": 0.3,
+        "neutralBand": 0.3,
+        "dataProvider": "KRX",
+        "sourceUrl": "",
+        "observedAt": "2026-08-27",
+        "explanation": "실제 변화가 예상한 상승 방향과 일치했습니다."
+      }
+    },
+    "2026-08-28-c1": {
+      "schemaVersion": 1,
+      "claimId": "2026-08-28-c1",
+      "publicationId": "2026-08-28",
+      "issuedAt": "2026-08-28T06:43:29+09:00",
+      "dataCutoffAt": "2026-08-28T06:43:29+09:00",
+      "lockedAt": "2026-08-28T06:43:29+09:00",
+      "claimMode": "auto",
+      "verificationType": "proxy",
+      "topic": "코스닥 다음 거래일 방향(flow_divergence)",
+      "sourceNewsIds": [],
+      "observationText": "코스닥은 837.65로 전일 대비 1.30% 상승했습니다.",
+      "interpretationText": "외국인 순매수 흐름 속에서 상승 흐름이 다음 거래일까지 이어지는지가 확인 대상입니다.",
+      "claimText": "외국인 순매수 흐름 속에서 코스닥이 반등할까요?",
+      "metricId": "kosdaq",
+      "benchmarkMetricId": null,
+      "comparisonType": "absolute_return",
+      "expectedDirection": "up",
+      "horizon": {
+        "type": "next_close",
+        "market": "KR",
+        "resolutionAt": "2026-08-29"
+      },
+      "thresholdRuleId": "pct_030",
+      "confidence": null,
+      "status": "unresolved",
+      "revision": {
+        "version": 1,
+        "contentHash": "a3e753ec50ed16c1a75340023d26fa1684703770dd6bb2a563ee9a1855269cce",
+        "correctedFrom": null
+      },
+      "baseline": {
+        "value": 837.65,
+        "asOf": "2026-08-27",
         "benchmarkValue": null,
         "benchmarkAsOf": null
       },
