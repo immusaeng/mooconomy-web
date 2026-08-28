@@ -1,0 +1,254 @@
+{
+  "schema_version": "normalized-daily-issue/v1",
+  "edition_id": "2026-08-29",
+  "edition_date_kst": "2026-08-29",
+  "canonical_status": "production",
+  "production_status": "SEND_CONFIRMED",
+  "source_commit_sha": "a9a9328be5eabc4fce6210f8e38cd3e17807c3ad",
+  "subject": "한국은행 기준금리 0.25%p 인상, 매파 기조에 코스피 1.78% 하락",
+  "preheader": "한·미 중앙은행의 긴축 기조 지속에 따른 통화정책 부담",
+  "thesis": {
+    "headline": "한국은행 기준금리 0.25%p 인상, 매파 기조에 코스피 1.78% 하락",
+    "three_signals": [
+      "케빈 워시 연준 의장의 긴축적 발언으로 미국 증시가 약세를 기록했습니다.",
+      "지난 거래일 코스피는 외국인과 기관의 동반 매도세에 1.78% 하락했습니다.",
+      "오늘은 외국인의 순매수 전환 여부와 환율 움직임을 관찰할 필요가 있습니다."
+    ]
+  },
+  "main_story": {
+    "headline": "한국은행 기준금리 0.25%p 인상, 매파 기조에 코스피 1.78% 하락",
+    "verified_fact": "한국은행 금융통화위원회가 기준금리를 0.25%p 인상하여 3.0%로 조정하며 매파적 통화정책 기조를 명확히 했습니다.",
+    "why_it_matters": null,
+    "sources": []
+  },
+  "entities": [
+    {
+      "name": "코스피",
+      "type": "index"
+    },
+    {
+      "name": "금",
+      "type": "commodity"
+    }
+  ],
+  "metrics": [
+    {
+      "id": "kospi",
+      "value": 6788.88,
+      "change": -1.7865,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "kosdaq",
+      "value": 838.41,
+      "change": 0.0907,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "nasdaq",
+      "value": 26402.42,
+      "change": -0.5234,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "sp500",
+      "value": 7711.76,
+      "change": -0.2487,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1375.67,
+      "change": -4.44,
+      "displayMode": "delta",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "us10y",
+      "value": 4.72,
+      "change": 0.05,
+      "displayMode": "delta",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "wti",
+      "value": 83.44,
+      "change": -0.1197,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "vix",
+      "value": 14.43,
+      "change": -0.5513,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    }
+  ],
+  "market_changes": [
+    {
+      "id": "kospi",
+      "change": -1.7865,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "kosdaq",
+      "change": 0.0907,
+      "changeUnit": "%",
+      "direction": "up"
+    },
+    {
+      "id": "nasdaq",
+      "change": -0.5234,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "sp500",
+      "change": -0.2487,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "usdkrw",
+      "change": -4.44,
+      "changeUnit": "원",
+      "direction": "down"
+    },
+    {
+      "id": "us10y",
+      "change": 0.05,
+      "changeUnit": "%p",
+      "direction": "up"
+    },
+    {
+      "id": "wti",
+      "change": -0.1197,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "vix",
+      "change": -0.5513,
+      "changeUnit": "%",
+      "direction": "down"
+    }
+  ],
+  "narratives": {
+    "moo_view": "미국 증시에서는 워시 연준 의장의 매파적 연설로 긴축 기조 유지 가능성이 부각되며 나스닥과 S&P500 지수가 일제히 하락세를 기록했습니다. 글로벌 통화정책을 둘러싼 긴축 경계감이 시장 전반의 투자심리를 위축시키는 주요 압력으로 작용했습니다.\n\n국내 증시 또한 한국은행 금통위의 0.25%p 기준금리 인상 결정으로 매파적 기조가 명확해지면서 투자심리가 경색되었습니다. 한·미 양국의 통화 긴축 행보가 주식 시장에 하방 압력을 더한 것으로 평가됩니다. 그러나 원/달러 환율이 하락하고 코스닥 지수가 상승 방어에 성공한 점은 유동성 이탈 속에서도 시중 자금이 원화 자산의 안정성에 일부 무게를 두고 있음을 보여주는 신호일 수 있습니다.\n\n코스피 시장에서는 기관과 외국인의 동반 매도세가 이어진 가운데 반도체와반도체장비 업종이 -3.74% 하락하며 지수 내림세를 주도했습니다. 통화정책 부담이 대형 기술주와 반도체 섹터에 집중되면서 수급 불균형이 심화되는 양상이 전개되었습니다.\n\n향후 시장 흐름은 정부가 발표한 AI·반도체 인력 양성 정책이 실질적인 산업 모멘텀으로 연결될 수 있을지에 따라 좌우될 전망입니다. 해당 정책이 개별 기업의 이익 개선 기대감으로 이어진다면 반도체 업종의 수급 반전 계기가 마련될 것이고, 글로벌 긴축 우려가 이를 상쇄한다면 기술주 중심의 보수적 자금 집행이 당분간 이어질 수 있습니다.",
+    "todays_watch": [
+      "한국은행의 0.25%p 기준금리 인상 이후 통화 긴축 기조가 국내 증시 수급에 미치는 영향",
+      "워시 연준 의장의 매파적 발언에 따른 글로벌 시장의 긴축 경계감 지속 가능성",
+      "정부의 AI·반도체 인력 양성 정책 발표가 주요 기술주 수급 개선으로 이어질지 여부"
+    ],
+    "todays_watch_oneliner": "한·미 통화당국의 매파적 기조와 반도체 업종 약세 속에 기관·외국인 매도세가 시장 하방 압력을 높이고 있습니다.",
+    "content_status": "GENERATED"
+  },
+  "moo_q": {
+    "claim_id": "2026-08-29-c1",
+    "claim_text": "외국인 순매도 흐름 속에서 코스피가 하락세를 이어갈까요?",
+    "topic": "코스피 다음 거래일 방향(flow_divergence)",
+    "resolution_at": "2026-08-30",
+    "status": "unresolved"
+  },
+  "moo_check": [
+    {
+      "previous_claim": "외국인 순매수 흐름 속에서 코스닥이 반등할까요?",
+      "claim_date": "2026-08-28",
+      "evaluation_date": "2026-08-29T06:43:15+09:00",
+      "observed_result": "변화폭이 중립 구간(±0.3%) 이내에 머물러 뚜렷한 방향이 나타나지 않았습니다.",
+      "verdict": "PARTIAL",
+      "evidence": "837.65 → 838.41 (+0.09%)",
+      "source": "KRX"
+    }
+  ],
+  "moo_word": {
+    "id": "base_rate",
+    "term": "기준금리",
+    "definition": "중앙은행이 시중 금리의 기준으로 정하는 정책금리입니다.",
+    "why_today": null,
+    "memory_hook": "오르면 대출이자↑·소비둔화, 내리면 반대로 움직입니다.",
+    "source_label": "매일경제",
+    "article_id": "news_0",
+    "article_url": "https://www.mk.co.kr/news/economy/12139274",
+    "article_publisher": "매일경제",
+    "evidence_snippets": [
+      "그가 주도하는 금융통화위원회는 8월27일 기준금리를 0.25%포인트 올렸다."
+    ],
+    "definition_source_name": "한국은행",
+    "definition_source_url": "https://ecos.bok.or.kr/",
+    "definition_priority": "P1_GLOSSARY_OFFICIAL_SOURCE",
+    "origin": "glossary",
+    "grounded_in_article": true,
+    "definition_evidence_verified": true,
+    "status": "ELIGIBLE_FOR_PUBLICATION",
+    "eligible_for_publication": true
+  },
+  "sources": [
+    {
+      "source_name": "파이낸셜뉴스",
+      "source_url": "https://www.fnnews.com/news/202608281339521927",
+      "published_at": "2026-08-28",
+      "source_headline": "2030년까지 AI·반도체 전문인력 30만명 키운다…내년 8만명 내외 양성"
+    },
+    {
+      "source_name": "한국경제",
+      "source_url": "https://www.hankyung.com/article/202608280273i",
+      "published_at": "2026-08-28",
+      "source_headline": "한국씨티은행, 소수주주 지분 매입 추진…“단일주주 체제로 전환”"
+    },
+    {
+      "source_name": "연합뉴스",
+      "source_url": "https://www.yna.co.kr/view/AKR20260828159100002",
+      "published_at": "2026-08-28",
+      "source_headline": "한국씨티은행, 소수주주 지분 매입 추진…"
+    },
+    {
+      "source_name": "연합뉴스마켓",
+      "source_url": "https://www.yna.co.kr/view/AKR20260829007000072",
+      "published_at": "2026-08-29",
+      "source_headline": "뉴욕증시, 워시 '매파' 연설에 하락…다우 0.02%↓"
+    },
+    {
+      "source_name": "MarketWatch",
+      "source_url": "https://www.marketwatch.com/story/kevin-warsh-gets-what-every-fed-chair-hopes-for-a-bond-market-that-trust-his-words-5103dad5?mod=mw_rss_topstories",
+      "published_at": "2026-08-28",
+      "source_headline": "Kevin Warsh gets what every Fed chair hopes for: a bond market that trusts his word"
+    },
+    {
+      "source_name": "MarketWatch",
+      "source_url": "https://www.marketwatch.com/story/microsofts-stock-seals-its-longest-winning-streak-of-the-year-as-ai-software-fears-fade-e5669f5b?mod=mw_rss_topstories",
+      "published_at": "2026-08-28",
+      "source_headline": "Microsoft’s stock seals its longest winning streak of the year as AI software fears fade"
+    },
+    {
+      "source_name": "YahooFinance",
+      "source_url": "https://finance.yahoo.com/markets/stocks/articles/bank-america-doubles-down-nvidia-153054071.html",
+      "published_at": null,
+      "source_headline": "Bank of America doubles down on Nvidia stock"
+    }
+  ],
+  "public_url": "https://mooconomy.co.kr/latest-email.html",
+  "validation_status": {
+    "main_story_status": "SELECTED",
+    "content_provenance": "VALIDATED_GEMINI_36",
+    "moo_word_present": true,
+    "sources_count": 7,
+    "is_approximate": false
+  },
+  "content_hash": "445414e3857551c72b75940204c8e23ff0c8c4790039d3c69ae4c52cbf6dbc7e",
+  "archived_at": "2026-08-28T21:44:24.742058+00:00"
+}
