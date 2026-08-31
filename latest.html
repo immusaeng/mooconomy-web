@@ -4,404 +4,543 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="x-apple-disable-message-reformatting">
+<meta name="color-scheme" content="light only">
+<meta name="supported-color-schemes" content="light only">
 <title>Daily MOO:conomy</title>
-<link rel="canonical" href="https://mooconomy.co.kr/issues/2026-08-29.html">
-<meta property="og:type" content="article">
-<meta property="og:title" content="한국은행 기준금리 0.25%p 인상, 매파 기조에 코스피 1.78% 하락">
-<meta property="og:description" content="한국은행 기준금리 0.25%p 인상, 매파 기조에 코스피 1.78% 하락">
-<meta property="og:url" content="https://mooconomy.co.kr/issues/2026-08-29.html">
-<meta property="og:image" content="https://raw.githubusercontent.com/immusaeng/mooconomy-assets/main/og_mooconomy_v2.png">
 <style>
-  /* 다크 에디토리얼 뉴스레터 — table/block만 사용, JS·외부 폰트·이미지·
-     flex·grid 없음. 바깥 프레임은 밝게, 실제 뉴스레터 캔버스만 다크
-     네이비로 렌더한다.
-
-     일반 클라이언트: .wrap은 유동폭(width:100%)이며 데스크톱에서만
-     max-width:760px으로 상한을 둔다. Outlook(Windows) 전용 고정폭은
-     본문의 MSO 조건부 주석(<!--[if mso]>...<![endif]-->) wrapper
-     안에서만 처리하며, 그 밖에서는 고정폭을 쓰지 않는다. */
-  body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',Arial,sans-serif; background:#F2F3F5; color:#E8ECF3; margin:0; padding:0; -webkit-text-size-adjust:100%; text-size-adjust:100%; line-height:1.55; font-size:13px; }
-  .outer-pad { padding:28px 16px; }
-  .wrap { width:100%; max-width:760px; margin:0 auto; background:#0B1220; border-radius:12px; }
-  .inner { padding:0 17px; }
-  @media (max-width:780px) {
-    .wrap { width:100% !important; max-width:100% !important; border-radius:0 !important; }
-    .outer-pad { padding:14px 8px !important; }
+  body {
+    margin: 0; padding: 0;
+    background: #E5DFD1;
+    color: #1F1811;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Malgun Gothic', Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    -webkit-text-size-adjust: 100%;
+  }
+  .sheet { width: 100%; max-width: 720px; margin: 0 auto; background: #FBF7EF; }
+  .pad-l { padding: 0 40px; }
+  @media (max-width: 640px) {
+    .sheet { width: 100% !important; max-width: 100% !important; }
+    .pad-l { padding: 0 20px !important; }
   }
 
-  /* ===== 01. DARK MASTHEAD ===== */
-  .fx-mh { padding:18px 0 2px; }
-  .fx-mh-table { width:100%; border-collapse:collapse; }
-  .fx-brand { font-size:20px; font-weight:800; color:#E8ECF3; }
-  .fx-brand .g { color:#F2C94C; }
-  .fx-status { text-align:right; }
-  .fx-status-chip { display:inline-block; font-size:10.5px; font-weight:700; color:#F2C94C; background:rgba(242,201,76,.15); padding:3px 9px; border-radius:20px; }
-  .fx-mh-tagline { font-size:11.5px; font-weight:500; color:#95A2BA; line-height:1.5; margin-top:7px; word-break:keep-all; }
-  .fx-mh-pubdate { font-size:9.5px; font-weight:500; color:#6B7A99; margin-top:8px; }
-  .fx-mh-sub { font-size:10.5px; font-weight:600; color:#7C8AA5; letter-spacing:.03em; margin-top:3px; }
+  /* 유틸 */
+  .pt0 { padding-top: 0 !important; }
+  /* 하이라이트(2026-08-30 [D] 신설) — 투명도·그라디언트 금지. 적용 대상은 다음 단계에서 지정 */
+  .hl { background: #F5E7C6; color: #6B4818; padding: 0 3px; border-radius: 3px; }
 
-  /* 공용 section 라벨(모듈 섹션용, gold caps) */
-  .fx-label { font-size:11.5px; font-weight:800; color:#F2C94C; letter-spacing:.08em; margin:26px 0 12px; text-transform:uppercase; word-break:keep-all; overflow-wrap:break-word; }
-  .fx-label.first { margin-top:4px; }
+  /* 웹에서 보기(2026-08-30 [F], v2에서 이식) — 밝은 바깥 배경(#E5DFD1) 위 */
+  .view-in-browser { text-align: center; padding: 8px 0 4px; }
+  .view-in-browser a { display: inline-block; min-height: 32px; line-height: 32px; color: #5A4E3B; text-decoration: underline; font-size: 11.5px; }
 
-  /* ===== 02. MORNING THESIS — 카드 없는 독립 편집 영역, 절제된 헤드라인(축소) ===== */
-  .fx-mt { padding:2px 0 8px; }
-  .fx-mt-label { font-size:10px; font-weight:800; color:#F2C94C; letter-spacing:.12em; text-transform:uppercase; margin-bottom:9px; }
-  .fx-mt-headline { font-size:18px; font-weight:700; color:#F4F6FA; line-height:1.35; letter-spacing:-.2px; word-break:keep-all; overflow-wrap:break-word; max-height:3.6em; overflow:hidden; }
-  .fx-mt-rule { height:1px; background:rgba(124,138,165,.22); margin-top:15px; }
-  @media (min-width:701px) {
-    .fx-mt-headline { font-size:21px !important; max-height:none !important; }
+  /* Section flag — 두 종류 */
+  .flag-brand {
+    font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+    font-size: 22px; font-weight: 800; color: #1F1811;
+    letter-spacing: -0.02em; line-height: 1; font-style: italic; margin: 0 0 24px;
+  }
+  .flag-brand .colon { color: #9C6B1F; font-style: normal; }
+  .flag-brand .sub {
+    font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+    font-size: 10.5px; color: #8A7B60; font-style: normal; font-weight: 700;
+    letter-spacing: 0.14em; margin-left: 10px; text-transform: uppercase; vertical-align: 3px;
+  }
+  .flag-data {
+    font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+    font-size: 12px; font-weight: 800; color: #5A4E3B; letter-spacing: 0.18em;
+    text-transform: uppercase; line-height: 1.3; margin: 0 0 16px;
+  }
+  .flag-data .colon { color: #8A7B60; }
+  .flag-data .r { float: right; font-weight: 700; color: #B0A48A; letter-spacing: 0.06em; text-transform: none; font-size: 10px; }
+
+  /* Masthead */
+  .masthead { padding: 32px 0 18px; }
+  .brand-wm {
+    font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+    font-size: 26px; font-weight: 800; color: #1F1811; letter-spacing: -0.025em; line-height: 1;
+  }
+  .brand-wm .g { color: #9C6B1F; }
+  .mast-tagline { font-family: -apple-system, sans-serif; font-size: 12.5px; color: #5A4E3B; line-height: 1.55; margin-top: 10px; word-break: keep-all; }
+  .mast-rule { height: 2px; line-height: 2px; font-size: 0; background: #3A2F1F; margin-top: 16px; }
+  .mast-meta { width: 100%; border-collapse: collapse; margin-top: 10px; }
+  .mast-meta td { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 11px; color: #5A4E3B; letter-spacing: 0.06em; padding: 0; }
+  .mast-meta .r { text-align: right; }
+  .mast-meta .status-badge {
+    display: inline-block; background: #F5E7C6; color: #6B4818; padding: 3px 10px;
+    font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; font-size: 10px;
   }
 
-  /* ===== 03. TODAY 3 SIGNALS — 카드 아님, 컴팩트 inline row ===== */
-  .fx-t3-table { width:100%; border-collapse:collapse; margin-top:2px; }
-  .fx-t3-table td { padding:4px 0 5px; border-bottom:1px solid rgba(124,138,165,.12); }
-  .fx-t3-table tr.last td { border-bottom:none; }
-  .fx-t3-mark { width:18px; font-size:13px; font-weight:800; color:#F2C94C; }
-  .fx-t3-text { font-size:13px; font-weight:600; color:#E8ECF3; line-height:1.5; word-break:keep-all; overflow-wrap:break-word; }
-
-  /* ===== 04. MAIN 6 METRICS — 단일 3열×2행 테이블(모바일/데스크톱 공용) ===== */
-  .fx-mgrid { width:100%; border-collapse:separate; border-spacing:6px; margin:10px -6px 0; table-layout:fixed; }
-  .fx-mbox { box-sizing:border-box; background:#141C2E; border-radius:8px; padding:9px 8px; vertical-align:top; }
-  .fx-mlabel { font-size:9.5px; font-weight:700; color:#7C8AA5; letter-spacing:.02em; }
-  .fx-mvalue { font-size:18px; font-weight:800; color:#E8ECF3; margin-top:5px; font-variant-numeric:tabular-nums; white-space:nowrap; }
-  .fx-mvalue-missing { color:#4a5570; }
-  .fx-mchip { display:inline-block; font-size:10px; font-weight:700; padding:2px 7px; border-radius:20px; margin-top:6px; font-variant-numeric:tabular-nums; white-space:nowrap; }
-  .fx-mchip.up { background:rgba(255,107,107,.16); color:#FF6B6B; }
-  .fx-mchip.down { background:rgba(91,141,239,.16); color:#5B8DEF; }
-  .fx-mchip.flat { background:rgba(124,138,165,.16); color:#7C8AA5; }
-  .fx-asof { font-size:10.5px; color:#7C8AA5; margin:10px 2px 0; }
-  @media (max-width:400px) {
-    .fx-mvalue { font-size:17px !important; }
-    .fx-mvalue.fx-mvalue-fx { font-size:15.5px !important; }
-    .fx-mchip { font-size:9.5px !important; padding:2px 5px !important; }
+  /* Ribbon — MOO:CHECK 요약(어제 판정), 질문일 기준 Q. MM-DD */
+  .ribbon { background: #F5E7C6; border-top: 1px solid #E9B547; border-bottom: 1px solid #E9B547; padding: 12px 40px; margin-top: 6px; }
+  @media (max-width: 640px) { .ribbon { padding: 10px 20px !important; } }
+  .ribbon-row { width: 100%; border-collapse: collapse; table-layout: auto; }
+  .ribbon-row td { padding: 0; vertical-align: middle; line-height: 1.4; }
+  .ribbon-mark {
+    font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+    font-size: 13.5px; font-weight: 800; color: #6B4818; letter-spacing: -0.015em;
+    font-style: italic; white-space: nowrap; padding-right: 10px !important;
+  }
+  .ribbon-mark .colon { color: #9C6B1F; font-style: normal; }
+  .ribbon-qdate {
+    font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+    font-size: 11px; font-weight: 700; color: #6B4818; letter-spacing: 0.04em;
+    white-space: nowrap; padding-right: 10px !important;
+  }
+  .ribbon-summary { font-family: -apple-system, sans-serif; font-size: 12.5px; color: #3A2F1F; letter-spacing: -0.005em; line-height: 1.4; word-break: keep-all; }
+  .ribbon-verdict { text-align: right; padding-left: 8px !important; white-space: nowrap; }
+  .ribbon-arrow {
+    text-align: center; padding: 6px 40px 0; font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+    font-size: 10px; color: #9C6B1F; letter-spacing: 0.12em; line-height: 1.3;
+  }
+  @media (max-width: 640px) {
+    .ribbon-arrow { padding: 6px 20px 0 !important; }
+    .ribbon-mark { font-size: 12.5px !important; padding-right: 8px !important; }
+    .ribbon-qdate { font-size: 10.5px !important; padding-right: 6px !important; }
+    .ribbon-summary { font-size: 11.5px !important; }
   }
 
-  /* ===== 05. MARKET TEMPERATURE — 신규 독립 섹션 ===== */
-  .fx-temp-card { background:#141C2E; border-radius:10px; padding:16px 15px; }
-  .fx-temp-status { font-size:14px; font-weight:750; color:#F4F6FA; }
-  .fx-temp-summary { word-break:keep-all;overflow-wrap:break-word;font-size:12.5px; color:#C7CEDB; line-height:1.55; margin-top:7px; }
-  .fx-temp-bar { width:100%; border-collapse:separate; border-spacing:3px 0; margin-top:14px; table-layout:fixed; }
-  .fx-temp-seg { height:6px; background:#2A3450; border-radius:3px; font-size:0; line-height:0; }
-  .fx-temp-seg.active { background:#F2C94C; }
-  .fx-temp-labels { width:100%; border-collapse:separate; border-spacing:3px 0; margin-top:6px; table-layout:fixed; }
-  .fx-temp-labels td { font-size:9.5px; color:#6B7A99; text-align:center; }
-  .fx-temp-labels td.active { color:#F2C94C; font-weight:700; }
-  .fx-temp-reasons { margin-top:13px; }
-  .fx-temp-reason-item { word-break:keep-all;overflow-wrap:break-word;font-size:12px; color:#95A2BA; line-height:1.5; margin-top:4px; }
-  .fx-temp-reason-item.up { color:#FF6B6B; }
-  .fx-temp-reason-item.down { color:#5B8DEF; }
-  .fx-temp-asof { font-size:10.5px; color:#7C8AA5; margin-top:12px; }
+  /* 판정 배지 6종 — 리본용 4자(v-mini) / 밴드용 한글(verdict-tag) */
+  .v-mini {
+    display: inline-block; font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+    font-size: 10px; font-weight: 800; padding: 3px 7px; letter-spacing: 0.1em;
+    border-left: 3px solid #8A7B60; background: #E8DFCB; color: #5A4E3B;
+  }
+  .v-mini.v-hit     { background: #F5D4CE; color: #C0392B; border-left-color: #C0392B; }
+  .v-mini.v-miss    { background: #D6DFEB; color: #2F5A8F; border-left-color: #2F5A8F; }
+  .v-mini.v-neutral { background: #E8DFCB; color: #5A4E3B; border-left-color: #8A7B60; }
+  .v-mini.v-pending { background: transparent; color: #8A7B60; border-left-color: #B0A48A; border-left-style: dashed; }
+  .v-mini.v-invalid { background: #EDE5D3; color: #5A4E3B; border-left-color: #5A4E3B; }
+  .v-mini.v-error   { background: transparent; color: #8A7B60; font-style: italic; border-left-color: transparent; padding-left: 4px; }
 
-  /* 시장 온도 미니 추이(최근 최대 5거래일, table/막대만 사용) */
-  .fx-temp-trend { width:100%; border-collapse:separate; border-spacing:4px 0; margin-top:14px; table-layout:fixed; }
-  .fx-temp-trend-col { text-align:center; }
-  .fx-temp-trend-bar-wrap { height:26px; }
-  .fx-temp-trend-lbl { font-size:9px; color:#6B7A99; margin-top:4px; }
-  .fx-temp-trend-lbl.today { color:#F2C94C; font-weight:700; }
+  .verdict-tag {
+    display: inline-block; font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+    font-size: 11px; font-weight: 800; padding: 4px 10px 4px 12px; letter-spacing: 0.06em;
+    margin-top: 8px; border-left: 3px solid #8A7B60; background: #E8DFCB; color: #5A4E3B;
+  }
+  .verdict-tag.v-hit     { background: #F5D4CE; color: #C0392B; border-left-color: #C0392B; }
+  .verdict-tag.v-miss    { background: #D6DFEB; color: #2F5A8F; border-left-color: #2F5A8F; }
+  .verdict-tag.v-neutral { background: #E8DFCB; color: #5A4E3B; border-left-color: #8A7B60; }
+  .verdict-tag.v-pending { background: transparent; color: #8A7B60; border-left-color: #B0A48A; border-left-style: dashed; }
+  .verdict-tag.v-invalid { background: #EDE5D3; color: #5A4E3B; border-left-color: #5A4E3B; }
+  .verdict-tag.v-error   { background: transparent; color: #8A7B60; font-style: italic; border-left-color: transparent; padding-left: 4px; }
+  .verdict-tag .glyph { display: inline-block; margin-right: 6px; font-weight: 900; }
 
-  /* ===== 06. MAIN STORY ===== */
-  .fx-story-h { font-size:19px; font-weight:750; color:#F4F6FA; line-height:1.32; margin-bottom:8px; word-break:keep-all; overflow-wrap:break-word; }
-  .fx-story-meta { font-size:10.5px; color:#7C8AA5; font-weight:600; margin-bottom:13px; }
-  .fx-story-why { margin-top:16px; background:#1B2740; border-left:3px solid #F2C94C; padding:11px 13px; border-radius:0 6px 6px 0; }
-  .fx-story-why-lbl { display:block; font-size:10px; font-weight:800; color:#F2C94C; letter-spacing:.06em; text-transform:uppercase; }
-  .fx-story-why-txt { word-break:keep-all;overflow-wrap:break-word;font-size:13.5px; color:#D9DFEA; line-height:1.55; margin-top:6px; }
-  .fx-story-signal { display:inline-block; font-size:10.5px; font-weight:700; color:#F2C94C; background:rgba(242,201,76,.14); padding:3px 9px; border-radius:20px; margin-top:13px; }
-  .fx-story-src { margin-top:8px; }
-  .fx-story-empty { margin-top:16px; background:#1B2740; border-radius:10px; padding:14px 15px; word-break:keep-all;overflow-wrap:break-word;font-size:12.5px; color:#95A2BA; line-height:1.5; }
-  .fx-story-src-link { display:block; min-height:26px; padding:4px 0; color:#8996AE; text-decoration:underline; font-size:10.5px; line-height:1.4; }
+  /* Hero — 2026-08-30 [D]: .pad-l 이중 패딩 제거, hero 자체가 좌우 40px(모바일 20px) 단일 소스 */
+  .hero { padding: 36px 40px 36px; }
+  @media (max-width: 640px) { .hero { padding: 24px 20px 28px !important; } }
+  .hero-kicker {
+    font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+    font-size: 13px; font-weight: 700; color: #9C6B1F; font-style: italic; letter-spacing: 0.02em; margin: 0 0 16px;
+  }
+  .hero-headline { font-size: 24px; font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; color: #1F1811; margin: 0; word-break: keep-all; }
+  @media (max-width: 640px) { .hero-headline { font-size: 20px !important; } }
 
-  /* ===== 07/08. DOMESTIC / GLOBAL NEWS — 컴팩트 에디토리얼 리스트(카드 아님) ===== */
-  .fx-news-item { padding:12px 0; border-bottom:1px solid rgba(124,138,165,.14); }
-  .fx-news-item.last { border-bottom:none; }
-  .fx-news-title { font-size:13.5px; font-weight:700; color:#E8ECF3; line-height:1.45; word-break:keep-all; }
-  .fx-news-fact { word-break:keep-all;overflow-wrap:break-word;font-size:12.5px; color:#C7CEDB; line-height:1.5; margin-top:5px; }
-  .fx-news-meta { font-size:10.5px; color:#7C8AA5; margin-top:7px; }
-  .fx-news-meta a { color:#8996AE; text-decoration:underline; }
-  .fx-news-empty { word-break:keep-all;overflow-wrap:break-word;font-size:12.5px; color:#6B7A99; padding:6px 0; }
+  /* Story Deck(2026-08-30, S 지시서) — 헤드라인 직하 2줄×최대3쌍 부제.
+     새 색 토큰 신설 없음 — .story-why와 동일한 --gold 계열 3px 좌측 보더
+     재사용. .hl 미적용(헤드라인·부제 동시 강조는 위계를 오히려 해침),
+     |sentences 필터 미적용(deck 줄은 종결어미 없는 명사구라 문장분할기가
+     오작동할 수 있어 우회). */
+  /* D-1(2026-08-30) — 3쌍 구조 폐기, 단일 반문형 1줄로 축소. 골드 좌측
+     보더 제거(위계를 헤드라인보다 확실히 낮춤), 톤 다운(굵기/크기/색). */
+  .deck-wrap { margin-top: 10px; }
+  .deck-line { font-family: 'Nanum Myeongjo', 'Apple SD Gothic Neo', Georgia, serif; font-size: 13.5px; font-weight: 400; color: #8A7B60; line-height: 1.5; letter-spacing: 0.01em; word-break: keep-all; margin-top: 8px; }
 
-  /* ===== 09. MOO:VIEW — flagship, 유일한 장문 섹션(단일 자연스러운 컬럼) ===== */
-  .fx-mv-wrap { margin-top:26px; }
-  .fx-mv-card { background:#1B2740; border-radius:10px; padding:20px 17px; }
-  .fx-mv-head { font-size:10px; font-weight:800; color:#F2C94C; letter-spacing:.1em; text-transform:uppercase; margin-bottom:13px; }
-  .fx-mv-p { word-break:keep-all;overflow-wrap:break-word;font-size:13px; color:#D9DFEA; line-height:1.65; margin-top:11px; }
-  .fx-mv-p.first { margin-top:0; }
-  .fx-mv-meta { font-size:10.5px; color:#6B7A99; margin-top:16px; padding-top:11px; border-top:1px solid rgba(248,250,253,.1); }
+  /* 챕터 마크 — 2026-08-30 [C] 간격 압축: 60/24 → 36/16 (모바일 48/20 → 28/12) */
+  .chapter-mark { padding: 60px 40px 24px; }
+  @media (max-width: 640px) { .chapter-mark { padding: 48px 20px 20px !important; } }
+  .chap-bar { height: 8px; line-height: 8px; font-size: 0; background: #1F1811; margin-bottom: 18px; }
+  .chap-row { width: 100%; border-collapse: collapse; }
+  .chap-row td {
+    font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+    font-size: 15px; font-weight: 800; color: #1F1811; letter-spacing: -0.005em; vertical-align: baseline; padding: 0;
+  }
+  .chap-num { width: 66px; color: #9C6B1F; letter-spacing: 0.02em; font-style: italic; padding-right: 14px !important; }
+  .chap-kicker { font-family: -apple-system, sans-serif; font-size: 13.5px; font-weight: 400; color: #5A4E3B; letter-spacing: 0; line-height: 1.4; }
 
-  /* ===== 10. MOO:Q + MOO:CHECK — 연속 배치, MOO:CHECK는 한 단계 밝은 surface ===== */
-  .fx-q-wrap { margin-top:22px; background:#1B2740; border:1px solid rgba(242,201,76,.3); border-radius:10px; padding:16px 15px; }
-  .fx-q-lbl { font-size:10px; font-weight:800; color:#F2C94C; letter-spacing:.08em; text-transform:uppercase; margin-bottom:9px; }
-  .fx-q-text { word-break:keep-all;overflow-wrap:break-word;font-size:14px; font-weight:650; color:#E8ECF3; line-height:1.55; }
-  .fx-q-why { word-break:keep-all;overflow-wrap:break-word;font-size:12.5px; color:#95A2BA; line-height:1.5; margin-top:7px; }
-  .fx-q-meta { font-size:10.5px; color:#7C8AA5; margin-top:9px; }
+  /* Today's 3 Signals — 2026-08-30 [C] 섹션 wrap 40→28(모바일 32→20) */
+  .signals-strip { padding: 28px 40px 0; }
+  @media (max-width: 640px) { .signals-strip { padding: 20px 20px 0 !important; } }
+  .signals { width: 100%; border-collapse: collapse; }
+  .signals td { padding: 12px 0; vertical-align: top; }
+  .signals tr + tr td { border-top: 1px solid #E8DFCB; }
+  .signals .t { font-size: 14.5px; line-height: 1.65; color: #1F1811; word-break: keep-all; }
 
-  .fx-check-wrap { margin-top:8px; background:#202A3D; border:1px solid rgba(124,138,165,.3); border-radius:10px; padding:16px 15px; }
-  .fx-check-lbl { font-size:10px; font-weight:800; color:#95A2BA; letter-spacing:.08em; text-transform:uppercase; margin-bottom:9px; }
-  .fx-check-q { word-break:keep-all;overflow-wrap:break-word;font-size:13px; font-weight:650; color:#E8ECF3; line-height:1.5; }
-  .fx-check-row { word-break:keep-all;overflow-wrap:break-word;font-size:12px; color:#C7CEDB; line-height:1.55; margin-top:8px; }
-  .fx-check-row .k { color:#7C8AA5; font-weight:700; margin-right:5px; }
-  .fx-check-verdict { display:inline-block; font-size:10.5px; font-weight:800; padding:3px 9px; border-radius:20px; margin-top:9px; }
-  .fx-check-verdict.MATCH { background:rgba(255,107,107,.16); color:#FF6B6B; }
-  .fx-check-verdict.MISS { background:rgba(91,141,239,.16); color:#5B8DEF; }
-  .fx-check-verdict.PARTIAL, .fx-check-verdict.PENDING, .fx-check-verdict.INSUFFICIENT_DATA { background:rgba(124,138,165,.16); color:#95A2BA; }
-  .fx-check-empty { word-break:keep-all;overflow-wrap:break-word;font-size:12px; color:#6B7A99; }
+  /* Main Metrics — Outlook 대응: table + td padding 패턴(구분자 CSS 미사용).
+     2026-08-30 [C] 섹션 wrap 40→28(모바일 32→20) / [E] 모바일 !important 보정 */
+  .metrics-wrap { padding: 28px 40px 0; }
+  @media (max-width: 640px) { .metrics-wrap { padding: 20px 20px 0 !important; } }
+  .metrics-grid { width: 100%; border-collapse: collapse; table-layout: fixed; }
+  .metrics-grid td { width: 33.33%; vertical-align: top; padding: 4px; }
+  .metrics-grid .cell-inner { background: #FFFEFA; border: 1px solid #E8DFCB; padding: 14px 6px 12px; }
+  .m-label { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 10.5px; font-weight: 700; color: #8A7B60; letter-spacing: 0.08em; text-transform: uppercase; }
+  .m-value { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 24px; font-weight: 700; color: #1F1811; letter-spacing: -0.01em; line-height: 1.1; margin: 8px 0 6px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .m-value.missing { color: #B0A48A; font-size: 20px; }
+  .m-chg { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 11.5px; font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .up { color: #C0392B; } .down { color: #2F5A8F; } .flat { color: #8A7B60; }
+  @media (max-width: 640px) {
+    /* 2026-09-01(STEP 1A, 폭 오염 진단) — 이전엔 여기서 3열을 2열(50%)로
+       바꾸면서 table-layout도 auto로 풀었었다. 그런데 실제 <tr>의 <td>는
+       여전히 3개라 "50%×3=150%"라는 코드상 정합성 결함이었다(overflow가
+       실측으로 확인된 적은 없음 — 이 사실 자체가 결함의 증거는 아니다).
+       auto layout은 셀의 min-content 폭을 바닥값으로 삼는데, nowrap이 걸린
+       숫자는 min-content가 문자열 전체 폭이라 실질적 폭 오염원이 될 수
+       있었다. table-layout을 fixed로 고정하고 실제 <td> 개수(3개)에 맞춰
+       33.333%로 정합성을 맞춘다. 숫자가 넘치면 50%로 되돌리지 않는다 —
+       cell-inner padding 축소 → m-value 폰트 축소 → 레이블 자간 축소 →
+       숫자 표기 단축 → (그래도 안 되면) 2열×3행 마크업 재구성 순으로
+       대응한다(STEP 1A 지시). */
+    .metrics-grid { width: 100% !important; table-layout: fixed !important; }
+    .metrics-grid td { width: 33.333% !important; }
+    .m-value { font-size: 20px !important; white-space: normal !important; }
+    .m-label { font-size: 10px !important; }
+  }
+  .asof-note { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 10px; color: #B0A48A; letter-spacing: 0.06em; text-align: right; margin-top: 8px; }
 
-  /* ===== 11. KOREA MARKET & FLOW ===== */
-  .fx-kf-card { background:#141C2E; border-radius:10px; padding:14px; margin-top:4px; }
-  .fx-kf-market-lbl { font-size:11px; font-weight:700; color:#E8ECF3; margin-bottom:7px; }
-  .fx-kf-market-lbl:not(:first-child) { margin-top:13px; }
-  .fx-kf-table { width:100%; border-collapse:collapse; }
-  .fx-kf-table td { padding:4px 2px; font-size:12px; border-bottom:1px solid rgba(124,138,165,.1); font-variant-numeric:tabular-nums; }
-  .fx-kf-table tr.last td { border-bottom:none; }
-  .fx-kf-who { color:#95A2BA; }
-  .fx-kf-val { text-align:right; font-weight:700; }
-  .fx-kf-val.up { color:#FF6B6B; }
-  .fx-kf-val.down { color:#5B8DEF; }
-  .fx-kf-val.flat { color:#95A2BA; }
-  .fx-sector-row { margin-top:11px; font-size:11.5px; color:#95A2BA; }
-  .fx-interp { word-break:keep-all;overflow-wrap:break-word;font-size:12px; color:#C7CEDB; line-height:1.55; margin-top:12px; padding-top:11px; border-top:1px solid rgba(124,138,165,.14); }
+  /* Temperature — 한글 이탤릭 폐기. 2026-08-30 [C]/[D]: 섹션 wrap 압축,
+     상태값을 24px 단독 블록에서 라벨 우측 13px 볼드 인라인으로 */
+  .temp-wrap { padding: 28px 40px 0; }
+  @media (max-width: 640px) { .temp-wrap { padding: 20px 20px 0 !important; } }
+  .temp-status-inline { font-size: 13px; font-weight: 800; color: #6B4818; margin-left: 8px; }
+  .temp-summary { font-size: 14.5px; line-height: 1.7; color: #2F281D; margin: 0 0 20px; word-break: keep-all; }
+  .temp-bar { width: 100%; border-collapse: collapse; table-layout: fixed; }
+  .temp-bar td { height: 8px; font-size: 0; line-height: 0; padding: 0; }
+  .temp-bar td.seg { background: #E8DFCB; }
+  .temp-bar td.seg.on { background: #9C6B1F; }
+  .temp-bar td.gap { width: 6px; padding: 0; }
+  .temp-labels { width: 100%; border-collapse: collapse; table-layout: fixed; margin-top: 8px; }
+  .temp-labels td { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 10.5px; color: #8A7B60; letter-spacing: 0.02em; text-align: left; padding: 0; }
+  .temp-labels td.on { color: #1F1811; font-weight: 700; }
+  .temp-labels td.gap { width: 6px; }
+  .temp-trail-wrap { margin-top: 22px; padding-top: 16px; border-top: 1px solid #E8DFCB; }
+  .temp-trail-lbl { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 10px; font-weight: 700; color: #8A7B60; letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 10px; }
+  .temp-trail { width: 100%; border-collapse: collapse; table-layout: fixed; }
+  .temp-trail td { vertical-align: bottom; text-align: center; padding: 0; }
+  .temp-trail td.gap { width: 6px; }
+  .temp-trail-axis { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 9px; color: #B0A48A; letter-spacing: 0.04em; margin-top: 4px; }
+  .trail-day { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 9.5px; color: #8A7B60; margin-top: 5px; letter-spacing: 0.04em; }
+  .trail-day.today { color: #1F1811; font-weight: 700; }
+  .temp-asof { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 10.5px; color: #8A7B60; margin-top: 12px; }
 
-  /* ===== 12. OVERNIGHT GLOBAL & MACRO ===== */
-  .fx-og-card { background:#141C2E; border-radius:10px; padding:14px; margin-top:4px; }
-  .fx-og-group-lbl { font-size:9.5px; font-weight:700; color:#7C8AA5; letter-spacing:.05em; text-transform:uppercase; margin-bottom:6px; }
-  .fx-og-group-lbl:not(:first-child) { margin-top:13px; }
-  .fx-og-table { width:100%; border-collapse:collapse; }
-  .fx-og-table td { padding:4px 2px; font-size:12px; border-bottom:1px solid rgba(124,138,165,.1); font-variant-numeric:tabular-nums; }
-  .fx-og-table tr.last td { border-bottom:none; }
-  .fx-og-label { color:#E8ECF3; font-weight:600; }
-  .fx-og-val { text-align:right; color:#C7CEDB; }
-  .fx-og-chg { text-align:right; font-weight:700; width:70px; }
-  .fx-og-chg.up { color:#FF6B6B; }
-  .fx-og-chg.down { color:#5B8DEF; }
-  .fx-og-chg.flat { color:#95A2BA; }
+  /* Korea Flow — 2026-08-30 [C] 섹션 wrap 압축 */
+  .flow-wrap { padding: 28px 40px 0; }
+  @media (max-width: 640px) { .flow-wrap { padding: 20px 20px 0 !important; } }
+  .flow-market { padding: 0 0 20px; }
+  .flow-market + .flow-market { padding-top: 20px; border-top: 1px solid #E8DFCB; }
+  .flow-market-header { width: 100%; border-collapse: collapse; margin-bottom: 10px; }
+  .flow-market-header td { padding: 0; }
+  .flow-market-lbl { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 11px; font-weight: 800; color: #6B4818; letter-spacing: 0.14em; text-transform: uppercase; }
+  /* H-1(2026-08-30) — 눈금 라벨(좌/중앙/우). "축 · ±20,000억원"(암산 요구)
+     캡션 폐기 — 축 정보가 곧 해석이므로 480px 이하에서도 숨기지 않는다. */
+  .flow-axis-scale { width: 100%; border-collapse: collapse; margin: 2px 0 8px; table-layout: fixed; }
+  .flow-axis-scale td { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 9.5px; color: #B0A48A; letter-spacing: 0.04em; padding: 0; }
+  .flow-axis-scale td.l { text-align: left; }
+  .flow-axis-scale td.c { text-align: center; }
+  .flow-axis-scale td.r { text-align: right; }
+  /* H-2 — name/val 컬럼 폭 공용 토큰(D-5 .idx-num과 같은 방식), 92px→108px로
+     확장 + table-layout:fixed 병행 — 이게 없으면 auto layout이 업종명
+     길이에 맞춰 폭을 재계산해 코스피/코스닥/업종 세 블록의 중앙 축선
+     x좌표가 서로 달라진다. */
+  .flow-name { width: 108px; font-family: -apple-system, sans-serif; font-size: 13px; color: #2F281D; font-weight: 600; padding-right: 8px; word-break: keep-all; }
+  .flow-val { width: 76px; text-align: right; font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 12.5px; font-weight: 700; font-variant-numeric: tabular-nums; padding-left: 8px; white-space: nowrap; }
+  .div-row { width: 100%; border-collapse: collapse; table-layout: fixed; margin-bottom: 6px; }
+  .div-row td { vertical-align: middle; padding: 3px 0; }
+  .sector-row { width: 100%; border-collapse: collapse; table-layout: fixed; margin-bottom: 6px; }
+  .sector-row td { vertical-align: middle; padding: 4px 0; }
+  /* G-4/H-2/H-3 — 발산 막대(가운데 빈 td를 채움). 이미지·그라디언트 없이
+     중첩 테이블+td 배경색(단색 hex)+퍼센트 폭만 사용. 좌(청, down)/우(적,
+     up) 각각 50% 트랙에서 중앙축 기준으로 자란다. 수급·업종 모두 동일
+     구조(.bar-*). 위계: ① 빈 구간 트랙 배경 #EDE5D3 ② 중앙 1px 세로
+     축선 #8A7B60(14px, 막대 10px보다 높게) ③ 막대 끝 3px 진한 캡(양
+     #8E2B20/음 #24476F) ④ 막대 높이 10px ⑤(H-3) 그라디언트 대신 2단
+     계단톤(양 #C0392B→끝30% #A83226→캡, 음 #2F5A8F→끝30% #28517E→캡).
+     H-2 — 값이 0인 방향은 fill·cap td 자체를 출력하지 않는다(트랙
+     배경만) — 이전엔 비활성 측에도 최소폭 1%+캡이 그려져 반대쪽에
+     스텁이 보였다. */
+  .bar-cell { padding: 0 4px; }
+  .bar-track { width: 100%; border-collapse: collapse; table-layout: fixed; }
+  .bar-half { width: 50%; vertical-align: middle; }
+  .bar-empty-td { height: 10px; line-height: 10px; font-size: 0; background: #EDE5D3; }
+  .bar-fill-td { height: 10px; line-height: 10px; font-size: 0; }
+  .bar-cap-td { height: 10px; line-height: 10px; font-size: 0; }
+  .bar-axis-col { width: 1px; vertical-align: middle; padding: 0; }
+  .bar-axis-line { width: 1px; height: 14px; line-height: 14px; font-size: 0; background: #8A7B60; }
+  @media (max-width: 300px) { .bar-cell { display: none !important; } }
+  /* H-3 — tick-rail. 막대 자체와 겹치지 않게 별도 행(블록당 1회만,
+     모든 행 반복 금지 — 노이즈 방지). 점선 대신 1px 실선(이메일
+     dotted 렌더 편차 방지). */
+  .tick-rail-track { width: 100%; border-collapse: collapse; table-layout: fixed; }
+  .tick-rail-cell { height: 4px; line-height: 4px; font-size: 0; }
+  .sector-wrap { margin-top: 22px; padding-top: 18px; border-top: 1px solid #E8DFCB; }
+  .sector-lbl { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 10.5px; font-weight: 800; color: #8A7B60; letter-spacing: 0.14em; text-transform: uppercase; margin: 0 0 12px; }
+  .sector-empty { padding: 12px 14px; font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 11.5px; color: #8A7B60; text-align: center; background: #F5EFDE; border: 1px dashed #C9BFA8; }
+  /* G-3(2026-08-30) — 섹터 등락 사유. .flow-interp와 같은 톤(작은 크기·
+     저채도), 신규 색 없음(기존 --gold 계열/무채색 토큰만 재사용). */
+  .sector-why { font-size: 12px; color: #5A4E3B; line-height: 1.5; margin: 2px 0 6px; word-break: keep-all; }
+  /* H-5(2026-08-30) — sector-why(LLM 근거, 있을 때만)와 별개로 항상
+     존재하는 결정적 해석 줄. sector-why보다 옅게(같은 무채색 톤, 약간
+     연한 색)+상단 여백을 둬 "선택적 인용 vs 항상 있는 요약"을 구분한다. */
+  .sector-interp { font-size: 12.5px; color: #8A7B60; line-height: 1.6; margin-top: 10px; word-break: keep-all; }
+  .flow-interp { font-size: 13px; line-height: 1.65; color: #2F281D; margin-top: 16px; padding-top: 14px; border-top: 1px solid #E8DFCB; word-break: keep-all; }
 
-  /* ===== 13. SIGNAL CHAIN — 모바일/태블릿 2행x2열, 데스크톱 1행x4열 ===== */
-  .fx-sc-grid { width:100%; border-collapse:separate; border-spacing:6px; margin:0 -6px; table-layout:fixed; }
-  .fx-sc-chip { box-sizing:border-box; background:#141C2E; border-radius:8px; padding:11px 10px; vertical-align:top; }
-  .fx-sc-chip.outcome { border:1px solid rgba(242,201,76,.55); background:#171F30; }
-  .fx-sc-role { font-size:9.5px; font-weight:700; color:#7C8AA5; text-transform:uppercase; letter-spacing:.03em; }
-  .fx-sc-chip.outcome .fx-sc-role { color:#F2C94C; }
-  .fx-sc-label { font-size:12px; font-weight:700; color:#E8ECF3; margin-top:5px; word-break:keep-all; }
-  .fx-sc-detail { font-size:11px; color:#95A2BA; margin-top:4px; word-break:keep-all; line-height:1.45; }
-  .fx-sc-detail.up { color:#FF6B6B; }
-  .fx-sc-detail.down { color:#5B8DEF; }
-  .fx-sc-note { word-break:keep-all;overflow-wrap:break-word;font-size:11.5px; color:#7C8AA5; line-height:1.55; margin-top:12px; }
-  .fx-sc-strength { font-size:11px; color:#6B7A99; line-height:1.5; margin-top:8px; }
-  /* 2026-08-25(TASK_ID=SIGNAL_CHAIN_EMPTY_STATE_HOTFIX) — .fx-word-empty(§14.5)와
-     동일한 "실패를 숨기지 않는다" 원칙을 SIGNAL CHAIN에도 적용한다. */
-  .fx-sc-empty { background:#141C2E; border-radius:8px; padding:14px 15px; word-break:keep-all;overflow-wrap:break-word;font-size:12.5px; color:#95A2BA; line-height:1.5; }
-  .fx-sc-mobile { display:block; }
-  .fx-sc-desktop { display:none; }
-  @media (min-width:701px) {
-    .fx-sc-mobile { display:none !important; }
-    .fx-sc-desktop { display:block !important; }
+  /* Overnight — 2026-08-30 [C] 섹션 wrap 압축 */
+  .overnight-wrap { padding: 28px 40px 0; }
+  @media (max-width: 640px) { .overnight-wrap { padding: 20px 20px 0 !important; } }
+  .og-group-lbl { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 10.5px; font-weight: 800; color: #6B4818; letter-spacing: 0.14em; text-transform: uppercase; margin: 20px 0 8px; padding-bottom: 8px; border-bottom: 1px solid #C9BFA8; }
+  .og-group-lbl.first { margin-top: 0; }
+  .og-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+  .og-table td { padding: 8px 0; font-size: 13px; line-height: 1.5; border-bottom: 1px solid #E8DFCB; font-variant-numeric: tabular-nums; word-break: keep-all; vertical-align: middle; }
+  .og-table tr:last-child td { border-bottom: none; }
+  .og-table td.k { color: #2F281D; font-family: -apple-system, sans-serif; width: 48%; }
+  .og-table td.v { text-align: right; font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; color: #1F1811; font-weight: 700; white-space: nowrap; width: 30%; padding-right: 12px; }
+  .og-table td.c { text-align: right; font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-weight: 700; width: 22%; padding-left: 8px; white-space: nowrap; }
+  .og-table td.asof { text-align: right; font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-weight: 500; font-size: 11px; color: #B0A48A; letter-spacing: 0.04em; width: 22%; padding-left: 8px; white-space: nowrap; }
+  .og-note { margin-top: 18px; padding-top: 14px; border-top: 1px solid #E8DFCB; font-size: 13px; line-height: 1.7; color: #2F281D; word-break: keep-all; }
+
+  /* Main Story — 2026-08-30 [C]/[D]: 섹션 wrap 압축, story-h 22→18px */
+  .story-wrap { padding: 28px 40px 0; }
+  @media (max-width: 640px) { .story-wrap { padding: 20px 20px 0 !important; } }
+  .story-meta { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 10.5px; color: #8A7B60; letter-spacing: 0.08em; margin: 0 0 14px; }
+  .story-meta a { color: #9C6B1F; text-decoration: underline; }
+  .story-h { font-size: 22px; font-weight: 800; color: #1F1811; line-height: 1.3; margin: 0 0 12px; letter-spacing: -0.01em; word-break: keep-all; }
+  .story-fact-lbl { display: block; font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 10px; font-weight: 800; color: #8A7B60; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 6px; }
+  .story-fact { font-size: 14px; line-height: 1.7; color: #2F281D; margin: 0; word-break: keep-all; }
+  .story-why { margin-top: 16px; background: #F5EFDE; border-left: 3px solid #9C6B1F; padding: 12px 16px; }
+  .story-why-lbl { display: block; font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 10px; font-weight: 800; color: #6B4818; letter-spacing: 0.06em; text-transform: uppercase; }
+  .story-why-txt { font-size: 13.5px; line-height: 1.6; color: #2F281D; margin-top: 6px; word-break: keep-all; }
+  .story-empty { padding: 16px 18px; background: #F5EFDE; border: 1px dashed #C9BFA8; font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 11.5px; color: #8A7B60; letter-spacing: 0.04em; text-align: center; line-height: 1.6; }
+
+  /* News — 2026-08-30 [D] news-title 15.5px 유지(변경 없음 확인) */
+  .news-wrap { padding: 28px 40px 0; }
+  @media (max-width: 640px) { .news-wrap { padding: 20px 20px 0 !important; } }
+  .news-cols { width: 100%; border-collapse: collapse; table-layout: fixed; }
+  .news-cols > tbody > tr > td { width: 50%; vertical-align: top; padding: 0 10px; }
+  .news-cols > tbody > tr > td:first-child { padding-left: 0; padding-right: 10px; }
+  .news-cols > tbody > tr > td:last-child { padding-left: 10px; padding-right: 0; }
+  .news-col-inner { padding-top: 12px; border-top: 2px solid #3A2F1F; }
+  .news-flag { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 10.5px; font-weight: 800; color: #6B4818; letter-spacing: 0.18em; text-transform: uppercase; margin: 0 0 12px; }
+  .news-item + .news-item { margin-top: 14px; padding-top: 14px; border-top: 1px solid #E8DFCB; }
+  .news-title { font-size: 15.5px; font-weight: 700; color: #1F1811; line-height: 1.4; margin: 0 0 6px; letter-spacing: -0.005em; word-break: keep-all; }
+  /* 원문 제목(2026-08-30, 2-F) — v2_editorial_logic.py의 sources[].source_headline
+     병기. LLM 재가공 headline(위)이 여전히 1차 타이틀, 이건 그 아래 인용부호로
+     보조 표기 — 편집국 원문 표현을 그대로 노출하되 위계는 낮게 유지.
+     한글 이탤릭 금지(CLAUDE.md L0) — 폰트 스타일 대신 크기·색·인용부호로만 구분. */
+  .news-orig { font-size: 12px; color: #5A4E3B; line-height: 1.5; margin: 0 0 8px; word-break: keep-all; }
+  .news-orig-lbl { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 9.5px; font-weight: 700; color: #8A7B60; letter-spacing: 0.1em; margin-right: 6px; }
+  .news-fact { font-size: 13.5px; line-height: 1.6; color: #2F281D; margin: 0 0 8px; word-break: keep-all; }
+  .news-meta { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 10.5px; color: #8A7B60; letter-spacing: 0.04em; }
+  .news-meta a { color: #9C6B1F; text-decoration: underline; }
+  .news-empty { padding: 14px 16px; background: #F5EFDE; border: 1px dashed #C9BFA8; font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 11.5px; color: #8A7B60; text-align: center; }
+  @media (max-width: 640px) {
+    .news-cols > tbody > tr > td { display: block !important; width: 100% !important; padding: 0 !important; }
+    .news-cols > tbody > tr > td + td { margin-top: 22px !important; }
   }
 
-  /* ===== 14. TODAY'S WATCH ===== */
-  .fx-watch-card { background:#141C2E; border-radius:10px; padding:14px 15px; }
-  .fx-watch-row { width:100%; border-collapse:collapse; margin-top:8px; }
-  .fx-watch-row.first { margin-top:0; }
-  .fx-watch-num { font-size:11px; font-weight:700; color:#F2C94C; padding:1px 6px 0 0; }
-  .fx-watch-txt { word-break:keep-all;overflow-wrap:break-word;font-size:12.5px; color:#D9DFEA; line-height:1.55; }
-  .fx-watch-oneliner { word-break:keep-all;overflow-wrap:break-word;font-size:12.5px; font-weight:600; color:#E8ECF3; line-height:1.55; margin-top:11px; padding-top:11px; border-top:1px solid rgba(124,138,165,.16); }
+  /* Brand card wrap (VIEW, Spine, WORD) — Outlook 대응: 바깥 table + spacer td.
+     2026-08-30 [E]: 모바일 spacer width에 !important 누락돼 있던 것 보정 */
+  .brand-wrap { width: 100%; border-collapse: collapse; table-layout: fixed; margin-top: 32px; margin-bottom: 32px; }
+  @media (max-width: 640px) { .brand-wrap { margin-top: 24px !important; margin-bottom: 24px !important; } }
+  .brand-wrap > tbody > tr > td.spacer { width: 40px; }
+  .brand-wrap > tbody > tr > td.body { padding: 0; }
+  @media (max-width: 640px) { .brand-wrap > tbody > tr > td.spacer { width: 20px !important; } }
+  .brand-card { background: #FFFEFA; border-top: 2px solid #3A2F1F; padding: 24px 24px 24px; }
+  @media (max-width: 640px) { .brand-card { padding: 20px 18px 20px !important; } }
+  .purpose { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 11px; color: #5A4E3B; letter-spacing: 0.08em; margin: 0 0 20px; }
 
-  /* ===== 14.5 MOO:워드 — footer 직전 마지막 콘텐츠 섹션(§10) ===== */
-  .fx-word-card { background:#1B2740; border-radius:10px; padding:14px 15px; }
-  .fx-word-term { font-size:15px; font-weight:800; color:#F2C94C; }
-  .fx-word-def { word-break:keep-all;overflow-wrap:break-word;font-size:14px; color:#D9DFEA; line-height:1.55; margin-top:6px; }
-  .fx-word-why { word-break:keep-all;overflow-wrap:break-word;font-size:12.5px; color:#95A2BA; line-height:1.5; margin-top:8px; }
-  .fx-word-hook { word-break:keep-all;overflow-wrap:break-word;font-size:12.5px; color:#C7CEDB; line-height:1.5; margin-top:6px; }
-  .fx-word-src { font-size:11px; color:#6B7A99; margin-top:9px; }
-  .fx-word-empty { background:#1B2740; border-radius:10px; padding:14px 15px; word-break:keep-all;overflow-wrap:break-word;font-size:12.5px; color:#95A2BA; line-height:1.5; }
-  /* 2026-08-14(TASK_ID=MOO_WORD_OFFICIAL_EVIDENCE_HOTFIX) — 공식 근거 표기.
-     기존 .fx-word-src(11px/#6B7A99)보다 살짝 크고 밝게(Gmail·다크테마에서도
-     "지나치게 작거나 흐리지 않게" 읽히도록) 하되, 정의 본문(.fx-word-def
-     14px)보다는 작은 위계를 유지한다. */
-  .fx-word-evidence { margin-top:10px; padding-top:9px; border-top:1px solid rgba(124,138,165,.16); }
-  .fx-word-evidence-src { word-break:keep-all;overflow-wrap:break-word;font-size:12px; color:#B9C4DA; line-height:1.5; }
-  .fx-word-evidence-ref { font-size:11.5px; color:#9AA8C4; margin-top:3px; }
-  .fx-word-evidence-url { font-size:11.5px; margin-top:3px; }
-  .fx-word-evidence-url a { color:#8FB8FF; text-decoration:underline; }
+  /* MOO:VIEW */
+  .view-p { font-size: 14.5px; line-height: 1.85; color: #1F1811; margin: 0 0 14px; word-break: keep-all; }
+  .view-p:last-of-type { margin-bottom: 20px; }
+  .view-sig {
+    padding-top: 16px; border-top: 1px solid #C9BFA8;
+    font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+    font-size: 15px; font-weight: 800; color: #1F1811; letter-spacing: -0.02em; font-style: italic;
+  }
+  .view-sig .g { color: #9C6B1F; font-style: normal; }
 
-  /* ===== 15. RISK / SOURCE / CTA / FOOTER ===== */
-  .fx-risk { margin-top:22px; border-left:3px solid #C9A227; background:rgba(201,162,39,.08); padding:10px 12px; border-radius:0 6px 6px 0; }
-  .fx-risk-lbl { font-size:10px; font-weight:800; color:#D8B84A; letter-spacing:.06em; text-transform:uppercase; }
-  .fx-risk-text { word-break:keep-all;overflow-wrap:break-word;font-size:12.5px; color:#D9DFEA; line-height:1.5; margin-top:5px; }
-  .fx-src { margin-top:20px; }
-  .fx-src-row { padding:3px 0; font-size:10.5px; line-height:1.45; color:#8996AE; }
-  .fx-src-row .f-cat { font-weight:700; color:#9FACC4; }
-  .fx-terminal-note { font-size:11px; color:#7C8AA5; margin-top:16px; }
-  .fx-share { margin-top:16px; border-left:3px solid #C9A227; background:rgba(201,162,39,.08); padding:12px 14px; border-radius:0 6px 6px 0; }
-  .fx-share-lbl { font-size:10px; font-weight:800; color:#D8B84A; letter-spacing:.06em; text-transform:uppercase; }
-  .fx-share-text { word-break:keep-all;overflow-wrap:break-word; font-size:12px; color:#C7CEDD; line-height:1.55; margin-top:6px; }
-  .fx-home-pill-wrap { width:100%; border-collapse:collapse; margin-top:14px; }
-  .fx-home-pill-cell { border:1px solid #F2C94C; border-radius:20px; background:#141C2E; }
-  /* 2026-08-08(PR#10 재검수): fx-home-pill-link/fx-unsubscribe-link의 44px
-     min-height와 fx-copyright의 11.5px는 2026-08-07 golden baseline(c904a36)
-     에 존재하지 않았다 — git pickaxe로 확인한 결과 이 값들이 main 계보에
-     처음 들어온 지점은 f9f953e(2026-08-07 11:38 KST)이며, 그 이전에는
-     36px/22px/11px였다(별도 접근성 승인 기록 없음). "접근성 목적이므로
-     예외로 유지한다"는 판단은 사용자가 명시적으로 금지했으므로, 목적과
-     무관하게 승인되지 않은 시각 변경으로 취급해 2026-08-07 값으로 되돌린다. */
-  .fx-home-pill-link { display:inline-block; min-height:36px; line-height:36px; padding:0 18px; color:#F2C94C; text-decoration:none; font-size:11.5px; font-weight:700; }
-  .fx-copyright { font-size:11px; color:#7C8AA5; margin-top:16px; }
-  .fx-unsubscribe-link { display:inline-block; min-height:22px; padding:3px 0; color:#6B7A99; text-decoration:underline; font-size:10px; }
-  .fx-signoff { font-size:10.5px; color:#7C8AA5; line-height:1.5; margin-top:4px; }
-  /* item 5: 최상단 "웹에서 보기" 링크 — 밝은 바깥 배경(#F2F3F5) 위에 놓이므로
-     다크카드용 색(#8996AE, 대비 2.69:1)이 아니라 대비 9.33:1인 어두운 색을
-     사용한다(밝은 배경 전용 팔레트, 다른 다크카드 footer 링크와는 배경이
-     다르다는 점에 유의). */
-  .fx-view-in-browser { text-align:center; padding:8px 0 4px; }
-  .fx-view-in-browser a { display:inline-block; min-height:32px; line-height:32px; color:#334155; text-decoration:underline; font-size:11.5px; }
-</style>
-<style>
-.fx-share-row { display:flex; align-items:center; gap:10px; margin-top:16px; flex-wrap:wrap; }
-.fx-share-btn { font-size:12.5px; font-weight:700; color:#0B1220; background:#F2C94C; border:none; border-radius:20px; padding:8px 16px; min-height:36px; cursor:pointer; }
-.fx-share-btn.secondary { background:transparent; color:#F2C94C; border:1px solid #F2C94C; }
-.fx-share-status { font-size:11.5px; color:#95A2BA; }
-.fx-share-status.show { color:#F2C94C; }
+  /* Q → CHECK Spine — v7: premise slot + 한글 이탤릭 폐기 */
+  .spine-back-ref { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 10px; color: #9C6B1F; letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 12px; }
+  .spine-flag {
+    font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+    font-size: 22px; font-weight: 800; color: #1F1811; letter-spacing: -0.02em; line-height: 1; font-style: italic; margin: 0 0 4px;
+  }
+  .spine-flag .colon { color: #9C6B1F; font-style: normal; }
+  .spine-flag .sub {
+    font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 10.5px; color: #8A7B60;
+    font-style: normal; font-weight: 700; letter-spacing: 0.14em; margin-left: 10px; text-transform: uppercase; vertical-align: 3px;
+  }
+  .spine-yesterday { padding: 16px 18px; background: #F5EFDE; border-left: 3px solid #B0A48A; }
+  .spine-y-lbl { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 10px; font-weight: 800; color: #8A7B60; letter-spacing: 0.16em; text-transform: uppercase; margin: 0 0 8px; }
+  .spine-yq { font-family: -apple-system, sans-serif; font-size: 14.5px; font-weight: 700; color: #2F281D; line-height: 1.5; margin: 0 0 12px; word-break: keep-all; }
+  .spine-evidence { width: 100%; border-collapse: collapse; margin: 0 0 10px; table-layout: fixed; }
+  .spine-evidence td { padding: 5px 0; font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 12px; color: #2F281D; border-bottom: 1px solid #E8DFCB; vertical-align: middle; line-height: 1.5; }
+  .spine-evidence tr:last-child td { border-bottom: none; }
+  .spine-evidence td.k { width: 32%; color: #8A7B60; letter-spacing: 0.06em; text-transform: uppercase; font-size: 10.5px; font-weight: 700; padding-right: 10px; }
+  .spine-connector { padding: 0; text-align: center; }
+  .spine-conn-arrow {
+    display: inline-block; padding: 4px 12px; background: #F5E7C6;
+    font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 10.5px; color: #6B4818; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase;
+  }
+  .spine-today { padding: 16px 18px; background: #FBF3E1; border-left: 3px solid #9C6B1F; }
+  .spine-t-lbl { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 10px; font-weight: 800; color: #9C6B1F; letter-spacing: 0.16em; text-transform: uppercase; margin: 0 0 8px; }
+  .spine-premise { margin: 0 0 14px; padding: 10px 12px; background: #FBF7EF; border-left: 2px solid #C9BFA8; font-size: 13px; line-height: 1.6; color: #2F281D; word-break: keep-all; }
+  .spine-premise .p-lbl { display: block; font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 9.5px; font-weight: 800; color: #8A7B60; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 4px; }
+  .spine-tq {
+    /* v7: 한글 이탤릭 폐기 · 산세 굵기·크기로 존재감 */
+    font-family: -apple-system, sans-serif; font-size: 18px; font-weight: 800; color: #1F1811;
+    line-height: 1.45; margin: 0 0 10px; letter-spacing: -0.015em; word-break: keep-all;
+  }
+  .spine-why { font-size: 13.5px; line-height: 1.65; color: #2F281D; margin: 0 0 10px; word-break: keep-all; }
+  .spine-forward { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 10.5px; color: #6B4818; letter-spacing: 0.06em; margin: 0; padding-top: 10px; border-top: 1px dashed #C9BFA8; line-height: 1.55; }
+  .spine-empty { padding: 12px 14px; background: #F5EFDE; border: 1px dashed #C9BFA8; font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 11.5px; color: #8A7B60; letter-spacing: 0.04em; text-align: center; }
 
-.fx-issue-nav { display:flex; justify-content:space-between; gap:12px; margin-top:22px; padding-top:16px; border-top:1px solid rgba(124,138,165,.18); font-size:12.5px; }
-.fx-issue-nav a { color:#95A2BA; text-decoration:none; }
-.fx-issue-nav a:hover { color:#F2C94C; }
-.fx-archive-link { text-align:center; margin-top:14px; font-size:12.5px; }
-.fx-archive-link a { color:#F2C94C; text-decoration:none; }
+  /* MOO:WORD — 2026-08-30 [F] v2에서 이식, 다크 팔레트(#1B2740 등)를
+     v7 라이트 토큰(#FFFEFA/#F5EFDE/#9C6B1F)으로 치환, .brand-card 재사용 */
+  .word-term { font-size: 30px; font-weight: 800; color: #1F1811; letter-spacing: -0.02em; margin: 0 0 12px; line-height: 1.1; }
+  .word-def { font-size: 15px; line-height: 1.7; color: #1F1811; margin: 0 0 14px; padding-bottom: 14px; border-bottom: 1px solid #E8DFCB; word-break: keep-all; }
+  .word-why, .word-hook { font-size: 13.5px; line-height: 1.65; color: #2F281D; margin: 0 0 8px; word-break: keep-all; }
+  .word-why b, .word-hook b {
+    display: inline-block; font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+    font-size: 10px; font-weight: 800; color: #6B4818; letter-spacing: 0.14em; text-transform: uppercase;
+    margin-right: 8px; background: #F5E7C6; padding: 1px 6px; vertical-align: 1px;
+  }
+  .word-evidence { margin-top: 10px; padding-top: 9px; border-top: 1px solid #E8DFCB; }
+  .word-evidence-src { font-size: 12px; color: #5A4E3B; line-height: 1.5; word-break: keep-all; }
+  .word-evidence-ref { font-size: 11.5px; color: #8A7B60; margin-top: 3px; }
+  .word-evidence-url { font-size: 11.5px; margin-top: 3px; }
+  .word-evidence-url a { color: #9C6B1F; text-decoration: underline; }
+  .word-src { font-size: 11px; color: #8A7B60; margin-top: 9px; }
+  .word-empty { font-size: 12.5px; color: #8A7B60; line-height: 1.5; word-break: keep-all; }
+
+  /* Signal Chain */
+  .chain-wrap { padding: 28px 40px 0; }
+  @media (max-width: 640px) { .chain-wrap { padding: 20px 20px 0 !important; } }
+  .chain-grid { width: 100%; border-collapse: collapse; table-layout: fixed; }
+  .chain-grid td.chip { vertical-align: top; padding: 6px; }
+  .chain-grid td.chip .chip-inner { background: #FBF7EF; border: 1px solid #E8DFCB; padding: 12px 12px; min-height: 60px; }
+  .chain-grid td.chip.outcome .chip-inner { background: #FFFEFA; border: 1px solid #C9BFA8; border-left: 3px solid #9C6B1F; }
+  .chip-role { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 9.5px; font-weight: 700; color: #8A7B60; text-transform: uppercase; letter-spacing: 0.14em; margin: 0 0 4px; }
+  .chip-label { font-size: 12.5px; font-weight: 700; color: #1F1811; line-height: 1.35; margin: 0 0 4px; word-break: keep-all; }
+  .chip-detail { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 11px; color: #5A4E3B; line-height: 1.4; word-break: keep-all; }
+  .chip-detail.up { color: #C0392B; } .chip-detail.down { color: #2F5A8F; }
+  .chain-note { margin-top: 14px; font-size: 13px; color: #2F281D; line-height: 1.65; word-break: keep-all; }
+  .chain-strength { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 10.5px; color: #8A7B60; letter-spacing: 0.04em; margin-top: 6px; }
+  .chain-inline { margin: 32px 40px 0; padding: 12px 16px; background: #F5EFDE; border: 1px dashed #C9BFA8; font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 11px; color: #8A7B60; letter-spacing: 0.04em; text-align: center; }
+  .chain-inline b { color: #5A4E3B; font-weight: 700; }
+  @media (max-width: 640px) { .chain-inline { margin: 24px 20px 0 !important; } }
+  .chain-mobile { display: block; } .chain-desktop { display: none; }
+  @media (min-width: 701px) { .chain-mobile { display: none !important; } .chain-desktop { display: block !important; } }
+
+  /* Today's Watch — 2026-08-30 [C] 섹션 wrap 압축 */
+  .watch-wrap { padding: 28px 40px 0; }
+  @media (max-width: 640px) { .watch-wrap { padding: 20px 20px 0 !important; } }
+  .watch-list { width: 100%; border-collapse: collapse; }
+  .watch-list td { padding: 12px 0; vertical-align: top; }
+  .watch-list tr + tr td { border-top: 1px solid #E8DFCB; }
+  .watch-list .t { font-size: 14.5px; line-height: 1.65; color: #1F1811; word-break: keep-all; }
+  /* D-5(2026-08-30) — .signals .n/.watch-list .n 통합. 값이 같아 개별
+     선언이었던 걸 공용 클래스로 묶는다. 세리프 골드 18px → 모노 11px
+     라벨(.flag-data 계열과 동일 시각 언어), padding-top 제거해 본문
+     .t(14.5px/1.65) 라인박스 기준선에 맞춤. */
+  .idx-num {
+    width: 32px; font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+    font-size: 11px; font-weight: 700; color: #8A7B60; letter-spacing: 0.08em;
+    text-transform: uppercase; line-height: 1.65; padding-right: 12px;
+  }
+  .watch-oneliner { font-size: 14px; font-weight: 700; color: #1F1811; line-height: 1.65; margin: 20px 0 0; padding: 14px 0 0; border-top: 2px solid #3A2F1F; word-break: keep-all; }
+
+  /* Risk */
+  .risk-wrap { padding: 32px 40px 0; }
+  @media (max-width: 640px) { .risk-wrap { padding: 24px 20px 0 !important; } }
+  .risk-lbl {
+    font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 10.5px; font-weight: 800; color: #C0392B;
+    letter-spacing: 0.16em; text-transform: uppercase; margin: 0 0 10px; display: inline-block; padding: 2px 8px; background: #F5E1DE; border-left: 3px solid #C0392B;
+  }
+  .risk-text { font-size: 14px; line-height: 1.75; color: #1F1811; margin: 0; word-break: keep-all; }
+
+  /* Share — 2026-08-30 [F] v2에서 이식, 팔레트만 v7 토큰으로 치환 */
+  .share-wrap { margin-top: 22px; padding: 12px 16px; background: #FBF3E1; border-left: 3px solid #9C6B1F; }
+  .share-lbl { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 10px; font-weight: 800; color: #6B4818; letter-spacing: 0.06em; text-transform: uppercase; }
+  .share-text { font-size: 12px; color: #2F281D; line-height: 1.6; margin-top: 6px; word-break: keep-all; }
+  .share-text a { color: #9C6B1F; text-decoration: underline; }
+
+  /* Footer(v7-gallery에 없어 기존 팔레트 토큰으로 신규 구성) */
+  .footer-wrap { padding: 32px 40px 40px; }
+  @media (max-width: 640px) { .footer-wrap { padding: 24px 20px 30px !important; } }
+  .footer-rule { height: 1px; line-height: 1px; font-size: 0; background: #E8DFCB; margin-bottom: 20px; }
+  .footer-src-row { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 10.5px; line-height: 1.6; color: #8A7B60; letter-spacing: 0.02em; }
+  .footer-src-row .f-cat { font-weight: 800; color: #5A4E3B; }
+  .footer-note { font-size: 12.5px; line-height: 1.65; color: #5A4E3B; margin-top: 14px; word-break: keep-all; }
+  .footer-pill-wrap { width: 100%; border-collapse: collapse; margin-top: 16px; }
+  .footer-pill-cell { border: 1px solid #9C6B1F; background: #FBF3E1; }
+  .footer-pill-link { display: inline-block; min-height: 36px; line-height: 36px; padding: 0 18px; color: #6B4818; text-decoration: none; font-size: 11.5px; font-weight: 700; }
+  .footer-copyright { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 10.5px; color: #B0A48A; margin-top: 18px; }
+  .footer-unsub { display: inline-block; min-height: 22px; padding: 3px 0; color: #B0A48A; text-decoration: underline; font-size: 10px; }
 </style>
 </head>
-<body bgcolor="#F2F3F5">
+<body bgcolor="#E5DFD1">
 
+<div style="display:none;font-size:1px;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;mso-hide:all;">중동 지정학 불안에 따른 WTI 유가 3.44% 급등과 뉴욕증시 하락, 미국채 금리 상승이 관찰되었습니다. 이러한 대외 지표들은 증시 심리에 영향을 준 요인 중…&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;</div>
 
-<div style="display:none;font-size:1px;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;mso-hide:all;">한·미 중앙은행의 긴축 기조 지속에 따른 통화정책 부담&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;</div>
-
-
-<div class="fx-view-in-browser">
+<div class="view-in-browser">
   <a href="https://mooconomy.co.kr/latest-email.html" target="_blank">메일이 작게 보이거나 깨져 보이나요? 웹에서 보기</a>
 </div>
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#F2F3F5">
-<tr><td align="center" class="outer-pad">
-<!--[if mso]>
-<table role="presentation" width="760" cellpadding="0" cellspacing="0" border="0" align="center"><tr><td>
-<![endif]-->
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="wrap">
-<tr><td bgcolor="#0B1220">
-
-  <div class="inner">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#E5DFD1">
+<tr><td align="center">
+<table role="presentation" width="720" cellpadding="0" cellspacing="0" border="0" class="sheet" bgcolor="#FBF7EF">
+<tr><td>
 
 
-  <div class="fx-mh">
-    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="fx-mh-table">
+
+
+
+
+
+
+
+<div class="pad-l">
+  <div class="masthead">
+    <div class="brand-wm">MOO<span class="g">:</span>conomy</div>
+    <div class="mast-tagline">잠든 사이 움직인 시장과 뉴스, 오늘의 판단에 필요한 맥락만 정리합니다.</div>
+    <div class="mast-rule">&nbsp;</div>
+    <table class="mast-meta" role="presentation" cellpadding="0" cellspacing="0" width="100%">
       <tr>
-        <td class="fx-brand">MOO<span class="g">:</span>conomy</td>
-        <td class="fx-status">
-
-          <span class="fx-status-chip">경계</span>
-
-        </td>
+        <td>발행 2026년 09월 01일(화) 06:48 KST · 증시 마감 기준: 국내 2026-08-31, 미국 2026-08-31</td>
+        <td class="r"><span class="status-badge">중립</span></td>
       </tr>
     </table>
-    <div class="fx-mh-tagline">잠든 사이 움직인 시장과 뉴스, 오늘의 판단에 필요한 맥락만 정리합니다.</div>
-    <div class="fx-mh-pubdate">발행 2026년 08월 29일(토) 06:43 KST</div>
-    <div class="fx-mh-sub">국내 2026-08-28 종가 · 미국 2026-08-28 종가</div>
   </div>
-
-
-
-  <div class="fx-mt-rule"></div>
-  <div class="fx-mt">
-    <div class="fx-mt-label">Morning Thesis — 오늘의 관점</div>
-    <div class="fx-mt-headline">한국은행 기준금리 0.25%p 인상, 매파 기조에 코스피 1.78% 하락</div>
+</div>
+<div class="hero">
+  <div class="hero-kicker">— 오늘의 관점</div>
+  <h1 class="hero-headline">미-이란 무력 공방 재개 속 국제유가 급등과 뉴욕증시 하락</h1>
+  
+  <div class="deck-wrap">
+    <div class="deck-line">— 중동발 무력 충돌 재개가 가져올 파장은?</div>
   </div>
-
-
-
-
-  <div class="fx-label first">TODAY'S 3 SIGNALS — 오늘 포착한 핵심 신호</div>
-  <table class="fx-t3-table" role="presentation" cellpadding="0" cellspacing="0" width="100%">
-
-
-  <tr>
-    <td class="fx-t3-mark" valign="top">&#10003;</td>
-    <td class="fx-t3-text" valign="top">케빈 워시 연준 의장의 긴축적 발언으로 미국 증시가 약세를 기록했습니다.</td>
-  </tr>
-
-
-  <tr>
-    <td class="fx-t3-mark" valign="top">&#10003;</td>
-    <td class="fx-t3-text" valign="top">지난 거래일 코스피는 외국인과 기관의 동반 매도세에 1.78% 하락했습니다.</td>
-  </tr>
-
-
-  <tr class="last">
-    <td class="fx-t3-mark" valign="top">&#10003;</td>
-    <td class="fx-t3-text" valign="top">오늘은 외국인의 순매수 전환 여부와 환율 움직임을 관찰할 필요가 있습니다.</td>
-  </tr>
-
+  
+</div>
+<div class="chapter-mark">
+  <div class="chap-bar">&nbsp;</div>
+  <table class="chap-row" role="presentation" cellpadding="0" cellspacing="0" width="100%">
+    <tr><td class="chap-num">CH · I</td><td>Today's Angle <span class="chap-kicker">— 오늘 시장이 어느 쪽으로 기울었는가</span></td></tr>
   </table>
+</div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <div class="fx-label">MAIN 6 METRICS</div>
-  <table class="fx-mgrid" cellpadding="0" cellspacing="0" role="presentation" width="100%">
-  <tr>
-    <td class="fx-mbox" width="33.33%" bgcolor="#141C2E" style="background:#141C2E;">
-      <div class="fx-mlabel">코스피</div>
-      <div class="fx-mvalue">6,789</div><div class="fx-mchip down" style="color:#5B8DEF;">▼ -1.79%</div>
-
-    </td>
-
-    <td class="fx-mbox" width="33.33%" bgcolor="#141C2E" style="background:#141C2E;">
-      <div class="fx-mlabel">코스닥</div>
-      <div class="fx-mvalue">838</div><div class="fx-mchip up" style="color:#FF6B6B;">▲ +0.09%</div>
-
-    </td>
-
-    <td class="fx-mbox" width="33.33%" bgcolor="#141C2E" style="background:#141C2E;">
-      <div class="fx-mlabel">나스닥</div>
-      <div class="fx-mvalue">26,402</div><div class="fx-mchip down" style="color:#5B8DEF;">▼ -0.52%</div>
-
-    </td>
-  </tr>
-  <tr>
-    <td class="fx-mbox" width="33.33%" bgcolor="#141C2E" style="background:#141C2E;">
-      <div class="fx-mlabel">S&P 500</div>
-      <div class="fx-mvalue">7,712</div><div class="fx-mchip down" style="color:#5B8DEF;">▼ -0.25%</div>
-
-    </td>
-
-    <td class="fx-mbox" width="33.33%" bgcolor="#141C2E" style="background:#141C2E;">
-      <div class="fx-mlabel">원/달러</div>
-      <div class="fx-mvalue fx-mvalue-fx">1,376</div><div class="fx-mchip down" style="color:#5B8DEF;">▼ -4.44원 (-0.32%)</div>
-
-    </td>
-
-    <td class="fx-mbox" width="33.33%" bgcolor="#141C2E" style="background:#141C2E;">
-      <div class="fx-mlabel">브렌트유</div>
-      <div class="fx-mvalue">88.29</div><div class="fx-mchip down" style="color:#5B8DEF;">▼ -0.30%</div>
-
-    </td>
-  </tr>
+<div class="signals-strip pt0">
+  <div class="flag-data">Today's 3 Signals <span class="colon">·</span> 관찰 사실</div>
+  <table class="signals" role="presentation" cellpadding="0" cellspacing="0" width="100%">
+  
+  
+  <tr><td class="idx-num">01</td><td class="t">미국과 이란의 무력충돌로 유가가 뛰며 뉴욕증시가 하락했습니다.</td></tr>
+  
+  
+  <tr><td class="idx-num">02</td><td class="t">지난 거래일 코스피는 상승했으나 코스닥은 하락 마감했습니다.</td></tr>
+  
+  
+  <tr><td class="idx-num">03</td><td class="t">오늘은 미국 고용지표 발표를 앞두고 관망세가 이어집니다.</td></tr>
+  
   </table>
-  <div class="fx-asof">AS OF 2026-08-28 KST / 2026-08-28 ET</div>
+</div>
 
 
 
@@ -409,523 +548,893 @@
 
 
 
-  <div class="fx-label">MARKET TEMPERATURE</div>
-  <div class="fx-temp-card" style="background:#141C2E;">
-    <div class="fx-temp-status">경계</div>
-    <div class="fx-temp-summary">국내 증시가 -1.79% 하락하고 외국인이 8,525억 원을 순매도하면서 경계 국면이 관찰됩니다.</div>
-
-    <table class="fx-temp-bar" cellpadding="0" cellspacing="0" role="presentation" width="100%"><tr>
-
-      <td class="fx-temp-seg" width="20.0%">&nbsp;</td>
-
-      <td class="fx-temp-seg active" width="20.0%">&nbsp;</td>
-
-      <td class="fx-temp-seg" width="20.0%">&nbsp;</td>
-
-      <td class="fx-temp-seg" width="20.0%">&nbsp;</td>
-
-      <td class="fx-temp-seg" width="20.0%">&nbsp;</td>
-
-    </tr></table>
-    <table class="fx-temp-labels" cellpadding="0" cellspacing="0" role="presentation" width="100%"><tr>
-
-      <td class="" width="20.0%">위험회피</td>
-
-      <td class="active" width="20.0%">경계</td>
-
-      <td class="" width="20.0%">중립</td>
-
-      <td class="" width="20.0%">위험선호</td>
-
-      <td class="" width="20.0%">강한선호</td>
-
-    </tr></table>
 
 
-    <table class="fx-temp-trend" cellpadding="0" cellspacing="0" role="presentation" width="100%"><tr>
 
-      <td class="fx-temp-trend-col" width="20.0%" valign="bottom">
-        <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
-          <td class="fx-temp-trend-bar-wrap" valign="bottom">
-            <table role="presentation" cellpadding="0" cellspacing="0" align="center" width="14"><tr>
-              <td width="14" height="10" bgcolor="#2A3450" style="height:10px;line-height:10px;font-size:0;border-radius:2px;">&nbsp;</td>
-            </tr></table>
-          </td>
+
+
+
+
+
+<div class="metrics-wrap">
+  <div class="flag-data">Main Metrics <span class="colon">·</span> <span class="r">AS OF 2026-08-31 KST / 2026-08-31 ET</span></div>
+  <table class="metrics-grid" role="presentation" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+  <td><div class="cell-inner">
+    <div class="m-label">코스피</div>
+    <div class="m-value">6,820</div><div class="m-chg up">▲ +0.46%</div>
+    
+  </div></td>
+
+  <td><div class="cell-inner">
+    <div class="m-label">코스닥</div>
+    <div class="m-value">834</div><div class="m-chg down">▼ -0.49%</div>
+    
+  </div></td>
+
+  <td><div class="cell-inner">
+    <div class="m-label">나스닥</div>
+    <div class="m-value">26,371</div><div class="m-chg down">▼ -0.12%</div>
+    
+  </div></td>
+</tr>
+  <tr>
+  <td><div class="cell-inner">
+    <div class="m-label">S&P 500</div>
+    <div class="m-value">7,686</div><div class="m-chg down">▼ -0.33%</div>
+    
+  </div></td>
+
+  <td><div class="cell-inner">
+    <div class="m-label">원/달러</div>
+    <div class="m-value">1,367</div><div class="m-chg down">▼ -8.71원</div>
+    
+  </div></td>
+
+  <td><div class="cell-inner">
+    <div class="m-label">브렌트유</div>
+    <div class="m-value">88.53</div><div class="m-chg up">▲ +0.27%</div>
+    
+  </div></td>
+</tr>
+  </table>
+</div>
+
+
+
+
+<div class="temp-wrap">
+  <div class="flag-data">Market Temperature <span class="colon">·</span> 시장 국면 판정<span class="temp-status-inline">중립</span></div>
+  <p class="temp-summary">원/달러 환율 하락과 외국인 순매도가 겹치며 중립적인 시장 흐름이 관찰됩니다.</p>
+  
+  <table class="temp-bar" role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
+    
+    <td class="seg" width="18.4%">&nbsp;</td>
+    <td class="gap">&nbsp;</td>
+    
+    <td class="seg" width="18.4%">&nbsp;</td>
+    <td class="gap">&nbsp;</td>
+    
+    <td class="seg on" width="18.4%">&nbsp;</td>
+    <td class="gap">&nbsp;</td>
+    
+    <td class="seg" width="18.4%">&nbsp;</td>
+    <td class="gap">&nbsp;</td>
+    
+    <td class="seg" width="18.4%">&nbsp;</td>
+    
+    
+  </tr></table>
+  <table class="temp-labels" role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
+    
+    <td class="" width="18.4%">위험회피</td>
+    <td class="gap">&nbsp;</td>
+    
+    <td class="" width="18.4%">경계</td>
+    <td class="gap">&nbsp;</td>
+    
+    <td class="on" width="18.4%">중립</td>
+    <td class="gap">&nbsp;</td>
+    
+    <td class="" width="18.4%">위험선호</td>
+    <td class="gap">&nbsp;</td>
+    
+    <td class="" width="18.4%">강한선호</td>
+    
+    
+  </tr></table>
+  
+  
+  <div class="temp-trail-wrap">
+    <div class="temp-trail-lbl">최근 5일 궤적</div>
+    <table class="temp-trail" role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
+      
+      <td valign="bottom" width="20.0%">
+        <table role="presentation" cellpadding="0" cellspacing="0" align="center" width="14"><tr>
+          <td width="14" height="24" bgcolor="#D4C5A4" style="height:24px;line-height:24px;font-size:0;">&nbsp;</td>
         </tr></table>
-        <div class="fx-temp-trend-lbl">08-25</div>
+        <div class="trail-day">08-26</div>
       </td>
-
-      <td class="fx-temp-trend-col" width="20.0%" valign="bottom">
-        <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
-          <td class="fx-temp-trend-bar-wrap" valign="bottom">
-            <table role="presentation" cellpadding="0" cellspacing="0" align="center" width="14"><tr>
-              <td width="14" height="15" bgcolor="#2A3450" style="height:15px;line-height:15px;font-size:0;border-radius:2px;">&nbsp;</td>
-            </tr></table>
-          </td>
+      <td class="gap">&nbsp;</td>
+      
+      <td valign="bottom" width="20.0%">
+        <table role="presentation" cellpadding="0" cellspacing="0" align="center" width="14"><tr>
+          <td width="14" height="24" bgcolor="#D4C5A4" style="height:24px;line-height:24px;font-size:0;">&nbsp;</td>
         </tr></table>
-        <div class="fx-temp-trend-lbl">08-26</div>
+        <div class="trail-day">08-27</div>
       </td>
-
-      <td class="fx-temp-trend-col" width="20.0%" valign="bottom">
-        <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
-          <td class="fx-temp-trend-bar-wrap" valign="bottom">
-            <table role="presentation" cellpadding="0" cellspacing="0" align="center" width="14"><tr>
-              <td width="14" height="15" bgcolor="#2A3450" style="height:15px;line-height:15px;font-size:0;border-radius:2px;">&nbsp;</td>
-            </tr></table>
-          </td>
+      <td class="gap">&nbsp;</td>
+      
+      <td valign="bottom" width="20.0%">
+        <table role="presentation" cellpadding="0" cellspacing="0" align="center" width="14"><tr>
+          <td width="14" height="32" bgcolor="#D4C5A4" style="height:32px;line-height:32px;font-size:0;">&nbsp;</td>
         </tr></table>
-        <div class="fx-temp-trend-lbl">08-27</div>
+        <div class="trail-day">08-28</div>
       </td>
-
-      <td class="fx-temp-trend-col" width="20.0%" valign="bottom">
-        <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
-          <td class="fx-temp-trend-bar-wrap" valign="bottom">
-            <table role="presentation" cellpadding="0" cellspacing="0" align="center" width="14"><tr>
-              <td width="14" height="20" bgcolor="#2A3450" style="height:20px;line-height:20px;font-size:0;border-radius:2px;">&nbsp;</td>
-            </tr></table>
-          </td>
+      <td class="gap">&nbsp;</td>
+      
+      <td valign="bottom" width="20.0%">
+        <table role="presentation" cellpadding="0" cellspacing="0" align="center" width="14"><tr>
+          <td width="14" height="16" bgcolor="#D4C5A4" style="height:16px;line-height:16px;font-size:0;">&nbsp;</td>
         </tr></table>
-        <div class="fx-temp-trend-lbl">08-28</div>
+        <div class="trail-day">08-29</div>
       </td>
-
-      <td class="fx-temp-trend-col" width="20.0%" valign="bottom">
-        <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
-          <td class="fx-temp-trend-bar-wrap" valign="bottom">
-            <table role="presentation" cellpadding="0" cellspacing="0" align="center" width="14"><tr>
-              <td width="14" height="10" bgcolor="#F2C94C" style="height:10px;line-height:10px;font-size:0;border-radius:2px;">&nbsp;</td>
-            </tr></table>
-          </td>
+      <td class="gap">&nbsp;</td>
+      
+      <td valign="bottom" width="20.0%">
+        <table role="presentation" cellpadding="0" cellspacing="0" align="center" width="14"><tr>
+          <td width="14" height="24" bgcolor="#9C6B1F" style="height:24px;line-height:24px;font-size:0;">&nbsp;</td>
         </tr></table>
-        <div class="fx-temp-trend-lbl today">08-29</div>
+        <div class="trail-day today">09-01</div>
       </td>
-
+      
+      
     </tr></table>
+    
+    <div class="temp-trail-axis">축 · 위험회피 ↔ 강한선호</div>
+    
+  </div>
+  
+  <div class="temp-asof">기준 2026-08-31</div>
+</div>
+
+<div class="chapter-mark">
+  <div class="chap-bar">&nbsp;</div>
+  <table class="chap-row" role="presentation" cellpadding="0" cellspacing="0" width="100%">
+    <tr><td class="chap-num">CH · II</td><td>Editorial &amp; Verification <span class="chap-kicker">— 편집자의 해석과 검증의 시간축</span></td></tr>
+  </table>
+</div>
 
 
-    <div class="fx-temp-reasons">
-      <div class="fx-temp-reason-item down" style="color:#5B8DEF;">· 국내 증시 -1.79% 하락</div><div class="fx-temp-reason-item down" style="color:#5B8DEF;">· 외국인 코스피 순매도 8,525억원</div>
+
+<div class="story-wrap pt0">
+  <div class="flag-data">Main Story <span class="colon">·</span> 오늘의 단일 사건</div>
+  <div class="story-meta">CNBC · 2026-08-31</div>
+  
+  <div class="story-h">미-이란 무력 공방 재개 속 국제유가 급등과 뉴욕증시 하락</div>
+  <div class="news-orig"><span class="news-orig-lbl">원제</span>Brent jumps above $90 after flare-up in U.S.-Iran hostilities</div>
+  <span class="story-fact-lbl">THE FACT</span>
+  <p class="story-fact">미국과 이란의 무력 충돌이 재개되면서 국제유가가 급등하였고 뉴욕증시 주요 지수는 하락세를 기록했습니다.</p>
+  
+  <div class="story-why">
+    <span class="story-why-lbl">WHY IT MATTERS</span>
+    <div class="story-why-txt">원유 가격 상승과 글로벌 위험프리미엄 확대는 국내 증시의 상방을 제한하고 외국인·기관 순매도 및 환율 흐름 등 국내 금융시장에 부담으로 작용합니다.</div>
+  </div>
+  
+</div>
+
+
+<div class="news-wrap">
+  <table class="news-cols" role="presentation" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td>
+        <div class="news-col-inner">
+          <div class="news-flag">Domestic News</div>
+          
+          
+          <div class="news-item">
+            <div class="news-title">7월 서비스업 감소 및 반도체 설비투자 증가</div>
+            
+            <div class="news-orig"><span class="news-orig-lbl">원제</span>서비스업 4년5개월래 최대 감소... 반도체 등 설비투자 7.5% 증가</div>
+            <div class="news-fact">7월 산업생산이 서비스업 생산 감소 영향으로 제자리걸음을 나타냈습니다.</div>
+            <div class="news-meta">파이낸셜뉴스 · 2026-08-31 · <a href="https://www.fnnews.com/news/202608311839373731" target="_blank">원문 →</a></div>
+          </div>
+          
+          <div class="news-item">
+            <div class="news-title">[코스피·코스닥 전 거래일(31일) 주요공시]</div>
+            
+            
+            
+            <div class="news-meta">연합뉴스마켓 · 2026-09-01 · <a href="https://www.yna.co.kr/view/AKR20260831169300008" target="_blank">원문 →</a></div>
+          </div>
+          
+          
+        </div>
+      </td>
+      <td>
+        <div class="news-col-inner">
+          <div class="news-flag">Global News</div>
+          
+          
+          <div class="news-item">
+            <div class="news-title">한국과 일본 금융사 밸류업 격차 확대</div>
+            
+            <div class="news-orig"><span class="news-orig-lbl">원제</span>한일전 2배 점수차로 졌다…금융사 주가 저평가 이유 살펴보니</div>
+            <div class="news-fact">한국과 일본 금융사의 주가순자산비율(PBR) 격차가 크게 벌어진 것으로 집계되었습니다. 이자이익 편중 구조와 더딘 밸류업 프로그램 추진이 원인으로 꼽힙니다.</div>
+            <div class="news-meta">매일경제 · 2026-09-01 · <a href="https://www.mk.co.kr/news/economy/12140866" target="_blank">원문(원어) →</a></div>
+          </div>
+          
+          <div class="news-item">
+            <div class="news-title">워시 연준 의장 연설과 인플레이션 논란</div>
+            
+            <div class="news-orig"><span class="news-orig-lbl">원제</span>월가 여장부의 일갈 … “워시의 연설, 인플레 방치 자인한 셈”</div>
+            <div class="news-fact">케빈 워시 연준 의장의 연설을 두고 시장 불확실성이 해소되지 않았다는 시각이 존재합니다. 인플레이션 방치 가능성에 대한 시장 전문가의 지적이 제기되었습니다.</div>
+            <div class="news-meta">매일경제 · 2026-09-01 · <a href="https://www.mk.co.kr/news/economy/12140470" target="_blank">원문(원어) →</a></div>
+          </div>
+          
+          
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+<table class="brand-wrap" role="presentation" cellpadding="0" cellspacing="0" width="100%">
+  <tr><td class="spacer">&nbsp;</td><td class="body">
+    <div class="brand-card">
+      <div class="flag-brand">MOO<span class="colon">:</span>VIEW <span class="sub">오늘의 해석 · 예측은 남기지 않습니다</span></div>
+      
+      
+      <p class="view-p">미국과 이란의 무력 충돌 재개로 국제유가가 급등하면서 중동발 인플레이션 우려가 제기되었고, 나스닥(-0.1194%)과 S&P500(-0.3322%) 등 주요 지표는 하락세를 보였습니다. 지정학적 악재 속에서도 원/달러 환율은 8.71원 내린 1366.96원을 기록하며 원화 강세 흐름을 나타냈고, 코스피 지수는 6820.02로 상대적 견조함을 보였습니다. 반도체 등 설비투자 증이 사실이 반영되며 전자제품(+7.16%) 등 특정 기술 업종을 중심으로 반등세가 전개되었으나, 비철금속(-5.77%) 등의 부진도 관찰됩니다. 만약 유가 상승세가 장기화된다면 글로벌 위험자산 투자 심리가 추가로 위축될 가능성이 높고, 그렇지 않다면 완만한 지지력이 유지될 수 있습니다. 한편 환율 하락과 설비투자 모멘텀이 증시 하단을 지탱하기보다 오히려 수출 기업의 가격 경쟁력에 부담을 줄 수 있다는 시각도 존재합니다.</p>
+      
+      
+      <div class="view-sig">— MOO<span class="g">:</span>Editor</div>
     </div>
+  </td><td class="spacer">&nbsp;</td></tr>
+</table>
+<table class="brand-wrap" role="presentation" cellpadding="0" cellspacing="0" width="100%">
+  <tr><td class="spacer">&nbsp;</td><td class="body">
+    <div class="brand-card">
+      <div class="spine-flag">MOO<span class="colon">:</span>Q → CHECK <span class="sub">지면의 척추 · 24시간 검증 루프</span></div>
+      <div class="purpose">어제 근거·오늘 결과 → 24시간 후 검증 → 오늘의 새 질문. 예측이 아니라 검증이 서비스의 뼈대입니다.</div>
 
-    <div class="fx-temp-asof">기준 2026-08-28</div>
-  </div>
+      
+      
+      <div class="spine-yesterday">
+        <div class="spine-y-lbl">어제 08-29 · 질문 근거</div>
+        <p class="spine-yq">외국인 순매도 흐름 속에서 코스피가 하락세를 이어갈까요?</p>
+        <table class="spine-evidence" role="presentation" cellpadding="0" cellspacing="0" width="100%">
+          <tr><td class="k">대상 지표</td><td>kospi</td></tr>
+          <tr><td class="k">판정 근거</td><td>6788.88 → 6820.02 (+0.46%)</td></tr>
+          <tr><td class="k">관측 결과</td><td>실제 변화가 예상한 하락 방향과 다르게 움직였습니다.</td></tr>
+        </table>
+        <div style="margin-top:8px;">
+          <span class="verdict-tag v-miss"><span class="glyph">X</span>불일치</span>
+        </div>
+      </div>
 
+      <div class="spine-connector">
+        <span class="spine-conn-arrow">24H · 오늘 새 질문 ↓</span>
+      </div>
+      
 
-
-
-
-  <div class="fx-label">MAIN STORY</div>
-  <div class="fx-story-h">한국은행 기준금리 0.25%p 인상, 매파 기조에 코스피 1.78% 하락</div>
-  <div class="fx-story-meta">매일경제 · 2026-08-29</div>
-
-
-  <div class="fx-story-why">
-    <span class="fx-story-why-lbl">WHY THIS STORY</span>
-    <div class="fx-story-why-txt">국내 증시에서 외국인(-8,525억원)과 기관(-11,876억원)의 대규모 순매도를 유발하여 코스피가 -1.7865% 하락하는 등 증시 자금 유출과 투자심리 위축을 가져왔습니다.</div>
-  </div>
-
-
-  <div class="fx-story-src"><a href="https://www.mk.co.kr/news/economy/12139274" target="_blank" class="fx-story-src-link">원문 기사 보기 →</a></div>
-
-
-
-
-
-  <div class="fx-label">DOMESTIC NEWS</div>
-
-
-  <div class="fx-news-item">
-    <div class="fx-news-title">정부, AI·반도체 인력 양성 확대</div>
-    <div class="fx-news-fact">정부가 2030년까지 AI 및 반도체 전문인력 30만 명 이상을 양성하겠다고 밝혔습니다.</div>
-    <div class="fx-news-meta">
-      파이낸셜뉴스 · 2026-08-28
-       · <a href="https://www.fnnews.com/news/202608281339521927" target="_blank">원문</a>
+      
+      <div class="spine-today">
+        <div class="spine-t-lbl">오늘 09-01 · 새 질문</div>
+        
+        <div class="spine-premise">
+          <span class="p-lbl">전제 · 관찰 사실</span>
+          코스닥은 834.29로 전일 대비 0.49% 하락했습니다.
+        </div>
+        
+        <p class="spine-tq">외국인 순매도 흐름 속에서 코스닥이 하락세를 이어갈까요?</p>
+        
+        <p class="spine-why">외국인 순매도 흐름 속에서 하락 흐름이 다음 거래일까지 이어지는지가 확인 대상입니다.</p>
+        
+        <p class="spine-forward">→ 2026-09-02 아침 리본에서 판정 · 대상 kosdaq</p>
+      </div>
+      
     </div>
-  </div>
-
-  <div class="fx-news-item last">
-    <div class="fx-news-title">한국씨티은행, 소수주주 지분 매입</div>
-    <div class="fx-news-fact">한국씨티은행이 소수주주 지분 매입을 추진하며 단일주주 체제로의 전환을 모색하고 있습니다.</div>
-    <div class="fx-news-meta">
-      한국경제 · 2026-08-28
-       · <a href="https://www.hankyung.com/article/202608280273i" target="_blank">원문</a>
-    </div>
-  </div>
-
-
-
-
-  <div class="fx-label">GLOBAL NEWS</div>
-
-
-  <div class="fx-news-item">
-    <div class="fx-news-title">워시 연준 의장 매파 연설</div>
-    <div class="fx-news-fact">케빈 워시 미국 연준 의장의 긴축 선호 발언으로 인플레이션 경계감이 유지되며 미 증시가 약세를 보였습니다. 채권 시장은 연준의 통화정책 메시지에 민감하게 반응했습니다.</div>
-    <div class="fx-news-meta">
-      연합뉴스마켓 · 2026-08-29
-       · <a href="https://www.yna.co.kr/view/AKR20260829007000072" target="_blank">원문(원어)</a>
-    </div>
-  </div>
-
-  <div class="fx-news-item last">
-    <div class="fx-news-title">마이크로소프트·엔비디아 강세</div>
-    <div class="fx-news-fact">마이크로소프트는 AI 소프트웨어에 대한 우려가 해소되며 상승세를 이어갔습니다. 엔비디아 역시 높은 매출 전망과 함께 자산운용사 및 주요 기업들의 칩 수요 기대감이 계속되고 있습니다.</div>
-    <div class="fx-news-meta">
-      MarketWatch · 2026-08-28
-       · <a href="https://www.marketwatch.com/story/microsofts-stock-seals-its-longest-winning-streak-of-the-year-as-ai-software-fears-fade-e5669f5b?mod=mw_rss_topstories" target="_blank">원문(원어)</a>
-    </div>
-  </div>
-
-
-
-
-  <div class="fx-mv-wrap">
-  <div class="fx-mv-card" style="background:#1B2740;">
-    <div class="fx-mv-head">MOO:VIEW</div>
-
-
-    <div class="fx-mv-p first">미국 증시에서는 워시 연준 의장의 매파적 연설로 긴축 기조 유지 가능성이 부각되며 나스닥과 S&P500 지수가 일제히 하락세를 기록했습니다. 글로벌 통화정책을 둘러싼 긴축 경계감이 시장 전반의 투자심리를 위축시키는 주요 압력으로 작용했습니다.</div>
-
-    <div class="fx-mv-p">국내 증시 또한 한국은행 금통위의 0.25%p 기준금리 인상 결정으로 매파적 기조가 명확해지면서 투자심리가 경색되었습니다. 한·미 양국의 통화 긴축 행보가 주식 시장에 하방 압력을 더한 것으로 평가됩니다. 그러나 원/달러 환율이 하락하고 코스닥 지수가 상승 방어에 성공한 점은 유동성 이탈 속에서도 시중 자금이 원화 자산의 안정성에 일부 무게를 두고 있음을 보여주는 신호일 수 있습니다.</div>
-
-    <div class="fx-mv-p">코스피 시장에서는 기관과 외국인의 동반 매도세가 이어진 가운데 반도체와반도체장비 업종이 -3.74% 하락하며 지수 내림세를 주도했습니다. 통화정책 부담이 대형 기술주와 반도체 섹터에 집중되면서 수급 불균형이 심화되는 양상이 전개되었습니다.</div>
-
-    <div class="fx-mv-p">향후 시장 흐름은 정부가 발표한 AI·반도체 인력 양성 정책이 실질적인 산업 모멘텀으로 연결될 수 있을지에 따라 좌우될 전망입니다. 해당 정책이 개별 기업의 이익 개선 기대감으로 이어진다면 반도체 업종의 수급 반전 계기가 마련될 것이고, 글로벌 긴축 우려가 이를 상쇄한다면 기술주 중심의 보수적 자금 집행이 당분간 이어질 수 있습니다.</div>
-
-
-    <div class="fx-mv-meta">기준 2026-08-28</div>
-  </div>
-  </div>
-
-
-
-
-  <div class="fx-q-wrap" style="background:#1B2740;">
-    <div class="fx-q-lbl">MOO:Q · 오늘의 질문</div>
-    <div class="fx-q-text">외국인 순매도 흐름 속에서 코스피가 하락세를 이어갈까요?</div>
-
-    <div class="fx-q-why">코스피는 6,788.88로 전일 대비 1.79% 하락했습니다. 외국인 순매도 흐름 속에서 하락 흐름이 다음 거래일까지 이어지는지가 확인 대상입니다.</div>
-
-    <div class="fx-q-meta">관찰 시점 2026-08-29 · 확인 예정일 2026-08-30</div>
-  </div>
-
-
-
-
-  <div class="fx-check-wrap" style="background:#202A3D;">
-    <div class="fx-check-lbl">MOO:CHECK · 지난 질문의 결과</div>
-    <div class="fx-check-q">외국인 순매수 흐름 속에서 코스닥이 반등할까요?</div>
-    <div class="fx-check-row"><span class="k">질문 시점</span>2026-08-28</div>
-    <div class="fx-check-row"><span class="k">실제 결과</span>837.65 → 838.41 (+0.09%)</div>
-    <div class="fx-check-row">변화폭이 중립 구간(±0.3%) 이내에 머물러 뚜렷한 방향이 나타나지 않았습니다.</div>
-    <span class="fx-check-verdict PARTIAL">PARTIAL</span>
-  </div>
-
-
-
-
-  <div class="fx-label">KOREA MARKET &amp; FLOW</div>
-  <div class="fx-kf-card" style="background:#141C2E;">
-
-    <div class="fx-kf-market-lbl">코스피 수급</div>
-    <table class="fx-kf-table" role="presentation" width="100%" cellpadding="0" cellspacing="0">
-
-      <tr><td class="fx-kf-who">개인</td><td class="fx-kf-val up" style="color:#FF6B6B;">+4,194억원</td></tr>
-
-      <tr><td class="fx-kf-who">외국인</td><td class="fx-kf-val down" style="color:#5B8DEF;">-8,525억원</td></tr>
-
-      <tr class="last"><td class="fx-kf-who">기관</td><td class="fx-kf-val down" style="color:#5B8DEF;">-11,876억원</td></tr>
-
-    </table>
-
-
-    <div class="fx-kf-market-lbl">코스닥 수급</div>
-    <table class="fx-kf-table" role="presentation" width="100%" cellpadding="0" cellspacing="0">
-
-      <tr><td class="fx-kf-who">개인</td><td class="fx-kf-val up" style="color:#FF6B6B;">+979억원</td></tr>
-
-      <tr><td class="fx-kf-who">외국인</td><td class="fx-kf-val down" style="color:#5B8DEF;">-942억원</td></tr>
-
-      <tr class="last"><td class="fx-kf-who">기관</td><td class="fx-kf-val down" style="color:#5B8DEF;">-30억원</td></tr>
-
-    </table>
-
-
-    <div class="fx-sector-row">
-      상승 인터넷과카탈로그소매(+7.40%), 기타금융(+7.18%)
-       ·
-      하락 반도체와반도체장비(-3.74%), 전기유틸리티(-3.57%)
-    </div>
-
-    <div class="fx-interp">코스피는 기관 순매도(-11,876억원)가 두드러졌습니다, 코스닥는 개인 순매수(+979억원)가 두드러졌습니다.</div>
-  </div>
-
-
-
-
-  <div class="fx-label">OVERNIGHT GLOBAL &amp; MACRO</div>
-  <div class="fx-og-card" style="background:#141C2E;">
-
-    <div class="fx-og-group-lbl">지수</div>
-    <table class="fx-og-table" role="presentation" width="100%" cellpadding="0" cellspacing="0">
-
-      <tr>
-        <td class="fx-og-label">다우존스</td><td class="fx-og-val">53,559.99</td>
-        <td class="fx-og-chg down" style="color:#5B8DEF;">▼ -0.02%</td>
-      </tr>
-
-      <tr>
-        <td class="fx-og-label">나스닥</td><td class="fx-og-val">26,402.42</td>
-        <td class="fx-og-chg down" style="color:#5B8DEF;">▼ -0.52%</td>
-      </tr>
-
-      <tr>
-        <td class="fx-og-label">S&P 500</td><td class="fx-og-val">7,711.76</td>
-        <td class="fx-og-chg down" style="color:#5B8DEF;">▼ -0.25%</td>
-      </tr>
-
-      <tr>
-        <td class="fx-og-label">니케이225</td><td class="fx-og-val">66,131.98</td>
-        <td class="fx-og-chg down" style="color:#5B8DEF;">▼ -0.20%</td>
-      </tr>
-
-      <tr>
-        <td class="fx-og-label">상해종합</td><td class="fx-og-val">3,956.57</td>
-        <td class="fx-og-chg up" style="color:#FF6B6B;">▲ +1.13%</td>
-      </tr>
-
-    </table>
-
-
-    <div class="fx-og-group-lbl">금리 · 환율</div>
-    <table class="fx-og-table" role="presentation" width="100%" cellpadding="0" cellspacing="0">
-
-      <tr>
-        <td class="fx-og-label">미국채10년</td><td class="fx-og-val">4.72%</td>
-        <td class="fx-og-chg up" style="color:#FF6B6B;">▲ +5bp</td>
-      </tr>
-
-      <tr>
-        <td class="fx-og-label">달러인덱스</td><td class="fx-og-val">99.68</td>
-        <td class="fx-og-chg up" style="color:#FF6B6B;">▲ +0.58%</td>
-      </tr>
-
-      <tr>
-        <td class="fx-og-label">원/달러</td><td class="fx-og-val">1,375.7</td>
-        <td class="fx-og-chg down" style="color:#5B8DEF;">▼ -0.32%</td>
-      </tr>
-
-    </table>
-
-
-    <div class="fx-og-group-lbl">원자재 · 변동성</div>
-    <table class="fx-og-table" role="presentation" width="100%" cellpadding="0" cellspacing="0">
-
-      <tr>
-        <td class="fx-og-label">WTI</td><td class="fx-og-val">83.44</td>
-        <td class="fx-og-chg down" style="color:#5B8DEF;">▼ -0.12%</td>
-      </tr>
-
-      <tr>
-        <td class="fx-og-label">브렌트유</td><td class="fx-og-val">88.29</td>
-        <td class="fx-og-chg down" style="color:#5B8DEF;">▼ -0.30%</td>
-      </tr>
-
-      <tr>
-        <td class="fx-og-label">금</td><td class="fx-og-val">4,504.10</td>
-        <td class="fx-og-chg down" style="color:#5B8DEF;">▼ -3.24%</td>
-      </tr>
-
-      <tr>
-        <td class="fx-og-label">VIX</td><td class="fx-og-val">14.43</td>
-        <td class="fx-og-chg down" style="color:#5B8DEF;">▼ -0.55%</td>
-      </tr>
-
-    </table>
-
-
-    <div class="fx-og-group-lbl">주요 거시</div>
-    <table class="fx-og-table" role="presentation" width="100%" cellpadding="0" cellspacing="0">
-
-      <tr>
-        <td class="fx-og-label">美 CPI(YoY)</td><td class="fx-og-val" colspan="2">3.54% <span style="color:#6B7A99;">(2026-07-01)</span></td>
-      </tr>
-
-      <tr>
-        <td class="fx-og-label">美 근원PCE(YoY)</td><td class="fx-og-val" colspan="2">3.34% <span style="color:#6B7A99;">(2026-07-01)</span></td>
-      </tr>
-
-      <tr>
-        <td class="fx-og-label">美 실업률</td><td class="fx-og-val" colspan="2">4.1% <span style="color:#6B7A99;">(2026-07-01)</span></td>
-      </tr>
-
-      <tr class="last">
-        <td class="fx-og-label">美 기준금리</td><td class="fx-og-val" colspan="2">3.75% <span style="color:#6B7A99;">(2026-08-28)</span></td>
-      </tr>
-
-    </table>
-
-    <div class="fx-interp">미국·아시아 지수는 5개 중 1개 상승, 4개 하락으로 마감했습니다, VIX는 14.43로 관찰됩니다.</div>
-  </div>
-
-
-
-  <div class="fx-label">SIGNAL CHAIN</div>
-
-  <div class="fx-sc-empty">오늘은 신뢰할 수 있는 연결고리(사건 기반 지표 체인 3개 이상)를 구성하지 못해 SIGNAL CHAIN을 쉽니다. (사유 코드: missing)</div>
-
-
-
-
-  <div class="fx-label">TODAY'S WATCH — 오늘의 관전 포인트</div>
-  <div class="fx-watch-card" style="background:#141C2E;">
-
-    <table class="fx-watch-row first" role="presentation" cellpadding="0" cellspacing="0"><tr>
-      <td class="fx-watch-num" width="18" valign="top">1</td>
-      <td class="fx-watch-txt" valign="top">한국은행의 0.25%p 기준금리 인상 이후 통화 긴축 기조가 국내 증시 수급에 미치는 영향</td>
+  </td><td class="spacer">&nbsp;</td></tr>
+</table>
+<div class="chapter-mark">
+  <div class="chap-bar">&nbsp;</div>
+  <table class="chap-row" role="presentation" cellpadding="0" cellspacing="0" width="100%">
+    <tr><td class="chap-num">CH · III</td><td>Market Data <span class="chap-kicker">— 지표와 수급의 정확한 위치</span></td></tr>
+  </table>
+</div>
+
+
+
+
+<div class="flow-wrap pt0">
+  <div class="flag-data">Korea Flow <span class="colon">·</span> 순매매 2026-08-31 · 단위 억원</div>
+  
+  <div class="flow-market">
+    <table class="flow-market-header" role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr><td class="flow-market-lbl">코스피 수급</td></tr></table>
+    
+    <table class="flow-axis-scale" role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
+      <td class="l">-1.0조</td>
+      <td class="c">0</td>
+      <td class="r">+1.0조</td>
     </tr></table>
-
-    <table class="fx-watch-row" role="presentation" cellpadding="0" cellspacing="0"><tr>
-      <td class="fx-watch-num" width="18" valign="top">2</td>
-      <td class="fx-watch-txt" valign="top">워시 연준 의장의 매파적 발언에 따른 글로벌 시장의 긴축 경계감 지속 가능성</td>
+    
+    
+<table class="div-row" role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
+  <td class="flow-name">&nbsp;</td>
+  <td class="bar-cell">
+    <table class="tick-rail-track" role="presentation" cellpadding="0" cellspacing="0"><tr>
+      <td width="1" class="tick-rail-cell" bgcolor="#C9BFA8" style="background:#C9BFA8;"></td>
+      <td width="12%" class="tick-rail-cell"></td>
+      <td width="1" class="tick-rail-cell" bgcolor="#C9BFA8" style="background:#C9BFA8;"></td>
+      <td width="12%" class="tick-rail-cell"></td>
+      <td width="1" class="tick-rail-cell" bgcolor="#C9BFA8" style="background:#C9BFA8;"></td>
+      <td width="12%" class="tick-rail-cell"></td>
+      <td width="1" class="tick-rail-cell" bgcolor="#C9BFA8" style="background:#C9BFA8;"></td>
+      <td width="12%" class="tick-rail-cell"></td>
+      <td width="1" class="tick-rail-cell" bgcolor="#8A7B60" style="background:#8A7B60;"></td>
+      <td width="12%" class="tick-rail-cell"></td>
+      <td width="1" class="tick-rail-cell" bgcolor="#C9BFA8" style="background:#C9BFA8;"></td>
+      <td width="12%" class="tick-rail-cell"></td>
+      <td width="1" class="tick-rail-cell" bgcolor="#C9BFA8" style="background:#C9BFA8;"></td>
+      <td width="12%" class="tick-rail-cell"></td>
+      <td width="1" class="tick-rail-cell" bgcolor="#C9BFA8" style="background:#C9BFA8;"></td>
+      <td width="12%" class="tick-rail-cell"></td>
+      <td width="1" class="tick-rail-cell" bgcolor="#C9BFA8" style="background:#C9BFA8;"></td>
     </tr></table>
+  </td>
+  <td class="flow-val">&nbsp;</td>
+</tr></table>
 
-    <table class="fx-watch-row" role="presentation" cellpadding="0" cellspacing="0"><tr>
-      <td class="fx-watch-num" width="18" valign="top">3</td>
-      <td class="fx-watch-txt" valign="top">정부의 AI·반도체 인력 양성 정책 발표가 주요 기술주 수급 개선으로 이어질지 여부</td>
+    
+    <table class="div-row" role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
+      <td class="flow-name">개인</td>
+      <td class="bar-cell">
+<table class="bar-track" role="presentation" cellpadding="0" cellspacing="0"><tr>
+  <td class="bar-half" align="right">
+    
+    <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
+      <td class="bar-empty-td" bgcolor="#EDE5D3" style="background:#EDE5D3;"></td>
+      <td class="bar-cap-td" width="3" bgcolor="#24476F" style="background:#24476F;"></td>
+      <td class="bar-fill-td" width="4.4%" bgcolor="#28517E" style="background:#28517E;"></td>
+      <td class="bar-fill-td" width="10.2%" bgcolor="#2F5A8F" style="background:#2F5A8F;"></td>
     </tr></table>
-
-    <div class="fx-watch-oneliner">한·미 통화당국의 매파적 기조와 반도체 업종 약세 속에 기관·외국인 매도세가 시장 하방 압력을 높이고 있습니다.</div>
+    
+  </td>
+  <td class="bar-axis-col"><div class="bar-axis-line">&nbsp;</div></td>
+  <td class="bar-half" align="left">
+    
+    <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr><td class="bar-empty-td" bgcolor="#EDE5D3" style="background:#EDE5D3;"></td></tr></table>
+    
+  </td>
+</tr></table>
+</td>
+      <td class="flow-val down">-1,464</td>
+    </tr></table>
+    
+    <table class="div-row" role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
+      <td class="flow-name">외국인</td>
+      <td class="bar-cell">
+<table class="bar-track" role="presentation" cellpadding="0" cellspacing="0"><tr>
+  <td class="bar-half" align="right">
+    
+    <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
+      <td class="bar-empty-td" bgcolor="#EDE5D3" style="background:#EDE5D3;"></td>
+      <td class="bar-cap-td" width="3" bgcolor="#24476F" style="background:#24476F;"></td>
+      <td class="bar-fill-td" width="19.3%" bgcolor="#28517E" style="background:#28517E;"></td>
+      <td class="bar-fill-td" width="45.0%" bgcolor="#2F5A8F" style="background:#2F5A8F;"></td>
+    </tr></table>
+    
+  </td>
+  <td class="bar-axis-col"><div class="bar-axis-line">&nbsp;</div></td>
+  <td class="bar-half" align="left">
+    
+    <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr><td class="bar-empty-td" bgcolor="#EDE5D3" style="background:#EDE5D3;"></td></tr></table>
+    
+  </td>
+</tr></table>
+</td>
+      <td class="flow-val down">-6,434</td>
+    </tr></table>
+    
+    <table class="div-row" role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
+      <td class="flow-name">기관</td>
+      <td class="bar-cell">
+<table class="bar-track" role="presentation" cellpadding="0" cellspacing="0"><tr>
+  <td class="bar-half" align="right">
+    
+    <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
+      <td class="bar-empty-td" bgcolor="#EDE5D3" style="background:#EDE5D3;"></td>
+      <td class="bar-cap-td" width="3" bgcolor="#24476F" style="background:#24476F;"></td>
+      <td class="bar-fill-td" width="23.7%" bgcolor="#28517E" style="background:#28517E;"></td>
+      <td class="bar-fill-td" width="55.2%" bgcolor="#2F5A8F" style="background:#2F5A8F;"></td>
+    </tr></table>
+    
+  </td>
+  <td class="bar-axis-col"><div class="bar-axis-line">&nbsp;</div></td>
+  <td class="bar-half" align="left">
+    
+    <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr><td class="bar-empty-td" bgcolor="#EDE5D3" style="background:#EDE5D3;"></td></tr></table>
+    
+  </td>
+</tr></table>
+</td>
+      <td class="flow-val down">-7,891</td>
+    </tr></table>
+    
   </div>
+  
+  
+  <div class="flow-market">
+    <table class="flow-market-header" role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr><td class="flow-market-lbl">코스닥 수급</td></tr></table>
+    
+    <table class="flow-axis-scale" role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
+      <td class="l">-1.0조</td>
+      <td class="c">0</td>
+      <td class="r">+1.0조</td>
+    </tr></table>
+    
+    
+<table class="div-row" role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
+  <td class="flow-name">&nbsp;</td>
+  <td class="bar-cell">
+    <table class="tick-rail-track" role="presentation" cellpadding="0" cellspacing="0"><tr>
+      <td width="1" class="tick-rail-cell" bgcolor="#C9BFA8" style="background:#C9BFA8;"></td>
+      <td width="12%" class="tick-rail-cell"></td>
+      <td width="1" class="tick-rail-cell" bgcolor="#C9BFA8" style="background:#C9BFA8;"></td>
+      <td width="12%" class="tick-rail-cell"></td>
+      <td width="1" class="tick-rail-cell" bgcolor="#C9BFA8" style="background:#C9BFA8;"></td>
+      <td width="12%" class="tick-rail-cell"></td>
+      <td width="1" class="tick-rail-cell" bgcolor="#C9BFA8" style="background:#C9BFA8;"></td>
+      <td width="12%" class="tick-rail-cell"></td>
+      <td width="1" class="tick-rail-cell" bgcolor="#8A7B60" style="background:#8A7B60;"></td>
+      <td width="12%" class="tick-rail-cell"></td>
+      <td width="1" class="tick-rail-cell" bgcolor="#C9BFA8" style="background:#C9BFA8;"></td>
+      <td width="12%" class="tick-rail-cell"></td>
+      <td width="1" class="tick-rail-cell" bgcolor="#C9BFA8" style="background:#C9BFA8;"></td>
+      <td width="12%" class="tick-rail-cell"></td>
+      <td width="1" class="tick-rail-cell" bgcolor="#C9BFA8" style="background:#C9BFA8;"></td>
+      <td width="12%" class="tick-rail-cell"></td>
+      <td width="1" class="tick-rail-cell" bgcolor="#C9BFA8" style="background:#C9BFA8;"></td>
+    </tr></table>
+  </td>
+  <td class="flow-val">&nbsp;</td>
+</tr></table>
+
+    
+    <table class="div-row" role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
+      <td class="flow-name">개인</td>
+      <td class="bar-cell">
+<table class="bar-track" role="presentation" cellpadding="0" cellspacing="0"><tr>
+  <td class="bar-half" align="right">
+    
+    <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr><td class="bar-empty-td" bgcolor="#EDE5D3" style="background:#EDE5D3;"></td></tr></table>
+    
+  </td>
+  <td class="bar-axis-col"><div class="bar-axis-line">&nbsp;</div></td>
+  <td class="bar-half" align="left">
+    
+    <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
+      <td class="bar-fill-td" width="17.7%" bgcolor="#C0392B" style="background:#C0392B;"></td>
+      <td class="bar-fill-td" width="7.6%" bgcolor="#A83226" style="background:#A83226;"></td>
+      <td class="bar-cap-td" width="3" bgcolor="#8E2B20" style="background:#8E2B20;"></td>
+      <td class="bar-empty-td" bgcolor="#EDE5D3" style="background:#EDE5D3;"></td>
+    </tr></table>
+    
+  </td>
+</tr></table>
+</td>
+      <td class="flow-val up">+2,530</td>
+    </tr></table>
+    
+    <table class="div-row" role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
+      <td class="flow-name">외국인</td>
+      <td class="bar-cell">
+<table class="bar-track" role="presentation" cellpadding="0" cellspacing="0"><tr>
+  <td class="bar-half" align="right">
+    
+    <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
+      <td class="bar-empty-td" bgcolor="#EDE5D3" style="background:#EDE5D3;"></td>
+      <td class="bar-cap-td" width="3" bgcolor="#24476F" style="background:#24476F;"></td>
+      <td class="bar-fill-td" width="1.6%" bgcolor="#28517E" style="background:#28517E;"></td>
+      <td class="bar-fill-td" width="3.8%" bgcolor="#2F5A8F" style="background:#2F5A8F;"></td>
+    </tr></table>
+    
+  </td>
+  <td class="bar-axis-col"><div class="bar-axis-line">&nbsp;</div></td>
+  <td class="bar-half" align="left">
+    
+    <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr><td class="bar-empty-td" bgcolor="#EDE5D3" style="background:#EDE5D3;"></td></tr></table>
+    
+  </td>
+</tr></table>
+</td>
+      <td class="flow-val down">-552</td>
+    </tr></table>
+    
+    <table class="div-row" role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
+      <td class="flow-name">기관</td>
+      <td class="bar-cell">
+<table class="bar-track" role="presentation" cellpadding="0" cellspacing="0"><tr>
+  <td class="bar-half" align="right">
+    
+    <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
+      <td class="bar-empty-td" bgcolor="#EDE5D3" style="background:#EDE5D3;"></td>
+      <td class="bar-cap-td" width="3" bgcolor="#24476F" style="background:#24476F;"></td>
+      <td class="bar-fill-td" width="6.0%" bgcolor="#28517E" style="background:#28517E;"></td>
+      <td class="bar-fill-td" width="14.1%" bgcolor="#2F5A8F" style="background:#2F5A8F;"></td>
+    </tr></table>
+    
+  </td>
+  <td class="bar-axis-col"><div class="bar-axis-line">&nbsp;</div></td>
+  <td class="bar-half" align="left">
+    
+    <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr><td class="bar-empty-td" bgcolor="#EDE5D3" style="background:#EDE5D3;"></td></tr></table>
+    
+  </td>
+</tr></table>
+</td>
+      <td class="flow-val down">-2,005</td>
+    </tr></table>
+    
+  </div>
+  
+  
+  <div class="sector-wrap">
+    <div class="sector-lbl">오늘의 업종</div>
+    
+    <table class="flow-axis-scale" role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
+      <td class="l" width="10%">-10%</td>
+      <td class="c" width="30%">-5%</td>
+      <td class="c" width="20%">0</td>
+      <td class="c" width="30%">+5%</td>
+      <td class="r" width="10%">+10%</td>
+    </tr></table>
+    
+    
+<table class="div-row" role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
+  <td class="flow-name">&nbsp;</td>
+  <td class="bar-cell">
+    <table class="tick-rail-track" role="presentation" cellpadding="0" cellspacing="0"><tr>
+      <td width="1" class="tick-rail-cell" bgcolor="#C9BFA8" style="background:#C9BFA8;"></td>
+      <td width="12%" class="tick-rail-cell"></td>
+      <td width="1" class="tick-rail-cell" bgcolor="#C9BFA8" style="background:#C9BFA8;"></td>
+      <td width="12%" class="tick-rail-cell"></td>
+      <td width="1" class="tick-rail-cell" bgcolor="#C9BFA8" style="background:#C9BFA8;"></td>
+      <td width="12%" class="tick-rail-cell"></td>
+      <td width="1" class="tick-rail-cell" bgcolor="#C9BFA8" style="background:#C9BFA8;"></td>
+      <td width="12%" class="tick-rail-cell"></td>
+      <td width="1" class="tick-rail-cell" bgcolor="#8A7B60" style="background:#8A7B60;"></td>
+      <td width="12%" class="tick-rail-cell"></td>
+      <td width="1" class="tick-rail-cell" bgcolor="#C9BFA8" style="background:#C9BFA8;"></td>
+      <td width="12%" class="tick-rail-cell"></td>
+      <td width="1" class="tick-rail-cell" bgcolor="#C9BFA8" style="background:#C9BFA8;"></td>
+      <td width="12%" class="tick-rail-cell"></td>
+      <td width="1" class="tick-rail-cell" bgcolor="#C9BFA8" style="background:#C9BFA8;"></td>
+      <td width="12%" class="tick-rail-cell"></td>
+      <td width="1" class="tick-rail-cell" bgcolor="#C9BFA8" style="background:#C9BFA8;"></td>
+    </tr></table>
+  </td>
+  <td class="flow-val">&nbsp;</td>
+</tr></table>
+
+    
+    <table class="sector-row" role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
+      <td class="flow-name">전자제품</td>
+      <td class="bar-cell">
+<table class="bar-track" role="presentation" cellpadding="0" cellspacing="0"><tr>
+  <td class="bar-half" align="right">
+    
+    <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr><td class="bar-empty-td" bgcolor="#EDE5D3" style="background:#EDE5D3;"></td></tr></table>
+    
+  </td>
+  <td class="bar-axis-col"><div class="bar-axis-line">&nbsp;</div></td>
+  <td class="bar-half" align="left">
+    
+    <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
+      <td class="bar-fill-td" width="50.1%" bgcolor="#C0392B" style="background:#C0392B;"></td>
+      <td class="bar-fill-td" width="21.5%" bgcolor="#A83226" style="background:#A83226;"></td>
+      <td class="bar-cap-td" width="3" bgcolor="#8E2B20" style="background:#8E2B20;"></td>
+      <td class="bar-empty-td" bgcolor="#EDE5D3" style="background:#EDE5D3;"></td>
+    </tr></table>
+    
+  </td>
+</tr></table>
+</td>
+      <td class="flow-val up">+7.16%</td>
+    </tr></table>
+    <div class="sector-why">5개월 만에 최대 폭으로 늘어난 반도체 등 설비투자 증가 사실</div>
+    
+    <table class="sector-row" role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
+      <td class="flow-name">전자장비와기기</td>
+      <td class="bar-cell">
+<table class="bar-track" role="presentation" cellpadding="0" cellspacing="0"><tr>
+  <td class="bar-half" align="right">
+    
+    <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr><td class="bar-empty-td" bgcolor="#EDE5D3" style="background:#EDE5D3;"></td></tr></table>
+    
+  </td>
+  <td class="bar-axis-col"><div class="bar-axis-line">&nbsp;</div></td>
+  <td class="bar-half" align="left">
+    
+    <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
+      <td class="bar-fill-td" width="19.5%" bgcolor="#C0392B" style="background:#C0392B;"></td>
+      <td class="bar-fill-td" width="8.4%" bgcolor="#A83226" style="background:#A83226;"></td>
+      <td class="bar-cap-td" width="3" bgcolor="#8E2B20" style="background:#8E2B20;"></td>
+      <td class="bar-empty-td" bgcolor="#EDE5D3" style="background:#EDE5D3;"></td>
+    </tr></table>
+    
+  </td>
+</tr></table>
+</td>
+      <td class="flow-val up">+2.79%</td>
+    </tr></table>
+    
+    
+    
+    <table class="sector-row" role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
+      <td class="flow-name">비철금속</td>
+      <td class="bar-cell">
+<table class="bar-track" role="presentation" cellpadding="0" cellspacing="0"><tr>
+  <td class="bar-half" align="right">
+    
+    <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
+      <td class="bar-empty-td" bgcolor="#EDE5D3" style="background:#EDE5D3;"></td>
+      <td class="bar-cap-td" width="3" bgcolor="#24476F" style="background:#24476F;"></td>
+      <td class="bar-fill-td" width="17.3%" bgcolor="#28517E" style="background:#28517E;"></td>
+      <td class="bar-fill-td" width="40.4%" bgcolor="#2F5A8F" style="background:#2F5A8F;"></td>
+    </tr></table>
+    
+  </td>
+  <td class="bar-axis-col"><div class="bar-axis-line">&nbsp;</div></td>
+  <td class="bar-half" align="left">
+    
+    <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr><td class="bar-empty-td" bgcolor="#EDE5D3" style="background:#EDE5D3;"></td></tr></table>
+    
+  </td>
+</tr></table>
+</td>
+      <td class="flow-val down">-5.77%</td>
+    </tr></table>
+    
+    
+    <table class="sector-row" role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
+      <td class="flow-name">우주항공과국방</td>
+      <td class="bar-cell">
+<table class="bar-track" role="presentation" cellpadding="0" cellspacing="0"><tr>
+  <td class="bar-half" align="right">
+    
+    <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
+      <td class="bar-empty-td" bgcolor="#EDE5D3" style="background:#EDE5D3;"></td>
+      <td class="bar-cap-td" width="3" bgcolor="#24476F" style="background:#24476F;"></td>
+      <td class="bar-fill-td" width="11.4%" bgcolor="#28517E" style="background:#28517E;"></td>
+      <td class="bar-fill-td" width="26.5%" bgcolor="#2F5A8F" style="background:#2F5A8F;"></td>
+    </tr></table>
+    
+  </td>
+  <td class="bar-axis-col"><div class="bar-axis-line">&nbsp;</div></td>
+  <td class="bar-half" align="left">
+    
+    <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr><td class="bar-empty-td" bgcolor="#EDE5D3" style="background:#EDE5D3;"></td></tr></table>
+    
+  </td>
+</tr></table>
+</td>
+      <td class="flow-val down">-3.79%</td>
+    </tr></table>
+    
+    
+    <div class="sector-interp">상승 상위 전자제품 +7.16%, 하락 하위 비철금속 -5.77%로 갈렸습니다.</div>
+  </div>
+  
+  <div class="flow-interp">코스피는 기관 순매도(-7,891)가 두드러졌습니다. 코스닥은 개인 순매수(+2,530)가 두드러졌습니다.</div>
+</div>
 
 
 
-  <div class="fx-label">오늘의 MOO:WORD — 하루 한 개, 30초 경제상식</div>
+<div class="overnight-wrap">
+  <div class="flag-data">Overnight <span class="colon">·</span> 글로벌 지수·금리·환율·거시</div>
+  
+  <div class="og-group-lbl first">지수</div>
+  <table class="og-table" role="presentation" cellpadding="0" cellspacing="0" width="100%">
+    
+    <tr><td class="k">다우존스</td><td class="v">53,185.90</td><td class="c down">▼ -0.70%</td></tr>
+    
+    <tr><td class="k">나스닥</td><td class="v">26,370.89</td><td class="c down">▼ -0.12%</td></tr>
+    
+    <tr><td class="k">S&P 500</td><td class="v">7,686.14</td><td class="c down">▼ -0.33%</td></tr>
+    
+    <tr><td class="k">니케이225</td><td class="v">66,405.56</td><td class="c up">▲ +0.41%</td></tr>
+    
+    <tr><td class="k">상해종합</td><td class="v">3,952.18</td><td class="c down">▼ -0.11%</td></tr>
+    
+  </table>
+  
+  
+  <div class="og-group-lbl">금리 · 환율</div>
+  <table class="og-table" role="presentation" cellpadding="0" cellspacing="0" width="100%">
+    
+    <tr><td class="k">미국채10년</td><td class="v">4.76</td>
+        <td class="c up">▲ +4bp</td></tr>
+    
+    <tr><td class="k">달러인덱스</td><td class="v">99.41</td>
+        <td class="c down">▼ -0.27%</td></tr>
+    
+    <tr><td class="k">원/달러</td><td class="v">1,366.96</td>
+        <td class="c down">▼ -0.63%</td></tr>
+    
+  </table>
+  
+  
+  <div class="og-group-lbl">원자재 · 변동성</div>
+  <table class="og-table" role="presentation" cellpadding="0" cellspacing="0" width="100%">
+    
+    <tr><td class="k">WTI</td><td class="v">86.31</td><td class="c up">▲ +3.44%</td></tr>
+    
+    <tr><td class="k">브렌트유</td><td class="v">88.53</td><td class="c up">▲ +0.27%</td></tr>
+    
+    <tr><td class="k">금</td><td class="v">4,497.30</td><td class="c down">▼ -0.15%</td></tr>
+    
+    <tr><td class="k">VIX</td><td class="v">14.92</td><td class="c up">▲ +3.40%</td></tr>
+    
+  </table>
+  
+  
+  <div class="og-group-lbl">주요 거시 <span style="float:right;font-size:9.5px;color:#B0A48A;font-weight:600;letter-spacing:0.04em;">값 · 기준일</span></div>
+  <table class="og-table" role="presentation" cellpadding="0" cellspacing="0" width="100%">
+    
+    <tr><td class="k">美 CPI(YoY)</td><td class="v">3.54%</td><td class="asof">2026-07-01</td></tr>
+    
+    <tr><td class="k">美 근원PCE(YoY)</td><td class="v">3.34%</td><td class="asof">2026-07-01</td></tr>
+    
+    <tr><td class="k">美 실업률</td><td class="v">4.1%</td><td class="asof">2026-07-01</td></tr>
+    
+    <tr><td class="k">美 기준금리</td><td class="v">3.75%</td><td class="asof">2026-08-31</td></tr>
+    
+  </table>
+  
+  <div class="og-note">미국·아시아 지수는 5개 중 1개 상승, 4개 하락으로 마감했습니다. VIX는 14.92로 관찰됩니다.</div>
+</div>
 
-  <div class="fx-word-card" style="background:#1B2740;">
-    <div class="fx-word-term">기준금리</div>
-    <div class="fx-word-def">중앙은행이 시중 금리의 기준으로 정하는 정책금리입니다.</div>
-    <div class="fx-word-why">오늘 등장: 그가 주도하는 금융통화위원회는 8월27일 기준금리를 0.25%포인트 올렸다.</div>
-    <div class="fx-word-hook">기억할 점: 오르면 대출이자↑·소비둔화, 내리면 반대로 움직입니다.</div>
 
-    <div class="fx-word-evidence">
-      <div class="fx-word-evidence-src">근거: 한국은행 · 한국은행 기준금리</div>
-      <div class="fx-word-evidence-ref">기준: 2026-08-27 · 단위: %</div>
-      <div class="fx-word-evidence-url"><a href="https://ecos.bok.or.kr/">출처 보기</a></div>
+
+
+<div class="chain-wrap">
+  <div class="flag-data">Signal Chain <span class="colon">·</span> 오늘의 연결고리</div>
+  
+  <div class="chain-mobile">
+  <table class="chain-grid" role="presentation" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+    
+    <td class="chip" width="50%"><div class="chip-inner">
+      <div class="chip-role">출발</div>
+      <div class="chip-label">지난밤 확인된 사건</div>
+      <div class="chip-detail up">중동 지정학적 불안이 다시 표면화되며 WTI 유가가 3.44% 급등했고, 뉴욕증시 주가지수 하락 및 미국 10년물 국채금리 상승(+0.04%p)이 동시 관측되었습니다.</div>
+    </div></td>
+    
+    <td class="chip" width="50%"><div class="chip-inner">
+      <div class="chip-role">동시변화</div>
+      <div class="chip-label">전달 경로</div>
+      <div class="chip-detail up">WTI 유가 급등(3.44%) 및 VIX 상승</div>
+    </div></td>
+    
+    </tr>
+    
+    <tr>
+    
+    <td class="chip outcome" width="50%"><div class="chip-inner">
+      <div class="chip-role">수급</div>
+      <div class="chip-label">국내 증시(코스피)</div>
+      <div class="chip-detail up">6,820.02 · +0.46% 상승</div>
+    </div></td>
+    
+    </tr>
+    
+  </table>
+  </div>
+  <div class="chain-desktop">
+  <table class="chain-grid" role="presentation" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+    
+    <td class="chip" width="25%"><div class="chip-inner">
+      <div class="chip-role">출발</div>
+      <div class="chip-label">지난밤 확인된 사건</div>
+      <div class="chip-detail up">중동 지정학적 불안이 다시 표면화되며 WTI 유가가 3.44% 급등했고, 뉴욕증시 주가지수 하락 및 미국 10년물 국채금리 상승(+0.04%p)이 동시 관측되었습니다.</div>
+    </div></td>
+    
+    <td class="chip" width="25%"><div class="chip-inner">
+      <div class="chip-role">동시변화</div>
+      <div class="chip-label">전달 경로</div>
+      <div class="chip-detail up">WTI 유가 급등(3.44%) 및 VIX 상승</div>
+    </div></td>
+    
+    <td class="chip outcome" width="25%"><div class="chip-inner">
+      <div class="chip-role">수급</div>
+      <div class="chip-label">국내 증시(코스피)</div>
+      <div class="chip-detail up">6,820.02 · +0.46% 상승</div>
+    </div></td>
+    
+    </tr>
+  </table>
+  </div>
+  <p class="chain-note">중동 지정학 불안에 따른 WTI 유가 3.44% 급등과 뉴욕증시 하락, 미국채 금리 상승이 관찰되었습니다.</p>
+  <div class="chain-strength">해석 강도: 제한적 · 동일 시점에 관찰된 흐름을 연결한 가정입니다.</div>
+</div>
+
+<div class="chapter-mark">
+  <div class="chap-bar">&nbsp;</div>
+  <table class="chap-row" role="presentation" cellpadding="0" cellspacing="0" width="100%">
+    <tr><td class="chap-num">CH · IV</td><td>Closing <span class="chap-kicker">— 오늘을 정리하고 내일을 준비한다</span></td></tr>
+  </table>
+</div>
+
+
+<div class="watch-wrap pt0">
+  <div class="flag-data">Today's Watch <span class="colon">·</span> 오늘의 관전 포인트</div>
+  <table class="watch-list" role="presentation" cellpadding="0" cellspacing="0" width="100%">
+  
+  <tr><td class="idx-num">01</td><td class="t">미-이란 무력 충돌 재개에 따른 브렌트유(88.53) 및 국제유가 추가 상승 여부</td></tr>
+  
+  <tr><td class="idx-num">02</td><td class="t">미-이란 무력 공방에 유가 급등 및 증시 하락</td></tr>
+  
+  <tr><td class="idx-num">03</td><td class="t">워시 연준 의장 연설과 인플레이션 논란</td></tr>
+  
+  </table>
+  <div class="watch-oneliner">지정학적 리스크와 유가 급등 속에서 반도체 설비투자 모멘텀과 원화 강세가 증시 하단을 지탱할지 관찰됩니다.</div>
+</div>
+
+<table class="brand-wrap" role="presentation" cellpadding="0" cellspacing="0" width="100%">
+  <tr><td class="spacer">&nbsp;</td><td class="body">
+    <div class="brand-card">
+      <div class="flag-brand">MOO<span class="colon">:</span>WORD <span class="sub">하루 한 개, 30초 경제상식</span></div>
+      <div class="purpose">오늘의 뉴스에 등장한 한 단어. 정의와 함의만 남깁니다.</div>
+      
+      <div class="word-term">산업생산</div>
+      <div class="word-def">산업생산은 제조업과 광업 등 국가 경제의 실물 부문에서 얼마나 많은 상품이 만들어지는지 보여주는 지표로 관찰됩니다. 이 수치를 통해 전반적인 경기 흐름의 변화를 가늠해볼 수 있는 것으로 보입니다.</div>
+      <div class="word-why"><b>오늘 등장</b>국내 실물 경기 흐름과 서비스업 감소 상황을 보여주는 주요 지표입니다.</div>
+      
+      
+      <div class="word-src">출처 파이낸셜뉴스</div>
+      
+      
     </div>
+  </td><td class="spacer">&nbsp;</td></tr>
+</table>
 
+
+<div class="risk-wrap">
+  <span class="risk-lbl">RISK · 관찰</span>
+  <p class="risk-text">미국-이란 지정학적 무력 충돌 재개에 따른 유가 지속 급등 가능성<br>미국 10년물 국채 금리 상승에 따른 증시 밸류에이션 부담</p>
+</div>
+
+
+<div class="footer-wrap">
+  <div class="footer-rule">&nbsp;</div>
+  <div class="footer-src-row"><span class="f-cat">시장·지수</span> FinanceDataReader · 네이버 금융</div>
+  <div class="footer-src-row"><span class="f-cat">거시·금리</span> 한국은행 ECOS · 美 연준 FRED</div>
+  <div class="footer-src-row"><span class="f-cat">공시·실적</span> 금융감독원 DART · Finnhub</div>
+  <div class="footer-src-row"><span class="f-cat">뉴스</span> 파이낸셜뉴스 · 연합뉴스마켓 · 매일경제</div>
+  <div class="footer-note">오늘의 흐름이 도움이 됐다면, 시장을 함께 보는 분께 이 메일을 전달해 주세요. 전달받으신 분도 무코노미 홈페이지에서 매일 아침 뉴스레터를 구독할 수 있습니다.</div>
+  
+  <div class="share-wrap">
+    <div class="share-lbl">SHARE · 공유하기</div>
+    <div class="share-text">이 브리핑을 다른 채널에도 공유해 주세요 — <a href="https://twitter.com/intent/tweet?url=https%3A//mooconomy.co.kr/issues/2026-09-01.html&amp;text=%EC%98%A4%EB%8A%98%EC%9D%98%20%EB%AC%B4%EC%BD%94%EB%85%B8%EB%AF%B8%20%EB%B8%8C%EB%A6%AC%ED%95%91" target="_blank">X</a> · <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//mooconomy.co.kr/issues/2026-09-01.html" target="_blank">페이스북</a> · <a href="https://social-plugins.line.me/lineit/share?url=https%3A//mooconomy.co.kr/issues/2026-09-01.html" target="_blank">라인</a> · <a href="https://www.threads.net/intent/post?text=%EC%98%A4%EB%8A%98%EC%9D%98%20%EB%AC%B4%EC%BD%94%EB%85%B8%EB%AF%B8%20%EB%B8%8C%EB%A6%AC%ED%95%91%20https%3A//mooconomy.co.kr/issues/2026-09-01.html" target="_blank">스레드</a></div>
+    <div class="share-text">카카오톡에는 이 링크를 그대로 붙여넣어 공유해 주세요: <a href="https://mooconomy.co.kr/issues/2026-09-01.html" target="_blank">https://mooconomy.co.kr/issues/2026-09-01.html</a></div>
   </div>
 
+  <div class="footer-note">하루의 움직임보다 더 긴 흐름이 궁금하다면 <a href="https://mooconomy.co.kr/" target="_blank">무코노미 홈페이지</a>에서 누적된 시장 기록과 지표를 확인해 보세요. 주간·월간 관점의 데이터도 순차적으로 확장합니다.</div>
 
-
-
-  <div class="fx-risk">
-    <div class="fx-risk-lbl">RISK · 관찰</div>
-    <div class="fx-risk-text">한·미 중앙은행의 긴축 기조 지속에 따른 통화정책 부담<br>외국인 및 기관의 수급 이탈 가속화 가능성</div>
-  </div>
-
-
-  <div class="fx-src">
-    <div class="fx-src-row"><span class="f-cat">시장·지수</span> FinanceDataReader · 네이버 금융</div>
-    <div class="fx-src-row"><span class="f-cat">거시·금리</span> 한국은행 ECOS · 美 연준 FRED</div>
-    <div class="fx-src-row"><span class="f-cat">공시·실적</span> 금융감독원 DART · Finnhub</div>
-
-
-    <div class="fx-src-row"><span class="f-cat">뉴스</span> 파이낸셜뉴스 · 한국경제 · 연합뉴스마켓 · MarketWatch</div>
-
-  </div>
-
-  <div class="fx-terminal-note">지표 터미널은 준비 중입니다.</div>
-
-  <div class="fx-terminal-note">오늘의 흐름이 도움이 됐다면, 시장을 함께 보는 분께 이 메일을 전달해 주세요. 전달받으신 분도 무코노미 홈페이지에서 매일 아침 뉴스레터를 구독할 수 있습니다.</div>
-
-
-
-  <div class="fx-share">
-    <div class="fx-share-lbl">SHARE · 공유하기</div>
-    <div class="fx-share-text">이 브리핑을 다른 채널에도 공유해 주세요 — <a class="fx-unsubscribe-link" href="https://twitter.com/intent/tweet?url=https%3A//mooconomy.co.kr/issues/2026-08-29.html&text=%EC%98%A4%EB%8A%98%EC%9D%98%20%EB%AC%B4%EC%BD%94%EB%85%B8%EB%AF%B8%20%EB%B8%8C%EB%A6%AC%ED%95%91" target="_blank">X</a> · <a class="fx-unsubscribe-link" href="https://www.facebook.com/sharer/sharer.php?u=https%3A//mooconomy.co.kr/issues/2026-08-29.html" target="_blank">페이스북</a> · <a class="fx-unsubscribe-link" href="https://social-plugins.line.me/lineit/share?url=https%3A//mooconomy.co.kr/issues/2026-08-29.html" target="_blank">라인</a> · <a class="fx-unsubscribe-link" href="https://www.threads.net/intent/post?text=%EC%98%A4%EB%8A%98%EC%9D%98%20%EB%AC%B4%EC%BD%94%EB%85%B8%EB%AF%B8%20%EB%B8%8C%EB%A6%AC%ED%95%91%20https%3A//mooconomy.co.kr/issues/2026-08-29.html" target="_blank">스레드</a></div>
-    <div class="fx-share-text">카카오톡에는 이 링크를 그대로 붙여넣어 공유해 주세요: <a class="fx-unsubscribe-link" href="https://mooconomy.co.kr/issues/2026-08-29.html" target="_blank">https://mooconomy.co.kr/issues/2026-08-29.html</a></div>
-  </div>
-
-  <div class="fx-terminal-note">하루의 움직임보다 더 긴 흐름이 궁금하다면 <a class="fx-unsubscribe-link" href="https://mooconomy.co.kr/" target="_blank">무코노미 홈페이지</a>에서 누적된 시장 기록과 지표를 확인해 보세요. 주간·월간 관점의 데이터도 순차적으로 확장합니다.</div>
-
-  <table class="fx-home-pill-wrap" role="presentation" cellpadding="0" cellspacing="0"><tr><td align="center">
+  <table class="footer-pill-wrap" role="presentation" cellpadding="0" cellspacing="0"><tr><td align="center">
     <table role="presentation" cellpadding="0" cellspacing="0"><tr>
-      <td class="fx-home-pill-cell"><a class="fx-home-pill-link" href="https://mooconomy.co.kr/#home/subscribe" target="_blank">처음 전달받으셨나요? 매일 아침 직접 받아보기 →</a></td>
+      <td class="footer-pill-cell"><a class="footer-pill-link" href="https://mooconomy.co.kr/#home/subscribe" target="_blank">처음 전달받으셨나요? 매일 아침 직접 받아보기 →</a></td>
     </tr></table>
   </td></tr></table>
+  <div class="footer-copyright">© 2026 Mooconomy</div>
+  <div><a class="footer-unsub" href="{{{RESEND_UNSUBSCRIBE_URL}}}">수신거부</a></div>
+</div>
 
-  <div class="fx-copyright">© 2026 Mooconomy</div>
-  <div class="fx-signoff">매일 아침 국내·해외 시장 맥락을 전달합니다.</div>
-  <div><span class="fx-unsubscribe-link">수신거부는 실제 수신한 이메일 하단에서 가능합니다</span></div>
-
-  </div>
 </td></tr>
 </table>
-<!--[if mso]>
-</td></tr></table>
-<![endif]-->
 </td></tr>
 </table>
-<div class="inner">
-<div class="fx-share-row">
-  <button type="button" id="shareBtn" class="fx-share-btn">공유하기</button>
-  <button type="button" id="copyLinkBtn" class="fx-share-btn secondary">링크 복사</button>
-  <span id="shareStatus" class="fx-share-status" role="status" aria-live="polite"></span>
-</div>
-<div class="fx-issue-nav"><a href="/issues/2026-08-28.html">← 2026-08-28</a><span></span></div><div class="fx-archive-link"><a href="/archive/">전체 발행 목록 보기</a></div>
-<script>
-(function () {
-  var btn = document.getElementById('shareBtn');
-  var copyBtn = document.getElementById('copyLinkBtn');
-  var status = document.getElementById('shareStatus');
-  var url = window.location.href.split('?')[0].split('#')[0];
-  var title = document.title;
-
-  function showStatus(msg) {
-    if (status) { status.textContent = msg; status.classList.add('show'); }
-  }
-
-  function fallbackCopy(text) {
-    var ta = document.createElement('textarea');
-    ta.value = text;
-    ta.style.position = 'fixed';
-    ta.style.left = '-9999px';
-    document.body.appendChild(ta);
-    ta.focus();
-    ta.select();
-    var ok = false;
-    try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
-    document.body.removeChild(ta);
-    return ok;
-  }
-
-  function copyLink() {
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(url).then(function () {
-        showStatus('링크가 복사됐습니다');
-      }).catch(function () {
-        showStatus(fallbackCopy(url) ? '링크가 복사됐습니다' : '복사에 실패했습니다');
-      });
-    } else {
-      showStatus(fallbackCopy(url) ? '링크가 복사됐습니다' : '복사에 실패했습니다');
-    }
-  }
-
-  if (btn) {
-    btn.addEventListener('click', function () {
-      if (navigator.share) {
-        navigator.share({ title: title, url: url }).catch(function (err) {
-          if (err && err.name === 'AbortError') return;  // 사용자가 취소
-          copyLink();
-        });
-      } else {
-        copyLink();
-      }
-    });
-  }
-  if (copyBtn) copyBtn.addEventListener('click', copyLink);
-})();
-</script>
-</div>
 </body>
 </html>

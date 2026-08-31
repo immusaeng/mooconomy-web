@@ -1,0 +1,236 @@
+{
+  "schema_version": "normalized-daily-issue/v1",
+  "edition_id": "2026-09-01",
+  "edition_date_kst": "2026-09-01",
+  "canonical_status": "production",
+  "production_status": "SEND_CONFIRMED",
+  "source_commit_sha": "61fe6c19b073fcfce6371ccd8914f434aa8aaf1f",
+  "subject": "미-이란 무력 공방 재개 속 국제유가 급등과 뉴욕증시 하락",
+  "preheader": "중동 지정학 불안에 따른 WTI 유가 3.44% 급등과 뉴욕증시 하락, 미국채 금리 상승이 관찰되었습니다. 이러한 대외 지표들은 증시 심리에 영향을 준 요인 중…",
+  "thesis": {
+    "headline": "미-이란 무력 공방 재개 속 국제유가 급등과 뉴욕증시 하락",
+    "three_signals": [
+      "미국과 이란의 무력충돌로 유가가 뛰며 뉴욕증시가 하락했습니다.",
+      "지난 거래일 코스피는 상승했으나 코스닥은 하락 마감했습니다.",
+      "오늘은 미국 고용지표 발표를 앞두고 관망세가 이어집니다."
+    ]
+  },
+  "main_story": {
+    "headline": "미-이란 무력 공방 재개 속 국제유가 급등과 뉴욕증시 하락",
+    "verified_fact": "미국과 이란의 무력 충돌이 재개되면서 국제유가가 급등하였고 뉴욕증시 주요 지수는 하락세를 기록했습니다.",
+    "why_it_matters": null,
+    "sources": []
+  },
+  "entities": [
+    {
+      "name": "WTI",
+      "type": "commodity"
+    },
+    {
+      "name": "금",
+      "type": "commodity"
+    }
+  ],
+  "metrics": [
+    {
+      "id": "kospi",
+      "value": 6820.02,
+      "change": 0.4587,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "kosdaq",
+      "value": 834.29,
+      "change": -0.4914,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "nasdaq",
+      "value": 26370.89,
+      "change": -0.1194,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "sp500",
+      "value": 7686.14,
+      "change": -0.3322,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1366.96,
+      "change": -8.71,
+      "displayMode": "delta",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "us10y",
+      "value": 4.76,
+      "change": 0.04,
+      "displayMode": "delta",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "wti",
+      "value": 86.31,
+      "change": 3.4396,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "vix",
+      "value": 14.92,
+      "change": 3.3957,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    }
+  ],
+  "market_changes": [
+    {
+      "id": "kospi",
+      "change": 0.4587,
+      "changeUnit": "%",
+      "direction": "up"
+    },
+    {
+      "id": "kosdaq",
+      "change": -0.4914,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "nasdaq",
+      "change": -0.1194,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "sp500",
+      "change": -0.3322,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "usdkrw",
+      "change": -8.71,
+      "changeUnit": "원",
+      "direction": "down"
+    },
+    {
+      "id": "us10y",
+      "change": 0.04,
+      "changeUnit": "%p",
+      "direction": "up"
+    },
+    {
+      "id": "wti",
+      "change": 3.4396,
+      "changeUnit": "%",
+      "direction": "up"
+    },
+    {
+      "id": "vix",
+      "change": 3.3957,
+      "changeUnit": "%",
+      "direction": "up"
+    }
+  ],
+  "narratives": {
+    "moo_view": "미국과 이란의 무력 충돌 재개로 국제유가가 급등하면서 중동발 인플레이션 우려가 제기되었고, 나스닥(-0.1194%)과 S&P500(-0.3322%) 등 주요 지표는 하락세를 보였습니다. 지정학적 악재 속에서도 원/달러 환율은 8.71원 내린 1366.96원을 기록하며 원화 강세 흐름을 나타냈고, 코스피 지수는 6820.02로 상대적 견조함을 보였습니다. 반도체 등 설비투자 증가 사실이 반영되며 전자제품(+7.16%) 등 특정 기술 업종을 중심으로 반등세가 전개되었으나, 비철금속(-5.77%) 등의 부진도 관찰됩니다. 만약 유가 상승세가 장기화된다면 글로벌 위험자산 투자 심리가 추가로 위축될 가능성이 높고, 그렇지 않다면 완만한 지지력이 유지될 수 있습니다. 한편 환율 하락과 설비투자 모멘텀이 증시 하단을 지탱하기보다 오히려 수출 기업의 가격 경쟁력에 부담을 줄 수 있다는 시각도 존재합니다.",
+    "todays_watch": [
+      "미-이란 무력 충돌 재개에 따른 브렌트유(88.53) 및 국제유가 추가 상승 여부",
+      "미-이란 무력 공방에 유가 급등 및 증시 하락",
+      "워시 연준 의장 연설과 인플레이션 논란"
+    ],
+    "todays_watch_oneliner": "지정학적 리스크와 유가 급등 속에서 반도체 설비투자 모멘텀과 원화 강세가 증시 하단을 지탱할지 관찰됩니다.",
+    "content_status": "GENERATED"
+  },
+  "moo_q": {
+    "claim_id": "2026-09-01-c1",
+    "claim_text": "외국인 순매도 흐름 속에서 코스닥이 하락세를 이어갈까요?",
+    "topic": "코스닥 다음 거래일 방향(flow_divergence)",
+    "resolution_at": "2026-09-02",
+    "status": "unresolved"
+  },
+  "moo_check": [
+    {
+      "previous_claim": "외국인 순매도 흐름 속에서 코스피가 하락세를 이어갈까요?",
+      "claim_date": "2026-08-29",
+      "evaluation_date": "2026-09-01T06:48:42+09:00",
+      "observed_result": "실제 변화가 예상한 하락 방향과 다르게 움직였습니다.",
+      "verdict": "MISS",
+      "evidence": "6788.88 → 6820.02 (+0.46%)",
+      "source": "KRX"
+    }
+  ],
+  "moo_word": {
+    "id": "open_산업생산",
+    "term": "산업생산",
+    "definition": "산업생산은 제조업과 광업 등 국가 경제의 실물 부문에서 얼마나 많은 상품이 만들어지는지 보여주는 지표로 관찰됩니다. 이 수치를 통해 전반적인 경기 흐름의 변화를 가늠해볼 수 있는 것으로 보입니다.",
+    "why_today": "국내 실물 경기 흐름과 서비스업 감소 상황을 보여주는 주요 지표입니다.",
+    "memory_hook": null,
+    "source_label": "파이낸셜뉴스",
+    "article_id": "news_9",
+    "article_url": "https://www.fnnews.com/news/202608311839373731",
+    "article_publisher": "파이낸셜뉴스",
+    "evidence_snippets": [
+      "7월 산업생산이 수출 호조에도 제자리걸음을 했다."
+    ],
+    "definition_source_name": null,
+    "definition_source_url": null,
+    "definition_priority": "P2_SOURCES_PARTIAL",
+    "origin": "llm_proposed",
+    "grounded_in_article": true,
+    "definition_evidence_verified": true,
+    "status": "ELIGIBLE_FOR_PUBLICATION",
+    "eligible_for_publication": true
+  },
+  "sources": [
+    {
+      "source_name": "파이낸셜뉴스",
+      "source_url": "https://www.fnnews.com/news/202608311839373731",
+      "published_at": "2026-08-31",
+      "source_headline": "서비스업 4년5개월래 최대 감소... 반도체 등 설비투자 7.5% 증가"
+    },
+    {
+      "source_name": "연합뉴스마켓",
+      "source_url": "https://www.yna.co.kr/view/AKR20260831169300008",
+      "published_at": "2026-09-01",
+      "source_headline": "[코스피·코스닥 전 거래일(31일) 주요공시]"
+    },
+    {
+      "source_name": "매일경제",
+      "source_url": "https://www.mk.co.kr/news/economy/12140866",
+      "published_at": "2026-09-01",
+      "source_headline": "한일전 2배 점수차로 졌다…금융사 주가 저평가 이유 살펴보니"
+    },
+    {
+      "source_name": "매일경제",
+      "source_url": "https://www.mk.co.kr/news/economy/12140470",
+      "published_at": "2026-09-01",
+      "source_headline": "월가 여장부의 일갈 … “워시의 연설, 인플레 방치 자인한 셈”"
+    }
+  ],
+  "public_url": "https://mooconomy.co.kr/latest-email.html",
+  "validation_status": {
+    "main_story_status": "SELECTED",
+    "content_provenance": "VALIDATED_GEMINI_36",
+    "moo_word_present": true,
+    "sources_count": 4,
+    "is_approximate": false
+  },
+  "content_hash": "14cfbadc73fc0a39d8b79f5083b0d1bd5e1be94ddeb9bbfa1f11e50a32cd8a0e",
+  "archived_at": "2026-08-31T21:51:58.050389+00:00"
+}
