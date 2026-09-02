@@ -8,484 +8,424 @@
 <meta name="supported-color-schemes" content="light only">
 <title>Daily MOO:conomy</title>
 <style>
+
   body {
     margin: 0; padding: 0;
-    background: #E5DFD1;
-    color: #1F1811;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Malgun Gothic', Arial, sans-serif;
+    background: #EFEAD9;
+    color: #1A1613;
+    font-family: -apple-system, BlinkMacSystemFont, 'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Segoe UI', Arial, sans-serif;
     font-size: 14px;
-    line-height: 1.6;
+    line-height: 1.75;
     -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
   }
-  .sheet { width: 100%; max-width: 720px; margin: 0 auto; background: #FBF7EF; }
-  .pad-l { padding: 0 40px; }
-  @media (max-width: 640px) {
+  .sheet { width: 100%; max-width: 760px; margin: 0 auto; background: #FBF7ED; }
+  .pad-l { padding: 0 48px; }
+  @media (max-width: 700px) {
     .sheet { width: 100% !important; max-width: 100% !important; }
-    .pad-l { padding: 0 20px !important; }
+    .pad-l { padding: 0 18px !important; }
   }
-
-  /* 유틸 */
   .pt0 { padding-top: 0 !important; }
-  /* 하이라이트(2026-08-30 [D] 신설) — 투명도·그라디언트 금지. 적용 대상은 다음 단계에서 지정 */
-  .hl { background: #F5E7C6; color: #6B4818; padding: 0 3px; border-radius: 3px; }
 
-  /* 웹에서 보기(2026-08-30 [F], v2에서 이식) — 밝은 바깥 배경(#E5DFD1) 위 */
-  .view-in-browser { text-align: center; padding: 8px 0 4px; }
-  .view-in-browser a { display: inline-block; min-height: 32px; line-height: 32px; color: #5A4E3B; text-decoration: underline; font-size: 11.5px; }
+  /* View in browser */
+  .view-in-browser { text-align: center; padding: 10px 0 6px; background: #EFEAD9; }
+  .view-in-browser a { display: inline-block; min-height: 28px; line-height: 28px; color: #6B5B44; text-decoration: underline; font-size: 11.5px; font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif; font-style: italic; }
 
-  /* Section flag — 두 종류 */
-  .flag-brand {
-    font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
-    font-size: 22px; font-weight: 800; color: #1F1811;
-    letter-spacing: -0.02em; line-height: 1; font-style: italic; margin: 0 0 24px;
-  }
-  .flag-brand .colon { color: #9C6B1F; font-style: normal; }
-  .flag-brand .sub {
-    font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
-    font-size: 10.5px; color: #8A7B60; font-style: normal; font-weight: 700;
-    letter-spacing: 0.14em; margin-left: 10px; text-transform: uppercase; vertical-align: 3px;
-  }
-  .flag-data {
-    font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
-    font-size: 12px; font-weight: 800; color: #5A4E3B; letter-spacing: 0.18em;
-    text-transform: uppercase; line-height: 1.3; margin: 0 0 16px;
-  }
-  .flag-data .colon { color: #8A7B60; }
-  .flag-data .r { float: right; font-weight: 700; color: #B0A48A; letter-spacing: 0.06em; text-transform: none; font-size: 10px; }
+  /* Section flags */
+  .flag-data { font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif; font-size: 13px; font-weight: 700; color: #6B4B15; letter-spacing: 0.22em; text-transform: uppercase; line-height: 1.3; margin: 0 0 10px; border-bottom: 1px solid #C9B98A; padding-bottom: 10px; font-style: italic; }
+  .flag-data .status-box { float: right; display: inline-block; font-family: 'Iowan Old Style', Georgia, serif; font-weight: 700; font-style: normal; font-size: 12px; color: #6B4B15; background: #F2E4C0; padding: 4px 12px; letter-spacing: 0.06em; text-transform: none; margin-top: -3px; }
+  .flag-data .r { float: right; font-family: 'Iowan Old Style', Georgia, serif; font-weight: 400; color: #A08A5E; font-size: 11px; font-style: italic; letter-spacing: 0.04em; text-transform: none; }
+
+  .flag-brand { font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif; font-size: 23px; font-weight: 800; color: #1A1613; letter-spacing: -0.02em; line-height: 1.15; font-style: italic; margin: 0 0 14px; }
+  .flag-brand .colon { color: #9E6A15; font-style: normal; }
+  .flag-brand .arrow { color: #9E6A15; font-style: normal; margin: 0 4px; }
+  .flag-brand .sub { font-family: -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 12px; color: #8A7550; font-style: normal; font-weight: 400; letter-spacing: 0; margin-left: 10px; }
 
   /* Masthead */
-  .masthead { padding: 32px 0 18px; }
-  .brand-wm {
-    font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
-    font-size: 26px; font-weight: 800; color: #1F1811; letter-spacing: -0.025em; line-height: 1;
-  }
-  .brand-wm .g { color: #9C6B1F; }
-  .mast-tagline { font-family: -apple-system, sans-serif; font-size: 12.5px; color: #5A4E3B; line-height: 1.55; margin-top: 10px; word-break: keep-all; }
-  .mast-rule { height: 2px; line-height: 2px; font-size: 0; background: #3A2F1F; margin-top: 16px; }
-  .mast-meta { width: 100%; border-collapse: collapse; margin-top: 10px; }
-  .mast-meta td { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 11px; color: #5A4E3B; letter-spacing: 0.06em; padding: 0; }
+  .masthead { padding: 36px 0 22px; text-align: center; border-bottom: 3px double #3A2D18; }
+  .brand-wm { font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif; font-size: 44px; font-weight: 800; color: #1A1613; letter-spacing: -0.03em; line-height: 1; }
+  .brand-wm .g { color: #9E6A15; }
+  .mast-tagline { font-family: -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 13.5px; color: #6B5B44; line-height: 1.55; margin-top: 12px; word-break: keep-all; }
+  .mast-meta { width: 100%; border-collapse: collapse; margin-top: 18px; padding-top: 14px; border-top: 1px solid #E4D8B8; }
+  .mast-meta td { font-family: -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; font-size: 12px; color: #8A7550; letter-spacing: 0.02em; padding: 0; }
   .mast-meta .r { text-align: right; }
-  .mast-meta .status-badge {
-    display: inline-block; background: #F5E7C6; color: #6B4818; padding: 3px 10px;
-    font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; font-size: 10px;
+  .mast-meta .status-badge { display: inline-block; background: #F2E4C0; color: #6B4B15; padding: 4px 12px; font-weight: 700; letter-spacing: 0.06em; font-size: 11.5px; font-family: -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; }
+  @media (max-width: 700px) {
+    .masthead { padding: 26px 0 18px !important; }
+    .brand-wm { font-size: 34px !important; }
+    .mast-tagline { font-size: 13px !important; margin-top: 10px !important; }
+    .mast-meta td { font-size: 11px !important; }
+    .mast-meta .l, .mast-meta .r { display: block !important; text-align: center !important; }
+    .mast-meta .r { margin-top: 6px !important; }
   }
 
-  /* Ribbon — MOO:CHECK 요약(어제 판정), 질문일 기준 Q. MM-DD */
-  .ribbon { background: #F5E7C6; border-top: 1px solid #E9B547; border-bottom: 1px solid #E9B547; padding: 12px 40px; margin-top: 6px; }
-  @media (max-width: 640px) { .ribbon { padding: 10px 20px !important; } }
-  .ribbon-row { width: 100%; border-collapse: collapse; table-layout: auto; }
-  .ribbon-row td { padding: 0; vertical-align: middle; line-height: 1.4; }
-  .ribbon-mark {
-    font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
-    font-size: 13.5px; font-weight: 800; color: #6B4818; letter-spacing: -0.015em;
-    font-style: italic; white-space: nowrap; padding-right: 10px !important;
-  }
-  .ribbon-mark .colon { color: #9C6B1F; font-style: normal; }
-  .ribbon-qdate {
-    font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
-    font-size: 11px; font-weight: 700; color: #6B4818; letter-spacing: 0.04em;
-    white-space: nowrap; padding-right: 10px !important;
-  }
-  .ribbon-summary { font-family: -apple-system, sans-serif; font-size: 12.5px; color: #3A2F1F; letter-spacing: -0.005em; line-height: 1.4; word-break: keep-all; }
-  .ribbon-verdict { text-align: right; padding-left: 8px !important; white-space: nowrap; }
-  .ribbon-arrow {
-    text-align: center; padding: 6px 40px 0; font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
-    font-size: 10px; color: #9C6B1F; letter-spacing: 0.12em; line-height: 1.3;
-  }
-  @media (max-width: 640px) {
-    .ribbon-arrow { padding: 6px 20px 0 !important; }
-    .ribbon-mark { font-size: 12.5px !important; padding-right: 8px !important; }
-    .ribbon-qdate { font-size: 10.5px !important; padding-right: 6px !important; }
-    .ribbon-summary { font-size: 11.5px !important; }
-  }
+  /* Hero */
+  .hero { padding: 24px 48px 18px; }
+  @media (max-width: 700px) { .hero { padding: 18px 18px 14px !important; } }
+  .hero-kicker { font-family: 'Iowan Old Style', Georgia, serif; font-size: 11.5px; font-weight: 700; color: #9E6A15; letter-spacing: 0.24em; text-transform: uppercase; margin: 0 0 12px; }
+  .hero-headline { font-family: -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 26px; font-weight: 800; line-height: 1.35; letter-spacing: -0.02em; color: #1A1613; margin: 0; word-break: keep-all; }
+  @media (max-width: 700px) { .hero-headline { font-size: 22px !important; } }
+  .deck-wrap { margin-top: 12px; padding-top: 10px; border-top: 1px solid #E4D8B8; }
+  .deck-line { font-family: -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 14px; font-weight: 400; color: #6B5B44; line-height: 1.55; word-break: keep-all; margin: 0; }
+  @media (max-width: 700px) { .deck-line { font-size: 13.5px !important; } }
 
-  /* 판정 배지 6종 — 리본용 4자(v-mini) / 밴드용 한글(verdict-tag) */
-  .v-mini {
-    display: inline-block; font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
-    font-size: 10px; font-weight: 800; padding: 3px 7px; letter-spacing: 0.1em;
-    border-left: 3px solid #8A7B60; background: #E8DFCB; color: #5A4E3B;
-  }
-  .v-mini.v-hit     { background: #F5D4CE; color: #C0392B; border-left-color: #C0392B; }
-  .v-mini.v-miss    { background: #D6DFEB; color: #2F5A8F; border-left-color: #2F5A8F; }
-  .v-mini.v-neutral { background: #E8DFCB; color: #5A4E3B; border-left-color: #8A7B60; }
-  .v-mini.v-pending { background: transparent; color: #8A7B60; border-left-color: #B0A48A; border-left-style: dashed; }
-  .v-mini.v-invalid { background: #EDE5D3; color: #5A4E3B; border-left-color: #5A4E3B; }
-  .v-mini.v-error   { background: transparent; color: #8A7B60; font-style: italic; border-left-color: transparent; padding-left: 4px; }
-
-  .verdict-tag {
-    display: inline-block; font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
-    font-size: 11px; font-weight: 800; padding: 4px 10px 4px 12px; letter-spacing: 0.06em;
-    margin-top: 8px; border-left: 3px solid #8A7B60; background: #E8DFCB; color: #5A4E3B;
-  }
-  .verdict-tag.v-hit     { background: #F5D4CE; color: #C0392B; border-left-color: #C0392B; }
-  .verdict-tag.v-miss    { background: #D6DFEB; color: #2F5A8F; border-left-color: #2F5A8F; }
-  .verdict-tag.v-neutral { background: #E8DFCB; color: #5A4E3B; border-left-color: #8A7B60; }
-  .verdict-tag.v-pending { background: transparent; color: #8A7B60; border-left-color: #B0A48A; border-left-style: dashed; }
-  .verdict-tag.v-invalid { background: #EDE5D3; color: #5A4E3B; border-left-color: #5A4E3B; }
-  .verdict-tag.v-error   { background: transparent; color: #8A7B60; font-style: italic; border-left-color: transparent; padding-left: 4px; }
-  .verdict-tag .glyph { display: inline-block; margin-right: 6px; font-weight: 900; }
-
-  /* Hero — 2026-08-30 [D]: .pad-l 이중 패딩 제거, hero 자체가 좌우 40px(모바일 20px) 단일 소스 */
-  .hero { padding: 36px 40px 36px; }
-  @media (max-width: 640px) { .hero { padding: 24px 20px 28px !important; } }
-  .hero-kicker {
-    font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
-    font-size: 13px; font-weight: 700; color: #9C6B1F; font-style: italic; letter-spacing: 0.02em; margin: 0 0 16px;
-  }
-  .hero-headline { font-size: 24px; font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; color: #1F1811; margin: 0; word-break: keep-all; }
-  @media (max-width: 640px) { .hero-headline { font-size: 20px !important; } }
-
-  /* Story Deck(2026-08-30, S 지시서) — 헤드라인 직하 2줄×최대3쌍 부제.
-     새 색 토큰 신설 없음 — .story-why와 동일한 --gold 계열 3px 좌측 보더
-     재사용. .hl 미적용(헤드라인·부제 동시 강조는 위계를 오히려 해침),
-     |sentences 필터 미적용(deck 줄은 종결어미 없는 명사구라 문장분할기가
-     오작동할 수 있어 우회). */
-  /* D-1(2026-08-30) — 3쌍 구조 폐기, 단일 반문형 1줄로 축소. 골드 좌측
-     보더 제거(위계를 헤드라인보다 확실히 낮춤), 톤 다운(굵기/크기/색). */
-  .deck-wrap { margin-top: 10px; }
-  .deck-line { font-family: 'Nanum Myeongjo', 'Apple SD Gothic Neo', Georgia, serif; font-size: 13.5px; font-weight: 400; color: #8A7B60; line-height: 1.5; letter-spacing: 0.01em; word-break: keep-all; margin-top: 8px; }
-
-  /* 챕터 마크 — 2026-08-30 [C] 간격 압축: 60/24 → 36/16 (모바일 48/20 → 28/12) */
-  .chapter-mark { padding: 60px 40px 24px; }
-  @media (max-width: 640px) { .chapter-mark { padding: 48px 20px 20px !important; } }
-  .chap-bar { height: 8px; line-height: 8px; font-size: 0; background: #1F1811; margin-bottom: 18px; }
+  /* Chapter mark */
+  /* 2026-09-01(W-10, V8 LLM 고도화·모델 분산) — chapter separator 과도한
+     공백 제거. 정확한 목표값이 지시서에 없어, 다른 데스크톱 여백 축소폭
+     (당시 brand-card/metrics-wrap 좌우 48px→17px, 약 -63%)과 균형이 맞도록
+     세로 padding만 보수적으로 줄인다(좌우 48px는 별도 지시가 없어 유지).
+     2026-09-02(CEO 재지시, "데스크톱 공통 좌우 gutter는 하나의 토큰으로
+     통일") — brand-card/metrics-wrap의 17px 예외를 없애고 이 섹션과
+     동일한 48px(모바일 18px)로 통일했다(아래 두 규칙 참고) — 이 절
+     주석은 그 예외가 왜 생겼었는지 이력만 남겨둔다. */
+  .chapter-mark { padding: 20px 48px 12px; }
+  @media (max-width: 700px) { .chapter-mark { padding: 22px 18px 12px !important; } }
+  .chap-bar { height: 4px; line-height: 4px; font-size: 0; background: #1A1613; margin-bottom: 14px; }
   .chap-row { width: 100%; border-collapse: collapse; }
-  .chap-row td {
-    font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
-    font-size: 15px; font-weight: 800; color: #1F1811; letter-spacing: -0.005em; vertical-align: baseline; padding: 0;
+  .chap-row td { vertical-align: baseline; padding: 0; }
+  .chap-num { width: 84px; font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif; font-size: 18px; font-weight: 800; color: #9E6A15; font-style: italic; letter-spacing: 0.02em; padding-right: 14px !important; }
+  .chap-title { font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif; font-size: 21px; font-weight: 800; color: #1A1613; letter-spacing: -0.005em; }
+  .chap-kicker { display: block; font-family: -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; font-size: 13px; font-weight: 400; color: #6B5B44; letter-spacing: 0; line-height: 1.4; margin-top: 5px; word-break: keep-all; }
+  @media (max-width: 700px) {
+    .chap-num { width: 66px !important; font-size: 16px !important; padding-right: 10px !important; }
+    .chap-title { font-size: 18px !important; }
+    .chap-kicker { font-size: 12px !important; }
   }
-  .chap-num { width: 66px; color: #9C6B1F; letter-spacing: 0.02em; font-style: italic; padding-right: 14px !important; }
-  .chap-kicker { font-family: -apple-system, sans-serif; font-size: 13.5px; font-weight: 400; color: #5A4E3B; letter-spacing: 0; line-height: 1.4; }
 
-  /* Today's 3 Signals — 2026-08-30 [C] 섹션 wrap 40→28(모바일 32→20) */
-  .signals-strip { padding: 28px 40px 0; }
-  @media (max-width: 640px) { .signals-strip { padding: 20px 20px 0 !important; } }
+  /* 3 Signals */
+  .signals-strip { padding: 22px 48px 0; }
+  @media (max-width: 700px) { .signals-strip { padding: 14px 18px 0 !important; } }
   .signals { width: 100%; border-collapse: collapse; }
-  .signals td { padding: 12px 0; vertical-align: top; }
-  .signals tr + tr td { border-top: 1px solid #E8DFCB; }
-  .signals .t { font-size: 14.5px; line-height: 1.65; color: #1F1811; word-break: keep-all; }
+  .signals td { padding: 4px 0 5px; vertical-align: top; }
+  .signals .t { font-family: -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 15px; line-height: 1.55; color: #1A1613; word-break: keep-all; }
+  @media (max-width: 700px) { .signals .t { font-size: 14.5px !important; } }
+  .idx-num { width: 34px; font-family: 'Iowan Old Style', Georgia, serif; font-size: 14px; font-weight: 700; color: #9E6A15; letter-spacing: 0; line-height: 1.55; padding-right: 12px; font-style: italic; vertical-align: top; }
+  @media (max-width: 700px) { .idx-num { width: 28px !important; padding-right: 8px !important; } }
 
-  /* Main Metrics — Outlook 대응: table + td padding 패턴(구분자 CSS 미사용).
-     2026-08-30 [C] 섹션 wrap 40→28(모바일 32→20) / [E] 모바일 !important 보정 */
-  .metrics-wrap { padding: 28px 40px 0; }
-  @media (max-width: 640px) { .metrics-wrap { padding: 20px 20px 0 !important; } }
+  /* Metrics */
+  .metrics-wrap { padding: 22px 48px 0; }
+  @media (max-width: 700px) { .metrics-wrap { padding: 14px 18px 0 !important; } }
   .metrics-grid { width: 100%; border-collapse: collapse; table-layout: fixed; }
-  .metrics-grid td { width: 33.33%; vertical-align: top; padding: 4px; }
-  .metrics-grid .cell-inner { background: #FFFEFA; border: 1px solid #E8DFCB; padding: 14px 6px 12px; }
-  .m-label { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 10.5px; font-weight: 700; color: #8A7B60; letter-spacing: 0.08em; text-transform: uppercase; }
-  .m-value { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 24px; font-weight: 700; color: #1F1811; letter-spacing: -0.01em; line-height: 1.1; margin: 8px 0 6px; white-space: nowrap; font-variant-numeric: tabular-nums; }
-  .m-value.missing { color: #B0A48A; font-size: 20px; }
-  .m-chg { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 11.5px; font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
-  .up { color: #C0392B; } .down { color: #2F5A8F; } .flat { color: #8A7B60; }
-  @media (max-width: 640px) {
-    /* 2026-09-01(STEP 1A, 폭 오염 진단) — 이전엔 여기서 3열을 2열(50%)로
-       바꾸면서 table-layout도 auto로 풀었었다. 그런데 실제 <tr>의 <td>는
-       여전히 3개라 "50%×3=150%"라는 코드상 정합성 결함이었다(overflow가
-       실측으로 확인된 적은 없음 — 이 사실 자체가 결함의 증거는 아니다).
-       auto layout은 셀의 min-content 폭을 바닥값으로 삼는데, nowrap이 걸린
-       숫자는 min-content가 문자열 전체 폭이라 실질적 폭 오염원이 될 수
-       있었다. table-layout을 fixed로 고정하고 실제 <td> 개수(3개)에 맞춰
-       33.333%로 정합성을 맞춘다. 숫자가 넘치면 50%로 되돌리지 않는다 —
-       cell-inner padding 축소 → m-value 폰트 축소 → 레이블 자간 축소 →
-       숫자 표기 단축 → (그래도 안 되면) 2열×3행 마크업 재구성 순으로
-       대응한다(STEP 1A 지시). */
-    .metrics-grid { width: 100% !important; table-layout: fixed !important; }
+  .metrics-grid td { width: 33.33%; vertical-align: top; padding: 0; }
+  .metrics-grid .cell-inner { background: #FFFCF3; border-top: 2px solid #3A2D18; border-right: 1px solid #E4D8B8; padding: 12px 10px 12px; text-align: center; }
+  .metrics-grid td:last-child .cell-inner { border-right: none; }
+  .metrics-grid tr + tr td .cell-inner { border-top: 1px solid #E4D8B8; }
+  .metrics-grid tr:first-child td .cell-inner { border-top: 2px solid #3A2D18; }
+  .m-label { font-family: -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; font-size: 12px; font-weight: 400; color: #8A7550; letter-spacing: 0.02em; text-align: left; display: block; }
+  .m-value { font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif; font-size: 26px; font-weight: 700; color: #1A1613; letter-spacing: -0.01em; line-height: 1.05; margin: 6px 0 4px; white-space: nowrap; font-variant-numeric: tabular-nums; text-align: center; }
+  .m-value.missing { color: #B8AA85; font-size: 20px; }
+  .m-chg { font-family: 'Iowan Old Style', Georgia, serif; font-size: 12.5px; font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; text-align: center; }
+  .up { color: #8B2318; } .down { color: #1E3A5F; } .flat { color: #8A7550; }
+  @media (max-width: 700px) {
     .metrics-grid td { width: 33.333% !important; }
-    .m-value { font-size: 20px !important; white-space: normal !important; }
-    .m-label { font-size: 10px !important; }
+    .metrics-grid .cell-inner { padding: 10px 6px 10px !important; }
+    .m-value { font-size: 20px !important; }
+    .m-label { font-size: 11px !important; }
+    .m-chg { font-size: 11.5px !important; }
   }
-  .asof-note { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 10px; color: #B0A48A; letter-spacing: 0.06em; text-align: right; margin-top: 8px; }
 
-  /* Temperature — 한글 이탤릭 폐기. 2026-08-30 [C]/[D]: 섹션 wrap 압축,
-     상태값을 24px 단독 블록에서 라벨 우측 13px 볼드 인라인으로 */
-  .temp-wrap { padding: 28px 40px 0; }
-  @media (max-width: 640px) { .temp-wrap { padding: 20px 20px 0 !important; } }
-  .temp-status-inline { font-size: 13px; font-weight: 800; color: #6B4818; margin-left: 8px; }
-  .temp-summary { font-size: 14.5px; line-height: 1.7; color: #2F281D; margin: 0 0 20px; word-break: keep-all; }
+  /* Temperature */
+  .temp-wrap { padding: 22px 48px 0; }
+  @media (max-width: 700px) { .temp-wrap { padding: 14px 18px 0 !important; } }
+  .temp-summary { font-family: -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; font-size: 14.5px; line-height: 1.6; color: #2A2318; margin: 0 0 16px; word-break: keep-all; }
+  @media (max-width: 700px) { .temp-summary { font-size: 14px !important; } }
   .temp-bar { width: 100%; border-collapse: collapse; table-layout: fixed; }
-  .temp-bar td { height: 8px; font-size: 0; line-height: 0; padding: 0; }
-  .temp-bar td.seg { background: #E8DFCB; }
-  .temp-bar td.seg.on { background: #9C6B1F; }
-  .temp-bar td.gap { width: 6px; padding: 0; }
+  .temp-bar td { height: 9px; font-size: 0; line-height: 0; padding: 0; }
+  .temp-bar td.seg { background: #E4D8B8; }
+  .temp-bar td.seg.on { background: #9E6A15; }
+  .temp-bar td.gap { width: 4px; padding: 0; }
   .temp-labels { width: 100%; border-collapse: collapse; table-layout: fixed; margin-top: 8px; }
-  .temp-labels td { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 10.5px; color: #8A7B60; letter-spacing: 0.02em; text-align: left; padding: 0; }
-  .temp-labels td.on { color: #1F1811; font-weight: 700; }
-  .temp-labels td.gap { width: 6px; }
-  .temp-trail-wrap { margin-top: 22px; padding-top: 16px; border-top: 1px solid #E8DFCB; }
-  .temp-trail-lbl { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 10px; font-weight: 700; color: #8A7B60; letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 10px; }
+  .temp-labels td { font-family: -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; font-size: 11px; color: #8A7550; letter-spacing: 0; text-align: left; padding: 0; }
+  .temp-labels td.on { color: #1A1613; font-weight: 700; }
+  .temp-labels td.gap { width: 4px; }
+  .temp-trail-wrap { margin-top: 18px; padding-top: 14px; border-top: 1px solid #E4D8B8; }
+  .temp-trail-header { width: 100%; border-collapse: collapse; margin-bottom: 10px; }
+  .temp-trail-header td { font-family: 'Iowan Old Style', Georgia, serif; font-size: 11.5px; font-weight: 700; color: #8A7550; letter-spacing: 0.02em; padding: 0; font-style: italic; }
+  .temp-trail-header td.r { text-align: right; }
   .temp-trail { width: 100%; border-collapse: collapse; table-layout: fixed; }
   .temp-trail td { vertical-align: bottom; text-align: center; padding: 0; }
-  .temp-trail td.gap { width: 6px; }
-  .temp-trail-axis { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 9px; color: #B0A48A; letter-spacing: 0.04em; margin-top: 4px; }
-  .trail-day { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 9.5px; color: #8A7B60; margin-top: 5px; letter-spacing: 0.04em; }
-  .trail-day.today { color: #1F1811; font-weight: 700; }
-  .temp-asof { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 10.5px; color: #8A7B60; margin-top: 12px; }
+  .temp-trail td.gap { width: 4px; }
+  .trail-day { font-family: 'Iowan Old Style', Georgia, serif; font-size: 10.5px; color: #8A7550; margin-top: 5px; font-style: italic; }
+  .trail-day.today { color: #1A1613; font-weight: 700; font-style: normal; }
+  .temp-note-line { font-family: -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; font-size: 11px; color: #A08A5E; margin-top: 10px; text-align: center; padding-top: 8px; border-top: 1px dashed #E4D8B8; word-break: keep-all; }
 
-  /* Korea Flow — 2026-08-30 [C] 섹션 wrap 압축 */
-  .flow-wrap { padding: 28px 40px 0; }
-  @media (max-width: 640px) { .flow-wrap { padding: 20px 20px 0 !important; } }
-  .flow-market { padding: 0 0 20px; }
-  .flow-market + .flow-market { padding-top: 20px; border-top: 1px solid #E8DFCB; }
-  .flow-market-header { width: 100%; border-collapse: collapse; margin-bottom: 10px; }
-  .flow-market-header td { padding: 0; }
-  .flow-market-lbl { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 11px; font-weight: 800; color: #6B4818; letter-spacing: 0.14em; text-transform: uppercase; }
-  /* H-1(2026-08-30) — 눈금 라벨(좌/중앙/우). "축 · ±20,000억원"(암산 요구)
-     캡션 폐기 — 축 정보가 곧 해석이므로 480px 이하에서도 숨기지 않는다. */
-  .flow-axis-scale { width: 100%; border-collapse: collapse; margin: 2px 0 8px; table-layout: fixed; }
-  .flow-axis-scale td { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 9.5px; color: #B0A48A; letter-spacing: 0.04em; padding: 0; }
-  .flow-axis-scale td.l { text-align: left; }
-  .flow-axis-scale td.c { text-align: center; }
-  .flow-axis-scale td.r { text-align: right; }
-  /* H-2 — name/val 컬럼 폭 공용 토큰(D-5 .idx-num과 같은 방식), 92px→108px로
-     확장 + table-layout:fixed 병행 — 이게 없으면 auto layout이 업종명
-     길이에 맞춰 폭을 재계산해 코스피/코스닥/업종 세 블록의 중앙 축선
-     x좌표가 서로 달라진다. */
-  .flow-name { width: 108px; font-family: -apple-system, sans-serif; font-size: 13px; color: #2F281D; font-weight: 600; padding-right: 8px; word-break: keep-all; }
-  .flow-val { width: 76px; text-align: right; font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 12.5px; font-weight: 700; font-variant-numeric: tabular-nums; padding-left: 8px; white-space: nowrap; }
-  .div-row { width: 100%; border-collapse: collapse; table-layout: fixed; margin-bottom: 6px; }
-  .div-row td { vertical-align: middle; padding: 3px 0; }
-  .sector-row { width: 100%; border-collapse: collapse; table-layout: fixed; margin-bottom: 6px; }
-  .sector-row td { vertical-align: middle; padding: 4px 0; }
-  /* G-4/H-2/H-3 — 발산 막대(가운데 빈 td를 채움). 이미지·그라디언트 없이
-     중첩 테이블+td 배경색(단색 hex)+퍼센트 폭만 사용. 좌(청, down)/우(적,
-     up) 각각 50% 트랙에서 중앙축 기준으로 자란다. 수급·업종 모두 동일
-     구조(.bar-*). 위계: ① 빈 구간 트랙 배경 #EDE5D3 ② 중앙 1px 세로
-     축선 #8A7B60(14px, 막대 10px보다 높게) ③ 막대 끝 3px 진한 캡(양
-     #8E2B20/음 #24476F) ④ 막대 높이 10px ⑤(H-3) 그라디언트 대신 2단
-     계단톤(양 #C0392B→끝30% #A83226→캡, 음 #2F5A8F→끝30% #28517E→캡).
-     H-2 — 값이 0인 방향은 fill·cap td 자체를 출력하지 않는다(트랙
-     배경만) — 이전엔 비활성 측에도 최소폭 1%+캡이 그려져 반대쪽에
-     스텁이 보였다. */
-  .bar-cell { padding: 0 4px; }
-  .bar-track { width: 100%; border-collapse: collapse; table-layout: fixed; }
-  .bar-half { width: 50%; vertical-align: middle; }
-  .bar-empty-td { height: 10px; line-height: 10px; font-size: 0; background: #EDE5D3; }
-  .bar-fill-td { height: 10px; line-height: 10px; font-size: 0; }
-  .bar-cap-td { height: 10px; line-height: 10px; font-size: 0; }
+  /* Korea Flow */
+  .flow-wrap { padding: 22px 48px 0; }
+  @media (max-width: 700px) { .flow-wrap { padding: 14px 18px 0 !important; } }
+  .flow-market { padding: 0 0 18px; }
+  .flow-market + .flow-market { padding-top: 18px; border-top: 1px solid #E4D8B8; }
+  .flow-market-header { width: 100%; border-collapse: collapse; margin: 0 0 12px; }
+  .flow-market-header td { padding: 0; vertical-align: baseline; }
+  .flow-market-lbl { font-family: 'Iowan Old Style', Georgia, serif; font-size: 12px; font-weight: 700; color: #6B4B15; letter-spacing: 0.16em; text-transform: uppercase; font-style: italic; }
+  .flow-market-scale { text-align: right; font-family: 'Iowan Old Style', Georgia, serif; font-size: 11px; color: #A08A5E; font-style: italic; letter-spacing: 0.02em; }
+  .flow-row { width: 100%; border-collapse: collapse; table-layout: fixed; margin: 0 0 7px; }
+  .flow-row td { padding: 0; vertical-align: middle; }
+  .flow-row td.flow-name { width: 96px; font-family: -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; font-size: 13.5px; color: #2A2318; font-weight: 700; letter-spacing: -0.005em; padding-right: 12px !important; word-break: keep-all; }
+  .flow-row td.flow-track { padding: 0 !important; }
+  .flow-row td.flow-val { width: 82px; text-align: right; font-family: 'Iowan Old Style', Georgia, serif; font-size: 13.5px; font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; letter-spacing: -0.01em; padding-left: 12px !important; }
+  .flow-val.up { color: #8B2318; } .flow-val.down { color: #1E3A5F; } .flow-val.flat { color: #8A7550; }
+  @media (max-width: 700px) {
+    .flow-row td.flow-name { width: 74px !important; font-size: 12.5px !important; padding-right: 8px !important; }
+    .flow-row td.flow-val { width: 70px !important; font-size: 12.5px !important; padding-left: 8px !important; }
+  }
+  .bar-track { width: 100%; border-collapse: collapse; table-layout: fixed; background: transparent; }
+  .bar-half { width: 50%; vertical-align: middle; padding: 0; }
+  .bar-empty-td { height: 14px; line-height: 14px; font-size: 0; background: transparent; }
+  .bar-fill-td { height: 14px; line-height: 14px; font-size: 0; }
+  .bar-fill-td.up { background: #8B2318; }
+  .bar-fill-td.down { background: #1E3A5F; }
+  .bar-cap-td { height: 14px; line-height: 14px; font-size: 0; }
+  .bar-cap-td.up { background: #6B1810; }
+  .bar-cap-td.down { background: #142C4A; }
   .bar-axis-col { width: 1px; vertical-align: middle; padding: 0; }
-  .bar-axis-line { width: 1px; height: 14px; line-height: 14px; font-size: 0; background: #8A7B60; }
-  @media (max-width: 300px) { .bar-cell { display: none !important; } }
-  /* H-3 — tick-rail. 막대 자체와 겹치지 않게 별도 행(블록당 1회만,
-     모든 행 반복 금지 — 노이즈 방지). 점선 대신 1px 실선(이메일
-     dotted 렌더 편차 방지). */
-  .tick-rail-track { width: 100%; border-collapse: collapse; table-layout: fixed; }
-  .tick-rail-cell { height: 4px; line-height: 4px; font-size: 0; }
-  .sector-wrap { margin-top: 22px; padding-top: 18px; border-top: 1px solid #E8DFCB; }
-  .sector-lbl { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 10.5px; font-weight: 800; color: #8A7B60; letter-spacing: 0.14em; text-transform: uppercase; margin: 0 0 12px; }
-  .sector-empty { padding: 12px 14px; font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 11.5px; color: #8A7B60; text-align: center; background: #F5EFDE; border: 1px dashed #C9BFA8; }
-  /* G-3(2026-08-30) — 섹터 등락 사유. .flow-interp와 같은 톤(작은 크기·
-     저채도), 신규 색 없음(기존 --gold 계열/무채색 토큰만 재사용). */
-  .sector-why { font-size: 12px; color: #5A4E3B; line-height: 1.5; margin: 2px 0 6px; word-break: keep-all; }
-  /* H-5(2026-08-30) — sector-why(LLM 근거, 있을 때만)와 별개로 항상
-     존재하는 결정적 해석 줄. sector-why보다 옅게(같은 무채색 톤, 약간
-     연한 색)+상단 여백을 둬 "선택적 인용 vs 항상 있는 요약"을 구분한다. */
-  .sector-interp { font-size: 12.5px; color: #8A7B60; line-height: 1.6; margin-top: 10px; word-break: keep-all; }
-  .flow-interp { font-size: 13px; line-height: 1.65; color: #2F281D; margin-top: 16px; padding-top: 14px; border-top: 1px solid #E8DFCB; word-break: keep-all; }
+  .bar-axis-line { width: 1px; height: 14px; line-height: 14px; font-size: 0; background: #6B5B44; }
+  .tick-rail { width: 100%; border-collapse: collapse; table-layout: fixed; margin: 0 0 6px; }
+  .tick-rail td { padding: 0; height: 8px; line-height: 8px; font-size: 0; }
+  .tick-rail td.name-sp { width: 96px; padding-right: 12px !important; }
+  .tick-rail td.val-sp { width: 82px; padding-left: 12px !important; }
+  @media (max-width: 700px) {
+    .tick-rail td.name-sp { width: 74px !important; padding-right: 8px !important; }
+    .tick-rail td.val-sp { width: 70px !important; padding-left: 8px !important; }
+  }
+  .tick-rail td.track { padding: 0 !important; }
+  .tick-rail-inner { width: 100%; border-collapse: collapse; table-layout: fixed; }
+  .tick-rail-inner td { padding: 0; height: 8px; line-height: 8px; font-size: 0; }
+  .tick-rail-inner td.mark { width: 1px; background: #C9B98A; }
+  .tick-rail-inner td.mark-axis { width: 1px; background: #6B5B44; }
+  .sector-empty { padding: 12px 14px; font-family: -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; font-size: 13px; color: #8A7550; text-align: center; background: #F5EFD9; border: 1px dashed #C9B98A; word-break: keep-all; }
+  .why-box { margin-top: 18px; background: #FBF3DE; border-left: 3px solid #9E6A15; padding: 14px 18px; }
+  .why-box-lbl { display: block; font-family: 'Iowan Old Style', Georgia, serif; font-size: 11px; font-weight: 700; color: #6B4B15; letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 8px; font-style: italic; }
+  .why-box-txt { font-family: -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; font-size: 14px; line-height: 1.65; color: #2A2318; margin: 0; word-break: keep-all; }
+  @media (max-width: 700px) { .why-box-txt { font-size: 13.5px !important; } }
 
-  /* Overnight — 2026-08-30 [C] 섹션 wrap 압축 */
-  .overnight-wrap { padding: 28px 40px 0; }
-  @media (max-width: 640px) { .overnight-wrap { padding: 20px 20px 0 !important; } }
-  .og-group-lbl { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 10.5px; font-weight: 800; color: #6B4818; letter-spacing: 0.14em; text-transform: uppercase; margin: 20px 0 8px; padding-bottom: 8px; border-bottom: 1px solid #C9BFA8; }
+  /* Overnight */
+  .overnight-wrap { padding: 22px 48px 0; }
+  @media (max-width: 700px) { .overnight-wrap { padding: 14px 18px 0 !important; } }
+  .og-group-lbl { font-family: 'Iowan Old Style', Georgia, serif; font-size: 12px; font-weight: 700; color: #6B4B15; letter-spacing: 0.16em; text-transform: uppercase; margin: 16px 0 6px; padding-bottom: 6px; border-bottom: 1px solid #C9B98A; font-style: italic; }
   .og-group-lbl.first { margin-top: 0; }
+  .og-group-lbl .r { float: right; font-family: 'Iowan Old Style', Georgia, serif; font-size: 10.5px; color: #A08A5E; font-weight: 400; font-style: italic; letter-spacing: 0.04em; text-transform: none; }
   .og-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
-  .og-table td { padding: 8px 0; font-size: 13px; line-height: 1.5; border-bottom: 1px solid #E8DFCB; font-variant-numeric: tabular-nums; word-break: keep-all; vertical-align: middle; }
+  .og-table td { padding: 6px 0; font-family: -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; font-size: 13.5px; line-height: 1.4; border-bottom: 1px solid #EDE4C6; font-variant-numeric: tabular-nums; word-break: keep-all; vertical-align: middle; }
   .og-table tr:last-child td { border-bottom: none; }
-  .og-table td.k { color: #2F281D; font-family: -apple-system, sans-serif; width: 48%; }
-  .og-table td.v { text-align: right; font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; color: #1F1811; font-weight: 700; white-space: nowrap; width: 30%; padding-right: 12px; }
-  .og-table td.c { text-align: right; font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-weight: 700; width: 22%; padding-left: 8px; white-space: nowrap; }
-  .og-table td.asof { text-align: right; font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-weight: 500; font-size: 11px; color: #B0A48A; letter-spacing: 0.04em; width: 22%; padding-left: 8px; white-space: nowrap; }
-  .og-note { margin-top: 18px; padding-top: 14px; border-top: 1px solid #E8DFCB; font-size: 13px; line-height: 1.7; color: #2F281D; word-break: keep-all; }
-
-  /* Main Story — 2026-08-30 [C]/[D]: 섹션 wrap 압축, story-h 22→18px */
-  .story-wrap { padding: 28px 40px 0; }
-  @media (max-width: 640px) { .story-wrap { padding: 20px 20px 0 !important; } }
-  .story-meta { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 10.5px; color: #8A7B60; letter-spacing: 0.08em; margin: 0 0 14px; }
-  .story-meta a { color: #9C6B1F; text-decoration: underline; }
-  .story-h { font-size: 22px; font-weight: 800; color: #1F1811; line-height: 1.3; margin: 0 0 12px; letter-spacing: -0.01em; word-break: keep-all; }
-  .story-fact-lbl { display: block; font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 10px; font-weight: 800; color: #8A7B60; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 6px; }
-  .story-fact { font-size: 14px; line-height: 1.7; color: #2F281D; margin: 0; word-break: keep-all; }
-  .story-why { margin-top: 16px; background: #F5EFDE; border-left: 3px solid #9C6B1F; padding: 12px 16px; }
-  .story-why-lbl { display: block; font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 10px; font-weight: 800; color: #6B4818; letter-spacing: 0.06em; text-transform: uppercase; }
-  .story-why-txt { font-size: 13.5px; line-height: 1.6; color: #2F281D; margin-top: 6px; word-break: keep-all; }
-  .story-empty { padding: 16px 18px; background: #F5EFDE; border: 1px dashed #C9BFA8; font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 11.5px; color: #8A7B60; letter-spacing: 0.04em; text-align: center; line-height: 1.6; }
-
-  /* News — 2026-08-30 [D] news-title 15.5px 유지(변경 없음 확인) */
-  .news-wrap { padding: 28px 40px 0; }
-  @media (max-width: 640px) { .news-wrap { padding: 20px 20px 0 !important; } }
-  .news-cols { width: 100%; border-collapse: collapse; table-layout: fixed; }
-  .news-cols > tbody > tr > td { width: 50%; vertical-align: top; padding: 0 10px; }
-  .news-cols > tbody > tr > td:first-child { padding-left: 0; padding-right: 10px; }
-  .news-cols > tbody > tr > td:last-child { padding-left: 10px; padding-right: 0; }
-  .news-col-inner { padding-top: 12px; border-top: 2px solid #3A2F1F; }
-  .news-flag { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 10.5px; font-weight: 800; color: #6B4818; letter-spacing: 0.18em; text-transform: uppercase; margin: 0 0 12px; }
-  .news-item + .news-item { margin-top: 14px; padding-top: 14px; border-top: 1px solid #E8DFCB; }
-  .news-title { font-size: 15.5px; font-weight: 700; color: #1F1811; line-height: 1.4; margin: 0 0 6px; letter-spacing: -0.005em; word-break: keep-all; }
-  /* 원문 제목(2026-08-30, 2-F) — v2_editorial_logic.py의 sources[].source_headline
-     병기. LLM 재가공 headline(위)이 여전히 1차 타이틀, 이건 그 아래 인용부호로
-     보조 표기 — 편집국 원문 표현을 그대로 노출하되 위계는 낮게 유지.
-     한글 이탤릭 금지(CLAUDE.md L0) — 폰트 스타일 대신 크기·색·인용부호로만 구분. */
-  .news-orig { font-size: 12px; color: #5A4E3B; line-height: 1.5; margin: 0 0 8px; word-break: keep-all; }
-  .news-orig-lbl { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 9.5px; font-weight: 700; color: #8A7B60; letter-spacing: 0.1em; margin-right: 6px; }
-  .news-fact { font-size: 13.5px; line-height: 1.6; color: #2F281D; margin: 0 0 8px; word-break: keep-all; }
-  .news-meta { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 10.5px; color: #8A7B60; letter-spacing: 0.04em; }
-  .news-meta a { color: #9C6B1F; text-decoration: underline; }
-  .news-empty { padding: 14px 16px; background: #F5EFDE; border: 1px dashed #C9BFA8; font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 11.5px; color: #8A7B60; text-align: center; }
-  @media (max-width: 640px) {
-    .news-cols > tbody > tr > td { display: block !important; width: 100% !important; padding: 0 !important; }
-    .news-cols > tbody > tr > td + td { margin-top: 22px !important; }
+  .og-table td.k { color: #2A2318; width: 44%; }
+  .og-table td.v { text-align: right; color: #1A1613; font-weight: 700; white-space: nowrap; width: 28%; padding-right: 10px; font-family: 'Iowan Old Style', Georgia, serif; }
+  .og-table td.c { text-align: right; font-weight: 700; width: 28%; padding-left: 4px; white-space: nowrap; font-family: 'Iowan Old Style', Georgia, serif; }
+  .og-table td.asof { text-align: right; font-weight: 400; font-size: 11.5px; color: #A08A5E; width: 28%; padding-left: 4px; white-space: nowrap; font-family: 'Iowan Old Style', Georgia, serif; font-style: italic; }
+  @media (max-width: 700px) {
+    .og-table td { font-size: 13px !important; padding: 5px 0 !important; }
+    .og-table td.k { width: 44% !important; }
+    .og-table td.v { width: 32% !important; padding-right: 6px !important; }
+    .og-table td.c, .og-table td.asof { width: 24% !important; font-size: 12px !important; }
   }
 
-  /* Brand card wrap (VIEW, Spine, WORD) — Outlook 대응: 바깥 table + spacer td.
-     2026-08-30 [E]: 모바일 spacer width에 !important 누락돼 있던 것 보정 */
-  .brand-wrap { width: 100%; border-collapse: collapse; table-layout: fixed; margin-top: 32px; margin-bottom: 32px; }
-  @media (max-width: 640px) { .brand-wrap { margin-top: 24px !important; margin-bottom: 24px !important; } }
-  .brand-wrap > tbody > tr > td.spacer { width: 40px; }
+  /* Main Story */
+  .story-wrap { padding: 22px 48px 0; }
+  @media (max-width: 700px) { .story-wrap { padding: 14px 18px 0 !important; } }
+  .story-meta { font-family: 'Iowan Old Style', Georgia, serif; font-size: 11.5px; color: #8A7550; letter-spacing: 0.02em; margin: 0 0 10px; font-style: italic; }
+  .story-meta a { color: #9E6A15; text-decoration: underline; }
+  .story-h { font-family: -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; font-size: 22px; font-weight: 800; color: #1A1613; line-height: 1.35; margin: 0 0 8px; letter-spacing: -0.02em; word-break: keep-all; }
+  @media (max-width: 700px) { .story-h { font-size: 19px !important; } }
+  .story-orig { font-family: 'Iowan Old Style', Georgia, serif; font-size: 12.5px; color: #6B5B44; line-height: 1.5; margin: 0 0 14px; word-break: keep-all; font-style: italic; }
+  .story-orig::before { content: '\201C'; margin-right: 2px; color: #9E6A15; }
+  .story-orig::after { content: '\201D'; margin-left: 2px; color: #9E6A15; }
+  .story-why { margin-top: 0; background: #FBF3DE; border-left: 3px solid #9E6A15; padding: 14px 18px; }
+  .story-why-lbl { display: block; font-family: 'Iowan Old Style', Georgia, serif; font-size: 11px; font-weight: 700; color: #6B4B15; letter-spacing: 0.22em; text-transform: uppercase; font-style: italic; }
+  .story-why-txt { font-family: -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; font-size: 14px; line-height: 1.65; color: #2A2318; margin-top: 8px; word-break: keep-all; }
+  @media (max-width: 700px) { .story-why-txt { font-size: 13.5px !important; } }
+  .story-empty { padding: 16px 18px; background: #F5EFD9; border: 1px dashed #C9B98A; font-family: -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; font-size: 13px; color: #8A7550; text-align: center; line-height: 1.6; word-break: keep-all; }
+
+  /* News */
+  .news-wrap { padding: 22px 48px 0; }
+  @media (max-width: 700px) { .news-wrap { padding: 14px 18px 0 !important; } }
+  .news-cols { width: 100%; border-collapse: collapse; table-layout: fixed; }
+  .news-cols > tbody > tr > td { width: 50%; vertical-align: top; padding: 0 14px; }
+  .news-cols > tbody > tr > td:first-child { padding-left: 0; padding-right: 14px; border-right: 1px solid #E4D8B8; }
+  .news-cols > tbody > tr > td:last-child { padding-left: 14px; padding-right: 0; }
+  .news-col-inner { padding-top: 14px; border-top: 3px double #3A2D18; }
+  .news-flag { font-family: 'Iowan Old Style', Georgia, serif; font-size: 11.5px; font-weight: 700; color: #6B4B15; letter-spacing: 0.22em; text-transform: uppercase; margin: 0 0 14px; font-style: italic; }
+  .news-item + .news-item { margin-top: 14px; padding-top: 14px; border-top: 1px solid #E4D8B8; }
+  .news-title { font-family: -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; font-size: 15.5px; font-weight: 700; color: #1A1613; line-height: 1.4; margin: 0 0 6px; letter-spacing: -0.02em; word-break: keep-all; }
+  @media (max-width: 700px) { .news-title { font-size: 15px !important; } }
+  .news-orig { font-family: 'Iowan Old Style', Georgia, serif; font-size: 12px; color: #6B5B44; line-height: 1.5; margin: 0 0 8px; word-break: keep-all; font-style: italic; }
+  .news-orig::before { content: '\201C'; margin-right: 2px; color: #9E6A15; }
+  .news-orig::after { content: '\201D'; margin-left: 2px; color: #9E6A15; }
+  .news-fact { font-family: -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; font-size: 13.5px; line-height: 1.55; color: #2A2318; margin: 0 0 8px; word-break: keep-all; }
+  @media (max-width: 700px) { .news-fact { font-size: 13px !important; } }
+  .news-meta { font-family: 'Iowan Old Style', Georgia, serif; font-size: 11.5px; color: #8A7550; letter-spacing: 0.02em; font-style: italic; }
+  .news-meta a { color: #9E6A15; text-decoration: underline; }
+  .news-empty { padding: 14px 16px; background: #F5EFD9; border: 1px dashed #C9B98A; font-family: -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; font-size: 13px; color: #8A7550; text-align: center; word-break: keep-all; }
+  @media (max-width: 700px) {
+    .news-cols > tbody > tr > td { display: block !important; width: 100% !important; padding: 0 !important; border-right: none !important; }
+    .news-cols > tbody > tr > td + td { margin-top: 24px !important; }
+  }
+
+  /* Brand card wrap */
+  .brand-wrap { width: 100%; border-collapse: collapse; table-layout: fixed; margin-top: 24px; margin-bottom: 24px; }
+  @media (max-width: 700px) { .brand-wrap { margin-top: 20px !important; margin-bottom: 20px !important; } }
+  .brand-wrap > tbody > tr > td.spacer { width: 48px; }
   .brand-wrap > tbody > tr > td.body { padding: 0; }
-  @media (max-width: 640px) { .brand-wrap > tbody > tr > td.spacer { width: 20px !important; } }
-  .brand-card { background: #FFFEFA; border-top: 2px solid #3A2F1F; padding: 24px 24px 24px; }
-  @media (max-width: 640px) { .brand-card { padding: 20px 18px 20px !important; } }
-  .purpose { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 11px; color: #5A4E3B; letter-spacing: 0.08em; margin: 0 0 20px; }
+  @media (max-width: 700px) { .brand-wrap > tbody > tr > td.spacer { width: 18px !important; } }
+  .brand-card { padding: 22px 48px 22px; }
+  @media (max-width: 700px) { .brand-card { padding: 20px 18px !important; } }
 
   /* MOO:VIEW */
-  .view-p { font-size: 14.5px; line-height: 1.85; color: #1F1811; margin: 0 0 14px; word-break: keep-all; }
-  .view-p:last-of-type { margin-bottom: 20px; }
-  .view-sig {
-    padding-top: 16px; border-top: 1px solid #C9BFA8;
-    font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
-    font-size: 15px; font-weight: 800; color: #1F1811; letter-spacing: -0.02em; font-style: italic;
-  }
-  .view-sig .g { color: #9C6B1F; font-style: normal; }
+  .brand-card.view-card { background: #FFFCF3; border: 1px solid #E4D8B8; border-top: 3px solid #1A1613; }
+  .view-p { font-family: -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 14.5px; line-height: 1.75; color: #1A1613; margin: 0 0 12px; word-break: keep-all; }
+  @media (max-width: 700px) { .view-p { font-size: 14px !important; line-height: 1.7 !important; } }
+  .view-p:last-of-type { margin-bottom: 16px; }
+  .view-sig { padding-top: 14px; border-top: 1px solid #E4D8B8; font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif; font-size: 14px; font-weight: 800; color: #1A1613; letter-spacing: -0.01em; font-style: italic; text-align: right; }
+  .view-sig .g { color: #9E6A15; font-style: normal; }
 
-  /* Q → CHECK Spine — v7: premise slot + 한글 이탤릭 폐기 */
-  .spine-back-ref { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 10px; color: #9C6B1F; letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 12px; }
-  .spine-flag {
-    font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
-    font-size: 22px; font-weight: 800; color: #1F1811; letter-spacing: -0.02em; line-height: 1; font-style: italic; margin: 0 0 4px;
-  }
-  .spine-flag .colon { color: #9C6B1F; font-style: normal; }
-  .spine-flag .sub {
-    font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 10.5px; color: #8A7B60;
-    font-style: normal; font-weight: 700; letter-spacing: 0.14em; margin-left: 10px; text-transform: uppercase; vertical-align: 3px;
-  }
-  .spine-yesterday { padding: 16px 18px; background: #F5EFDE; border-left: 3px solid #B0A48A; }
-  .spine-y-lbl { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 10px; font-weight: 800; color: #8A7B60; letter-spacing: 0.16em; text-transform: uppercase; margin: 0 0 8px; }
-  .spine-yq { font-family: -apple-system, sans-serif; font-size: 14.5px; font-weight: 700; color: #2F281D; line-height: 1.5; margin: 0 0 12px; word-break: keep-all; }
-  .spine-evidence { width: 100%; border-collapse: collapse; margin: 0 0 10px; table-layout: fixed; }
-  .spine-evidence td { padding: 5px 0; font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 12px; color: #2F281D; border-bottom: 1px solid #E8DFCB; vertical-align: middle; line-height: 1.5; }
-  .spine-evidence tr:last-child td { border-bottom: none; }
-  .spine-evidence td.k { width: 32%; color: #8A7B60; letter-spacing: 0.06em; text-transform: uppercase; font-size: 10.5px; font-weight: 700; padding-right: 10px; }
-  .spine-connector { padding: 0; text-align: center; }
-  .spine-conn-arrow {
-    display: inline-block; padding: 4px 12px; background: #F5E7C6;
-    font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 10.5px; color: #6B4818; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase;
-  }
-  .spine-today { padding: 16px 18px; background: #FBF3E1; border-left: 3px solid #9C6B1F; }
-  .spine-t-lbl { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 10px; font-weight: 800; color: #9C6B1F; letter-spacing: 0.16em; text-transform: uppercase; margin: 0 0 8px; }
-  .spine-premise { margin: 0 0 14px; padding: 10px 12px; background: #FBF7EF; border-left: 2px solid #C9BFA8; font-size: 13px; line-height: 1.6; color: #2F281D; word-break: keep-all; }
-  .spine-premise .p-lbl { display: block; font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 9.5px; font-weight: 800; color: #8A7B60; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 4px; }
-  .spine-tq {
-    /* v7: 한글 이탤릭 폐기 · 산세 굵기·크기로 존재감 */
-    font-family: -apple-system, sans-serif; font-size: 18px; font-weight: 800; color: #1F1811;
-    line-height: 1.45; margin: 0 0 10px; letter-spacing: -0.015em; word-break: keep-all;
-  }
-  .spine-why { font-size: 13.5px; line-height: 1.65; color: #2F281D; margin: 0 0 10px; word-break: keep-all; }
-  .spine-forward { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 10.5px; color: #6B4818; letter-spacing: 0.06em; margin: 0; padding-top: 10px; border-top: 1px dashed #C9BFA8; line-height: 1.55; }
-  .spine-empty { padding: 12px 14px; background: #F5EFDE; border: 1px dashed #C9BFA8; font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 11.5px; color: #8A7B60; letter-spacing: 0.04em; text-align: center; }
+  /* doc-card — 브랜드 도큐먼트 톤 */
+  .doc-card { background: #F5EDD3; border: 1px solid #C9B98A; padding: 22px 26px 22px; box-shadow: inset 0 0 0 3px #F5EDD3, inset 0 0 0 4px #E4D8B8; }
+  @media (max-width: 700px) { .doc-card { padding: 20px 18px !important; } }
 
-  /* MOO:WORD — 2026-08-30 [F] v2에서 이식, 다크 팔레트(#1B2740 등)를
-     v7 라이트 토큰(#FFFEFA/#F5EFDE/#9C6B1F)으로 치환, .brand-card 재사용 */
-  .word-term { font-size: 30px; font-weight: 800; color: #1F1811; letter-spacing: -0.02em; margin: 0 0 12px; line-height: 1.1; }
-  .word-def { font-size: 15px; line-height: 1.7; color: #1F1811; margin: 0 0 14px; padding-bottom: 14px; border-bottom: 1px solid #E8DFCB; word-break: keep-all; }
-  .word-why, .word-hook { font-size: 13.5px; line-height: 1.65; color: #2F281D; margin: 0 0 8px; word-break: keep-all; }
-  .word-why b, .word-hook b {
-    display: inline-block; font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
-    font-size: 10px; font-weight: 800; color: #6B4818; letter-spacing: 0.14em; text-transform: uppercase;
-    margin-right: 8px; background: #F5E7C6; padding: 1px 6px; vertical-align: 1px;
+  /* MOO:Q → CHECK */
+  .spine-today { padding: 4px 0 4px 18px; border-left: 4px solid #9E6A15; margin-bottom: 22px; }
+  .spine-t-lbl { font-family: 'Iowan Old Style', Georgia, serif; font-size: 11px; font-weight: 700; color: #9E6A15; letter-spacing: 0.22em; text-transform: uppercase; margin: 0 0 10px; font-style: italic; }
+  .spine-tq { font-family: -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; font-size: 19px; font-weight: 800; color: #1A1613; line-height: 1.45; margin: 0 0 12px; letter-spacing: -0.02em; word-break: keep-all; }
+  @media (max-width: 700px) { .spine-tq { font-size: 17px !important; } }
+  .spine-info { width: 100%; border-collapse: collapse; table-layout: fixed; margin: 0 0 10px; }
+  .spine-info td { padding: 6px 0; font-family: -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; font-size: 13px; color: #2A2318; border-bottom: 1px solid #DDCEA6; vertical-align: middle; line-height: 1.5; word-break: keep-all; }
+  .spine-info tr:last-child td { border-bottom: none; }
+  .spine-info td.k { width: 26%; color: #8A7550; font-size: 11px; font-weight: 700; font-style: italic; letter-spacing: 0.02em; padding-right: 10px; font-family: 'Iowan Old Style', Georgia, serif; }
+  .spine-info td.v { width: 74%; }
+  .spine-forward { font-family: 'Iowan Old Style', Georgia, serif; font-size: 11.5px; color: #6B4B15; letter-spacing: 0.02em; margin: 6px 0 0; line-height: 1.5; font-style: italic; }
+  .spine-yesterday { padding: 14px 18px; background: #FBF7ED; border: 1px solid #DDCEA6; }
+  .spine-y-header { width: 100%; border-collapse: collapse; margin-bottom: 8px; }
+  .spine-y-header td { padding: 0; vertical-align: baseline; }
+  .spine-y-lbl { font-family: 'Iowan Old Style', Georgia, serif; font-size: 10.5px; font-weight: 700; color: #8A7550; letter-spacing: 0.22em; text-transform: uppercase; font-style: italic; }
+  .spine-y-note { font-family: 'Iowan Old Style', Georgia, serif; font-size: 10.5px; color: #A08A5E; font-style: italic; text-align: right; }
+  .spine-yq { font-family: -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; font-size: 13.5px; font-weight: 700; color: #2A2318; line-height: 1.5; margin: 0 0 8px; word-break: keep-all; letter-spacing: -0.01em; }
+  .spine-check-row { width: 100%; border-collapse: collapse; table-layout: fixed; margin: 0; }
+  .spine-check-row td { padding: 5px 0; font-family: -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; font-size: 12.5px; color: #2A2318; border-bottom: 1px solid #E4D8B8; vertical-align: middle; line-height: 1.45; word-break: keep-all; }
+  .spine-check-row tr:last-child td { border-bottom: none; }
+  .spine-check-row td.k { width: 22%; color: #8A7550; font-size: 10.5px; font-weight: 700; font-style: italic; letter-spacing: 0.02em; padding-right: 6px; font-family: 'Iowan Old Style', Georgia, serif; }
+  .spine-check-row td.v { width: 48%; }
+  .spine-check-row td.verdict { width: 30%; text-align: right; padding-left: 4px; }
+  @media (max-width: 400px) {
+    /* 2026-09-01(v8 320px CHECK 배지 overflow 수정, 실험 C) — 가장 긴
+       배지 라벨("판정 불가"/"판정 대기", 4글자+glyph)이 매우 좁은
+       화면에서 강제 한 줄(white-space:nowrap) 유지 시 겹치는 문제를
+       셀 비율 재배분만으로 해결. font-size/줄바꿈/overflow:hidden/
+       transform 미사용 — 배지 폭 확보만 한다(측정 근거:
+       verdict_badge_result.json). */
+    .spine-check-row td.k { width: 16% !important; padding-right: 4px !important; }
+    .spine-check-row td.v { width: 42% !important; }
+    .spine-check-row td.verdict { width: 42% !important; padding-left: 3px !important; }
   }
-  .word-evidence { margin-top: 10px; padding-top: 9px; border-top: 1px solid #E8DFCB; }
-  .word-evidence-src { font-size: 12px; color: #5A4E3B; line-height: 1.5; word-break: keep-all; }
-  .word-evidence-ref { font-size: 11.5px; color: #8A7B60; margin-top: 3px; }
-  .word-evidence-url { font-size: 11.5px; margin-top: 3px; }
-  .word-evidence-url a { color: #9C6B1F; text-decoration: underline; }
-  .word-src { font-size: 11px; color: #8A7B60; margin-top: 9px; }
-  .word-empty { font-size: 12.5px; color: #8A7B60; line-height: 1.5; word-break: keep-all; }
+  .verdict-inline { display: inline-block; font-family: 'Iowan Old Style', Georgia, serif; font-size: 11px; font-weight: 700; padding: 3px 6px; letter-spacing: 0.02em; border: 1px solid #8A7550; background: #FBF7ED; color: #6B5B44; white-space: nowrap; }
+  .verdict-inline.v-hit     { background: #F2D9D3; color: #8B2318; border-color: #8B2318; }
+  .verdict-inline.v-miss    { background: #D9E4F0; color: #1E3A5F; border-color: #1E3A5F; }
+  .verdict-inline.v-neutral { background: #EDE4C6; color: #6B5B44; border-color: #8A7550; }
+  .verdict-inline.v-pending { background: transparent; color: #8A7550; border-color: #C9B98A; border-style: dashed; }
+  .verdict-inline.v-invalid { background: #EDE4C6; color: #6B5B44; border-color: #6B5B44; }
+  .verdict-inline.v-error   { background: transparent; color: #8A7550; font-style: italic; border-color: transparent; padding-left: 4px; }
+  .verdict-inline .glyph { display: inline-block; margin-right: 6px; font-weight: 900; }
+  .spine-empty { padding: 12px 14px; background: #FBF7ED; border: 1px dashed #C9B98A; font-family: -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; font-size: 13px; color: #8A7550; text-align: center; word-break: keep-all; }
+  .spine-cta { margin-top: 18px; padding-top: 14px; border-top: 1px dashed #C9B98A; text-align: center; }
+  .spine-cta a { font-family: 'Iowan Old Style', Georgia, serif; font-size: 13px; color: #9E6A15; text-decoration: none; font-style: italic; border-bottom: 1px solid #9E6A15; padding-bottom: 2px; letter-spacing: 0.01em; }
 
-  /* Signal Chain */
-  .chain-wrap { padding: 28px 40px 0; }
-  @media (max-width: 640px) { .chain-wrap { padding: 20px 20px 0 !important; } }
+  /* MOO:WORD */
+  .word-term { font-family: -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; font-size: 26px; font-weight: 800; color: #1A1613; letter-spacing: -0.02em; margin: 0 0 10px; line-height: 1.1; }
+  @media (max-width: 700px) { .word-term { font-size: 22px !important; } }
+  .word-def { font-family: -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; font-size: 14px; line-height: 1.65; color: #1A1613; margin: 0 0 14px; padding-bottom: 14px; border-bottom: 1px solid #DDCEA6; word-break: keep-all; }
+  @media (max-width: 700px) { .word-def { font-size: 13.5px !important; } }
+  .word-why, .word-hook { font-family: -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; font-size: 13.5px; line-height: 1.6; color: #2A2318; margin: 0 0 10px; word-break: keep-all; }
+  .word-why b, .word-hook b { display: inline-block; font-family: 'Iowan Old Style', Georgia, serif; font-size: 10.5px; font-weight: 700; color: #6B4B15; letter-spacing: 0.22em; text-transform: uppercase; margin-right: 8px; font-style: italic; background: transparent; padding: 0; vertical-align: baseline; }
+  .word-evidence { margin-top: 12px; padding-top: 12px; border-top: 1px solid #DDCEA6; }
+  .word-evidence-src { font-family: -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; font-size: 12px; color: #6B5B44; line-height: 1.5; word-break: keep-all; }
+  .word-evidence-ref { font-family: 'Iowan Old Style', Georgia, serif; font-size: 11px; color: #A08A5E; margin-top: 3px; font-style: italic; }
+  .word-evidence-url { font-size: 11px; margin-top: 3px; }
+  .word-evidence-url a { color: #9E6A15; text-decoration: underline; }
+  .word-src { font-family: 'Iowan Old Style', Georgia, serif; font-size: 11px; color: #A08A5E; margin-top: 9px; font-style: italic; }
+  .word-empty { font-family: -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; font-size: 13px; color: #A08A5E; line-height: 1.55; word-break: keep-all; }
+
+  /* MOO:CHAIN */
   .chain-grid { width: 100%; border-collapse: collapse; table-layout: fixed; }
-  .chain-grid td.chip { vertical-align: top; padding: 6px; }
-  .chain-grid td.chip .chip-inner { background: #FBF7EF; border: 1px solid #E8DFCB; padding: 12px 12px; min-height: 60px; }
-  .chain-grid td.chip.outcome .chip-inner { background: #FFFEFA; border: 1px solid #C9BFA8; border-left: 3px solid #9C6B1F; }
-  .chip-role { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 9.5px; font-weight: 700; color: #8A7B60; text-transform: uppercase; letter-spacing: 0.14em; margin: 0 0 4px; }
-  .chip-label { font-size: 12.5px; font-weight: 700; color: #1F1811; line-height: 1.35; margin: 0 0 4px; word-break: keep-all; }
-  .chip-detail { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 11px; color: #5A4E3B; line-height: 1.4; word-break: keep-all; }
-  .chip-detail.up { color: #C0392B; } .chip-detail.down { color: #2F5A8F; }
-  .chain-note { margin-top: 14px; font-size: 13px; color: #2F281D; line-height: 1.65; word-break: keep-all; }
-  .chain-strength { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 10.5px; color: #8A7B60; letter-spacing: 0.04em; margin-top: 6px; }
-  .chain-inline { margin: 32px 40px 0; padding: 12px 16px; background: #F5EFDE; border: 1px dashed #C9BFA8; font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 11px; color: #8A7B60; letter-spacing: 0.04em; text-align: center; }
-  .chain-inline b { color: #5A4E3B; font-weight: 700; }
-  @media (max-width: 640px) { .chain-inline { margin: 24px 20px 0 !important; } }
-  .chain-mobile { display: block; } .chain-desktop { display: none; }
-  @media (min-width: 701px) { .chain-mobile { display: none !important; } .chain-desktop { display: block !important; } }
+  .chain-grid td.chip { vertical-align: top; padding: 0 5px; width: 33.333%; }
+  .chain-grid td.chip:first-child { padding-left: 0; padding-right: 10px; }
+  .chain-grid td.chip:last-child { padding-left: 10px; padding-right: 0; }
+  .chip-inner { background: #FBF7ED; border: 1px solid #DDCEA6; border-top: 2px solid #9E6A15; padding: 14px 14px 34px 14px; min-height: 138px; position: relative; }
+  .chip.outcome .chip-inner { background: #FBF3DE; border-top-color: #1A1613; border-top-width: 3px; }
+  .chip-role { font-family: 'Iowan Old Style', Georgia, serif; font-size: 10.5px; font-weight: 700; color: #9E6A15; text-transform: uppercase; letter-spacing: 0.22em; margin: 0 0 10px; font-style: italic; }
+  .chip.outcome .chip-role { color: #1A1613; }
+  .chip-label { font-family: -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; font-size: 14px; font-weight: 700; color: #1A1613; line-height: 1.4; margin: 0 0 6px; word-break: keep-all; letter-spacing: -0.02em; }
+  .chip-detail { font-family: -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; font-size: 12.5px; color: #6B5B44; line-height: 1.5; word-break: keep-all; }
+  .chip-detail.up { color: #8B2318; font-weight: 700; }
+  .chip-detail.down { color: #1E3A5F; font-weight: 700; }
+  .chip-next { position: absolute; bottom: 10px; right: 12px; font-family: 'Iowan Old Style', Georgia, serif; font-size: 10.5px; color: #A08A5E; letter-spacing: 0.16em; text-transform: uppercase; font-style: italic; }
+  .chain-strength { font-family: 'Iowan Old Style', Georgia, serif; font-size: 11px; color: #A08A5E; letter-spacing: 0.02em; margin-top: 14px; font-style: italic; text-align: right; }
+  .chain-inline { padding: 12px 16px; background: #FBF7ED; border: 1px dashed #C9B98A; font-family: -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; font-size: 13px; color: #8A7550; text-align: center; word-break: keep-all; }
+  @media (max-width: 700px) {
+    .chain-grid td.chip { display: block !important; width: 100% !important; padding: 0 !important; }
+    .chain-grid td.chip + td.chip { margin-top: 10px !important; }
+    .chip-inner { height: auto !important; padding-bottom: 30px !important; }
+  }
 
-  /* Today's Watch — 2026-08-30 [C] 섹션 wrap 압축 */
-  .watch-wrap { padding: 28px 40px 0; }
-  @media (max-width: 640px) { .watch-wrap { padding: 20px 20px 0 !important; } }
+  /* Today's Watch */
+  .watch-wrap { padding: 22px 48px 0; }
+  @media (max-width: 700px) { .watch-wrap { padding: 14px 18px 0 !important; } }
   .watch-list { width: 100%; border-collapse: collapse; }
-  .watch-list td { padding: 12px 0; vertical-align: top; }
-  .watch-list tr + tr td { border-top: 1px solid #E8DFCB; }
-  .watch-list .t { font-size: 14.5px; line-height: 1.65; color: #1F1811; word-break: keep-all; }
-  /* D-5(2026-08-30) — .signals .n/.watch-list .n 통합. 값이 같아 개별
-     선언이었던 걸 공용 클래스로 묶는다. 세리프 골드 18px → 모노 11px
-     라벨(.flag-data 계열과 동일 시각 언어), padding-top 제거해 본문
-     .t(14.5px/1.65) 라인박스 기준선에 맞춤. */
-  .idx-num {
-    width: 32px; font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
-    font-size: 11px; font-weight: 700; color: #8A7B60; letter-spacing: 0.08em;
-    text-transform: uppercase; line-height: 1.65; padding-right: 12px;
+  .watch-list td { padding: 8px 0; vertical-align: top; }
+  .watch-list .t { font-family: -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; font-size: 15px; line-height: 1.55; color: #1A1613; word-break: keep-all; }
+  @media (max-width: 700px) { .watch-list .t { font-size: 14.5px !important; } }
+  .watch-oneliner { font-family: -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; font-size: 15px; font-weight: 700; color: #1A1613; line-height: 1.6; margin: 16px 0 0; padding: 14px 18px; background: #FBF3DE; border-left: 3px solid #9E6A15; word-break: keep-all; letter-spacing: -0.005em; }
+  @media (max-width: 700px) { .watch-oneliner { font-size: 14.5px !important; } }
+
+  /* Share */
+  .share-wrap { margin-top: 26px; padding: 20px 22px; background: transparent; border-left: 3px solid #9E6A15; }
+  .share-lead { font-family: -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; font-size: 15px; font-weight: 700; color: #1A1613; line-height: 1.55; margin: 0 0 10px; letter-spacing: -0.02em; word-break: keep-all; }
+  .share-desc { font-family: -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; font-size: 13px; color: #6B5B44; line-height: 1.6; margin: 0 0 14px; word-break: keep-all; }
+  .share-channels { font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif; font-size: 14px; color: #2A2318; line-height: 1.7; margin: 0; }
+  .share-channels a { color: #9E6A15; text-decoration: underline; font-weight: 700; font-style: italic; margin: 0 2px; }
+  .share-kakao { font-family: -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; font-size: 13px; color: #6B5B44; line-height: 1.55; margin: 12px 0 0; word-break: keep-all; }
+  .share-kakao a { color: #9E6A15; text-decoration: underline; font-weight: 700; }
+
+  /* Footer */
+  .footer-wrap { padding: 28px 48px 42px; }
+  @media (max-width: 700px) { .footer-wrap { padding: 22px 18px 32px !important; } }
+  .footer-rule { height: 3px; line-height: 3px; font-size: 0; background: #1A1613; margin-bottom: 22px; }
+  .footer-src-row { font-family: -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; font-size: 12px; line-height: 1.75; color: #6B5B44; letter-spacing: 0; }
+  .footer-src-row .f-cat { font-family: 'Iowan Old Style', Georgia, serif; font-weight: 700; color: #1A1613; letter-spacing: 0.06em; text-transform: uppercase; font-size: 11px; font-style: italic; margin-right: 6px; }
+  .footer-note { font-family: -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; font-size: 13px; line-height: 1.7; color: #6B5B44; margin-top: 16px; word-break: keep-all; }
+  .footer-note a { color: #9E6A15; text-decoration: underline; }
+  .footer-pill-wrap { width: 100%; border-collapse: collapse; margin-top: 20px; }
+  .footer-pill-cell { border: 2px solid #1A1613; background: #FBF3DE; }
+  .footer-pill-link { display: inline-block; min-height: 42px; line-height: 42px; padding: 0 22px; color: #1A1613; text-decoration: none; font-family: -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; font-size: 13.5px; font-weight: 700; letter-spacing: -0.01em; }
+  .footer-copyright { font-family: 'Iowan Old Style', Georgia, serif; font-size: 11px; color: #A08A5E; margin-top: 20px; font-style: italic; }
+  .footer-unsub { display: inline-block; min-height: 22px; padding: 3px 0; color: #A08A5E; text-decoration: underline; font-size: 11.5px; font-family: -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; }
+
+  /* 2026-09-01(W-10, V8 LLM 고도화·모델 분산) — .pt0 모바일 cascade 정상화.
+     .pt0 { padding-top: 0 !important; }는 스타일시트 맨 앞(§ 상단)에
+     정의돼 있는데, .signals-strip/.story-wrap/.flow-wrap/.watch-wrap의
+     @media (max-width:700px) 규칙이 shorthand padding(예: "14px 18px 0
+     !important")으로 그 뒤에 다시 나온다 — 클래스 선택자 1개 대 1개로
+     specificity가 같고 !important끼리 부딪히면 "스타일시트에서 더 나중에
+     나온 규칙"이 이긴다(CSS 캐스케이드 규칙), 즉 모바일에서는 .pt0가 이미
+     졌었다. 여기(스타일시트 맨 끝, 두 클래스 결합 선택자라 specificity도
+     더 높음)에 같은 4개 요소의 조합 선택자를 다시 선언해 순서·특이도 양쪽
+     모두에서 확실히 이기게 한다. */
+  .signals-strip.pt0, .story-wrap.pt0, .flow-wrap.pt0, .watch-wrap.pt0 {
+    padding-top: 0 !important;
   }
-  .watch-oneliner { font-size: 14px; font-weight: 700; color: #1F1811; line-height: 1.65; margin: 20px 0 0; padding: 14px 0 0; border-top: 2px solid #3A2F1F; word-break: keep-all; }
-
-  /* Risk */
-  .risk-wrap { padding: 32px 40px 0; }
-  @media (max-width: 640px) { .risk-wrap { padding: 24px 20px 0 !important; } }
-  .risk-lbl {
-    font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 10.5px; font-weight: 800; color: #C0392B;
-    letter-spacing: 0.16em; text-transform: uppercase; margin: 0 0 10px; display: inline-block; padding: 2px 8px; background: #F5E1DE; border-left: 3px solid #C0392B;
+  @media (max-width: 700px) {
+    .signals-strip.pt0, .story-wrap.pt0, .flow-wrap.pt0, .watch-wrap.pt0 {
+      padding-top: 0 !important;
+    }
   }
-  .risk-text { font-size: 14px; line-height: 1.75; color: #1F1811; margin: 0; word-break: keep-all; }
-
-  /* Share — 2026-08-30 [F] v2에서 이식, 팔레트만 v7 토큰으로 치환 */
-  .share-wrap { margin-top: 22px; padding: 12px 16px; background: #FBF3E1; border-left: 3px solid #9C6B1F; }
-  .share-lbl { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 10px; font-weight: 800; color: #6B4818; letter-spacing: 0.06em; text-transform: uppercase; }
-  .share-text { font-size: 12px; color: #2F281D; line-height: 1.6; margin-top: 6px; word-break: keep-all; }
-  .share-text a { color: #9C6B1F; text-decoration: underline; }
-
-  /* Footer(v7-gallery에 없어 기존 팔레트 토큰으로 신규 구성) */
-  .footer-wrap { padding: 32px 40px 40px; }
-  @media (max-width: 640px) { .footer-wrap { padding: 24px 20px 30px !important; } }
-  .footer-rule { height: 1px; line-height: 1px; font-size: 0; background: #E8DFCB; margin-bottom: 20px; }
-  .footer-src-row { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 10.5px; line-height: 1.6; color: #8A7B60; letter-spacing: 0.02em; }
-  .footer-src-row .f-cat { font-weight: 800; color: #5A4E3B; }
-  .footer-note { font-size: 12.5px; line-height: 1.65; color: #5A4E3B; margin-top: 14px; word-break: keep-all; }
-  .footer-pill-wrap { width: 100%; border-collapse: collapse; margin-top: 16px; }
-  .footer-pill-cell { border: 1px solid #9C6B1F; background: #FBF3E1; }
-  .footer-pill-link { display: inline-block; min-height: 36px; line-height: 36px; padding: 0 18px; color: #6B4818; text-decoration: none; font-size: 11.5px; font-weight: 700; }
-  .footer-copyright { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 10.5px; color: #B0A48A; margin-top: 18px; }
-  .footer-unsub { display: inline-block; min-height: 22px; padding: 3px 0; color: #B0A48A; text-decoration: underline; font-size: 10px; }
 </style>
 </head>
-<body bgcolor="#E5DFD1">
+<body bgcolor="#EFEAD9">
 
-<div style="display:none;font-size:1px;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;mso-hide:all;">WTI 유가 급등과 미 국채 금리 상승이 위험자산 전반의 자금 이탈에 영향을 준 요인 중 하나로 해석할 수 있으며, 이 과정에서 대외 뉴스 및 업종별 수급 등 다…&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;</div>
+<div style="display:none;font-size:1px;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;mso-hide:all;">기관계 2조 원대 순매도 지속에 따른 코스피 수급 공백&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;</div>
 
 <div class="view-in-browser">
   <a href="https://mooconomy.co.kr/latest-email.html" target="_blank">메일이 작게 보이거나 깨져 보이나요? 웹에서 보기</a>
 </div>
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#E5DFD1">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#EFEAD9">
 <tr><td align="center">
-<table role="presentation" width="720" cellpadding="0" cellspacing="0" border="0" class="sheet" bgcolor="#FBF7EF">
+<table role="presentation" width="760" cellpadding="0" cellspacing="0" border="0" class="sheet" bgcolor="#FBF7ED">
 <tr><td>
 
 
@@ -494,50 +434,52 @@
 
 
 
-
-
+<!-- ===== Masthead ===== -->
 <div class="pad-l">
   <div class="masthead">
     <div class="brand-wm">MOO<span class="g">:</span>conomy</div>
     <div class="mast-tagline">잠든 사이 움직인 시장과 뉴스, 오늘의 판단에 필요한 맥락만 정리합니다.</div>
-    <div class="mast-rule">&nbsp;</div>
     <table class="mast-meta" role="presentation" cellpadding="0" cellspacing="0" width="100%">
       <tr>
-        <td>발행 2026년 09월 02일(수) 06:45 KST · 증시 마감 기준: 국내 2026-09-01, 미국 2026-09-01</td>
-        <td class="r"><span class="status-badge">경계</span></td>
+        <td class="l">발행 2026년 09월 03일(목) 06:45 KST · 증시 마감 기준: 국내 2026-09-02, 미국 2026-09-02</td>
+        <td class="r"><span class="status-badge">중립</span></td>
       </tr>
     </table>
   </div>
 </div>
+
+<!-- ===== Hero ===== -->
 <div class="hero">
-  <div class="hero-kicker">— 오늘의 관점</div>
-  <h1 class="hero-headline">중동 교전 재개로 WTI 원유 가격이 <span class="hl">5%</span> 넘게 급등하고 뉴욕증시가 하락했다</h1>
+  <div class="hero-kicker">오늘의 관점</div>
+  <h1 class="hero-headline">경기선행지수 정점 우려에 주식 비중 축소 권고가 나오며 국내 증시 변동성 우려가 커졌다</h1>
   
   <div class="deck-wrap">
-    <div class="deck-line">— 치솟는 국제유가가 시장을 계속 누를까?</div>
+    <div class="deck-line">— 안전자산 이동 신호는 장기 이탈의 시작일까?</div>
   </div>
   
 </div>
+
+<!-- ===== CH · I  Today's Angle ===== -->
 <div class="chapter-mark">
   <div class="chap-bar">&nbsp;</div>
   <table class="chap-row" role="presentation" cellpadding="0" cellspacing="0" width="100%">
-    <tr><td class="chap-num">CH · I</td><td>Today's Angle <span class="chap-kicker">— 오늘 시장이 어느 쪽으로 기울었는가</span></td></tr>
+    <tr><td class="chap-num">CH · I</td><td><span class="chap-title">Today's Angle</span><span class="chap-kicker">— 오늘 시장이 어느 쪽으로 기울었는가</span></td></tr>
   </table>
 </div>
 
 
 <div class="signals-strip pt0">
-  <div class="flag-data">Today's 3 Signals <span class="colon">·</span> 관찰 사실</div>
+  <div class="flag-data">Today's 3 Signals</div>
   <table class="signals" role="presentation" cellpadding="0" cellspacing="0" width="100%">
   
   
-  <tr><td class="idx-num">01</td><td class="t">중동 교전 재개와 유가 급등 여파로 뉴욕증시가 하락세를 나타냈습니다.</td></tr>
+  <tr><td class="idx-num">01</td><td class="t">간밤 뉴욕증시는 국채금리 숨고르기 속에 3대 지수가 일제히 반등했습니다.</td></tr>
   
   
-  <tr><td class="idx-num">02</td><td class="t">지난 거래일 코스닥은 외국인과 기관의 매도세로 인해 1.56% 하락했습니다.</td></tr>
+  <tr><td class="idx-num">02</td><td class="t">전일 국내 증시는 외국인과 기관의 매도 폭탄에 코스피가 4% 가까이 급락했습니다.</td></tr>
   
   
-  <tr><td class="idx-num">03</td><td class="t">금일은 미국 고용보고서 발표를 앞두고 유가 추이 및 지정학적 리스크 지속 여부를 관찰할 필요가 있습니다.</td></tr>
+  <tr><td class="idx-num">03</td><td class="t">오늘은 외국인 수급의 방향성 전환 여부를 구체적으로 지켜볼 필요가 있습니다.</td></tr>
   
   </table>
 </div>
@@ -557,43 +499,43 @@
 
 
 <div class="metrics-wrap">
-  <div class="flag-data">Main Metrics <span class="colon">·</span> <span class="r">AS OF 2026-09-01 KST / 2026-09-01 ET</span></div>
+  <div class="flag-data">Main Metrics <span class="r">국내 2026-09-02 · 미국 2026-09-02</span></div>
   <table class="metrics-grid" role="presentation" cellpadding="0" cellspacing="0" width="100%">
   <tr>
   <td><div class="cell-inner">
-    <div class="m-label">코스피</div>
-    <div class="m-value">6,836</div><div class="m-chg up">▲ +0.23%</div>
+    <span class="m-label">코스피</span>
+    <div class="m-value">6,563</div><div class="m-chg down">▼ -3.99%</div>
     
   </div></td>
 
   <td><div class="cell-inner">
-    <div class="m-label">코스닥</div>
-    <div class="m-value">821</div><div class="m-chg down">▼ -1.56%</div>
+    <span class="m-label">코스닥</span>
+    <div class="m-value">804</div><div class="m-chg down">▼ -2.10%</div>
     
   </div></td>
 
   <td><div class="cell-inner">
-    <div class="m-label">나스닥</div>
-    <div class="m-value">26,100</div><div class="m-chg down">▼ -1.03%</div>
+    <span class="m-label">나스닥</span>
+    <div class="m-value">26,218</div><div class="m-chg up">▲ +0.45%</div>
     
   </div></td>
 </tr>
   <tr>
   <td><div class="cell-inner">
-    <div class="m-label">S&P 500</div>
-    <div class="m-value">7,631</div><div class="m-chg down">▼ -0.71%</div>
+    <span class="m-label">S&P 500</span>
+    <div class="m-value">7,667</div><div class="m-chg up">▲ +0.46%</div>
     
   </div></td>
 
   <td><div class="cell-inner">
-    <div class="m-label">원/달러</div>
-    <div class="m-value">1,375</div><div class="m-chg up">▲ +7.69원</div>
+    <span class="m-label">원/달러</span>
+    <div class="m-value">1,358</div><div class="m-chg down">▼ -16.40원</div>
     
   </div></td>
 
   <td><div class="cell-inner">
-    <div class="m-label">브렌트유</div>
-    <div class="m-value">95.22</div><div class="m-chg up">▲ +7.56%</div>
+    <span class="m-label">브렌트유</span>
+    <div class="m-value">95.23</div><div class="m-chg up">▲ +0.01%</div>
     
   </div></td>
 </tr>
@@ -604,18 +546,18 @@
 
 
 <div class="temp-wrap">
-  <div class="flag-data">Market Temperature <span class="colon">·</span> 시장 국면 판정<span class="temp-status-inline">경계</span></div>
-  <p class="temp-summary">간밤 미국 증시의 하락과 원화 약세, 외국인의 코스피 순매도가 겹치며 시장은 경계감을 나타내는 모습입니다.</p>
+  <div class="flag-data">Market Temperature <span class="status-box">중립</span></div>
+  <p class="temp-summary">국내 증시는 외국인의 대규모 순매도 여파로 급격한 하락세를 보였습니다. 다만 환율 하락과 미 증시 반등 흐름을 고려할 때, 펀더멘털 훼손보다는 수급적 왜곡에 따른 일시적 현상일 가능성이 관찰됩니다.</p>
   
   <table class="temp-bar" role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
     
     <td class="seg" width="18.4%">&nbsp;</td>
     <td class="gap">&nbsp;</td>
     
-    <td class="seg on" width="18.4%">&nbsp;</td>
+    <td class="seg" width="18.4%">&nbsp;</td>
     <td class="gap">&nbsp;</td>
     
-    <td class="seg" width="18.4%">&nbsp;</td>
+    <td class="seg on" width="18.4%">&nbsp;</td>
     <td class="gap">&nbsp;</td>
     
     <td class="seg" width="18.4%">&nbsp;</td>
@@ -630,10 +572,10 @@
     <td class="" width="18.4%">위험회피</td>
     <td class="gap">&nbsp;</td>
     
-    <td class="on" width="18.4%">경계</td>
+    <td class="" width="18.4%">경계</td>
     <td class="gap">&nbsp;</td>
     
-    <td class="" width="18.4%">중립</td>
+    <td class="on" width="18.4%">중립</td>
     <td class="gap">&nbsp;</td>
     
     <td class="" width="18.4%">위험선호</td>
@@ -646,20 +588,17 @@
   
   
   <div class="temp-trail-wrap">
-    <div class="temp-trail-lbl">최근 5일 궤적</div>
+    <table class="temp-trail-header" role="presentation" cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+        <td class="l">최근 5일 궤적</td>
+        <td class="r">08-28 → 09-03</td>
+      </tr>
+    </table>
     <table class="temp-trail" role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
       
       <td valign="bottom" width="20.0%">
         <table role="presentation" cellpadding="0" cellspacing="0" align="center" width="14"><tr>
-          <td width="14" height="24" bgcolor="#D4C5A4" style="height:24px;line-height:24px;font-size:0;">&nbsp;</td>
-        </tr></table>
-        <div class="trail-day">08-27</div>
-      </td>
-      <td class="gap">&nbsp;</td>
-      
-      <td valign="bottom" width="20.0%">
-        <table role="presentation" cellpadding="0" cellspacing="0" align="center" width="14"><tr>
-          <td width="14" height="32" bgcolor="#D4C5A4" style="height:32px;line-height:32px;font-size:0;">&nbsp;</td>
+          <td width="14" height="32" bgcolor="#D4C5A4" style="height:32px;line-height:32px;font-size:0;background:#D4C5A4;">&nbsp;</td>
         </tr></table>
         <div class="trail-day">08-28</div>
       </td>
@@ -667,7 +606,7 @@
       
       <td valign="bottom" width="20.0%">
         <table role="presentation" cellpadding="0" cellspacing="0" align="center" width="14"><tr>
-          <td width="14" height="16" bgcolor="#D4C5A4" style="height:16px;line-height:16px;font-size:0;">&nbsp;</td>
+          <td width="14" height="16" bgcolor="#D4C5A4" style="height:16px;line-height:16px;font-size:0;background:#D4C5A4;">&nbsp;</td>
         </tr></table>
         <div class="trail-day">08-29</div>
       </td>
@@ -675,7 +614,7 @@
       
       <td valign="bottom" width="20.0%">
         <table role="presentation" cellpadding="0" cellspacing="0" align="center" width="14"><tr>
-          <td width="14" height="24" bgcolor="#D4C5A4" style="height:24px;line-height:24px;font-size:0;">&nbsp;</td>
+          <td width="14" height="24" bgcolor="#D4C5A4" style="height:24px;line-height:24px;font-size:0;background:#D4C5A4;">&nbsp;</td>
         </tr></table>
         <div class="trail-day">09-01</div>
       </td>
@@ -683,42 +622,47 @@
       
       <td valign="bottom" width="20.0%">
         <table role="presentation" cellpadding="0" cellspacing="0" align="center" width="14"><tr>
-          <td width="14" height="16" bgcolor="#9C6B1F" style="height:16px;line-height:16px;font-size:0;">&nbsp;</td>
+          <td width="14" height="16" bgcolor="#D4C5A4" style="height:16px;line-height:16px;font-size:0;background:#D4C5A4;">&nbsp;</td>
         </tr></table>
-        <div class="trail-day today">09-02</div>
+        <div class="trail-day">09-02</div>
+      </td>
+      <td class="gap">&nbsp;</td>
+      
+      <td valign="bottom" width="20.0%">
+        <table role="presentation" cellpadding="0" cellspacing="0" align="center" width="14"><tr>
+          <td width="14" height="24" bgcolor="#9E6A15" style="height:24px;line-height:24px;font-size:0;background:#9E6A15;">&nbsp;</td>
+        </tr></table>
+        <div class="trail-day today">09-03</div>
       </td>
       
       
     </tr></table>
-    
-    <div class="temp-trail-axis">축 · 위험회피 ↔ 강한선호</div>
-    
+    <div class="temp-note-line">궤적은 국내 증시 마감일 기준 · 발행일( 09월 )보다 하루 늦은 이유입니다.</div>
   </div>
   
-  <div class="temp-asof">기준 2026-09-01</div>
 </div>
 
+
+<!-- ===== CH · II  Editorial & Verification ===== -->
 <div class="chapter-mark">
   <div class="chap-bar">&nbsp;</div>
   <table class="chap-row" role="presentation" cellpadding="0" cellspacing="0" width="100%">
-    <tr><td class="chap-num">CH · II</td><td>Editorial &amp; Verification <span class="chap-kicker">— 편집자의 해석과 검증의 시간축</span></td></tr>
+    <tr><td class="chap-num">CH · II</td><td><span class="chap-title">Editorial &amp; Verification</span><span class="chap-kicker">— 편집자의 해석과 검증의 시간축</span></td></tr>
   </table>
 </div>
 
 
 
+
 <div class="story-wrap pt0">
-  <div class="flag-data">Main Story <span class="colon">·</span> 오늘의 단일 사건</div>
-  <div class="story-meta">연합뉴스마켓 · 2026-09-02</div>
-  
-  <div class="story-h">중동 교전 재개로 WTI 원유 가격이 5% 넘게 급등하고 뉴욕증시가 하락했다</div>
-  <div class="news-orig"><span class="news-orig-lbl">원제</span>중동 긴장·유가 급등에 채권 매도세까지…뉴욕증시 일제히 하락</div>
-  <span class="story-fact-lbl">THE FACT</span>
-  <p class="story-fact">미국과 이란 간 교전 재개로 WTI 원유 선물 가격이 5% 넘게 급등했고, 인플레이션 우려 속에서 미 국채 금리 상승과 뉴욕증시 하락이 나타났습니다.</p>
+  <div class="flag-data">Main Story</div>
+  <div class="story-meta">매일경제 · 2026-09-02</div>
+  <div class="story-h">경기선행지수 정점 우려에 주식 비중 축소 권고가 나오며 국내 증시 변동성 우려가 커졌다</div>
+  <div class="story-orig">“코스피 고점 가까워졌다”…전문가가 주식 대신 늘리라는 ‘이 자산’</div>
   
   <div class="story-why">
     <span class="story-why-lbl">WHY IT MATTERS</span>
-    <div class="story-why-txt">글로벌 유가 폭등과 미 국채금리 상승은 국내 환율과 금리 상승 압력으로 작용해 위험자산 전반의 자금 이탈을 초래할 수 있습니다.</div>
+    <div class="story-why-txt">증시 고점 인식과 안전자산 선호 확대는 코스피 및 코스닥 시장에서의 자금 이탈을 가속화하고 단기 변동성을 키우는 요인으로 작용할 수 있습니다.</div>
   </div>
   
 </div>
@@ -733,27 +677,19 @@
           
           
           <div class="news-item">
-            <div class="news-title">은행 부실채권 18.9조원 돌파</div>
+            <div class="news-title">은행권 기업 부실채권 19조 육박</div>
             
-            <div class="news-orig"><span class="news-orig-lbl">원제</span>국내은행 부실채권 18.9조, 8년만에 최대…기업여신 1조↑</div>
-            <div class="news-fact">올해 6월 말 기업여신 부실채권 증가 영향으로 국내은행의 부실채권비율이 상승했습니다.</div>
-            <div class="news-meta">연합뉴스 · 2026-09-02 · <a href="https://www.yna.co.kr/view/AKR20260901191500002" target="_blank">원문 →</a></div>
+            <div class="news-orig">“서민 대출은 칼같이 굴더니”…은행권 기업 부실채권, 19조 육박</div>
+            <div class="news-fact">국내 은행권의 기업 부실채권 규모가 8년 만에 최대치인 19조 원에 육박하는 흐름입니다.</div>
+            <div class="news-meta">매일경제 · 2026-09-03 · <a href="https://www.mk.co.kr/news/economy/12142904" target="_blank">원문 →</a></div>
           </div>
           
           <div class="news-item">
-            <div class="news-title">대출비교 서비스 실효성 논란</div>
+            <div class="news-title">소비자물가 두 달 만에 다시 3%대</div>
             
-            <div class="news-orig"><span class="news-orig-lbl">원제</span>“갈아탈 정도로 금리 싼 곳 없다”…대출비교 서비스 실효성 논란</div>
-            <div class="news-fact">상반기 대출비교 서비스 조회수가 1000건을 넘었으나 실제 대환 실행은 3433건에 불과했습니다.</div>
-            <div class="news-meta">매일경제 · 2026-09-02 · <a href="https://www.mk.co.kr/news/economy/12141893" target="_blank">원문 →</a></div>
-          </div>
-          
-          <div class="news-item">
-            <div class="news-title">외국인 고용허가 인력 역대 최대</div>
-            
-            <div class="news-orig"><span class="news-orig-lbl">원제</span>고용허가제 외국인 28.7만명 '역대 최대'…80%는 제조업</div>
-            <div class="news-fact">외국인 고용허가제(E-9)로 국내에 머무는 외국 인력이 올해 28만 7천 명을 넘어 역대 최대를 기록했습니다.</div>
-            <div class="news-meta">연합뉴스 · 2026-09-02 · <a href="https://www.yna.co.kr/view/AKR20260901154800530" target="_blank">원문 →</a></div>
+            <div class="news-orig">물가 두달 만에 다시 3%대… 통신요금 감면 기저효과 반영</div>
+            <div class="news-fact">지난 8월 소비자물가 상승률이 통신요금 지원에 따른 기저효과가 반영되며 두 달 만에 다시 3%대로 올라섰습니다.</div>
+            <div class="news-meta">파이낸셜뉴스 · 2026-09-02 · <a href="https://www.fnnews.com/news/202609021832323798" target="_blank">원문 →</a></div>
           </div>
           
           
@@ -765,19 +701,27 @@
           
           
           <div class="news-item">
-            <div class="news-title">팔로알토 AI 수요로 실적 호조</div>
+            <div class="news-title">브로드컴 가이던스 실망에 주가 하락</div>
             
-            <div class="news-orig"><span class="news-orig-lbl">원제</span>Palo Alto Networks beats quarterly estimates on AI demand, continues acquisition spree</div>
-            <div class="news-fact">팔로알토 네트워크가 AI 기반 보안 도구 수요 호조에 힘입어 분기 실적 전망치를 상회했습니다. 지속적인 기업 인수와 강력한 AI 보안 채택이 주가를 견인하는 모습입니다.</div>
-            <div class="news-meta">CNBC · 2026-09-01 · <a href="https://www.cnbc.com/2026/09/01/palo-alto-networks-panw-q4-2026-earnings.html" target="_blank">원문(원어) →</a></div>
+            <div class="news-orig">Broadcom's stock drops 5% as weak guidance overshadows earnings beat</div>
+            <div class="news-fact">브로드컴 주가가 분기 실적 상회에도 불구하고 실망스러운 다음 분기 매출 전망을 제시하면서 시간 외 거래 등에서 하락세를 그렸습니다. 매출 자체는 예상치를 웃돌았으나 눈높이를 충족하지 못한 가이던스가 부담을 준 것으로 보입니다.</div>
+            <div class="news-meta">CNBC · 2026-09-02 · <a href="https://www.cnbc.com/2026/09/02/broadcom-avgo-q3-earnings-report-2026.html" target="_blank">원문(원어) →</a></div>
           </div>
           
           <div class="news-item">
-            <div class="news-title">델 AI 서버 수요에 목표 상향</div>
+            <div class="news-title">델 실적으로 본 AI 하드웨어 수요 확인</div>
             
-            <div class="news-orig"><span class="news-orig-lbl">원제</span>Dell’s AI servers drive a stellar earnings performance, and a raised outlook</div>
-            <div class="news-fact">델 테크놀로지가 AI 서버 수요 가속화에 힘입어 우수한 실적을 기록하고 향후 전망을 상회 조정을 단행했습니다. 수주 잔고는 950억 달러에 달하는 것으로 파악됩니다.</div>
-            <div class="news-meta">MarketWatch · 2026-09-01 · <a href="https://www.marketwatch.com/story/dells-ai-servers-drive-a-stellar-earnings-performance-and-a-raised-outlook-86476ace?mod=mw_rss_topstories" target="_blank">원문(원어) →</a></div>
+            <div class="news-orig">Nvidia’s stock is climbing as investors get more confidence in an expanding base of AI customers</div>
+            <div class="news-fact">델의 실적 발표 이후 인공지능 하드웨어 수요가 거대 클라우드 제공업체를 넘어 넓은 고객층으로 확장되고 있다는 분석에 엔비디아 주가가 긍정적인 흐름을 보였습니다. 인공지능 투자 열기가 단순 테크 기업에 국한되지 않는 신호로 해석됩니다.</div>
+            <div class="news-meta">MarketWatch · 2026-09-02 · <a href="https://www.marketwatch.com/story/nvidias-stock-is-climbing-as-investors-get-more-confidence-in-an-expanding-base-of-ai-customers-a6e297f1?mod=mw_rss_topstories" target="_blank">원문(원어) →</a></div>
+          </div>
+          
+          <div class="news-item">
+            <div class="news-title">밸류에이션 부담에 팔란티어 주가 약세</div>
+            
+            <div class="news-orig">Palantir’s stock is slumping. Why bond yields and Google may be to blame.</div>
+            <div class="news-fact">지난 8월 강한 실적 발표 랠리를 보였던 팔란티어가 최근 국채 금리 움직임과 구글 관련 요인 등으로 밸류에이션 부담을 받으며 주가가 약세를 나타냈습니다. 가파른 상승 이후 높은 멀티플을 정당화하려는 시장의 잣대가 엄격해진 탓으로 풀이됩니다.</div>
+            <div class="news-meta">MarketWatch · 2026-09-02 · <a href="https://www.marketwatch.com/story/why-palantirs-stock-is-suffering-its-worst-slump-since-february-7fb3b289?mod=mw_rss_topstories" target="_blank">원문(원어) →</a></div>
           </div>
           
           
@@ -786,74 +730,78 @@
     </tr>
   </table>
 </div>
+
+<!-- ===== MOO:VIEW ===== -->
 <table class="brand-wrap" role="presentation" cellpadding="0" cellspacing="0" width="100%">
   <tr><td class="spacer">&nbsp;</td><td class="body">
-    <div class="brand-card">
-      <div class="flag-brand">MOO<span class="colon">:</span>VIEW <span class="sub">오늘의 해석 · 예측은 남기지 않습니다</span></div>
+    <div class="brand-card view-card">
+      <div class="flag-brand">MOO<span class="colon">:</span>VIEW<span class="sub">오늘의 해석 · 예측은 남기지 않습니다</span></div>
       
       
-      <p class="view-p">미국과 이란 간 교전 재개 여파로 원유 선물이 급등하며 글로벌 위험자산 전반에 자금 이탈 압력이 가중되는 분위기입니다. 중동 긴장이 원자재 가격 상승을 유발함에 따라 미 국채 금리 변동성도 함께 확대되었습니다.</p>
+      <p class="view-p">경기선행지수의 정점 접근 우려로 주식 비중을 축소하고 단기 국채 등 안전자산으로 자금을 이동하라는 권고가 시장에 확산되며 증시 변동성을 자극했습니다. 이러한 안전자산 선호 심리는 수급 측면으로 즉각 전파되어 수급 파동을 유발한 촉매로 작용한 흐름입니다.</p>
       
-      <p class="view-p">대외 악재 속에서도 국내 증시는 코스닥의 부진과 달리 코스피가 0.23% 오름세를 지키며 상대적으로 견조한 방어력을 보였습니다. 다만 원/달러 환율이 상승하는 등 원화 약세 흐름이 겹치며 시장 전반에는 경계감이 형성되는 양상입니다.</p>
+      <p class="view-p">지수별로는 코스피가 -3.99% 급락하며 하락폭을 키운 반면 코스닥은 -2.10% 하락에 그쳐 상대적으로 상방을 유지했습니다. 수급 주체별로는 코스피에서 외국인과 기관이 합산 3조 9천억 원이 넘은 매물 폭탄을 쏟아내며 하락을 주도했으나, 개인은 대규모 순매수로 이를 방어했으며 코스닥에서는 외국인이 순매수로 돌아서며 차별화된 모습을 보였습니다.</p>
       
-      <p class="view-p">수급 측면에서는 코스피에서 기관이 6,286억 원 순매도를 기록한 가운데 업종별 차별화가 진행되었습니다. 국제유가 상승 여파로 석유와가스 업종이 강세를 보인 반면, 전자제품 및 화장품 업종은 약세를 나타냈습니다.</p>
-      
-      <p class="view-p">중동 유가 급등세가 안정화된다면 환율 상승 압력이 완화될 수 있으나, 분쟁이 장기화될 경우 인플레이션 우려로 증시 하방 압력이 커질 가능성이 있습니다. 단기 악재 악화에도 불구하고 국내 대형주 중심의 하방 지지력이 유지될 수도 있은 만큼 관련 수급 추이를 관찰할 필요가 있습니다.</p>
+      <p class="view-p">원/달러 환율이 -16.4원 급락하여 원화 강세를 보이고 미 증시가 반등세를 이어가는 등 외환 및 해외 여건이 진정되면 증시 왜곡이 완화될 수 있습니다. 그러나 소비자물가가 다시 3%대로 반등하고 기업 부실채권이 19조 원에 육박하는 등 경기 둔화 우려가 지속된다면 추가 하락 압력이 이어질 수 있습니다.</p>
       
       
       <div class="view-sig">— MOO<span class="g">:</span>Editor</div>
     </div>
   </td><td class="spacer">&nbsp;</td></tr>
 </table>
+
+<!-- ===== MOO:Q → CHECK ===== -->
 <table class="brand-wrap" role="presentation" cellpadding="0" cellspacing="0" width="100%">
   <tr><td class="spacer">&nbsp;</td><td class="body">
-    <div class="brand-card">
-      <div class="spine-flag">MOO<span class="colon">:</span>Q → CHECK <span class="sub">지면의 척추 · 24시간 검증 루프</span></div>
-      <div class="purpose">어제 근거·오늘 결과 → 24시간 후 검증 → 오늘의 새 질문. 예측이 아니라 검증이 서비스의 뼈대입니다.</div>
-
+    <div class="doc-card">
+      <div class="flag-brand">MOO<span class="colon">:</span>Q <span class="arrow">→</span> CHECK</div>
+      
+      <div class="spine-today">
+        <div class="spine-t-lbl">오늘의 새 질문 · 09-03</div>
+        <p class="spine-tq">외국인 매도 흐름이 이어지는 가운데 원/달러가 내릴까요?</p>
+        <table class="spine-info" role="presentation" cellpadding="0" cellspacing="0" width="100%">
+          <tr><td class="k">전제</td><td class="v">원/달러는 1,358.2원으로 전일 대비 1.19% 하락했습니다.</td></tr>
+          <tr><td class="k">확인 대상</td><td class="v">외국인 매도 흐름이 이어지는 가운데 하락 흐름이 다음 거래일까지 이어지는지가 확인 대상입니다.</td></tr>
+          <tr><td class="k">대상 지표</td><td class="v">USDKRW</td></tr>
+        </table>
+        <p class="spine-forward">→ 2026-09-04 아침 판정 예정</p>
+      </div>
+      
       
       
       <div class="spine-yesterday">
-        <div class="spine-y-lbl">어제 09-01 · 질문 근거</div>
-        <p class="spine-yq">외국인 순매도 흐름 속에서 코스닥이 하락세를 이어갈까요?</p>
-        <table class="spine-evidence" role="presentation" cellpadding="0" cellspacing="0" width="100%">
-          <tr><td class="k">대상 지표</td><td>kosdaq</td></tr>
-          <tr><td class="k">판정 근거</td><td>834.29 → 821.25 (-1.56%)</td></tr>
-          <tr><td class="k">관측 결과</td><td>실제 변화가 예상한 하락 방향과 일치했습니다.</td></tr>
+        <table class="spine-y-header" role="presentation" cellpadding="0" cellspacing="0" width="100%">
+          <tr>
+            <td class="spine-y-lbl">어제의 판정 · 09-02</td>
+            <td class="spine-y-note">24시간 검증 루프</td>
+          </tr>
         </table>
-        <div style="margin-top:8px;">
-          <span class="verdict-tag v-hit"><span class="glyph">O</span>적중</span>
-        </div>
-      </div>
-
-      <div class="spine-connector">
-        <span class="spine-conn-arrow">24H · 오늘 새 질문 ↓</span>
-      </div>
-      
-
-      
-      <div class="spine-today">
-        <div class="spine-t-lbl">오늘 09-02 · 새 질문</div>
-        
-        <div class="spine-premise">
-          <span class="p-lbl">전제 · 관찰 사실</span>
-          나스닥은 26,099.77로 전일 대비 1.03% 하락했습니다.
-        </div>
-        
-        <p class="spine-tq">고용 발표를 앞두고 나스닥이 하락세를 이어갈까요?</p>
-        
-        <p class="spine-why">고용 발표를 앞두고 하락 흐름이 다음 거래일까지 이어지는지가 확인 대상입니다.</p>
-        
-        <p class="spine-forward">→ 2026-09-03 아침 리본에서 판정 · 대상 nasdaq</p>
+        <p class="spine-yq">고용 발표를 앞두고 나스닥이 하락세를 이어갈까요?</p>
+        <table class="spine-check-row" role="presentation" cellpadding="0" cellspacing="0" width="100%">
+          <tr>
+            <td class="k">대상 지표</td>
+            <td class="v">NASDAQ</td>
+            <td class="verdict" rowspan="2"><span class="verdict-inline v-miss"><span class="glyph">X</span>불일치</span></td>
+          </tr>
+          <tr>
+            <td class="k">관측 결과</td>
+            <td class="v">26099.77 → 26217.83 (+0.45%) · 실제 변화가 예상한 하락 방향과 다르게 움직였습니다.</td>
+          </tr>
+        </table>
       </div>
       
+      <div class="spine-cta">
+        <a href="https://mooconomy.co.kr/archive/questions" target="_blank">MOO:conomy의 지난 질문·판정 아카이브 보기 →</a>
+      </div>
     </div>
   </td><td class="spacer">&nbsp;</td></tr>
 </table>
+
+<!-- ===== CH · III  Market Data ===== -->
 <div class="chapter-mark">
   <div class="chap-bar">&nbsp;</div>
   <table class="chap-row" role="presentation" cellpadding="0" cellspacing="0" width="100%">
-    <tr><td class="chap-num">CH · III</td><td>Market Data <span class="chap-kicker">— 지표와 수급의 정확한 위치</span></td></tr>
+    <tr><td class="chap-num">CH · III</td><td><span class="chap-title">Market Data</span><span class="chap-kicker">— 지표와 수급의 정확한 위치</span></td></tr>
   </table>
 </div>
 
@@ -861,405 +809,432 @@
 
 
 <div class="flow-wrap pt0">
-  <div class="flag-data">Korea Flow <span class="colon">·</span> 순매매 2026-09-01 · 단위 억원</div>
+  <div class="flag-data">Korea Flow <span class="r">2026-09-02</span></div>
+
   
   <div class="flow-market">
-    <table class="flow-market-header" role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr><td class="flow-market-lbl">코스피 수급</td></tr></table>
+    <table class="flow-market-header" role="presentation" cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+        <td class="flow-market-lbl">코스피 수급</td>
+        <td class="flow-market-scale">단위 억원</td>
+      </tr>
+    </table>
     
-    <table class="flow-axis-scale" role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
-      <td class="l">-1.0조</td>
-      <td class="c">0</td>
-      <td class="r">+1.0조</td>
-    </tr></table>
-    
-    
-<table class="div-row" role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
-  <td class="flow-name">&nbsp;</td>
-  <td class="bar-cell">
-    <table class="tick-rail-track" role="presentation" cellpadding="0" cellspacing="0"><tr>
-      <td width="1" class="tick-rail-cell" bgcolor="#C9BFA8" style="background:#C9BFA8;"></td>
-      <td width="12%" class="tick-rail-cell"></td>
-      <td width="1" class="tick-rail-cell" bgcolor="#C9BFA8" style="background:#C9BFA8;"></td>
-      <td width="12%" class="tick-rail-cell"></td>
-      <td width="1" class="tick-rail-cell" bgcolor="#C9BFA8" style="background:#C9BFA8;"></td>
-      <td width="12%" class="tick-rail-cell"></td>
-      <td width="1" class="tick-rail-cell" bgcolor="#C9BFA8" style="background:#C9BFA8;"></td>
-      <td width="12%" class="tick-rail-cell"></td>
-      <td width="1" class="tick-rail-cell" bgcolor="#8A7B60" style="background:#8A7B60;"></td>
-      <td width="12%" class="tick-rail-cell"></td>
-      <td width="1" class="tick-rail-cell" bgcolor="#C9BFA8" style="background:#C9BFA8;"></td>
-      <td width="12%" class="tick-rail-cell"></td>
-      <td width="1" class="tick-rail-cell" bgcolor="#C9BFA8" style="background:#C9BFA8;"></td>
-      <td width="12%" class="tick-rail-cell"></td>
-      <td width="1" class="tick-rail-cell" bgcolor="#C9BFA8" style="background:#C9BFA8;"></td>
-      <td width="12%" class="tick-rail-cell"></td>
-      <td width="1" class="tick-rail-cell" bgcolor="#C9BFA8" style="background:#C9BFA8;"></td>
-    </tr></table>
-  </td>
-  <td class="flow-val">&nbsp;</td>
-</tr></table>
+<table class="tick-rail" role="presentation" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td class="name-sp"></td>
+    <td class="track">
+      <table class="tick-rail-inner" role="presentation" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td class="mark" width="1" bgcolor="#C9B98A" style="background:#C9B98A;"></td>
+          <td width="12.5%"></td>
+          <td class="mark" width="1" bgcolor="#C9B98A" style="background:#C9B98A;"></td>
+          <td width="12.5%"></td>
+          <td class="mark" width="1" bgcolor="#C9B98A" style="background:#C9B98A;"></td>
+          <td width="12.5%"></td>
+          <td class="mark" width="1" bgcolor="#C9B98A" style="background:#C9B98A;"></td>
+          <td width="12.5%"></td>
+          <td class="mark-axis" width="1" bgcolor="#6B5B44" style="background:#6B5B44;"></td>
+          <td width="12.5%"></td>
+          <td class="mark" width="1" bgcolor="#C9B98A" style="background:#C9B98A;"></td>
+          <td width="12.5%"></td>
+          <td class="mark" width="1" bgcolor="#C9B98A" style="background:#C9B98A;"></td>
+          <td width="12.5%"></td>
+          <td class="mark" width="1" bgcolor="#C9B98A" style="background:#C9B98A;"></td>
+          <td width="12.5%"></td>
+          <td class="mark" width="1" bgcolor="#C9B98A" style="background:#C9B98A;"></td>
+        </tr>
+      </table>
+    </td>
+    <td class="val-sp"></td>
+  </tr>
+</table>
 
     
-    <table class="div-row" role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
-      <td class="flow-name">개인</td>
-      <td class="bar-cell">
-<table class="bar-track" role="presentation" cellpadding="0" cellspacing="0"><tr>
-  <td class="bar-half" align="right">
     
-    <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
-      <td class="bar-empty-td" bgcolor="#EDE5D3" style="background:#EDE5D3;"></td>
-      <td class="bar-cap-td" width="3" bgcolor="#24476F" style="background:#24476F;"></td>
-      <td class="bar-fill-td" width="16.2%" bgcolor="#28517E" style="background:#28517E;"></td>
-      <td class="bar-fill-td" width="37.8%" bgcolor="#2F5A8F" style="background:#2F5A8F;"></td>
-    </tr></table>
+<table class="flow-row" role="presentation" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td class="flow-name">개인</td>
+    <td class="flow-track">
+      <table class="bar-track" role="presentation" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td class="bar-half" align="right">
+            
+            <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr><td class="bar-empty-td"></td></tr></table>
+            
+          </td>
+          <td class="bar-axis-col"><div class="bar-axis-line">&nbsp;</div></td>
+          <td class="bar-half" align="left">
+            
+            <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
+              <td class="bar-fill-td up" width="46.1%" bgcolor="#8B2318" style="background:#8B2318;"></td>
+              <td class="bar-cap-td up" width="3" bgcolor="#6B1810" style="background:#6B1810;"></td>
+              <td class="bar-empty-td"></td>
+            </tr></table>
+            
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td class="flow-val up">+23,029</td>
+  </tr>
+</table>
+
     
-  </td>
-  <td class="bar-axis-col"><div class="bar-axis-line">&nbsp;</div></td>
-  <td class="bar-half" align="left">
     
-    <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr><td class="bar-empty-td" bgcolor="#EDE5D3" style="background:#EDE5D3;"></td></tr></table>
+<table class="flow-row" role="presentation" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td class="flow-name">외국인</td>
+    <td class="flow-track">
+      <table class="bar-track" role="presentation" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td class="bar-half" align="right">
+            
+            <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
+              <td class="bar-empty-td"></td>
+              <td class="bar-cap-td down" width="3" bgcolor="#142C4A" style="background:#142C4A;"></td>
+              <td class="bar-fill-td down" width="38.3%" bgcolor="#1E3A5F" style="background:#1E3A5F;"></td>
+            </tr></table>
+            
+          </td>
+          <td class="bar-axis-col"><div class="bar-axis-line">&nbsp;</div></td>
+          <td class="bar-half" align="left">
+            
+            <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr><td class="bar-empty-td"></td></tr></table>
+            
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td class="flow-val down">-19,173</td>
+  </tr>
+</table>
+
     
-  </td>
-</tr></table>
-</td>
-      <td class="flow-val down">-5,402</td>
-    </tr></table>
     
-    <table class="div-row" role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
-      <td class="flow-name">외국인</td>
-      <td class="bar-cell">
-<table class="bar-track" role="presentation" cellpadding="0" cellspacing="0"><tr>
-  <td class="bar-half" align="right">
-    
-    <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
-      <td class="bar-empty-td" bgcolor="#EDE5D3" style="background:#EDE5D3;"></td>
-      <td class="bar-cap-td" width="3" bgcolor="#24476F" style="background:#24476F;"></td>
-      <td class="bar-fill-td" width="14.9%" bgcolor="#28517E" style="background:#28517E;"></td>
-      <td class="bar-fill-td" width="34.8%" bgcolor="#2F5A8F" style="background:#2F5A8F;"></td>
-    </tr></table>
-    
-  </td>
-  <td class="bar-axis-col"><div class="bar-axis-line">&nbsp;</div></td>
-  <td class="bar-half" align="left">
-    
-    <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr><td class="bar-empty-td" bgcolor="#EDE5D3" style="background:#EDE5D3;"></td></tr></table>
-    
-  </td>
-</tr></table>
-</td>
-      <td class="flow-val down">-4,968</td>
-    </tr></table>
-    
-    <table class="div-row" role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
-      <td class="flow-name">기관</td>
-      <td class="bar-cell">
-<table class="bar-track" role="presentation" cellpadding="0" cellspacing="0"><tr>
-  <td class="bar-half" align="right">
-    
-    <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
-      <td class="bar-empty-td" bgcolor="#EDE5D3" style="background:#EDE5D3;"></td>
-      <td class="bar-cap-td" width="3" bgcolor="#24476F" style="background:#24476F;"></td>
-      <td class="bar-fill-td" width="18.9%" bgcolor="#28517E" style="background:#28517E;"></td>
-      <td class="bar-fill-td" width="44.0%" bgcolor="#2F5A8F" style="background:#2F5A8F;"></td>
-    </tr></table>
-    
-  </td>
-  <td class="bar-axis-col"><div class="bar-axis-line">&nbsp;</div></td>
-  <td class="bar-half" align="left">
-    
-    <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr><td class="bar-empty-td" bgcolor="#EDE5D3" style="background:#EDE5D3;"></td></tr></table>
-    
-  </td>
-</tr></table>
-</td>
-      <td class="flow-val down">-6,286</td>
-    </tr></table>
+<table class="flow-row" role="presentation" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td class="flow-name">기관</td>
+    <td class="flow-track">
+      <table class="bar-track" role="presentation" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td class="bar-half" align="right">
+            
+            <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
+              <td class="bar-empty-td"></td>
+              <td class="bar-cap-td down" width="3" bgcolor="#142C4A" style="background:#142C4A;"></td>
+              <td class="bar-fill-td down" width="40.7%" bgcolor="#1E3A5F" style="background:#1E3A5F;"></td>
+            </tr></table>
+            
+          </td>
+          <td class="bar-axis-col"><div class="bar-axis-line">&nbsp;</div></td>
+          <td class="bar-half" align="left">
+            
+            <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr><td class="bar-empty-td"></td></tr></table>
+            
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td class="flow-val down">-20,361</td>
+  </tr>
+</table>
+
     
   </div>
   
+
   
   <div class="flow-market">
-    <table class="flow-market-header" role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr><td class="flow-market-lbl">코스닥 수급</td></tr></table>
+    <table class="flow-market-header" role="presentation" cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+        <td class="flow-market-lbl">코스닥 수급</td>
+        <td class="flow-market-scale">단위 억원</td>
+      </tr>
+    </table>
     
-    <table class="flow-axis-scale" role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
-      <td class="l">-1.0조</td>
-      <td class="c">0</td>
-      <td class="r">+1.0조</td>
-    </tr></table>
-    
-    
-<table class="div-row" role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
-  <td class="flow-name">&nbsp;</td>
-  <td class="bar-cell">
-    <table class="tick-rail-track" role="presentation" cellpadding="0" cellspacing="0"><tr>
-      <td width="1" class="tick-rail-cell" bgcolor="#C9BFA8" style="background:#C9BFA8;"></td>
-      <td width="12%" class="tick-rail-cell"></td>
-      <td width="1" class="tick-rail-cell" bgcolor="#C9BFA8" style="background:#C9BFA8;"></td>
-      <td width="12%" class="tick-rail-cell"></td>
-      <td width="1" class="tick-rail-cell" bgcolor="#C9BFA8" style="background:#C9BFA8;"></td>
-      <td width="12%" class="tick-rail-cell"></td>
-      <td width="1" class="tick-rail-cell" bgcolor="#C9BFA8" style="background:#C9BFA8;"></td>
-      <td width="12%" class="tick-rail-cell"></td>
-      <td width="1" class="tick-rail-cell" bgcolor="#8A7B60" style="background:#8A7B60;"></td>
-      <td width="12%" class="tick-rail-cell"></td>
-      <td width="1" class="tick-rail-cell" bgcolor="#C9BFA8" style="background:#C9BFA8;"></td>
-      <td width="12%" class="tick-rail-cell"></td>
-      <td width="1" class="tick-rail-cell" bgcolor="#C9BFA8" style="background:#C9BFA8;"></td>
-      <td width="12%" class="tick-rail-cell"></td>
-      <td width="1" class="tick-rail-cell" bgcolor="#C9BFA8" style="background:#C9BFA8;"></td>
-      <td width="12%" class="tick-rail-cell"></td>
-      <td width="1" class="tick-rail-cell" bgcolor="#C9BFA8" style="background:#C9BFA8;"></td>
-    </tr></table>
-  </td>
-  <td class="flow-val">&nbsp;</td>
-</tr></table>
+<table class="tick-rail" role="presentation" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td class="name-sp"></td>
+    <td class="track">
+      <table class="tick-rail-inner" role="presentation" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td class="mark" width="1" bgcolor="#C9B98A" style="background:#C9B98A;"></td>
+          <td width="12.5%"></td>
+          <td class="mark" width="1" bgcolor="#C9B98A" style="background:#C9B98A;"></td>
+          <td width="12.5%"></td>
+          <td class="mark" width="1" bgcolor="#C9B98A" style="background:#C9B98A;"></td>
+          <td width="12.5%"></td>
+          <td class="mark" width="1" bgcolor="#C9B98A" style="background:#C9B98A;"></td>
+          <td width="12.5%"></td>
+          <td class="mark-axis" width="1" bgcolor="#6B5B44" style="background:#6B5B44;"></td>
+          <td width="12.5%"></td>
+          <td class="mark" width="1" bgcolor="#C9B98A" style="background:#C9B98A;"></td>
+          <td width="12.5%"></td>
+          <td class="mark" width="1" bgcolor="#C9B98A" style="background:#C9B98A;"></td>
+          <td width="12.5%"></td>
+          <td class="mark" width="1" bgcolor="#C9B98A" style="background:#C9B98A;"></td>
+          <td width="12.5%"></td>
+          <td class="mark" width="1" bgcolor="#C9B98A" style="background:#C9B98A;"></td>
+        </tr>
+      </table>
+    </td>
+    <td class="val-sp"></td>
+  </tr>
+</table>
 
     
-    <table class="div-row" role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
-      <td class="flow-name">개인</td>
-      <td class="bar-cell">
-<table class="bar-track" role="presentation" cellpadding="0" cellspacing="0"><tr>
-  <td class="bar-half" align="right">
     
-    <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr><td class="bar-empty-td" bgcolor="#EDE5D3" style="background:#EDE5D3;"></td></tr></table>
+<table class="flow-row" role="presentation" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td class="flow-name">개인</td>
+    <td class="flow-track">
+      <table class="bar-track" role="presentation" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td class="bar-half" align="right">
+            
+            <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr><td class="bar-empty-td"></td></tr></table>
+            
+          </td>
+          <td class="bar-axis-col"><div class="bar-axis-line">&nbsp;</div></td>
+          <td class="bar-half" align="left">
+            
+            <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
+              <td class="bar-fill-td up" width="3.5%" bgcolor="#8B2318" style="background:#8B2318;"></td>
+              <td class="bar-cap-td up" width="3" bgcolor="#6B1810" style="background:#6B1810;"></td>
+              <td class="bar-empty-td"></td>
+            </tr></table>
+            
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td class="flow-val up">+1,727</td>
+  </tr>
+</table>
+
     
-  </td>
-  <td class="bar-axis-col"><div class="bar-axis-line">&nbsp;</div></td>
-  <td class="bar-half" align="left">
     
-    <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
-      <td class="bar-fill-td" width="30.7%" bgcolor="#C0392B" style="background:#C0392B;"></td>
-      <td class="bar-fill-td" width="13.2%" bgcolor="#A83226" style="background:#A83226;"></td>
-      <td class="bar-cap-td" width="3" bgcolor="#8E2B20" style="background:#8E2B20;"></td>
-      <td class="bar-empty-td" bgcolor="#EDE5D3" style="background:#EDE5D3;"></td>
-    </tr></table>
+<table class="flow-row" role="presentation" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td class="flow-name">외국인</td>
+    <td class="flow-track">
+      <table class="bar-track" role="presentation" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td class="bar-half" align="right">
+            
+            <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr><td class="bar-empty-td"></td></tr></table>
+            
+          </td>
+          <td class="bar-axis-col"><div class="bar-axis-line">&nbsp;</div></td>
+          <td class="bar-half" align="left">
+            
+            <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
+              <td class="bar-fill-td up" width="2%" bgcolor="#8B2318" style="background:#8B2318;"></td>
+              <td class="bar-cap-td up" width="3" bgcolor="#6B1810" style="background:#6B1810;"></td>
+              <td class="bar-empty-td"></td>
+            </tr></table>
+            
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td class="flow-val up">+618</td>
+  </tr>
+</table>
+
     
-  </td>
-</tr></table>
-</td>
-      <td class="flow-val up">+4,389</td>
-    </tr></table>
     
-    <table class="div-row" role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
-      <td class="flow-name">외국인</td>
-      <td class="bar-cell">
-<table class="bar-track" role="presentation" cellpadding="0" cellspacing="0"><tr>
-  <td class="bar-half" align="right">
+<table class="flow-row" role="presentation" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td class="flow-name">기관</td>
+    <td class="flow-track">
+      <table class="bar-track" role="presentation" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td class="bar-half" align="right">
+            
+            <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
+              <td class="bar-empty-td"></td>
+              <td class="bar-cap-td down" width="3" bgcolor="#142C4A" style="background:#142C4A;"></td>
+              <td class="bar-fill-td down" width="4.6%" bgcolor="#1E3A5F" style="background:#1E3A5F;"></td>
+            </tr></table>
+            
+          </td>
+          <td class="bar-axis-col"><div class="bar-axis-line">&nbsp;</div></td>
+          <td class="bar-half" align="left">
+            
+            <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr><td class="bar-empty-td"></td></tr></table>
+            
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td class="flow-val down">-2,322</td>
+  </tr>
+</table>
+
     
-    <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
-      <td class="bar-empty-td" bgcolor="#EDE5D3" style="background:#EDE5D3;"></td>
-      <td class="bar-cap-td" width="3" bgcolor="#24476F" style="background:#24476F;"></td>
-      <td class="bar-fill-td" width="4.6%" bgcolor="#28517E" style="background:#28517E;"></td>
-      <td class="bar-fill-td" width="10.7%" bgcolor="#2F5A8F" style="background:#2F5A8F;"></td>
-    </tr></table>
+  </div>
+  
+
+  
+  <div class="flow-market">
+    <table class="flow-market-header" role="presentation" cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+        <td class="flow-market-lbl">오늘의 업종 · 상하위 4</td>
+        <td class="flow-market-scale">단위 %</td>
+      </tr>
+    </table>
     
-  </td>
-  <td class="bar-axis-col"><div class="bar-axis-line">&nbsp;</div></td>
-  <td class="bar-half" align="left">
+<table class="tick-rail" role="presentation" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td class="name-sp"></td>
+    <td class="track">
+      <table class="tick-rail-inner" role="presentation" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td class="mark" width="1" bgcolor="#C9B98A" style="background:#C9B98A;"></td>
+          <td width="12.5%"></td>
+          <td class="mark" width="1" bgcolor="#C9B98A" style="background:#C9B98A;"></td>
+          <td width="12.5%"></td>
+          <td class="mark" width="1" bgcolor="#C9B98A" style="background:#C9B98A;"></td>
+          <td width="12.5%"></td>
+          <td class="mark" width="1" bgcolor="#C9B98A" style="background:#C9B98A;"></td>
+          <td width="12.5%"></td>
+          <td class="mark-axis" width="1" bgcolor="#6B5B44" style="background:#6B5B44;"></td>
+          <td width="12.5%"></td>
+          <td class="mark" width="1" bgcolor="#C9B98A" style="background:#C9B98A;"></td>
+          <td width="12.5%"></td>
+          <td class="mark" width="1" bgcolor="#C9B98A" style="background:#C9B98A;"></td>
+          <td width="12.5%"></td>
+          <td class="mark" width="1" bgcolor="#C9B98A" style="background:#C9B98A;"></td>
+          <td width="12.5%"></td>
+          <td class="mark" width="1" bgcolor="#C9B98A" style="background:#C9B98A;"></td>
+        </tr>
+      </table>
+    </td>
+    <td class="val-sp"></td>
+  </tr>
+</table>
+
     
-    <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr><td class="bar-empty-td" bgcolor="#EDE5D3" style="background:#EDE5D3;"></td></tr></table>
     
-  </td>
-</tr></table>
-</td>
-      <td class="flow-val down">-1,531</td>
-    </tr></table>
+<table class="flow-row" role="presentation" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td class="flow-name">항공사</td>
+    <td class="flow-track">
+      <table class="bar-track" role="presentation" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td class="bar-half" align="right">
+            
+            <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr><td class="bar-empty-td"></td></tr></table>
+            
+          </td>
+          <td class="bar-axis-col"><div class="bar-axis-line">&nbsp;</div></td>
+          <td class="bar-half" align="left">
+            
+            <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
+              <td class="bar-fill-td up" width="30.7%" bgcolor="#8B2318" style="background:#8B2318;"></td>
+              <td class="bar-cap-td up" width="3" bgcolor="#6B1810" style="background:#6B1810;"></td>
+              <td class="bar-empty-td"></td>
+            </tr></table>
+            
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td class="flow-val up">+3.07%</td>
+  </tr>
+</table>
+
     
-    <table class="div-row" role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
-      <td class="flow-name">기관</td>
-      <td class="bar-cell">
-<table class="bar-track" role="presentation" cellpadding="0" cellspacing="0"><tr>
-  <td class="bar-half" align="right">
     
-    <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
-      <td class="bar-empty-td" bgcolor="#EDE5D3" style="background:#EDE5D3;"></td>
-      <td class="bar-cap-td" width="3" bgcolor="#24476F" style="background:#24476F;"></td>
-      <td class="bar-fill-td" width="8.4%" bgcolor="#28517E" style="background:#28517E;"></td>
-      <td class="bar-fill-td" width="19.5%" bgcolor="#2F5A8F" style="background:#2F5A8F;"></td>
-    </tr></table>
     
-  </td>
-  <td class="bar-axis-col"><div class="bar-axis-line">&nbsp;</div></td>
-  <td class="bar-half" align="left">
+<table class="flow-row" role="presentation" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td class="flow-name">항공화물운송과물류</td>
+    <td class="flow-track">
+      <table class="bar-track" role="presentation" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td class="bar-half" align="right">
+            
+            <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
+              <td class="bar-empty-td"></td>
+              <td class="bar-cap-td down" width="3" bgcolor="#142C4A" style="background:#142C4A;"></td>
+              <td class="bar-fill-td down" width="61.3%" bgcolor="#1E3A5F" style="background:#1E3A5F;"></td>
+            </tr></table>
+            
+          </td>
+          <td class="bar-axis-col"><div class="bar-axis-line">&nbsp;</div></td>
+          <td class="bar-half" align="left">
+            
+            <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr><td class="bar-empty-td"></td></tr></table>
+            
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td class="flow-val down">-6.13%</td>
+  </tr>
+</table>
+
     
-    <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr><td class="bar-empty-td" bgcolor="#EDE5D3" style="background:#EDE5D3;"></td></tr></table>
     
-  </td>
-</tr></table>
-</td>
-      <td class="flow-val down">-2,787</td>
-    </tr></table>
+<table class="flow-row" role="presentation" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td class="flow-name">조선</td>
+    <td class="flow-track">
+      <table class="bar-track" role="presentation" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td class="bar-half" align="right">
+            
+            <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
+              <td class="bar-empty-td"></td>
+              <td class="bar-cap-td down" width="3" bgcolor="#142C4A" style="background:#142C4A;"></td>
+              <td class="bar-fill-td down" width="59.6%" bgcolor="#1E3A5F" style="background:#1E3A5F;"></td>
+            </tr></table>
+            
+          </td>
+          <td class="bar-axis-col"><div class="bar-axis-line">&nbsp;</div></td>
+          <td class="bar-half" align="left">
+            
+            <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr><td class="bar-empty-td"></td></tr></table>
+            
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td class="flow-val down">-5.96%</td>
+  </tr>
+</table>
+
     
   </div>
   
   
-  <div class="sector-wrap">
-    <div class="sector-lbl">오늘의 업종</div>
-    
-    <table class="flow-axis-scale" role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
-      <td class="l" width="10%">-10%</td>
-      <td class="c" width="30%">-5%</td>
-      <td class="c" width="20%">0</td>
-      <td class="c" width="30%">+5%</td>
-      <td class="r" width="10%">+10%</td>
-    </tr></table>
-    
-    
-<table class="div-row" role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
-  <td class="flow-name">&nbsp;</td>
-  <td class="bar-cell">
-    <table class="tick-rail-track" role="presentation" cellpadding="0" cellspacing="0"><tr>
-      <td width="1" class="tick-rail-cell" bgcolor="#C9BFA8" style="background:#C9BFA8;"></td>
-      <td width="12%" class="tick-rail-cell"></td>
-      <td width="1" class="tick-rail-cell" bgcolor="#C9BFA8" style="background:#C9BFA8;"></td>
-      <td width="12%" class="tick-rail-cell"></td>
-      <td width="1" class="tick-rail-cell" bgcolor="#C9BFA8" style="background:#C9BFA8;"></td>
-      <td width="12%" class="tick-rail-cell"></td>
-      <td width="1" class="tick-rail-cell" bgcolor="#C9BFA8" style="background:#C9BFA8;"></td>
-      <td width="12%" class="tick-rail-cell"></td>
-      <td width="1" class="tick-rail-cell" bgcolor="#8A7B60" style="background:#8A7B60;"></td>
-      <td width="12%" class="tick-rail-cell"></td>
-      <td width="1" class="tick-rail-cell" bgcolor="#C9BFA8" style="background:#C9BFA8;"></td>
-      <td width="12%" class="tick-rail-cell"></td>
-      <td width="1" class="tick-rail-cell" bgcolor="#C9BFA8" style="background:#C9BFA8;"></td>
-      <td width="12%" class="tick-rail-cell"></td>
-      <td width="1" class="tick-rail-cell" bgcolor="#C9BFA8" style="background:#C9BFA8;"></td>
-      <td width="12%" class="tick-rail-cell"></td>
-      <td width="1" class="tick-rail-cell" bgcolor="#C9BFA8" style="background:#C9BFA8;"></td>
-    </tr></table>
-  </td>
-  <td class="flow-val">&nbsp;</td>
-</tr></table>
-
-    
-    <table class="sector-row" role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
-      <td class="flow-name">도로와철도운송</td>
-      <td class="bar-cell">
-<table class="bar-track" role="presentation" cellpadding="0" cellspacing="0"><tr>
-  <td class="bar-half" align="right">
-    
-    <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr><td class="bar-empty-td" bgcolor="#EDE5D3" style="background:#EDE5D3;"></td></tr></table>
-    
-  </td>
-  <td class="bar-axis-col"><div class="bar-axis-line">&nbsp;</div></td>
-  <td class="bar-half" align="left">
-    
-    <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
-      <td class="bar-fill-td" width="40.0%" bgcolor="#C0392B" style="background:#C0392B;"></td>
-      <td class="bar-fill-td" width="17.2%" bgcolor="#A83226" style="background:#A83226;"></td>
-      <td class="bar-cap-td" width="3" bgcolor="#8E2B20" style="background:#8E2B20;"></td>
-      <td class="bar-empty-td" bgcolor="#EDE5D3" style="background:#EDE5D3;"></td>
-    </tr></table>
-    
-  </td>
-</tr></table>
-</td>
-      <td class="flow-val up">+5.72%</td>
-    </tr></table>
-    <div class="sector-why">미국과 이란 간 교전 재개에 따른 WTI 원유 선물 가격 급등 영향</div>
-    
-    <table class="sector-row" role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
-      <td class="flow-name">석유와가스</td>
-      <td class="bar-cell">
-<table class="bar-track" role="presentation" cellpadding="0" cellspacing="0"><tr>
-  <td class="bar-half" align="right">
-    
-    <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr><td class="bar-empty-td" bgcolor="#EDE5D3" style="background:#EDE5D3;"></td></tr></table>
-    
-  </td>
-  <td class="bar-axis-col"><div class="bar-axis-line">&nbsp;</div></td>
-  <td class="bar-half" align="left">
-    
-    <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
-      <td class="bar-fill-td" width="36.1%" bgcolor="#C0392B" style="background:#C0392B;"></td>
-      <td class="bar-fill-td" width="15.5%" bgcolor="#A83226" style="background:#A83226;"></td>
-      <td class="bar-cap-td" width="3" bgcolor="#8E2B20" style="background:#8E2B20;"></td>
-      <td class="bar-empty-td" bgcolor="#EDE5D3" style="background:#EDE5D3;"></td>
-    </tr></table>
-    
-  </td>
-</tr></table>
-</td>
-      <td class="flow-val up">+5.16%</td>
-    </tr></table>
-    
-    
-    
-    <table class="sector-row" role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
-      <td class="flow-name">전자제품</td>
-      <td class="bar-cell">
-<table class="bar-track" role="presentation" cellpadding="0" cellspacing="0"><tr>
-  <td class="bar-half" align="right">
-    
-    <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
-      <td class="bar-empty-td" bgcolor="#EDE5D3" style="background:#EDE5D3;"></td>
-      <td class="bar-cap-td" width="3" bgcolor="#24476F" style="background:#24476F;"></td>
-      <td class="bar-fill-td" width="13.2%" bgcolor="#28517E" style="background:#28517E;"></td>
-      <td class="bar-fill-td" width="30.7%" bgcolor="#2F5A8F" style="background:#2F5A8F;"></td>
-    </tr></table>
-    
-  </td>
-  <td class="bar-axis-col"><div class="bar-axis-line">&nbsp;</div></td>
-  <td class="bar-half" align="left">
-    
-    <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr><td class="bar-empty-td" bgcolor="#EDE5D3" style="background:#EDE5D3;"></td></tr></table>
-    
-  </td>
-</tr></table>
-</td>
-      <td class="flow-val down">-4.39%</td>
-    </tr></table>
-    
-    
-    <table class="sector-row" role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
-      <td class="flow-name">화장품</td>
-      <td class="bar-cell">
-<table class="bar-track" role="presentation" cellpadding="0" cellspacing="0"><tr>
-  <td class="bar-half" align="right">
-    
-    <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
-      <td class="bar-empty-td" bgcolor="#EDE5D3" style="background:#EDE5D3;"></td>
-      <td class="bar-cap-td" width="3" bgcolor="#24476F" style="background:#24476F;"></td>
-      <td class="bar-fill-td" width="11.2%" bgcolor="#28517E" style="background:#28517E;"></td>
-      <td class="bar-fill-td" width="26.1%" bgcolor="#2F5A8F" style="background:#2F5A8F;"></td>
-    </tr></table>
-    
-  </td>
-  <td class="bar-axis-col"><div class="bar-axis-line">&nbsp;</div></td>
-  <td class="bar-half" align="left">
-    
-    <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr><td class="bar-empty-td" bgcolor="#EDE5D3" style="background:#EDE5D3;"></td></tr></table>
-    
-  </td>
-</tr></table>
-</td>
-      <td class="flow-val down">-3.73%</td>
-    </tr></table>
-    
-    
-    <div class="sector-interp">상승 상위 도로와철도운송 +5.72%, 하락 하위 전자제품 -4.39%로 갈렸습니다.</div>
+  <div class="why-box">
+    <span class="why-box-lbl">WHY IT MATTERS</span>
+    <p class="why-box-txt">코스피는 개인 순매수(+23,029)가 두드러졌습니다. 코스닥은 기관 순매도(-2,322)가 두드러졌습니다. 상승 상위 항공사 +3.07%, 하락 하위 항공화물운송과물류 -6.13%로 갈렸습니다.</p>
   </div>
   
-  <div class="flow-interp">코스피는 기관 순매도(-6,286)가 두드러졌습니다. 코스닥은 개인 순매수(+4,389)가 두드러졌습니다.</div>
 </div>
 
 
 
 <div class="overnight-wrap">
-  <div class="flag-data">Overnight <span class="colon">·</span> 글로벌 지수·금리·환율·거시</div>
+  <div class="flag-data">Overnight</div>
   
   <div class="og-group-lbl first">지수</div>
   <table class="og-table" role="presentation" cellpadding="0" cellspacing="0" width="100%">
     
-    <tr><td class="k">다우존스</td><td class="v">52,766.88</td><td class="c down">▼ -0.79%</td></tr>
+    <tr><td class="k">다우존스</td><td class="v">53,061.95</td><td class="c up">▲ +0.56%</td></tr>
     
-    <tr><td class="k">나스닥</td><td class="v">26,099.77</td><td class="c down">▼ -1.03%</td></tr>
+    <tr><td class="k">나스닥</td><td class="v">26,217.83</td><td class="c up">▲ +0.45%</td></tr>
     
-    <tr><td class="k">S&P 500</td><td class="v">7,631.47</td><td class="c down">▼ -0.71%</td></tr>
+    <tr><td class="k">S&P 500</td><td class="v">7,666.60</td><td class="c up">▲ +0.46%</td></tr>
     
-    <tr><td class="k">니케이225</td><td class="v">66,311.93</td><td class="c down">▼ -0.14%</td></tr>
+    <tr><td class="k">니케이225</td><td class="v">66,215.34</td><td class="c down">▼ -0.15%</td></tr>
     
-    <tr><td class="k">상해종합</td><td class="v">3,986.30</td><td class="c up">▲ +0.86%</td></tr>
+    <tr><td class="k">상해종합</td><td class="v">3,979.89</td><td class="c down">▼ -0.16%</td></tr>
     
   </table>
   
@@ -1268,13 +1243,13 @@
   <table class="og-table" role="presentation" cellpadding="0" cellspacing="0" width="100%">
     
     <tr><td class="k">미국채10년</td><td class="v">4.80</td>
-        <td class="c up">▲ +4bp</td></tr>
+        <td class="c flat">― 0bp</td></tr>
     
-    <tr><td class="k">달러인덱스</td><td class="v">99.68</td>
-        <td class="c up">▲ +0.27%</td></tr>
+    <tr><td class="k">달러인덱스</td><td class="v">99.56</td>
+        <td class="c down">▼ -0.12%</td></tr>
     
-    <tr><td class="k">원/달러</td><td class="v">1,374.65</td>
-        <td class="c up">▲ +0.56%</td></tr>
+    <tr><td class="k">원/달러</td><td class="v">1,358.25</td>
+        <td class="c down">▼ -1.19%</td></tr>
     
   </table>
   
@@ -1282,18 +1257,18 @@
   <div class="og-group-lbl">원자재 · 변동성</div>
   <table class="og-table" role="presentation" cellpadding="0" cellspacing="0" width="100%">
     
-    <tr><td class="k">WTI</td><td class="v">90.68</td><td class="c up">▲ +5.06%</td></tr>
+    <tr><td class="k">WTI</td><td class="v">90.63</td><td class="c flat">―</td></tr>
     
-    <tr><td class="k">브렌트유</td><td class="v">95.22</td><td class="c up">▲ +7.56%</td></tr>
+    <tr><td class="k">브렌트유</td><td class="v">95.23</td><td class="c up">▲ +0.01%</td></tr>
     
-    <tr><td class="k">금</td><td class="v">4,375.70</td><td class="c down">▼ -2.70%</td></tr>
+    <tr><td class="k">금</td><td class="v">4,434.30</td><td class="c up">▲ +1.34%</td></tr>
     
-    <tr><td class="k">VIX</td><td class="v">16.34</td><td class="c up">▲ +9.52%</td></tr>
+    <tr><td class="k">VIX</td><td class="v">15.20</td><td class="c down">▼ -6.98%</td></tr>
     
   </table>
   
   
-  <div class="og-group-lbl">주요 거시 <span style="float:right;font-size:9.5px;color:#B0A48A;font-weight:600;letter-spacing:0.04em;">값 · 기준일</span></div>
+  <div class="og-group-lbl">주요 거시 <span class="r">값 · 기준일</span></div>
   <table class="og-table" role="presentation" cellpadding="0" cellspacing="0" width="100%">
     
     <tr><td class="k">美 CPI(YoY)</td><td class="v">3.54%</td><td class="asof">2026-07-01</td></tr>
@@ -1302,159 +1277,108 @@
     
     <tr><td class="k">美 실업률</td><td class="v">4.1%</td><td class="asof">2026-07-01</td></tr>
     
-    <tr><td class="k">美 기준금리</td><td class="v">3.75%</td><td class="asof">2026-09-01</td></tr>
+    <tr><td class="k">美 기준금리</td><td class="v">3.75%</td><td class="asof">2026-09-02</td></tr>
     
   </table>
   
-  <div class="og-note">미국·아시아 지수는 5개 중 1개 상승, 4개 하락으로 마감했습니다. VIX는 16.34로 관찰됩니다.</div>
-</div>
-
-
-
-
-<div class="chain-wrap">
-  <div class="flag-data">Signal Chain <span class="colon">·</span> 오늘의 연결고리</div>
   
-  <div class="chain-mobile">
-  <table class="chain-grid" role="presentation" cellpadding="0" cellspacing="0" width="100%">
-    <tr>
-    
-    <td class="chip" width="50%"><div class="chip-inner">
-      <div class="chip-role">출발</div>
-      <div class="chip-label">지난밤 확인된 사건</div>
-      <div class="chip-detail up">유가가 5% 이상 급등하며 VIX(9.52% 상승) 등 시장 변동성 지표와 채권 금리가 동시에 상승세로 돌아섰습니다.</div>
-    </div></td>
-    
-    <td class="chip" width="50%"><div class="chip-inner">
-      <div class="chip-role">동시변화</div>
-      <div class="chip-label">전달 경로</div>
-      <div class="chip-detail up">WTI 유가 급등 및 미 국채 10년물 금리 상승</div>
-    </div></td>
-    
-    </tr>
-    
-    <tr>
-    
-    <td class="chip" width="50%"><div class="chip-inner">
-      <div class="chip-role">수급</div>
-      <div class="chip-label">원/달러 환율</div>
-      <div class="chip-detail up">1,375원 · +7.69원 상승(원화 약세)</div>
-    </div></td>
-    
-    <td class="chip outcome" width="50%"><div class="chip-inner">
-      <div class="chip-role">결과</div>
-      <div class="chip-label">국내 증시(코스피)</div>
-      <div class="chip-detail up">6,835.80 · +0.23% 상승</div>
-    </div></td>
-    
-    </tr>
-    
-  </table>
+  <div class="why-box">
+    <span class="why-box-lbl">WHY IT MATTERS</span>
+    <p class="why-box-txt">미국·아시아 지수는 5개 중 3개 상승, 2개 하락으로 마감했습니다. VIX는 15.2로 관찰됩니다.</p>
   </div>
-  <div class="chain-desktop">
-  <table class="chain-grid" role="presentation" cellpadding="0" cellspacing="0" width="100%">
-    <tr>
-    
-    <td class="chip" width="25%"><div class="chip-inner">
-      <div class="chip-role">출발</div>
-      <div class="chip-label">지난밤 확인된 사건</div>
-      <div class="chip-detail up">유가가 5% 이상 급등하며 VIX(9.52% 상승) 등 시장 변동성 지표와 채권 금리가 동시에 상승세로 돌아섰습니다.</div>
-    </div></td>
-    
-    <td class="chip" width="25%"><div class="chip-inner">
-      <div class="chip-role">동시변화</div>
-      <div class="chip-label">전달 경로</div>
-      <div class="chip-detail up">WTI 유가 급등 및 미 국채 10년물 금리 상승</div>
-    </div></td>
-    
-    <td class="chip" width="25%"><div class="chip-inner">
-      <div class="chip-role">수급</div>
-      <div class="chip-label">원/달러 환율</div>
-      <div class="chip-detail up">1,375원 · +7.69원 상승(원화 약세)</div>
-    </div></td>
-    
-    <td class="chip outcome" width="25%"><div class="chip-inner">
-      <div class="chip-role">결과</div>
-      <div class="chip-label">국내 증시(코스피)</div>
-      <div class="chip-detail up">6,835.80 · +0.23% 상승</div>
-    </div></td>
-    
-    </tr>
-  </table>
-  </div>
-  <p class="chain-note">WTI 유가 급등과 미 국채 금리 상승이 위험자산 전반의 자금 이탈에 영향을 준 요인 중 하나로 해석할 수 있으며, 이 과정에서 대외 뉴스 및 업종별 수급 등 다양한 요인이 함께 작용했을 가능성이 있습니다.</p>
-  <div class="chain-strength">해석 강도: 제한적 · 동일 시점에 관찰된 흐름을 연결한 가정입니다.</div>
+  
 </div>
 
+
+<!-- ===== MOO:CHAIN — 3노드 고정 (Trigger → Observed → Read) ===== -->
+
+<div class="pad-l">
+  <div class="chain-inline">MOO:CHAIN · 오늘은 연결고리가 충분히 관찰되지 않아 다음 발행에서 이어집니다</div>
+</div>
+
+
+<!-- ===== CH · IV  Closing ===== -->
 <div class="chapter-mark">
   <div class="chap-bar">&nbsp;</div>
   <table class="chap-row" role="presentation" cellpadding="0" cellspacing="0" width="100%">
-    <tr><td class="chap-num">CH · IV</td><td>Closing <span class="chap-kicker">— 오늘을 정리하고 내일을 준비한다</span></td></tr>
+    <tr><td class="chap-num">CH · IV</td><td><span class="chap-title">Closing</span><span class="chap-kicker">— 오늘을 정리하고 내일을 준비한다</span></td></tr>
   </table>
 </div>
 
 
 <div class="watch-wrap pt0">
-  <div class="flag-data">Today's Watch <span class="colon">·</span> 오늘의 관전 포인트</div>
+  <div class="flag-data">Today's Watch</div>
   <table class="watch-list" role="presentation" cellpadding="0" cellspacing="0" width="100%">
   
-  <tr><td class="idx-num">01</td><td class="t">미국과 이란 간 교전 재개에 따른 브렌트유 등 원유 선물 가격의 추가 상승 여부</td></tr>
+  <tr><td class="idx-num">01</td><td class="t">소비자물가 상승률 3%대 재진입에 따른 원화 환율 1358.25원선의 변동 여부</td></tr>
   
-  <tr><td class="idx-num">02</td><td class="t">국내은행 부실채권 18.9조원 돌파 이후 기업 여신 건전성 영향</td></tr>
+  <tr><td class="idx-num">02</td><td class="t">외국인 코스피 19,173억원 순매도세의 수급 전환 여부</td></tr>
   
-  <tr><td class="idx-num">03</td><td class="t">팔로알토 및 델 등 글로벌 AI 관련 기업 실적 발표 후 기술주 수급 흐름</td></tr>
+  <tr><td class="idx-num">03</td><td class="t">은행권 기업 부실채권 19조원 육박에 따른 경기 정점론 우려 추이</td></tr>
   
   </table>
-  <div class="watch-oneliner">중동 긴장 재발에 따른 유가 급등과 외인·기관 매도세 속 지정학적 리스크 지속 여부를 관찰할 필요가 있습니다.</div>
+  <div class="watch-oneliner">외국인·기관의 동반 매도세 속 원화 강세와 해외 증시 움직임에 따른 수급 정상화 여부가 핵심입니다.</div>
 </div>
 
+
+<!-- ===== MOO:WORD ===== -->
 <table class="brand-wrap" role="presentation" cellpadding="0" cellspacing="0" width="100%">
   <tr><td class="spacer">&nbsp;</td><td class="body">
-    <div class="brand-card">
-      <div class="flag-brand">MOO<span class="colon">:</span>WORD <span class="sub">하루 한 개, 30초 경제상식</span></div>
-      <div class="purpose">오늘의 뉴스에 등장한 한 단어. 정의와 함의만 남깁니다.</div>
+    <div class="doc-card">
+      <div class="flag-brand">MOO<span class="colon">:</span>WORD<span class="sub">하루 한 개, 30초 경제상식</span></div>
       
-      <div class="word-term">부실채권</div>
-      <div class="word-def">부실채권은 돈을 빌려간 사람이 이자나 원금을 제때 갚기 어려워져 은행이 회수하기 힘들어짐에 따라 위험에 처한 대출금을 가리키는 것으로 보입니다. 금융기관의 건전성을 해치는 주요 원인 중 하나로 작용할 가능성이 있습니다.</div>
-      <div class="word-why"><b>오늘 등장</b>국내은행의 부실채권 규모가 8년 만에 최대치를 기록함에 따라 금융권 건전성 이슈가 부각되었습니다.</div>
+      <div class="word-term">소비자물가</div>
+      <div class="word-def">가계가 사는 상품·서비스 가격의 평균적 변화를 나타냅니다.</div>
+      <div class="word-why"><b>오늘 등장</b>8월 소비자물가 상승률이 두 달 만에 다시 3%대로 올라섰다.</div>
+      <div class="word-hook"><b>기억할 점</b>예상보다 높으면 금리 인상 압력으로 해석됩니다.</div>
       
-      
-      <div class="word-src">출처 연합뉴스</div>
+      <div class="word-evidence">
+        <div class="word-evidence-src">근거: 통계청(자료 제공: 한국은행 ECOS) · 총지수</div>
+        <div class="word-evidence-ref">기준: 2026년 7월 · 단위: 지수</div>
+        <div class="word-evidence-url"><a href="https://ecos.bok.or.kr/">출처 보기</a></div>
+      </div>
       
       
     </div>
   </td><td class="spacer">&nbsp;</td></tr>
 </table>
 
+<!-- ===== Share ===== -->
 
-<div class="risk-wrap">
-  <span class="risk-lbl">RISK · 관찰</span>
-  <p class="risk-text">중동 지역 교전 재개에 따른 국제유가 추가 상승 가능성<br>고유가발 인플레이션 재발로 인한 미 연준 금리 인하 지연 위험</p>
+<div class="pad-l">
+  <div class="share-wrap">
+    <div class="share-lead">이 브리핑이 도움이 되셨다면, 시장을 함께 보는 분께 전해 주세요.</div>
+    <div class="share-desc">전달받으신 분도 MOO:conomy 홈페이지에서 매일 아침 뉴스레터를 구독하실 수 있습니다.</div>
+    <p class="share-channels">
+      <a href="https://twitter.com/intent/tweet?url=https%3A//mooconomy.co.kr/issues/2026-09-03.html&amp;text=%EC%98%A4%EB%8A%98%EC%9D%98%20MOO%3Aconomy%20%EB%B8%8C%EB%A6%AC%ED%95%91" target="_blank">X</a>
+      &nbsp;·&nbsp;
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//mooconomy.co.kr/issues/2026-09-03.html" target="_blank">Facebook</a>
+      &nbsp;·&nbsp;
+      <a href="https://social-plugins.line.me/lineit/share?url=https%3A//mooconomy.co.kr/issues/2026-09-03.html" target="_blank">LINE</a>
+      &nbsp;·&nbsp;
+      <a href="https://www.threads.net/intent/post?text=%EC%98%A4%EB%8A%98%EC%9D%98%20MOO%3Aconomy%20%EB%B8%8C%EB%A6%AC%ED%95%91%20https%3A//mooconomy.co.kr/issues/2026-09-03.html" target="_blank">Threads</a>
+    </p>
+    <p class="share-kakao">카카오톡은 <a href="https://mooconomy.co.kr/issues/2026-09-03.html" target="_blank">이 링크</a>를 복사해 공유해 주세요.</p>
+  </div>
 </div>
 
-
+<!-- ===== Footer ===== -->
 <div class="footer-wrap">
   <div class="footer-rule">&nbsp;</div>
   <div class="footer-src-row"><span class="f-cat">시장·지수</span> FinanceDataReader · 네이버 금융</div>
   <div class="footer-src-row"><span class="f-cat">거시·금리</span> 한국은행 ECOS · 美 연준 FRED</div>
   <div class="footer-src-row"><span class="f-cat">공시·실적</span> 금융감독원 DART · Finnhub</div>
-  <div class="footer-src-row"><span class="f-cat">뉴스</span> 연합뉴스 · 매일경제 · CNBC · MarketWatch</div>
-  <div class="footer-note">오늘의 흐름이 도움이 됐다면, 시장을 함께 보는 분께 이 메일을 전달해 주세요. 전달받으신 분도 무코노미 홈페이지에서 매일 아침 뉴스레터를 구독할 수 있습니다.</div>
-  
-  <div class="share-wrap">
-    <div class="share-lbl">SHARE · 공유하기</div>
-    <div class="share-text">이 브리핑을 다른 채널에도 공유해 주세요 — <a href="https://twitter.com/intent/tweet?url=https%3A//mooconomy.co.kr/issues/2026-09-02.html&amp;text=%EC%98%A4%EB%8A%98%EC%9D%98%20%EB%AC%B4%EC%BD%94%EB%85%B8%EB%AF%B8%20%EB%B8%8C%EB%A6%AC%ED%95%91" target="_blank">X</a> · <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//mooconomy.co.kr/issues/2026-09-02.html" target="_blank">페이스북</a> · <a href="https://social-plugins.line.me/lineit/share?url=https%3A//mooconomy.co.kr/issues/2026-09-02.html" target="_blank">라인</a> · <a href="https://www.threads.net/intent/post?text=%EC%98%A4%EB%8A%98%EC%9D%98%20%EB%AC%B4%EC%BD%94%EB%85%B8%EB%AF%B8%20%EB%B8%8C%EB%A6%AC%ED%95%91%20https%3A//mooconomy.co.kr/issues/2026-09-02.html" target="_blank">스레드</a></div>
-    <div class="share-text">카카오톡에는 이 링크를 그대로 붙여넣어 공유해 주세요: <a href="https://mooconomy.co.kr/issues/2026-09-02.html" target="_blank">https://mooconomy.co.kr/issues/2026-09-02.html</a></div>
-  </div>
+  <div class="footer-src-row"><span class="f-cat">뉴스</span> 매일경제 · 파이낸셜뉴스 · CNBC · MarketWatch</div>
 
-  <div class="footer-note">하루의 움직임보다 더 긴 흐름이 궁금하다면 <a href="https://mooconomy.co.kr/" target="_blank">무코노미 홈페이지</a>에서 누적된 시장 기록과 지표를 확인해 보세요. 주간·월간 관점의 데이터도 순차적으로 확장합니다.</div>
+  <div class="footer-note">하루의 움직임보다 더 긴 흐름이 궁금하다면 <a href="https://mooconomy.co.kr/" target="_blank">MOO:conomy 홈페이지</a>에서 누적된 시장 기록과 지표를 확인해 보세요. 주간·월간 관점의 데이터도 순차적으로 확장합니다.</div>
 
   <table class="footer-pill-wrap" role="presentation" cellpadding="0" cellspacing="0"><tr><td align="center">
     <table role="presentation" cellpadding="0" cellspacing="0"><tr>
       <td class="footer-pill-cell"><a class="footer-pill-link" href="https://mooconomy.co.kr/#home/subscribe" target="_blank">처음 전달받으셨나요? 매일 아침 직접 받아보기 →</a></td>
     </tr></table>
   </td></tr></table>
-  <div class="footer-copyright">© 2026 Mooconomy</div>
+
+  <div class="footer-copyright">© 2026 MOO:conomy</div>
   <div><a class="footer-unsub" href="{{{RESEND_UNSUBSCRIBE_URL}}}">수신거부</a></div>
 </div>
 
