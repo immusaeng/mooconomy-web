@@ -1,0 +1,68 @@
+name: Update Calendar Events
+
+# 2026-09-03(TASK_ID=HOMEPAGE_VISIBLE_ACTIVATION_FIX)
+# 매일 뉴스레터 발행(daily-mooconomy 저장소, 이 저장소가 아님) 전에
+# 캘린더 데이터를 새로 고친다. GitHub Actions cron은 항상 UTC 기준이다:
+# KST 05:30 = UTC 20:30(전날). 05:30 KST를 원하면 "30 20 * * *".
+on:
+  schedule:
+    - cron: "30 20 * * *"  # 매일 UTC 20:30 == KST 05:30 (다음날)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-calendar
+  cancel-in-progress: false
+
+jobs:
+  update-calendar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r scripts/calendar_events/requirements.txt
+
+      - name: Run calendar pipeline (live)
+        env:
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+          FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
+          FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
+          ECOS_API_KEY: ${{ secrets.ECOS_API_KEY }}
+          KOSIS_API_KEY: ${{ secrets.KOSIS_API_KEY }}
+          EIA_API_KEY: ${{ secrets.EIA_API_KEY }}
+          DART_API_KEY: ${{ secrets.DART_API_KEY }}
+        run: |
+          python scripts/calendar_events/build_calendar.py --live
+          # build_calendar.py 자체가 "이벤트 0건이면 기존 정상 파일을
+          # 보존하고 view만 그걸로 재생성"하는 로직을 이미 갖고 있다
+          # (스펙 §11) - 여기서 추가로 파일을 덮어쓰거나 지우지 않는다.
+
+      - name: Validate canonical dataset
+        run: |
+          python scripts/calendar_events/build_calendar.py --validate-only
+          # exit code != 0이면(예: 전 소스 실패로 0건) 아래 커밋 단계까지
+          # 도달은 하되, git diff가 없으면(방금 전 값 그대로 보존됐으므로)
+          # 커밋할 것도 없어 자연히 아무 일도 안 일어난다.
+
+      - name: Commit changed JSON only
+        run: |
+          git config user.name "mooconomy-calendar-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/calendar_events.json data/calendar_views/
+          if git diff --cached --quiet; then
+            echo "no changes to commit"
+            exit 0
+          fi
+          git commit -m "chore(calendar): refresh normalized economic events"
+          git push origin HEAD:main

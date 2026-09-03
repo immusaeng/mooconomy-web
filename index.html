@@ -70,8 +70,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,700;1,9..144,800&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="shared-shell.css">
+<link rel="stylesheet" href="styles.css?v=50513ec">
+<link rel="stylesheet" href="shared-shell.css?v=50513ec">
 </head>
 <body data-root="">
 
@@ -143,6 +143,7 @@
              home-data.js가 로드되면 같은 내용으로 다시 채운다(최신값 유지). -->
         <div class="cs-flag">
           <span class="cs-flag-l">TODAY'S HEADLINE</span>
+          <!-- STATIC:COVER:START -->
           <span class="cs-flag-r" id="csFlagR">발행 · 09.03</span>
         </div>
         <div class="cs-kicker">CH · I  Today's Angle</div>
@@ -156,6 +157,7 @@
             <li><span class="sig-idx">02</span><span class="sig-txt"><b>전일 국내 시장</b> — 전일 국내 시장은 코스피가 큰 폭으로 하락하고 코스닥도 약세를 보인 가운데, 원/달러 환율은 하락하며 원화 강세를 기록했습니다.</span></li>
             <li><span class="sig-idx">03</span><span class="sig-txt"><b>오늘의 체크포인트</b> — 간밤 글로벌 시장의 반등에도 불구하고 국내 증시는 외국인 수급 이탈과 맞물려 경계감이 이어지는 분위기입니다.</span></li>
           </ol>
+          <!-- STATIC:COVER:END -->
         </div>
 
         <div class="cs-actions">
@@ -254,11 +256,13 @@
         </a>
         <div class="rc-recent">
           <div class="rc-recent-label">최근 발행</div>
+          <!-- STATIC:DAILY_RECENT:START -->
           <ul id="dailyRecent">
             <li><a href="/issues/2026-09-03.html"><span class="date">09.03</span><span class="title">경기선행지수 정점 우려에 주식 비중 축소 권고가 나오며 국내 증시 변동성 우려가 커졌다</span></a></li>
             <li><a href="/issues/2026-09-02.html"><span class="date">09.02</span><span class="title">중동 교전 재개로 WTI 원유 가격이 5% 넘게 급등하고 뉴욕증시가 하락했다</span></a></li>
             <li><a href="/issues/2026-09-01.html"><span class="date">09.01</span><span class="title">미-이란 무력 공방 재개 속 국제유가 급등과 뉴욕증시 하락</span></a></li>
           </ul>
+          <!-- STATIC:DAILY_RECENT:END -->
         </div>
         <a class="rc-more" href="/archive/">전체 발행 목록 →</a>
       </div>
@@ -434,7 +438,7 @@
       <div class="sub-msg" id="subMsg" role="status"></div>
       <div class="sub-fine">구독 시 <a href="/privacy.html">개인정보 수집·이용</a>에 동의하는 것으로 간주됩니다. 언제든 1클릭으로 해지 가능.</div>
       <div class="sub-proof">
-        <span class="sp-item"><b id="subProofCount">–</b><span>누적 발행호</span></span>
+        <span class="sp-item"><b id="subProofCount">18</b><span>누적 발행호</span></span>
         <span class="sp-sep"></span>
         <span class="sp-item"><b>오전 7시</b><span>월 Weekly · 화–토 Daily</span></span>
         <span class="sp-sep"></span>
@@ -485,7 +489,7 @@
       </div>
     </div>
     <div class="foot-bot">
-      <span>© 2026 Daily MOO:conomy. All rights reserved.</span>
+      <span>Daily MOO:conomy · EST. 2026</span>
       <span>본 사이트의 콘텐츠는 정보 제공 목적이며 투자 권유가 아닙니다.</span>
     </div>
   </div>
@@ -504,7 +508,7 @@
   </div>
 </nav>
 
-<script src="app.js"></script>
-<script src="home-data.js"></script>
+<script src="app.js?v=50513ec"></script>
+<script src="home-data.js?v=50513ec"></script>
 </body>
 </html>

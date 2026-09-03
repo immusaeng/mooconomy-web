@@ -9,13 +9,13 @@
   "use strict";
 
   var IND_META = {
-    kospi:  { name: '코스피', code: 'KS11' },
-    kosdaq: { name: '코스닥', code: 'KQ11' },
-    nasdaq: { name: '나스닥', code: 'IXIC' },
-    sp500:  { name: 'S&P 500', code: 'SPX' },
-    usdkrw: { name: '원/달러', code: 'USDKRW' },
-    wti:    { name: 'WTI', code: 'CL=F' },
-    vix:    { name: 'VIX', code: '공포지수' }
+    kospi:  { name: '코스피', code: 'KS11', decimals: 2, absUnit: '' },
+    kosdaq: { name: '코스닥', code: 'KQ11', decimals: 2, absUnit: '' },
+    nasdaq: { name: '나스닥', code: 'IXIC', decimals: 2, absUnit: '' },
+    sp500:  { name: 'S&P 500', code: 'SPX', decimals: 2, absUnit: '' },
+    usdkrw: { name: '원/달러', code: 'USDKRW', decimals: 1, absUnit: '원' },
+    wti:    { name: 'WTI', code: 'CL=F', decimals: 2, absUnit: '$', absPrefix: true },
+    vix:    { name: 'VIX', code: '공포지수', decimals: 2, absUnit: 'pt' }
   };
   var METRIC_IDS = ['kospi', 'kosdaq', 'nasdaq', 'sp500', 'usdkrw', 'wti'];
   var PULSE_IDS = ['kospi', 'kosdaq', 'nasdaq', 'usdkrw', 'wti', 'vix'];
@@ -206,11 +206,16 @@
     });
   }
 
+  /* Market Pulse 카드 — 대표 숫자는 전부 같은 두 값(14일 시작/종료)에서만
+     계산한다(일간 변동값을 대표로 쓰지 않는다). 화살표·절대차·등락률은
+     전부 같은 dir 하나에서 파생되므로 부호가 어긋날 수 없다 — 그래도
+     방어적으로 한 번 더 assert해서, 로직이 나중에 바뀌어도 조용히
+     틀린 화면이 나가지 않게 한다(콘솔 경고 + 해당 카드 렌더 중단). */
   function renderPulseCard(id, rows) {
     var meta = IND_META[id];
     var series = rows.map(function (r) {
       var ind = (r.data.indicators || []).find(function (x) { return x.id === id; });
-      return ind && typeof ind.value === 'number' ? { date: r.date, value: ind.value, displayValue: ind.displayValue, changeUnit: ind.changeUnit } : null;
+      return ind && typeof ind.value === 'number' ? { date: r.date, value: ind.value, displayValue: ind.displayValue } : null;
     }).filter(Boolean);
     if (series.length < 2) return null;
 
@@ -218,27 +223,51 @@
     var values = series.map(function (s) { return s.value; });
     var min = Math.min.apply(null, values), max = Math.max.apply(null, values);
     var pts = sparkPoints(values);
-    var pctChange = start.value !== 0 ? ((end.value - start.value) / Math.abs(start.value)) * 100 : 0;
-    var dir = pctChange > 0.005 ? 'up' : pctChange < -0.005 ? 'dn' : 'flat';
-    var arrow = dir === 'up' ? '▲' : dir === 'dn' ? '▼' : '·';
+
     var absDelta = end.value - start.value;
+    var pctChange = start.value !== 0 ? ((end.value / start.value) - 1) * 100 : 0;
+    var dir = absDelta > 0 ? 'up' : absDelta < 0 ? 'dn' : 'flat';
+    var arrow = dir === 'up' ? '▲' : dir === 'dn' ? '▼' : '·';
+
+    // sign(absolute) == sign(percent) == 화살표/색 방향 — 하나라도 어긋나면
+    // 이 카드는 그리지 않는다(틀린 방향을 보여주느니 숨기는 게 낫다).
+    var signsConsistent = (absDelta === 0 && Math.abs(pctChange) < 1e-9) ||
+      (Math.sign(absDelta) === Math.sign(pctChange));
+    if (!signsConsistent) {
+      if (typeof console !== 'undefined') {
+        console.warn('[MarketPulse] sign mismatch for', id, { absDelta: absDelta, pctChange: pctChange });
+      }
+      return null;
+    }
+
+    var decimals = meta.decimals != null ? meta.decimals : 2;
+    var absUnit = meta.absUnit || '';
+    var absText = Math.abs(absDelta).toFixed(decimals);
+    if (meta.absPrefix) absText = absUnit + absText; else if (absUnit) absText = absText + absUnit;
 
     var pointsAttr = pts.join(' ');
     var fillPoints = pointsAttr + ' 240,60 0,60';
 
     return '<a class="pcard" href="/markets.html">' +
       '<div class="pc-head"><span class="pc-name">' + esc(meta.name) + '</span><span class="pc-code">' + esc(meta.code) + '</span></div>' +
-      '<div class="pc-row">' +
-        '<div class="pc-from-blk"><span class="pc-cap">' + fmtMD(start.date) + ' 관측</span><span class="pc-val-sm">' + esc(start.displayValue) + '</span></div>' +
-        '<span class="pc-arw">→</span>' +
-        '<div class="pc-to-blk"><span class="pc-cap-now">' + fmtMD(end.date) + ' 관측 <b>NOW</b></span><span class="pc-val-lg">' + esc(end.displayValue) + '</span></div>' +
-      '</div>' +
+      '<div class="pc-period"><span class="pc-period-dates">' + fmtMD(start.date) + ' → ' + fmtMD(end.date) + '</span><span class="pc-period-label">발행일 기준 14일</span></div>' +
       '<svg class="pc-chart" viewBox="0 0 240 60" preserveAspectRatio="none">' +
         '<polyline points="' + fillPoints + '" fill="var(--gold-tint)" stroke="none" opacity=".35"/>' +
         '<polyline points="' + pointsAttr + '" fill="none" stroke="var(--ink)" stroke-width="1.6"/>' +
       '</svg>' +
+      '<div class="pc-hero pc-hero-' + dir + '">' +
+        '<span class="pc-hero-arrow">' + arrow + '</span>' +
+        '<span class="pc-hero-abs">' + esc(absText) + '</span>' +
+        '<span class="pc-hero-sep">·</span>' +
+        '<span class="pc-hero-pct">' + (pctChange < 0 ? '−' : '') + Math.abs(pctChange).toFixed(2) + '%</span>' +
+      '</div>' +
+      '<div class="pc-hero-caption">최근 14일 변화</div>' +
+      '<div class="pc-endpoints">' +
+        '<span class="pc-ep-start">시작 ' + esc(start.displayValue) + '</span>' +
+        '<span class="pc-ep-arrow">→</span>' +
+        '<span class="pc-ep-end">현재 ' + esc(end.displayValue) + '</span>' +
+      '</div>' +
       '<div class="pc-foot">' +
-        '<span class="pc-delta ' + dir + '"><span class="pc-delta-pct">' + arrow + ' ' + Math.abs(pctChange).toFixed(2) + '%</span><span class="pc-delta-abs">' + (absDelta >= 0 ? '+' : '') + absDelta.toFixed(2) + '</span></span>' +
         '<span class="pc-range">' + series.length + '일 저 ' + min.toFixed(2) + ' · 고 ' + max.toFixed(2) + '</span>' +
       '</div>' +
     '</a>';

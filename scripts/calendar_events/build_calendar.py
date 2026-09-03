@@ -111,7 +111,24 @@ def run_sources(config, use_fixtures, only_sources=None):
 
 
 def build(config, use_fixtures, only_sources=None):
+    from datetime import timedelta
+
     raw_events, summaries = run_sources(config, use_fixtures, only_sources)
+    pre_filter_count = len(raw_events)
+
+    today = date.today()
+    range_from = today - timedelta(days=config.lookback_days)
+    range_to = today + timedelta(days=config.lookahead_days)
+
+    # 일부 소스(FRED release/dates 등)는 realtime 창을 우리 예상과 다르게
+    # 해석해 훨씬 넓은 기간의 이벤트를 돌려줄 수 있다 — 어떤 소스가 몇
+    # 건을 실제로 냈는지와 무관하게, 여기서 요청한 기간 밖 이벤트는
+    # canonical에 절대 들어가지 않게 방어적으로 한 번 더 자른다.
+    raw_events = [
+        e for e in raw_events
+        if e.get("scheduledDate") and range_from.isoformat() <= e["scheduledDate"] <= range_to.isoformat()
+    ]
+    post_filter_count = len(raw_events)
 
     # 중요도는 규칙 기반으로 다시 계산(원천 값은 신뢰하되 규칙이 최종 판정 — 스펙 §6).
     for ev in raw_events:
@@ -122,6 +139,7 @@ def build(config, use_fixtures, only_sources=None):
             ev["updatedAt"] = now_utc_iso()
 
     merged = merge_events(raw_events)
+    print(f"counts: pre-filter={pre_filter_count} in-range={post_filter_count} after-merge={len(merged)}")
 
     failed = [name for name, s in summaries.items() if not s["ok"] and s.get("error") != "disabled_by_config"]
     succeeded = [name for name, s in summaries.items() if s["ok"] and s.get("count", 0) > 0]
@@ -133,12 +151,11 @@ def build(config, use_fixtures, only_sources=None):
     else:
         status = "stale"
 
-    today = date.today()
     dataset = make_canonical_dataset(
         generatedAt=now_utc_iso(),
         timezone=config.timezone,
-        range_from=today.isoformat(),
-        range_to=(today.replace(day=1)).isoformat(),  # placeholder, overwritten below
+        range_from=range_from.isoformat(),
+        range_to=range_to.isoformat(),
         freshness={
             "status": status,
             "lastSuccessfulAt": now_utc_iso() if succeeded else None,
@@ -147,11 +164,6 @@ def build(config, use_fixtures, only_sources=None):
         sources=[{"name": n, **{k: v for k, v in s.items() if k != "error" or v}} for n, s in summaries.items()],
         events=merged,
     )
-    from datetime import timedelta
-    dataset["range"] = {
-        "from": (today - timedelta(days=config.lookback_days)).isoformat(),
-        "to": (today + timedelta(days=config.lookahead_days)).isoformat(),
-    }
     return dataset, summaries
 
 

@@ -37,9 +37,14 @@ def fetch_safe(source_name, fetch_fn, config):
         return SourceResult(source_name, events)
     except Exception as e:  # noqa: BLE001 - 의도적으로 광범위하게 잡는다
         msg = strip_query_secrets(str(e))
-        # 키 미설정은 정상적인 "아직 설정 안 됨" 상태라 스택 트레이스로
-        # 로그를 어지럽히지 않는다. 그 외(네트워크/파싱/HTTP 오류)만
-        # stderr에 전체 트레이스를 남긴다(운영 로그, 키는 이미 지움).
+        # requests.HTTPError 등은 str(e)에 요청 URL(쿼리스트링의 키 포함)을
+        # 그대로 담는다 - traceback.print_exc()는 "원본" 예외 객체를 다시
+        # str()해서 그대로 찍으므로, 그걸 그대로 쓰면 위에서 막 지운 키가
+        # 트레이스백에는 그대로 남아 로그로 샌다. 반드시 이미 마스킹된
+        # msg/타입만 stderr에 남긴다 - 원본 예외 객체나 traceback.print_exc()를
+        # 직접 부르지 않는다.
         if msg != "missing_api_key":
-            traceback.print_exc(file=sys.stderr)
+            tb_lines = traceback.format_exception(type(e), e, e.__traceback__)
+            for line in tb_lines:
+                print(strip_query_secrets(line), file=sys.stderr, end="")
         return SourceResult(source_name, [], error=msg)

@@ -264,9 +264,9 @@ h1, h2, h3, h4 { margin: 0; }
 }
 .cs-headline {
   font-family: var(--sans);
-  font-size: 34px; /* desktop 32-35px range */
-  font-weight: 800;
-  line-height: 1.2;
+  font-size: 34px; /* >=1280px */
+  font-weight: 700;
+  line-height: 1.25;
   letter-spacing: -0.02em;
   word-break: keep-all;
   color: var(--ink);
@@ -578,110 +578,100 @@ h1, h2, h3, h4 { margin: 0; }
   letter-spacing: 0.06em;
 }
 
-.pc-row {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 18px;
-  padding-bottom: 12px;
-  border-bottom: 1px dashed var(--divider);
+/* 기간(B) — 날짜 범위 + "발행일 기준 14일" 보조 라벨. 작게, 메타 취급. */
+.pc-period {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
 }
-.pc-from-blk, .pc-to-blk {
-  display: flex; flex-direction: column; gap: 3px;
-  min-width: 0;
-}
-.pc-to-blk { align-items: flex-end; text-align: right; }
-.pc-cap, .pc-cap-now {
+.pc-period-dates {
   font-family: var(--sans);
-  font-size: 9.5px;
+  font-size: 11.5px;
   font-weight: 700;
   color: var(--meta);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  line-height: 1;
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
 }
-.pc-cap-now { color: var(--gold-deep); }
-.pc-cap-now b {
-  display: inline-block;
+.pc-period-label {
   font-family: var(--sans);
-  font-size: 8.5px;
-  font-weight: 800;
-  color: var(--sheet-bg);
-  background-color: var(--gold-deep);
-  padding: 2px 5px 1px;
-  letter-spacing: 0.16em;
-  margin-left: 4px;
-  vertical-align: 1px;
-}
-.pc-val-sm {
-  font-family: var(--serif);
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 10.5px;
   color: var(--meta);
-  letter-spacing: -0.01em;
-  line-height: 1;
-  font-variant-numeric: tabular-nums;
-}
-.pc-val-lg {
-  font-family: var(--serif);
-  font-size: 34px;
-  font-weight: 800;
-  color: var(--ink);
-  letter-spacing: -0.025em;
-  line-height: 1;
-  font-variant-numeric: tabular-nums;
-}
-.pc-arw {
-  font-family: var(--serif);
-  font-size: 24px;
-  color: var(--gold);
-  font-weight: 400;
-  line-height: 1;
-  padding: 0 6px 6px;
-  flex-shrink: 0;
+  letter-spacing: 0.02em;
 }
 
 .pc-chart {
   width: 100%;
-  height: 48px;
+  height: 44px;
   color: var(--gold);
-  margin-bottom: 6px;
+  margin-bottom: 10px;
 }
 .pc-dot-start { fill: var(--meta); }
 .pc-dot-end   { fill: var(--gold-deep); stroke: var(--sheet-bg); stroke-width: 1.2; }
 
+/* 핵심 변화(D) — 이 카드의 대표 숫자. 절대차·등락률을 같은 강조 영역에,
+   같은 색으로. 국내 금융 관례: 상승(값 증가)=적색, 하락=청색. */
+.pc-hero {
+  display: flex; align-items: baseline; gap: 8px;
+  font-variant-numeric: tabular-nums;
+  margin-bottom: 2px;
+}
+.pc-hero-arrow { font-size: 18px; line-height: 1; }
+.pc-hero-abs {
+  font-family: var(--serif);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+.pc-hero-sep { font-size: 13px; opacity: .5; }
+.pc-hero-pct {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+.pc-hero-up   { color: var(--red); }
+.pc-hero-dn   { color: var(--blue); }
+.pc-hero-flat { color: var(--meta); }
+.pc-hero-caption {
+  font-family: var(--sans);
+  font-size: 10.5px;
+  color: var(--meta);
+  letter-spacing: 0.02em;
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed var(--divider);
+}
+
+/* 시작값/현재값(E) — 보조 정보. 현재값이 시작값보다 한 단계 강하게. */
+.pc-endpoints {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-variant-numeric: tabular-nums;
+}
+.pc-ep-start {
+  font-family: var(--serif);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--meta);
+}
+.pc-ep-arrow { font-size: 12px; color: var(--gold); flex-shrink: 0; }
+.pc-ep-end {
+  font-family: var(--serif);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
 .pc-foot {
-  display: flex; justify-content: space-between; align-items: center;
-  padding-top: 12px;
+  display: flex; justify-content: flex-end; align-items: center;
+  padding-top: 10px;
   margin-top: auto;
   border-top: 1px dotted var(--divider-gd);
 }
 .pc-range { font-family: var(--sans); font-size: 11px; color: var(--meta); letter-spacing: 0.01em; }
-
-.pc-delta {
-  display: inline-flex; align-items: baseline; gap: 8px;
-  font-family: var(--serif);
-  font-style: italic;
-  font-weight: 800;
-}
-.pc-delta-pct {
-  font-size: 18px;
-  letter-spacing: -0.01em;
-}
-.pc-delta-abs {
-  font-family: var(--sans);
-  font-style: normal;
-  font-size: 11px;
-  font-weight: 500;
-  color: var(--meta);
-  letter-spacing: 0;
-}
-/* 국내 금융 관례: 상승=적색, 하락=청색 */
-.pc-delta.up  { color: var(--red); }
-.pc-delta.dn  { color: var(--blue); }
-.pc-delta.flat { color: var(--meta); }
-.pc-delta.strong .pc-delta-pct { font-size: 20px; }
 
 /* ═══════════════════════════════════════════════════════════════
    CH · III  Archive
@@ -1562,7 +1552,6 @@ h1, h2, h3, h4 { margin: 0; }
    RESPONSIVE
    ═══════════════════════════════════════════════════════════════ */
 @media (max-width: 1024px) {
-  .cs-headline { font-size: 31px; line-height: 1.2; } /* 태블릿 30-32px */
   .cover-grid { grid-template-columns: 1fr; gap: 24px; }
   .pulse-grid { grid-template-columns: repeat(2, 1fr); }
   .cal-shell { grid-template-columns: 1fr; }
@@ -1598,7 +1587,6 @@ h1, h2, h3, h4 { margin: 0; }
   .chap-title { font-size: 22px; }
   .chap-kicker { font-size: 13px; }
   .cover-story { padding: 22px 20px 24px; }
-  .cs-headline { font-size: 27px; line-height: 1.22; } /* 모바일 26-28px */
   .cs-deck { font-size: 14.5px; }
   .cs-signals { padding: 16px 18px; }
   .sig-list li { font-size: 14px; }
@@ -1608,13 +1596,13 @@ h1, h2, h3, h4 { margin: 0; }
   .pulse-grid { grid-template-columns: 1fr; }
   .pulse-flag { flex-direction: column; align-items: flex-start; gap: 6px; }
   .pf-r { font-size: 11px; }
-  .pc-val-lg { font-size: 26px; }
-  .pc-val-sm { font-size: 15px; }
-  .pc-arw { font-size: 18px; padding: 0 4px 4px; }
-  .pc-cap, .pc-cap-now { font-size: 9px; letter-spacing: 0.1em; }
-  .pc-cap-now b { font-size: 7.5px; padding: 1px 4px; }
-  .pc-delta-pct { font-size: 15px; }
-  .pc-delta.strong .pc-delta-pct { font-size: 17px; }
+  .pc-hero-pct { font-size: 18px; }
+  .pc-hero-abs { font-size: 14px; }
+  .pc-hero-arrow { font-size: 16px; }
+  .pc-period-dates { font-size: 11px; }
+  .pc-period-label { font-size: 10px; }
+  .pc-ep-start { font-size: 12px; }
+  .pc-ep-end { font-size: 13px; }
   .ai-lead { font-size: 16px; }
   .rc-title { font-size: 22px; }
   .ev-legend { justify-content: flex-start; flex-wrap: wrap; gap: 12px; }
@@ -1646,8 +1634,7 @@ h1, h2, h3, h4 { margin: 0; }
   .foot-bot { flex-direction: column; gap: 8px; text-align: center; font-size: 11px; }
 
   .pcard { padding: 18px 16px 14px; }
-  .pc-row { gap: 6px; padding-bottom: 10px; margin-bottom: 14px; }
-  .pc-cap-now b { display: none; }
+  .pc-hero-caption { margin-bottom: 10px; padding-bottom: 10px; }
 
   .cal-shell, .cal-month, .cal-side, .cal-days, .cd { min-width: 0; }
   .cal-month { padding: 18px 14px 16px; overflow: hidden; }
@@ -1697,11 +1684,37 @@ h1, h2, h3, h4 { margin: 0; }
 }
 
 @media (max-width: 400px) {
-  .pc-val-lg { font-size: 22px; }
-  .pc-val-sm { font-size: 13px; }
-  .pc-arw    { font-size: 16px; padding: 0 3px 3px; }
-  .pc-cap, .pc-cap-now { font-size: 8.5px; }
+  .pc-hero-pct { font-size: 17px; }
+  .pc-hero-abs { font-size: 13px; }
+  .pc-period-dates, .pc-period-label { font-size: 9.5px; }
   .cd-ev { font-size: 7.5px; }
   .cd .cd-n { font-size: 10px; }
   .cd { min-height: 40px; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CH·I 메인 제목 — 정밀 반응형 타이어(2026-09-03 재조정)
+   34(>=1280) / 31-32(1024-1279) / 29-30(768-1023) / 26-28(<=767) / 25-26(<=390)
+   나머지 텍스트(Signals 등)는 함께 줄이지 않는다 — 이 규칙들은
+   .cs-headline에만 적용된다.
+   ═══════════════════════════════════════════════════════════════ */
+@media (max-width: 1279px) {
+  .cs-headline { font-size: 32px; line-height: 1.24; }
+}
+/* cover-grid가 1열로 바뀌는 지점(<=1024px, 위쪽 @media(max-width:1024px)
+   블록 참고)과 맞춰 여기서도 margin-top:auto를 없앤다 - stretch로 카드
+   높이를 맞출 상대 컬럼이 없는 1열 레이아웃에서 auto가 버튼을 화면
+   하단까지 밀어내던 빈 공간 문제를 없앤다. 2열 데스크톱(>1024px)에서는
+   기존 margin-top:auto(정의는 파일 앞쪽 .cover-story .cs-actions)를 유지. */
+@media (max-width: 1024px) {
+  .cover-story .cs-actions { margin-top: 32px; }
+}
+@media (max-width: 1023px) {
+  .cs-headline { font-size: 30px; line-height: 1.24; }
+}
+@media (max-width: 767px) {
+  .cs-headline { font-size: 27px; line-height: 1.25; }
+}
+@media (max-width: 390px) {
+  .cs-headline { font-size: 26px; }
 }

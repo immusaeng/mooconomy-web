@@ -17,7 +17,22 @@ Determinism: 현재 시각(datetime.now())을 쓰지 않는다. "오늘의 발�
 — 같은 입력이면 항상 같은 바이트의 출력을 만든다.
 """
 import calendar as _cal
+import os as _os
 
+
+def _asset_version():
+    """ASSET_VERSION 파일(scripts/deploy/stamp_asset_versions.py가 매
+    배포마다 갱신)을 읽어 캐시 무효화 쿼리에 쓴다. 파일이 없으면(로컬
+    최초 실행 등) 빈 문자열 - 그러면 그냥 쿼리 없이 로드된다(깨지지 않음)."""
+    path = _os.path.join(_os.path.dirname(__file__), "..", "..", "ASSET_VERSION")
+    try:
+        with open(path, encoding="utf-8") as f:
+            return f.read().strip()
+    except OSError:
+        return ""
+
+
+_ASSET_V = _asset_version()
 _ROMAN = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII"]
 _MONTH_EN = ["January", "February", "March", "April", "May", "June",
              "July", "August", "September", "October", "November", "December"]
@@ -69,9 +84,9 @@ def _page_shell(*, title, desc, canonical, crumb_html, h1, lede, meta_html,
 {jsonld}<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,700;1,9..144,800&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{root}styles.css">
-<link rel="stylesheet" href="{root}shared-shell.css">
-<link rel="stylesheet" href="{archive_css}">
+<link rel="stylesheet" href="{root}styles.css?v={_ASSET_V}">
+<link rel="stylesheet" href="{root}shared-shell.css?v={_ASSET_V}">
+<link rel="stylesheet" href="{archive_css}?v={_ASSET_V}">
 </head>
 <body data-root="{root}">
 
@@ -134,7 +149,7 @@ def _page_shell(*, title, desc, canonical, crumb_html, h1, lede, meta_html,
       </div>
     </div>
     <div class="foot-bot">
-      <span>© 2025–2026 MOO:conomy</span>
+      <span>Daily MOO:conomy · EST. 2026</span>
       <span>월 Weekly · 화–토 Daily · 오전 7시</span>
     </div>
   </div>
@@ -150,7 +165,7 @@ def _page_shell(*, title, desc, canonical, crumb_html, h1, lede, meta_html,
   </div>
 </nav>
 
-<script src="{root}app.js"></script>
+<script src="{root}app.js?v={_ASSET_V}"></script>
 </body>
 </html>
 """

@@ -290,6 +290,17 @@ def run(dry_run_report_only=False, today=None):
             with open(email_real_path, "w", encoding="utf-8") as f:
                 f.write(email_html)
 
+    # 홈페이지 정적 fallback 블록(index.html 마커 사이)을 방금 갱신한
+    # manifest + data/home.json으로 다시 채운다 - JS 없이도 크롤러가
+    # 최신 발행판 제목/날짜/시그널을 보게 한다. index.html 전체를
+    # 재작성하지 않고, home_prerender 모듈이 마커 사이만 치환한다.
+    try:
+        sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "home_prerender"))
+        import update_home_static  # noqa: E402
+        update_home_static.main()
+    except Exception as e:  # noqa: BLE001
+        report["home_static_prerender_error"] = str(e)
+
     report["swapped_to_real_paths"] = True
     return report
 
