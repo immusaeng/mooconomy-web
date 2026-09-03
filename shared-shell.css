@@ -1,0 +1,271 @@
+/* ═══════════════════════════════════════════════════════════════
+   Daily MOO:conomy — 하위 페이지 공용 셸
+   슬림 스티키 헤더 · 브래드크럼 · 페이지 헤더 · 모바일 하단 탭
+
+   전제: styles.css(홈)가 먼저 로드되어 --page-bg, --ink, --gold-* 등
+   토큰이 정의되어 있어야 함
+   ═══════════════════════════════════════════════════════════════ */
+
+.slim-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--page-bg);
+  border-bottom: 1px solid var(--divider-gd);
+  backdrop-filter: saturate(180%) blur(6px);
+  -webkit-backdrop-filter: saturate(180%) blur(6px);
+}
+.slim-header-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 var(--pad, 32px);
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.sh-brand {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  min-width: 0;
+}
+.sh-brand-mark {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 800;
+  font-size: 22px;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  white-space: nowrap;
+}
+.sh-brand-mark .colon { color: var(--gold); font-style: normal; }
+.sh-brand-tag {
+  font-family: var(--sans);
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--meta);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding-left: 10px;
+  border-left: 1px solid var(--divider-gd);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.sh-nav {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  min-width: 0;
+}
+.sh-nav a {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+  transition: color .15s;
+  white-space: nowrap;
+}
+.sh-nav a:hover { color: var(--ink); }
+.sh-nav a.active { color: var(--ink); font-weight: 700; }
+.sh-nav a.active::after {
+  content: '';
+  display: block;
+  height: 2px;
+  background-color: var(--gold);
+  margin-top: 4px;
+}
+
+.sh-cta {
+  padding: 8px 14px;
+  background-color: var(--ink);
+  color: var(--sheet-bg) !important;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  transition: background-color .15s;
+  white-space: nowrap;
+}
+.sh-cta:hover { background-color: var(--gold-deep); }
+
+/* ── 브래드크럼 ── */
+.breadcrumb {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 20px var(--pad, 32px) 0;
+  font-family: var(--sans);
+  font-size: 12px;
+  color: var(--meta);
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.breadcrumb a {
+  color: var(--meta);
+  transition: color .15s;
+}
+.breadcrumb a:hover { color: var(--gold-deep); }
+.breadcrumb .bc-sep {
+  color: var(--gold);
+  font-family: var(--serif);
+  font-style: italic;
+}
+.breadcrumb .bc-current {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+/* ── 페이지 헤더 ── */
+.page-header {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 28px var(--pad, 32px) 24px;
+  border-bottom: 1px solid var(--divider);
+}
+.ph-eyebrow {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--gold-deep);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.ph-title {
+  font-family: var(--serif);
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin: 0 0 10px;
+}
+.ph-title .colon { color: var(--gold); font-style: normal; }
+.ph-title em {
+  font-style: italic;
+  color: var(--gold-deep);
+  font-weight: 700;
+}
+.ph-lede {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 17px;
+  color: var(--muted);
+  line-height: 1.5;
+  margin: 0;
+  max-width: 68ch;
+}
+.ph-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 18px;
+  font-family: var(--sans);
+  font-size: 11px;
+  color: var(--meta);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+  flex-wrap: wrap;
+}
+.ph-meta .ph-meta-sep {
+  width: 1px; height: 12px;
+  background-color: var(--divider-gd);
+}
+.ph-meta b {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 800;
+  color: var(--gold-deep);
+  font-size: 13px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* ── 페이지 본문 wrap ── */
+.page-wrap {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 32px var(--pad, 32px) 80px;
+}
+
+/* ── 모바일 하단 탭 (전 페이지 공통) ── */
+.mob-tabs {
+  display: none;
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 200;
+  background-color: var(--sheet-bg);
+  border-top: 1px solid var(--divider-gd);
+  padding: 8px 0 calc(8px + env(safe-area-inset-bottom, 0));
+}
+.mob-tabs-inner {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+.mt-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 4px;
+  color: var(--meta);
+  text-align: center;
+  transition: color .15s;
+}
+.mt-item.active { color: var(--ink); }
+.mt-icon {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 800;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mt-item.active .mt-icon {
+  color: var(--gold-deep);
+}
+.mt-label {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1;
+}
+
+/* 아이콘 대신 순수 CSS로 그린 미니 심볼 (외부 아이콘 폰트 의존 없음) */
+.mt-icon.i-home::before { content: '⌂'; font-style: normal; }
+.mt-icon.i-archive::before { content: '❋'; font-style: normal; font-size: 14px; }
+.mt-icon.i-calendar::before { content: '▦'; font-style: normal; }
+.mt-icon.i-sub::before { content: '✎'; font-style: normal; }
+
+/* ── 반응형 ── */
+@media (max-width: 1024px) {
+  .sh-nav { display: none; }
+}
+
+@media (max-width: 720px) {
+  .slim-header-inner { height: 48px; padding: 0 18px; }
+  .sh-brand-mark { font-size: 18px; }
+  .sh-brand-tag { display: none; }
+  .sh-cta { padding: 7px 10px; font-size: 11px; }
+  .breadcrumb { padding: 14px 18px 0; font-size: 11px; }
+  .page-header { padding: 20px 18px 18px; }
+  .ph-eyebrow { font-size: 10.5px; margin-bottom: 8px; }
+  .ph-lede { font-size: 14.5px; }
+  .ph-meta { gap: 10px; font-size: 10px; margin-top: 14px; }
+  .page-wrap { padding: 20px 18px 96px; }
+  .mob-tabs { display: block; }
+}

@@ -1,98 +1,222 @@
 """2026-08-11(TASK_ID=MERGE_PR14_AND_START_MOOCONOMY_WEB_ARCHIVE_SHARE)
+2026-09-03(TASK_ID=HOMEPAGE_RENEWAL_V3): presentation layer only — swapped
+the inline dark-theme template for the release-v3 "timeline" design
+(shared styles.css/shared-shell.css/archive.css). Function signatures,
+inputs (valid_metadata_list) and call sites are unchanged; no change to
+which issues are considered valid or how metadata is computed — that
+stays the orchestrator's job (EMPTY_ROUTE_CREATION_PROHIBITED unchanged).
+
 /archive/index.html(전체 목록) + /archive/{YYYY-MM}/index.html(월별 목록)
 정적 생성기. build_questions_page.py와 동일한 패턴(순수 문자열 템플릿,
 Jinja 없음). 입력은 검증 통과한 issue metadata 리스트만 받는다 — 이
 파일 자체는 무엇이 "검증 통과"인지 판단하지 않는다(그건 오케스트레이터
-책임, EMPTY_ROUTE_CREATION_PROHIBITED: 항목이 0개인 월은 아예 호출하지
-않는다)."""
+책임).
 
-_PAGE_HEAD = """<!DOCTYPE html>
+Determinism: 현재 시각(datetime.now())을 쓰지 않는다. "오늘의 발행판"
+강조는 wall-clock 대신 "전달된 목록 중 가장 최근 issue_date"로 판단한다
+— 같은 입력이면 항상 같은 바이트의 출력을 만든다.
+"""
+import calendar as _cal
+
+_ROMAN = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII"]
+_MONTH_EN = ["January", "February", "March", "April", "May", "June",
+             "July", "August", "September", "October", "November", "December"]
+_DOW_EN = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"]
+
+
+def _dow_en(issue_date):
+    y, m, d = (int(x) for x in issue_date.split("-"))
+    return _DOW_EN[_cal.weekday(y, m, d)]
+
+
+def _month_label(ym):
+    y, m = ym.split("-")
+    return {
+        "roman": y + " · " + _ROMAN[int(m) - 1],
+        "name": _MONTH_EN[int(m) - 1],
+    }
+
+
+def _page_shell(*, title, desc, canonical, crumb_html, h1, lede, meta_html,
+                 tabs_html, body_html, root, archive_root, archive_css):
+    return f"""<!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>__PAGE_TITLE__ | Daily MOO:conomy</title>
-<meta name="description" content="__PAGE_DESC__">
-<link rel="canonical" href="__CANONICAL__">
+<title>{title} | Daily MOO:conomy</title>
+<meta name="description" content="{desc}">
+<link rel="canonical" href="{canonical}">
 <meta name="robots" content="index,follow">
 <meta property="og:type" content="website">
-<meta property="og:title" content="__PAGE_TITLE__ | Daily MOO:conomy">
-<meta property="og:description" content="__PAGE_DESC__">
-<meta property="og:url" content="__CANONICAL__">
+<meta property="og:title" content="{title} | Daily MOO:conomy">
+<meta property="og:description" content="{desc}">
+<meta property="og:url" content="{canonical}">
 <meta property="og:image" content="https://raw.githubusercontent.com/immusaeng/mooconomy-assets/main/og_mooconomy_v2.png">
-<style>
-  :root { --bg:#0B1220; --card:#141C2E; --ink:#E8ECF3; --sub:#95A2BA; --gold:#F2C94C; --line:rgba(124,138,165,.18); }
-  * { box-sizing:border-box; }
-  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',Arial,sans-serif; line-height:1.6; word-break:keep-all; }
-  .wrap { max-width:760px; margin:0 auto; padding:0 20px; }
-  header.mh { padding:22px 0; border-bottom:1px solid var(--line); }
-  .brand { font-size:18px; font-weight:800; text-decoration:none; color:var(--ink); }
-  .brand .g { color:var(--gold); }
-  nav.crumb { font-size:12px; color:var(--sub); margin-top:10px; }
-  nav.crumb a { color:var(--sub); }
-  main { padding:36px 0 60px; }
-  .eyebrow { font-size:11px; font-weight:700; letter-spacing:.08em; color:var(--gold); text-transform:uppercase; margin-bottom:10px; }
-  h1 { font-size:24px; margin:0 0 24px; }
-  .month-list a, .issue-list a { color:var(--gold); text-decoration:none; }
-  .month-list { display:flex; flex-direction:column; gap:8px; margin-bottom:32px; }
-  .issue-list { display:flex; flex-direction:column; gap:12px; }
-  .issue-card { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 16px; }
-  .issue-card .d { font-size:11px; color:var(--sub); }
-  .issue-card .t { font-size:15px; font-weight:700; margin-top:4px; }
-  .issue-card .m { font-size:12.5px; color:#C7CEDB; margin-top:4px; }
-  .issue-card a { color:var(--ink); text-decoration:none; }
-  footer { border-top:1px solid var(--line); padding:24px 0; font-size:11.5px; color:var(--sub); }
-</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,700;1,9..144,800&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{root}styles.css">
+<link rel="stylesheet" href="{root}shared-shell.css">
+<link rel="stylesheet" href="{archive_css}">
 </head>
-<body>
-  <header class="mh"><div class="wrap">
-    <a class="brand" href="/">MOO<span class="g">:</span>conomy</a>
-    <nav class="crumb">__CRUMB__</nav>
-  </div></header>
-  <main class="wrap">
-    <div class="eyebrow">ARCHIVE</div>
-    <h1>__H1__</h1>
-__BODY__
-  </main>
-  <footer><div class="wrap">© 2026 Mooconomy · Daily MOO:conomy 발행 아카이브</div></footer>
+<body data-root="{root}">
+
+<div class="ticker-bar" aria-label="실시간 시장 지표"><div class="ticker-inner" id="tickerInner"></div></div>
+
+<header class="slim-header">
+  <div class="slim-header-inner">
+    <a href="{root}index.html" class="sh-brand">
+      <span class="sh-brand-mark">MOO<span class="colon">:</span>conomy</span>
+      <span class="sh-brand-tag">DAILY · EST. 2025</span>
+    </a>
+    <nav class="sh-nav">
+      <a href="{root}index.html#pulse">시장 흐름</a>
+      <a href="{archive_root}" class="active">아카이브</a>
+      <a href="{root}calendar/">캘린더</a>
+      <a href="{root}index.html#editorial">편집자</a>
+    </nav>
+    <a href="{root}index.html#subscribe" class="sh-cta">구독하기</a>
+  </div>
+</header>
+
+<nav class="breadcrumb" aria-label="위치">{crumb_html}</nav>
+
+<div class="page-header">
+  <div class="ph-eyebrow">MOO<span class="colon" style="color:var(--gold)">:</span>ARCHIVE · 발행 서고</div>
+  <h1 class="ph-title">{h1}</h1>
+  <p class="ph-lede">{lede}</p>
+  <div class="ph-meta">{meta_html}</div>
+</div>
+
+<main class="page-wrap">
+{tabs_html}
+{body_html}
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="wordmark-sm">MOO<span class="colon">:</span>conomy</div>
+        <p class="foot-tagline">— 예측하지 않고 기록하고 검증합니다.</p>
+      </div>
+      <div class="foot-cols">
+        <div><h5>발행판</h5><ul>
+          <li><a href="{root}latest.html">오늘의 발행판</a></li>
+          <li><a href="{archive_root}">아카이브 서고</a></li>
+          <li><a href="{root}weekly.html">주간 리포트</a></li>
+        </ul></div>
+        <div><h5>데이터</h5><ul>
+          <li><a href="{root}markets.html">마켓 대시보드</a></li>
+          <li><a href="{root}calendar/">이벤트 캘린더</a></li>
+          <li><a href="{root}questions/">MOO:Q 검증</a></li>
+        </ul></div>
+        <div><h5>브랜드</h5><ul>
+          <li><a href="{root}about/">About</a></li>
+          <li><a href="{root}methodology/">방법론</a></li>
+          <li><a href="{root}privacy.html">개인정보</a></li>
+        </ul></div>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2025–2026 MOO:conomy</span>
+      <span>매일 아침 06:00 발행</span>
+    </div>
+  </div>
+</footer>
+
+<nav class="mob-tabs" aria-label="주요 페이지">
+  <div class="mob-tabs-inner">
+    <a class="mt-item" href="{root}index.html"><span class="mt-icon i-home"></span><span class="mt-label">홈</span></a>
+    <a class="mt-item active" href="{archive_root}"><span class="mt-icon i-archive"></span><span class="mt-label">아카이브</span></a>
+    <a class="mt-item" href="{root}calendar/"><span class="mt-icon i-calendar"></span><span class="mt-label">캘린더</span></a>
+    <a class="mt-item" href="{root}index.html#subscribe"><span class="mt-icon i-sub"></span><span class="mt-label">구독</span></a>
+  </div>
+</nav>
+
+<script src="{root}app.js"></script>
 </body>
 </html>
 """
 
 
-def _issue_card(m):
+def _tabs_html(active, root):
+    def tab(label, href, is_active):
+        cls = "arch-tab active" if is_active else "arch-tab"
+        return f'<a class="{cls}" href="{href}">{label}</a>'
+    return ('<div class="arch-tabs" role="tablist">'
+            + tab("발행판", "#", active == "editions")
+            + tab('MOO<span style="color:var(--gold)">:</span>Q 검증 기록', root + "questions/", False)
+            + tab("방법론 · 정정", root + "methodology/", False)
+            + "</div>")
+
+
+def _issue_card(m, is_today):
+    dow = _dow_en(m["issue_date"])
+    day = m["issue_date"][8:10].lstrip("0") or "0"
+    flag_l = "TODAY'S EDITION" if is_today else m["issue_date"]
+    thesis = m.get("morning_thesis") or ""
+    deck = f'<p class="tlc-deck">{thesis}</p>' if thesis and thesis != m["title"] else ""
+    today_cls = " tl-today" if is_today else " tl-past"
     return (
-        f'<div class="issue-card"><a href="{m["public_path"]}">'
-        f'<div class="d">{m["issue_date"]}</div>'
-        f'<div class="t">{m["title"]}</div>'
-        f'<div class="m">{m.get("morning_thesis") or ""}</div>'
-        f'</a></div>'
+        f'<article class="tl-item{today_cls}">'
+        f'<div class="tl-date"><span class="tld-day">{day}</span><span class="tld-dow">{dow}</span></div>'
+        f'<div class="tl-node"></div>'
+        f'<a class="tl-card" href="{m["public_path"]}">'
+        f'<div class="tlc-flag"><span>{flag_l}</span><span class="tlc-flag-r">발행 06:00</span></div>'
+        f'<h3 class="tlc-headline">{m["title"]}</h3>'
+        f'{deck}'
+        f'<div class="tlc-foot"><span></span><span class="tlc-more">전문 읽기 →</span></div>'
+        f'</a></article>'
     )
 
 
 def build_full_index(valid_metadata_list):
     """전체 발행 목록(/archive/index.html) — 실제 검증 통과한 issue만,
-    월별로 묶어 최신순 표시."""
+    월별로 묶어 최신순 표시(v3 타임라인 디자인)."""
+    ordered = sorted(valid_metadata_list, key=lambda x: x["issue_date"], reverse=True)
+    latest_date = ordered[0]["issue_date"] if ordered else None
+
     by_month = {}
-    for m in sorted(valid_metadata_list, key=lambda x: x["issue_date"], reverse=True):
-        ym = m["issue_date"][:7]
-        by_month.setdefault(ym, []).append(m)
+    for m in ordered:
+        by_month.setdefault(m["issue_date"][:7], []).append(m)
 
-    month_links = "".join(
-        f'<div><a href="/archive/{ym}/">{ym} ({len(items)}건)</a></div>'
-        for ym, items in sorted(by_month.items(), reverse=True)
+    body = []
+    if not ordered:
+        body.append('<p class="timeline-empty">아직 발행된 판이 없습니다.</p>')
+    else:
+        body.append('<div class="timeline">')
+        for ym, items in sorted(by_month.items(), reverse=True):
+            label = _month_label(ym)
+            body.append(
+                f'<div class="tl-month"><div class="tlm-tag">{label["roman"]}</div>'
+                f'<div class="tlm-title">{label["name"]}<span class="tlm-count">{len(items)}호 발행</span></div></div>'
+            )
+            body.append('<div class="tl-group">')
+            for m in items:
+                body.append(_issue_card(m, m["issue_date"] == latest_date))
+            body.append('</div>')
+        body.append('</div>')
+
+    count = len(ordered)
+    date_range = f'{ordered[-1]["issue_date"]} – {ordered[0]["issue_date"]}' if ordered else "–"
+    meta = (f'<span>총 <b>{count}</b>호 발행</span>'
+            f'<span class="ph-meta-sep"></span>'
+            f'<span>기간 <b>{date_range}</b></span>')
+
+    return _page_shell(
+        title="전체 발행 목록",
+        desc="Daily MOO:conomy가 실제로 발행한 뉴스레터 전체 목록입니다.",
+        canonical="https://mooconomy.co.kr/archive/",
+        crumb_html='<a href="../index.html">Home</a><span class="bc-sep">›</span><span class="bc-current">The Archive</span>',
+        h1='The <em>Archive</em>',
+        lede="매일의 발행판이 쌓여 만드는 긴 흐름. 실제로 발행된 판만 여기 모입니다.",
+        meta_html=meta,
+        tabs_html=_tabs_html("editions", "../"),
+        body_html="\n".join(body),
+        root="../", archive_root="./", archive_css="archive.css",
     )
-    issue_cards = "".join(_issue_card(m) for m in sorted(valid_metadata_list, key=lambda x: x["issue_date"], reverse=True))
-
-    body = f'<div class="month-list">{month_links}</div><div class="issue-list">{issue_cards}</div>'
-    html = _PAGE_HEAD
-    html = html.replace("__PAGE_TITLE__", "전체 발행 목록")
-    html = html.replace("__PAGE_DESC__", "Daily MOO:conomy가 실제로 발행한 뉴스레터 전체 목록입니다.")
-    html = html.replace("__CANONICAL__", "https://mooconomy.co.kr/archive/")
-    html = html.replace("__CRUMB__", '<a href="/">홈</a> / 전체 발행 목록')
-    html = html.replace("__H1__", "전체 발행 목록")
-    html = html.replace("__BODY__", body)
-    return html
 
 
 def build_month_index(year_month, month_metadata_list):
@@ -100,14 +224,30 @@ def build_month_index(year_month, month_metadata_list):
     통과한 issue가 1건 이상일 때만 오케스트레이터가 이 함수를 호출한다
     (0건인 달은 호출 자체를 안 함 — 빈 라우트 금지)."""
     ordered = sorted(month_metadata_list, key=lambda m: m["issue_date"], reverse=True)
-    issue_cards = "".join(_issue_card(m) for m in ordered)
-    body = f'<div class="issue-list">{issue_cards}</div>'
+    label = _month_label(year_month)
 
-    html = _PAGE_HEAD
-    html = html.replace("__PAGE_TITLE__", f"{year_month} 발행 목록")
-    html = html.replace("__PAGE_DESC__", f"Daily MOO:conomy {year_month} 발행 뉴스레터 목록입니다.")
-    html = html.replace("__CANONICAL__", f"https://mooconomy.co.kr/archive/{year_month}/")
-    html = html.replace("__CRUMB__", f'<a href="/">홈</a> / <a href="/archive/">전체 발행 목록</a> / {year_month}')
-    html = html.replace("__H1__", f"{year_month} 발행 목록")
-    html = html.replace("__BODY__", body)
-    return html
+    body = [
+        f'<div class="tl-month"><div class="tlm-tag">{label["roman"]}</div>'
+        f'<div class="tlm-title">{label["name"]}<span class="tlm-count">{len(ordered)}호 발행</span></div></div>',
+        '<div class="tl-group">',
+    ]
+    for m in ordered:
+        body.append(_issue_card(m, False))
+    body.append('</div>')
+
+    meta = f'<span>{year_month} · <b>{len(ordered)}</b>호 발행</span>'
+
+    return _page_shell(
+        title=f"{year_month} 발행 목록",
+        desc=f"Daily MOO:conomy {year_month} 발행 뉴스레터 목록입니다.",
+        canonical=f"https://mooconomy.co.kr/archive/{year_month}/",
+        crumb_html=(f'<a href="../../index.html">Home</a><span class="bc-sep">›</span>'
+                    f'<a href="../">The Archive</a><span class="bc-sep">›</span>'
+                    f'<span class="bc-current">{year_month}</span>'),
+        h1=f'{label["name"]} <em>{year_month[:4]}</em>',
+        lede=f'{year_month} 한 달 동안 발행된 판만 모아봅니다.',
+        meta_html=meta,
+        tabs_html=_tabs_html("editions", "../../"),
+        body_html="\n".join(body),
+        root="../../", archive_root="../", archive_css="../archive.css",
+    )
