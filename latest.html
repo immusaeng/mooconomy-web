@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+<meta name="robots" content="noindex,follow">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="x-apple-disable-message-reformatting">
@@ -391,19 +392,26 @@
 
 </style>
 <style>
-.fx-share-row { display:flex; align-items:center; gap:10px; margin-top:16px; flex-wrap:wrap; }
-.fx-share-row-top { margin-top:10px; margin-bottom:6px; }
-.fx-share-btn { font-size:12.5px; font-weight:700; color:#0B1220; background:#F2C94C; border:none; border-radius:20px; padding:8px 16px; min-height:36px; cursor:pointer; }
-.fx-share-btn.secondary { background:transparent; color:#F2C94C; border:1px solid #F2C94C; }
-.fx-share-status { font-size:11.5px; color:#95A2BA; display:flex; align-items:center; flex-wrap:wrap; gap:6px; }
-.fx-share-status.show { color:#F2C94C; }
-.fx-share-fallback-url { font-size:11.5px; color:#E8ECF3; background:#141C2E; border:1px solid rgba(124,138,165,.35); border-radius:6px; padding:6px 8px; min-width:220px; max-width:100%; }
+.fx-action-bar { display:flex; justify-content:center; align-items:center; flex-wrap:wrap; gap:10px; width:100%; margin:17px 0 6px; }
+.fx-btn { display:inline-flex; align-items:center; justify-content:center; gap:6px; min-height:42px; padding:0 18px; font-family:-apple-system,'Apple SD Gothic Neo','Noto Sans KR',sans-serif; font-size:13px; font-weight:700; border-radius:3px; cursor:pointer; text-decoration:none; line-height:1; box-sizing:border-box; }
+.fx-btn-primary { background:#1A1613; color:#FBF7ED; border:1px solid #1A1613; }
+.fx-btn-secondary { background:#F2E4C0; color:#6B4B15; border:1px solid #E4D8B8; }
+.fx-btn-tertiary { background:transparent; color:#6B5B44; border:1px solid #C9B98A; }
+.fx-btn:focus-visible { outline:2px solid #9E6A15; outline-offset:2px; }
+.fx-action-status { min-height:16px; margin:0 0 12px; text-align:center; font-size:11.5px; color:#8A7550; }
+.fx-share-fallback-url { font-size:11.5px; color:#1A1613; background:#FBF3DE; border:1px solid #DDCEA6; border-radius:4px; padding:6px 8px; min-width:220px; max-width:100%; }
+@media (max-width:420px) { .fx-btn { flex:1 1 auto; padding:0 12px; font-size:12.5px; } }
 
-.fx-issue-nav { display:flex; justify-content:space-between; gap:12px; margin-top:22px; padding-top:16px; border-top:1px solid rgba(124,138,165,.18); font-size:12.5px; }
-.fx-issue-nav a { color:#95A2BA; text-decoration:none; }
-.fx-issue-nav a:hover { color:#F2C94C; }
-.fx-archive-link { text-align:center; margin-top:14px; font-size:12.5px; }
-.fx-archive-link a { color:#F2C94C; text-decoration:none; }
+.fx-issue-nav { display:flex; justify-content:space-between; gap:12px; margin-top:22px; padding-top:16px; border-top:1px solid #E4D8B8; font-size:12.5px; font-family:-apple-system,'Apple SD Gothic Neo','Noto Sans KR',sans-serif; }
+.fx-issue-nav a { color:#6B5B44; text-decoration:none; }
+.fx-issue-nav a:hover { color:#9E6A15; }
+.fx-archive-link { text-align:center; margin-top:14px; font-size:12.5px; font-family:-apple-system,'Apple SD Gothic Neo','Noto Sans KR',sans-serif; }
+.fx-archive-link a { color:#9E6A15; text-decoration:none; }
+
+@media (max-width:700px) {
+  table.sheet, .sheet { width:100% !important; max-width:100% !important; min-width:0 !important; table-layout:fixed !important; }
+  table.sheet > tbody > tr > td, .sheet > tbody > tr > td { width:100% !important; word-break:break-word; }
+}
 </style>
 </head>
 <body bgcolor="#EFEAD9">
@@ -441,7 +449,7 @@
 <!-- ===== Hero ===== -->
 <div class="hero">
   <div class="hero-kicker">오늘의 관점</div>
-  <h1 class="hero-headline">긴축 경계감은 줄었지만 국내 시장은 여전히 수급 부진으로 차별화가 나타나고 있다</h1><div class="fx-share-row fx-share-row-top"><button type="button" data-fx-share class="fx-share-btn">공유하기</button><button type="button" data-fx-copy class="fx-share-btn secondary">링크 복사</button><span data-fx-share-status class="fx-share-status" role="status" aria-live="polite"></span></div>
+  <h1 class="hero-headline">긴축 경계감은 줄었지만 국내 시장은 여전히 수급 부진으로 차별화가 나타나고 있다</h1><div class="fx-action-bar" role="group" aria-label="발행판 액션"><a class="fx-btn fx-btn-primary" href="/#home/subscribe">구독하기</a><button type="button" data-fx-share data-fx-share-text="긴축 경계감은 줄었지만 국내 시장은 여전히 수급 부진으로 차별화가 나타나고 있다" class="fx-btn fx-btn-secondary"><span aria-hidden="true">↗</span> 공유하기</button><button type="button" data-fx-copy class="fx-btn fx-btn-tertiary"><span aria-hidden="true">⧉</span> 링크 복사</button></div><p class="fx-action-status" data-fx-share-status role="status" aria-live="polite"></p>
 
   <div class="deck-wrap">
     <div class="deck-line">— 미 금리 동결 기대 속 국내 증시 수급 차별화 양상</div>
@@ -1415,12 +1423,23 @@
 </table>
 </td></tr>
 </table>
-<div class="inner"><div class="fx-share-row fx-share-row-bottom"><button type="button" data-fx-share class="fx-share-btn">공유하기</button><button type="button" data-fx-copy class="fx-share-btn secondary">링크 복사</button><span data-fx-share-status class="fx-share-status" role="status" aria-live="polite"></span></div><div class="fx-issue-nav"><a href="/issues/2026-09-03.html">← 2026-09-03</a><span></span></div><div class="fx-archive-link"><a href="/archive/">전체 발행 목록 보기</a></div>
+<div class="inner"><div class="fx-issue-nav"><a href="/issues/2026-09-03.html">← 2026-09-03</a><span></span></div><div class="fx-archive-link"><a href="/archive/">전체 발행 목록 보기</a></div>
 <script>
 (function () {
   var canonicalEl = document.querySelector('link[rel="canonical"]');
   var url = canonicalEl ? canonicalEl.href : window.location.href.split('?')[0].split('#')[0];
   var title = document.title;
+  var statusEl = document.querySelector('[data-fx-share-status]');
+  var busy = false;
+
+  function withBusyGuard(fn) {
+    return function () {
+      if (busy) return;
+      busy = true;
+      fn();
+      setTimeout(function () { busy = false; }, 600);
+    };
+  }
 
   function fallbackCopy(text) {
     var ta = document.createElement('textarea');
@@ -1436,7 +1455,7 @@
     return ok;
   }
 
-  function showSelectableUrl(statusEl) {
+  function showSelectableUrl() {
     if (!statusEl) return;
     statusEl.textContent = '';
     var input = document.createElement('input');
@@ -1446,50 +1465,42 @@
     input.className = 'fx-share-fallback-url';
     input.setAttribute('aria-label', '공유 링크(직접 선택해 복사하세요)');
     statusEl.appendChild(input);
-    statusEl.classList.add('show');
     input.focus();
     input.select();
   }
 
-  function copyLink(statusEl) {
+  function showStatus(msg) {
+    if (statusEl) statusEl.textContent = msg;
+  }
+
+  function copyLink() {
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(url).then(function () {
-        showStatus(statusEl, '링크를 복사했습니다. 카카오톡에 붙여넣어 공유해 주세요.');
+        showStatus('링크를 복사했습니다.');
       }).catch(function () {
-        if (fallbackCopy(url)) {
-          showStatus(statusEl, '링크를 복사했습니다. 카카오톡에 붙여넣어 공유해 주세요.');
-        } else {
-          showSelectableUrl(statusEl);
-        }
+        if (fallbackCopy(url)) { showStatus('링크를 복사했습니다.'); } else { showSelectableUrl(); }
       });
     } else if (fallbackCopy(url)) {
-      showStatus(statusEl, '링크를 복사했습니다. 카카오톡에 붙여넣어 공유해 주세요.');
+      showStatus('링크를 복사했습니다.');
     } else {
-      showSelectableUrl(statusEl);
+      showSelectableUrl();
     }
   }
 
-  function showStatus(el, msg) {
-    if (el) { el.textContent = msg; el.classList.add('show'); }
-  }
-
   document.querySelectorAll('[data-fx-share]').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var statusEl = btn.closest('.fx-share-row').querySelector('[data-fx-share-status]');
+    btn.addEventListener('click', withBusyGuard(function () {
       if (navigator.share) {
-        navigator.share({ title: title, url: url }).catch(function (err) {
+        navigator.share({ title: title, text: btn.getAttribute('data-fx-share-text') || title, url: url }).catch(function (err) {
           if (err && err.name === 'AbortError') return;
-          copyLink(statusEl);
+          copyLink();
         });
       } else {
-        copyLink(statusEl);
+        copyLink();
       }
-    });
+    }));
   });
   document.querySelectorAll('[data-fx-copy]').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      copyLink(btn.closest('.fx-share-row').querySelector('[data-fx-share-status]'));
-    });
+    btn.addEventListener('click', withBusyGuard(copyLink));
   });
 })();
 </script>

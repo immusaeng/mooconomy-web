@@ -19,6 +19,7 @@ rss.xml)을 절대 건드리지 않고 보고만 한다. 새 LLM 호출·네트�
 import datetime as _dt
 import json
 import os
+import re
 import shutil
 import sys
 
@@ -191,10 +192,19 @@ def run(dry_run_report_only=False, today=None):
         report["abort_reason"] = f"아카이브 페이지 HTML 검사 실패: {archive_page_checks}"
         return report
 
-    # ── latest.html 임시본 = 오늘자 issue 페이지와 동일 산출물 ───────
+    # ── latest.html 임시본 = 오늘자 issue 페이지와 동일 산출물, 단
+    #    robots만 noindex,follow로 덮어쓴다(TASK_ID=ARCHIVE_ISSUE_V8_
+    #    SHELL_UNIFICATION §5 — 날짜별 페이지는 index,follow, latest.html/
+    #    latest-email.html은 noindex,follow로 서로 달라야 한다. 본문은
+    #    완전히 동일 산출물이므로 robots 메타 값 하나만 치환한다) ───────
     latest_tmp_path = os.path.join(BUILD_TMP, "latest.html")
+    latest_html = re.sub(
+        r'<meta\s+name="robots"[^>]*>',
+        '<meta name="robots" content="noindex,follow">',
+        rendered[TODAY], count=1,
+    )
     with open(latest_tmp_path, "w", encoding="utf-8") as f:
-        f.write(rendered[TODAY])
+        f.write(latest_html)
 
     # ── 내부 링크 존재 검사(임시 디렉터리를 site_root로, 그 안에 없는
     #    페이지 - /calendar/, /about/ 등 이번에 다시 만들지 않는 기존

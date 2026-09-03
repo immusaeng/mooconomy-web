@@ -222,6 +222,14 @@ def validate_html(html_text):
 
 
 _RICH_EMAIL_RENDER_MARKER = 'name="x-apple-disable-message-reformatting"'
+# 2026-09-04(TASK_ID=ARCHIVE_ISSUE_V8_SHELL_UNIFICATION) — 실제 발송
+# 원문이었지만 구형 다크 템플릿인 과거 날짜는 build_issue_page.
+# render_from_rich_extracted()로 콘텐츠만 그대로 옮겨 V8 라이트 셸에
+# 다시 넣는다. 그 결과물은 원문의 apple 마커를 더 이상 갖고 있지
+# 않으므로(콘텐츠만 옮겼을 뿐 원본 이메일 HTML 전체가 아니다), 이
+# 두 번째 마커가 없으면 다음 날 오케스트레이터가 "rich 아님"으로
+# 오판해 얇은 JSON 재구성본으로 되돌려버린다 — 그 회귀를 막는다.
+_RICH_EXTRACTED_MARKER = "MOOCONOMY_RICH_EXTRACTED_V8"
 
 
 def is_rich_email_render(html_text):
@@ -232,8 +240,10 @@ def is_rich_email_render(html_text):
     the real newsletter template -- the JSON-reconstruction _PAGE_HEAD
     never emits it. Used to keep publish_issue_archive.py from silently
     downgrading an already-published rich page to a thinner rebuild once
-    a later run's TODAY moves past it."""
-    return _RICH_EMAIL_RENDER_MARKER in html_text
+    a later run's TODAY moves past it. Also true for pages already
+    migrated via build_issue_page.render_from_rich_extracted() — see
+    _RICH_EXTRACTED_MARKER above."""
+    return _RICH_EMAIL_RENDER_MARKER in html_text or _RICH_EXTRACTED_MARKER in html_text
 
 
 def check_internal_links(html_text, site_root, fallback_root=None):
