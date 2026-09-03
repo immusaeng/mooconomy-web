@@ -209,7 +209,7 @@
 }
 .mob-tabs-inner {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 0;
 }
 .mt-item {
@@ -241,14 +241,20 @@
   font-family: var(--sans);
   font-size: 10px;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.02em;
   line-height: 1;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /* 아이콘 대신 순수 CSS로 그린 미니 심볼 (외부 아이콘 폰트 의존 없음) */
 .mt-icon.i-home::before { content: '⌂'; font-style: normal; }
 .mt-icon.i-archive::before { content: '❋'; font-style: normal; font-size: 14px; }
 .mt-icon.i-calendar::before { content: '▦'; font-style: normal; }
+.mt-icon.i-q::before { content: '?'; font-style: normal; }
+.mt-icon.i-about::before { content: '●'; font-style: normal; font-size: 10px; }
 .mt-icon.i-sub::before { content: '✎'; font-style: normal; }
 
 /* ── 반응형 ── */
@@ -268,4 +274,6 @@
   .ph-meta { gap: 10px; font-size: 10px; margin-top: 14px; }
   .page-wrap { padding: 20px 18px 96px; }
   .mob-tabs { display: block; }
+  .mt-item { padding: 6px 2px; }
+  .mt-label { font-size: 9px; }
 }

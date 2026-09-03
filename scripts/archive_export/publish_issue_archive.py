@@ -196,15 +196,17 @@ def run(dry_run_report_only=False, today=None):
     with open(latest_tmp_path, "w", encoding="utf-8") as f:
         f.write(rendered[TODAY])
 
-    # ── 내부 링크 존재 검사(임시 디렉터리를 site_root로 취급) ────────
+    # ── 내부 링크 존재 검사(임시 디렉터리를 site_root로, 그 안에 없는
+    #    페이지 - /calendar/, /about/ 등 이번에 다시 만들지 않는 기존
+    #    정적 페이지 - 는 실제 저장소 ROOT를 fallback으로 확인) ────────
     link_issues = {}
     for date in passing_dates:
         with open(os.path.join(BUILD_TMP, "issues", f"{date}.html"), encoding="utf-8") as f:
-            issues_ = lib.check_internal_links(f.read(), BUILD_TMP)
+            issues_ = lib.check_internal_links(f.read(), BUILD_TMP, fallback_root=ROOT)
         if issues_:
             link_issues[f"issues/{date}.html"] = issues_
     with open(os.path.join(BUILD_TMP, "archive", "index.html"), encoding="utf-8") as f:
-        li = lib.check_internal_links(f.read(), BUILD_TMP)
+        li = lib.check_internal_links(f.read(), BUILD_TMP, fallback_root=ROOT)
         if li:
             link_issues["archive/index.html"] = li
     report["internal_link_issues"] = link_issues
@@ -272,6 +274,21 @@ def run(dry_run_report_only=False, today=None):
 
     shutil.copy2(sitemap_tmp_path, os.path.join(ROOT, "sitemap.xml"))
     shutil.copy2(rss_tmp_path, os.path.join(ROOT, "rss.xml"))
+
+    # latest-email.html은 발송 파이프라인(다른 저장소)이 매일 새로 덮어쓰는
+    # 파일이라, 여기서 noindex 메타만 존재하지 않을 때 멱등하게 추가해둔다
+    # -- 검색엔진이 이메일 중복 표현 페이지를 별도로 색인하지 않게 하려는
+    # 것뿐이고, 본문·발송 로직은 전혀 건드리지 않는다.
+    email_real_path = os.path.join(ROOT, "latest-email.html")
+    if os.path.exists(email_real_path):
+        with open(email_real_path, encoding="utf-8") as f:
+            email_html = f.read()
+        if 'name="robots"' not in email_html and "<head>" in email_html:
+            email_html = email_html.replace(
+                "<head>", '<head>\n<meta name="robots" content="noindex,follow">', 1
+            )
+            with open(email_real_path, "w", encoding="utf-8") as f:
+                f.write(email_html)
 
     report["swapped_to_real_paths"] = True
     return report

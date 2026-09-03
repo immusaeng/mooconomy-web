@@ -1,10 +1,13 @@
 /* ═══════════════════════════════════════════════════════════════
    Daily MOO:conomy — /calendar/ 데이터 배선
-   실제 소스: ../data/home.json (calendar[]) + ../data/calendar_results.json
-   이 저장소에는 별도의 "월간 경제캘린더" 데이터셋이 없다 — 위 두 파일이
-   갖고 있는 실제 예정 이벤트만 표시한다. 없는 날짜/이벤트는 만들어 채우지 않는다.
-   카테고리(통화정책/물가/고용/성장/기타) 분류 필드도 소스에 없어 임의로
-   태깅하지 않는다 — 대신 실제로 있는 국가/중요도 축으로 구분한다.
+   1순위: ../data/calendar_events.json (통합 캘린더 파이프라인의 canonical
+   dataset — scripts/calendar_events/build_calendar.py 산출물). fresh 또는
+   partial이고 이벤트가 1건 이상일 때만 이 데이터를 쓴다.
+   fallback: ../data/home.json (calendar[]) + ../data/calendar_results.json
+   — 파이프라인에 아직 실제 API 키가 배선되지 않았거나(현재 상태) 새
+   데이터가 stale/검증 실패면 기존처럼 이 두 파일만으로 렌더링한다.
+   샘플/픽스처 데이터는 어떤 경우에도 fallback으로 쓰지 않는다(canonical
+   dataset은 실제 수집기가 만든 것만 이 경로에 존재한다).
    ═══════════════════════════════════════════════════════════════ */
 
 (function () {
@@ -38,6 +41,30 @@
       return {
         id: ev.id, time: ev.time, country: ev.country, title: ev.title,
         importance: ev.importance, resultText: r && r.resultText, resultStatus: r && r.status
+      };
+    }).sort(function (a, b) { return a.time < b.time ? -1 : 1; });
+  }
+
+  /* canonical dataset(data/calendar_events.json)을 이 페이지가 이미 쓰는
+     내부 이벤트 모양({id,time,country,title,importance,resultText})으로
+     바꾼다. fresh/partial이 아니거나 이벤트가 없으면 null을 돌려줘서
+     호출부가 기존 fallback으로 넘어가게 한다. */
+  function eventsFromCanonical(dataset) {
+    if (!dataset || !dataset.freshness) return null;
+    var status = dataset.freshness.status;
+    if (status !== 'fresh' && status !== 'partial') return null;
+    var events = Array.isArray(dataset.events) ? dataset.events : [];
+    if (!events.length) return null;
+    return events.map(function (e) {
+      var resultText = null;
+      if (e.actual !== null && e.actual !== undefined) {
+        resultText = '실제 ' + e.actual + (e.unit ? e.unit : '') +
+          (e.consensus !== null && e.consensus !== undefined ? ' (예상 ' + e.consensus + (e.unit ? e.unit : '') + ')' : '');
+      }
+      return {
+        id: e.id, time: e.scheduledDate, country: e.country, title: e.title,
+        importance: e.importance === 'unknown' ? null : e.importance,
+        resultText: resultText, resultStatus: e.status,
       };
     }).sort(function (a, b) { return a.time < b.time ? -1 : 1; });
   }
@@ -123,7 +150,7 @@
       }).join('');
     }
 
-    $('calListTitle').textContent = MONTH_EN[m] + ' · 시간순 상세';
+    $('calListTitle').textContent = MONTH_EN[m] + ' · 날짜순 상세';
     $('calListMeta').textContent = monthEvents.length + '건';
     var tl = $('calTl');
     if (!monthEvents.length) {
@@ -146,11 +173,27 @@
   }
 
   async function init() {
+    var canonicalP = fetchJSON('../data/calendar_events.json');
     var homeP = fetchJSON('../data/home.json');
     var resultsP = fetchJSON('../data/calendar_results.json');
-    var home = await homeP, results = await resultsP;
-    var events = mergeEvents(home, results);
+    var canonical = await canonicalP, home = await homeP, results = await resultsP;
+
+    var events = eventsFromCanonical(canonical);
+    var usingCanonical = !!events;
+    if (!events) events = mergeEvents(home, results);  // fallback: 기존 방식
+
     render(events, parseMonthParam());
+
+    var freshnessEl = $('dataFreshness');
+    if (freshnessEl) {
+      if (usingCanonical && canonical.freshness && canonical.freshness.lastSuccessfulAt) {
+        var d = new Date(canonical.freshness.lastSuccessfulAt);
+        freshnessEl.textContent = '데이터 갱신 ' + d.toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' }) +
+          ' (KST) · 상태: ' + canonical.freshness.status;
+      } else {
+        freshnessEl.textContent = '';
+      }
+    }
   }
   init();
 })();

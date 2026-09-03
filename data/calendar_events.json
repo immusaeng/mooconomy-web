@@ -1,0 +1,90 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-09-03T07:35:08.299090+00:00",
+  "timezone": "Asia/Seoul",
+  "range": {
+    "from": "2026-08-27",
+    "to": "2026-10-18"
+  },
+  "freshness": {
+    "status": "stale",
+    "lastSuccessfulAt": null,
+    "failedSources": [
+      "fred",
+      "fmp",
+      "finnhub",
+      "bok",
+      "ecos",
+      "kosis",
+      "eia",
+      "dart"
+    ]
+  },
+  "sources": [
+    {
+      "name": "fred",
+      "ok": false,
+      "count": 0,
+      "error": "missing_api_key",
+      "mode": "live",
+      "had_key": false
+    },
+    {
+      "name": "fmp",
+      "ok": false,
+      "count": 0,
+      "error": "missing_api_key",
+      "mode": "live",
+      "had_key": false
+    },
+    {
+      "name": "finnhub",
+      "ok": false,
+      "count": 0,
+      "error": "missing_api_key",
+      "mode": "live",
+      "had_key": false
+    },
+    {
+      "name": "bok",
+      "ok": false,
+      "count": 0,
+      "error": "parsed only 0 events, below MIN_EXPECTED_COUNT=1 - page structure may have changed, needs re-verification",
+      "mode": "live",
+      "had_key": true
+    },
+    {
+      "name": "ecos",
+      "ok": false,
+      "count": 0,
+      "error": "missing_api_key",
+      "mode": "live",
+      "had_key": false
+    },
+    {
+      "name": "kosis",
+      "ok": false,
+      "count": 0,
+      "error": "missing_api_key",
+      "mode": "live",
+      "had_key": false
+    },
+    {
+      "name": "eia",
+      "ok": false,
+      "count": 0,
+      "error": "missing_api_key",
+      "mode": "live",
+      "had_key": false
+    },
+    {
+      "name": "dart",
+      "ok": false,
+      "count": 0,
+      "error": "missing_api_key",
+      "mode": "live",
+      "had_key": false
+    }
+  ],
+  "events": []
+}

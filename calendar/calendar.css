@@ -218,12 +218,13 @@
 
 .cs-filters { display: flex; flex-direction: column; gap: 8px; }
 .cs-filter {
+  /* 클릭해도 아무 동작이 없는 정적 범례라 pointer 커서를 쓰지 않는다
+     (실제 필터 기능이 붙기 전까지는 버튼처럼 보이면 안 된다). */
   display: grid;
   grid-template-columns: 16px 1fr auto;
   align-items: center;
   gap: 10px;
   padding: 6px 0;
-  cursor: pointer;
 }
 .cs-filter-dot { width: 12px; height: 12px; border-left: 3px solid var(--gold); background-color: var(--cream-hi); }
 .cs-filter-dot.d-kr    { background-color: rgba(31,78,122,0.08); border-color: var(--blue); }

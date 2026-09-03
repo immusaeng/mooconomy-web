@@ -1,2 +1,21 @@
 __pycache__/
 *.pyc
+
+# 배포 산출물/백업 — 로컬 빌드 임시본이나 스왑 전 백업일 뿐, 실제
+# 소스는 각 생성기 스크립트다. 커밋하지 않는다.
+_build_tmp/
+*.bak
+
+# 로컬 검증용 캐시·스크린샷·서버 로그·테스트 산출물
+.cache/
+*.log
+tests/**/screenshots/
+tests/**/__snapshots__/
+*.local.json
+
+# API 키/시크릿 — 절대 커밋하지 않는다. 실제 값은 GitHub Actions
+# repository secrets 또는 로컬 셸 환경변수로만 주입한다.
+.env
+.env.*
+*.credentials.json
+scripts/calendar_events/.cache/

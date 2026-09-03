@@ -1,24 +1,40 @@
 """2026-08-21(TASK_ID=TRACK_B10_SITEMAP_RSS) sitemap.xml 생성기.
+2026-09-03(TASK_ID=OG_SEO_CORRECTION): latest.html/latest-email.html은
+canonical이 아니라 각 발행판 issue URL을 그대로 가리키는 파생 페이지라
+sitemap에서 뺀다(latest-email.html은 별도로 noindex도 적용). 대신 실제
+운영 중인 /calendar/, /weekly.html을 추가. STATIC_PAGES의 lastmod는
+로컬 파일의 실제 mtime에서만 가져온다(파일이 없으면 생략, 지어내지 않음).
 
-정적 페이지(홈/about/methodology/questions/markets/latest 미리보기) +
+정적 페이지(홈/about/methodology/questions/markets/calendar/weekly) +
 아카이브 매니페스트 기반 동적 페이지(archive/, archive/{YYYY-MM}/,
 issues/{date}.html)를 하나의 sitemap.xml로 합친다. lastmod는 실제로
-아는 날짜(발행일)만 채운다 -- 모르는 값은 생략하지 지어내지 않는다.
+아는 날짜(발행일 또는 파일 mtime)만 채운다 -- 모르는 값은 생략하지 지어내지 않는다.
 publish_issue_archive.py가 검증 통과한 manifest로만 호출하므로 이
 파일 자체는 무엇이 "검증 통과"인지 판단하지 않는다(build_archive_pages.py
 와 동일한 책임 분리).
 """
+import datetime as _dt
+import os
 import xml.etree.ElementTree as _ET
 
+_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+
 STATIC_PAGES = [
-    ("https://mooconomy.co.kr", "daily"),
-    ("https://mooconomy.co.kr/about/", "monthly"),
-    ("https://mooconomy.co.kr/methodology/", "monthly"),
-    ("https://mooconomy.co.kr/questions/", "daily"),
-    ("https://mooconomy.co.kr/markets.html", "daily"),
-    ("https://mooconomy.co.kr/latest.html", "daily"),
-    ("https://mooconomy.co.kr/latest-email.html", "daily"),
+    ("https://mooconomy.co.kr", "daily", "index.html"),
+    ("https://mooconomy.co.kr/about/", "monthly", "about/index.html"),
+    ("https://mooconomy.co.kr/methodology/", "monthly", "methodology/index.html"),
+    ("https://mooconomy.co.kr/questions/", "daily", "questions/index.html"),
+    ("https://mooconomy.co.kr/markets.html", "daily", "markets.html"),
+    ("https://mooconomy.co.kr/calendar/", "daily", "calendar/index.html"),
+    ("https://mooconomy.co.kr/weekly.html", "daily", "weekly.html"),
 ]
+
+
+def _file_lastmod(rel_path):
+    full = os.path.join(_ROOT, rel_path)
+    if not os.path.exists(full):
+        return None
+    return _dt.date.fromtimestamp(os.path.getmtime(full)).isoformat()
 
 
 def _url_entry(loc, lastmod=None, changefreq=None):
@@ -34,7 +50,10 @@ def build_sitemap(manifest):
     """manifest: publish_issue_archive.py가 만드는 issues_manifest.json과
     같은 리스트(각 항목에 issue_date, public_path). 빈 리스트여도 정적
     페이지만으로 유효한 sitemap을 만든다."""
-    entries = [_url_entry(loc, changefreq=cf) for loc, cf in STATIC_PAGES]
+    entries = [
+        _url_entry(loc, lastmod=_file_lastmod(rel), changefreq=cf)
+        for loc, cf, rel in STATIC_PAGES
+    ]
 
     if manifest:
         latest_date = max(m["issue_date"] for m in manifest)

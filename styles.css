@@ -78,8 +78,9 @@ h1, h2, h3, h4 { margin: 0; }
 .ticker-inner .ti-item { display: inline-flex; align-items: center; gap: 8px; }
 .ticker-inner .ti-name { color: var(--cream-hi); letter-spacing: 0.05em; text-transform: uppercase; font-size: 11.5px; }
 .ticker-inner .ti-val  { color: var(--sheet-bg); font-weight: 700; }
-.ticker-inner .ti-chg.up  { color: #F2B979; }
-.ticker-inner .ti-chg.dn  { color: #F29A88; }
+/* 국내 금융 관례: 상승=적색, 하락=청색 (ticker는 어두운 배경용 별도 톤) */
+.ticker-inner .ti-chg.up  { color: #FF8A7A; }
+.ticker-inner .ti-chg.dn  { color: #8FB4EE; }
 .ticker-inner .ti-chg.flat { color: var(--divider-gd); }
 .ticker-inner .ti-sep { color: var(--gold); }
 .ticker-inner .ti-empty { color: var(--divider-gd); font-family: var(--sans); font-size: 12px; }
@@ -263,10 +264,11 @@ h1, h2, h3, h4 { margin: 0; }
 }
 .cs-headline {
   font-family: var(--sans);
-  font-size: clamp(28px, 3.6vw, 42px);
+  font-size: 34px; /* desktop 32-35px range */
   font-weight: 800;
-  line-height: 1.25;
-  letter-spacing: -0.025em;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  word-break: keep-all;
   color: var(--ink);
 }
 .cs-deck {
@@ -396,8 +398,9 @@ h1, h2, h3, h4 { margin: 0; }
   margin-top: 4px;
   letter-spacing: 0.01em;
 }
-.met-chg.up { color: var(--blue); }
-.met-chg.dn { color: var(--red); }
+/* 국내 금융 관례: 상승=적색, 하락=청색 */
+.met-chg.up { color: var(--red); }
+.met-chg.dn { color: var(--blue); }
 .met-chg.flat { color: var(--meta); }
 .met-chg.strong { font-weight: 800; }
 .met-chg-abs {
@@ -438,6 +441,37 @@ h1, h2, h3, h4 { margin: 0; }
   margin: 0 0 12px;
 }
 .mc-a b { color: var(--ink); }
+.mc-verdict-row {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.mc-verdict {
+  font-family: var(--sans);
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  color: var(--gold-deep);
+  background-color: var(--cream-hi);
+  border: 1px solid var(--divider-gd);
+}
+.mc-verdict.hit { color: var(--red); border-color: var(--red); background-color: rgba(178,58,46,0.08); }
+.mc-verdict.miss { color: var(--blue); border-color: var(--blue); background-color: rgba(31,78,122,0.08); }
+.mc-values {
+  font-family: var(--serif);
+  font-size: 12.5px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.mc-stats {
+  font-family: var(--sans);
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+.mc-stats b { color: var(--ink); }
 .mc-link {
   font-family: var(--sans);
   font-size: 12.5px;
@@ -643,8 +677,9 @@ h1, h2, h3, h4 { margin: 0; }
   color: var(--meta);
   letter-spacing: 0;
 }
-.pc-delta.up  { color: var(--blue); }
-.pc-delta.dn  { color: var(--red); }
+/* 국내 금융 관례: 상승=적색, 하락=청색 */
+.pc-delta.up  { color: var(--red); }
+.pc-delta.dn  { color: var(--blue); }
 .pc-delta.flat { color: var(--meta); }
 .pc-delta.strong .pc-delta-pct { font-size: 20px; }
 
@@ -679,6 +714,10 @@ h1, h2, h3, h4 { margin: 0; }
 }
 .rcard:hover { transform: translateY(-2px); box-shadow: 0 12px 24px -12px rgba(58,45,24,0.25); }
 .rcard[data-status="soon"] { opacity: 0.85; }
+/* rcard-daily는 카드 안에 rc-recent 개별 링크가 따로 있어 <a> 중첩을
+   피하려고 <div>로 바꾸고 상단부만 <a>로 감쌌다 — display:contents로
+   flex 레이아웃(child가 .rcard의 직접 flex item)을 그대로 유지한다. */
+.rc-card-link { display: contents; }
 .rc-flag {
   font-family: var(--serif);
   font-style: italic;
@@ -741,7 +780,6 @@ h1, h2, h3, h4 { margin: 0; }
   margin-bottom: 8px;
 }
 .rc-recent ul li {
-  display: flex; gap: 12px;
   padding: 5px 0;
   font-family: var(--sans);
   font-size: 13px;
@@ -749,6 +787,8 @@ h1, h2, h3, h4 { margin: 0; }
   color: var(--ink);
   border-bottom: 1px dotted var(--divider);
 }
+.rc-recent ul li a { display: flex; gap: 12px; }
+.rc-recent ul li a:hover .title { color: var(--gold-deep); text-decoration: underline; }
 .rc-recent ul li:last-child { border-bottom: none; }
 .rc-recent ul li .date {
   font-family: var(--serif);
@@ -1522,6 +1562,7 @@ h1, h2, h3, h4 { margin: 0; }
    RESPONSIVE
    ═══════════════════════════════════════════════════════════════ */
 @media (max-width: 1024px) {
+  .cs-headline { font-size: 31px; line-height: 1.2; } /* 태블릿 30-32px */
   .cover-grid { grid-template-columns: 1fr; gap: 24px; }
   .pulse-grid { grid-template-columns: repeat(2, 1fr); }
   .cal-shell { grid-template-columns: 1fr; }
@@ -1557,7 +1598,7 @@ h1, h2, h3, h4 { margin: 0; }
   .chap-title { font-size: 22px; }
   .chap-kicker { font-size: 13px; }
   .cover-story { padding: 22px 20px 24px; }
-  .cs-headline { font-size: 24px; }
+  .cs-headline { font-size: 27px; line-height: 1.22; } /* 모바일 26-28px */
   .cs-deck { font-size: 14.5px; }
   .cs-signals { padding: 16px 18px; }
   .sig-list li { font-size: 14px; }

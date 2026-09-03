@@ -1,5 +1,21 @@
 """2026-08-11(TASK_ID=MERGE_PR14_AND_START_MOOCONOMY_WEB_ARCHIVE_SHARE)
-issues/{date}.html 정적 생성기.
+2026-09-03(TASK_ID=HOMEPAGE_V3_CONTENT_CORRECTION + OG_SEO): presentation/
+metadata layer only.
+- <title> fix: render_from_public_safe_email() used to leave the sent
+  email's generic <title>Daily MOO:conomy</title> untouched, so every
+  recent issue page shared one title. Now both render paths replace it
+  with "{실제 제목} | MOO:conomy".
+- OG/Twitter/JSON-LD completeness (site_name, locale, image dimensions,
+  NewsArticle) — reuses only real metadata already in `meta`/`record`;
+  no invented timestamps, categories, or descriptions.
+- Share widget moved near the headline (in addition to the existing
+  bottom one, kept as a secondary action) and now shares the canonical
+  issue URL, not window.location (matters for latest.html, which is a
+  byte-copy of today's issue page but must share the /issues/... URL).
+This file only ever adds web-only metadata/UI around content that is
+rendered elsewhere (the sent email, or the daily_archive JSON record) —
+it never rewrites sentence content, and it has no reach into mailer.py
+or the send path.
 
 두 가지 렌더 경로:
 - render_from_public_safe_email(): 실제 발송본을 그대로 가진 날짜(오늘)용
@@ -22,18 +38,16 @@ _METRIC_LABELS = {
     "usdkrw": "원/달러", "us10y": "미국채10년", "wti": "WTI", "vix": "VIX",
 }
 
+_OG_ISSUE_IMAGE = "https://mooconomy.co.kr/assets/og/og-issue-v3.png"
+_PUBLISHER_LOGO = "https://mooconomy.co.kr/android-chrome-512x512.png"
+
+# id 접두어를 top/bottom으로 나눠 두 위젯이 공존해도 겹치지 않게 한다.
 _SHARE_SCRIPT = """
 <script>
 (function () {
-  var btn = document.getElementById('shareBtn');
-  var copyBtn = document.getElementById('copyLinkBtn');
-  var status = document.getElementById('shareStatus');
-  var url = window.location.href.split('?')[0].split('#')[0];
+  var canonicalEl = document.querySelector('link[rel="canonical"]');
+  var url = canonicalEl ? canonicalEl.href : window.location.href.split('?')[0].split('#')[0];
   var title = document.title;
-
-  function showStatus(msg) {
-    if (status) { status.textContent = msg; status.classList.add('show'); }
-  }
 
   function fallbackCopy(text) {
     var ta = document.createElement('textarea');
@@ -49,45 +63,61 @@ _SHARE_SCRIPT = """
     return ok;
   }
 
-  function copyLink() {
+  function copyLink(statusEl) {
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(url).then(function () {
-        showStatus('링크가 복사됐습니다');
+        showStatus(statusEl, '링크가 복사됐습니다');
       }).catch(function () {
-        showStatus(fallbackCopy(url) ? '링크가 복사됐습니다' : '복사에 실패했습니다');
+        showStatus(statusEl, fallbackCopy(url) ? '링크가 복사됐습니다' : '복사에 실패했습니다');
       });
     } else {
-      showStatus(fallbackCopy(url) ? '링크가 복사됐습니다' : '복사에 실패했습니다');
+      showStatus(statusEl, fallbackCopy(url) ? '링크가 복사됐습니다' : '복사에 실패했습니다');
     }
   }
 
-  if (btn) {
+  function showStatus(el, msg) {
+    if (el) { el.textContent = msg; el.classList.add('show'); }
+  }
+
+  document.querySelectorAll('[data-fx-share]').forEach(function (btn) {
     btn.addEventListener('click', function () {
+      var statusEl = btn.closest('.fx-share-row').querySelector('[data-fx-share-status]');
       if (navigator.share) {
         navigator.share({ title: title, url: url }).catch(function (err) {
-          if (err && err.name === 'AbortError') return;  // 사용자가 취소
-          copyLink();
+          if (err && err.name === 'AbortError') return;
+          copyLink(statusEl);
         });
       } else {
-        copyLink();
+        copyLink(statusEl);
       }
     });
-  }
-  if (copyBtn) copyBtn.addEventListener('click', copyLink);
+  });
+  document.querySelectorAll('[data-fx-copy]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      copyLink(btn.closest('.fx-share-row').querySelector('[data-fx-share-status]'));
+    });
+  });
 })();
 </script>
 """
 
-_SHARE_BUTTONS_HTML = """
-<div class="fx-share-row">
-  <button type="button" id="shareBtn" class="fx-share-btn">공유하기</button>
-  <button type="button" id="copyLinkBtn" class="fx-share-btn secondary">링크 복사</button>
-  <span id="shareStatus" class="fx-share-status" role="status" aria-live="polite"></span>
-</div>
-"""
+
+def _share_row_html(variant):
+    return (
+        f'<div class="fx-share-row fx-share-row-{variant}">'
+        f'<button type="button" data-fx-share class="fx-share-btn">공유하기</button>'
+        f'<button type="button" data-fx-copy class="fx-share-btn secondary">링크 복사</button>'
+        f'<span data-fx-share-status class="fx-share-status" role="status" aria-live="polite"></span>'
+        f'</div>'
+    )
+
+
+_SHARE_BUTTONS_HTML = _share_row_html("bottom")
+_TOP_SHARE_HTML = _share_row_html("top")
 
 _SHARE_CSS = """
 .fx-share-row { display:flex; align-items:center; gap:10px; margin-top:16px; flex-wrap:wrap; }
+.fx-share-row-top { margin-top:10px; margin-bottom:6px; }
 .fx-share-btn { font-size:12.5px; font-weight:700; color:#0B1220; background:#F2C94C; border:none; border-radius:20px; padding:8px 16px; min-height:36px; cursor:pointer; }
 .fx-share-btn.secondary { background:transparent; color:#F2C94C; border:1px solid #F2C94C; }
 .fx-share-status { font-size:11.5px; color:#95A2BA; }
@@ -103,26 +133,69 @@ _NAV_CSS = """
 """
 
 
-def _og_meta_block(meta, description):
+def _clean_description(meta):
+    """morning_thesis가 title과 사실상 같으면(현재 manifest 다수가 그렇다)
+    "설명"으로서 정보가 없다 — 태그를 생략하고 제목을 복제하지 않는다."""
+    desc = (meta.get("morning_thesis") or "").strip()
+    title = (meta.get("title") or "").strip()
+    if not desc or desc == title:
+        return None
+    return desc[:150]
+
+
+def _news_article_jsonld(meta, description, canonical):
+    title = meta.get("title") or "Daily MOO:conomy"
+    published = meta.get("published_at") if not meta.get("published_at_is_approximate") else None
+    fields = [
+        '"@context": "https://schema.org"',
+        '"@type": "NewsArticle"',
+        f'"headline": {title!r}'.replace("'", '"'),
+        f'"mainEntityOfPage": {{ "@type": "WebPage", "@id": "{canonical}" }}',
+        f'"url": "{canonical}"',
+        f'"image": ["{_OG_ISSUE_IMAGE}"]',
+        '"publisher": { "@type": "Organization", "name": "Daily MOO:conomy", '
+        f'"logo": {{ "@type": "ImageObject", "url": "{_PUBLISHER_LOGO}" }} }}',
+    ]
+    if description:
+        fields.append(f'"description": {description!r}'.replace("'", '"'))
+    if published:
+        fields.append(f'"datePublished": "{published}"')
+    # dateModified: 실제 수정 시각 필드가 데이터에 없어 임의로 채우지 않는다(생략).
+    body = ",\n  ".join(fields)
+    return f'<script type="application/ld+json">\n{{\n  {body}\n}}\n</script>\n'
+
+
+def _head_meta_block(meta, description):
+    """canonical + OG(완전판) + Twitter Card + NewsArticle JSON-LD.
+    두 렌더 경로 모두 이 한 함수만 쓰므로, 다음 자동 재생성부터도
+    동일하게 적용된다(수동으로 산출물만 고치지 않는다)."""
     canonical = f"https://mooconomy.co.kr{meta['public_path']}"
     title = meta["title"] or "Daily MOO:conomy"
     lines = [
         f'<link rel="canonical" href="{canonical}">',
         '<meta property="og:type" content="article">',
+        '<meta property="og:site_name" content="Daily MOO:conomy">',
+        '<meta property="og:locale" content="ko_KR">',
         f'<meta property="og:title" content="{title}">',
-        f'<meta property="og:description" content="{description}">',
         f'<meta property="og:url" content="{canonical}">',
+        f'<meta property="og:image" content="{_OG_ISSUE_IMAGE}">',
+        f'<meta property="og:image:secure_url" content="{_OG_ISSUE_IMAGE}">',
+        '<meta property="og:image:type" content="image/png">',
+        '<meta property="og:image:width" content="1200">',
+        '<meta property="og:image:height" content="630">',
+        '<meta property="og:image:alt" content="Daily MOO:conomy">',
+        '<meta name="twitter:card" content="summary_large_image">',
+        f'<meta name="twitter:title" content="{title}">',
+        f'<meta name="twitter:image" content="{_OG_ISSUE_IMAGE}">',
     ]
-    # 검증된 일반 공개 이미지만 사용 — 이 저장소에서 이미 questions 페이지가
-    # 쓰는 실제 존재하는 OG 이미지를 재사용한다(가짜/미확인 이미지 금지).
-    lines.append(
-        '<meta property="og:image" '
-        'content="https://raw.githubusercontent.com/immusaeng/mooconomy-assets/main/og_mooconomy_v2.png">'
-    )
+    if description:
+        lines.insert(1, f'<meta name="description" content="{description}">')
+        lines.append(f'<meta property="og:description" content="{description}">')
+        lines.append(f'<meta name="twitter:description" content="{description}">')
     if meta.get("published_at") and not meta.get("published_at_is_approximate"):
         lines.append(f'<meta property="article:published_time" content="{meta["published_at"]}">')
-    # published_at_is_approximate=True인 경우 article:published_time을 넣지
-    # 않는다 — 확정 발행시각처럼 위장하지 않는다(CEO 지시).
+    # article:modified_time / article:section: 실제 데이터에 없어 생략(추정 금지).
+    lines.append(_news_article_jsonld(meta, description, canonical))
     return "\n".join(lines)
 
 
@@ -139,13 +212,29 @@ def _nav_block(meta):
 
 def render_from_public_safe_email(public_safe_html, meta):
     """오늘자처럼 실제 발송 HTML(개인정보 제거 완료본)이 있는 경우 —
-    본문은 절대 재작성하지 않고, <head> 안에 canonical/OG 메타데이터를,
-    </body> 직전에 공유 버튼+이전/다음/아카이브 링크를 삽입만 한다."""
+    본문은 절대 재작성하지 않고, <title>을 실제 제목으로 바꾸고 <head>
+    안에 canonical/OG/JSON-LD를, 헤드라인 근처와 </body> 직전에 공유
+    버튼(+이전/다음/아카이브 링크)을 삽입만 한다."""
     html = public_safe_html
-    fact = ((meta.get("morning_thesis") or meta.get("title") or "")[:150])
-    meta_block = _og_meta_block(meta, fact)
+    description = _clean_description(meta)
+    title_tag = f'<title>{meta["title"] or "발행 기록"} | MOO:conomy</title>'
+    html = re.sub(r"<title>.*?</title>", title_tag, html, count=1, flags=re.S)
+    meta_block = _head_meta_block(meta, description)
     html = html.replace("</title>", "</title>\n" + meta_block, 1)
     html = html.replace("</style>\n", "</style>\n<style>" + _SHARE_CSS + _NAV_CSS + "</style>\n", 1)
+
+    # 헤드라인 바로 아래(웹 전용) — 이메일 템플릿마다 클래스명이 다를 수 있어
+    # hero-headline을 우선 찾고, 없으면 body 시작 직후로 안전하게 폴백한다.
+    headline_match = re.search(r'<h1[^>]*class="[^"]*hero-headline[^"]*"[^>]*>.*?</h1>', html, re.S)
+    if headline_match:
+        insert_at = headline_match.end()
+        html = html[:insert_at] + _TOP_SHARE_HTML + html[insert_at:]
+    else:
+        body_match = re.search(r"<body[^>]*>", html)
+        if body_match:
+            insert_at = body_match.end()
+            html = html[:insert_at] + _TOP_SHARE_HTML + html[insert_at:]
+
     injected = _SHARE_BUTTONS_HTML + _nav_block(meta) + _SHARE_SCRIPT
     if "</body>" in html:
         html = html.replace("</body>", f'<div class="inner">{injected}</div>\n</body>', 1)
@@ -159,8 +248,7 @@ _PAGE_HEAD = """<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>__TITLE__ | Daily MOO:conomy __DATE__</title>
-<meta name="description" content="__DESCRIPTION__">
+<title>__TITLE__ | MOO:conomy</title>
 __OG_META__
 <meta name="robots" content="index,follow">
 <style>
@@ -214,7 +302,7 @@ __OG_META__
     <div class="fx-label">MAIN STORY</div>
     <div class="story-h">__STORY_HEADLINE__</div>
     <div class="story-fact">__STORY_FACT__</div>
-
+""" + _TOP_SHARE_HTML + """
     <div class="fx-label">MAIN 6 METRICS</div>
     <div class="mgrid">__METRICS__</div>
 
@@ -304,13 +392,12 @@ def render_from_json_record(record, meta):
     ) or '<div class="src-row">출처 정보가 없습니다.</div>'
 
     canonical = f"https://mooconomy.co.kr{meta['public_path']}"
-    description = (meta.get("morning_thesis") or meta.get("title") or "")[:150]
+    description = _clean_description(meta)
 
     html = _PAGE_HEAD
     html = html.replace("__TITLE__", meta["title"] or "발행 기록")
     html = html.replace("__DATE__", meta["issue_date"])
-    html = html.replace("__DESCRIPTION__", description)
-    html = html.replace("__OG_META__", _og_meta_block(meta, description))
+    html = html.replace("__OG_META__", _head_meta_block(meta, description))
     html = html.replace("__THREE_SIGNALS__", signals_html)
     html = html.replace("__STORY_HEADLINE__", main_story.get("headline") or meta["title"] or "")
     html = html.replace("__STORY_FACT__", main_story.get("verified_fact") or "")

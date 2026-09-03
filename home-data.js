@@ -19,6 +19,10 @@
   };
   var METRIC_IDS = ['kospi', 'kosdaq', 'nasdaq', 'sp500', 'usdkrw', 'wti'];
   var PULSE_IDS = ['kospi', 'kosdaq', 'nasdaq', 'usdkrw', 'wti', 'vix'];
+  var VERDICT_LABEL = { hit: '적중', miss: '불일치', neutral: '중립', unresolved: '판정 대기', invalidated: '무효', error: '오류' };
+  function fmtNum(v) {
+    return typeof v === 'number' ? v.toLocaleString('en-US', { maximumFractionDigits: 2 }) : v;
+  }
 
   function $(id) { return document.getElementById(id); }
   function esc(s) {
@@ -67,6 +71,7 @@
     var headlineEl = $('csHeadline'), deckEl = $('csDeck'), flagR = $('csFlagR');
     if (latest) {
       headlineEl.textContent = latest.title;
+      if (headlineEl.tagName === 'A') headlineEl.href = latest.public_path || ('/issues/' + latest.issue_date + '.html');
       deckEl.textContent = latest.morning_thesis && latest.morning_thesis !== latest.title ? latest.morning_thesis : '';
       if (!deckEl.textContent) deckEl.hidden = true;
       flagR.textContent = '발행 · ' + fmtMD(latest.issue_date);
@@ -114,38 +119,79 @@
     if (asOf) $('metricsAsOf').textContent = fmtMD(asOf) + ' 기준';
   }
 
-  /* ─── 4. MOO:Q 마이크로 카드 (claims.totals — 실제 누적 검증 집계) ─── */
+  /* ─── 4. MOO:Q → CHECK 카드
+     표시 순서: 헤더(정적) → 최신 검증 질문 전문 → 판정 상태 → 기준값→결과값
+     → 누적 적중/불일치/중립/판정 대기 → /questions/ 링크.
+     "최신 검증 질문"은 이미 판정이 끝난 가장 최근 claim(previousClaims[0]) —
+     오늘자 claim(todayClaims[0])은 아직 미판정이라 여기 쓰지 않는다.
+     질문 문장은 claimText를 그대로 쓰고 축약·재작성하지 않는다. ─── */
   function renderMooCheck(home) {
     var claims = home && home.claims;
-    var totals = claims && claims.totals;
-    if (!totals) return;
-    var resolved = (totals.hit || 0) + (totals.miss || 0) + (totals.neutral || 0);
-    if (!resolved) return;
-    $('mcQ').textContent = '지금까지의 검증, 몇 번이나 맞았을까?';
-    $('mcA').innerHTML = '누적 <b>' + resolved + '건</b> 검증 중 적중 <b>' + (totals.hit || 0) + '건</b> · 오차 <b>' + (totals.miss || 0) + '건</b> · 중립 <b>' + (totals.neutral || 0) + '건</b>' +
-      (totals.unresolved ? ' · 판정 대기 ' + totals.unresolved + '건' : '') + '.';
+    if (!claims) return;
+    var latest = (claims.previousClaims && claims.previousClaims[0]) || null;
+    if (!latest || !latest.claimText) return;
+
+    $('mcQ').textContent = latest.claimText;
+
+    var verdict = (latest.resolution && latest.resolution.verdict) || latest.status;
+    if (verdict) {
+      var vEl = $('mcVerdict');
+      vEl.textContent = VERDICT_LABEL[verdict] || verdict;
+      vEl.className = 'mc-verdict' + (verdict === 'hit' ? ' hit' : verdict === 'miss' ? ' miss' : '');
+    }
+
+    var res = latest.resolution;
+    if (res && typeof res.startValue === 'number' && typeof res.endValue === 'number') {
+      var mname = (IND_META[res.metricId] && IND_META[res.metricId].name) || res.metricId;
+      $('mcValues').textContent = mname + ' ' + fmtNum(res.startValue) + ' → ' + fmtNum(res.endValue);
+    }
+
+    var totals = claims.totals;
+    if (totals) {
+      var resolved = (totals.hit || 0) + (totals.miss || 0) + (totals.neutral || 0);
+      $('mcStats').innerHTML = '누적 <b>' + resolved + '건</b> 검증 · 적중 <b>' + (totals.hit || 0) + '</b> · 불일치 <b>' + (totals.miss || 0) + '</b> · 중립 <b>' + (totals.neutral || 0) + '</b>' +
+        (totals.unresolved ? ' · 판정 대기 <b>' + totals.unresolved + '</b>' : '') + '.';
+    }
+
     $('moocheckCard').hidden = false;
   }
 
   /* ─── 5. Market Pulse — data/history/*.json 최근 창(최대 20일 후보) ─── */
-  async function collectHistory() {
-    var today = new Date();
-    var candidates = [];
-    for (var i = 0; i < 24; i++) {
-      var d = new Date(today);
-      d.setDate(d.getDate() - i);
-      candidates.push(dateToYMD(d));
+  function ymdMinus(dateStr, days) {
+    var d = new Date(dateStr + 'T00:00:00+09:00');
+    d.setDate(d.getDate() - days);
+    return dateToYMD(d);
+  }
+
+  /* startTarget/endTarget이 휴장일이면 그 날짜 이전(과거 방향으로만)
+     가장 가까운 유효 관측값을 찾는다 — 최대 7일 역탐색(장기 연휴 대비),
+     기간 자체를 늘리는 게 아니라 경계값의 fallback일 뿐이다. */
+  async function fetchNearestOnOrBefore(dateStr, maxLookback) {
+    for (var i = 0; i <= maxLookback; i++) {
+      var ds = ymdMinus(dateStr, i);
+      var data = await fetchJSON('data/history/' + ds + '.json');
+      if (data) return { date: ds, data: data };
     }
-    var results = await Promise.allSettled(candidates.map(function (ds) {
+    return null;
+  }
+
+  async function fetchHistoryRange(fromDate, toDate) {
+    var dates = [];
+    var cur = new Date(fromDate + 'T00:00:00+09:00');
+    var end = new Date(toDate + 'T00:00:00+09:00');
+    while (cur <= end) {
+      dates.push(dateToYMD(cur));
+      cur.setDate(cur.getDate() + 1);
+    }
+    var results = await Promise.allSettled(dates.map(function (ds) {
       return fetchJSON('data/history/' + ds + '.json').then(function (data) {
         return data ? { date: ds, data: data } : null;
       });
     }));
-    var rows = results
+    return results
       .map(function (r) { return r.status === 'fulfilled' ? r.value : null; })
       .filter(Boolean)
       .sort(function (a, b) { return a.date < b.date ? -1 : 1; });
-    return rows;
   }
 
   function sparkPoints(values) {
@@ -183,9 +229,9 @@
     return '<a class="pcard" href="/markets.html">' +
       '<div class="pc-head"><span class="pc-name">' + esc(meta.name) + '</span><span class="pc-code">' + esc(meta.code) + '</span></div>' +
       '<div class="pc-row">' +
-        '<div class="pc-from-blk"><span class="pc-cap">' + fmtMD(start.date) + ' 시작</span><span class="pc-val-sm">' + esc(start.displayValue) + '</span></div>' +
+        '<div class="pc-from-blk"><span class="pc-cap">' + fmtMD(start.date) + ' 관측</span><span class="pc-val-sm">' + esc(start.displayValue) + '</span></div>' +
         '<span class="pc-arw">→</span>' +
-        '<div class="pc-to-blk"><span class="pc-cap-now">' + fmtMD(end.date) + ' 최근 <b>NOW</b></span><span class="pc-val-lg">' + esc(end.displayValue) + '</span></div>' +
+        '<div class="pc-to-blk"><span class="pc-cap-now">' + fmtMD(end.date) + ' 관측 <b>NOW</b></span><span class="pc-val-lg">' + esc(end.displayValue) + '</span></div>' +
       '</div>' +
       '<svg class="pc-chart" viewBox="0 0 240 60" preserveAspectRatio="none">' +
         '<polyline points="' + fillPoints + '" fill="var(--gold-tint)" stroke="none" opacity=".35"/>' +
@@ -198,17 +244,46 @@
     '</a>';
   }
 
-  async function renderPulse() {
-    var rows = await collectHistory();
-    if (rows.length < 2) {
+  /* Market Pulse = 발행일 기준 정확히 최근 14일 비교 (장기 누적 아님).
+     endTarget=publishDate, startTarget=publishDate-14일. 경계일이 휴장일이면
+     그 이전 가장 가까운 유효값으로 대체하되, 비교 구간 자체를 늘리지 않는다.
+     14일 구간에 관측치가 부족하면 부족 상태를 명시한다(임의 확장 금지). */
+  async function renderPulse(home) {
+    var endTarget = home && home.publishDate;
+    if (!endTarget) {
       $('pulseEmpty').hidden = false;
+      $('pulseEmpty').textContent = '발행일 정보가 없어 Market Pulse를 표시할 수 없습니다.';
       return;
     }
+    var startTarget = ymdMinus(endTarget, 14);
+
+    var endObs = await fetchNearestOnOrBefore(endTarget, 7);
+    var startObs = await fetchNearestOnOrBefore(startTarget, 7);
+    if (!endObs || !startObs) {
+      $('pulseEmpty').hidden = false;
+      $('pulseEmpty').textContent = '최근 14일 구간의 시장 기록이 부족해 Market Pulse를 표시할 수 없습니다.';
+      return;
+    }
+
+    var rows = await fetchHistoryRange(startObs.date, endObs.date);
+    if (rows.length < 2) {
+      $('pulseEmpty').hidden = false;
+      $('pulseEmpty').textContent = '최근 14일 구간의 시장 기록이 부족해 Market Pulse를 표시할 수 없습니다.';
+      return;
+    }
+
     var cards = PULSE_IDS.map(function (id) { return renderPulseCard(id, rows); }).filter(Boolean);
-    if (!cards.length) { $('pulseEmpty').hidden = false; return; }
+    if (!cards.length) {
+      $('pulseEmpty').hidden = false;
+      $('pulseEmpty').textContent = '최근 14일 구간의 시장 기록이 부족해 Market Pulse를 표시할 수 없습니다.';
+      return;
+    }
     $('pulseGrid').innerHTML = cards.join('');
-    $('pulseSub').textContent = fmtMD(rows[0].date) + ' · ' + fmtMD(rows[rows.length - 1].date);
-    $('pulseRange').textContent = '기준 · ' + rows[0].date + ' → ' + rows[rows.length - 1].date + ' (' + rows.length + '일)';
+    $('pulseSub').textContent = '발행일 기준 최근 14일';
+    $('pulseRange').textContent = '목표 기간 ' + startTarget + ' → ' + endTarget +
+      (startObs.date !== startTarget || endObs.date !== endTarget
+        ? ' · 표시 기간 ' + startObs.date + ' → ' + endObs.date
+        : '');
   }
 
   /* ─── 6. Daily / Weekly 최근 발행 목록 ─── */
@@ -217,9 +292,20 @@
     if (!manifest || !manifest.length) { ul.innerHTML = '<li class="rc-empty">발행 기록이 없습니다.</li>'; return; }
     var recent = manifest.slice(-3).reverse();
     ul.innerHTML = recent.map(function (m) {
-      return '<li><span class="date">' + fmtMD(m.issue_date) + '</span><span class="title">' + esc(m.title) + '</span></li>';
+      var href = m.public_path || ('/issues/' + m.issue_date + '.html');
+      return '<li><a href="' + esc(href) + '"><span class="date">' + fmtMD(m.issue_date) + '</span><span class="title">' + esc(m.title) + '</span></a></li>';
     }).join('');
-    $('dailyMeta').textContent = '월–토 · 매일 06:00 · 총 ' + manifest.length + '호';
+    $('dailyMeta').textContent = '화–토 · 오전 7시 도착 · 총 ' + manifest.length + '호';
+
+    var monthUl = $('monthlyRecent');
+    if (monthUl) {
+      var byMonth = {};
+      manifest.forEach(function (m) { var ym = m.issue_date.slice(0, 7); byMonth[ym] = (byMonth[ym] || 0) + 1; });
+      var months = Object.keys(byMonth).sort().reverse();
+      monthUl.innerHTML = months.map(function (ym) {
+        return '<li><span class="date">' + ym + '</span><span class="title">' + byMonth[ym] + '건 발행</span></li>';
+      }).join('') || '<li class="rc-empty">월별 기록이 없습니다.</li>';
+    }
   }
 
   async function renderWeeklyRecent() {
@@ -235,6 +321,26 @@
   }
 
   /* ─── 7. 홈 미니 캘린더 (실제 이벤트만, 없으면 빈 상태) ─── */
+  /* data/calendar_views/home.json(통합 캘린더 파이프라인이 만드는 "오늘부터
+     14일" view)를 기존 렌더 함수가 쓰는 모양으로 바꾼다. fresh/partial이
+     아니거나 이벤트가 없으면 null — 호출부가 기존 home.json.calendar
+     fallback으로 넘어간다. 샘플 데이터는 이 경로에 절대 오지 않는다
+     (build_calendar.py가 fixture 모드에선 data/ 밖에만 쓴다). */
+  function eventsFromCanonicalView(view) {
+    if (!view || !view.freshness) return null;
+    var status = view.freshness.status;
+    if (status !== 'fresh' && status !== 'partial') return null;
+    var events = Array.isArray(view.events) ? view.events : [];
+    if (!events.length) return null;
+    return events.map(function (e) {
+      return {
+        id: e.id, time: e.scheduledDate, country: e.country, title: e.title,
+        importance: e.importance === 'unknown' ? null : e.importance,
+        resultText: null, resultStatus: e.status,
+      };
+    });
+  }
+
   function mergeCalendarEvents(home, results) {
     var base = (home && Array.isArray(home.calendar)) ? home.calendar.slice() : [];
     var byId = {};
@@ -360,6 +466,7 @@
     var homeP = fetchJSON('data/home.json');
     var manifestP = fetchJSON('data/archive/issues_manifest.json');
     var calResultsP = fetchJSON('data/calendar_results.json');
+    var calViewP = fetchJSON('data/calendar_views/home.json');
 
     var home = await homeP;
     var manifest = (await manifestP) || [];
@@ -370,10 +477,12 @@
     renderDailyRecent(manifest);
     if (manifest.length) $('subProofCount').textContent = manifest.length;
     renderWeeklyRecent();
-    renderPulse();
+    renderPulse(home);
 
     var calResults = await calResultsP;
-    renderHomeCalendar(mergeCalendarEvents(home, calResults));
+    var calView = await calViewP;
+    var calEvents = eventsFromCanonicalView(calView) || mergeCalendarEvents(home, calResults);
+    renderHomeCalendar(calEvents);
   }
   init();
 })();

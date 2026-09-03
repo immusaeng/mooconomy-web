@@ -236,10 +236,15 @@ def is_rich_email_render(html_text):
     return _RICH_EMAIL_RENDER_MARKER in html_text
 
 
-def check_internal_links(html_text, site_root):
+def check_internal_links(html_text, site_root, fallback_root=None):
     """HTML 안의 절대경로(/로 시작) 내부 링크가 site_root 기준 실제
     파일로 존재하는지 확인한다. 외부(http/https) 링크·앵커(#)·mailto는
-    검사 대상에서 제외."""
+    검사 대상에서 제외.
+
+    site_root가 스왑 전 임시 빌드 디렉터리(_build_tmp)일 때는 그 안에
+    없는 페이지(예: /calendar/, /about/)를 전부 오탐으로 끊어낸다 —
+    fallback_root(보통 실제 저장소 ROOT)를 주면 거기서도 찾아본 뒤에만
+    진짜로 깨진 링크로 판단한다."""
     issues = []
     for href in re.findall(r'href="([^"]*)"', html_text):
         if not href.startswith("/") or href.startswith("//"):
@@ -250,6 +255,13 @@ def check_internal_links(html_text, site_root):
         local_path = os.path.join(site_root, path.lstrip("/"))
         if os.path.isdir(local_path):
             local_path = os.path.join(local_path, "index.html")
-        if not os.path.exists(local_path):
-            issues.append(f"broken_internal_link:{href}")
+        if os.path.exists(local_path):
+            continue
+        if fallback_root:
+            fb_path = os.path.join(fallback_root, path.lstrip("/"))
+            if os.path.isdir(fb_path):
+                fb_path = os.path.join(fb_path, "index.html")
+            if os.path.exists(fb_path):
+                continue
+        issues.append(f"broken_internal_link:{href}")
     return issues

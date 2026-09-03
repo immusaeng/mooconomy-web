@@ -38,7 +38,9 @@ def _month_label(ym):
 
 
 def _page_shell(*, title, desc, canonical, crumb_html, h1, lede, meta_html,
-                 tabs_html, body_html, root, archive_root, archive_css):
+                 tabs_html, body_html, root, archive_css,
+                 og_image="https://mooconomy.co.kr/assets/og/og-archive-v3.png",
+                 jsonld=""):
     return f"""<!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -49,11 +51,22 @@ def _page_shell(*, title, desc, canonical, crumb_html, h1, lede, meta_html,
 <link rel="canonical" href="{canonical}">
 <meta name="robots" content="index,follow">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="Daily MOO:conomy">
+<meta property="og:locale" content="ko_KR">
 <meta property="og:title" content="{title} | Daily MOO:conomy">
 <meta property="og:description" content="{desc}">
 <meta property="og:url" content="{canonical}">
-<meta property="og:image" content="https://raw.githubusercontent.com/immusaeng/mooconomy-assets/main/og_mooconomy_v2.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<meta property="og:image" content="{og_image}">
+<meta property="og:image:secure_url" content="{og_image}">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Daily MOO:conomy">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{title} | Daily MOO:conomy">
+<meta name="twitter:description" content="{desc}">
+<meta name="twitter:image" content="{og_image}">
+{jsonld}<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,700;1,9..144,800&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{root}styles.css">
@@ -66,17 +79,18 @@ def _page_shell(*, title, desc, canonical, crumb_html, h1, lede, meta_html,
 
 <header class="slim-header">
   <div class="slim-header-inner">
-    <a href="{root}index.html" class="sh-brand">
+    <a href="/" class="sh-brand">
       <span class="sh-brand-mark">MOO<span class="colon">:</span>conomy</span>
-      <span class="sh-brand-tag">DAILY · EST. 2025</span>
+      <span class="sh-brand-tag">DAILY · EST. 2026</span>
     </a>
     <nav class="sh-nav">
-      <a href="{root}index.html#pulse">시장 흐름</a>
-      <a href="{archive_root}" class="active">아카이브</a>
-      <a href="{root}calendar/">캘린더</a>
-      <a href="{root}index.html#editorial">편집자</a>
+      <a href="/">홈</a>
+      <a href="/archive/" class="active" aria-current="page">아카이브</a>
+      <a href="/calendar/">캘린더</a>
+      <a href="/questions/">MOO<span class="colon">:</span>Q</a>
+      <a href="/about/">About</a>
     </nav>
-    <a href="{root}index.html#subscribe" class="sh-cta">구독하기</a>
+    <a href="/#subscribe" class="sh-cta">구독하기</a>
   </div>
 </header>
 
@@ -103,35 +117,36 @@ def _page_shell(*, title, desc, canonical, crumb_html, h1, lede, meta_html,
       </div>
       <div class="foot-cols">
         <div><h5>발행판</h5><ul>
-          <li><a href="{root}latest.html">오늘의 발행판</a></li>
-          <li><a href="{archive_root}">아카이브 서고</a></li>
-          <li><a href="{root}weekly.html">주간 리포트</a></li>
+          <li><a href="/latest.html">오늘의 발행판</a></li>
+          <li><a href="/archive/">아카이브 서고</a></li>
+          <li><a href="/weekly.html">주간 리포트</a></li>
         </ul></div>
         <div><h5>데이터</h5><ul>
-          <li><a href="{root}markets.html">마켓 대시보드</a></li>
-          <li><a href="{root}calendar/">이벤트 캘린더</a></li>
-          <li><a href="{root}questions/">MOO:Q 검증</a></li>
+          <li><a href="/markets.html">마켓 대시보드</a></li>
+          <li><a href="/calendar/">이벤트 캘린더</a></li>
+          <li><a href="/questions/">MOO:Q 검증</a></li>
         </ul></div>
         <div><h5>브랜드</h5><ul>
-          <li><a href="{root}about/">About</a></li>
-          <li><a href="{root}methodology/">방법론</a></li>
-          <li><a href="{root}privacy.html">개인정보</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/methodology/">방법론</a></li>
+          <li><a href="/privacy.html">개인정보</a></li>
         </ul></div>
       </div>
     </div>
     <div class="foot-bot">
       <span>© 2025–2026 MOO:conomy</span>
-      <span>매일 아침 06:00 발행</span>
+      <span>월 Weekly · 화–토 Daily · 오전 7시</span>
     </div>
   </div>
 </footer>
 
 <nav class="mob-tabs" aria-label="주요 페이지">
   <div class="mob-tabs-inner">
-    <a class="mt-item" href="{root}index.html"><span class="mt-icon i-home"></span><span class="mt-label">홈</span></a>
-    <a class="mt-item active" href="{archive_root}"><span class="mt-icon i-archive"></span><span class="mt-label">아카이브</span></a>
-    <a class="mt-item" href="{root}calendar/"><span class="mt-icon i-calendar"></span><span class="mt-label">캘린더</span></a>
-    <a class="mt-item" href="{root}index.html#subscribe"><span class="mt-icon i-sub"></span><span class="mt-label">구독</span></a>
+    <a class="mt-item" href="/"><span class="mt-icon i-home"></span><span class="mt-label">홈</span></a>
+    <a class="mt-item active" href="/archive/" aria-current="page"><span class="mt-icon i-archive"></span><span class="mt-label">아카이브</span></a>
+    <a class="mt-item" href="/calendar/"><span class="mt-icon i-calendar"></span><span class="mt-label">캘린더</span></a>
+    <a class="mt-item" href="/questions/"><span class="mt-icon i-q"></span><span class="mt-label">MOO:Q</span></a>
+    <a class="mt-item" href="/about/"><span class="mt-icon i-about"></span><span class="mt-label">About</span></a>
   </div>
 </nav>
 
@@ -141,14 +156,17 @@ def _page_shell(*, title, desc, canonical, crumb_html, h1, lede, meta_html,
 """
 
 
-def _tabs_html(active, root):
+def _tabs_html(active):
     def tab(label, href, is_active):
         cls = "arch-tab active" if is_active else "arch-tab"
-        return f'<a class="{cls}" href="{href}">{label}</a>'
+        current = ' aria-current="page"' if is_active else ""
+        return f'<a class="{cls}" href="{href}"{current}>{label}</a>'
+    # "발행판" 탭도 실제 경로(/archive/)로 연결한다 — href="#"인 죽은 링크로
+    # 두지 않는다(이미 그 페이지에 있어도 유효한 자기참조 링크로 둔다).
     return ('<div class="arch-tabs" role="tablist">'
-            + tab("발행판", "#", active == "editions")
-            + tab('MOO<span style="color:var(--gold)">:</span>Q 검증 기록', root + "questions/", False)
-            + tab("방법론 · 정정", root + "methodology/", False)
+            + tab("발행판", "/archive/", active == "editions")
+            + tab('MOO<span style="color:var(--gold)">:</span>Q 검증 기록', "/questions/", False)
+            + tab("방법론 · 정정", "/methodology/", False)
             + "</div>")
 
 
@@ -164,7 +182,7 @@ def _issue_card(m, is_today):
         f'<div class="tl-date"><span class="tld-day">{day}</span><span class="tld-dow">{dow}</span></div>'
         f'<div class="tl-node"></div>'
         f'<a class="tl-card" href="{m["public_path"]}">'
-        f'<div class="tlc-flag"><span>{flag_l}</span><span class="tlc-flag-r">발행 06:00</span></div>'
+        f'<div class="tlc-flag"><span>{flag_l}</span></div>'
         f'<h3 class="tlc-headline">{m["title"]}</h3>'
         f'{deck}'
         f'<div class="tlc-foot"><span></span><span class="tlc-more">전문 읽기 →</span></div>'
@@ -205,17 +223,42 @@ def build_full_index(valid_metadata_list):
             f'<span class="ph-meta-sep"></span>'
             f'<span>기간 <b>{date_range}</b></span>')
 
+    # ItemList JSON-LD — 실제 manifest에 있는 issue URL만(가짜 항목 없음),
+    # 최신 manifest를 쓰므로 재생성될 때마다 자동으로 최신화된다.
+    items_ld = ",\n    ".join(
+        f'{{ "@type": "ListItem", "position": {i + 1}, "url": "https://mooconomy.co.kr{m["public_path"]}" }}'
+        for i, m in enumerate(ordered)
+    )
+    jsonld = "" if not ordered else f"""<script type="application/ld+json">
+{{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "전체 발행 기록",
+  "url": "https://mooconomy.co.kr/archive/",
+  "isPartOf": {{ "@type": "WebSite", "name": "Daily MOO:conomy", "url": "https://mooconomy.co.kr" }},
+  "mainEntity": {{
+    "@type": "ItemList",
+    "numberOfItems": {count},
+    "itemListElement": [
+    {items_ld}
+    ]
+  }}
+}}
+</script>
+"""
+
     return _page_shell(
-        title="전체 발행 목록",
-        desc="Daily MOO:conomy가 실제로 발행한 뉴스레터 전체 목록입니다.",
+        title="전체 발행 기록",
+        desc=f"Daily MOO:conomy가 실제로 발행한 뉴스레터 전체 목록입니다. 매일의 발행판이 쌓여 만드는 기록 서고, 총 {count}호.",
         canonical="https://mooconomy.co.kr/archive/",
-        crumb_html='<a href="../index.html">Home</a><span class="bc-sep">›</span><span class="bc-current">The Archive</span>',
+        crumb_html='<a href="/">Home</a><span class="bc-sep">›</span><span class="bc-current">The Archive</span>',
         h1='The <em>Archive</em>',
         lede="매일의 발행판이 쌓여 만드는 긴 흐름. 실제로 발행된 판만 여기 모입니다.",
         meta_html=meta,
-        tabs_html=_tabs_html("editions", "../"),
+        tabs_html=_tabs_html("editions"),
         body_html="\n".join(body),
-        root="../", archive_root="./", archive_css="archive.css",
+        root="../", archive_css="archive.css",
+        jsonld=jsonld,
     )
 
 
@@ -241,13 +284,13 @@ def build_month_index(year_month, month_metadata_list):
         title=f"{year_month} 발행 목록",
         desc=f"Daily MOO:conomy {year_month} 발행 뉴스레터 목록입니다.",
         canonical=f"https://mooconomy.co.kr/archive/{year_month}/",
-        crumb_html=(f'<a href="../../index.html">Home</a><span class="bc-sep">›</span>'
-                    f'<a href="../">The Archive</a><span class="bc-sep">›</span>'
+        crumb_html=(f'<a href="/">Home</a><span class="bc-sep">›</span>'
+                    f'<a href="/archive/">The Archive</a><span class="bc-sep">›</span>'
                     f'<span class="bc-current">{year_month}</span>'),
         h1=f'{label["name"]} <em>{year_month[:4]}</em>',
         lede=f'{year_month} 한 달 동안 발행된 판만 모아봅니다.',
         meta_html=meta,
-        tabs_html=_tabs_html("editions", "../../"),
+        tabs_html=_tabs_html("editions"),
         body_html="\n".join(body),
-        root="../../", archive_root="../", archive_css="../archive.css",
+        root="../../", archive_css="../archive.css",
     )
