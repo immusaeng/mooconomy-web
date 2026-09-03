@@ -42,6 +42,15 @@ _OG_ISSUE_IMAGE = "https://mooconomy.co.kr/assets/og/og-issue-v3.png"
 _PUBLISHER_LOGO = "https://mooconomy.co.kr/android-chrome-512x512.png"
 
 # id 접두어를 top/bottom으로 나눠 두 위젯이 공존해도 겹치지 않게 한다.
+# 2026-09-03(TASK_ID=NEWSLETTER_EDITORIAL_COMPLETION_AND_WEB_SHARE §F,
+# CEO 승인) — 성공 메시지를 지시된 정확한 문구로 통일하고, clipboard API/
+# execCommand 둘 다 실패하는 극단적 경우(권한 차단 브라우저 등)에는 에러
+# 문구만 보여주고 끝내지 않고 canonical URL을 실제로 선택 가능한 텍스트
+# 입력창으로 노출한다("canonical URL을 선택 가능한 형태로 보여준다").
+# canonicalEl이 없는 경우의 window.location 폴백은 그대로 유지하되(런타임
+# 방어), 실제 발행 시점의 canonical 누락은 render_from_public_safe_email/
+# render_from_json_record가 빌드 단계에서 이미 예외로 막는다(아래 참고) —
+# 런타임 폴백은 이론상 도달하지 않아야 하는 이중 안전망이다.
 _SHARE_SCRIPT = """
 <script>
 (function () {
@@ -63,15 +72,36 @@ _SHARE_SCRIPT = """
     return ok;
   }
 
+  function showSelectableUrl(statusEl) {
+    if (!statusEl) return;
+    statusEl.textContent = '';
+    var input = document.createElement('input');
+    input.type = 'text';
+    input.value = url;
+    input.readOnly = true;
+    input.className = 'fx-share-fallback-url';
+    input.setAttribute('aria-label', '공유 링크(직접 선택해 복사하세요)');
+    statusEl.appendChild(input);
+    statusEl.classList.add('show');
+    input.focus();
+    input.select();
+  }
+
   function copyLink(statusEl) {
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(url).then(function () {
-        showStatus(statusEl, '링크가 복사됐습니다');
+        showStatus(statusEl, '링크를 복사했습니다. 카카오톡에 붙여넣어 공유해 주세요.');
       }).catch(function () {
-        showStatus(statusEl, fallbackCopy(url) ? '링크가 복사됐습니다' : '복사에 실패했습니다');
+        if (fallbackCopy(url)) {
+          showStatus(statusEl, '링크를 복사했습니다. 카카오톡에 붙여넣어 공유해 주세요.');
+        } else {
+          showSelectableUrl(statusEl);
+        }
       });
+    } else if (fallbackCopy(url)) {
+      showStatus(statusEl, '링크를 복사했습니다. 카카오톡에 붙여넣어 공유해 주세요.');
     } else {
-      showStatus(statusEl, fallbackCopy(url) ? '링크가 복사됐습니다' : '복사에 실패했습니다');
+      showSelectableUrl(statusEl);
     }
   }
 
@@ -120,8 +150,9 @@ _SHARE_CSS = """
 .fx-share-row-top { margin-top:10px; margin-bottom:6px; }
 .fx-share-btn { font-size:12.5px; font-weight:700; color:#0B1220; background:#F2C94C; border:none; border-radius:20px; padding:8px 16px; min-height:36px; cursor:pointer; }
 .fx-share-btn.secondary { background:transparent; color:#F2C94C; border:1px solid #F2C94C; }
-.fx-share-status { font-size:11.5px; color:#95A2BA; }
+.fx-share-status { font-size:11.5px; color:#95A2BA; display:flex; align-items:center; flex-wrap:wrap; gap:6px; }
 .fx-share-status.show { color:#F2C94C; }
+.fx-share-fallback-url { font-size:11.5px; color:#E8ECF3; background:#141C2E; border:1px solid rgba(124,138,165,.35); border-radius:6px; padding:6px 8px; min-width:220px; max-width:100%; }
 """
 
 _NAV_CSS = """
@@ -165,10 +196,23 @@ def _news_article_jsonld(meta, description, canonical):
     return f'<script type="application/ld+json">\n{{\n  {body}\n}}\n</script>\n'
 
 
+class MissingCanonicalPathError(ValueError):
+    """meta['public_path']가 없으면 공유 위젯이 window.location으로
+    조용히 폴백해(예: latest.html에서 자기 자신을 공유) 날짜별 canonical
+    보장이 깨진다 — 2026-09-03(§F, CEO 승인 "canonical이 없으면 공유
+    기능을 활성화하지 말고 빌드 검증을 실패시킨다") 빌드 단계에서
+    즉시 실패시킨다."""
+
+
 def _head_meta_block(meta, description):
     """canonical + OG(완전판) + Twitter Card + NewsArticle JSON-LD.
     두 렌더 경로 모두 이 한 함수만 쓰므로, 다음 자동 재생성부터도
     동일하게 적용된다(수동으로 산출물만 고치지 않는다)."""
+    if not (meta or {}).get("public_path"):
+        raise MissingCanonicalPathError(
+            "meta['public_path']가 비어 있음 — canonical URL을 만들 수 없어 "
+            "공유 위젯이 window.location으로 잘못 폴백할 위험이 있다. 빌드 중단.",
+        )
     canonical = f"https://mooconomy.co.kr{meta['public_path']}"
     title = meta["title"] or "Daily MOO:conomy"
     lines = [
