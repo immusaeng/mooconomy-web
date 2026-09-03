@@ -70,7 +70,7 @@ def build_cover_block(home, manifest):
         f'          <span class="cs-flag-r" id="csFlagR">{_esc(flag_r)}</span>\n'
         f'        </div>\n'
         f'        <div class="cs-kicker">CH · I  Today\'s Angle</div>\n'
-        f'        <h1 class="cs-headline"><a id="csHeadline" href="{_esc(href)}">{_esc(headline)}</a></h1>\n'
+        f'        <h2 class="cs-headline"><a id="csHeadline" href="{_esc(href)}">{_esc(headline)}</a></h2>\n'
         f'        <p class="cs-deck" id="csDeck"></p>\n'
         f'\n'
         f'        <div class="cs-signals" id="csSignalsBlock">\n'

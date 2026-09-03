@@ -24,6 +24,7 @@
 
   /* ─── 타이포 ─── */
   --serif: 'Fraunces', 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+  --serif-kr: 'Noto Serif KR', 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
   --sans:  'IBM Plex Sans KR', -apple-system, BlinkMacSystemFont, 'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
 
   /* ─── 레이아웃 ─── */
@@ -118,11 +119,25 @@ h1, h2, h3, h4 { margin: 0; }
   display: inline-block;
 }
 .wordmark .colon { color: var(--gold); }
+.mast-hook {
+  font-family: var(--serif-kr);
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-top: 20px;
+  word-break: keep-all;
+}
+.mast-hook em.gold {
+  font-style: normal;
+  color: var(--gold);
+}
 .mast-tagline {
   font-family: var(--sans);
   font-size: 14px;
   color: var(--muted);
-  margin-top: 14px;
+  margin-top: 10px;
   letter-spacing: 0.01em;
 }
 .mast-meta-row {
@@ -1562,6 +1577,7 @@ h1, h2, h3, h4 { margin: 0; }
   .editor-links { height: auto; }
   .el-card { flex: 0 0 auto; }
   .metrics-grid { grid-template-columns: repeat(3, 1fr); }
+  .mast-hook { font-size: 25px; }
 }
 
 @media (max-width: 720px) {
@@ -1572,6 +1588,7 @@ h1, h2, h3, h4 { margin: 0; }
   .mast-topmeta-right { display: none; }
   .mast-center { padding: 22px 0 18px; }
   .wordmark { font-size: 48px; }
+  .mast-hook { font-size: 22px; margin-top: 16px; line-height: 1.4; }
   .mast-tagline { font-size: 13px; }
   .mast-meta-row { flex-direction: column; gap: 8px; text-align: center; }
   .mm-issue { display: block; }

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>OG source — home-editorial-3lines</title>
+<!--
+2026-09-04(TASK_ID=HOMEPAGE_EDITORIAL_IDENTITY_AND_OG_HOOK_RESTORE)
+디자인 원본(재현 가능한 생성 소스). scripts/generate_og_home.py가 이
+파일을 1200x630 뷰포트로 열어 Playwright로 스크린샷해 og-home-editorial-
+3lines-v4.png를 만든다. LLM/이미지 생성 API 미사용, 네트워크 미사용
+(폰트는 ../../assets/fonts/og/에 로컬로 번들돼 있다 — 출처/라이선스는
+같은 디렉터리의 OFL-*.txt 참고: Fraunces·IBM Plex Sans KR·Noto Serif KR
+전부 Google Fonts 배포판, OFL 1.1). 필요한 글자만 fontTools.subset으로
+잘라내 각 파일이 4~13KB로 작다 — 문구가 바뀌면 재추출이 필요하다(방법은
+generate_og_home.py 상단 주석 참고).
+-->
+<style>
+  @font-face {
+    font-family: 'Fraunces OG';
+    src: url('../../assets/fonts/og/Fraunces-ExtraBold-subset.ttf') format('truetype');
+    font-weight: 800;
+  }
+  @font-face {
+    font-family: 'Noto Serif KR OG';
+    src: url('../../assets/fonts/og/NotoSerifKR-Bold-subset.ttf') format('truetype');
+    font-weight: 700;
+  }
+  @font-face {
+    font-family: 'IBM Plex Sans KR OG';
+    src: url('../../assets/fonts/og/IBMPlexSansKR-Regular-subset.ttf') format('truetype');
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: 'IBM Plex Sans KR OG';
+    src: url('../../assets/fonts/og/IBMPlexSansKR-SemiBold-subset.ttf') format('truetype');
+    font-weight: 600;
+  }
+
+  :root {
+    --bg: #EFEAD9;
+    --ink: #1A1613;
+    --rule-dark: #3A2D18;
+    --gold: #9E6A15;
+    --muted: #6B5B44;
+    --rule-light: #C9B98A;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    width: 1200px; height: 630px;
+    background: var(--bg);
+    font-family: 'IBM Plex Sans KR OG', sans-serif;
+  }
+  .canvas {
+    width: 1200px; height: 630px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    position: relative;
+  }
+  .label {
+    position: absolute; top: 55px; left: 90px; right: 90px;
+    text-align: center;
+    font-size: 15px; font-weight: 600; letter-spacing: 0.18em;
+    color: var(--muted);
+  }
+  .rule-top {
+    position: absolute; top: 92px; left: 150px; right: 150px;
+    height: 1px; background: var(--rule-light);
+  }
+  .rule-top::before {
+    content: ''; position: absolute; top: -2px; left: 0; right: 0; height: 3px; background: var(--rule-dark);
+  }
+  .wordmark {
+    font-family: 'Fraunces OG', serif;
+    font-weight: 800;
+    font-size: 72px;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 30px;
+  }
+  .hook {
+    font-family: 'Noto Serif KR OG', serif;
+    font-weight: 700;
+    font-size: 46px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 26px;
+    text-align: center;
+  }
+  .hook .gold { color: var(--gold); }
+  .desc {
+    font-family: 'IBM Plex Sans KR OG', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    letter-spacing: 0.02em;
+    color: var(--muted);
+  }
+  .rule-bottom {
+    position: absolute; bottom: 92px; left: 150px; right: 150px;
+    height: 1px; background: var(--rule-light);
+  }
+  .pubinfo {
+    position: absolute; bottom: 55px; left: 90px; right: 90px;
+    text-align: center;
+    font-size: 16px; font-weight: 400;
+    color: var(--muted);
+  }
+  .url {
+    position: absolute; bottom: 24px; left: 90px; right: 90px;
+    text-align: center;
+    font-size: 12px; font-weight: 400;
+    color: var(--rule-light);
+    letter-spacing: 0.04em;
+  }
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="label">DAILY MOO:CONOMY &middot; ECONOMIC NEWSLETTER</div>
+  <div class="rule-top"></div>
+  <div class="wordmark">MOO:conomy</div>
+  <div class="hook">매일 아침, 경제를 <span class="gold">3줄로</span></div>
+  <div class="desc">코스피 &middot; 나스닥 &middot; 환율 &middot; 유가</div>
+  <div class="rule-bottom"></div>
+  <div class="pubinfo">월 Weekly &middot; 화&ndash;토 Daily &middot; 오전 7시</div>
+  <div class="url">mooconomy.co.kr</div>
+</div>
+</body>
+</html>
