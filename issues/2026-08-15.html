@@ -72,8 +72,9 @@
 .fx-share-row-top { margin-top:10px; margin-bottom:6px; }
 .fx-share-btn { font-size:12.5px; font-weight:700; color:#0B1220; background:#F2C94C; border:none; border-radius:20px; padding:8px 16px; min-height:36px; cursor:pointer; }
 .fx-share-btn.secondary { background:transparent; color:#F2C94C; border:1px solid #F2C94C; }
-.fx-share-status { font-size:11.5px; color:#95A2BA; }
+.fx-share-status { font-size:11.5px; color:#95A2BA; display:flex; align-items:center; flex-wrap:wrap; gap:6px; }
 .fx-share-status.show { color:#F2C94C; }
+.fx-share-fallback-url { font-size:11.5px; color:#E8ECF3; background:#141C2E; border:1px solid rgba(124,138,165,.35); border-radius:6px; padding:6px 8px; min-width:220px; max-width:100%; }
 
 .fx-issue-nav { display:flex; justify-content:space-between; gap:12px; margin-top:22px; padding-top:16px; border-top:1px solid rgba(124,138,165,.18); font-size:12.5px; }
 .fx-issue-nav a { color:#95A2BA; text-decoration:none; }
@@ -136,15 +137,36 @@
     return ok;
   }
 
+  function showSelectableUrl(statusEl) {
+    if (!statusEl) return;
+    statusEl.textContent = '';
+    var input = document.createElement('input');
+    input.type = 'text';
+    input.value = url;
+    input.readOnly = true;
+    input.className = 'fx-share-fallback-url';
+    input.setAttribute('aria-label', '공유 링크(직접 선택해 복사하세요)');
+    statusEl.appendChild(input);
+    statusEl.classList.add('show');
+    input.focus();
+    input.select();
+  }
+
   function copyLink(statusEl) {
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(url).then(function () {
-        showStatus(statusEl, '링크가 복사됐습니다');
+        showStatus(statusEl, '링크를 복사했습니다. 카카오톡에 붙여넣어 공유해 주세요.');
       }).catch(function () {
-        showStatus(statusEl, fallbackCopy(url) ? '링크가 복사됐습니다' : '복사에 실패했습니다');
+        if (fallbackCopy(url)) {
+          showStatus(statusEl, '링크를 복사했습니다. 카카오톡에 붙여넣어 공유해 주세요.');
+        } else {
+          showSelectableUrl(statusEl);
+        }
       });
+    } else if (fallbackCopy(url)) {
+      showStatus(statusEl, '링크를 복사했습니다. 카카오톡에 붙여넣어 공유해 주세요.');
     } else {
-      showStatus(statusEl, fallbackCopy(url) ? '링크가 복사됐습니다' : '복사에 실패했습니다');
+      showSelectableUrl(statusEl);
     }
   }
 

@@ -1,0 +1,226 @@
+{
+  "schema_version": "normalized-daily-issue/v1",
+  "edition_id": "2026-09-04",
+  "edition_date_kst": "2026-09-04",
+  "canonical_status": "production",
+  "production_status": "SEND_CONFIRMED",
+  "source_commit_sha": "6053e20fa5870ad0bc8922d7ab701633a89924b3",
+  "subject": "뉴욕증시, 금리 우려 완화로 3대 지수 1%대 상승",
+  "preheader": "미국 국채 금리와 VIX 하락이 글로벌 위험회피 성향을 진정시키는 데 영향을 준 요인 중 하나로 해석할 수 있습니다. 다만 국내 코스닥 수급 부진이나 대외 지표…",
+  "thesis": {
+    "headline": "긴축 경계감은 줄었지만 국내 시장은 여전히 수급 부진으로 차별화가 나타나고 있다",
+    "three_signals": [
+      "뉴욕증시는 미 연준 인사 발언으로 금리 인상 우려가 완화되며 일제히 1% 이상 올랐습니다.",
+      "지난 거래일 코스피는 상승했으나 코스닥은 외국인·기관 매도세에 1.71% 하락했습니다.",
+      "오늘은 미국 고용보고서 발표를 앞두고 외국인 수급 방향성이 핵심 변수입니다."
+    ]
+  },
+  "main_story": {
+    "headline": "뉴욕증시, 금리 우려 완화로 3대 지수 1%대 상승",
+    "verified_fact": "미 연준 인사가 금리 동결을 시사하는 발언을 내놓으면서 긴축 경계감이 다소 완화되었습니다.",
+    "why_it_matters": null,
+    "sources": []
+  },
+  "entities": [
+    {
+      "name": "코스닥",
+      "type": "index"
+    },
+    {
+      "name": "금",
+      "type": "commodity"
+    },
+    {
+      "name": "VIX",
+      "type": "index"
+    }
+  ],
+  "metrics": [
+    {
+      "id": "kospi",
+      "value": 6579.48,
+      "change": 0.2554,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "kosdaq",
+      "value": 790.21,
+      "change": -1.7127,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "nasdaq",
+      "value": 26584.06,
+      "change": 1.3969,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "sp500",
+      "value": 7747.71,
+      "change": 1.058,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1355.86,
+      "change": -2.39,
+      "displayMode": "delta",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "us10y",
+      "value": 4.76,
+      "change": -0.04,
+      "displayMode": "delta",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "wti",
+      "value": 91.67,
+      "change": 1.1475,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "vix",
+      "value": 14.32,
+      "change": -5.7895,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    }
+  ],
+  "market_changes": [
+    {
+      "id": "kospi",
+      "change": 0.2554,
+      "changeUnit": "%",
+      "direction": "up"
+    },
+    {
+      "id": "kosdaq",
+      "change": -1.7127,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "nasdaq",
+      "change": 1.3969,
+      "changeUnit": "%",
+      "direction": "up"
+    },
+    {
+      "id": "sp500",
+      "change": 1.058,
+      "changeUnit": "%",
+      "direction": "up"
+    },
+    {
+      "id": "usdkrw",
+      "change": -2.39,
+      "changeUnit": "원",
+      "direction": "down"
+    },
+    {
+      "id": "us10y",
+      "change": -0.04,
+      "changeUnit": "%p",
+      "direction": "down"
+    },
+    {
+      "id": "wti",
+      "change": 1.1475,
+      "changeUnit": "%",
+      "direction": "up"
+    },
+    {
+      "id": "vix",
+      "change": -5.7895,
+      "changeUnit": "%",
+      "direction": "down"
+    }
+  ],
+  "narratives": {
+    "moo_view": "오늘 시장 온도는 '위험선호' 상태로 관찰됩니다. 나스닥 +1.40%. S&P500 +1.06%.\n\n코스피 +0.26%. 코스닥 -1.71%. 오늘의 대표 뉴스는 '뉴욕증시, 금리 우려 완화로 3대 지수 1%대 상승'입니다.\n\n국내 수급은 코스피 개인 -9,552, 코스피 외국인 +414, 코스피 기관 +9,143, 코스닥 개인 +2,950, 코스닥 외국인 -1,082, 코스닥 기관 -1,838로 나타났습니다.\n\n다음 확인 변수는 미국 비농업고용 및 실업률 지표(노동시장 냉각 수준에 따라 연준의 향후 금리 결정 경로가 확정되기 때문입니다.)입니다.",
+    "todays_watch": [],
+    "todays_watch_oneliner": null,
+    "content_status": "DETERMINISTIC_FALLBACK_VALIDATION_FAILURE"
+  },
+  "moo_q": null,
+  "moo_check": [],
+  "moo_word": {
+    "id": "open_과세이연",
+    "term": "과세이연",
+    "definition": "과세이연은 세금을 내야 하는 시점을 미래의 특정 순간으로 미루어주는 제도로, 자금을 더 오랫동안 효율적으로 굴릴 수 있는 환경을 제공하는 것으로 관찰됩니다. 당장의 세금 부담을 줄여 투자 여력을 확보하게 돕는 역할을 하는 것으로 볼 수 있습니다.",
+    "why_today": "퇴직연금 계좌를 통한 국채 매입 허용 이슈에서 핵심 혜택으로 언급되었습니다.",
+    "memory_hook": null,
+    "source_label": "매일경제",
+    "article_id": "news_0",
+    "article_url": "https://www.mk.co.kr/news/economy/12143394",
+    "article_publisher": "매일경제",
+    "evidence_snippets": [
+      "개인투자용 국채 ‘복리효과’에 퇴직연금 ‘과세이연’까지이달부터 확정기여형 퇴직연금(DC) 및 개인형 퇴직연금(IRP) 계좌를 통한 ‘개인투자용 국채’ 매입이 본격 허용되면서, 은퇴.."
+    ],
+    "definition_source_name": null,
+    "definition_source_url": null,
+    "definition_priority": "P2_SOURCES_PARTIAL",
+    "origin": "llm_proposed",
+    "grounded_in_article": true,
+    "definition_evidence_verified": true,
+    "status": "ELIGIBLE_FOR_PUBLICATION",
+    "eligible_for_publication": true
+  },
+  "sources": [
+    {
+      "source_name": "매일경제",
+      "source_url": "https://www.mk.co.kr/news/economy/12143394",
+      "published_at": "2026-09-04",
+      "source_headline": "“3억 굴리면 노후 월 398만원” … 9월부터 DC·IRP서 뜨는 ‘국채 풍차’"
+    },
+    {
+      "source_name": "연합뉴스",
+      "source_url": "https://www.yna.co.kr/view/AKR20260903183100003",
+      "published_at": "2026-09-04",
+      "source_headline": "산업부·코트라, 미국 첨단기업 4곳 2.8조원 투자 유치"
+    },
+    {
+      "source_name": "파이낸셜뉴스",
+      "source_url": "https://www.fnnews.com/news/202609031918551886",
+      "published_at": "2026-09-04",
+      "source_headline": "CPTPP 가입 검토 속도…정부, 농어업 영향·대응책 의견수렴"
+    },
+    {
+      "source_name": "연합뉴스",
+      "source_url": "https://www.yna.co.kr/view/AKR20260904005500072",
+      "published_at": "2026-09-04",
+      "source_headline": "중동 긴장 지속에 WTI 나흘 연속 상승…브렌트유는 소폭 하락"
+    },
+    {
+      "source_name": "Investing",
+      "source_url": "https://www.investing.com/news/economy-news/yen-in-the-spotlight-after-sudden-jump-4886913",
+      "published_at": "2026-09-03",
+      "source_headline": "Yen jumps on BOJ hike bets, dollar slips on Waller comments"
+    }
+  ],
+  "public_url": "https://mooconomy.co.kr/latest-email.html",
+  "validation_status": {
+    "main_story_status": "SELECTED",
+    "content_provenance": "VALIDATED_GEMINI_36",
+    "moo_word_present": true,
+    "sources_count": 5,
+    "is_approximate": false
+  },
+  "content_hash": "14f7e4e08eeb8f8402b58e906ad573d7b85737d4adc9d0b3c6e9603038916dfb",
+  "archived_at": "2026-09-03T21:44:22.187594+00:00"
+}
