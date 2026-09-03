@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>경제 일정 캘린더 · Daily MOO:conomy</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Daily MOO:conomy 이벤트 캘린더 · 매크로·기업·정책 이벤트 일정을 월 단위로 정리합니다.">
+<link rel="canonical" href="https://mooconomy.co.kr/calendar/">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="경제 일정 캘린더 · Daily MOO:conomy">
+<meta property="og:description" content="Daily MOO:conomy 이벤트 캘린더 · 매크로·기업·정책 이벤트 일정을 월 단위로 정리합니다.">
+<meta property="og:url" content="https://mooconomy.co.kr/calendar/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,700;1,9..144,800&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../shared-shell.css">
+<link rel="stylesheet" href="calendar.css">
+</head>
+<body data-root="../">
+
+<div class="ticker-bar" aria-label="실시간 시장 지표">
+  <div class="ticker-inner" id="tickerInner"></div>
+</div>
+
+<header class="slim-header">
+  <div class="slim-header-inner">
+    <a href="../index.html" class="sh-brand">
+      <span class="sh-brand-mark">MOO<span class="colon">:</span>conomy</span>
+      <span class="sh-brand-tag">DAILY · EST. 2025</span>
+    </a>
+    <nav class="sh-nav">
+      <a href="../index.html#pulse">시장 흐름</a>
+      <a href="../archive/">아카이브</a>
+      <a href="./" class="active" aria-current="page">캘린더</a>
+      <a href="../index.html#editorial">편집자</a>
+    </nav>
+    <a href="../index.html#subscribe" class="sh-cta">구독하기</a>
+  </div>
+</header>
+
+<nav class="breadcrumb" aria-label="위치">
+  <a href="../index.html">Home</a>
+  <span class="bc-sep">›</span>
+  <span class="bc-current">Event Calendar</span>
+</nav>
+
+<div class="page-header">
+  <div class="ph-eyebrow">MOO<span class="colon" style="color:var(--gold)">:</span>CALENDAR · 이벤트 일정</div>
+  <h1 class="ph-title"><em>Event</em> Calendar</h1>
+  <p class="ph-lede">매크로 지표·기업 이벤트·정책 결정. 시장을 흔들 예정된 데이터가 언제 발표되는지 정리합니다. 발표 이후 <b>MOO:DAILY</b>가 즉시 해석·검증합니다.</p>
+  <div class="ph-meta" id="phMeta">
+    <span>이번 달 총 <b id="metaTotal">–</b>건</span>
+    <span class="ph-meta-sep"></span>
+    <span>HIGH IMPACT <b id="metaHi">–</b>건</span>
+    <span class="ph-meta-sep"></span>
+    <span>기준 시각 <b>KST (UTC+9)</b></span>
+  </div>
+</div>
+
+<main class="page-wrap">
+
+  <div class="cal-nav">
+    <a class="cn-prev" id="calPrev" href="#">
+      <span class="cn-arrow">◀</span>
+      <span><span class="cn-mo-num" id="prevNum"></span><span class="cn-mo-name" id="prevName"></span></span>
+    </a>
+    <div class="cn-current">
+      <div class="cn-current-year" id="curYear"></div>
+      <div class="cn-current-title" id="curMonth"></div>
+    </div>
+    <a class="cn-next" id="calNext" href="#">
+      <span><span class="cn-mo-num" id="nextNum"></span><span class="cn-mo-name" id="nextName"></span></span>
+      <span class="cn-arrow">▶</span>
+    </a>
+  </div>
+
+  <div class="cal-main">
+    <div class="big-cal">
+      <div class="bc-dow" style="display:grid;grid-template-columns:repeat(7,minmax(0,1fr));">
+        <span class="cd-sun">SUN</span><span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span><span class="cd-sat">SAT</span>
+      </div>
+      <div class="bc-days" id="bcDays" style="display:grid;grid-template-columns:repeat(7,minmax(0,1fr));min-width:0;"></div>
+    </div>
+
+    <aside class="cal-side">
+      <div class="cs-block">
+        <h4>구분</h4>
+        <div class="cs-filters" id="csFilters"></div>
+      </div>
+      <div class="cs-block">
+        <h4>이달의 하이라이트</h4>
+        <div id="csHighlights"><p class="cs-empty">이번 달 하이라이트 데이터가 없습니다.</p></div>
+      </div>
+      <div class="cs-block">
+        <h4>표기 안내</h4>
+        <p style="font-family:var(--sans);font-size:11.5px;color:var(--muted);line-height:1.6;margin:0;">
+          모든 날짜는 <b style="color:var(--ink)">한국시간(KST · UTC+9)</b> 기준입니다.
+          시간·국가 정보가 없는 이벤트는 해당 항목을 표시하지 않습니다.
+          발표 이후 <b style="color:var(--ink)">MOO:DAILY</b>가 즉시 해석·검증합니다.
+        </p>
+      </div>
+    </aside>
+  </div>
+
+  <div class="cal-list-wrap">
+    <div class="cal-list-title">
+      <h2 id="calListTitle">이달 · 시간순 상세</h2>
+      <span class="clt-meta" id="calListMeta"></span>
+    </div>
+    <div class="cal-tl" id="calTl"><p class="cal-tl-empty">불러오는 중…</p></div>
+  </div>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="wordmark-sm">MOO<span class="colon">:</span>conomy</div>
+        <p class="foot-tagline">— 예측하지 않고 기록하고 검증합니다.</p>
+      </div>
+      <div class="foot-cols">
+        <div><h5>발행판</h5><ul>
+          <li><a href="../latest.html">오늘의 발행판</a></li>
+          <li><a href="../archive/">아카이브 서고</a></li>
+          <li><a href="../weekly.html">주간 리포트</a></li>
+        </ul></div>
+        <div><h5>데이터</h5><ul>
+          <li><a href="../markets.html">마켓 대시보드</a></li>
+          <li><a href="./">이벤트 캘린더</a></li>
+          <li><a href="../questions/">MOO:Q 검증</a></li>
+        </ul></div>
+        <div><h5>브랜드</h5><ul>
+          <li><a href="../about/">About</a></li>
+          <li><a href="../methodology/">방법론</a></li>
+          <li><a href="../privacy.html">개인정보</a></li>
+        </ul></div>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2025–2026 MOO:conomy</span>
+      <span>매일 아침 06:00 발행</span>
+    </div>
+  </div>
+</footer>
+
+<nav class="mob-tabs" aria-label="주요 페이지">
+  <div class="mob-tabs-inner">
+    <a class="mt-item" href="../index.html"><span class="mt-icon i-home"></span><span class="mt-label">홈</span></a>
+    <a class="mt-item" href="../archive/"><span class="mt-icon i-archive"></span><span class="mt-label">아카이브</span></a>
+    <a class="mt-item active" href="./"><span class="mt-icon i-calendar"></span><span class="mt-label">캘린더</span></a>
+    <a class="mt-item" href="../index.html#subscribe"><span class="mt-icon i-sub"></span><span class="mt-label">구독</span></a>
+  </div>
+</nav>
+
+<script src="../app.js"></script>
+<script src="calendar-data.js"></script>
+</body>
+</html>
