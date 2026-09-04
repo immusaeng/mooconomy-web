@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-09-03T22:41:04.681039+00:00",
+  "generatedAt": "2026-09-04T22:25:46.953148+00:00",
   "timezone": "Asia/Seoul",
   "range": {
     "from": "2026-09-04",
@@ -8,11 +8,10 @@
   },
   "freshness": {
     "status": "partial",
-    "lastSuccessfulAt": "2026-09-03T22:41:04.681051+00:00",
+    "lastSuccessfulAt": "2026-09-04T22:25:46.953165+00:00",
     "failedSources": [
       "fmp",
-      "finnhub",
-      "dart"
+      "finnhub"
     ]
   },
   "events": [
@@ -20,6 +19,7 @@
       "id": "fred-federal-funds-data-2026-09-04-cc8238c768fa",
       "title": "Federal Funds Data",
       "originalTitle": "Federal Funds Data",
+      "titleKo": "미국 연방기금금리 데이터",
       "country": "US",
       "category": "macro",
       "importance": "high",
@@ -36,7 +36,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=378",
       "sourceEventId": "378",
-      "updatedAt": "2026-09-03T22:41:04.656729+00:00",
+      "updatedAt": "2026-09-04T22:25:46.922950+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -44,49 +44,13 @@
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=378",
           "sourceTier": "official_aggregator"
         }
-      ],
-      "titleKo": "미국 연방기금금리 데이터"
-    },
-    {
-      "id": "fred-fomc-press-release-2026-09-04-923a45a43812",
-      "title": "FOMC Press Release",
-      "originalTitle": "FOMC Press Release",
-      "country": "US",
-      "category": "macro",
-      "importance": "high",
-      "scheduledDate": "2026-09-04",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "FRED",
-      "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-      "sourceEventId": "101",
-      "updatedAt": "2026-09-03T22:41:04.656732+00:00",
-      "confidence": "cross_checked",
-      "sourceRefs": [
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-          "sourceTier": "official_aggregator"
-        },
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-          "sourceTier": "official_aggregator"
-        }
-      ],
-      "titleKo": "FOMC 보도자료"
+      ]
     },
     {
       "id": "fred-kansas-city-fed-policy-rate-skew-2026-09-04-449046e7b4f3",
       "title": "Kansas City Fed Policy Rate Skew",
       "originalTitle": "Kansas City Fed Policy Rate Skew",
+      "titleKo": "캔자스시티 연은 정책금리 스큐지수",
       "country": "US",
       "category": "macro",
       "importance": "high",
@@ -103,7 +67,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=4",
       "sourceEventId": "4",
-      "updatedAt": "2026-09-03T22:41:04.656763+00:00",
+      "updatedAt": "2026-09-04T22:25:46.922980+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -111,13 +75,13 @@
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=4",
           "sourceTier": "official_aggregator"
         }
-      ],
-      "titleKo": "캔자스시티 연은 정책금리 스큐지수"
+      ]
     },
     {
       "id": "fred-kansas-city-fed-policy-rate-uncertainty-2026-09-04-ed092813b897",
       "title": "Kansas City Fed Policy Rate Uncertainty",
       "originalTitle": "Kansas City Fed Policy Rate Uncertainty",
+      "titleKo": "캔자스시티 연은 정책금리 불확실성지수",
       "country": "US",
       "category": "macro",
       "importance": "high",
@@ -134,7 +98,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=739",
       "sourceEventId": "739",
-      "updatedAt": "2026-09-03T22:41:04.656767+00:00",
+      "updatedAt": "2026-09-04T22:25:46.922984+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -142,17 +106,17 @@
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=739",
           "sourceTier": "official_aggregator"
         }
-      ],
-      "titleKo": "캔자스시티 연은 정책금리 불확실성지수"
+      ]
     },
     {
-      "id": "fred-fomc-press-release-2026-09-06-08db658029c8",
+      "id": "fred-fomc-press-release-2026-09-05-06e4ee726da1",
       "title": "FOMC Press Release",
       "originalTitle": "FOMC Press Release",
+      "titleKo": "FOMC 보도자료",
       "country": "US",
       "category": "macro",
       "importance": "high",
-      "scheduledDate": "2026-09-06",
+      "scheduledDate": "2026-09-05",
       "scheduledAt": null,
       "timezone": null,
       "timePrecision": "date",
@@ -165,7 +129,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
       "sourceEventId": "101",
-      "updatedAt": "2026-09-03T22:41:04.656872+00:00",
+      "updatedAt": "2026-09-04T22:25:46.923095+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -178,13 +142,49 @@
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
           "sourceTier": "official_aggregator"
         }
-      ],
-      "titleKo": "FOMC 보도자료"
+      ]
+    },
+    {
+      "id": "fred-fomc-press-release-2026-09-07-619c83b1216c",
+      "title": "FOMC Press Release",
+      "originalTitle": "FOMC Press Release",
+      "titleKo": "FOMC 보도자료",
+      "country": "US",
+      "category": "macro",
+      "importance": "high",
+      "scheduledDate": "2026-09-07",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "scheduled",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "FRED",
+      "sourceTier": "official_aggregator",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+      "sourceEventId": "101",
+      "updatedAt": "2026-09-04T22:25:46.923128+00:00",
+      "confidence": "cross_checked",
+      "sourceRefs": [
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+          "sourceTier": "official_aggregator"
+        },
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+          "sourceTier": "official_aggregator"
+        }
+      ]
     },
     {
       "id": "fred-kansas-city-fed-policy-rate-uncertainty-2026-09-07-9fa769ea2f74",
       "title": "Kansas City Fed Policy Rate Uncertainty",
       "originalTitle": "Kansas City Fed Policy Rate Uncertainty",
+      "titleKo": "캔자스시티 연은 정책금리 불확실성지수",
       "country": "US",
       "category": "macro",
       "importance": "high",
@@ -201,7 +201,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=739",
       "sourceEventId": "739",
-      "updatedAt": "2026-09-03T22:41:04.656900+00:00",
+      "updatedAt": "2026-09-04T22:25:46.923141+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -209,13 +209,13 @@
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=739",
           "sourceTier": "official_aggregator"
         }
-      ],
-      "titleKo": "캔자스시티 연은 정책금리 불확실성지수"
+      ]
     },
     {
       "id": "fred-national-accounts-gdp-eurostat-2026-09-07-1f8aa18f941a",
       "title": "National Accounts - GDP (Eurostat)",
       "originalTitle": "National Accounts - GDP (Eurostat)",
+      "titleKo": "유로존 국민계정(GDP, Eurostat)",
       "country": "US",
       "category": "macro",
       "importance": "high",
@@ -232,7 +232,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=267",
       "sourceEventId": "267",
-      "updatedAt": "2026-09-03T22:41:04.656908+00:00",
+      "updatedAt": "2026-09-04T22:25:46.923149+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -240,13 +240,13 @@
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=267",
           "sourceTier": "official_aggregator"
         }
-      ],
-      "titleKo": "유로존 국민계정(GDP, Eurostat)"
+      ]
     },
     {
       "id": "fred-federal-funds-data-2026-09-08-1715d31add29",
       "title": "Federal Funds Data",
       "originalTitle": "Federal Funds Data",
+      "titleKo": "미국 연방기금금리 데이터",
       "country": "US",
       "category": "macro",
       "importance": "high",
@@ -263,7 +263,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=378",
       "sourceEventId": "378",
-      "updatedAt": "2026-09-03T22:41:04.656954+00:00",
+      "updatedAt": "2026-09-04T22:25:46.923194+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -276,49 +276,13 @@
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=378",
           "sourceTier": "official_aggregator"
         }
-      ],
-      "titleKo": "미국 연방기금금리 데이터"
-    },
-    {
-      "id": "fred-fomc-press-release-2026-09-08-481e12cc9365",
-      "title": "FOMC Press Release",
-      "originalTitle": "FOMC Press Release",
-      "country": "US",
-      "category": "macro",
-      "importance": "high",
-      "scheduledDate": "2026-09-08",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "FRED",
-      "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-      "sourceEventId": "101",
-      "updatedAt": "2026-09-03T22:41:04.656956+00:00",
-      "confidence": "cross_checked",
-      "sourceRefs": [
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-          "sourceTier": "official_aggregator"
-        },
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-          "sourceTier": "official_aggregator"
-        }
-      ],
-      "titleKo": "FOMC 보도자료"
+      ]
     },
     {
       "id": "fred-kansas-city-fed-policy-rate-skew-2026-09-08-8a208e58657b",
       "title": "Kansas City Fed Policy Rate Skew",
       "originalTitle": "Kansas City Fed Policy Rate Skew",
+      "titleKo": "캔자스시티 연은 정책금리 스큐지수",
       "country": "US",
       "category": "macro",
       "importance": "high",
@@ -335,7 +299,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=4",
       "sourceEventId": "4",
-      "updatedAt": "2026-09-03T22:41:04.656996+00:00",
+      "updatedAt": "2026-09-04T22:25:46.923235+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -348,13 +312,49 @@
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=4",
           "sourceTier": "official_aggregator"
         }
-      ],
-      "titleKo": "캔자스시티 연은 정책금리 스큐지수"
+      ]
+    },
+    {
+      "id": "fred-fomc-press-release-2026-09-09-feacbc1ca246",
+      "title": "FOMC Press Release",
+      "originalTitle": "FOMC Press Release",
+      "titleKo": "FOMC 보도자료",
+      "country": "US",
+      "category": "macro",
+      "importance": "high",
+      "scheduledDate": "2026-09-09",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "scheduled",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "FRED",
+      "sourceTier": "official_aggregator",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+      "sourceEventId": "101",
+      "updatedAt": "2026-09-04T22:25:46.923345+00:00",
+      "confidence": "cross_checked",
+      "sourceRefs": [
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+          "sourceTier": "official_aggregator"
+        },
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+          "sourceTier": "official_aggregator"
+        }
+      ]
     },
     {
       "id": "fred-kansas-city-fed-policy-rate-uncertainty-2026-09-09-66b55026cc7d",
       "title": "Kansas City Fed Policy Rate Uncertainty",
       "originalTitle": "Kansas City Fed Policy Rate Uncertainty",
+      "titleKo": "캔자스시티 연은 정책금리 불확실성지수",
       "country": "US",
       "category": "macro",
       "importance": "high",
@@ -371,7 +371,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=739",
       "sourceEventId": "739",
-      "updatedAt": "2026-09-03T22:41:04.657146+00:00",
+      "updatedAt": "2026-09-04T22:25:46.923378+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -384,13 +384,13 @@
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=739",
           "sourceTier": "official_aggregator"
         }
-      ],
-      "titleKo": "캔자스시티 연은 정책금리 불확실성지수"
+      ]
     },
     {
       "id": "fred-federal-funds-data-2026-09-10-da8cc8cdd51b",
       "title": "Federal Funds Data",
       "originalTitle": "Federal Funds Data",
+      "titleKo": "미국 연방기금금리 데이터",
       "country": "US",
       "category": "macro",
       "importance": "high",
@@ -407,7 +407,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=378",
       "sourceEventId": "378",
-      "updatedAt": "2026-09-03T22:41:04.657252+00:00",
+      "updatedAt": "2026-09-04T22:25:46.923480+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -420,49 +420,13 @@
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=378",
           "sourceTier": "official_aggregator"
         }
-      ],
-      "titleKo": "미국 연방기금금리 데이터"
-    },
-    {
-      "id": "fred-fomc-press-release-2026-09-10-142c038888a6",
-      "title": "FOMC Press Release",
-      "originalTitle": "FOMC Press Release",
-      "country": "US",
-      "category": "macro",
-      "importance": "high",
-      "scheduledDate": "2026-09-10",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "FRED",
-      "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-      "sourceEventId": "101",
-      "updatedAt": "2026-09-03T22:41:04.657255+00:00",
-      "confidence": "cross_checked",
-      "sourceRefs": [
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-          "sourceTier": "official_aggregator"
-        },
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-          "sourceTier": "official_aggregator"
-        }
-      ],
-      "titleKo": "FOMC 보도자료"
+      ]
     },
     {
       "id": "fred-gdpnow-2026-09-10-b97bea9e920e",
       "title": "GDPNow",
       "originalTitle": "GDPNow",
+      "titleKo": "GDPNow(미국 GDP 실시간 추정)",
       "country": "US",
       "category": "macro",
       "importance": "high",
@@ -479,7 +443,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=386",
       "sourceEventId": "386",
-      "updatedAt": "2026-09-03T22:41:04.657259+00:00",
+      "updatedAt": "2026-09-04T22:25:46.923487+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -487,13 +451,13 @@
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=386",
           "sourceTier": "official_aggregator"
         }
-      ],
-      "titleKo": "GDPNow(미국 GDP 실시간 추정)"
+      ]
     },
     {
       "id": "fred-kansas-city-fed-policy-rate-skew-2026-09-10-7d34b385e039",
       "title": "Kansas City Fed Policy Rate Skew",
       "originalTitle": "Kansas City Fed Policy Rate Skew",
+      "titleKo": "캔자스시티 연은 정책금리 스큐지수",
       "country": "US",
       "category": "macro",
       "importance": "high",
@@ -510,7 +474,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=4",
       "sourceEventId": "4",
-      "updatedAt": "2026-09-03T22:41:04.657290+00:00",
+      "updatedAt": "2026-09-04T22:25:46.923516+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -523,13 +487,13 @@
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=4",
           "sourceTier": "official_aggregator"
         }
-      ],
-      "titleKo": "캔자스시티 연은 정책금리 스큐지수"
+      ]
     },
     {
       "id": "fred-producer-price-index-2026-09-10-beca3acade6b",
       "title": "Producer Price Index",
       "originalTitle": "Producer Price Index",
+      "titleKo": "생산자물가지수(PPI)",
       "country": "US",
       "category": "macro",
       "importance": "high",
@@ -546,7 +510,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=46",
       "sourceEventId": "46",
-      "updatedAt": "2026-09-03T22:41:04.657343+00:00",
+      "updatedAt": "2026-09-04T22:25:46.923567+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -554,13 +518,13 @@
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=46",
           "sourceTier": "official_aggregator"
         }
-      ],
-      "titleKo": "생산자물가지수(PPI)"
+      ]
     },
     {
       "id": "fred-consumer-price-index-2026-09-11-1d9d465d64c0",
       "title": "Consumer Price Index",
       "originalTitle": "Consumer Price Index",
+      "titleKo": "소비자물가지수(CPI)",
       "country": "US",
       "category": "macro",
       "importance": "high",
@@ -577,7 +541,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=10",
       "sourceEventId": "10",
-      "updatedAt": "2026-09-03T22:41:04.657418+00:00",
+      "updatedAt": "2026-09-04T22:25:46.923638+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -585,13 +549,13 @@
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=10",
           "sourceTier": "official_aggregator"
         }
-      ],
-      "titleKo": "소비자물가지수(CPI)"
+      ]
     },
     {
       "id": "fred-current-median-cpi-2026-09-11-58e6ba05b96b",
       "title": "Current Median CPI",
       "originalTitle": "Current Median CPI",
+      "titleKo": "중위 소비자물가지수",
       "country": "US",
       "category": "macro",
       "importance": "high",
@@ -608,7 +572,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=315",
       "sourceEventId": "315",
-      "updatedAt": "2026-09-03T22:41:04.657421+00:00",
+      "updatedAt": "2026-09-04T22:25:46.923641+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -616,13 +580,49 @@
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=315",
           "sourceTier": "official_aggregator"
         }
-      ],
-      "titleKo": "중위 소비자물가지수"
+      ]
+    },
+    {
+      "id": "fred-fomc-press-release-2026-09-11-5acc2f11abc2",
+      "title": "FOMC Press Release",
+      "originalTitle": "FOMC Press Release",
+      "titleKo": "FOMC 보도자료",
+      "country": "US",
+      "category": "macro",
+      "importance": "high",
+      "scheduledDate": "2026-09-11",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "scheduled",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "FRED",
+      "sourceTier": "official_aggregator",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+      "sourceEventId": "101",
+      "updatedAt": "2026-09-04T22:25:46.923660+00:00",
+      "confidence": "cross_checked",
+      "sourceRefs": [
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+          "sourceTier": "official_aggregator"
+        },
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+          "sourceTier": "official_aggregator"
+        }
+      ]
     },
     {
       "id": "fred-kansas-city-fed-policy-rate-uncertainty-2026-09-11-8f0cdad8c041",
       "title": "Kansas City Fed Policy Rate Uncertainty",
       "originalTitle": "Kansas City Fed Policy Rate Uncertainty",
+      "titleKo": "캔자스시티 연은 정책금리 불확실성지수",
       "country": "US",
       "category": "macro",
       "importance": "high",
@@ -639,7 +639,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=739",
       "sourceEventId": "739",
-      "updatedAt": "2026-09-03T22:41:04.657484+00:00",
+      "updatedAt": "2026-09-04T22:25:46.923700+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -647,13 +647,13 @@
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=739",
           "sourceTier": "official_aggregator"
         }
-      ],
-      "titleKo": "캔자스시티 연은 정책금리 불확실성지수"
+      ]
     },
     {
       "id": "fred-research-consumer-price-index-2026-09-11-f0e29e2ec78e",
       "title": "Research Consumer Price Index",
       "originalTitle": "Research Consumer Price Index",
+      "titleKo": "소비자물가지수 리서치 시계열",
       "country": "US",
       "category": "macro",
       "importance": "high",
@@ -670,7 +670,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=345",
       "sourceEventId": "345",
-      "updatedAt": "2026-09-03T22:41:04.657527+00:00",
+      "updatedAt": "2026-09-04T22:25:46.923753+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -678,13 +678,13 @@
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=345",
           "sourceTier": "official_aggregator"
         }
-      ],
-      "titleKo": "소비자물가지수 리서치 시계열"
+      ]
     },
     {
       "id": "fred-sticky-price-cpi-2026-09-11-d6f96ba0d08b",
       "title": "Sticky Price CPI",
       "originalTitle": "Sticky Price CPI",
+      "titleKo": "경직가격 소비자물가지수",
       "country": "US",
       "category": "macro",
       "importance": "high",
@@ -701,7 +701,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=313",
       "sourceEventId": "313",
-      "updatedAt": "2026-09-03T22:41:04.657555+00:00",
+      "updatedAt": "2026-09-04T22:25:46.923777+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -709,17 +709,17 @@
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=313",
           "sourceTier": "official_aggregator"
         }
-      ],
-      "titleKo": "경직가격 소비자물가지수"
+      ]
     },
     {
-      "id": "fred-fomc-press-release-2026-09-12-93b3570e5e53",
+      "id": "fred-fomc-press-release-2026-09-13-08b5bd7224cc",
       "title": "FOMC Press Release",
       "originalTitle": "FOMC Press Release",
+      "titleKo": "FOMC 보도자료",
       "country": "US",
       "category": "macro",
       "importance": "high",
-      "scheduledDate": "2026-09-12",
+      "scheduledDate": "2026-09-13",
       "scheduledAt": null,
       "timezone": null,
       "timePrecision": "date",
@@ -732,7 +732,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
       "sourceEventId": "101",
-      "updatedAt": "2026-09-03T22:41:04.657587+00:00",
+      "updatedAt": "2026-09-04T22:25:46.923814+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -745,13 +745,13 @@
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
           "sourceTier": "official_aggregator"
         }
-      ],
-      "titleKo": "FOMC 보도자료"
+      ]
     },
     {
       "id": "fred-federal-funds-data-2026-09-14-e46d91666ce3",
       "title": "Federal Funds Data",
       "originalTitle": "Federal Funds Data",
+      "titleKo": "미국 연방기금금리 데이터",
       "country": "US",
       "category": "macro",
       "importance": "high",
@@ -768,7 +768,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=378",
       "sourceEventId": "378",
-      "updatedAt": "2026-09-03T22:41:04.657623+00:00",
+      "updatedAt": "2026-09-04T22:25:46.923841+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -781,49 +781,13 @@
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=378",
           "sourceTier": "official_aggregator"
         }
-      ],
-      "titleKo": "미국 연방기금금리 데이터"
-    },
-    {
-      "id": "fred-fomc-press-release-2026-09-14-926ed5ccde3e",
-      "title": "FOMC Press Release",
-      "originalTitle": "FOMC Press Release",
-      "country": "US",
-      "category": "macro",
-      "importance": "high",
-      "scheduledDate": "2026-09-14",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "FRED",
-      "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-      "sourceEventId": "101",
-      "updatedAt": "2026-09-03T22:41:04.657626+00:00",
-      "confidence": "cross_checked",
-      "sourceRefs": [
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-          "sourceTier": "official_aggregator"
-        },
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-          "sourceTier": "official_aggregator"
-        }
-      ],
-      "titleKo": "FOMC 보도자료"
+      ]
     },
     {
       "id": "fred-kansas-city-fed-policy-rate-skew-2026-09-14-58720c919e34",
       "title": "Kansas City Fed Policy Rate Skew",
       "originalTitle": "Kansas City Fed Policy Rate Skew",
+      "titleKo": "캔자스시티 연은 정책금리 스큐지수",
       "country": "US",
       "category": "macro",
       "importance": "high",
@@ -840,7 +804,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=4",
       "sourceEventId": "4",
-      "updatedAt": "2026-09-03T22:41:04.657660+00:00",
+      "updatedAt": "2026-09-04T22:25:46.923877+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -853,13 +817,13 @@
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=4",
           "sourceTier": "official_aggregator"
         }
-      ],
-      "titleKo": "캔자스시티 연은 정책금리 스큐지수"
+      ]
     },
     {
       "id": "fred-kansas-city-fed-policy-rate-uncertainty-2026-09-14-d676f2b8e163",
       "title": "Kansas City Fed Policy Rate Uncertainty",
       "originalTitle": "Kansas City Fed Policy Rate Uncertainty",
+      "titleKo": "캔자스시티 연은 정책금리 불확실성지수",
       "country": "US",
       "category": "macro",
       "importance": "high",
@@ -876,7 +840,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=739",
       "sourceEventId": "739",
-      "updatedAt": "2026-09-03T22:41:04.657664+00:00",
+      "updatedAt": "2026-09-04T22:25:46.923881+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -889,13 +853,49 @@
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=739",
           "sourceTier": "official_aggregator"
         }
-      ],
-      "titleKo": "캔자스시티 연은 정책금리 불확실성지수"
+      ]
+    },
+    {
+      "id": "fred-fomc-press-release-2026-09-15-755997b0f184",
+      "title": "FOMC Press Release",
+      "originalTitle": "FOMC Press Release",
+      "titleKo": "FOMC 보도자료",
+      "country": "US",
+      "category": "macro",
+      "importance": "high",
+      "scheduledDate": "2026-09-15",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "scheduled",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "FRED",
+      "sourceTier": "official_aggregator",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+      "sourceEventId": "101",
+      "updatedAt": "2026-09-04T22:25:46.923984+00:00",
+      "confidence": "cross_checked",
+      "sourceRefs": [
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+          "sourceTier": "official_aggregator"
+        },
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+          "sourceTier": "official_aggregator"
+        }
+      ]
     },
     {
       "id": "fred-federal-funds-data-2026-09-16-c579b116fb66",
       "title": "Federal Funds Data",
       "originalTitle": "Federal Funds Data",
+      "titleKo": "미국 연방기금금리 데이터",
       "country": "US",
       "category": "macro",
       "importance": "high",
@@ -912,7 +912,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=378",
       "sourceEventId": "378",
-      "updatedAt": "2026-09-03T22:41:04.657907+00:00",
+      "updatedAt": "2026-09-04T22:25:46.924120+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -925,49 +925,13 @@
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=378",
           "sourceTier": "official_aggregator"
         }
-      ],
-      "titleKo": "미국 연방기금금리 데이터"
-    },
-    {
-      "id": "fred-fomc-press-release-2026-09-16-2ba6ebe54474",
-      "title": "FOMC Press Release",
-      "originalTitle": "FOMC Press Release",
-      "country": "US",
-      "category": "macro",
-      "importance": "high",
-      "scheduledDate": "2026-09-16",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "FRED",
-      "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-      "sourceEventId": "101",
-      "updatedAt": "2026-09-03T22:41:04.657910+00:00",
-      "confidence": "cross_checked",
-      "sourceRefs": [
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-          "sourceTier": "official_aggregator"
-        },
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-          "sourceTier": "official_aggregator"
-        }
-      ],
-      "titleKo": "FOMC 보도자료"
+      ]
     },
     {
       "id": "fred-gdpnow-2026-09-16-de8a34902d3d",
       "title": "GDPNow",
       "originalTitle": "GDPNow",
+      "titleKo": "GDPNow(미국 GDP 실시간 추정)",
       "country": "US",
       "category": "macro",
       "importance": "high",
@@ -984,7 +948,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=386",
       "sourceEventId": "386",
-      "updatedAt": "2026-09-03T22:41:04.657913+00:00",
+      "updatedAt": "2026-09-04T22:25:46.924126+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -997,13 +961,13 @@
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=386",
           "sourceTier": "official_aggregator"
         }
-      ],
-      "titleKo": "GDPNow(미국 GDP 실시간 추정)"
+      ]
     },
     {
       "id": "fred-kansas-city-fed-policy-rate-skew-2026-09-16-74087f811f4e",
       "title": "Kansas City Fed Policy Rate Skew",
       "originalTitle": "Kansas City Fed Policy Rate Skew",
+      "titleKo": "캔자스시티 연은 정책금리 스큐지수",
       "country": "US",
       "category": "macro",
       "importance": "high",
@@ -1020,7 +984,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=4",
       "sourceEventId": "4",
-      "updatedAt": "2026-09-03T22:41:04.657942+00:00",
+      "updatedAt": "2026-09-04T22:25:46.924153+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -1033,13 +997,13 @@
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=4",
           "sourceTier": "official_aggregator"
         }
-      ],
-      "titleKo": "캔자스시티 연은 정책금리 스큐지수"
+      ]
     },
     {
       "id": "fred-kansas-city-fed-policy-rate-uncertainty-2026-09-16-933446a2b041",
       "title": "Kansas City Fed Policy Rate Uncertainty",
       "originalTitle": "Kansas City Fed Policy Rate Uncertainty",
+      "titleKo": "캔자스시티 연은 정책금리 불확실성지수",
       "country": "US",
       "category": "macro",
       "importance": "high",
@@ -1056,7 +1020,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=739",
       "sourceEventId": "739",
-      "updatedAt": "2026-09-03T22:41:04.657945+00:00",
+      "updatedAt": "2026-09-04T22:25:46.924157+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -1069,13 +1033,49 @@
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=739",
           "sourceTier": "official_aggregator"
         }
-      ],
-      "titleKo": "캔자스시티 연은 정책금리 불확실성지수"
+      ]
+    },
+    {
+      "id": "fred-fomc-press-release-2026-09-17-cac52cd1a06d",
+      "title": "FOMC Press Release",
+      "originalTitle": "FOMC Press Release",
+      "titleKo": "FOMC 보도자료",
+      "country": "US",
+      "category": "macro",
+      "importance": "high",
+      "scheduledDate": "2026-09-17",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "scheduled",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "FRED",
+      "sourceTier": "official_aggregator",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+      "sourceEventId": "101",
+      "updatedAt": "2026-09-04T22:25:46.924291+00:00",
+      "confidence": "cross_checked",
+      "sourceRefs": [
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+          "sourceTier": "official_aggregator"
+        },
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+          "sourceTier": "official_aggregator"
+        }
+      ]
     },
     {
       "id": "fred-harmonized-indices-of-consumer-prices-hicp-2026-09-17-fac75c9127e6",
       "title": "Harmonized Indices of Consumer Prices (HICP)",
       "originalTitle": "Harmonized Indices of Consumer Prices (HICP)",
+      "titleKo": "유로존 소비자물가지수(HICP)",
       "country": "US",
       "category": "macro",
       "importance": "high",
@@ -1092,7 +1092,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=251",
       "sourceEventId": "251",
-      "updatedAt": "2026-09-03T22:41:04.658097+00:00",
+      "updatedAt": "2026-09-04T22:25:46.924307+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -1100,13 +1100,13 @@
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=251",
           "sourceTier": "official_aggregator"
         }
-      ],
-      "titleKo": "유로존 소비자물가지수(HICP)"
+      ]
     },
     {
       "id": "fred-federal-funds-data-2026-09-18-1175b55271f8",
       "title": "Federal Funds Data",
       "originalTitle": "Federal Funds Data",
+      "titleKo": "미국 연방기금금리 데이터",
       "country": "US",
       "category": "macro",
       "importance": "high",
@@ -1123,7 +1123,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=378",
       "sourceEventId": "378",
-      "updatedAt": "2026-09-03T22:41:04.658240+00:00",
+      "updatedAt": "2026-09-04T22:25:46.924449+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -1131,49 +1131,13 @@
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=378",
           "sourceTier": "official_aggregator"
         }
-      ],
-      "titleKo": "미국 연방기금금리 데이터"
-    },
-    {
-      "id": "fred-fomc-press-release-2026-09-18-42801c992d35",
-      "title": "FOMC Press Release",
-      "originalTitle": "FOMC Press Release",
-      "country": "US",
-      "category": "macro",
-      "importance": "high",
-      "scheduledDate": "2026-09-18",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "FRED",
-      "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-      "sourceEventId": "101",
-      "updatedAt": "2026-09-03T22:41:04.658243+00:00",
-      "confidence": "cross_checked",
-      "sourceRefs": [
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-          "sourceTier": "official_aggregator"
-        },
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-          "sourceTier": "official_aggregator"
-        }
-      ],
-      "titleKo": "FOMC 보도자료"
+      ]
     },
     {
       "id": "fred-kansas-city-fed-policy-rate-skew-2026-09-18-26636c9355ca",
       "title": "Kansas City Fed Policy Rate Skew",
       "originalTitle": "Kansas City Fed Policy Rate Skew",
+      "titleKo": "캔자스시티 연은 정책금리 스큐지수",
       "country": "US",
       "category": "macro",
       "importance": "high",
@@ -1190,7 +1154,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=4",
       "sourceEventId": "4",
-      "updatedAt": "2026-09-03T22:41:04.658278+00:00",
+      "updatedAt": "2026-09-04T22:25:46.924487+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -1198,13 +1162,13 @@
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=4",
           "sourceTier": "official_aggregator"
         }
-      ],
-      "titleKo": "캔자스시티 연은 정책금리 스큐지수"
+      ]
     },
     {
       "id": "fred-kansas-city-fed-policy-rate-uncertainty-2026-09-18-f48f6e3e8c19",
       "title": "Kansas City Fed Policy Rate Uncertainty",
       "originalTitle": "Kansas City Fed Policy Rate Uncertainty",
+      "titleKo": "캔자스시티 연은 정책금리 불확실성지수",
       "country": "US",
       "category": "macro",
       "importance": "high",
@@ -1221,7 +1185,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=739",
       "sourceEventId": "739",
-      "updatedAt": "2026-09-03T22:41:04.658282+00:00",
+      "updatedAt": "2026-09-04T22:25:46.924491+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -1229,13 +1193,13 @@
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=739",
           "sourceTier": "official_aggregator"
         }
-      ],
-      "titleKo": "캔자스시티 연은 정책금리 불확실성지수"
+      ]
     },
     {
       "id": "fred-manufactured-housing-survey-2026-09-08-2db074a225eb",
       "title": "Manufactured Housing Survey",
       "originalTitle": "Manufactured Housing Survey",
+      "titleKo": "조립주택 서베이",
       "country": "US",
       "category": "macro",
       "importance": "medium",
@@ -1252,7 +1216,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=471",
       "sourceEventId": "471",
-      "updatedAt": "2026-09-03T22:41:04.657005+00:00",
+      "updatedAt": "2026-09-04T22:25:46.923245+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -1260,13 +1224,13 @@
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=471",
           "sourceTier": "official_aggregator"
         }
-      ],
-      "titleKo": "조립주택 서베이"
+      ]
     },
     {
       "id": "fred-selected-real-retail-sales-series-2026-09-16-0882a67f0c4a",
       "title": "Selected Real Retail Sales Series",
       "originalTitle": "Selected Real Retail Sales Series",
+      "titleKo": "실질 소매판매 시계열",
       "country": "US",
       "category": "macro",
       "importance": "medium",
@@ -1283,7 +1247,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=92",
       "sourceEventId": "92",
-      "updatedAt": "2026-09-03T22:41:04.658003+00:00",
+      "updatedAt": "2026-09-04T22:25:46.924215+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -1291,13 +1255,13 @@
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=92",
           "sourceTier": "official_aggregator"
         }
-      ],
-      "titleKo": "실질 소매판매 시계열"
+      ]
     },
     {
       "id": "fred-g-17-industrial-production-and-capacity-utilization-2026-09-18-ced8cd5ffbef",
       "title": "G.17 Industrial Production and Capacity Utilization",
       "originalTitle": "G.17 Industrial Production and Capacity Utilization",
+      "titleKo": "G.17 산업생산·설비가동률",
       "country": "US",
       "category": "macro",
       "importance": "medium",
@@ -1314,7 +1278,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=13",
       "sourceEventId": "13",
-      "updatedAt": "2026-09-03T22:41:04.658248+00:00",
+      "updatedAt": "2026-09-04T22:25:46.924457+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -1322,13 +1286,13 @@
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=13",
           "sourceTier": "official_aggregator"
         }
-      ],
-      "titleKo": "G.17 산업생산·설비가동률"
+      ]
     },
     {
-      "id": "fred-cboe-market-statistics-2026-09-04-1e1ca28b5cff",
-      "title": "CBOE Market Statistics",
-      "originalTitle": "CBOE Market Statistics",
+      "id": "fred-commercial-paper-2026-09-04-f169d5b63b28",
+      "title": "Commercial Paper",
+      "originalTitle": "Commercial Paper",
+      "titleKo": "기업어음(CP) 금리",
       "country": "US",
       "category": "macro",
       "importance": "low",
@@ -1343,18 +1307,48 @@
       "unit": null,
       "sourceName": "FRED",
       "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=200",
-      "sourceEventId": "200",
-      "updatedAt": "2026-09-03T22:41:04.656685+00:00",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=86",
+      "sourceEventId": "86",
+      "updatedAt": "2026-09-04T22:25:46.922918+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
           "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=200",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=86",
           "sourceTier": "official_aggregator"
         }
-      ],
-      "titleKo": "CBOE 시장 통계"
+      ]
+    },
+    {
+      "id": "fred-corporate-bond-yield-curve-2026-09-04-e4016c3f387e",
+      "title": "Corporate Bond Yield Curve",
+      "originalTitle": "Corporate Bond Yield Curve",
+      "titleKo": "Corporate Bond Yield Curve",
+      "country": "US",
+      "category": "macro",
+      "importance": "low",
+      "scheduledDate": "2026-09-04",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "scheduled",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "FRED",
+      "sourceTier": "official_aggregator",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=402",
+      "sourceEventId": "402",
+      "updatedAt": "2026-09-04T22:25:46.922933+00:00",
+      "confidence": "single_source",
+      "sourceRefs": [
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=402",
+          "sourceTier": "official_aggregator"
+        }
+      ]
     }
   ]
 }
