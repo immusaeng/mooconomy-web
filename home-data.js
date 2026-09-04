@@ -19,7 +19,15 @@
   };
   var METRIC_IDS = ['kospi', 'kosdaq', 'nasdaq', 'sp500', 'usdkrw', 'wti'];
   var PULSE_IDS = ['kospi', 'kosdaq', 'nasdaq', 'usdkrw', 'wti', 'vix'];
-  var VERDICT_LABEL = { hit: '적중', miss: '불일치', neutral: '중립', unresolved: '판정 대기', invalidated: '무효', error: '오류' };
+  /* 판정 표시 라벨 — scripts/archive_export/verdict_labels.py가 단일
+     진실 공급원이다(TASK_TRACK=HOMEPAGE_DATA_REFRESH_AND_CONSOLE_HYGIENE
+     §C 표준: MATCH=적중/PARTIAL_MATCH=부분 적중/MISMATCH=불일치/
+     NEUTRAL=중립/PENDING=판정 대기). invalidated/error도 questions
+     아카이브(export.py의 _VERDICT_MAP)와 동일하게 PENDING으로 묶는다 —
+     이전에는 홈 카드만 "무효"/"오류"로 따로 표시해 아카이브의 "판단보류"
+     문구와 어긋났었다. 이 객체를 고칠 때는 verdict_labels.py도 함께
+     고칠 것 — tests/test_verdict_label_consistency.py가 어긋나면 실패한다. */
+  var VERDICT_LABEL = { hit: '적중', miss: '불일치', neutral: '중립', unresolved: '판정 대기', invalidated: '판정 대기', error: '판정 대기' };
   function fmtNum(v) {
     return typeof v === 'number' ? v.toLocaleString('en-US', { maximumFractionDigits: 2 }) : v;
   }
@@ -140,9 +148,12 @@
     $('mcQ').textContent = latest.claimText;
 
     var verdict = (latest.resolution && latest.resolution.verdict) || latest.status;
-    if (verdict) {
+    // 알 수 없는 verdict 값은 임의로 원문 그대로 보여주지 않는다(§C) —
+    // 빌드 단계(publish_mooq_archive.py)가 이미 걸러내지만, 클라이언트
+    // 쪽도 방어적으로 인식 못 하는 값이면 배지를 그냥 비워 둔다.
+    if (verdict && VERDICT_LABEL[verdict]) {
       var vEl = $('mcVerdict');
-      vEl.textContent = VERDICT_LABEL[verdict] || verdict;
+      vEl.textContent = VERDICT_LABEL[verdict];
       vEl.className = 'mc-verdict' + (verdict === 'hit' ? ' hit' : verdict === 'miss' ? ' miss' : '');
     }
 
@@ -169,12 +180,35 @@
     return dateToYMD(d);
   }
 
+  /* data/history/index.json(build_history_index.py가 daily.yml 안에서
+     data/history/*.json과 같은 커밋으로 함께 생성) — 실제 존재하는 날짜만
+     담긴 정렬된 목록. 이게 있으면 휴장일 파일을 추측 fetch하지 않는다.
+     index 자체가 없거나 파싱 실패하면 null을 반환해 아래 두 함수가 전부
+     "날짜별로 직접 fetch해 보고 404는 무시" 하던 예전 방식으로 안전하게
+     되돌아간다(무한 재시도 없음 — 한 번의 fetch 시도로 끝나는 건 그대로). */
+  var _historyIndexPromise = null;
+  function fetchHistoryIndex() {
+    if (!_historyIndexPromise) {
+      _historyIndexPromise = fetchJSON('data/history/index.json').then(function (idx) {
+        if (!idx || !Array.isArray(idx.dates)) return null;
+        var set = {};
+        idx.dates.forEach(function (d) { set[d] = true; });
+        return set;
+      }).catch(function () { return null; });
+    }
+    return _historyIndexPromise;
+  }
+
   /* startTarget/endTarget이 휴장일이면 그 날짜 이전(과거 방향으로만)
      가장 가까운 유효 관측값을 찾는다 — 최대 7일 역탐색(장기 연휴 대비),
-     기간 자체를 늘리는 게 아니라 경계값의 fallback일 뿐이다. */
+     기간 자체를 늘리는 게 아니라 경계값의 fallback일 뿐이다. 선택 결과
+     (어느 날짜가 뽑히는지)는 index 유무와 무관하게 동일 — index는 그
+     선택에 이르는 과정에서 존재하지 않는 날짜의 fetch만 건너뛴다. */
   async function fetchNearestOnOrBefore(dateStr, maxLookback) {
+    var indexSet = await fetchHistoryIndex();
     for (var i = 0; i <= maxLookback; i++) {
       var ds = ymdMinus(dateStr, i);
+      if (indexSet && !indexSet[ds]) continue;
       var data = await fetchJSON('data/history/' + ds + '.json');
       if (data) return { date: ds, data: data };
     }
@@ -189,7 +223,9 @@
       dates.push(dateToYMD(cur));
       cur.setDate(cur.getDate() + 1);
     }
-    var results = await Promise.allSettled(dates.map(function (ds) {
+    var indexSet = await fetchHistoryIndex();
+    var candidates = indexSet ? dates.filter(function (d) { return indexSet[d]; }) : dates;
+    var results = await Promise.allSettled(candidates.map(function (ds) {
       return fetchJSON('data/history/' + ds + '.json').then(function (data) {
         return data ? { date: ds, data: data } : null;
       });

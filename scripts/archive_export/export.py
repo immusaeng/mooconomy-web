@@ -1,15 +1,23 @@
-"""Archive export layer prototype (read-only adapter).
+"""Archive export layer (read-only adapter).
 
 원천(data/history/*.json, data/claims_store.json)을 전혀 수정하지
 않는다 — 읽기만 하고, 03-archive-data-contract.md 계약에 맞는 정규화된
-JSON을 별도 출력 디렉터리에 쓴다. 현재 배포 파이프라인 어디에도 연결돼
-있지 않은 설계/검증 전용 스크립트다(공개 라우트 없음).
+JSON을 별도 출력 디렉터리에 쓴다. build_question_record()/
+build_home_claims()는 publish_mooq_archive.py(daily.yml 배선, TASK_ID=
+HOMEPAGE_DATA_REFRESH_AND_CONSOLE_HYGIENE §B)가 가져다 쓴다 — 이 파일의
+__main__/export_all()은 여전히 dryrun_output/ 전용 설계·검증 경로다
+(공개 라우트 없음).
 
 Determinism: 현재 시각을 절대 사용하지 않는다 — 입력 파일에 이미 기록된
 시각/날짜만 사용한다. 같은 입력이면 항상 같은 바이트의 출력을 만든다.
 """
 import json
 import os
+import re
+import sys
+
+sys.path.insert(0, os.path.dirname(__file__))
+import verdict_labels  # noqa: E402
 
 _INDICATOR_MAP = {
     "kospi": "kospi", "kosdaq": "kosdaq", "nasdaq": "nasdaq", "sp500": "sp500",
@@ -22,10 +30,12 @@ _INDICATOR_MAP = {
 # 아니므로(전 지표에 "%"가 박혀 있어 지수·환율 결과에 잘못 붙는 원인이었다)
 # observation_unit/result_unit 둘 다 이 맵에서만 끌어온다.
 _UNIT_MAP = {
-    "kospi": None, "kosdaq": None, "nasdaq": None, "sp500": None,
+    # question-record.schema.json의 observation_unit은 non-nullable string이라
+    # "단위 없음"은 None이 아니라 빈 문자열로 표현한다(렌더 쪽 _fmt_unit_value는
+    # falsy 문자열을 그대로 "단위 없음"으로 처리하므로 표시는 그대로다).
+    "kospi": "", "kosdaq": "", "nasdaq": "", "sp500": "",
     "usdkrw": "원", "us10y": "%p", "wti": "$", "vix": "pt",
 }
-_UNIT_PREFIX = {"wti"}  # "$84.95"처럼 단위가 숫자 앞에 붙는 지표
 
 
 def _write_json(path, obj):
@@ -102,6 +112,16 @@ _VERDICT_MAP = {"hit": "hit", "miss": "miss", "neutral": "neutral", "unresolved"
                 "invalidated": "unresolved", "error": "unresolved"}
 
 
+def _verdict_field(status):
+    """claim.status -> QuestionRecord.verdict(schema enum: hit/miss/neutral/
+    unresolved). 알 수 없는 status를 "unresolved"로 조용히 뭉개지 않는다 —
+    verdict_labels.py와 동일한 "임의 매핑 금지" 원칙(TASK_TRACK=
+    HOMEPAGE_DATA_REFRESH_AND_CONSOLE_HYGIENE §C)."""
+    if status not in _VERDICT_MAP:
+        raise verdict_labels.UnknownVerdictError(f"UNKNOWN_VERDICT: {status!r}")
+    return _VERDICT_MAP[status]
+
+
 def build_question_record(claim):
     """claims_store.json의 claim 1건 -> QuestionRecord(계약 §D)."""
     baseline = claim.get("baseline") or {}
@@ -123,7 +143,7 @@ def build_question_record(claim):
         # 동일한 지표의 절대값이므로 observation_unit과 같은 단위를 쓴다.
         "result_unit": unit if resolution.get("endValue") is not None else None,
         "actual_direction": None,
-        "verdict": _VERDICT_MAP.get(status, "unresolved"),
+        "verdict": _verdict_field(status),
         "evidence": resolution.get("explanation"),
         "status": status,
         "method_version": f"{claim.get('verificationType')}-{claim.get('thresholdRuleId')}",
@@ -166,10 +186,19 @@ def build_home_claims(claims_store):
     return {"previousClaims": previous, "todayClaims": today, "totals": totals}
 
 
+_HISTORY_DATE_RE = re.compile(r"^(\d{4}-\d{2}-\d{2})\.json$")
+
+
 def export_all(data_dir, out_dir):
     """전체 export 실행 — 반환값은 생성 개수 요약(테스트/보고용)."""
     history_dir = os.path.join(data_dir, "history")
-    dates = sorted(f[:-5] for f in os.listdir(history_dir) if f.endswith(".json"))
+    # data/history/index.json(build_history_index.py, §A)처럼 날짜 파일명이
+    # 아닌 항목은 건너뛴다 — 예전엔 *.json 전부를 날짜로 가정해 index.json이
+    # 생기자마자 깨졌다.
+    dates = sorted(
+        m.group(1) for f in os.listdir(history_dir)
+        if (m := _HISTORY_DATE_RE.match(f))
+    )
 
     snapshots, observations = [], []
     prev_status = None

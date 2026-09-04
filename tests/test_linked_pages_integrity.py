@@ -92,9 +92,9 @@ class MooQDataIntegrityTests(unittest.TestCase):
         for r in self.records:
             metric = self.claims[r["question_id"]]["metricId"]
             if metric in bad_units:
-                self.assertIsNone(r["observation_unit"])
+                self.assertEqual(r["observation_unit"], "")
                 if r["result_value"] is not None:
-                    self.assertIsNone(r["result_unit"])
+                    self.assertEqual(r["result_unit"], "")
             if metric == "usdkrw":
                 self.assertNotEqual(r["observation_unit"], "%")
                 if r["result_value"] is not None:
