@@ -3,443 +3,105 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daily Mooconomy - Weekly Report (베타)</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
-<script src="https://unpkg.com/lucide@latest"></script>
-
-<style>
-  :root {
-    --navy: #0b2545;
-    --gold: #f5b301;
-    --navy-light: #134074;
-    --bg-gray: #f5f6f8;
-    --border-gray: #e3e6ea;
-    --up-red: #d32f2f;
-    --down-blue: #1565c0;
-    --nav-h: 70px;
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: 'Inter', 'Noto Sans KR', sans-serif;
-    background: var(--bg-gray);
-    color: #222;
-    -webkit-font-smoothing: antialiased;
-    line-height: 1.5;
-    padding-bottom: 0;
-  }
-
-  /* ── GNB 네비게이션(markets.html과 동일 구조, 참고만 — markets.html 파일 자체는 미수정) ── */
-  .nav {
-    height: var(--nav-h);
-    background: rgba(11, 37, 69, 0.96);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 40px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  }
-  .nav .logo-wrap { display: flex; align-items: center; gap: 10px; text-decoration: none; z-index: 2; }
-  .nav .logo-wrap img { width: 30px; }
-  .nav .logo-wrap .nm { color: #fff; font-weight: 800; font-size: 16px; }
-  .nav .logo-wrap .nm .moo { color: var(--gold); }
-  .nav ul {
-    list-style: none;
-    display: flex;
-    gap: 40px;
-    align-items: center;
-    position: absolute;
-    left: 50%;
-    top: 0;
-    height: var(--nav-h);
-    transform: translateX(-50%);
-  }
-  .nav ul a {
-    color: #c8d3e0;
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    transition: 0.2s;
-    padding: 6px 0;
-    border-bottom: 2px solid transparent;
-  }
-  .nav ul a:hover { color: #fff; }
-  .nav ul a.active { color: var(--gold); border-bottom-color: var(--gold); }
-  .nav .nav-cta {
-    background: var(--gold);
-    color: var(--navy);
-    padding: 9px 18px;
-    border-radius: 8px;
-    font-size: 12.5px;
-    font-weight: 800;
-    letter-spacing: .5px;
-    text-decoration: none;
-    z-index: 2;
-    border: 0;
-  }
-
-  .mobile-nav {
-    display: none;
-    position: fixed;
-    bottom: 0; left: 0; right: 0;
-    height: 62px;
-    background: rgba(11, 37, 69, 0.98);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    z-index: 1000;
-    align-items: center;
-    justify-content: space-around;
-    padding: 0 10px;
-  }
-  .mobile-nav-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: #a8b2c1;
-    text-decoration: none;
-    font-size: 9px;
-    font-weight: 700;
-    gap: 4px;
-    flex: 1;
-    height: 100%;
-  }
-  .mobile-nav-item.active { color: var(--gold); }
-  .mobile-nav-item i { width: 20px; height: 20px; }
-
-  .container {
-    max-width: 1040px;
-    margin: 30px auto 60px;
-    padding: 0 20px;
-  }
-
-  .db-header { margin-bottom: 20px; }
-  .db-header .beta-tag {
-    display: inline-block;
-    background: var(--gold);
-    color: var(--navy);
-    font-size: 10.5px;
-    font-weight: 800;
-    letter-spacing: .5px;
-    padding: 3px 8px;
-    border-radius: 6px;
-    margin-bottom: 8px;
-  }
-  .db-header h1 { font-size: 22px; font-weight: 800; color: var(--navy); }
-  .db-header p { font-size: 13px; color: #666; margin-top: 4px; }
-
-  /* ── 주간 목록 ── */
-  .week-list { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px; }
-  .week-chip {
-    background: #fff;
-    border: 1px solid var(--border-gray);
-    border-radius: 10px;
-    padding: 10px 16px;
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--navy);
-    text-decoration: none;
-    cursor: pointer;
-  }
-  .week-chip.active { background: var(--navy); color: #fff; border-color: var(--navy); }
-
-  /* ── 상세 카드 ── */
-  .card {
-    background: #fff;
-    border: 1px solid var(--border-gray);
-    border-radius: 12px;
-    padding: 24px;
-    box-shadow: 0 1px 6px rgba(0,0,0,0.03);
-    margin-bottom: 20px;
-  }
-  .card h2 {
-    font-size: 15px;
-    font-weight: 800;
-    color: var(--navy);
-    margin-bottom: 4px;
-  }
-  .card .sub { font-size: 12px; color: #8a94a3; margin-bottom: 16px; }
-
-  /* 정보 계층: 제목 > 기간 > 주간 변화 > 주요 이슈 > 다음 주 관찰 */
-  .period-line {
-    font-size: 13.5px;
-    color: #444;
-    font-weight: 600;
-    margin-bottom: 20px;
-  }
-  .period-line b { color: var(--navy); }
-
-  .metric-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
-  }
-  .metric-item {
-    background: var(--bg-gray);
-    border: 1px solid var(--border-gray);
-    border-radius: 10px;
-    padding: 12px 14px;
-  }
-  .metric-item .lbl { font-size: 11px; color: #666; font-weight: 700; text-transform: uppercase; }
-  .metric-item .val { font-size: 18px; font-weight: 800; margin-top: 4px; font-variant-numeric: tabular-nums; }
-  .metric-item .val.up { color: var(--up-red); }
-  .metric-item .val.down { color: var(--down-blue); }
-  .metric-item .range { font-size: 10.5px; color: #8a94a3; margin-top: 3px; }
-
-  .empty-state {
-    font-size: 13px;
-    color: #8a94a3;
-    font-style: normal;
-    background: var(--bg-gray);
-    border: 1px dashed var(--border-gray);
-    border-radius: 8px;
-    padding: 14px 16px;
-  }
-
-  .source-list { list-style: none; }
-  .source-list li {
-    font-size: 12.5px;
-    padding: 8px 0;
-    border-bottom: 1px solid var(--border-gray);
-  }
-  .source-list li:last-child { border-bottom: none; }
-  .source-list a { color: var(--navy-light); text-decoration: none; font-weight: 600; }
-  .source-list a:hover { text-decoration: underline; }
-  .source-list .src-date { color: #8a94a3; font-size: 11px; margin-right: 6px; }
-
-  .footer {
-    color: #8a94a3;
-    font-size: 11px;
-    border-top: 1px solid var(--border-gray);
-    padding: 30px 20px;
-    line-height: 1.6;
-    text-align: center;
-    background: #fff;
-    margin-bottom: 60px;
-  }
-  .footer .sign { margin-top: 10px; font-size: 13px; letter-spacing: 1px; color: #5a6b82; }
-  .footer .sign b { color: var(--navy); letter-spacing: 2px; }
-  .footer .sign .moo { color: var(--gold); }
-
-  @media (max-width: 640px) {
-    body { padding-bottom: 62px; }
-    .nav { height: 52px; padding: 0 16px; }
-    .nav ul, .nav .nav-cta { display: none !important; }
-    .mobile-nav { display: flex; }
-    .container { margin: 16px auto 30px; padding: 0 12px; }
-    .db-header h1 { font-size: 18px; }
-    .db-header p { font-size: 11.5px; }
-    .card { padding: 16px; border-radius: 10px; }
-    .metric-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
-    .metric-item { padding: 10px 12px; }
-    .metric-item .val { font-size: 16px; }
-  }
-  @media (max-width: 360px) {
-    .metric-grid { grid-template-columns: 1fr 1fr; }
-    .db-header h1 { font-size: 16.5px; }
-  }
-</style>
+<title>주간 리포트 개편 준비 중 · Daily MOO:conomy</title>
+<meta name="description" content="MOO:WEEKLY 주간 리포트는 현재 개편 준비 중입니다. 오늘의 발행판은 홈페이지에서, 지난 발행판은 아카이브에서 확인하세요.">
+<link rel="canonical" href="https://mooconomy.co.kr/weekly.html">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,700;1,9..144,800&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=b5d18e1">
+<link rel="stylesheet" href="shared-shell.css?v=b5d18e1">
 </head>
-<body>
+<body data-root="">
 
-  <nav class="nav">
-    <a class="logo-wrap" href="/">
-      <span class="nm">Daily <span class="moo">'Moo'</span>conomy</span>
+<header class="slim-header">
+  <div class="slim-header-inner">
+    <a href="/" class="sh-brand">
+      <span class="sh-brand-mark">MOO<span class="colon">:</span>conomy</span>
+      <span class="sh-brand-tag">DAILY · EST. 2026</span>
     </a>
-    <ul>
-      <li><a href="/">홈</a></li>
-      <li><a href="/archive/">아카이브</a></li>
-      <li><a href="/calendar/">캘린더</a></li>
-      <li><a href="/questions/">MOO:Q</a></li>
-      <li><a href="/about/">About</a></li>
-      <li><a href="/weekly.html" class="active" aria-current="page">WEEKLY</a></li>
-    </ul>
-    <a class="nav-cta" href="/#subscribe">무료 구독하기</a>
-  </nav>
-
-  <nav class="mobile-nav">
-    <a href="/" class="mobile-nav-item">
-      <i data-lucide="home"></i>
-      <span>홈</span>
-    </a>
-    <a href="/archive/" class="mobile-nav-item">
-      <i data-lucide="archive"></i>
-      <span>아카이브</span>
-    </a>
-    <a href="/calendar/" class="mobile-nav-item">
-      <i data-lucide="calendar-range"></i>
-      <span>캘린더</span>
-    </a>
-    <a href="/questions/" class="mobile-nav-item">
-      <i data-lucide="help-circle"></i>
-      <span>MOO:Q</span>
-    </a>
-    <a href="/weekly.html" class="mobile-nav-item active" aria-current="page">
-      <i data-lucide="file-text"></i>
-      <span>Weekly</span>
-    </a>
-  </nav>
-
-  <div class="container">
-
-    <div class="db-header">
-      <span class="beta-tag">BETA</span>
-      <h1 id="pageTitle">Weekly Report</h1>
-      <p>Daily 발행분을 결정론적으로 집계한 주간 리포트입니다. 서술형 분석은 아직 제공하지 않습니다.</p>
-    </div>
-
-    <div class="week-list" id="weekList"></div>
-
-    <div id="detailContainer">
-      <div class="empty-state">불러오는 중...</div>
-    </div>
-
+    <nav class="sh-nav">
+      <a href="/">홈</a>
+      <a href="/archive/">아카이브</a>
+      <a href="/calendar/">캘린더</a>
+      <a href="/questions/">MOO<span class="colon">:</span>Q</a>
+      <a href="/about/">About</a>
+    </nav>
+    <a href="/#subscribe" class="sh-cta">구독하기</a>
   </div>
+</header>
 
-  <footer class="footer">
-    <div class="sign">Curated by <b>임무생</b> · © 2026 All rights reserved.</div>
-  </footer>
+<nav class="breadcrumb" aria-label="위치">
+  <a href="/">Home</a>
+  <span class="bc-sep">›</span>
+  <span class="bc-current">주간 리포트</span>
+</nav>
 
-  <script>
-    const cardTpl = (report) => {
-      const metrics = report.first_last_metrics || [];
-      const metricsHtml = metrics.length ? `
-        <div class="metric-grid">
-          ${metrics.map(m => {
-            const pct = m.weekly_change_percent;
-            const dirClass = pct == null ? '' : (pct > 0 ? 'up' : (pct < 0 ? 'down' : ''));
-            const pctText = pct == null ? '데이터 없음' : `${pct > 0 ? '▲' : (pct < 0 ? '▼' : '―')} ${Math.abs(pct).toFixed(2)}%`;
-            return `
-              <div class="metric-item">
-                <div class="lbl">${escapeHtml(m.metric_id)}</div>
-                <div class="val ${dirClass}">${pctText}</div>
-                <div class="range">${escapeHtml(m.first_date_kst)} → ${escapeHtml(m.last_date_kst)}</div>
-              </div>`;
-          }).join('')}
-        </div>
-      ` : `<div class="empty-state">이번 주간에 집계 가능한 지표가 없습니다.</div>`;
+<div class="page-header">
+  <div class="ph-eyebrow">MOO<span class="colon" style="color:var(--gold)">:</span>WEEKLY · 준비 중</div>
+  <h1 class="ph-title">주간 리포트, <em>개편</em> 준비 중입니다</h1>
+  <p class="ph-lede">한 주의 시장을 하나의 서사로 묶는 MOO:WEEKLY는 편집 구조를 다시 설계하는 중입니다. 그동안은 화–토 매일 발행되는 일간 발행판으로 시장을 따라가실 수 있습니다.</p>
+</div>
 
-      const drivers = report.top_three_drivers || [];
-      const driversHtml = drivers.length
-        ? `<ul class="source-list">${drivers.map(d => `<li>${escapeHtml(JSON.stringify(d))}</li>`).join('')}</ul>`
-        : `<div class="empty-state">주요 이슈 데이터 없음(서사형 콘텐츠는 이번 라운드에 집계되지 않습니다).</div>`;
+<main class="page-wrap">
+  <div class="qcard" style="max-width:640px;">
+    <p style="font-family:var(--sans);font-size:14px;color:var(--muted);line-height:1.7;margin:0;">
+      이전에 이 주소에 있던 집계 화면은 편집 구조가 확정되지 않은 내부 테스트 버전이라 정식 발행물로
+      공개하지 않습니다. 새 MOO:WEEKLY 구조는 별도 검토 이후 이 페이지에 다시 연결됩니다.
+    </p>
+    <p style="font-family:var(--sans);font-size:14px;margin:16px 0 0;">
+      <a href="/archive/" style="color:var(--gold-deep);font-weight:700;">← 일간 발행판 아카이브 보기</a><br>
+      <a href="/" style="color:var(--gold-deep);font-weight:700;">← 홈페이지로 돌아가기</a>
+    </p>
+  </div>
+</main>
 
-      const watch = report.next_week_watch || [];
-      const watchHtml = watch.length
-        ? `<ul class="source-list">${watch.map(w => `<li>${escapeHtml(JSON.stringify(w))}</li>`).join('')}</ul>`
-        : `<div class="empty-state">다음 주 관찰 항목 데이터 없음.</div>`;
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="wordmark-sm">MOO<span class="colon">:</span>conomy</div>
+        <p class="foot-tagline">— 예측하지 않고 기록하고 검증합니다.</p>
+      </div>
+      <div class="foot-cols">
+        <div><h5>발행판</h5><ul>
+          <li><a href="/latest.html">오늘의 발행판</a></li>
+          <li><a href="/archive/">아카이브 서고</a></li>
+          <li><a href="/weekly.html">주간 리포트</a></li>
+        </ul></div>
+        <div><h5>데이터</h5><ul>
+          <li><a href="/markets.html">마켓 대시보드</a></li>
+          <li><a href="/calendar/">이벤트 캘린더</a></li>
+          <li><a href="/questions/">MOO:Q 검증</a></li>
+        </ul></div>
+        <div><h5>브랜드</h5><ul>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/methodology/">방법론</a></li>
+          <li><a href="/privacy.html">개인정보</a></li>
+        </ul></div>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>Daily MOO:conomy · EST. 2026</span>
+      <span>월 Weekly · 화–토 Daily · 오전 7시</span>
+    </div>
+  </div>
+</footer>
 
-      const sources = report.source_manifest || [];
-      const sourcesHtml = sources.length
-        ? `<ul class="source-list">${sources.map(s => `
-            <li><span class="src-date">${escapeHtml(s.edition_date_kst || '')}</span>
-            <a href="${escapeAttr(s.source_url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(s.source_name || s.source_url)}</a></li>
-          `).join('')}</ul>`
-        : `<div class="empty-state">출처 없음(이번 주간 자동 편입 원본에 콘텐츠가 없습니다).</div>`;
+<nav class="mob-tabs" aria-label="주요 페이지">
+  <div class="mob-tabs-inner">
+    <a class="mt-item" href="/"><span class="mt-icon i-home"></span><span class="mt-label">홈</span></a>
+    <a class="mt-item" href="/archive/"><span class="mt-icon i-archive"></span><span class="mt-label">아카이브</span></a>
+    <a class="mt-item" href="/calendar/"><span class="mt-icon i-calendar"></span><span class="mt-label">캘린더</span></a>
+    <a class="mt-item" href="/questions/"><span class="mt-icon i-q"></span><span class="mt-label">MOO:Q</span></a>
+    <a class="mt-item" href="/about/"><span class="mt-icon i-about"></span><span class="mt-label">About</span></a>
+  </div>
+</nav>
 
-      const vs = report.validation_status || {};
-
-      return `
-        <div class="card">
-          <h2>주간 리포트 · ${escapeHtml(report.week_id)}</h2>
-          <div class="period-line">기간: <b>${escapeHtml(report.period_start_kst)} ~ ${escapeHtml(report.period_end_kst)}</b>
-            &nbsp;·&nbsp; 집계 대상 Daily ${vs.eligible_daily_count ?? 0}건(전체 ${vs.total_daily_count ?? 0}건 중, tombstone 제외)</div>
-        </div>
-
-        <div class="card">
-          <h2>주간 변화</h2>
-          <div class="sub">canonical_status=production인 Daily만 집계 — 결측치는 0으로 채우지 않고 제외합니다.</div>
-          ${metricsHtml}
-        </div>
-
-        <div class="card">
-          <h2>주요 이슈</h2>
-          ${driversHtml}
-        </div>
-
-        <div class="card">
-          <h2>다음 주 관찰</h2>
-          ${watchHtml}
-        </div>
-
-        <div class="card">
-          <h2>출처(Source Manifest)</h2>
-          ${sourcesHtml}
-        </div>
-      `;
-    };
-
-    function escapeHtml(s) {
-      if (s == null) return '';
-      return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-    }
-    function escapeAttr(s) {
-      if (!s || !/^https?:\/\//.test(s)) return '#';
-      return escapeHtml(s);
-    }
-
-    async function loadWeek(weekId, weeks) {
-      const container = document.getElementById('detailContainer');
-      try {
-        const res = await fetch(`data/weekly/${encodeURIComponent(weekId)}.json?v=` + Date.now());
-        if (!res.ok) throw new Error('fetch failed: ' + res.status);
-        const report = await res.json();
-        container.innerHTML = cardTpl(report);
-        document.getElementById('pageTitle').textContent = `Weekly Report · ${report.week_id}`;
-      } catch (err) {
-        console.warn('[weekly] 데이터 로드 실패:', err);
-        container.innerHTML = `<div class="card"><div class="empty-state">이번 주 리포트를 불러올 수 없습니다. 아직 집계되지 않았을 수 있습니다.</div></div>`;
-      }
-      renderWeekList(weeks, weekId);
-    }
-
-    function renderWeekList(weeks, activeId) {
-      const el = document.getElementById('weekList');
-      el.innerHTML = weeks.map(w => `
-        <a class="week-chip ${w.week_id === activeId ? 'active' : ''}" href="weekly.html#${encodeURIComponent(w.week_id)}">
-          ${escapeHtml(w.week_id)}
-        </a>
-      `).join('');
-    }
-
-    async function init() {
-      let weeks = [];
-      try {
-        const res = await fetch('data/weekly/index.json?v=' + Date.now());
-        if (!res.ok) throw new Error('index fetch failed: ' + res.status);
-        const idx = await res.json();
-        weeks = idx.weeks || [];
-      } catch (err) {
-        console.warn('[weekly] 목록 로드 실패:', err);
-        document.getElementById('detailContainer').innerHTML =
-          `<div class="card"><div class="empty-state">Weekly 목록을 불러올 수 없습니다.</div></div>`;
-        return;
-      }
-      if (!weeks.length) {
-        document.getElementById('detailContainer').innerHTML =
-          `<div class="card"><div class="empty-state">아직 집계된 Weekly 리포트가 없습니다.</div></div>`;
-        return;
-      }
-      const hashWeek = decodeURIComponent(window.location.hash.replace('#', ''));
-      const target = weeks.find(w => w.week_id === hashWeek) ? hashWeek : weeks[0].week_id;
-      loadWeek(target, weeks);
-    }
-
-    window.addEventListener('hashchange', () => {
-      init();
-    });
-
-    window.onload = () => {
-      init();
-      try { lucide.createIcons(); } catch (e) { console.warn('[아이콘] lucide 로드 실패:', e); }
-    };
-  </script>
 </body>
 </html>
