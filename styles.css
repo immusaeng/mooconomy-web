@@ -119,6 +119,14 @@ h1, h2, h3, h4 { margin: 0; }
   display: inline-block;
 }
 .wordmark .colon { color: var(--gold); }
+.mast-kicker {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: var(--meta);
+  margin-top: 14px;
+}
 .mast-hook {
   font-family: var(--serif-kr);
   font-weight: 700;
@@ -129,6 +137,7 @@ h1, h2, h3, h4 { margin: 0; }
   margin-top: 20px;
   word-break: keep-all;
 }
+.mast-hook-l1, .mast-hook-l2 { display: inline; }
 .mast-hook em.gold {
   font-style: normal;
   color: var(--gold);
@@ -137,8 +146,27 @@ h1, h2, h3, h4 { margin: 0; }
   font-family: var(--sans);
   font-size: 14px;
   color: var(--muted);
-  margin-top: 10px;
+  margin-top: 14px;
+  max-width: 34em;
+  margin-left: auto;
+  margin-right: auto;
   letter-spacing: 0.01em;
+}
+.mast-method {
+  font-family: var(--sans);
+  font-size: 11.5px;
+  letter-spacing: 0.06em;
+  color: var(--gold-deep);
+  margin-top: 14px;
+}
+.mast-method span { font-weight: 700; }
+.mast-method i { font-style: normal; margin: 0 6px; color: var(--divider-gd); }
+.mast-method b {
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0;
+  color: var(--muted);
+  margin-left: 4px;
 }
 .mast-meta-row {
   display: flex; justify-content: space-between; align-items: center;
@@ -200,6 +228,10 @@ h1, h2, h3, h4 { margin: 0; }
   transition: background .15s;
 }
 .topnav-cta:hover { background: var(--gold-deep); }
+
+/* 모바일 하단 탭(전 페이지 공통 마크업, 데스크톱엔 숨김) — 홈/아카이브/
+   캘린더/MOO:Q/구독. About은 여기 없다(footer의 "소개" 링크로 접근). */
+.mob-tabs { display: none; }
 
 /* ═══════════════════════════════════════════════════════════════
    CHAPTER MARK
@@ -575,15 +607,16 @@ h1, h2, h3, h4 { margin: 0; }
 .pc-head {
   display: flex; justify-content: space-between; align-items: baseline;
   padding-bottom: 12px;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
   border-bottom: 1px solid var(--divider);
 }
 .pc-name {
   font-family: var(--serif);
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 800;
   color: var(--ink);
   letter-spacing: -0.005em;
+  margin: 0;
 }
 .pc-code {
   font-family: var(--serif);
@@ -593,13 +626,12 @@ h1, h2, h3, h4 { margin: 0; }
   letter-spacing: 0.06em;
 }
 
-/* 기간(B) — 날짜 범위 + "발행일 기준 14일" 보조 라벨. 작게, 메타 취급. */
+/* 기간 — 실제 데이터가 존재하는 날짜(휴장 시 가장 가까운 이전 거래일).
+   목표 기간(발행일-14일 → 발행일)은 섹션 상단 pulseRange가 별도 표시 —
+   여기서 다시 병기해 헷갈리게 하지 않는다. */
 .pc-period {
-  display: flex; align-items: baseline; justify-content: space-between;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.pc-period-dates {
+  display: flex; align-items: baseline; gap: 6px;
+  margin-bottom: 12px;
   font-family: var(--sans);
   font-size: 11.5px;
   font-weight: 700;
@@ -607,12 +639,66 @@ h1, h2, h3, h4 { margin: 0; }
   letter-spacing: 0.02em;
   font-variant-numeric: tabular-nums;
 }
-.pc-period-label {
-  font-family: var(--sans);
-  font-size: 10.5px;
-  color: var(--meta);
-  letter-spacing: 0.02em;
+.pc-period span[aria-hidden] { color: var(--gold); font-weight: 400; }
+
+/* 정보 위계 1·2순위 — 시작 지수 → 현재 지수. 카드에서 가장 중요한
+   숫자이므로 sparkline보다 먼저, 가장 크게 보여준다. 색은 ink 고정 —
+   상승/하락 색은 아래 pulse-change에서만 쓴다(숫자 자체를 붉게/
+   푸르게 칠하지 않는다 — 국내 관례 색은 "변화"에만 적용). */
+.pulse-values {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-variant-numeric: tabular-nums;
 }
+.pulse-value { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.pulse-value-current { align-items: flex-end; text-align: right; }
+.pulse-value-label {
+  font-family: var(--sans);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--meta);
+}
+.pulse-value-current .pulse-value-label { color: var(--gold-deep); }
+.pulse-value strong {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-style: normal;
+  color: var(--ink);
+  line-height: 1;
+  white-space: nowrap;
+}
+.pulse-value-start strong { font-size: 22px; }
+.pulse-value-current strong { font-size: 26px; font-weight: 800; }
+.pulse-value-arrow { font-size: 20px; color: var(--gold); flex-shrink: 0; align-self: center; }
+
+/* 정보 위계 3·4순위 — 방향·절대 변동폭·등락률. 숫자 자체(시작/현재)보다
+   작게 — 색은 여기(과 화살표)에만 쓴다. 색만으로 방향을 전달하지
+   않도록 ▲/▼를 항상 병기한다. */
+.pulse-change {
+  display: flex; align-items: baseline; gap: 10px;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed var(--divider);
+  font-variant-numeric: tabular-nums;
+}
+.pulse-change-absolute {
+  font-family: var(--serif);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+}
+.pulse-change-percent {
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  font-style: normal;
+}
+.pulse-change.up   { color: var(--red); }
+.pulse-change.dn   { color: var(--blue); }
+.pulse-change.flat { color: var(--meta); }
 
 .pc-chart {
   width: 100%;
@@ -622,63 +708,6 @@ h1, h2, h3, h4 { margin: 0; }
 }
 .pc-dot-start { fill: var(--meta); }
 .pc-dot-end   { fill: var(--gold-deep); stroke: var(--sheet-bg); stroke-width: 1.2; }
-
-/* 핵심 변화(D) — 이 카드의 대표 숫자. 절대차·등락률을 같은 강조 영역에,
-   같은 색으로. 국내 금융 관례: 상승(값 증가)=적색, 하락=청색. */
-.pc-hero {
-  display: flex; align-items: baseline; gap: 8px;
-  font-variant-numeric: tabular-nums;
-  margin-bottom: 2px;
-}
-.pc-hero-arrow { font-size: 18px; line-height: 1; }
-.pc-hero-abs {
-  font-family: var(--serif);
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  line-height: 1;
-}
-.pc-hero-sep { font-size: 13px; opacity: .5; }
-.pc-hero-pct {
-  font-family: var(--serif);
-  font-size: 20px;
-  font-weight: 800;
-  letter-spacing: -0.01em;
-  line-height: 1;
-}
-.pc-hero-up   { color: var(--red); }
-.pc-hero-dn   { color: var(--blue); }
-.pc-hero-flat { color: var(--meta); }
-.pc-hero-caption {
-  font-family: var(--sans);
-  font-size: 10.5px;
-  color: var(--meta);
-  letter-spacing: 0.02em;
-  margin-bottom: 14px;
-  padding-bottom: 12px;
-  border-bottom: 1px dashed var(--divider);
-}
-
-/* 시작값/현재값(E) — 보조 정보. 현재값이 시작값보다 한 단계 강하게. */
-.pc-endpoints {
-  display: flex; align-items: baseline; justify-content: space-between;
-  gap: 8px;
-  margin-bottom: 10px;
-  font-variant-numeric: tabular-nums;
-}
-.pc-ep-start {
-  font-family: var(--serif);
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--meta);
-}
-.pc-ep-arrow { font-size: 12px; color: var(--gold); flex-shrink: 0; }
-.pc-ep-end {
-  font-family: var(--serif);
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--ink);
-}
 
 .pc-foot {
   display: flex; justify-content: flex-end; align-items: center;
@@ -1586,24 +1615,52 @@ h1, h2, h3, h4 { margin: 0; }
   .ticker-inner { font-size: 12px; }
   .mast-topmeta { font-size: 10px; letter-spacing: 0.12em; }
   .mast-topmeta-right { display: none; }
-  .mast-center { padding: 22px 0 18px; }
-  .wordmark { font-size: 48px; }
-  .mast-hook { font-size: 22px; margin-top: 16px; line-height: 1.4; }
-  .mast-tagline { font-size: 13px; }
+  .masthead { padding-top: 14px; }
+  .mast-center { padding-top: 24px; padding-bottom: 26px; }
+  .wordmark { font-size: clamp(38px, 11.2vw, 44px); line-height: 0.98; letter-spacing: -0.045em; }
+  .mast-kicker { font-size: 10px; letter-spacing: 0.16em; margin-top: 12px; margin-bottom: 0; }
+  .mast-hook {
+    max-width: 340px; margin: 22px auto 0;
+    font-size: clamp(23px, 6.6vw, 27px); line-height: 1.38; letter-spacing: -0.035em;
+    text-wrap: balance; word-break: keep-all;
+  }
+  .mast-tagline { max-width: 330px; margin: 14px auto 0; font-size: 13.5px; line-height: 1.65; }
+  .mast-method { margin-top: 14px; font-size: 10.5px; line-height: 1.55; letter-spacing: 0.04em; }
   .mast-meta-row { flex-direction: column; gap: 8px; text-align: center; }
   .mm-issue { display: block; }
   .mm-sep { display: none; }
-  .topnav { overflow-x: auto; }
-  .topnav-inner { height: 46px; gap: 12px; }
-  .topnav-list { gap: 18px; overflow-x: auto; white-space: nowrap; scrollbar-width: none; }
-  .topnav-list::-webkit-scrollbar { display: none; }
-  .topnav-cta { padding: 7px 12px; font-size: 12px; }
-  .chap-mark { padding: 32px 0 16px; }
+  /* §5 — 모바일 상단엔 wordmark + compact 구독 CTA만. 홈/아카이브/
+     캘린더/MOO:Q는 하단 탭(.mob-tabs)으로, About은 footer "소개"
+     링크로 접근한다(중복 텍스트 메뉴를 두 번 노출하지 않는다). */
+  .topnav-inner { height: auto; padding: 10px 0; justify-content: center; }
+  .topnav-list { display: none; }
+  .topnav-cta {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 38px; max-height: 42px; padding: 0 16px;
+    font-size: 13px; white-space: nowrap; flex-shrink: 0;
+  }
+  .mob-tabs {
+    display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
+    background: var(--sheet-bg); border-top: 1px solid var(--divider-gd);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .mob-tabs-inner { display: flex; width: 100%; min-height: 64px; }
+  .mt-item {
+    flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 3px; min-height: 58px; padding: 4px 2px;
+    font-family: var(--sans); font-size: 10px; font-weight: 600; color: var(--muted);
+    text-decoration: none; text-align: center;
+  }
+  .mt-icon { width: 19px; height: 19px; flex-shrink: 0; }
+  .mt-item.active { color: var(--ink); }
+  .mt-item-subscribe { color: var(--gold-deep); font-weight: 800; }
+  .mt-item-subscribe .mt-icon { color: var(--gold); }
+  .chap-mark { padding: 24px 0 14px; }
   .chap-row { flex-direction: column; gap: 6px; }
   .chap-num { min-width: 0; font-size: 16px; }
   .chap-title { font-size: 22px; }
   .chap-kicker { font-size: 13px; }
-  .cover-story { padding: 22px 20px 24px; }
+  .cover-story { padding: 20px 18px 22px; }
   .cs-deck { font-size: 14.5px; }
   .cs-signals { padding: 16px 18px; }
   .sig-list li { font-size: 14px; }
@@ -1613,13 +1670,12 @@ h1, h2, h3, h4 { margin: 0; }
   .pulse-grid { grid-template-columns: 1fr; }
   .pulse-flag { flex-direction: column; align-items: flex-start; gap: 6px; }
   .pf-r { font-size: 11px; }
-  .pc-hero-pct { font-size: 18px; }
-  .pc-hero-abs { font-size: 14px; }
-  .pc-hero-arrow { font-size: 16px; }
-  .pc-period-dates { font-size: 11px; }
-  .pc-period-label { font-size: 10px; }
-  .pc-ep-start { font-size: 12px; }
-  .pc-ep-end { font-size: 13px; }
+  .pulse-value-start strong { font-size: 18px; }
+  .pulse-value-current strong { font-size: 21px; }
+  .pulse-change-percent { font-size: 17px; }
+  .pulse-change-absolute { font-size: 13px; }
+  .pc-period { font-size: 11px; gap: 12px; }
+  .pc-chart { height: 56px; }
   .ai-lead { font-size: 16px; }
   .rc-title { font-size: 22px; }
   .ev-legend { justify-content: flex-start; flex-wrap: wrap; gap: 12px; }
@@ -1650,8 +1706,8 @@ h1, h2, h3, h4 { margin: 0; }
   .foot-cols { grid-template-columns: 1fr 1fr; }
   .foot-bot { flex-direction: column; gap: 8px; text-align: center; font-size: 11px; }
 
-  .pcard { padding: 18px 16px 14px; }
-  .pc-hero-caption { margin-bottom: 10px; padding-bottom: 10px; }
+  .pulse-grid { gap: 12px; border: none; }
+  .pcard { padding: 17px 17px 14px; border: 1px solid var(--divider); }
 
   .cal-shell, .cal-month, .cal-side, .cal-days, .cd { min-width: 0; }
   .cal-month { padding: 18px 14px 16px; overflow: hidden; }
@@ -1701,9 +1757,7 @@ h1, h2, h3, h4 { margin: 0; }
 }
 
 @media (max-width: 400px) {
-  .pc-hero-pct { font-size: 17px; }
-  .pc-hero-abs { font-size: 13px; }
-  .pc-period-dates, .pc-period-label { font-size: 9.5px; }
+  .pc-period { font-size: 10px; }
   .cd-ev { font-size: 7.5px; }
   .cd .cd-n { font-size: 10px; }
   .cd { min-height: 40px; }

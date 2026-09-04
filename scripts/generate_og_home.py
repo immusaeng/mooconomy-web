@@ -29,23 +29,34 @@ for _s in (sys.stdout, sys.stderr):
 from playwright.sync_api import sync_playwright
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-SOURCE_HTML = os.path.join(ROOT, "scripts", "og", "home-editorial-3lines.html")
-OUT_PATH = os.path.join(ROOT, "assets", "og", "og-home-editorial-3lines-v4.png")
 WIDTH, HEIGHT = 1200, 630
 
+# (source html, output png) pairs. 새 버전을 추가할 땐 이전 버전을
+# 덮어쓰거나 지우지 않고 새 항목을 추가한다 — SNS 캐시가 예전 파일을
+# 계속 참조할 수 있어 기존 URL은 죽이지 않는다(§3 "기존 파일은 삭제
+# 하거나 덮어쓰지 않는다").
+VARIANTS = {
+    "v4": ("home-editorial-3lines.html", "og-home-editorial-3lines-v4.png"),
+    "v5": ("home-overnight-context.html", "og-home-overnight-context-v5.png"),
+}
 
-def generate():
-    os.makedirs(os.path.dirname(OUT_PATH), exist_ok=True)
+
+def generate(variant="v5"):
+    source_name, out_name = VARIANTS[variant]
+    source_html = os.path.join(ROOT, "scripts", "og", source_name)
+    out_path = os.path.join(ROOT, "assets", "og", out_name)
+    os.makedirs(os.path.dirname(out_path), exist_ok=True)
     with sync_playwright() as p:
         browser = p.chromium.launch()
         page = browser.new_page(viewport={"width": WIDTH, "height": HEIGHT}, device_scale_factor=1)
-        page.goto("file:///" + SOURCE_HTML.replace("\\", "/"), wait_until="load")
+        page.goto("file:///" + source_html.replace("\\", "/"), wait_until="load")
         page.wait_for_timeout(200)  # 로컬 @font-face 로드 여유
-        page.screenshot(path=OUT_PATH, clip={"x": 0, "y": 0, "width": WIDTH, "height": HEIGHT})
+        page.screenshot(path=out_path, clip={"x": 0, "y": 0, "width": WIDTH, "height": HEIGHT})
         browser.close()
-    size = os.path.getsize(OUT_PATH)
-    print(f"wrote {OUT_PATH} ({size} bytes)")
+    size = os.path.getsize(out_path)
+    print(f"wrote {out_path} ({size} bytes)")
 
 
 if __name__ == "__main__":
-    generate()
+    requested = sys.argv[1].lstrip("-") if len(sys.argv) > 1 else "v5"
+    generate(requested if requested in VARIANTS else "v5")
