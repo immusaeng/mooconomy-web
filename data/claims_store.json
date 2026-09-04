@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-03T06:44:44+09:00",
+  "updatedAt": "2026-09-05T06:43:07+09:00",
   "claims": {
     "2026-07-19-c1": {
       "schemaVersion": 1,
@@ -2247,7 +2247,7 @@
       },
       "thresholdRuleId": "pct_020",
       "confidence": null,
-      "status": "unresolved",
+      "status": "hit",
       "revision": {
         "version": 1,
         "contentHash": "807745edc26a6b8e5ea150aaa22b34e52d2043cb68a7a9879a5b4c563439b28e",
@@ -2258,6 +2258,67 @@
         "asOf": "2026-09-02",
         "benchmarkValue": null,
         "benchmarkAsOf": null
+      },
+      "resolution": {
+        "resolutionId": "2026-09-03-c1-res",
+        "claimId": "2026-09-03-c1",
+        "resolvedAt": "2026-09-05T06:43:01+09:00",
+        "verdict": "hit",
+        "metricId": "usdkrw",
+        "comparisonType": "absolute_return",
+        "startValue": 1358.25,
+        "endValue": 1345.99,
+        "changeValue": -0.9026320633167672,
+        "changeUnit": "%",
+        "benchmarkMetricId": null,
+        "benchmarkStartValue": null,
+        "benchmarkEndValue": null,
+        "neutralLower": -0.2,
+        "neutralUpper": 0.2,
+        "neutralBand": 0.2,
+        "dataProvider": "FinanceDataReader",
+        "sourceUrl": "",
+        "observedAt": "2026-09-04",
+        "explanation": "실제 변화가 예상한 하락 방향과 일치했습니다."
+      }
+    },
+    "2026-09-05-c1": {
+      "schemaVersion": 1,
+      "claimId": "2026-09-05-c1",
+      "publicationId": "2026-09-05",
+      "issuedAt": "2026-09-05T06:43:07+09:00",
+      "dataCutoffAt": "2026-09-05T06:43:07+09:00",
+      "lockedAt": "2026-09-05T06:43:07+09:00",
+      "claimMode": "auto",
+      "verificationType": "proxy",
+      "topic": "코스닥 vs 코스피 상대성과(LLM 후보, 5거래일)",
+      "sourceNewsIds": [],
+      "observationText": "코스닥은 전일 대비 +2.95%, 코스피는 +1.64% — 상대 괴리 +1.31%p.",
+      "interpretationText": "코스닥이 코스피 대비 상대적으로 강세 또는 약세를 보이는지 검증합니다.",
+      "claimText": "정부의 대규모 지원책 발표에 힘입어 로봇 관련 주가가 20% 이상 큰 폭으로 상승했습니다. — 코스닥가 코스피 대비 강세를 이어갈까요?",
+      "metricId": "kosdaq",
+      "benchmarkMetricId": "kospi",
+      "comparisonType": "excess_return",
+      "expectedDirection": "up",
+      "horizon": {
+        "type": "multi_session",
+        "market": "KR",
+        "resolutionAt": "2026-09-06",
+        "sessions": 5
+      },
+      "thresholdRuleId": "pct_030",
+      "confidence": null,
+      "status": "unresolved",
+      "revision": {
+        "version": 1,
+        "contentHash": "20d6316d12850f3d8b15c3fc228e84a9759ab8168fff3cf71ddbba5cdaad7b47",
+        "correctedFrom": null
+      },
+      "baseline": {
+        "value": 813.5,
+        "asOf": "2026-09-04",
+        "benchmarkValue": 6687.21,
+        "benchmarkAsOf": "2026-09-04"
       },
       "resolution": null
     }
