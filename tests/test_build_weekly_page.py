@@ -255,5 +255,56 @@ class CanonicalLatestArchiveLinkingTests(_TempWebRepoTestCase):
         self.assertNotIn("2026-W31", html)  # prev/next에 옛 fixture가 안 나타남
 
 
+class WeeklyHtmlSharedShellAndCanonicalPolicyTests(unittest.TestCase):
+    """2026-09-05(TASK_ID=CORRECT_WEEKLY_PHASE0_PRS_BEFORE_MERGE) — weekly.html
+    자체(index.json을 소비하는 클라이언트 페이지)에 대한 회귀 가드.
+    PR#14가 도입한 공유 셸/noindex 정책을 이 파일이 실수로 되돌리지
+    않았는지, has_canonical_page=false인 fixture가 실제 리포트 링크로
+    노출되지 않는지 소스 레벨로 확인한다(DOM 실행 환경이 이 저장소에
+    없어 문자열 검사로 대체 — tests/test_build_issue_page_share.py의
+    ShareScriptSourceTests와 동일한 검증 방식)."""
+
+    @classmethod
+    def setUpClass(cls):
+        weekly_html_path = os.path.abspath(
+            os.path.join(os.path.dirname(__file__), "..", "weekly.html"))
+        with open(weekly_html_path, encoding="utf-8") as f:
+            cls.html = f.read()
+
+    def test_pr14_shared_shell_markers_present(self):
+        self.assertIn('<header class="slim-header">', self.html)
+        self.assertIn('<nav class="breadcrumb"', self.html)
+        self.assertIn('<nav class="mob-tabs"', self.html)
+        self.assertIn('shared-shell.css', self.html)
+        self.assertIn('styles.css', self.html)
+
+    def test_noindex_policy_preserved(self):
+        self.assertIn('<meta name="robots" content="noindex,nofollow">', self.html)
+
+    def test_no_leftover_merge_conflict_markers(self):
+        for marker in ("<<<<<<<", "=======", ">>>>>>>"):
+            self.assertNotIn(marker, self.html)
+
+    def test_old_custom_nav_theme_removed(self):
+        # PR#15 원본이 쓰던 독립 navy/gold 테마·GNB가 공유 셸로 완전히
+        # 대체됐는지 확인 — 두 네비게이션이 동시에 남아있으면 안 된다.
+        self.assertNotIn("--navy:", self.html)
+        self.assertNotIn('class="mobile-nav"', self.html)
+
+    def test_client_js_filters_on_has_canonical_page_true(self):
+        self.assertIn("has_canonical_page === true", self.html)
+
+    def test_client_js_never_renders_all_entries_unconditionally(self):
+        # weeks 배열을 필터링 없이 그대로 .map()하는 코드가 없어야 한다
+        # (있으면 W31/W32 같은 fixture도 실제 리포트 링크처럼 노출될 위험).
+        self.assertNotIn("(idx.weeks || []).map(", self.html)
+
+    def test_empty_state_fallback_markup_present(self):
+        # 실제 발행본이 하나도 없을 때(현재 상태) 보여줄 기존 "개편 준비
+        # 중" 안내문이 그대로 있어야 한다 — 완전히 새 문구로 갈아엎지 않음.
+        self.assertIn('id="weeklyEmptyState"', self.html)
+        self.assertIn("정식 발행물로", self.html)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
