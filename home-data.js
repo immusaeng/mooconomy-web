@@ -41,7 +41,13 @@
     return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
   }
   var DOW_KR = ['일', '월', '화', '수', '목', '금', '토'];
-  var DOW_EN = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+  var DOW_KO = ['일', '월', '화', '수', '목', '금', '토'];
+  var MONTH_KO = ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'];
+  var COUNTRY_KO = {
+    US: '미국', KR: '한국', EU: '유로존', EUROZONE: '유로존', JP: '일본',
+    CN: '중국', UK: '영국', GB: '영국',
+  };
+  function countryLabel(code) { return (code && COUNTRY_KO[code]) || code; }
   function fmtKoreanDate(dateStr) {
     var d = new Date(dateStr + 'T00:00:00+09:00');
     if (isNaN(d)) return dateStr;
@@ -211,11 +217,28 @@
      전부 같은 dir 하나에서 파생되므로 부호가 어긋날 수 없다 — 그래도
      방어적으로 한 번 더 assert해서, 로직이 나중에 바뀌어도 조용히
      틀린 화면이 나가지 않게 한다(콘솔 경고 + 해당 카드 렌더 중단). */
+  // history 스냅샷의 indicator 객체엔 displayValue가 없다(그건
+  // home.json 전용 필드) — raw value를 지표별 decimals/단위 정책으로
+  // 직접 포맷한다(같은 정책을 pc-value-current/-start 양쪽에 동일 적용).
+  function fmtIndicatorValue(value, meta) {
+    var decimals = meta.decimals != null ? meta.decimals : 2;
+    var text = value.toLocaleString('en-US', { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
+    var unit = meta.absUnit || '';
+    if (unit) text = meta.absPrefix ? unit + text : text + unit;
+    return text;
+  }
+
+  /* 2026-09-04(TASK_ID=HOMEPAGE_NARRATIVE_PULSE_VALUES_AND_CALENDAR_KO §4-7)
+     정보 위계: 시작 지수 → 현재 지수 → 방향 → 절대/등락률 → sparkline →
+     날짜. 계산식은 그대로(§7): absoluteChange = current - start,
+     percentChange = ((current/start)-1)*100 — 바뀌는 건 어떤 숫자를
+     크고 굵게 보여주느냐일 뿐, 계산 로직은 위 renderPulse()가 이미
+     검증한 그대로 재사용한다. */
   function renderPulseCard(id, rows) {
     var meta = IND_META[id];
     var series = rows.map(function (r) {
       var ind = (r.data.indicators || []).find(function (x) { return x.id === id; });
-      return ind && typeof ind.value === 'number' ? { date: r.date, value: ind.value, displayValue: ind.displayValue } : null;
+      return ind && typeof ind.value === 'number' ? { date: r.date, value: ind.value } : null;
     }).filter(Boolean);
     if (series.length < 2) return null;
 
@@ -248,25 +271,28 @@
     var pointsAttr = pts.join(' ');
     var fillPoints = pointsAttr + ' 240,60 0,60';
 
-    return '<a class="pcard" href="/markets.html">' +
-      '<div class="pc-head"><span class="pc-name">' + esc(meta.name) + '</span><span class="pc-code">' + esc(meta.code) + '</span></div>' +
-      '<div class="pc-period"><span class="pc-period-dates">' + fmtMD(start.date) + ' → ' + fmtMD(end.date) + '</span><span class="pc-period-label">발행일 기준 14일</span></div>' +
-      '<svg class="pc-chart" viewBox="0 0 240 60" preserveAspectRatio="none">' +
+    // 목표 기간(발행일 기준 14일 전 → 발행일)과 실제 데이터 날짜(휴장 시
+    // 가장 가까운 이전 거래일)가 다를 수 있다 — 카드에는 실제 값이 쓰인
+    // 날짜만 표시하고, 목표 기간은 섹션 상단 pulseRange가 이미 별도로
+    // 안내한다(§6 날짜 정책 — 여기서 다시 병기해 중복하지 않는다).
+    return '<a class="pcard pulse-card" href="/markets.html">' +
+      '<header class="pc-head pulse-card-head"><h3 class="pc-name">' + esc(meta.name) + '</h3><span class="pc-code pulse-code">' + esc(meta.code) + '</span></header>' +
+      '<div class="pc-period pulse-period">' +
+        '<time class="pulse-start-date">' + fmtMD(start.date) + '</time><span aria-hidden="true">→</span><time class="pulse-current-date">' + fmtMD(end.date) + '</time>' +
+      '</div>' +
+      '<div class="pulse-values">' +
+        '<div class="pulse-value pulse-value-start"><span class="pulse-value-label">시작</span><strong>' + esc(fmtIndicatorValue(start.value, meta)) + '</strong></div>' +
+        '<div class="pulse-value-arrow" aria-hidden="true">→</div>' +
+        '<div class="pulse-value pulse-value-current"><span class="pulse-value-label">현재</span><strong>' + esc(fmtIndicatorValue(end.value, meta)) + '</strong></div>' +
+      '</div>' +
+      '<div class="pulse-change ' + dir + '">' +
+        '<span class="pulse-change-absolute">' + arrow + ' ' + esc(absText) + '</span>' +
+        '<strong class="pulse-change-percent">' + (pctChange < 0 ? '−' : '') + Math.abs(pctChange).toFixed(2) + '%</strong>' +
+      '</div>' +
+      '<svg class="pc-chart pulse-chart" viewBox="0 0 240 60" preserveAspectRatio="none">' +
         '<polyline points="' + fillPoints + '" fill="var(--gold-tint)" stroke="none" opacity=".35"/>' +
         '<polyline points="' + pointsAttr + '" fill="none" stroke="var(--ink)" stroke-width="1.6"/>' +
       '</svg>' +
-      '<div class="pc-hero pc-hero-' + dir + '">' +
-        '<span class="pc-hero-arrow">' + arrow + '</span>' +
-        '<span class="pc-hero-abs">' + esc(absText) + '</span>' +
-        '<span class="pc-hero-sep">·</span>' +
-        '<span class="pc-hero-pct">' + (pctChange < 0 ? '−' : '') + Math.abs(pctChange).toFixed(2) + '%</span>' +
-      '</div>' +
-      '<div class="pc-hero-caption">최근 14일 변화</div>' +
-      '<div class="pc-endpoints">' +
-        '<span class="pc-ep-start">시작 ' + esc(start.displayValue) + '</span>' +
-        '<span class="pc-ep-arrow">→</span>' +
-        '<span class="pc-ep-end">현재 ' + esc(end.displayValue) + '</span>' +
-      '</div>' +
       '<div class="pc-foot">' +
         '<span class="pc-range">' + series.length + '일 저 ' + min.toFixed(2) + ' · 고 ' + max.toFixed(2) + '</span>' +
       '</div>' +
@@ -363,7 +389,8 @@
     if (!events.length) return null;
     return events.map(function (e) {
       return {
-        id: e.id, time: e.scheduledDate, country: e.country, title: e.title,
+        id: e.id, time: e.scheduledDate, country: e.country,
+        title: e.titleKo || e.title, originalTitle: e.originalTitle || e.title,
         importance: e.importance === 'unknown' ? null : e.importance,
         resultText: null, resultStatus: e.status,
       };
@@ -391,7 +418,7 @@
     var todayStr = dateToYMD(today);
     $('cmhNum').textContent = String(m + 1).padStart(2, '0');
     $('cmhYear').textContent = y;
-    $('cmhMo').textContent = today.toLocaleString('en-US', { month: 'long' });
+    $('cmhMo').textContent = MONTH_KO[m];
     $('evMonthLabel').textContent = '· ' + (m + 1) + '월 이벤트 캘린더';
 
     var monthEvents = events.filter(function (e) { return e.time && e.time.slice(0, 7) === (y + '-' + String(m + 1).padStart(2, '0')); });
@@ -416,9 +443,10 @@
       var inner = '<span class="cd-n">' + day + '</span>';
       if (evs.length) {
         var tagCls = evs[0].country === 'KR' ? 'cd-ev-kr' : evs[0].importance === 'high' ? 'cd-ev-hi' : 'cd-ev-us';
-        inner += '<span class="cd-ev ' + tagCls + '">' + esc(evs[0].title) + '</span>';
+        var evTitleAttr = (evs[0].originalTitle && evs[0].originalTitle !== evs[0].title) ? ' title="원문: ' + esc(evs[0].originalTitle) + '"' : '';
+        inner += '<span class="cd-ev ' + tagCls + '"' + evTitleAttr + ' lang="ko">' + esc(evs[0].title) + '</span>';
       }
-      if (ds === todayStr) inner += '<span class="cd-today-mark">TODAY</span>';
+      if (ds === todayStr) inner += '<span class="cd-today-mark">오늘</span>';
       cells.push('<div class="' + cls.join(' ') + '" data-day="' + day + '">' + inner + '</div>');
     }
     $('calDays').innerHTML = cells.join('');
@@ -434,11 +462,11 @@
         var isToday = e.time === todayStr;
         var isHi = e.importance === 'high';
         return '<li class="cl-item' + (isToday ? ' cl-today' : '') + (isHi ? ' cl-hi' : '') + '">' +
-          '<div class="cl-day"><span class="cl-d">' + d.getDate() + '</span><span class="cl-dow">' + DOW_EN[d.getDay()] + '</span></div>' +
+          '<div class="cl-day"><span class="cl-d">' + d.getDate() + '</span><span class="cl-dow">' + DOW_KO[d.getDay()] + '</span></div>' +
           '<div class="cl-body">' +
-            '<div class="cl-tag-row"><span class="cl-tag' + (isHi ? ' cl-t-hi' : '') + '">' + (isHi ? 'HIGH IMPACT' : esc(e.country || '매크로')) + '</span>' +
+            '<div class="cl-tag-row"><span class="cl-tag' + (isHi ? ' cl-t-hi' : '') + '">' + (isHi ? '주요' : esc(countryLabel(e.country) || '매크로')) + '</span>' +
             (isToday ? '<span class="cl-status">● 오늘</span>' : '') + '</div>' +
-            '<h5 class="cl-title">' + esc(e.title) + '</h5>' +
+            '<h5 class="cl-title" lang="ko">' + esc(e.title) + '</h5>' +
             (e.resultText ? '<p class="cl-desc">' + esc(e.resultText) + '</p>' : '') +
           '</div>' +
         '</li>';
