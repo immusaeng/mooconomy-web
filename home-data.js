@@ -275,19 +275,24 @@
     // 가장 가까운 이전 거래일)가 다를 수 있다 — 카드에는 실제 값이 쓰인
     // 날짜만 표시하고, 목표 기간은 섹션 상단 pulseRange가 이미 별도로
     // 안내한다(§6 날짜 정책 — 여기서 다시 병기해 중복하지 않는다).
+    // 2026-09-04(TASK_ID=HOMEPAGE_OG_TITLE_AND_PULSE_HORIZONTAL_FLOW_HOTFIX §3)
+    // 시작→현재를 위아래 두 블록(날짜 행 + 값 행)으로 쪼개지 않고, 날짜·
+    // 라벨·값·변화량을 "시작 지점"/"현재 지점" 두 묶음으로 각각 한
+    // 컬럼에 모아 좌(시작)→가운데(화살표)→우(현재)로 배치한다 — 계산
+    // 값·데이터는 위에서 이미 구한 것 그대로, 마크업 구조만 바뀐다.
     return '<a class="pcard pulse-card" href="/markets.html">' +
       '<header class="pc-head pulse-card-head"><h3 class="pc-name">' + esc(meta.name) + '</h3><span class="pc-code pulse-code">' + esc(meta.code) + '</span></header>' +
-      '<div class="pc-period pulse-period">' +
-        '<time class="pulse-start-date">' + fmtMD(start.date) + '</time><span aria-hidden="true">→</span><time class="pulse-current-date">' + fmtMD(end.date) + '</time>' +
-      '</div>' +
-      '<div class="pulse-values">' +
-        '<div class="pulse-value pulse-value-start"><span class="pulse-value-label">시작</span><strong>' + esc(fmtIndicatorValue(start.value, meta)) + '</strong></div>' +
-        '<div class="pulse-value-arrow" aria-hidden="true">→</div>' +
-        '<div class="pulse-value pulse-value-current"><span class="pulse-value-label">현재</span><strong>' + esc(fmtIndicatorValue(end.value, meta)) + '</strong></div>' +
-      '</div>' +
-      '<div class="pulse-change ' + dir + '">' +
-        '<span class="pulse-change-absolute">' + arrow + ' ' + esc(absText) + '</span>' +
-        '<strong class="pulse-change-percent">' + (pctChange < 0 ? '−' : '') + Math.abs(pctChange).toFixed(2) + '%</strong>' +
+      '<div class="pulse-flow">' +
+        '<div class="pulse-point pulse-start">' +
+          '<span class="pulse-date">' + fmtMD(start.date) + '</span>' +
+          '<div class="pulse-value-line"><span class="pulse-label">시작</span><strong class="pulse-value">' + esc(fmtIndicatorValue(start.value, meta)) + '</strong></div>' +
+        '</div>' +
+        '<div class="pulse-arrow" aria-hidden="true">→</div>' +
+        '<div class="pulse-point pulse-current">' +
+          '<span class="pulse-date">' + fmtMD(end.date) + '</span>' +
+          '<div class="pulse-value-line"><span class="pulse-label">현재</span><strong class="pulse-value">' + esc(fmtIndicatorValue(end.value, meta)) + '</strong></div>' +
+          '<span class="pulse-change ' + dir + '">' + arrow + ' ' + esc(absText) + ' · ' + (pctChange < 0 ? '−' : '+') + Math.abs(pctChange).toFixed(2) + '%</span>' +
+        '</div>' +
       '</div>' +
       '<svg class="pc-chart pulse-chart" viewBox="0 0 240 60" preserveAspectRatio="none">' +
         '<polyline points="' + fillPoints + '" fill="var(--gold-tint)" stroke="none" opacity=".35"/>' +

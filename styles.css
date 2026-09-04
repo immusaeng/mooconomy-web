@@ -629,9 +629,23 @@ h1, h2, h3, h4 { margin: 0; }
 /* 기간 — 실제 데이터가 존재하는 날짜(휴장 시 가장 가까운 이전 거래일).
    목표 기간(발행일-14일 → 발행일)은 섹션 상단 pulseRange가 별도 표시 —
    여기서 다시 병기해 헷갈리게 하지 않는다. */
-.pc-period {
-  display: flex; align-items: baseline; gap: 6px;
+/* 2026-09-04(TASK_ID=HOMEPAGE_OG_TITLE_AND_PULSE_HORIZONTAL_FLOW_HOTFIX §3-6)
+   시작→현재를 좌→우 한 줄 흐름으로: 3열 grid(시작 | 화살표 | 현재).
+   날짜·라벨·값·변화량을 "시작 지점"/"현재 지점" 두 컬럼에 각각 모아
+   위아래로 쌓이지 않게 한다. 계산값(§7)은 그대로, 마크업 구조만 바뀜. */
+.pulse-flow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 28px minmax(0, 1fr);
+  align-items: center;
+  column-gap: 10px;
   margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed var(--divider);
+}
+.pulse-point { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.pulse-start { text-align: left; }
+.pulse-current { text-align: right; }
+.pulse-date {
   font-family: var(--sans);
   font-size: 11.5px;
   font-weight: 700;
@@ -639,29 +653,21 @@ h1, h2, h3, h4 { margin: 0; }
   letter-spacing: 0.02em;
   font-variant-numeric: tabular-nums;
 }
-.pc-period span[aria-hidden] { color: var(--gold); font-weight: 400; }
-
-/* 정보 위계 1·2순위 — 시작 지수 → 현재 지수. 카드에서 가장 중요한
-   숫자이므로 sparkline보다 먼저, 가장 크게 보여준다. 색은 ink 고정 —
-   상승/하락 색은 아래 pulse-change에서만 쓴다(숫자 자체를 붉게/
-   푸르게 칠하지 않는다 — 국내 관례 색은 "변화"에만 적용). */
-.pulse-values {
-  display: flex; align-items: baseline; justify-content: space-between;
-  gap: 10px;
-  margin-bottom: 10px;
+.pulse-current .pulse-date { color: var(--gold-deep); }
+.pulse-value-line {
+  display: flex; align-items: baseline; gap: 6px;
   font-variant-numeric: tabular-nums;
 }
-.pulse-value { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
-.pulse-value-current { align-items: flex-end; text-align: right; }
-.pulse-value-label {
+.pulse-current .pulse-value-line { flex-direction: row-reverse; }
+.pulse-label {
   font-family: var(--sans);
   font-size: 11.5px;
   font-weight: 700;
   letter-spacing: 0.03em;
   color: var(--meta);
 }
-.pulse-value-current .pulse-value-label { color: var(--gold-deep); }
-.pulse-value strong {
+.pulse-current .pulse-label { color: var(--gold-deep); }
+.pulse-value {
   font-family: var(--serif);
   font-weight: 700;
   font-style: normal;
@@ -669,32 +675,22 @@ h1, h2, h3, h4 { margin: 0; }
   line-height: 1;
   white-space: nowrap;
 }
-.pulse-value-start strong { font-size: 22px; }
-.pulse-value-current strong { font-size: 26px; font-weight: 800; }
-.pulse-value-arrow { font-size: 20px; color: var(--gold); flex-shrink: 0; align-self: center; }
+.pulse-start .pulse-value { font-size: 22px; }
+.pulse-current .pulse-value { font-size: 26px; font-weight: 800; }
+.pulse-arrow { text-align: center; font-size: 20px; color: var(--gold); align-self: center; }
 
-/* 정보 위계 3·4순위 — 방향·절대 변동폭·등락률. 숫자 자체(시작/현재)보다
-   작게 — 색은 여기(과 화살표)에만 쓴다. 색만으로 방향을 전달하지
+/* 방향·절대 변동폭·등락률 — 현재값 바로 아래, 숫자 자체(시작/현재)보다
+   작게. 색은 여기(와 화살표)에만 쓴다 — 색만으로 방향을 전달하지
    않도록 ▲/▼를 항상 병기한다. */
 .pulse-change {
-  display: flex; align-items: baseline; gap: 10px;
-  margin-bottom: 12px;
-  padding-bottom: 12px;
-  border-bottom: 1px dashed var(--divider);
-  font-variant-numeric: tabular-nums;
-}
-.pulse-change-absolute {
+  display: block;
+  margin-top: 2px;
   font-family: var(--serif);
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
   letter-spacing: -0.005em;
-}
-.pulse-change-percent {
-  font-family: var(--serif);
-  font-size: 19px;
-  font-weight: 800;
-  letter-spacing: -0.01em;
-  font-style: normal;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
 }
 .pulse-change.up   { color: var(--red); }
 .pulse-change.dn   { color: var(--blue); }
@@ -1670,11 +1666,13 @@ h1, h2, h3, h4 { margin: 0; }
   .pulse-grid { grid-template-columns: 1fr; }
   .pulse-flag { flex-direction: column; align-items: flex-start; gap: 6px; }
   .pf-r { font-size: 11px; }
-  .pulse-value-start strong { font-size: 18px; }
-  .pulse-value-current strong { font-size: 21px; }
-  .pulse-change-percent { font-size: 17px; }
-  .pulse-change-absolute { font-size: 13px; }
-  .pc-period { font-size: 11px; gap: 12px; }
+  .pulse-flow { grid-template-columns: minmax(0, 1fr) 20px minmax(0, 1fr); column-gap: 6px; }
+  .pulse-start .pulse-value { font-size: 18px; }
+  .pulse-current .pulse-value { font-size: 21px; }
+  .pulse-arrow { font-size: 18px; }
+  .pulse-date { font-size: 10.5px; }
+  .pulse-label { font-size: 10.5px; }
+  .pulse-change { font-size: 12.5px; white-space: normal; line-height: 1.3; }
   .pc-chart { height: 56px; }
   .ai-lead { font-size: 16px; }
   .rc-title { font-size: 22px; }
@@ -1757,7 +1755,8 @@ h1, h2, h3, h4 { margin: 0; }
 }
 
 @media (max-width: 400px) {
-  .pc-period { font-size: 10px; }
+  .pulse-date { font-size: 10px; }
+  .pulse-flow { grid-template-columns: minmax(0, 1fr) 18px minmax(0, 1fr); column-gap: 4px; }
   .cd-ev { font-size: 7.5px; }
   .cd .cd-n { font-size: 10px; }
   .cd { min-height: 40px; }
