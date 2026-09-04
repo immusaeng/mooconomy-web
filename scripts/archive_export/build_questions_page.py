@@ -11,8 +11,11 @@ styles.css를 그대로 재사용한다(calendar/index.html과 동일 패턴) �
 """
 import json
 import os
+import sys
 
-_VERDICT_LABEL = {"hit": "일치", "neutral": "부분일치", "miss": "불일치", "unresolved": "판단보류"}
+sys.path.insert(0, os.path.dirname(__file__))
+import verdict_labels  # noqa: E402
+
 _DIRECTION_LABEL = {"up": "상승", "down": "하락"}
 
 _PAGE_HEAD = """<!DOCTYPE html>
@@ -103,7 +106,7 @@ _PAGE_HEAD = """<!DOCTYPE html>
     <span class="ph-meta-sep"></span>
     <span>판정 완료 <b>__COMPLETED__</b>건 · 확인 중 <b>__PENDING__</b>건</span>
     <span class="ph-meta-sep"></span>
-    <span>일치 <b>__HIT__</b> · 부분일치 <b>__NEUTRAL__</b> · 불일치 <b>__MISS__</b> · 판단보류 <b>__UNRESOLVED__</b></span>
+    <span>적중 <b>__HIT__</b> · 중립 <b>__NEUTRAL__</b> · 불일치 <b>__MISS__</b> · 판정 대기 <b>__UNRESOLVED__</b></span>
   </div>
 </div>
 
@@ -207,7 +210,7 @@ def render_question_card(q):
     card = card.replace("__CHECK_DUE__", q.get("check_due_at") or "—")
     card = card.replace("__RESULT__", result_display)
     card = card.replace("__VERDICT__", q["verdict"])
-    card = card.replace("__VERDICT_LABEL__", _VERDICT_LABEL.get(q["verdict"], q["verdict"]))
+    card = card.replace("__VERDICT_LABEL__", verdict_labels.label_for_status(q["verdict"]))
     card = card.replace("__EVIDENCE_BLOCK__", evidence_block)
     return card
 
