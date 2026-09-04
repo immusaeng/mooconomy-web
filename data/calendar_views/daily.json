@@ -3,8 +3,8 @@
   "generatedAt": "2026-09-03T22:41:04.681039+00:00",
   "timezone": "Asia/Seoul",
   "range": {
-    "from": "2026-09-03",
-    "to": "2026-09-05"
+    "from": "2026-09-04",
+    "to": "2026-09-06"
   },
   "freshness": {
     "status": "partial",
@@ -16,36 +16,6 @@
     ]
   },
   "events": [
-    {
-      "id": "fred-gdpnow-2026-09-03-df48cb205205",
-      "title": "GDPNow",
-      "originalTitle": "GDPNow",
-      "country": "US",
-      "category": "macro",
-      "importance": "high",
-      "scheduledDate": "2026-09-03",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "FRED",
-      "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=386",
-      "sourceEventId": "386",
-      "updatedAt": "2026-09-03T22:41:04.656508+00:00",
-      "confidence": "single_source",
-      "sourceRefs": [
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=386",
-          "sourceTier": "official_aggregator"
-        }
-      ]
-    },
     {
       "id": "fred-federal-funds-data-2026-09-04-cc8238c768fa",
       "title": "Federal Funds Data",
@@ -74,7 +44,8 @@
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=378",
           "sourceTier": "official_aggregator"
         }
-      ]
+      ],
+      "titleKo": "미국 연방기금금리 데이터"
     },
     {
       "id": "fred-fomc-press-release-2026-09-04-923a45a43812",
@@ -109,7 +80,8 @@
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
           "sourceTier": "official_aggregator"
         }
-      ]
+      ],
+      "titleKo": "FOMC 보도자료"
     },
     {
       "id": "fred-kansas-city-fed-policy-rate-skew-2026-09-04-449046e7b4f3",
@@ -139,7 +111,8 @@
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=4",
           "sourceTier": "official_aggregator"
         }
-      ]
+      ],
+      "titleKo": "캔자스시티 연은 정책금리 스큐지수"
     },
     {
       "id": "fred-kansas-city-fed-policy-rate-uncertainty-2026-09-04-ed092813b897",
@@ -169,16 +142,17 @@
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=739",
           "sourceTier": "official_aggregator"
         }
-      ]
+      ],
+      "titleKo": "캔자스시티 연은 정책금리 불확실성지수"
     },
     {
-      "id": "fred-housing-inventory-core-metrics-2026-09-03-757326589f4b",
-      "title": "Housing Inventory Core Metrics",
-      "originalTitle": "Housing Inventory Core Metrics",
+      "id": "fred-fomc-press-release-2026-09-06-08db658029c8",
+      "title": "FOMC Press Release",
+      "originalTitle": "FOMC Press Release",
       "country": "US",
       "category": "macro",
-      "importance": "medium",
-      "scheduledDate": "2026-09-03",
+      "importance": "high",
+      "scheduledDate": "2026-09-06",
       "scheduledAt": null,
       "timezone": null,
       "timePrecision": "date",
@@ -189,17 +163,23 @@
       "unit": null,
       "sourceName": "FRED",
       "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=462",
-      "sourceEventId": "462",
-      "updatedAt": "2026-09-03T22:41:04.656638+00:00",
-      "confidence": "single_source",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+      "sourceEventId": "101",
+      "updatedAt": "2026-09-03T22:41:04.656872+00:00",
+      "confidence": "cross_checked",
       "sourceRefs": [
         {
           "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=462",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+          "sourceTier": "official_aggregator"
+        },
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
           "sourceTier": "official_aggregator"
         }
-      ]
+      ],
+      "titleKo": "FOMC 보도자료"
     }
   ]
 }

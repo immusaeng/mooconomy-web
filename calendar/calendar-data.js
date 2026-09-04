@@ -29,8 +29,13 @@
   function dateToYMD(d) {
     return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
   }
-  var DOW_EN = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
-  var MONTH_EN = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  var DOW_KO = ['일', '월', '화', '수', '목', '금', '토'];
+  function monthLabel(y, m) { return y + '년 ' + (m + 1) + '월'; }
+  var COUNTRY_KO = {
+    US: '미국', KR: '한국', EU: '유로존', EUROZONE: '유로존', JP: '일본',
+    CN: '중국', UK: '영국', GB: '영국',
+  };
+  function countryLabel(code) { return (code && COUNTRY_KO[code]) || code; }
 
   function mergeEvents(home, results) {
     var base = (home && Array.isArray(home.calendar)) ? home.calendar.slice() : [];
@@ -62,7 +67,8 @@
           (e.consensus !== null && e.consensus !== undefined ? ' (예상 ' + e.consensus + (e.unit ? e.unit : '') + ')' : '');
       }
       return {
-        id: e.id, time: e.scheduledDate, country: e.country, title: e.title,
+        id: e.id, time: e.scheduledDate, country: e.country,
+        title: e.titleKo || e.title, originalTitle: e.originalTitle || e.title,
         importance: e.importance === 'unknown' ? null : e.importance,
         resultText: resultText, resultStatus: e.status,
       };
@@ -86,13 +92,13 @@
     var monthKey = y + '-' + String(m + 1).padStart(2, '0');
 
     $('curYear').textContent = y + ' · ' + (m + 1);
-    $('curMonth').textContent = MONTH_EN[m];
+    $('curMonth').textContent = monthLabel(y, m);
 
     var prev = new Date(y, m - 1, 1), next = new Date(y, m + 1, 1);
     $('prevNum').textContent = String(prev.getMonth() + 1).padStart(2, '0');
-    $('prevName').textContent = MONTH_EN[prev.getMonth()] + ' · 지난달';
+    $('prevName').textContent = monthLabel(prev.getFullYear(), prev.getMonth()) + ' · 지난달';
     $('nextNum').textContent = String(next.getMonth() + 1).padStart(2, '0');
-    $('nextName').textContent = MONTH_EN[next.getMonth()] + ' · 다음달';
+    $('nextName').textContent = monthLabel(next.getFullYear(), next.getMonth()) + ' · 다음달';
     $('calPrev').href = '?m=' + prev.getFullYear() + '-' + String(prev.getMonth() + 1).padStart(2, '0');
     $('calNext').href = '?m=' + next.getFullYear() + '-' + String(next.getMonth() + 1).padStart(2, '0');
 
@@ -117,7 +123,8 @@
       if (evs.length) {
         inner += '<div class="bcd-evs">' + evs.map(function (e) {
           var tagCls = e.importance === 'high' ? 'bcd-ev-hi' : (e.country === 'KR' ? 'bcd-ev-kr' : 'bcd-ev-us');
-          return '<div class="bcd-ev ' + tagCls + '"><span class="bcd-ev-name">' + esc(e.title) + '</span></div>';
+          var titleAttr = (e.originalTitle && e.originalTitle !== e.title) ? ' title="원문: ' + esc(e.originalTitle) + '"' : '';
+          return '<div class="bcd-ev ' + tagCls + '"' + titleAttr + '><span class="bcd-ev-name" lang="ko">' + esc(e.title) + '</span></div>';
         }).join('') + '</div>';
       }
       cells.push('<div class="' + cls.join(' ') + '">' + inner + '</div>');
@@ -138,19 +145,19 @@
     if (byCountry.US) filters.push('<div class="cs-filter"><span class="cs-filter-dot d-us"></span><span class="cs-filter-label">미국</span><span class="cs-filter-count">' + byCountry.US + '</span></div>');
     if (byCountry.KR) filters.push('<div class="cs-filter"><span class="cs-filter-dot d-kr"></span><span class="cs-filter-label">한국</span><span class="cs-filter-count">' + byCountry.KR + '</span></div>');
     if (byCountry.other) filters.push('<div class="cs-filter"><span class="cs-filter-dot d-corp"></span><span class="cs-filter-label">기타</span><span class="cs-filter-count">' + byCountry.other + '</span></div>');
-    if (byCountry.hi) filters.push('<div class="cs-filter"><span class="cs-filter-dot d-hi"></span><span class="cs-filter-label">HIGH IMPACT</span><span class="cs-filter-count">' + byCountry.hi + '</span></div>');
+    if (byCountry.hi) filters.push('<div class="cs-filter"><span class="cs-filter-dot d-hi"></span><span class="cs-filter-label">주요</span><span class="cs-filter-count">' + byCountry.hi + '</span></div>');
     $('csFilters').innerHTML = filters.length ? filters.join('') : '<p class="cs-empty">이번 달 이벤트가 없습니다.</p>';
 
     var highlights = monthEvents.filter(function (e) { return e.importance === 'high'; }).slice(0, 3);
     if (highlights.length) {
       $('csHighlights').innerHTML = highlights.map(function (e) {
         var d = new Date(e.time + 'T00:00:00+09:00');
-        return '<div class="cs-highlight"><div class="csh-top"><span class="csh-day">' + d.getDate() + '</span><span class="csh-dow">' + DOW_EN[d.getDay()] + '</span></div>' +
-          '<h5 class="csh-title">' + esc(e.title) + '</h5></div>';
+        return '<div class="cs-highlight"><div class="csh-top"><span class="csh-day">' + d.getDate() + '</span><span class="csh-dow">' + DOW_KO[d.getDay()] + '</span></div>' +
+          '<h5 class="csh-title" lang="ko">' + esc(e.title) + '</h5></div>';
       }).join('');
     }
 
-    $('calListTitle').textContent = MONTH_EN[m] + ' · 날짜순 상세';
+    $('calListTitle').textContent = monthLabel(y, m) + ' · 날짜순 상세';
     $('calListMeta').textContent = monthEvents.length + '건';
     var tl = $('calTl');
     if (!monthEvents.length) {
@@ -160,12 +167,14 @@
         var d = new Date(e.time + 'T00:00:00+09:00');
         var isToday = e.time === todayStr;
         var isHi = e.importance === 'high';
-        var tags = isHi ? '<span class="ct-tag t-hi">HIGH IMPACT</span>' : '';
+        var tags = isHi ? '<span class="ct-tag t-hi">주요</span>' : '';
         if (e.country === 'KR') tags += '<span class="ct-tag t-kr">한국</span>';
-        else if (e.country) tags += '<span class="ct-tag">' + esc(e.country) + '</span>';
+        else if (e.country) tags += '<span class="ct-tag">' + esc(countryLabel(e.country)) + '</span>';
+        var origLine = (e.originalTitle && e.originalTitle !== e.title)
+          ? '<span class="ct-title-original" lang="en">' + esc(e.originalTitle) + '</span>' : '';
         return '<article class="ct-item' + (isToday ? ' ct-today' : '') + '">' +
-          '<div class="ct-date"><span class="ct-date-day">' + d.getDate() + '</span><span class="ct-date-dow">' + DOW_EN[d.getDay()] + '</span></div>' +
-          '<div class="ct-body"><div class="ct-tags">' + tags + '</div><h4 class="ct-title">' + esc(e.title) + '</h4>' +
+          '<div class="ct-date"><span class="ct-date-day">' + d.getDate() + '</span><span class="ct-date-dow">' + DOW_KO[d.getDay()] + '</span></div>' +
+          '<div class="ct-body"><div class="ct-tags">' + tags + '</div><h4 class="ct-title" lang="ko">' + esc(e.title) + '</h4>' + origLine +
           (e.resultText ? '<p class="ct-desc">' + esc(e.resultText) + '</p>' : '') + '</div>' +
           '</article>';
       }).join('');

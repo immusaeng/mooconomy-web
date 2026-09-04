@@ -40,6 +40,7 @@ from selectors import build_home_view, build_daily_view, build_weekly_view  # no
 from security import mask_secret  # noqa: E402
 from sources.base import fetch_safe  # noqa: E402
 from sources import fred, fmp, finnhub, bok, ecos, kosis, eia, dart  # noqa: E402
+from translate_ko import apply_ko_titles  # noqa: E402
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 CANONICAL_PATH = os.path.join(ROOT, "data", "calendar_events.json")
@@ -140,6 +141,12 @@ def build(config, use_fixtures, only_sources=None):
 
     merged = merge_events(raw_events)
     print(f"counts: pre-filter={pre_filter_count} in-range={post_filter_count} after-merge={len(merged)}")
+
+    ko_stats = apply_ko_titles(merged)
+    print(
+        f"titleKo: translated={ko_stats['translated_count']}/{ko_stats['total_events']} "
+        f"untranslated_unique={len(ko_stats['untranslated_unique_titles'])}"
+    )
 
     failed = [name for name, s in summaries.items() if not s["ok"] and s.get("error") != "disabled_by_config"]
     succeeded = [name for name, s in summaries.items() if s["ok"] and s.get("count", 0) > 0]

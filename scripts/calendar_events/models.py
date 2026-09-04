@@ -19,7 +19,7 @@ VALID_CONFIDENCE = {"confirmed", "cross_checked", "single_source"}
 def make_event(
     *, id, title, country, category, importance, scheduledDate,
     sourceName, sourceTier, sourceUrl,
-    originalTitle=None, scheduledAt=None, timezone=None, timePrecision="date",
+    originalTitle=None, titleKo=None, scheduledAt=None, timezone=None, timePrecision="date",
     status="scheduled", previous=None, consensus=None, actual=None, unit=None,
     sourceEventId=None, updatedAt=None, confidence="single_source", sourceRefs=None,
 ):
@@ -49,6 +49,7 @@ def make_event(
         "id": id,
         "title": title,
         "originalTitle": originalTitle if originalTitle is not None else title,
+        "titleKo": titleKo,
         "country": country,
         "category": category,
         "importance": importance,
