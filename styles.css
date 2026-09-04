@@ -152,22 +152,6 @@ h1, h2, h3, h4 { margin: 0; }
   margin-right: auto;
   letter-spacing: 0.01em;
 }
-.mast-method {
-  font-family: var(--sans);
-  font-size: 11.5px;
-  letter-spacing: 0.06em;
-  color: var(--gold-deep);
-  margin-top: 14px;
-}
-.mast-method span { font-weight: 700; }
-.mast-method i { font-style: normal; margin: 0 6px; color: var(--divider-gd); }
-.mast-method b {
-  font-weight: 400;
-  font-style: italic;
-  letter-spacing: 0;
-  color: var(--muted);
-  margin-left: 4px;
-}
 .mast-meta-row {
   display: flex; justify-content: space-between; align-items: center;
   padding: 14px 0;
@@ -577,7 +561,7 @@ h1, h2, h3, h4 { margin: 0; }
   line-height: 1.7;
   margin: 0;
   letter-spacing: -0.005em;
-  max-width: 78ch;
+  white-space: nowrap;
 }
 .pulse-lede b { color: var(--ink); font-style: normal; font-weight: 700; }
 .pulse-empty {
@@ -618,13 +602,23 @@ h1, h2, h3, h4 { margin: 0; }
   letter-spacing: -0.005em;
   margin: 0;
 }
-.pc-code {
+/* 카드 헤더 우측 — 등락 기호+절대변화+변화율 전체(예: ▼ 273.10 · -3.99%).
+   기존엔 여기가 KS11/CL=F 같은 원자재 심볼이었다 — 이 카드에서 가장
+   중요한 요약 정보를 대신 이 자리로 올렸다(색은 국내 관례 상승=적/
+   하락=청, ▲/▼ 기호를 항상 병기해 색만으로 방향을 전달하지 않는다). */
+.pc-change-header {
   font-family: var(--serif);
-  font-style: italic;
-  font-size: 11.5px;
-  color: var(--meta);
-  letter-spacing: 0.06em;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-left: 8px;
 }
+.pc-change-header.up   { color: var(--red); }
+.pc-change-header.dn   { color: var(--blue); }
+.pc-change-header.flat { color: var(--meta); }
 
 /* 기간 — 실제 데이터가 존재하는 날짜(휴장 시 가장 가까운 이전 거래일).
    목표 기간(발행일-14일 → 발행일)은 섹션 상단 pulseRange가 별도 표시 —
@@ -678,23 +672,6 @@ h1, h2, h3, h4 { margin: 0; }
 .pulse-start .pulse-value { font-size: 22px; }
 .pulse-current .pulse-value { font-size: 26px; font-weight: 800; }
 .pulse-arrow { text-align: center; font-size: 20px; color: var(--gold); align-self: center; }
-
-/* 방향·절대 변동폭·등락률 — 현재값 바로 아래, 숫자 자체(시작/현재)보다
-   작게. 색은 여기(와 화살표)에만 쓴다 — 색만으로 방향을 전달하지
-   않도록 ▲/▼를 항상 병기한다. */
-.pulse-change {
-  display: block;
-  margin-top: 2px;
-  font-family: var(--serif);
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: -0.005em;
-  font-variant-numeric: tabular-nums;
-  white-space: nowrap;
-}
-.pulse-change.up   { color: var(--red); }
-.pulse-change.dn   { color: var(--blue); }
-.pulse-change.flat { color: var(--meta); }
 
 .pc-chart {
   width: 100%;
@@ -786,13 +763,18 @@ h1, h2, h3, h4 { margin: 0; }
   padding: 2px 8px;
   margin-left: 6px;
 }
+/* flex-grow:1이 있으면 세 카드의 설명 글자 수가 다른 만큼 여기 보이지
+   않는 여백이 제각각 늘어나(과거 실측: daily rc-recent 시작 242px vs
+   weekly/monthly 308px) "최근 발행" 시작 위치가 카드마다 어긋났다 —
+   고정 min-height로 세 카드가 같은 높이를 예약하게 한다(가장 긴 설명
+   기준, 짧은 설명은 남는 공간을 그냥 비워둔다). */
 .rc-desc {
   font-family: var(--sans);
   font-size: 14px;
   color: var(--muted);
   line-height: 1.65;
   margin-bottom: 18px;
-  flex-grow: 1;
+  min-height: 4.95em;
 }
 .rc-recent {
   padding-top: 14px;
@@ -809,7 +791,12 @@ h1, h2, h3, h4 { margin: 0; }
   text-transform: uppercase;
   margin-bottom: 8px;
 }
+/* daily 항목은 <a>로 감싸(gap은 아래 "ul li a"), weekly/monthly는
+   아직 링크가 없어 <span class="date">·<span class="title">가 <li>
+   바로 아래 있다 — 이 규칙이 없으면 그 둘이 인라인으로 붙어버린다
+   (실측: "2026-W322026-08-03 – ..."처럼 공백 없이 붙어 보였다). */
 .rc-recent ul li {
+  display: flex; gap: 12px;
   padding: 5px 0;
   font-family: var(--sans);
   font-size: 13px;
@@ -831,6 +818,7 @@ h1, h2, h3, h4 { margin: 0; }
 .rc-recent ul li .title { color: var(--muted); }
 .rc-recent .rc-empty { color: var(--meta); font-style: italic; padding: 5px 0; }
 .rc-more {
+  margin-top: auto;
   padding-top: 12px;
   border-top: 1px solid var(--divider);
   font-family: var(--sans);
@@ -1621,7 +1609,6 @@ h1, h2, h3, h4 { margin: 0; }
     text-wrap: balance; word-break: keep-all;
   }
   .mast-tagline { max-width: 330px; margin: 14px auto 0; font-size: 13.5px; line-height: 1.65; }
-  .mast-method { margin-top: 14px; font-size: 10.5px; line-height: 1.55; letter-spacing: 0.04em; }
   .mast-meta-row { flex-direction: column; gap: 8px; text-align: center; }
   .mm-issue { display: block; }
   .mm-sep { display: none; }
@@ -1672,7 +1659,7 @@ h1, h2, h3, h4 { margin: 0; }
   .pulse-arrow { font-size: 18px; }
   .pulse-date { font-size: 10.5px; }
   .pulse-label { font-size: 10.5px; }
-  .pulse-change { font-size: 12.5px; white-space: normal; line-height: 1.3; }
+  .pc-change-header { font-size: 11.5px; }
   .pc-chart { height: 56px; }
   .ai-lead { font-size: 16px; }
   .rc-title { font-size: 22px; }
@@ -1681,7 +1668,7 @@ h1, h2, h3, h4 { margin: 0; }
   .ev-flag { flex-direction: column; align-items: flex-start; gap: 6px; }
   .ev-r { text-align: left; }
   .pulse-lede { flex-direction: column; gap: 8px; padding: 14px 18px; }
-  .pulse-lede p { font-size: 14px; }
+  .pulse-lede p { font-size: 14px; white-space: normal; }
   .editor-quote { padding: 28px 22px 24px; }
   .editor-quote .eq-lede { font-size: 17px; padding-left: 22px; margin-bottom: 22px; }
   .eq-principles { padding-left: 22px; gap: 18px; padding-top: 18px; margin-bottom: 20px; }
