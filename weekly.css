@@ -1,0 +1,57 @@
+/* ═══════════════════════════════════════════════════════════════
+   /weekly.html 페이지 고유 스타일
+
+   2026-09-05(TASK_ID=CORRECT_WEEKLY_PHASE0_PRS_BEFORE_MERGE) — 실제
+   발행된 Weekly(has_canonical_page=true)가 있을 때만 노출되는 목록.
+   shared-shell.css/styles.css의 기존 토큰만 재사용 — 새 색상 정의 없음.
+   ═══════════════════════════════════════════════════════════════ */
+
+.weekly-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 640px;
+}
+
+.weekly-item {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 18px;
+  background: var(--sheet-bg);
+  border: 1px solid var(--divider);
+  border-left: 3px solid var(--gold);
+  border-radius: var(--radius, 2px);
+  text-decoration: none;
+  transition: border-color .15s;
+}
+.weekly-item:hover { border-color: var(--gold-hover); }
+
+.weekly-item .wi-id {
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.weekly-item .wi-range {
+  font-family: var(--sans);
+  font-size: 12.5px;
+  color: var(--muted);
+  flex: 1;
+  text-align: left;
+  margin-left: 12px;
+}
+.weekly-item .wi-more {
+  font-family: var(--sans);
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--gold-deep);
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .weekly-item { flex-wrap: wrap; padding: 14px 16px; }
+  .weekly-item .wi-range { flex-basis: 100%; margin-left: 0; order: 3; }
+}

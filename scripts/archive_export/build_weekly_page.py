@@ -38,16 +38,25 @@ def render_weekly_page(safe_html, meta):
     """safe_html: 이미 개인정보 스크럽을 통과한 위클리 발송 HTML.
     meta: week_id/public_path/title/morning_thesis/published_at/
     published_at_is_approximate/prev_path/prev_week_id/next_path/
-    next_week_id 키를 갖는 dict(publish_weekly_archive.py가 구성)."""
+    next_week_id 키를 갖는 dict(publish_weekly_archive.py가 구성).
+
+    2026-09-04(TASK_ID=WEEKLY_PHASE0_RUNTIME_SAFETY, C) — build_issue_page.py의
+    2026-09-03/04 리팩터(ARCHIVE_ISSUE_V8_SHELL_UNIFICATION_REBASE)가
+    _og_meta_block/_SHARE_BUTTONS_HTML/_SHARE_CSS를 _head_meta_block/
+    _action_bar_html(meta)/_ACTION_BAR_CSS로 이름을 바꿨는데, 이 파일은
+    갱신되지 않아 실행 시 AttributeError로 죽고 있었다(테스트가 이
+    경로를 커버하지 않아 발견이 늦음, 감사 docs/weekly-quality-audit.md
+    F-3). 아래는 이름만 새 심볼로 맞춘 것 — 동작(주입 위치·순서)은
+    이전과 동일하게 유지한다."""
     html = safe_html
     fact = (meta.get("morning_thesis") or meta.get("title") or "")[:150]
-    meta_block = bip._og_meta_block(meta, fact)
+    meta_block = bip._head_meta_block(meta, fact)
     html = html.replace("</title>", "</title>\n" + meta_block, 1)
     html = html.replace(
         "</style>\n",
-        "</style>\n<style>" + bip._SHARE_CSS + bip._NAV_CSS + "</style>\n", 1,
+        "</style>\n<style>" + bip._ACTION_BAR_CSS + bip._NAV_CSS + "</style>\n", 1,
     )
-    injected = bip._SHARE_BUTTONS_HTML + _weekly_nav_block(meta) + bip._SHARE_SCRIPT
+    injected = bip._action_bar_html(meta) + _weekly_nav_block(meta) + bip._SHARE_SCRIPT
     if "</body>" in html:
         html = html.replace("</body>", f'<div class="inner">{injected}</div>\n</body>', 1)
     else:

@@ -16,6 +16,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,700;1,9..144,800&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css?v=b5d18e1">
 <link rel="stylesheet" href="shared-shell.css?v=b5d18e1">
+<link rel="stylesheet" href="weekly.css?v=b5d18e1">
 </head>
 <body data-root="">
 
@@ -49,7 +50,19 @@
 </div>
 
 <main class="page-wrap">
-  <div class="qcard" style="max-width:640px;">
+  <!--
+    2026-09-05(TASK_ID=CORRECT_WEEKLY_PHASE0_PRS_BEFORE_MERGE) — 이 페이지는
+    여전히 noindex/"개편 준비 중" 정책 그대로다(PR#14 결정 유지). 다만 실제로
+    발행된 Weekly가 하나라도 생기면(has_canonical_page=true, 즉
+    /weekly/{week_id}.html이 실재하는 주) 아래 목록에 실제 발행본 링크로만
+    노출한다 — data/weekly/2026-W31.json/2026-W32.json 같은 파이프라인 이전
+    fixture(canonical 페이지가 없음)는 이 목록에 나타나지 않는다(숨김 처리,
+    "발행본 없음" 라벨을 따로 달지 않는 쪽을 택함 — 애초에 목록에 없으므로
+    독자가 혼동할 여지가 없다). 실제 발행본이 하나도 없으면(현재 상태) 아래
+    qcard 안내문이 그대로 보인다 — 기존 "개편 준비 중" 카피는 그대로 유지.
+  -->
+  <div id="weeklyList" class="weekly-list" hidden></div>
+  <div class="qcard" id="weeklyEmptyState" style="max-width:640px;">
     <p style="font-family:var(--sans);font-size:14px;color:var(--muted);line-height:1.7;margin:0;">
       이전에 이 주소에 있던 집계 화면은 편집 구조가 확정되지 않은 내부 테스트 버전이라 정식 발행물로
       공개하지 않습니다. 새 MOO:WEEKLY 구조는 별도 검토 이후 이 페이지에 다시 연결됩니다.
@@ -102,6 +115,42 @@
     <a class="mt-item" href="/about/"><span class="mt-icon i-about"></span><span class="mt-label">About</span></a>
   </div>
 </nav>
+
+<script>
+(function () {
+  function escapeHtml(s) {
+    if (s == null) return '';
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+
+  // has_canonical_page=true인 항목만 실제 발행본 링크로 노출한다(§ 정책).
+  // publish_weekly_archive.py가 data/weekly/index.json을 만들 때마다 이
+  // 플래그를 계산해 넣는다(실제 /weekly/{week_id}.html 파일 존재 여부 —
+  // 클라이언트에서는 디렉터리 리스팅이 불가능해 직접 조회할 수 없다).
+  fetch('data/weekly/index.json?v=' + Date.now())
+    .then(function (res) { return res.ok ? res.json() : { weeks: [] }; })
+    .then(function (idx) {
+      var weeks = (idx.weeks || []).filter(function (w) { return w.has_canonical_page === true; });
+      if (!weeks.length) return; // 실제 발행본이 아직 없음 — 기본 안내문(qcard) 그대로 노출
+      var listEl = document.getElementById('weeklyList');
+      listEl.innerHTML = weeks.map(function (w) {
+        return '<a class="weekly-item" href="/weekly/' + encodeURIComponent(w.week_id) + '.html">'
+          + '<span class="wi-id">' + escapeHtml(w.week_id) + '</span>'
+          + '<span class="wi-range">' + escapeHtml(w.period_start_kst) + ' – ' + escapeHtml(w.period_end_kst) + '</span>'
+          + '<span class="wi-more">발행본 보기 →</span>'
+          + '</a>';
+      }).join('');
+      listEl.hidden = false;
+      document.getElementById('weeklyEmptyState').hidden = true;
+    })
+    .catch(function (err) {
+      // index.json 부재/네트워크 실패 — 조용히 기본 안내문(qcard) 유지.
+      console.warn('[weekly] 목록 로드 실패(기본 안내문 유지):', err);
+    });
+})();
+</script>
 
 </body>
 </html>
