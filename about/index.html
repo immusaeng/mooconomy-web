@@ -4,8 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>무코노미 소개 · Daily MOO:conomy</title>
-<meta name="description" content="Daily MOO:conomy는 왜 만들어졌고 무엇을 하는 뉴스레터인지 소개합니다. 흩어진 경제 지표를 모으고(Collect), 맥락으로 잇고(Connect), 오늘의 3줄로 줄이는(Condense) 3C 원칙.">
+<meta name="description" content="Daily MOO:conomy는 왜 만들어졌고 무엇을 하는 뉴스레터인지 소개합니다. 흩어진 경제 지표를 모으고(Collect), 맥락으로 잇고(Connect), 오늘의 핵심으로 줄이는(Condense) 3C 원칙.">
 <link rel="canonical" href="https://mooconomy.co.kr/about/">
+<meta name="robots" content="index,follow">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -13,12 +14,12 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="무코노미 소개 · Daily MOO:conomy">
-<meta property="og:description" content="흩어진 경제 지표를 모으고, 맥락으로 잇고, 오늘의 3줄로 줄이는 MOO:conomy의 3C 원칙.">
+<meta property="og:description" content="흩어진 경제 지표를 모으고, 맥락으로 잇고, 오늘의 핵심으로 줄이는 MOO:conomy의 3C 원칙.">
 <meta property="og:image" content="https://mooconomy.co.kr/assets/og/og-home-v3.png">
 <meta property="og:url" content="https://mooconomy.co.kr/about/">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="무코노미 소개 · Daily MOO:conomy">
-<meta name="twitter:description" content="흩어진 경제 지표를 모으고, 맥락으로 잇고, 오늘의 3줄로 줄이는 MOO:conomy의 3C 원칙.">
+<meta name="twitter:description" content="흩어진 경제 지표를 모으고, 맥락으로 잇고, 오늘의 핵심으로 줄이는 MOO:conomy의 3C 원칙.">
 <meta name="twitter:image" content="https://mooconomy.co.kr/assets/og/og-home-v3.png">
 
 <script type="application/ld+json">
@@ -41,104 +42,135 @@
   ]
 }
 </script>
-
-<style>
-  :root { --bg:#0B1220; --card:#141C2E; --ink:#E8ECF3; --sub:#95A2BA; --gold:#F2C94C; --line:rgba(124,138,165,.18); }
-  * { box-sizing:border-box; }
-  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',Arial,sans-serif; line-height:1.6; }
-  .wrap { max-width:880px; margin:0 auto; padding:0 20px; }
-  header.mh { padding:22px 0; border-bottom:1px solid var(--line); }
-  .mh-row { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px 20px; }
-  .brand { font-size:18px; font-weight:800; text-decoration:none; color:var(--ink); }
-  .brand .g { color:var(--gold); }
-  nav.crumb { font-size:12px; color:var(--sub); margin-top:10px; }
-  nav.crumb a { color:var(--sub); }
-  nav.site-menu { display:flex; gap:16px; flex-wrap:wrap; font-size:13px; }
-  nav.site-menu a { color:var(--sub); text-decoration:none; }
-  nav.site-menu a[aria-current="page"] { color:var(--gold); font-weight:700; }
-  nav.site-menu a:hover { color:var(--ink); }
-  main { padding:44px 0 64px; }
-  .eyebrow { font-size:11px; font-weight:700; letter-spacing:.08em; color:var(--gold); text-transform:uppercase; margin-bottom:12px; }
-  h1 { font-size:28px; line-height:1.35; margin:0 0 14px; word-break:keep-all; }
-  .lead { font-size:15px; color:var(--sub); margin:0 0 40px; word-break:keep-all; }
-  h2 { font-size:20px; margin:0 0 20px; word-break:keep-all; }
-  .grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:56px; }
-  @media (max-width:720px) { .grid3 { grid-template-columns:1fr; } }
-  .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:20px; }
-  .card .n { font-size:12px; color:var(--gold); font-weight:800; margin-bottom:10px; }
-  .card h3 { font-size:15.5px; margin:0 0 10px; word-break:keep-all; }
-  .card p { font-size:13px; color:var(--sub); margin:0; word-break:keep-all; }
-  .c3-card .en { font-size:11px; font-weight:700; letter-spacing:.06em; color:var(--gold); margin-bottom:8px; }
-  .c3-card .kr { font-size:17px; font-weight:800; margin-bottom:10px; }
-  footer { border-top:1px solid var(--line); padding:28px 0; font-size:12px; color:var(--sub); }
-  footer a { color:var(--gold); text-decoration:none; }
-</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,700;1,9..144,800&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css?v=b5d18e1">
+<link rel="stylesheet" href="../shared-shell.css?v=b5d18e1">
+<link rel="stylesheet" href="about.css?v=b5d18e1">
 </head>
-<body>
-  <header class="mh"><div class="wrap">
-    <div class="mh-row">
-      <a class="brand" href="/">MOO<span class="g">:</span>conomy</a>
-      <nav class="site-menu" aria-label="주요 메뉴">
-        <a href="/">홈</a>
-        <a href="/archive/">아카이브</a>
-        <a href="/calendar/">캘린더</a>
-        <a href="/questions/">MOO:Q</a>
-        <a href="/about/" aria-current="page">About</a>
-      </nav>
+<body data-root="../">
+
+<div class="ticker-bar" aria-label="실시간 시장 지표">
+  <div class="ticker-inner" id="tickerInner"></div>
+</div>
+
+<header class="slim-header">
+  <div class="slim-header-inner">
+    <a href="/" class="sh-brand">
+      <span class="sh-brand-mark">MOO<span class="colon">:</span>conomy</span>
+      <span class="sh-brand-tag">DAILY · EST. 2026</span>
+    </a>
+    <nav class="sh-nav">
+      <a href="/">홈</a>
+      <a href="/archive/">아카이브</a>
+      <a href="/calendar/">캘린더</a>
+      <a href="/questions/">MOO<span class="colon">:</span>Q</a>
+      <a href="/about/" class="active" aria-current="page">About</a>
+    </nav>
+    <a href="/#subscribe" class="sh-cta">구독하기</a>
+  </div>
+</header>
+
+<nav class="breadcrumb" aria-label="위치">
+  <a href="/">Home</a>
+  <span class="bc-sep">›</span>
+  <span class="bc-current">무코노미 소개</span>
+</nav>
+
+<div class="page-header">
+  <div class="ph-eyebrow">ABOUT · THE PROBLEM</div>
+  <h1 class="ph-title">경제 정보, <em>없어서</em>가 아니라 흩어져 있어서 어렵습니다</h1>
+  <p class="ph-lede">매일 아침 반복되는 세 가지 피로. Daily MOO:conomy는 여기서 출발했습니다.</p>
+</div>
+
+<main class="page-wrap">
+
+  <div class="grid3-about">
+    <div class="qcard">
+      <div class="ab-num">01</div>
+      <h3>지표 하나 보려고 앱 대여섯 개를 엽니다</h3>
+      <p>코스피는 증권 앱, 나스닥은 포털, 환율은 또 다른 곳. 출근 전 15분이 여러 사이트를 오가는 데 사라지고, 정작 오늘 뭐가 중요한지는 놓친 채 지하철에 오릅니다.</p>
     </div>
-    <nav class="crumb"><a href="/">홈</a> / 무코노미 소개</nav>
-  </div></header>
+    <div class="qcard">
+      <div class="ab-num">02</div>
+      <h3>정보는 봤는데, 서로 어떻게 연결되는지 모릅니다</h3>
+      <p>밤사이 미국 증시가 오르면 오늘 코스피엔 무슨 의미인지, 환율과 유가가 내 시장에 어떤 신호인지. 흩어진 숫자를 '마디'로 연결해 해석해주는 곳이 드뭅니다.</p>
+    </div>
+    <div class="qcard">
+      <div class="ab-num">03</div>
+      <h3>바쁜 아침엔, 결국 핵심만 빠르게 필요합니다</h3>
+      <p>길고 어려운 리포트를 다 읽을 시간은 없습니다. 전문용어를 걷어내고, 오늘 꼭 알아야 할 신호만 오늘의 3 Signals로. 그게 바쁜 아침에 진짜 필요한 정보입니다.</p>
+    </div>
+  </div>
 
-  <main class="wrap">
-    <div class="eyebrow">ABOUT · THE PROBLEM</div>
-    <h1>경제 정보, 없어서가 아니라 흩어져 있어서 어렵습니다</h1>
-    <p class="lead">매일 아침 반복되는 세 가지 피로. Daily MOO:conomy는 여기서 출발했습니다.</p>
+  <div class="ph-eyebrow" style="margin-top:48px;">ABOUT · WHY 'MOO'CONOMY</div>
+  <h2 style="font-family:var(--serif);font-size:22px;color:var(--ink);margin:0 0 20px;word-break:keep-all;">흩어진 시장을, 오늘의 맥락으로 — 모으고, 잇고, 줄입니다</h2>
+  <div class="grid3-about">
+    <div class="qcard">
+      <div class="ab-en">C · COLLECT</div>
+      <div class="ab-kr">모으다</div>
+      <p><b>흩어진 지표를 한 잔에.</b> 코스피·코스닥·나스닥·환율·유가, 그리고 개인·외국인·기관 수급까지. 아침마다 여기저기 흩어져 확인하던 지표를 MOO:conomy 한 통의 메일에 담습니다.</p>
+    </div>
+    <div class="qcard">
+      <div class="ab-en">C · CONNECT</div>
+      <div class="ab-kr">잇다</div>
+      <p><b>숫자와 숫자를 맥락으로.</b> 단순 나열이 아닙니다. 밤사이 글로벌 흐름이 오늘 국내 시장에 주는 의미, 지표들이 만들어내는 맥락을 이어 '그래서 오늘 무엇을 봐야 하는지'까지 해석합니다.</p>
+    </div>
+    <div class="qcard">
+      <div class="ab-en">C · CONDENSE</div>
+      <div class="ab-kr">줄이다</div>
+      <p><b>오늘 이것만, 오늘의 3 Signals로.</b> 복잡한 하루의 경제를 일반 독자도 이해할 수 있는 신호 세 가지로 졸여 냅니다. 눈뜨자마자, 3분이면 오늘의 흐름을 잡으세요.</p>
+    </div>
+  </div>
 
-    <div class="grid3">
-      <div class="card">
-        <div class="n">01</div>
-        <h3>지표 하나 보려고 앱 대여섯 개를 엽니다</h3>
-        <p>코스피는 증권 앱, 나스닥은 포털, 환율은 또 다른 곳. 출근 전 15분이 여러 사이트를 오가는 데 사라지고, 정작 오늘 뭐가 중요한지는 놓친 채 지하철에 오릅니다.</p>
+  <p style="font-family:var(--sans);font-size:14px;color:var(--muted);margin-top:40px;">Daily MOO:conomy가 매일 아침 어떤 데이터를 어떻게 다루는지 궁금하다면
+  <a href="/methodology/" style="color:var(--gold-deep);font-weight:700;">방법론 페이지</a>도 확인해 보세요.</p>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="wordmark-sm">MOO<span class="colon">:</span>conomy</div>
+        <p class="foot-tagline">— 예측하지 않고 기록하고 검증합니다.</p>
       </div>
-      <div class="card">
-        <div class="n">02</div>
-        <h3>정보는 봤는데, 서로 어떻게 연결되는지 모릅니다</h3>
-        <p>밤사이 미국 증시가 오르면 오늘 코스피엔 무슨 의미인지, 환율과 유가가 내 시장에 어떤 신호인지. 흩어진 숫자를 '마디'로 연결해 해석해주는 곳이 드뭅니다.</p>
-      </div>
-      <div class="card">
-        <div class="n">03</div>
-        <h3>바쁜 아침엔, 결국 '핵심 3줄'이 필요합니다</h3>
-        <p>길고 어려운 리포트를 다 읽을 시간은 없습니다. 전문용어를 걷어내고, 오늘 꼭 알아야 할 것만 딱 3줄로. 그게 바쁜 아침에 진짜 필요한 정보입니다.</p>
+      <div class="foot-cols">
+        <div><h5>발행판</h5><ul>
+          <li><a href="/latest.html">오늘의 발행판</a></li>
+          <li><a href="/archive/">아카이브 서고</a></li>
+          <li><a href="/weekly.html">주간 리포트</a></li>
+        </ul></div>
+        <div><h5>데이터</h5><ul>
+          <li><a href="/markets.html">마켓 대시보드</a></li>
+          <li><a href="/calendar/">이벤트 캘린더</a></li>
+          <li><a href="/questions/">MOO:Q 검증</a></li>
+        </ul></div>
+        <div><h5>브랜드</h5><ul>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/methodology/">방법론</a></li>
+          <li><a href="/privacy.html">개인정보</a></li>
+        </ul></div>
       </div>
     </div>
-
-    <div class="eyebrow">ABOUT · WHY 'MOO'CONOMY</div>
-    <h2>흩어진 시장을, 오늘의 3줄로 — 모으고, 잇고, 줄입니다</h2>
-    <div class="grid3">
-      <div class="card c3-card">
-        <div class="en">C · COLLECT</div>
-        <div class="kr">모으다</div>
-        <p><b>흩어진 지표를 한 잔에.</b> 코스피·코스닥·나스닥·환율·유가, 그리고 개인·외국인·기관 수급까지. 아침마다 여기저기 흩어져 확인하던 지표를 MOO:conomy 한 통의 메일에 담습니다.</p>
-      </div>
-      <div class="card c3-card">
-        <div class="en">C · CONNECT</div>
-        <div class="kr">잇다</div>
-        <p><b>숫자와 숫자를 맥락으로.</b> 단순 나열이 아닙니다. 밤사이 글로벌 흐름이 오늘 국내 시장에 주는 의미, 지표들이 만들어내는 맥락을 이어 '그래서 오늘 무엇을 봐야 하는지'까지 해석합니다.</p>
-      </div>
-      <div class="card c3-card">
-        <div class="en">C · CONDENSE</div>
-        <div class="kr">줄이다</div>
-        <p><b>오늘 이것만, 딱 3줄로.</b> 복잡한 하루의 경제를 일반 독자도 이해할 수 있는 Moo's Daily 3줄로 졸여 냅니다. 눈뜨자마자, 오늘의 흐름을 3줄로 잡으세요.</p>
-      </div>
+    <div class="foot-bot">
+      <span>Daily MOO:conomy · EST. 2026</span>
+      <span>월 Weekly · 화–토 Daily · 오전 7시</span>
     </div>
+  </div>
+</footer>
 
-    <p>Daily MOO:conomy가 매일 아침 어떤 데이터를 어떻게 다루는지 궁금하다면
-    <a href="/methodology/" style="color:var(--gold);">방법론 페이지</a>도 확인해 보세요.</p>
-  </main>
+<nav class="mob-tabs" aria-label="주요 페이지">
+  <div class="mob-tabs-inner">
+    <a class="mt-item" href="/"><span class="mt-icon i-home"></span><span class="mt-label">홈</span></a>
+    <a class="mt-item" href="/archive/"><span class="mt-icon i-archive"></span><span class="mt-label">아카이브</span></a>
+    <a class="mt-item" href="/calendar/"><span class="mt-icon i-calendar"></span><span class="mt-label">캘린더</span></a>
+    <a class="mt-item" href="/questions/"><span class="mt-icon i-q"></span><span class="mt-label">MOO:Q</span></a>
+    <a class="mt-item active" href="/about/" aria-current="page"><span class="mt-icon i-about"></span><span class="mt-label">About</span></a>
+  </div>
+</nav>
 
-  <footer><div class="wrap">
-    Daily MOO:conomy · mooconomy.co.kr<br>
-    © 2026 MOO:conomy. All rights reserved.
-  </div></footer>
+<script src="../app.js?v=b5d18e1"></script>
 </body>
 </html>

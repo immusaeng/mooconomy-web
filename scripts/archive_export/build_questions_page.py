@@ -1,9 +1,13 @@
 """questions/index.html 정적 생성기(읽기 전용 입력, 결정론적 출력).
 
-scripts/archive_export/dryrun_output/question_records.json(Stage 3
-export 결과, claims_store.json 11건 그대로)만 읽는다 — 질문·결과
-문구를 새로 쓰지 않고 원본 그대로 렌더링한다. JavaScript 없이 전체
-본문이 HTML에 그대로 존재한다.
+scripts/archive_export/dryrun_output/question_records.json(export.py의
+build_question_record() 출력, claims_store.json 전 건 그대로)만 읽는다 —
+질문·결과 문구를 새로 쓰지 않고 원본 그대로 렌더링한다. JavaScript 없이
+전체 본문이 HTML에 그대로 존재한다.
+
+셸(헤더·브레드크럼·푸터·모바일 탭)은 홈페이지가 쓰는 shared-shell.css +
+styles.css를 그대로 재사용한다(calendar/index.html과 동일 패턴) — 이
+페이지만의 다크 테마를 새로 만들지 않는다.
 """
 import json
 import os
@@ -54,93 +58,123 @@ _PAGE_HEAD = """<!DOCTYPE html>
   ]
 }
 </script>
-
-<style>
-  :root { --bg:#0B1220; --card:#141C2E; --ink:#E8ECF3; --sub:#95A2BA; --gold:#F2C94C; --line:rgba(124,138,165,.18); --up:#FF6B6B; --down:#5B8DEF; }
-  * { box-sizing:border-box; }
-  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',Arial,sans-serif; line-height:1.6; }
-  .wrap { max-width:880px; margin:0 auto; padding:0 20px; }
-  header.mh { padding:22px 0; border-bottom:1px solid var(--line); }
-  .brand { font-size:18px; font-weight:800; text-decoration:none; color:var(--ink); }
-  .brand .g { color:var(--gold); }
-  nav.topnav { margin-top:12px; font-size:12.5px; }
-  nav.topnav a { color:var(--sub); text-decoration:none; margin-right:16px; }
-  nav.topnav a.current { color:var(--gold); font-weight:700; }
-  nav.crumb { font-size:12px; color:var(--sub); margin-top:10px; }
-  nav.crumb a { color:var(--sub); }
-  main { padding:40px 0 64px; }
-  .eyebrow { font-size:11px; font-weight:700; letter-spacing:.08em; color:var(--gold); text-transform:uppercase; margin-bottom:12px; }
-  h1 { font-size:26px; line-height:1.4; margin:0 0 14px; word-break:keep-all; }
-  .lead { font-size:14px; color:var(--sub); margin:0 0 32px; word-break:keep-all; max-width:640px; }
-  .summary { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:40px; }
-  @media (max-width:640px) { .summary { grid-template-columns:repeat(2,1fr); } }
-  .stat { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 16px; }
-  .stat .n { font-size:22px; font-weight:800; color:var(--gold); }
-  .stat .l { font-size:11.5px; color:var(--sub); margin-top:4px; }
-  .qlist { display:flex; flex-direction:column; gap:12px; }
-  .qcard { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:16px 18px; word-break:keep-all; }
-  .qcard .qtext { font-size:14.5px; font-weight:700; margin-bottom:10px; }
-  .qmeta { display:grid; grid-template-columns:repeat(2,1fr); gap:6px 16px; font-size:12px; color:#C7CEDB; margin-bottom:10px; }
-  @media (max-width:640px) { .qmeta { grid-template-columns:1fr; } }
-  .qmeta b { color:var(--sub); font-weight:600; }
-  .verdict { display:inline-block; font-size:11px; font-weight:800; padding:3px 10px; border-radius:12px; }
-  .verdict.hit { background:rgba(255,107,107,.14); color:var(--up); }
-  .verdict.miss { background:rgba(91,141,239,.14); color:var(--down); }
-  .verdict.neutral, .verdict.unresolved { background:rgba(149,162,186,.14); color:var(--sub); }
-  .evidence { font-size:12.5px; color:#C7CEDB; margin-top:8px; padding-top:8px; border-top:1px solid var(--line); }
-  .cta { margin-top:40px; font-size:13px; color:var(--sub); }
-  .cta a { color:var(--gold); text-decoration:none; }
-  footer { border-top:1px solid var(--line); padding:28px 0; font-size:12px; color:var(--sub); }
-  footer a { color:var(--gold); text-decoration:none; }
-  .disclaimer { font-size:11px; color:#6B7A99; margin-top:10px; }
-</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,700;1,9..144,800&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css?v=b5d18e1">
+<link rel="stylesheet" href="../shared-shell.css?v=b5d18e1">
+<link rel="stylesheet" href="questions.css?v=b5d18e1">
 </head>
-<body>
-  <header class="mh"><div class="wrap">
-    <a class="brand" href="/">MOO<span class="g">:</span>conomy</a>
-    <nav class="topnav">
-      <a href="/">TODAY</a><a href="/questions/" class="current">QUESTIONS</a><a href="/methodology/">METHODOLOGY</a><a href="/#subscribe">SUBSCRIBE</a>
+<body data-root="../">
+
+<div class="ticker-bar" aria-label="실시간 시장 지표">
+  <div class="ticker-inner" id="tickerInner"></div>
+</div>
+
+<header class="slim-header">
+  <div class="slim-header-inner">
+    <a href="/" class="sh-brand">
+      <span class="sh-brand-mark">MOO<span class="colon">:</span>conomy</span>
+      <span class="sh-brand-tag">DAILY · EST. 2026</span>
+    </a>
+    <nav class="sh-nav">
+      <a href="/">홈</a>
+      <a href="/archive/">아카이브</a>
+      <a href="/calendar/">캘린더</a>
+      <a href="/questions/" class="active" aria-current="page">MOO<span class="colon">:</span>Q</a>
+      <a href="/about/">About</a>
     </nav>
-    <nav class="crumb"><a href="/">홈</a> / MOO:Q 질문 기록</nav>
-  </div></header>
+    <a href="/#subscribe" class="sh-cta">구독하기</a>
+  </div>
+</header>
 
-  <main class="wrap">
-    <div class="eyebrow">QUESTIONS · MOO:Q ARCHIVE</div>
-    <h1>오늘의 질문은 내일의 기록이 됩니다</h1>
-    <p class="lead">MOO:Q는 발행 당시의 질문과 기준값을 고정하고, 다음 거래일 실제 결과를 공개하는 무코노미의 시장 질문 기록입니다.</p>
+<nav class="breadcrumb" aria-label="위치">
+  <a href="/">Home</a>
+  <span class="bc-sep">›</span>
+  <span class="bc-current">MOO:Q 질문 기록</span>
+</nav>
 
-    <div class="summary">
-      <div class="stat"><div class="n">__TOTAL__</div><div class="l">전체 질문</div></div>
-      <div class="stat"><div class="n">__COMPLETED__</div><div class="l">판정 완료</div></div>
-      <div class="stat"><div class="n">__PENDING__</div><div class="l">확인 중</div></div>
-      <div class="stat"><div class="n">__HIT__·__NEUTRAL__·__MISS__·__UNRESOLVED__</div><div class="l">일치·부분일치·불일치·판단보류</div></div>
-    </div>
+<div class="page-header">
+  <div class="ph-eyebrow">MOO<span class="colon" style="color:var(--gold)">:</span>Q · 질문과 검증의 아카이브</div>
+  <h1 class="ph-title">오늘의 <em>질문</em>은 내일의 기록이 됩니다</h1>
+  <p class="ph-lede">MOO:Q는 발행 당시의 질문과 기준값을 고정하고, 다음 거래일 실제 결과를 공개하는 무코노미의 시장 질문 기록입니다. 빗나간 질문도 숨기거나 지우지 않습니다.</p>
+  <div class="ph-meta">
+    <span>전체 <b>__TOTAL__</b>건</span>
+    <span class="ph-meta-sep"></span>
+    <span>판정 완료 <b>__COMPLETED__</b>건 · 확인 중 <b>__PENDING__</b>건</span>
+    <span class="ph-meta-sep"></span>
+    <span>일치 <b>__HIT__</b> · 부분일치 <b>__NEUTRAL__</b> · 불일치 <b>__MISS__</b> · 판단보류 <b>__UNRESOLVED__</b></span>
+  </div>
+</div>
+
+<main class="page-wrap">
 
 __QUESTION_CARDS__
 
-    <p class="cta">판정 기준과 데이터 처리 원칙은 <a href="/methodology/">방법론 페이지</a>에서 확인하세요.</p>
-  </main>
+  <p style="font-family:var(--sans);font-size:13px;color:var(--muted);margin-top:8px;">판정 기준과 데이터 처리 원칙은 <a href="/methodology/" style="color:var(--gold-deep);">방법론 페이지</a>에서 확인하세요.</p>
 
-  <footer><div class="wrap">
-    Daily MOO:conomy · mooconomy.co.kr<br>
-    © 2026 MOO:conomy. All rights reserved.
-    <div class="disclaimer">MOO:Q는 투자 권유가 아니며, 발행 시점 데이터를 근거로 한 시장 관찰 기록입니다.</div>
-  </div></footer>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="wordmark-sm">MOO<span class="colon">:</span>conomy</div>
+        <p class="foot-tagline">— 예측하지 않고 기록하고 검증합니다.</p>
+      </div>
+      <div class="foot-cols">
+        <div><h5>발행판</h5><ul>
+          <li><a href="/latest.html">오늘의 발행판</a></li>
+          <li><a href="/archive/">아카이브 서고</a></li>
+          <li><a href="/weekly.html">주간 리포트</a></li>
+        </ul></div>
+        <div><h5>데이터</h5><ul>
+          <li><a href="/markets.html">마켓 대시보드</a></li>
+          <li><a href="/calendar/">이벤트 캘린더</a></li>
+          <li><a href="/questions/">MOO:Q 검증</a></li>
+        </ul></div>
+        <div><h5>브랜드</h5><ul>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/methodology/">방법론</a></li>
+          <li><a href="/privacy.html">개인정보</a></li>
+        </ul></div>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>Daily MOO:conomy · EST. 2026</span>
+      <span>월 Weekly · 화–토 Daily · 오전 7시</span>
+    </div>
+  </div>
+</footer>
+
+<nav class="mob-tabs" aria-label="주요 페이지">
+  <div class="mob-tabs-inner">
+    <a class="mt-item" href="/"><span class="mt-icon i-home"></span><span class="mt-label">홈</span></a>
+    <a class="mt-item" href="/archive/"><span class="mt-icon i-archive"></span><span class="mt-label">아카이브</span></a>
+    <a class="mt-item" href="/calendar/"><span class="mt-icon i-calendar"></span><span class="mt-label">캘린더</span></a>
+    <a class="mt-item active" href="/questions/" aria-current="page"><span class="mt-icon i-q"></span><span class="mt-label">MOO:Q</span></a>
+    <a class="mt-item" href="/about/"><span class="mt-icon i-about"></span><span class="mt-label">About</span></a>
+  </div>
+</nav>
+
+<script src="../app.js?v=b5d18e1"></script>
 </body>
 </html>
 """
 
-_CARD_TEMPLATE = """      <div class="qcard">
-        <div class="qtext">__Q__</div>
-        <div class="qmeta">
-          <div><b>발행일</b> __ISSUED_AT__</div>
-          <div><b>발행 시 기준값</b> __OBS_VALUE__ __OBS_UNIT__ (__OBS_ASOF__ 기준)</div>
-          <div><b>예상 방향</b> __EXPECTED_DIR__</div>
-          <div><b>확인 예정일</b> __CHECK_DUE__</div>
-          <div><b>실제 결과</b> __RESULT__</div>
-          <div><b>상태</b> <span class="verdict __VERDICT__">__VERDICT_LABEL__</span></div>
-        </div>__EVIDENCE_BLOCK__
+_CARD_TEMPLATE = """    <div class="qcard">
+      <div class="mc-q">__Q__</div>
+      <div class="qmeta">
+        <div><b>발행일</b> __ISSUED_AT__</div>
+        <div><b>발행 시 기준값</b> __OBS_VALUE__ (__OBS_ASOF__ 기준)</div>
+        <div><b>예상 방향</b> __EXPECTED_DIR__</div>
+        <div><b>확인 예정일</b> __CHECK_DUE__</div>
       </div>
+      <div class="mc-verdict-row">
+        <span class="mc-verdict __VERDICT__">__VERDICT_LABEL__</span>
+        <span class="mc-values">실제 결과 __RESULT__</span>
+      </div>__EVIDENCE_BLOCK__
+    </div>
 """
 
 
@@ -150,16 +184,24 @@ def _fmt_num(v):
     return f"{v:,}" if isinstance(v, int) else f"{v:,.2f}"
 
 
+def _fmt_unit_value(value, unit):
+    """단위가 '$'면 숫자 앞에, 그 외(원/%p/pt)는 숫자 뒤에 붙인다
+    (home-data.js IND_META.absPrefix와 동일 관례 — $만 접두)."""
+    n = _fmt_num(value)
+    if n == "—" or not unit:
+        return n
+    return f"{unit}{n}" if unit == "$" else f"{n}{unit}"
+
+
 def render_question_card(q):
-    result_display = "확인 중" if q["result_value"] is None else f"{_fmt_num(q['result_value'])}{q.get('result_unit') or ''}"
+    result_display = "확인 중" if q["result_value"] is None else _fmt_unit_value(q["result_value"], q.get("result_unit"))
     evidence_block = ""
     if q.get("evidence"):
-        evidence_block = f'\n        <div class="evidence">{q["evidence"]}</div>'
+        evidence_block = f'\n      <div class="qevidence">{q["evidence"]}</div>'
     card = _CARD_TEMPLATE
     card = card.replace("__Q__", q["question"] or "—")
     card = card.replace("__ISSUED_AT__", (q.get("issued_at") or "—")[:10])
-    card = card.replace("__OBS_VALUE__", _fmt_num(q.get("observation_value")))
-    card = card.replace("__OBS_UNIT__", q.get("observation_unit") or "")
+    card = card.replace("__OBS_VALUE__", _fmt_unit_value(q.get("observation_value"), q.get("observation_unit")))
     card = card.replace("__OBS_ASOF__", q.get("observation_as_of") or "—")
     card = card.replace("__EXPECTED_DIR__", _DIRECTION_LABEL.get(q.get("expected_direction"), "—"))
     card = card.replace("__CHECK_DUE__", q.get("check_due_at") or "—")
@@ -187,7 +229,7 @@ def build_page(questions):
     html = html.replace("__NEUTRAL__", str(counts["neutral"]))
     html = html.replace("__MISS__", str(counts["miss"]))
     html = html.replace("__UNRESOLVED__", str(counts["unresolved"]))
-    html = html.replace("__QUESTION_CARDS__", f'    <div class="qlist">\n{cards}    </div>')
+    html = html.replace("__QUESTION_CARDS__", f'  <div class="qlist">\n{cards}  </div>')
     return html
 
 

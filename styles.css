@@ -489,6 +489,7 @@ h1, h2, h3, h4 { margin: 0; }
 }
 .mc-verdict.hit { color: var(--red); border-color: var(--red); background-color: rgba(178,58,46,0.08); }
 .mc-verdict.miss { color: var(--blue); border-color: var(--blue); background-color: rgba(31,78,122,0.08); }
+.mc-verdict.neutral, .mc-verdict.unresolved { color: var(--muted); border-color: var(--divider-gd); background-color: var(--cream-hi); }
 .mc-values {
   font-family: var(--serif);
   font-size: 12.5px;

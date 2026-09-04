@@ -1,0 +1,33 @@
+/* MOO:Q 질문 기록(/questions/) — 페이지 전용 레이아웃.
+   색상·타이포 토큰은 ../styles.css(홈), 셸은 ../shared-shell.css를 그대로 쓴다. */
+
+.qlist { display: flex; flex-direction: column; gap: 14px; }
+
+.qmeta {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px 20px;
+  font-family: var(--sans);
+  font-size: 12px;
+  color: var(--muted);
+  margin: 10px 0 12px;
+}
+.qmeta b {
+  color: var(--meta);
+  font-weight: 600;
+  margin-right: 4px;
+}
+
+.qevidence {
+  font-family: var(--sans);
+  font-size: 12.5px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--divider);
+}
+
+@media (max-width: 640px) {
+  .qmeta { grid-template-columns: 1fr; }
+}

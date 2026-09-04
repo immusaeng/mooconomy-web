@@ -1,0 +1,48 @@
+/* /about/ 페이지 전용 레이아웃. 카드 자체(.qcard)는 ../shared-shell.css 공용. */
+
+.grid3-about {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.grid3-about .qcard p {
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.65;
+  margin: 0;
+  word-break: keep-all;
+}
+.grid3-about .qcard h3 {
+  font-family: var(--serif);
+  font-size: 15.5px;
+  color: var(--ink);
+  margin: 0 0 10px;
+  word-break: keep-all;
+}
+.ab-num {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--gold-deep);
+  margin-bottom: 10px;
+}
+.ab-en {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--gold-deep);
+  margin-bottom: 8px;
+}
+.ab-kr {
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+
+@media (max-width: 720px) {
+  .grid3-about { grid-template-columns: 1fr; }
+}

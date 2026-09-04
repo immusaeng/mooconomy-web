@@ -1,0 +1,30 @@
+/* /methodology/ 페이지 전용 레이아웃. 카드 자체(.qcard)는 ../shared-shell.css 공용. */
+
+.mtd-section { margin-bottom: 40px; }
+.mtd-section h2 {
+  font-family: var(--serif);
+  font-size: 19px;
+  color: var(--ink);
+  margin: 0 0 12px;
+  word-break: keep-all;
+}
+.mtd-section p, .mtd-section li {
+  font-family: var(--sans);
+  font-size: 13.5px;
+  color: var(--muted);
+  line-height: 1.7;
+  word-break: keep-all;
+}
+.mtd-section ul { padding-left: 20px; margin: 10px 0; }
+.mtd-section .qcard { margin-top: 12px; }
+.mtd-tag {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--gold-deep);
+  background-color: var(--cream-hi);
+  border: 1px solid var(--divider-gd);
+  padding: 2px 9px;
+  margin-right: 6px;
+}
