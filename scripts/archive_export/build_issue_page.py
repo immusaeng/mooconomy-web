@@ -264,13 +264,36 @@ _CALENDAR_CTA_HTML = (
 )
 
 
+class CalendarCtaAnchorMissingError(ValueError):
+    """뉴스 섹션 다음 첫 <table class="brand-wrap">(MOO:VIEW) 앵커를 찾지
+    못했다 — 이메일 템플릿 구조가 바뀌어 CTA를 넣을 자리가 사라졌다는
+    뜻이다. CTA 없이 페이지를 조용히 발행하지 않고 빌드를 즉시 실패시켜,
+    "CTA가 어느 날 슬그머니 사라진다"는 회귀를 원천 차단한다."""
+
+
+_CALENDAR_CTA_MARKER = 'class="calendar-cta"'
+_CALENDAR_CTA_ANCHOR = '<table class="brand-wrap"'
+
+
 def _insert_calendar_cta(html):
     """뉴스 섹션(.news-wrap) 바로 다음, MOO:VIEW 카드(첫 번째 .brand-wrap
     테이블) 시작 직전에 정확히 1회 삽입한다. MOO:VIEW는 데이터 유무와
     무관하게 항상 렌더되는 섹션이라(폴백 문구 존재) 이 앵커는 결정론적이다.
     count=1이라 이후 MOO:Q/CHAIN/WORD가 재사용하는 같은 class="brand-wrap"
-    테이블에는 영향 없다."""
-    return html.replace('<table class="brand-wrap"', _CALENDAR_CTA_HTML + '<table class="brand-wrap"', 1)
+    테이블에는 영향 없다.
+
+    Idempotent: 이미 CTA가 삽입된 html이 다시 들어오면(예: 파이프라인이
+    같은 입력에 이 함수를 두 번 호출) 그대로 반환한다 — 중복 삽입 금지.
+    앵커 자체가 없으면 CalendarCtaAnchorMissingError로 명시적으로
+    실패한다 — 앵커 누락을 "CTA 없이 조용히 통과"로 처리하지 않는다."""
+    if _CALENDAR_CTA_MARKER in html:
+        return html
+    if _CALENDAR_CTA_ANCHOR not in html:
+        raise CalendarCtaAnchorMissingError(
+            f"캘린더 CTA 삽입 앵커({_CALENDAR_CTA_ANCHOR!r})를 찾지 못했습니다 — "
+            "이메일 템플릿 구조가 바뀌었을 수 있습니다. 빌드를 중단합니다."
+        )
+    return html.replace(_CALENDAR_CTA_ANCHOR, _CALENDAR_CTA_HTML + _CALENDAR_CTA_ANCHOR, 1)
 
 
 def _clean_description(meta):
