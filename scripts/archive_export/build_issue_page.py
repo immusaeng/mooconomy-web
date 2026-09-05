@@ -214,6 +214,87 @@ _WEB_RESPONSIVE_OVERRIDE_CSS = """
 }
 """
 
+# 2026-09-05(TASK_TRACK=NEWSLETTER_MOBILE_SHARE_AND_CALENDAR_CTA) — 카카오톡
+# 공유로 유입되는 이 웹 issue 페이지에서 360/390px 정보 밀도를 높인다.
+# 위 _WEB_RESPONSIVE_OVERRIDE_CSS와 동일 원칙(웹 셸 레이어 한정 !important
+# 오버라이드, 뉴스레터 저장소 원본 템플릿 무변경, 이메일 클라이언트 렌더링
+# 영향 없음)을 확장한다 — 같은 700px 분기점을 재사용해 768/1280px에는
+# 전혀 적용되지 않는다. 데스크톱 좌우 여백(48px)만 16px로 줄이고, 색상·
+# 타이포·섹션 순서·문구·본문 글자 크기(news-title/news-fact 등)는 손대지
+# 않는다 — 2열 뉴스만 좁은 화면에서 헤드라인이 과도하게 줄바꿈되는 걸
+# 막기 위해 1열로 세로 적층한다(항목 삭제 없음, 순서 유지).
+_WEB_MOBILE_DENSITY_CSS = """
+@media (max-width:700px) {
+  .pad-l { padding:0 16px !important; }
+  .masthead { padding:18px 0 14px !important; }
+  .brand-wm { font-size:30px !important; }
+  .mast-tagline { font-size:12.5px !important; margin-top:8px !important; }
+  .mast-meta { margin-top:12px !important; padding-top:10px !important; }
+  .hero { padding:16px 16px 10px !important; }
+  .hero-headline { font-size:21px !important; }
+  .chapter-mark { padding:14px 16px 8px !important; }
+  .chap-title { font-size:18px !important; }
+  .signals-strip, .metrics-wrap, .temp-wrap, .flow-wrap, .overnight-wrap,
+  .story-wrap, .news-wrap, .watch-wrap { padding-left:16px !important; padding-right:16px !important; }
+  .m-value { font-size:21px !important; white-space:normal !important; word-break:break-word !important; }
+  .story-h { font-size:19px !important; }
+  .news-cols, .news-cols > tbody, .news-cols > tbody > tr { display:block !important; width:100% !important; }
+  .news-cols > tbody > tr > td { display:block !important; width:100% !important; padding:0 !important; border-right:none !important; }
+  .news-cols > tbody > tr > td:first-child { border-bottom:1px solid #E4D8B8 !important; padding-bottom:14px !important; margin-bottom:14px !important; }
+  .brand-wrap > tbody > tr > td.spacer { width:16px !important; }
+  .brand-card { padding:16px 18px !important; }
+  .doc-card { padding:16px 16px !important; }
+  .footer-wrap { padding:18px 16px 28px !important; }
+  .calendar-cta { padding:6px 16px 0 !important; }
+}
+"""
+
+# 뉴스 섹션 종료 지점(다음 섹션인 MOO:VIEW 시작 직전) 인라인 CTA 1개.
+# 발송 이메일 본문에는 전혀 없는 웹 전용 컴포넌트 — .spine-cta(MOO:Q →
+# CHECK 안의 기존 보조 링크)와 같은 색/굵기(#9E6A15, 이탤릭, 400)를 그대로
+# 재사용해 뉴스 제목·MOO:VIEW/MOO:Q 브랜드 플래그보다 강조되지 않게 한다.
+_CALENDAR_CTA_CSS = """
+.calendar-cta { padding:8px 48px 0; text-align:center; }
+.calendar-cta a { display:inline-block; padding:6px 4px; font-family:'Iowan Old Style', Georgia, serif; font-size:12.5px; font-style:italic; color:#9E6A15; text-decoration:none; border-bottom:1px solid #9E6A15; letter-spacing:0.01em; }
+"""
+
+_CALENDAR_CTA_HTML = (
+    '<div class="calendar-cta"><a href="https://mooconomy.co.kr/calendar/">'
+    '다음 시장 이벤트가 궁금하다면? MOO:CALENDAR →</a></div>\n'
+)
+
+
+class CalendarCtaAnchorMissingError(ValueError):
+    """뉴스 섹션 다음 첫 <table class="brand-wrap">(MOO:VIEW) 앵커를 찾지
+    못했다 — 이메일 템플릿 구조가 바뀌어 CTA를 넣을 자리가 사라졌다는
+    뜻이다. CTA 없이 페이지를 조용히 발행하지 않고 빌드를 즉시 실패시켜,
+    "CTA가 어느 날 슬그머니 사라진다"는 회귀를 원천 차단한다."""
+
+
+_CALENDAR_CTA_MARKER = 'class="calendar-cta"'
+_CALENDAR_CTA_ANCHOR = '<table class="brand-wrap"'
+
+
+def _insert_calendar_cta(html):
+    """뉴스 섹션(.news-wrap) 바로 다음, MOO:VIEW 카드(첫 번째 .brand-wrap
+    테이블) 시작 직전에 정확히 1회 삽입한다. MOO:VIEW는 데이터 유무와
+    무관하게 항상 렌더되는 섹션이라(폴백 문구 존재) 이 앵커는 결정론적이다.
+    count=1이라 이후 MOO:Q/CHAIN/WORD가 재사용하는 같은 class="brand-wrap"
+    테이블에는 영향 없다.
+
+    Idempotent: 이미 CTA가 삽입된 html이 다시 들어오면(예: 파이프라인이
+    같은 입력에 이 함수를 두 번 호출) 그대로 반환한다 — 중복 삽입 금지.
+    앵커 자체가 없으면 CalendarCtaAnchorMissingError로 명시적으로
+    실패한다 — 앵커 누락을 "CTA 없이 조용히 통과"로 처리하지 않는다."""
+    if _CALENDAR_CTA_MARKER in html:
+        return html
+    if _CALENDAR_CTA_ANCHOR not in html:
+        raise CalendarCtaAnchorMissingError(
+            f"캘린더 CTA 삽입 앵커({_CALENDAR_CTA_ANCHOR!r})를 찾지 못했습니다 — "
+            "이메일 템플릿 구조가 바뀌었을 수 있습니다. 빌드를 중단합니다."
+        )
+    return html.replace(_CALENDAR_CTA_ANCHOR, _CALENDAR_CTA_HTML + _CALENDAR_CTA_ANCHOR, 1)
+
 
 def _clean_description(meta):
     """morning_thesis가 title과 사실상 같으면(현재 manifest 다수가 그렇다)
@@ -325,10 +406,13 @@ def _force_index_follow_robots(html):
 
 def render_from_public_safe_email(public_safe_html, meta):
     """오늘자처럼 실제 발송 HTML(개인정보 제거 완료본)이 있는 경우 —
-    본문은 절대 재작성하지 않고, <title>을 실제 제목으로, robots를
-    index,follow로 바꾸고 <head> 안에 canonical/OG/JSON-LD를, 헤드라인
-    바로 아래에 Action Bar(+이전/다음/아카이브 링크는 하단)를 삽입만
-    한다."""
+    기존 문장·데이터·섹션 순서는 재작성하지 않고, <title>을 실제 제목으로,
+    robots를 index,follow로 바꾸고 <head> 안에 canonical/OG/JSON-LD를,
+    헤드라인 바로 아래에 Action Bar(+이전/다음/아카이브 링크는 하단)를
+    삽입만 한다. 2026-09-05(TASK_TRACK=NEWSLETTER_MOBILE_SHARE_AND_
+    CALENDAR_CTA)부터 예외 1건 추가: 뉴스 섹션 종료 지점에 고정 문구·고정
+    링크(데이터 비의존) 캘린더 CTA 1개를 삽입한다 — 이것도 기존 문장을
+    바꾸는 게 아니라 새 줄 하나를 끼워 넣는 것뿐이라 원칙은 유지된다."""
     html = public_safe_html
     html = _force_index_follow_robots(html)
     description = _clean_description(meta)
@@ -336,7 +420,13 @@ def render_from_public_safe_email(public_safe_html, meta):
     html = re.sub(r"<title>.*?</title>", title_tag, html, count=1, flags=re.S)
     meta_block = _head_meta_block(meta, description)
     html = html.replace("</title>", "</title>\n" + meta_block, 1)
-    html = html.replace("</style>\n", "</style>\n<style>" + _ACTION_BAR_CSS + _NAV_CSS + _WEB_RESPONSIVE_OVERRIDE_CSS + "</style>\n", 1)
+    html = html.replace(
+        "</style>\n",
+        "</style>\n<style>" + _ACTION_BAR_CSS + _NAV_CSS + _WEB_RESPONSIVE_OVERRIDE_CSS
+        + _WEB_MOBILE_DENSITY_CSS + _CALENDAR_CTA_CSS + "</style>\n",
+        1,
+    )
+    html = _insert_calendar_cta(html)
 
     # 헤드라인 바로 아래(웹 전용) — 이메일 템플릿마다 클래스명이 다를 수 있어
     # hero-headline을 우선 찾고, 없으면 body 시작 직후로 안전하게 폴백한다.
