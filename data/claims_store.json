@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-05T06:43:07+09:00",
+  "updatedAt": "2026-09-08T06:44:07+09:00",
   "claims": {
     "2026-07-19-c1": {
       "schemaVersion": 1,
@@ -2318,6 +2318,46 @@
         "value": 813.5,
         "asOf": "2026-09-04",
         "benchmarkValue": 6687.21,
+        "benchmarkAsOf": "2026-09-04"
+      },
+      "resolution": null
+    },
+    "2026-09-08-c1": {
+      "schemaVersion": 1,
+      "claimId": "2026-09-08-c1",
+      "publicationId": "2026-09-08",
+      "issuedAt": "2026-09-08T06:44:07+09:00",
+      "dataCutoffAt": "2026-09-08T06:44:07+09:00",
+      "lockedAt": "2026-09-08T06:44:07+09:00",
+      "claimMode": "auto",
+      "verificationType": "proxy",
+      "topic": "코스피 vs 나스닥 상대성과(LLM 후보, 5거래일)",
+      "sourceNewsIds": [],
+      "observationText": "코스피는 전일 대비 +4.61%, 나스닥은 +0.00% — 상대 괴리 +4.61%p.",
+      "interpretationText": "코스피가 나스닥 대비 상대적으로 강세 또는 약세를 보이는지 검증합니다.",
+      "claimText": "원/달러 환율이 한미 금리차 축소와 경상수지 흑자 행진 속에 1년 11개월 만에 장중 1330원대까지 내려앉았습니다. — 코스피가 나스닥 대비 강세를 이어갈까요?",
+      "metricId": "kospi",
+      "benchmarkMetricId": "nasdaq",
+      "comparisonType": "excess_return",
+      "expectedDirection": "up",
+      "horizon": {
+        "type": "multi_session",
+        "market": "KR",
+        "resolutionAt": "2026-09-09",
+        "sessions": 5
+      },
+      "thresholdRuleId": "pct_030",
+      "confidence": null,
+      "status": "unresolved",
+      "revision": {
+        "version": 1,
+        "contentHash": "b1d35756a517abf844bc270b4cf1781abb9a224bfd52d2ef7100e9bb158d9d23",
+        "correctedFrom": null
+      },
+      "baseline": {
+        "value": 6995.39,
+        "asOf": "2026-09-07",
+        "benchmarkValue": 26506.99,
         "benchmarkAsOf": "2026-09-04"
       },
       "resolution": null

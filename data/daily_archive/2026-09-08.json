@@ -1,0 +1,258 @@
+{
+  "schema_version": "normalized-daily-issue/v1",
+  "edition_id": "2026-09-08",
+  "edition_date_kst": "2026-09-08",
+  "canonical_status": "production",
+  "production_status": "SEND_CONFIRMED",
+  "source_commit_sha": "251bf9c9af511c8bca4a78a8a4ec3a0190a5f0a3",
+  "subject": "원/달러 환율 1330원대 진입",
+  "preheader": "원/달러 환율 하락과 대미투자 모멘텀이 맞물리며 수급에 영향을 준 요인 중 하나로 해석할 수 있습니다. 다만 업종별 수급과 대외 뉴스 등 다른 요인이 함께 작용했…",
+  "thesis": {
+    "headline": "코스피, 기관·외인 동반 매수에 6995pt선 4.6% 급등",
+    "three_signals": [
+      "중동 정세 불안으로 국제유가가 상승했으나 증시는 기술적 반등세를 보였습니다.",
+      "지난 거래일 코스피는 외국인과 기관의 강력한 동반 매수로 4.6% 급등했습니다.",
+      "오늘은 원/달러 환율 추가 하락 여부와 외국인 수급 지속성을 관찰할 시점입니다."
+    ]
+  },
+  "main_story": {
+    "headline": "원/달러 환율 1330원대 진입",
+    "verified_fact": "원/달러 환율이 한미 금리차 축소와 경상수지 흑자 행진 속에 1년 11개월 만에 장중 1330원대까지 내려앉았습니다. 두 달 새 200원 넘게 하락하며 빠르게 원화 강세 흐름이 나타나고 있습니다.",
+    "why_it_matters": null,
+    "sources": []
+  },
+  "entities": [
+    {
+      "name": "코스피",
+      "type": "index"
+    },
+    {
+      "name": "원/달러",
+      "type": "fx"
+    },
+    {
+      "name": "금",
+      "type": "commodity"
+    }
+  ],
+  "metrics": [
+    {
+      "id": "kospi",
+      "value": 6995.39,
+      "change": 4.6085,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "kosdaq",
+      "value": 822.19,
+      "change": 1.0682,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "nasdaq",
+      "value": 26506.99,
+      "change": 0.0,
+      "displayMode": "pct",
+      "direction": "flat",
+      "status": "ok"
+    },
+    {
+      "id": "sp500",
+      "value": 7718.6,
+      "change": 0.0,
+      "displayMode": "pct",
+      "direction": "flat",
+      "status": "ok"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1345.06,
+      "change": -0.93,
+      "displayMode": "delta",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "us10y",
+      "value": 4.78,
+      "change": 0.0,
+      "displayMode": "delta",
+      "direction": "flat",
+      "status": "ok"
+    },
+    {
+      "id": "wti",
+      "value": 91.48,
+      "change": 0.285,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "vix",
+      "value": 15.3,
+      "change": 5.2994,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    }
+  ],
+  "market_changes": [
+    {
+      "id": "kospi",
+      "change": 4.6085,
+      "changeUnit": "%",
+      "direction": "up"
+    },
+    {
+      "id": "kosdaq",
+      "change": 1.0682,
+      "changeUnit": "%",
+      "direction": "up"
+    },
+    {
+      "id": "nasdaq",
+      "change": 0.0,
+      "changeUnit": "%",
+      "direction": "flat"
+    },
+    {
+      "id": "sp500",
+      "change": 0.0,
+      "changeUnit": "%",
+      "direction": "flat"
+    },
+    {
+      "id": "usdkrw",
+      "change": -0.93,
+      "changeUnit": "원",
+      "direction": "down"
+    },
+    {
+      "id": "us10y",
+      "change": 0.0,
+      "changeUnit": "%p",
+      "direction": "flat"
+    },
+    {
+      "id": "wti",
+      "change": 0.285,
+      "changeUnit": "%",
+      "direction": "up"
+    },
+    {
+      "id": "vix",
+      "change": 5.2994,
+      "changeUnit": "%",
+      "direction": "up"
+    }
+  ],
+  "narratives": {
+    "moo_view": "AI 모델 출시와 한미 대미투자펀드 합의점 도출 소식에 힘입어 대형 기술주 중심의 매수세가 유입되었습니다. 원/달러 환율이 두 달 새 200원 넘게 하락하며 원화 강세가 전개된 점도 외국인 수급 여건을 지지했습니다.\n\n외국인과 기관의 매수세가 집중된 코스피는 반도체와 전기장비 업종 주도로 큰 폭의 반등을 기록했습니다. 반면 코스닥 시장에서는 외국인과 기관이 동반 순매도에 나서고 개인만 매수세를 이어가는 등 시장 간 수급 온도 차가 드러났습니다.\n\n원화 강세와 정책 기대가 유지된다면 외국인 수급 유입이 지속될 수 있고, 유가 상승세와 연준의 금리 인하 기대 후퇴가 심화된다면 상방 압력이 제한될 수 있습니다. 대형주 중심의 지수 급등세와 달리 코스닥 수급 약화와 식품·화장품 등 일부 업종의 조정은 지수 상승의 온기가 시장 전반으로 확산되지 못했음을 시사합니다.",
+    "todays_watch": [
+      "1330원대에 진입한 원/달러 환율의 추가 하락 및 원화 강세 기조 지속 여부",
+      "중동 긴장 고조에 따른 국제유가 상승세 추이",
+      "미 연준의 금리 인하 기대 후퇴 관련 후속 지표 발표"
+    ],
+    "todays_watch_oneliner": "원화 강세와 정책 모멘텀 속 코스피 대형주로 수급이 집중되는 흐름입니다.",
+    "content_status": "GENERATED_PASS2"
+  },
+  "moo_q": {
+    "claim_id": "2026-09-08-c1",
+    "claim_text": "원/달러 환율이 한미 금리차 축소와 경상수지 흑자 행진 속에 1년 11개월 만에 장중 1330원대까지 내려앉았습니다. — 코스피가 나스닥 대비 강세를 이어갈까요?",
+    "topic": "코스피 vs 나스닥 상대성과(LLM 후보, 5거래일)",
+    "resolution_at": "2026-09-09",
+    "status": "unresolved"
+  },
+  "moo_check": [
+    {
+      "previous_claim": "정부의 대규모 지원책 발표에 힘입어 로봇 관련 주가가 20% 이상 큰 폭으로 상승했습니다. — 코스닥가 코스피 대비 강세를 이어갈까요?",
+      "claim_date": "2026-09-05",
+      "evaluation_date": null,
+      "observed_result": null,
+      "verdict": "INSUFFICIENT_DATA",
+      "evidence": null,
+      "source": null
+    }
+  ],
+  "moo_word": {
+    "id": "open_경상수지",
+    "term": "경상수지",
+    "definition": "가계는 수입과 지출을 기록하는 가계부를 작성함으로써 가계의 재정상태를 파악하는 데 도움을 받는다. 그런데 가계부 작성을 위한 수입 또는 지출을 발생원천 별로 구분해 보면 실물부문과 금융부문으로 나눌 수 있다. 실물부문은 근로소득, 재화 및 서비스의 구입과 판매 등과 관련된 수입과 지출을 말하며 금융부문은 저축, 대출 등과 관련된 수입과 지출을 말한다.\n\n가계와 마찬가지로 국가도 외국과의 거래에서 발생하는 수입과 지출을 기록함으로써 경제상태를 파악하는 데 도움을 받을 수 있다. 또한 국가의 수입과 지출도 가계의 수입과 지출처럼 실물부문과 금융부문으로 구분할 수 있다. 재화 및 서비스의 이동, 임금 및 투자 소득의 이동 등과 관련된 수입과 지출은 실물부문에 해당되며 국가간의 자금거래 등과 관련된 수입과 지출은 금융부문에 해당한다.\n\n여기서 한 국가가 실물부문에서 외국과 실행한 거래결과 벌어들인 수입에서 지출을 차감한 금액을 해당 국가의 경상수지라고 표현한다. 특히 거래결과 해당국가의 경상수지가 플러스를 보일 경우에는 “경상수지 흑자”라고 하고 경상수지가 마이너스일 경우에는 “경상수지 적자”라고 한다.\n\n한편 경상수지는 다시 상품수지, 서비스수지, 본원소득수지, 이전소득수지로 구분되며 각각의 내용은 다음과 같다. 상품수지는 재화의 수출ㆍ입 거래결과를 나타내며, 서비스수지는 서비스의 수출ㆍ입 거래결과를 나타낸다. 본원소득수지는 생산요소(노동, 자본)의 이용대가인 임금, 이자, 배당 등의 유출ㆍ입 결과를 보여준다. 이전소득수지는 무상원조나 개인송금처럼 아무런 대가없이 자금이 이동하는 거래의 결과를 기록한다.",
+    "why_today": "원/달러 환율 하락 및 원화 강세를 설명하는 주요 기초체력 요인입니다.",
+    "memory_hook": null,
+    "source_label": "파이낸셜뉴스",
+    "article_id": "news_8",
+    "article_url": "https://www.fnnews.com/news/202609071807216602",
+    "article_publisher": "파이낸셜뉴스",
+    "evidence_snippets": [
+      "한미 금리차 축소와 역대급 경상수지 흑자 행진, 저가 매수 수요 등의 영향으로 원화 강세"
+    ],
+    "definition_source_name": "한국은행 경제금융용어 700선",
+    "definition_source_url": "https://ecos.bok.or.kr/",
+    "definition_priority": "P1_SOURCES_VERIFIED",
+    "origin": "llm_proposed",
+    "grounded_in_article": true,
+    "definition_evidence_verified": true,
+    "status": "ELIGIBLE_FOR_PUBLICATION",
+    "eligible_for_publication": true
+  },
+  "sources": [
+    {
+      "source_name": "한국경제",
+      "source_url": "https://www.hankyung.com/article/2026090795161",
+      "published_at": "2026-09-07",
+      "source_headline": "한·미 합의점 찾은 대미투자펀드…韓 기술로 빅테크 전력난 푼다"
+    },
+    {
+      "source_name": "한국경제증권",
+      "source_url": "https://www.hankyung.com/article/202609079708i",
+      "published_at": "2026-09-07",
+      "source_headline": "대미투자 기대감에 12차 전기본까지…원전주 '들썩'"
+    },
+    {
+      "source_name": "파이낸셜뉴스",
+      "source_url": "https://www.fnnews.com/news/202609071823124106",
+      "published_at": "2026-09-07",
+      "source_headline": "PF 확대·증거금률 인상에… 서비스업 대출 3년 반만에 최대폭 증가"
+    },
+    {
+      "source_name": "MarketWatch",
+      "source_url": "https://www.marketwatch.com/story/oil-prices-hit-near-seven-week-highs-before-edging-lower-as-iran-plans-to-increase-control-of-hormuz-5070167c?mod=mw_rss_topstories",
+      "published_at": "2026-09-07",
+      "source_headline": "Oil prices climb after reports of Saudi Aramco refinery being hit by Houthi rebels"
+    },
+    {
+      "source_name": "CNBC",
+      "source_url": "https://www.cnbc.com/2026/09/07/oil-prices-rise-to-6-week-high-after-iran-and-us-trade-blows-saudi-aramco-facilities-reportedly-hit.html",
+      "published_at": "2026-09-07",
+      "source_headline": "Oil prices rise to 6-week high after Iran and U.S. trade blows, Saudi Aramco facilities reportedly hit"
+    },
+    {
+      "source_name": "MarketWatch",
+      "source_url": "https://www.marketwatch.com/story/why-the-launch-of-openais-latest-astra-model-reignited-the-memory-chip-trade-809e2edb?mod=mw_rss_topstories",
+      "published_at": "2026-09-07",
+      "source_headline": "Why the launch of OpenAI’s latest Astra model reignited the memory chip trade"
+    },
+    {
+      "source_name": "Investing",
+      "source_url": "https://www.investing.com/news/economy-news/ubs-expects-the-fed-to-lift-rates-twice-before-the-end-of-the-year-heres-why-4890628",
+      "published_at": "2026-09-07",
+      "source_headline": "UBS expects the Fed to lift rates twice before the end of the year. Here’s why."
+    }
+  ],
+  "public_url": "https://mooconomy.co.kr/latest-email.html",
+  "validation_status": {
+    "main_story_status": "SELECTED",
+    "content_provenance": "VALIDATED_GEMINI_36",
+    "moo_word_present": true,
+    "sources_count": 7,
+    "is_approximate": false
+  },
+  "content_hash": "ad8d446744be9ab6243eb2a7f332466f92417485b2b582257105c4310318e6da",
+  "archived_at": "2026-09-07T21:47:59.807553+00:00"
+}
