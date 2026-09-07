@@ -1,14 +1,14 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-09-06T22:11:19.090270+00:00",
+  "generatedAt": "2026-09-07T22:54:12.258958+00:00",
   "timezone": "Asia/Seoul",
   "range": {
-    "from": "2026-09-06",
-    "to": "2026-09-13"
+    "from": "2026-09-07",
+    "to": "2026-09-14"
   },
   "freshness": {
     "status": "partial",
-    "lastSuccessfulAt": "2026-09-06T22:11:19.090283+00:00",
+    "lastSuccessfulAt": "2026-09-07T22:54:12.258967+00:00",
     "failedSources": [
       "fmp",
       "finnhub"
@@ -16,10 +16,10 @@
   },
   "events": [
     {
-      "id": "fred-fomc-press-release-2026-09-07-619c83b1216c",
-      "title": "FOMC Press Release",
-      "originalTitle": "FOMC Press Release",
-      "titleKo": "FOMC 보도자료",
+      "id": "fred-national-accounts-gdp-eurostat-2026-09-07-1f8aa18f941a",
+      "title": "National Accounts - GDP (Eurostat)",
+      "originalTitle": "National Accounts - GDP (Eurostat)",
+      "titleKo": "유로존 국민계정(GDP, Eurostat)",
       "country": "US",
       "category": "macro",
       "importance": "high",
@@ -34,19 +34,14 @@
       "unit": null,
       "sourceName": "FRED",
       "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-      "sourceEventId": "101",
-      "updatedAt": "2026-09-06T22:11:19.072505+00:00",
-      "confidence": "cross_checked",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=267",
+      "sourceEventId": "267",
+      "updatedAt": "2026-09-07T22:54:12.229896+00:00",
+      "confidence": "single_source",
       "sourceRefs": [
         {
           "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-          "sourceTier": "official_aggregator"
-        },
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=267",
           "sourceTier": "official_aggregator"
         }
       ]
@@ -72,43 +67,12 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=739",
       "sourceEventId": "739",
-      "updatedAt": "2026-09-06T22:11:19.072513+00:00",
+      "updatedAt": "2026-09-07T22:54:12.229917+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
           "sourceName": "FRED",
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=739",
-          "sourceTier": "official_aggregator"
-        }
-      ]
-    },
-    {
-      "id": "fred-national-accounts-gdp-eurostat-2026-09-07-1f8aa18f941a",
-      "title": "National Accounts - GDP (Eurostat)",
-      "originalTitle": "National Accounts - GDP (Eurostat)",
-      "titleKo": "유로존 국민계정(GDP, Eurostat)",
-      "country": "US",
-      "category": "macro",
-      "importance": "high",
-      "scheduledDate": "2026-09-07",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "FRED",
-      "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=267",
-      "sourceEventId": "267",
-      "updatedAt": "2026-09-06T22:11:19.072518+00:00",
-      "confidence": "single_source",
-      "sourceRefs": [
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=267",
           "sourceTier": "official_aggregator"
         }
       ]
@@ -134,7 +98,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=378",
       "sourceEventId": "378",
-      "updatedAt": "2026-09-06T22:11:19.072547+00:00",
+      "updatedAt": "2026-09-07T22:54:12.229954+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -145,6 +109,42 @@
         {
           "sourceName": "FRED",
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=378",
+          "sourceTier": "official_aggregator"
+        }
+      ]
+    },
+    {
+      "id": "fred-fomc-press-release-2026-09-08-481e12cc9365",
+      "title": "FOMC Press Release",
+      "originalTitle": "FOMC Press Release",
+      "titleKo": "FOMC 보도자료",
+      "country": "US",
+      "category": "macro",
+      "importance": "high",
+      "scheduledDate": "2026-09-08",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "scheduled",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "FRED",
+      "sourceTier": "official_aggregator",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+      "sourceEventId": "101",
+      "updatedAt": "2026-09-07T22:54:12.229957+00:00",
+      "confidence": "cross_checked",
+      "sourceRefs": [
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+          "sourceTier": "official_aggregator"
+        },
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
           "sourceTier": "official_aggregator"
         }
       ]
@@ -170,7 +170,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=4",
       "sourceEventId": "4",
-      "updatedAt": "2026-09-06T22:11:19.072575+00:00",
+      "updatedAt": "2026-09-07T22:54:12.229997+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -181,42 +181,6 @@
         {
           "sourceName": "FRED",
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=4",
-          "sourceTier": "official_aggregator"
-        }
-      ]
-    },
-    {
-      "id": "fred-fomc-press-release-2026-09-09-feacbc1ca246",
-      "title": "FOMC Press Release",
-      "originalTitle": "FOMC Press Release",
-      "titleKo": "FOMC 보도자료",
-      "country": "US",
-      "category": "macro",
-      "importance": "high",
-      "scheduledDate": "2026-09-09",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "FRED",
-      "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-      "sourceEventId": "101",
-      "updatedAt": "2026-09-06T22:11:19.072648+00:00",
-      "confidence": "cross_checked",
-      "sourceRefs": [
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-          "sourceTier": "official_aggregator"
-        },
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
           "sourceTier": "official_aggregator"
         }
       ]
@@ -242,7 +206,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=739",
       "sourceEventId": "739",
-      "updatedAt": "2026-09-06T22:11:19.072669+00:00",
+      "updatedAt": "2026-09-07T22:54:12.230143+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -278,7 +242,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=378",
       "sourceEventId": "378",
-      "updatedAt": "2026-09-06T22:11:19.072735+00:00",
+      "updatedAt": "2026-09-07T22:54:12.230249+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -289,6 +253,42 @@
         {
           "sourceName": "FRED",
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=378",
+          "sourceTier": "official_aggregator"
+        }
+      ]
+    },
+    {
+      "id": "fred-fomc-press-release-2026-09-10-142c038888a6",
+      "title": "FOMC Press Release",
+      "originalTitle": "FOMC Press Release",
+      "titleKo": "FOMC 보도자료",
+      "country": "US",
+      "category": "macro",
+      "importance": "high",
+      "scheduledDate": "2026-09-10",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "scheduled",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "FRED",
+      "sourceTier": "official_aggregator",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+      "sourceEventId": "101",
+      "updatedAt": "2026-09-07T22:54:12.230252+00:00",
+      "confidence": "cross_checked",
+      "sourceRefs": [
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+          "sourceTier": "official_aggregator"
+        },
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
           "sourceTier": "official_aggregator"
         }
       ]
@@ -314,7 +314,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=386",
       "sourceEventId": "386",
-      "updatedAt": "2026-09-06T22:11:19.072739+00:00",
+      "updatedAt": "2026-09-07T22:54:12.230255+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -345,7 +345,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=4",
       "sourceEventId": "4",
-      "updatedAt": "2026-09-06T22:11:19.072758+00:00",
+      "updatedAt": "2026-09-07T22:54:12.230285+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -381,7 +381,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=46",
       "sourceEventId": "46",
-      "updatedAt": "2026-09-06T22:11:19.072791+00:00",
+      "updatedAt": "2026-09-07T22:54:12.230336+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -412,7 +412,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=10",
       "sourceEventId": "10",
-      "updatedAt": "2026-09-06T22:11:19.072839+00:00",
+      "updatedAt": "2026-09-07T22:54:12.230415+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -443,48 +443,12 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=315",
       "sourceEventId": "315",
-      "updatedAt": "2026-09-06T22:11:19.072841+00:00",
+      "updatedAt": "2026-09-07T22:54:12.230418+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
           "sourceName": "FRED",
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=315",
-          "sourceTier": "official_aggregator"
-        }
-      ]
-    },
-    {
-      "id": "fred-fomc-press-release-2026-09-11-5acc2f11abc2",
-      "title": "FOMC Press Release",
-      "originalTitle": "FOMC Press Release",
-      "titleKo": "FOMC 보도자료",
-      "country": "US",
-      "category": "macro",
-      "importance": "high",
-      "scheduledDate": "2026-09-11",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "FRED",
-      "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-      "sourceEventId": "101",
-      "updatedAt": "2026-09-06T22:11:19.072852+00:00",
-      "confidence": "cross_checked",
-      "sourceRefs": [
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-          "sourceTier": "official_aggregator"
-        },
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
           "sourceTier": "official_aggregator"
         }
       ]
@@ -510,7 +474,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=739",
       "sourceEventId": "739",
-      "updatedAt": "2026-09-06T22:11:19.072879+00:00",
+      "updatedAt": "2026-09-07T22:54:12.230477+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -541,7 +505,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=345",
       "sourceEventId": "345",
-      "updatedAt": "2026-09-06T22:11:19.072905+00:00",
+      "updatedAt": "2026-09-07T22:54:12.230519+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -572,7 +536,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=313",
       "sourceEventId": "313",
-      "updatedAt": "2026-09-06T22:11:19.072921+00:00",
+      "updatedAt": "2026-09-07T22:54:12.230544+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -583,14 +547,14 @@
       ]
     },
     {
-      "id": "fred-fomc-press-release-2026-09-13-08b5bd7224cc",
+      "id": "fred-fomc-press-release-2026-09-12-93b3570e5e53",
       "title": "FOMC Press Release",
       "originalTitle": "FOMC Press Release",
       "titleKo": "FOMC 보도자료",
       "country": "US",
       "category": "macro",
       "importance": "high",
-      "scheduledDate": "2026-09-13",
+      "scheduledDate": "2026-09-12",
       "scheduledAt": null,
       "timezone": null,
       "timePrecision": "date",
@@ -603,7 +567,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
       "sourceEventId": "101",
-      "updatedAt": "2026-09-06T22:11:19.072944+00:00",
+      "updatedAt": "2026-09-07T22:54:12.230573+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -614,6 +578,150 @@
         {
           "sourceName": "FRED",
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+          "sourceTier": "official_aggregator"
+        }
+      ]
+    },
+    {
+      "id": "fred-federal-funds-data-2026-09-14-e46d91666ce3",
+      "title": "Federal Funds Data",
+      "originalTitle": "Federal Funds Data",
+      "titleKo": "미국 연방기금금리 데이터",
+      "country": "US",
+      "category": "macro",
+      "importance": "high",
+      "scheduledDate": "2026-09-14",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "scheduled",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "FRED",
+      "sourceTier": "official_aggregator",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=378",
+      "sourceEventId": "378",
+      "updatedAt": "2026-09-07T22:54:12.230610+00:00",
+      "confidence": "cross_checked",
+      "sourceRefs": [
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=378",
+          "sourceTier": "official_aggregator"
+        },
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=378",
+          "sourceTier": "official_aggregator"
+        }
+      ]
+    },
+    {
+      "id": "fred-fomc-press-release-2026-09-14-926ed5ccde3e",
+      "title": "FOMC Press Release",
+      "originalTitle": "FOMC Press Release",
+      "titleKo": "FOMC 보도자료",
+      "country": "US",
+      "category": "macro",
+      "importance": "high",
+      "scheduledDate": "2026-09-14",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "scheduled",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "FRED",
+      "sourceTier": "official_aggregator",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+      "sourceEventId": "101",
+      "updatedAt": "2026-09-07T22:54:12.230613+00:00",
+      "confidence": "cross_checked",
+      "sourceRefs": [
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+          "sourceTier": "official_aggregator"
+        },
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+          "sourceTier": "official_aggregator"
+        }
+      ]
+    },
+    {
+      "id": "fred-kansas-city-fed-policy-rate-skew-2026-09-14-58720c919e34",
+      "title": "Kansas City Fed Policy Rate Skew",
+      "originalTitle": "Kansas City Fed Policy Rate Skew",
+      "titleKo": "캔자스시티 연은 정책금리 스큐지수",
+      "country": "US",
+      "category": "macro",
+      "importance": "high",
+      "scheduledDate": "2026-09-14",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "scheduled",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "FRED",
+      "sourceTier": "official_aggregator",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=4",
+      "sourceEventId": "4",
+      "updatedAt": "2026-09-07T22:54:12.230647+00:00",
+      "confidence": "cross_checked",
+      "sourceRefs": [
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=4",
+          "sourceTier": "official_aggregator"
+        },
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=4",
+          "sourceTier": "official_aggregator"
+        }
+      ]
+    },
+    {
+      "id": "fred-kansas-city-fed-policy-rate-uncertainty-2026-09-14-d676f2b8e163",
+      "title": "Kansas City Fed Policy Rate Uncertainty",
+      "originalTitle": "Kansas City Fed Policy Rate Uncertainty",
+      "titleKo": "캔자스시티 연은 정책금리 불확실성지수",
+      "country": "US",
+      "category": "macro",
+      "importance": "high",
+      "scheduledDate": "2026-09-14",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "scheduled",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "FRED",
+      "sourceTier": "official_aggregator",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=739",
+      "sourceEventId": "739",
+      "updatedAt": "2026-09-07T22:54:12.230651+00:00",
+      "confidence": "cross_checked",
+      "sourceRefs": [
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=739",
+          "sourceTier": "official_aggregator"
+        },
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=739",
           "sourceTier": "official_aggregator"
         }
       ]
@@ -639,48 +747,12 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=471",
       "sourceEventId": "471",
-      "updatedAt": "2026-09-06T22:11:19.072581+00:00",
+      "updatedAt": "2026-09-07T22:54:12.230006+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
           "sourceName": "FRED",
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=471",
-          "sourceTier": "official_aggregator"
-        }
-      ]
-    },
-    {
-      "id": "fred-coinbase-cryptocurrencies-2026-09-07-3189d3a11763",
-      "title": "Coinbase Cryptocurrencies",
-      "originalTitle": "Coinbase Cryptocurrencies",
-      "titleKo": "코인베이스 암호화폐 시세",
-      "country": "US",
-      "category": "macro",
-      "importance": "low",
-      "scheduledDate": "2026-09-07",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "FRED",
-      "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=441",
-      "sourceEventId": "441",
-      "updatedAt": "2026-09-06T22:11:19.072497+00:00",
-      "confidence": "cross_checked",
-      "sourceRefs": [
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=441",
-          "sourceTier": "official_aggregator"
-        },
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=441",
           "sourceTier": "official_aggregator"
         }
       ]
@@ -706,7 +778,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=279",
       "sourceEventId": "279",
-      "updatedAt": "2026-09-06T22:11:19.072500+00:00",
+      "updatedAt": "2026-09-07T22:54:12.229877+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -742,7 +814,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=502",
       "sourceEventId": "502",
-      "updatedAt": "2026-09-06T22:11:19.072503+00:00",
+      "updatedAt": "2026-09-07T22:54:12.229881+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -753,42 +825,6 @@
         {
           "sourceName": "FRED",
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=502",
-          "sourceTier": "official_aggregator"
-        }
-      ]
-    },
-    {
-      "id": "fred-ice-bofa-indices-2026-09-07-2d8d02538ef5",
-      "title": "ICE BofA Indices",
-      "originalTitle": "ICE BofA Indices",
-      "titleKo": "ICE BofA 채권지수",
-      "country": "US",
-      "category": "macro",
-      "importance": "low",
-      "scheduledDate": "2026-09-07",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "FRED",
-      "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=209",
-      "sourceEventId": "209",
-      "updatedAt": "2026-09-06T22:11:19.072507+00:00",
-      "confidence": "cross_checked",
-      "sourceRefs": [
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=209",
-          "sourceTier": "official_aggregator"
-        },
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=209",
           "sourceTier": "official_aggregator"
         }
       ]
@@ -814,7 +850,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=239",
       "sourceEventId": "239",
-      "updatedAt": "2026-09-06T22:11:19.072511+00:00",
+      "updatedAt": "2026-09-07T22:54:12.229889+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -845,7 +881,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=484",
       "sourceEventId": "484",
-      "updatedAt": "2026-09-06T22:11:19.072516+00:00",
+      "updatedAt": "2026-09-07T22:54:12.229893+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -856,37 +892,6 @@
         {
           "sourceName": "FRED",
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=484",
-          "sourceTier": "official_aggregator"
-        }
-      ]
-    },
-    {
-      "id": "fred-national-accounts-of-japan-2026-09-07-99a3529ebd68",
-      "title": "National Accounts of Japan",
-      "originalTitle": "National Accounts of Japan",
-      "titleKo": "일본 국민계정",
-      "country": "US",
-      "category": "macro",
-      "importance": "low",
-      "scheduledDate": "2026-09-07",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "FRED",
-      "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=269",
-      "sourceEventId": "269",
-      "updatedAt": "2026-09-06T22:11:19.072521+00:00",
-      "confidence": "single_source",
-      "sourceRefs": [
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=269",
           "sourceTier": "official_aggregator"
         }
       ]
@@ -912,7 +917,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=287",
       "sourceEventId": "287",
-      "updatedAt": "2026-09-06T22:11:19.072524+00:00",
+      "updatedAt": "2026-09-07T22:54:12.229900+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -923,42 +928,6 @@
         {
           "sourceName": "FRED",
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=287",
-          "sourceTier": "official_aggregator"
-        }
-      ]
-    },
-    {
-      "id": "fred-recession-indicators-series-2026-09-07-1e85f11e39be",
-      "title": "Recession Indicators Series",
-      "originalTitle": "Recession Indicators Series",
-      "titleKo": "경기침체 지표 시계열",
-      "country": "US",
-      "category": "macro",
-      "importance": "low",
-      "scheduledDate": "2026-09-07",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "FRED",
-      "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=242",
-      "sourceEventId": "242",
-      "updatedAt": "2026-09-06T22:11:19.072527+00:00",
-      "confidence": "cross_checked",
-      "sourceRefs": [
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=242",
-          "sourceTier": "official_aggregator"
-        },
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=242",
           "sourceTier": "official_aggregator"
         }
       ]
@@ -984,7 +953,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=492",
       "sourceEventId": "492",
-      "updatedAt": "2026-09-06T22:11:19.072529+00:00",
+      "updatedAt": "2026-09-07T22:54:12.229905+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -1000,14 +969,14 @@
       ]
     },
     {
-      "id": "bok-2026-2-4-2026-09-08-dbb0ef27f5a7",
-      "title": "2026년 2/4분기 국민소득(잠정)",
-      "originalTitle": "2026년 2/4분기 국민소득(잠정)",
-      "titleKo": "2026년 2/4분기 국민소득(잠정)",
-      "country": "KR",
+      "id": "fred-ice-bofa-indices-2026-09-07-2d8d02538ef5",
+      "title": "ICE BofA Indices",
+      "originalTitle": "ICE BofA Indices",
+      "titleKo": "ICE BofA 채권지수",
+      "country": "US",
       "category": "macro",
       "importance": "low",
-      "scheduledDate": "2026-09-08",
+      "scheduledDate": "2026-09-07",
       "scheduledAt": null,
       "timezone": null,
       "timePrecision": "date",
@@ -1016,22 +985,991 @@
       "consensus": null,
       "actual": null,
       "unit": null,
-      "sourceName": "BOK",
-      "sourceTier": "official",
-      "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-09",
-      "sourceEventId": null,
-      "updatedAt": "2026-09-06T22:11:19.074697+00:00",
+      "sourceName": "FRED",
+      "sourceTier": "official_aggregator",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=209",
+      "sourceEventId": "209",
+      "updatedAt": "2026-09-07T22:54:12.229913+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
-          "sourceName": "BOK",
-          "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-09",
-          "sourceTier": "official"
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=209",
+          "sourceTier": "official_aggregator"
         },
         {
-          "sourceName": "BOK",
-          "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-09",
-          "sourceTier": "official"
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=209",
+          "sourceTier": "official_aggregator"
+        }
+      ]
+    },
+    {
+      "id": "fred-national-accounts-of-japan-2026-09-07-99a3529ebd68",
+      "title": "National Accounts of Japan",
+      "originalTitle": "National Accounts of Japan",
+      "titleKo": "일본 국민계정",
+      "country": "US",
+      "category": "macro",
+      "importance": "low",
+      "scheduledDate": "2026-09-07",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "scheduled",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "FRED",
+      "sourceTier": "official_aggregator",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=269",
+      "sourceEventId": "269",
+      "updatedAt": "2026-09-07T22:54:12.229922+00:00",
+      "confidence": "single_source",
+      "sourceRefs": [
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=269",
+          "sourceTier": "official_aggregator"
+        }
+      ]
+    },
+    {
+      "id": "fred-recession-indicators-series-2026-09-07-1e85f11e39be",
+      "title": "Recession Indicators Series",
+      "originalTitle": "Recession Indicators Series",
+      "titleKo": "경기침체 지표 시계열",
+      "country": "US",
+      "category": "macro",
+      "importance": "low",
+      "scheduledDate": "2026-09-07",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "scheduled",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "FRED",
+      "sourceTier": "official_aggregator",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=242",
+      "sourceEventId": "242",
+      "updatedAt": "2026-09-07T22:54:12.229926+00:00",
+      "confidence": "cross_checked",
+      "sourceRefs": [
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=242",
+          "sourceTier": "official_aggregator"
+        },
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=242",
+          "sourceTier": "official_aggregator"
+        }
+      ]
+    },
+    {
+      "id": "dart-20260907800650-2026-09-07-a243620897a3",
+      "title": "IPARK현대산업개발 - 불성실공시법인지정",
+      "originalTitle": "IPARK현대산업개발 - 불성실공시법인지정",
+      "titleKo": "IPARK현대산업개발 - 불성실공시법인지정",
+      "country": "KR",
+      "category": "disclosure",
+      "importance": "low",
+      "scheduledDate": "2026-09-07",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "published",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "OpenDART",
+      "sourceTier": "official_disclosure",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907800650",
+      "sourceEventId": "20260907800650",
+      "updatedAt": "2026-09-07T22:54:12.233576+00:00",
+      "confidence": "single_source",
+      "sourceRefs": [
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907800650",
+          "sourceTier": "official_disclosure"
+        }
+      ]
+    },
+    {
+      "id": "dart-20260907800647-2026-09-07-f5fc47bafe96",
+      "title": "HDC - 불성실공시법인지정",
+      "originalTitle": "HDC - 불성실공시법인지정",
+      "titleKo": "HDC - 불성실공시법인지정",
+      "country": "KR",
+      "category": "disclosure",
+      "importance": "low",
+      "scheduledDate": "2026-09-07",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "published",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "OpenDART",
+      "sourceTier": "official_disclosure",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907800647",
+      "sourceEventId": "20260907800647",
+      "updatedAt": "2026-09-07T22:54:12.233581+00:00",
+      "confidence": "single_source",
+      "sourceRefs": [
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907800647",
+          "sourceTier": "official_disclosure"
+        }
+      ]
+    },
+    {
+      "id": "dart-20260907900665-2026-09-07-6bf7878e925b",
+      "title": "신라에스지 - 기타시장안내              (시가총액 미달에 따른 상장폐지 우려 관련 안내)",
+      "originalTitle": "신라에스지 - 기타시장안내              (시가총액 미달에 따른 상장폐지 우려 관련 안내)",
+      "titleKo": "신라에스지 - 기타시장안내              (시가총액 미달에 따른 상장폐지 우려 관련 안내)",
+      "country": "KR",
+      "category": "disclosure",
+      "importance": "low",
+      "scheduledDate": "2026-09-07",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "published",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "OpenDART",
+      "sourceTier": "official_disclosure",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900665",
+      "sourceEventId": "20260907900665",
+      "updatedAt": "2026-09-07T22:54:12.233588+00:00",
+      "confidence": "cross_checked",
+      "sourceRefs": [
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900665",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900649",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900635",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900642",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000327",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907800634",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000331",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900631",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000330",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900627",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900620",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000326",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000325",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900621",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000324",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000323",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000321",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907800600",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000319",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000318",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000317",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000316",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000313",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000312",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000309",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907800560",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000307",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000306",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907800588",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907800543",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000305",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000304",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900556",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900538",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000303",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000302",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900494",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900530",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900524",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900516",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000300",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000299",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000298",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907800522",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000295",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000294",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000293",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900502",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000292",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000272",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000290",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000289",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000288",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000286",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000285",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000284",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000282",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000280",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000279",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000278",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900511",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900507",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000277",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000275",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000274",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907600483",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000271",
+          "sourceTier": "official_disclosure"
+        }
+      ]
+    },
+    {
+      "id": "dart-20260907900644-2026-09-07-75bb30eecb23",
+      "title": "CG인바이츠 - [기재정정]단일판매ㆍ공급계약체결",
+      "originalTitle": "CG인바이츠 - [기재정정]단일판매ㆍ공급계약체결",
+      "titleKo": "CG인바이츠 - [기재정정]단일판매ㆍ공급계약체결",
+      "country": "KR",
+      "category": "disclosure",
+      "importance": "low",
+      "scheduledDate": "2026-09-07",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "published",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "OpenDART",
+      "sourceTier": "official_disclosure",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900644",
+      "sourceEventId": "20260907900644",
+      "updatedAt": "2026-09-07T22:54:12.233594+00:00",
+      "confidence": "single_source",
+      "sourceRefs": [
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900644",
+          "sourceTier": "official_disclosure"
+        }
+      ]
+    },
+    {
+      "id": "dart-20260907900606-2026-09-07-82a302fc7f0d",
+      "title": "조이웍스앤코 - 기타시장안내(관리종목지정우려종목)              (시가총액 200억원 미달)",
+      "originalTitle": "조이웍스앤코 - 기타시장안내(관리종목지정우려종목)              (시가총액 200억원 미달)",
+      "titleKo": "조이웍스앤코 - 기타시장안내(관리종목지정우려종목)              (시가총액 200억원 미달)",
+      "country": "KR",
+      "category": "disclosure",
+      "importance": "low",
+      "scheduledDate": "2026-09-07",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "published",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "OpenDART",
+      "sourceTier": "official_disclosure",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900606",
+      "sourceEventId": "20260907900606",
+      "updatedAt": "2026-09-07T22:54:12.233613+00:00",
+      "confidence": "single_source",
+      "sourceRefs": [
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900606",
+          "sourceTier": "official_disclosure"
+        }
+      ]
+    },
+    {
+      "id": "dart-20260907000328-2026-09-07-c6dd14fe0605",
+      "title": "HPSP - [기재정정]주요사항보고서(자기주식처분결정)",
+      "originalTitle": "HPSP - [기재정정]주요사항보고서(자기주식처분결정)",
+      "titleKo": "HPSP - [기재정정]주요사항보고서(자기주식처분결정)",
+      "country": "KR",
+      "category": "disclosure",
+      "importance": "low",
+      "scheduledDate": "2026-09-07",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "published",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "OpenDART",
+      "sourceTier": "official_disclosure",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000328",
+      "sourceEventId": "20260907000328",
+      "updatedAt": "2026-09-07T22:54:12.233622+00:00",
+      "confidence": "single_source",
+      "sourceRefs": [
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000328",
+          "sourceTier": "official_disclosure"
+        }
+      ]
+    },
+    {
+      "id": "dart-20260907800640-2026-09-07-801ceaed4dd5",
+      "title": "IPARK현대산업개발 - 기업설명회(IR)개최(안내공시)",
+      "originalTitle": "IPARK현대산업개발 - 기업설명회(IR)개최(안내공시)",
+      "titleKo": "IPARK현대산업개발 - 기업설명회(IR)개최(안내공시)",
+      "country": "KR",
+      "category": "disclosure",
+      "importance": "low",
+      "scheduledDate": "2026-09-07",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "published",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "OpenDART",
+      "sourceTier": "official_disclosure",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907800640",
+      "sourceEventId": "20260907800640",
+      "updatedAt": "2026-09-07T22:54:12.233635+00:00",
+      "confidence": "single_source",
+      "sourceRefs": [
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907800640",
+          "sourceTier": "official_disclosure"
+        }
+      ]
+    },
+    {
+      "id": "dart-20260907000322-2026-09-07-76db74bd6e38",
+      "title": "SK디스커버리 - 신탁계약해지결과보고서",
+      "originalTitle": "SK디스커버리 - 신탁계약해지결과보고서",
+      "titleKo": "SK디스커버리 - 신탁계약해지결과보고서",
+      "country": "KR",
+      "category": "disclosure",
+      "importance": "low",
+      "scheduledDate": "2026-09-07",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "published",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "OpenDART",
+      "sourceTier": "official_disclosure",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000322",
+      "sourceEventId": "20260907000322",
+      "updatedAt": "2026-09-07T22:54:12.233710+00:00",
+      "confidence": "cross_checked",
+      "sourceRefs": [
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000322",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000315",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907800593",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000308",
+          "sourceTier": "official_disclosure"
+        }
+      ]
+    },
+    {
+      "id": "dart-20260907000314-2026-09-07-435565aaddec",
+      "title": "지에프씨생명과학 - [기재정정]반기보고서 (2026.06)",
+      "originalTitle": "지에프씨생명과학 - [기재정정]반기보고서 (2026.06)",
+      "titleKo": "지에프씨생명과학 - [기재정정]반기보고서 (2026.06)",
+      "country": "KR",
+      "category": "disclosure",
+      "importance": "low",
+      "scheduledDate": "2026-09-07",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "published",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "OpenDART",
+      "sourceTier": "official_disclosure",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000314",
+      "sourceEventId": "20260907000314",
+      "updatedAt": "2026-09-07T22:54:12.233767+00:00",
+      "confidence": "cross_checked",
+      "sourceRefs": [
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000314",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000310",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000301",
+          "sourceTier": "official_disclosure"
+        }
+      ]
+    },
+    {
+      "id": "dart-20260907800590-2026-09-07-b1d3a27a1548",
+      "title": "롯데칠성음료 - 기업설명회(IR)개최(안내공시)",
+      "originalTitle": "롯데칠성음료 - 기업설명회(IR)개최(안내공시)",
+      "titleKo": "롯데칠성음료 - 기업설명회(IR)개최(안내공시)",
+      "country": "KR",
+      "category": "disclosure",
+      "importance": "low",
+      "scheduledDate": "2026-09-07",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "published",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "OpenDART",
+      "sourceTier": "official_disclosure",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907800590",
+      "sourceEventId": "20260907800590",
+      "updatedAt": "2026-09-07T22:54:12.233823+00:00",
+      "confidence": "cross_checked",
+      "sourceRefs": [
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907800590",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900546",
+          "sourceTier": "official_disclosure"
+        }
+      ]
+    },
+    {
+      "id": "dart-20260907800547-2026-09-07-e8e82960f0d5",
+      "title": "STX그린로지스 - 유형자산처분결정",
+      "originalTitle": "STX그린로지스 - 유형자산처분결정",
+      "titleKo": "STX그린로지스 - 유형자산처분결정",
+      "country": "KR",
+      "category": "disclosure",
+      "importance": "low",
+      "scheduledDate": "2026-09-07",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "published",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "OpenDART",
+      "sourceTier": "official_disclosure",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907800547",
+      "sourceEventId": "20260907800547",
+      "updatedAt": "2026-09-07T22:54:12.233834+00:00",
+      "confidence": "single_source",
+      "sourceRefs": [
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907800547",
+          "sourceTier": "official_disclosure"
+        }
+      ]
+    },
+    {
+      "id": "dart-20260907800562-2026-09-07-b01e7904fc7c",
+      "title": "GS - 최대주주등소유주식변동신고서",
+      "originalTitle": "GS - 최대주주등소유주식변동신고서",
+      "titleKo": "GS - 최대주주등소유주식변동신고서",
+      "country": "KR",
+      "category": "disclosure",
+      "importance": "low",
+      "scheduledDate": "2026-09-07",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "published",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "OpenDART",
+      "sourceTier": "official_disclosure",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907800562",
+      "sourceEventId": "20260907800562",
+      "updatedAt": "2026-09-07T22:54:12.233850+00:00",
+      "confidence": "single_source",
+      "sourceRefs": [
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907800562",
+          "sourceTier": "official_disclosure"
+        }
+      ]
+    },
+    {
+      "id": "dart-20260907800518-2026-09-07-18f54c424aa8",
+      "title": "HS효성 - 타인에대한채무보증결정(자회사의 주요경영사항)",
+      "originalTitle": "HS효성 - 타인에대한채무보증결정(자회사의 주요경영사항)",
+      "titleKo": "HS효성 - 타인에대한채무보증결정(자회사의 주요경영사항)",
+      "country": "KR",
+      "category": "disclosure",
+      "importance": "low",
+      "scheduledDate": "2026-09-07",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "published",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "OpenDART",
+      "sourceTier": "official_disclosure",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907800518",
+      "sourceEventId": "20260907800518",
+      "updatedAt": "2026-09-07T22:54:12.233855+00:00",
+      "confidence": "cross_checked",
+      "sourceRefs": [
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907800518",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907800517",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907800498",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907800491",
+          "sourceTier": "official_disclosure"
+        }
+      ]
+    },
+    {
+      "id": "dart-20260907900489-2026-09-07-a77e36d33fbf",
+      "title": "보로노이 - [기재정정]투자판단관련주요경영사항(임상시험계획변경승인)              (VRN110755의 제 1/2상 임상시험)",
+      "originalTitle": "보로노이 - [기재정정]투자판단관련주요경영사항(임상시험계획변경승인)              (VRN110755의 제 1/2상 임상시험)",
+      "titleKo": "보로노이 - [기재정정]투자판단관련주요경영사항(임상시험계획변경승인)              (VRN110755의 제 1/2상 임상시험)",
+      "country": "KR",
+      "category": "disclosure",
+      "importance": "low",
+      "scheduledDate": "2026-09-07",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "published",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "OpenDART",
+      "sourceTier": "official_disclosure",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900489",
+      "sourceEventId": "20260907900489",
+      "updatedAt": "2026-09-07T22:54:12.233902+00:00",
+      "confidence": "single_source",
+      "sourceRefs": [
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900489",
+          "sourceTier": "official_disclosure"
+        }
+      ]
+    },
+    {
+      "id": "dart-20260907900512-2026-09-07-3fe4501d206c",
+      "title": "사토시홀딩스 - 증권발행결과(자율공시)              (제3자배정 유상증자)",
+      "originalTitle": "사토시홀딩스 - 증권발행결과(자율공시)              (제3자배정 유상증자)",
+      "titleKo": "사토시홀딩스 - 증권발행결과(자율공시)              (제3자배정 유상증자)",
+      "country": "KR",
+      "category": "disclosure",
+      "importance": "low",
+      "scheduledDate": "2026-09-07",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "published",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "OpenDART",
+      "sourceTier": "official_disclosure",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900512",
+      "sourceEventId": "20260907900512",
+      "updatedAt": "2026-09-07T22:54:12.233925+00:00",
+      "confidence": "single_source",
+      "sourceRefs": [
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900512",
+          "sourceTier": "official_disclosure"
+        }
+      ]
+    },
+    {
+      "id": "dart-20260907900545-2026-09-07-26d748e0c05e",
+      "title": "DH오토리드 - 전환사채(해외전환사채포함)발행후만기전사채취득",
+      "originalTitle": "DH오토리드 - 전환사채(해외전환사채포함)발행후만기전사채취득",
+      "titleKo": "DH오토리드 - 전환사채(해외전환사채포함)발행후만기전사채취득",
+      "country": "KR",
+      "category": "disclosure",
+      "importance": "low",
+      "scheduledDate": "2026-09-07",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "published",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "OpenDART",
+      "sourceTier": "official_disclosure",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900545",
+      "sourceEventId": "20260907900545",
+      "updatedAt": "2026-09-07T22:54:12.233943+00:00",
+      "confidence": "single_source",
+      "sourceRefs": [
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900545",
+          "sourceTier": "official_disclosure"
+        }
+      ]
+    },
+    {
+      "id": "dart-20260907000283-2026-09-07-7be196f7d839",
+      "title": "AK홀딩스 - 주식등의대량보유상황보고서(일반)",
+      "originalTitle": "AK홀딩스 - 주식등의대량보유상황보고서(일반)",
+      "titleKo": "AK홀딩스 - 주식등의대량보유상황보고서(일반)",
+      "country": "KR",
+      "category": "disclosure",
+      "importance": "low",
+      "scheduledDate": "2026-09-07",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "published",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "OpenDART",
+      "sourceTier": "official_disclosure",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000283",
+      "sourceEventId": "20260907000283",
+      "updatedAt": "2026-09-07T22:54:12.234043+00:00",
+      "confidence": "single_source",
+      "sourceRefs": [
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000283",
+          "sourceTier": "official_disclosure"
         }
       ]
     },
@@ -1056,7 +1994,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=200",
       "sourceEventId": "200",
-      "updatedAt": "2026-09-06T22:11:19.072532+00:00",
+      "updatedAt": "2026-09-07T22:54:12.229930+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -1067,6 +2005,42 @@
         {
           "sourceName": "FRED",
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=200",
+          "sourceTier": "official_aggregator"
+        }
+      ]
+    },
+    {
+      "id": "fred-coinbase-cryptocurrencies-2026-09-08-ac50529e49cf",
+      "title": "Coinbase Cryptocurrencies",
+      "originalTitle": "Coinbase Cryptocurrencies",
+      "titleKo": "코인베이스 암호화폐 시세",
+      "country": "US",
+      "category": "macro",
+      "importance": "low",
+      "scheduledDate": "2026-09-08",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "scheduled",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "FRED",
+      "sourceTier": "official_aggregator",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=441",
+      "sourceEventId": "441",
+      "updatedAt": "2026-09-07T22:54:12.229934+00:00",
+      "confidence": "cross_checked",
+      "sourceRefs": [
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=441",
+          "sourceTier": "official_aggregator"
+        },
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=441",
           "sourceTier": "official_aggregator"
         }
       ]
@@ -1092,7 +2066,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=86",
       "sourceEventId": "86",
-      "updatedAt": "2026-09-06T22:11:19.072537+00:00",
+      "updatedAt": "2026-09-07T22:54:12.229938+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -1128,7 +2102,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=72",
       "sourceEventId": "72",
-      "updatedAt": "2026-09-06T22:11:19.072540+00:00",
+      "updatedAt": "2026-09-07T22:54:12.229943+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -1164,7 +2138,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=14",
       "sourceEventId": "14",
-      "updatedAt": "2026-09-06T22:11:19.072552+00:00",
+      "updatedAt": "2026-09-07T22:54:12.229962+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -1195,7 +2169,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=183",
       "sourceEventId": "183",
-      "updatedAt": "2026-09-06T22:11:19.072556+00:00",
+      "updatedAt": "2026-09-07T22:54:12.229967+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -1226,7 +2200,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=17",
       "sourceEventId": "17",
-      "updatedAt": "2026-09-06T22:11:19.072558+00:00",
+      "updatedAt": "2026-09-07T22:54:12.229972+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -1257,7 +2231,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=18",
       "sourceEventId": "18",
-      "updatedAt": "2026-09-06T22:11:19.072561+00:00",
+      "updatedAt": "2026-09-07T22:54:12.229976+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -1293,7 +2267,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=504",
       "sourceEventId": "504",
-      "updatedAt": "2026-09-06T22:11:19.072565+00:00",
+      "updatedAt": "2026-09-07T22:54:12.229980+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -1329,7 +2303,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=185",
       "sourceEventId": "185",
-      "updatedAt": "2026-09-06T22:11:19.072570+00:00",
+      "updatedAt": "2026-09-07T22:54:12.229989+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -1365,7 +2339,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=304",
       "sourceEventId": "304",
-      "updatedAt": "2026-09-06T22:11:19.072573+00:00",
+      "updatedAt": "2026-09-07T22:54:12.229993+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -1401,7 +2375,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=427",
       "sourceEventId": "427",
-      "updatedAt": "2026-09-06T22:11:19.072584+00:00",
+      "updatedAt": "2026-09-07T22:54:12.230011+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -1412,665 +2386,6 @@
         {
           "sourceName": "FRED",
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=427",
-          "sourceTier": "official_aggregator"
-        }
-      ]
-    },
-    {
-      "id": "fred-nasdaq-daily-index-data-2026-09-08-9e90b9b429e5",
-      "title": "Nasdaq Daily Index Data",
-      "originalTitle": "Nasdaq Daily Index Data",
-      "titleKo": "나스닥 일별 지수 데이터",
-      "country": "US",
-      "category": "macro",
-      "importance": "low",
-      "scheduledDate": "2026-09-08",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "FRED",
-      "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=328",
-      "sourceEventId": "328",
-      "updatedAt": "2026-09-06T22:11:19.072587+00:00",
-      "confidence": "cross_checked",
-      "sourceRefs": [
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=328",
-          "sourceTier": "official_aggregator"
-        },
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=328",
-          "sourceTier": "official_aggregator"
-        }
-      ]
-    },
-    {
-      "id": "fred-optimal-blue-mortgage-market-indices-2026-09-08-a888c095163a",
-      "title": "Optimal Blue Mortgage Market Indices",
-      "originalTitle": "Optimal Blue Mortgage Market Indices",
-      "titleKo": "옵티멀블루 모기지 시장지수",
-      "country": "US",
-      "category": "macro",
-      "importance": "low",
-      "scheduledDate": "2026-09-08",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "FRED",
-      "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=473",
-      "sourceEventId": "473",
-      "updatedAt": "2026-09-06T22:11:19.072593+00:00",
-      "confidence": "cross_checked",
-      "sourceRefs": [
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=473",
-          "sourceTier": "official_aggregator"
-        },
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=473",
-          "sourceTier": "official_aggregator"
-        }
-      ]
-    },
-    {
-      "id": "fred-overnight-bank-funding-rate-data-2026-09-08-f95162ac2c3e",
-      "title": "Overnight Bank Funding Rate Data",
-      "originalTitle": "Overnight Bank Funding Rate Data",
-      "titleKo": "익일물 은행 자금조달금리(OBFR) 데이터",
-      "country": "US",
-      "category": "macro",
-      "importance": "low",
-      "scheduledDate": "2026-09-08",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "FRED",
-      "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=375",
-      "sourceEventId": "375",
-      "updatedAt": "2026-09-06T22:11:19.072595+00:00",
-      "confidence": "cross_checked",
-      "sourceRefs": [
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=375",
-          "sourceTier": "official_aggregator"
-        },
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=375",
-          "sourceTier": "official_aggregator"
-        }
-      ]
-    },
-    {
-      "id": "fred-quarterly-financial-report-2026-09-08-8f4892f2a3c9",
-      "title": "Quarterly Financial Report",
-      "originalTitle": "Quarterly Financial Report",
-      "titleKo": "분기 재무보고서(제조·유통업)",
-      "country": "US",
-      "category": "macro",
-      "importance": "low",
-      "scheduledDate": "2026-09-08",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "FRED",
-      "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=434",
-      "sourceEventId": "434",
-      "updatedAt": "2026-09-06T22:11:19.072598+00:00",
-      "confidence": "single_source",
-      "sourceRefs": [
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=434",
-          "sourceTier": "official_aggregator"
-        }
-      ]
-    },
-    {
-      "id": "fred-risk-on-risk-off-index-2026-09-08-bb727347f698",
-      "title": "Risk-On Risk-Off Index",
-      "originalTitle": "Risk-On Risk-Off Index",
-      "titleKo": "리스크온·리스크오프 지수",
-      "country": "US",
-      "category": "macro",
-      "importance": "low",
-      "scheduledDate": "2026-09-08",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "FRED",
-      "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=2",
-      "sourceEventId": "2",
-      "updatedAt": "2026-09-06T22:11:19.072604+00:00",
-      "confidence": "cross_checked",
-      "sourceRefs": [
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=2",
-          "sourceTier": "official_aggregator"
-        },
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=2",
-          "sourceTier": "official_aggregator"
-        }
-      ]
-    },
-    {
-      "id": "fred-secured-overnight-financing-rate-data-2026-09-08-8647ae6b6c54",
-      "title": "Secured Overnight Financing Rate Data",
-      "originalTitle": "Secured Overnight Financing Rate Data",
-      "titleKo": "담보부 익일물 금융금리(SOFR) 데이터",
-      "country": "US",
-      "category": "macro",
-      "importance": "low",
-      "scheduledDate": "2026-09-08",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "FRED",
-      "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=445",
-      "sourceEventId": "445",
-      "updatedAt": "2026-09-06T22:11:19.072607+00:00",
-      "confidence": "cross_checked",
-      "sourceRefs": [
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=445",
-          "sourceTier": "official_aggregator"
-        },
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=445",
-          "sourceTier": "official_aggregator"
-        }
-      ]
-    },
-    {
-      "id": "fred-sofr-averages-and-index-data-2026-09-08-d2e04c2b375b",
-      "title": "SOFR Averages and Index Data",
-      "originalTitle": "SOFR Averages and Index Data",
-      "titleKo": "SOFR 평균 및 지수 데이터",
-      "country": "US",
-      "category": "macro",
-      "importance": "low",
-      "scheduledDate": "2026-09-08",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "FRED",
-      "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=483",
-      "sourceEventId": "483",
-      "updatedAt": "2026-09-06T22:11:19.072610+00:00",
-      "confidence": "cross_checked",
-      "sourceRefs": [
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=483",
-          "sourceTier": "official_aggregator"
-        },
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=483",
-          "sourceTier": "official_aggregator"
-        }
-      ]
-    },
-    {
-      "id": "fred-temporary-open-market-operations-2026-09-08-ef8eb71ac178",
-      "title": "Temporary Open Market Operations",
-      "originalTitle": "Temporary Open Market Operations",
-      "titleKo": "임시 공개시장운영",
-      "country": "US",
-      "category": "macro",
-      "importance": "low",
-      "scheduledDate": "2026-09-08",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "FRED",
-      "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=379",
-      "sourceEventId": "379",
-      "updatedAt": "2026-09-06T22:11:19.072615+00:00",
-      "confidence": "cross_checked",
-      "sourceRefs": [
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=379",
-          "sourceTier": "official_aggregator"
-        },
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=379",
-          "sourceTier": "official_aggregator"
-        }
-      ]
-    },
-    {
-      "id": "fred-tri-party-general-collateral-rate-data-2026-09-08-763ea098d2a9",
-      "title": "Tri-Party General Collateral Rate Data",
-      "originalTitle": "Tri-Party General Collateral Rate Data",
-      "titleKo": "트라이파티 일반담보금리(TGCR) 데이터",
-      "country": "US",
-      "category": "macro",
-      "importance": "low",
-      "scheduledDate": "2026-09-08",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "FRED",
-      "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=1105",
-      "sourceEventId": "1105",
-      "updatedAt": "2026-09-06T22:11:19.072618+00:00",
-      "confidence": "cross_checked",
-      "sourceRefs": [
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=1105",
-          "sourceTier": "official_aggregator"
-        },
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=1105",
-          "sourceTier": "official_aggregator"
-        }
-      ]
-    },
-    {
-      "id": "fred-weekly-financial-statements-of-the-eurosystem-2026-09-08-372582127327",
-      "title": "Weekly Financial Statements of the Eurosystem",
-      "originalTitle": "Weekly Financial Statements of the Eurosystem",
-      "titleKo": "유로시스템 주간 재무제표",
-      "country": "US",
-      "category": "macro",
-      "importance": "low",
-      "scheduledDate": "2026-09-08",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "FRED",
-      "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=271",
-      "sourceEventId": "271",
-      "updatedAt": "2026-09-06T22:11:19.072621+00:00",
-      "confidence": "single_source",
-      "sourceRefs": [
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=271",
-          "sourceTier": "official_aggregator"
-        }
-      ]
-    },
-    {
-      "id": "fred-chicago-fed-advance-retail-trade-summary-2026-09-09-043dc774066f",
-      "title": "Chicago Fed Advance Retail Trade Summary",
-      "originalTitle": "Chicago Fed Advance Retail Trade Summary",
-      "titleKo": "시카고 연은 소매판매 속보",
-      "country": "US",
-      "category": "macro",
-      "importance": "low",
-      "scheduledDate": "2026-09-09",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "FRED",
-      "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=494",
-      "sourceEventId": "494",
-      "updatedAt": "2026-09-06T22:11:19.072628+00:00",
-      "confidence": "single_source",
-      "sourceRefs": [
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=494",
-          "sourceTier": "official_aggregator"
-        }
-      ]
-    },
-    {
-      "id": "fred-coinbase-cryptocurrencies-2026-09-09-5af5a858dd6a",
-      "title": "Coinbase Cryptocurrencies",
-      "originalTitle": "Coinbase Cryptocurrencies",
-      "titleKo": "코인베이스 암호화폐 시세",
-      "country": "US",
-      "category": "macro",
-      "importance": "low",
-      "scheduledDate": "2026-09-09",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "FRED",
-      "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=441",
-      "sourceEventId": "441",
-      "updatedAt": "2026-09-06T22:11:19.072630+00:00",
-      "confidence": "cross_checked",
-      "sourceRefs": [
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=441",
-          "sourceTier": "official_aggregator"
-        },
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=441",
-          "sourceTier": "official_aggregator"
-        }
-      ]
-    },
-    {
-      "id": "fred-consumer-expenditure-surveys-2026-09-09-51fb3f20b39c",
-      "title": "Consumer Expenditure Surveys",
-      "originalTitle": "Consumer Expenditure Surveys",
-      "titleKo": "소비자지출조사",
-      "country": "US",
-      "category": "macro",
-      "importance": "low",
-      "scheduledDate": "2026-09-09",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "FRED",
-      "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=479",
-      "sourceEventId": "479",
-      "updatedAt": "2026-09-06T22:11:19.072636+00:00",
-      "confidence": "single_source",
-      "sourceRefs": [
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=479",
-          "sourceTier": "official_aggregator"
-        }
-      ]
-    },
-    {
-      "id": "fred-economic-policy-uncertainty-2026-09-09-437fd8780d35",
-      "title": "Economic Policy Uncertainty",
-      "originalTitle": "Economic Policy Uncertainty",
-      "titleKo": "경제정책 불확실성지수",
-      "country": "US",
-      "category": "macro",
-      "importance": "low",
-      "scheduledDate": "2026-09-09",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "FRED",
-      "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=279",
-      "sourceEventId": "279",
-      "updatedAt": "2026-09-06T22:11:19.072641+00:00",
-      "confidence": "cross_checked",
-      "sourceRefs": [
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=279",
-          "sourceTier": "official_aggregator"
-        },
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=279",
-          "sourceTier": "official_aggregator"
-        }
-      ]
-    },
-    {
-      "id": "fred-euro-short-term-rate-2026-09-09-d1e74917c940",
-      "title": "Euro Short Term Rate",
-      "originalTitle": "Euro Short Term Rate",
-      "titleKo": "유로 단기금리(€STR)",
-      "country": "US",
-      "category": "macro",
-      "importance": "low",
-      "scheduledDate": "2026-09-09",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "FRED",
-      "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=502",
-      "sourceEventId": "502",
-      "updatedAt": "2026-09-06T22:11:19.072644+00:00",
-      "confidence": "cross_checked",
-      "sourceRefs": [
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=502",
-          "sourceTier": "official_aggregator"
-        },
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=502",
-          "sourceTier": "official_aggregator"
-        }
-      ]
-    },
-    {
-      "id": "fred-ice-bofa-indices-2026-09-09-8bbfd3271e90",
-      "title": "ICE BofA Indices",
-      "originalTitle": "ICE BofA Indices",
-      "titleKo": "ICE BofA 채권지수",
-      "country": "US",
-      "category": "macro",
-      "importance": "low",
-      "scheduledDate": "2026-09-09",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "FRED",
-      "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=209",
-      "sourceEventId": "209",
-      "updatedAt": "2026-09-06T22:11:19.072656+00:00",
-      "confidence": "cross_checked",
-      "sourceRefs": [
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=209",
-          "sourceTier": "official_aggregator"
-        },
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=209",
-          "sourceTier": "official_aggregator"
-        }
-      ]
-    },
-    {
-      "id": "fred-kansas-city-fed-labor-market-conditions-indicators-2026-09-09-81b70651aacb",
-      "title": "Kansas City Fed Labor Market Conditions Indicators",
-      "originalTitle": "Kansas City Fed Labor Market Conditions Indicators",
-      "titleKo": "캔자스시티 연은 노동시장 여건지표",
-      "country": "US",
-      "category": "macro",
-      "importance": "low",
-      "scheduledDate": "2026-09-09",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "FRED",
-      "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=341",
-      "sourceEventId": "341",
-      "updatedAt": "2026-09-06T22:11:19.072665+00:00",
-      "confidence": "single_source",
-      "sourceRefs": [
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=341",
-          "sourceTier": "official_aggregator"
-        }
-      ]
-    },
-    {
-      "id": "fred-key-ecb-interest-rates-2026-09-09-bee5bce27401",
-      "title": "Key ECB Interest Rates",
-      "originalTitle": "Key ECB Interest Rates",
-      "titleKo": "유럽중앙은행(ECB) 기준금리",
-      "country": "US",
-      "category": "macro",
-      "importance": "low",
-      "scheduledDate": "2026-09-09",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "FRED",
-      "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=484",
-      "sourceEventId": "484",
-      "updatedAt": "2026-09-06T22:11:19.072672+00:00",
-      "confidence": "cross_checked",
-      "sourceRefs": [
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=484",
-          "sourceTier": "official_aggregator"
-        },
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=484",
-          "sourceTier": "official_aggregator"
-        }
-      ]
-    },
-    {
-      "id": "fred-nikkei-indexes-2026-09-09-f279ad2b37a2",
-      "title": "Nikkei Indexes",
-      "originalTitle": "Nikkei Indexes",
-      "titleKo": "니케이지수",
-      "country": "US",
-      "category": "macro",
-      "importance": "low",
-      "scheduledDate": "2026-09-09",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "FRED",
-      "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=287",
-      "sourceEventId": "287",
-      "updatedAt": "2026-09-06T22:11:19.072680+00:00",
-      "confidence": "cross_checked",
-      "sourceRefs": [
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=287",
-          "sourceTier": "official_aggregator"
-        },
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=287",
           "sourceTier": "official_aggregator"
         }
       ]
@@ -2079,10 +2394,10 @@
   "byDate": {
     "2026-09-07": [
       {
-        "id": "fred-fomc-press-release-2026-09-07-619c83b1216c",
-        "title": "FOMC Press Release",
-        "originalTitle": "FOMC Press Release",
-        "titleKo": "FOMC 보도자료",
+        "id": "fred-national-accounts-gdp-eurostat-2026-09-07-1f8aa18f941a",
+        "title": "National Accounts - GDP (Eurostat)",
+        "originalTitle": "National Accounts - GDP (Eurostat)",
+        "titleKo": "유로존 국민계정(GDP, Eurostat)",
         "country": "US",
         "category": "macro",
         "importance": "high",
@@ -2097,19 +2412,14 @@
         "unit": null,
         "sourceName": "FRED",
         "sourceTier": "official_aggregator",
-        "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-        "sourceEventId": "101",
-        "updatedAt": "2026-09-06T22:11:19.072505+00:00",
-        "confidence": "cross_checked",
+        "sourceUrl": "https://fred.stlouisfed.org/release?rid=267",
+        "sourceEventId": "267",
+        "updatedAt": "2026-09-07T22:54:12.229896+00:00",
+        "confidence": "single_source",
         "sourceRefs": [
           {
             "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-            "sourceTier": "official_aggregator"
-          },
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+            "sourceUrl": "https://fred.stlouisfed.org/release?rid=267",
             "sourceTier": "official_aggregator"
           }
         ]
@@ -2135,79 +2445,12 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=739",
         "sourceEventId": "739",
-        "updatedAt": "2026-09-06T22:11:19.072513+00:00",
+        "updatedAt": "2026-09-07T22:54:12.229917+00:00",
         "confidence": "single_source",
         "sourceRefs": [
           {
             "sourceName": "FRED",
             "sourceUrl": "https://fred.stlouisfed.org/release?rid=739",
-            "sourceTier": "official_aggregator"
-          }
-        ]
-      },
-      {
-        "id": "fred-national-accounts-gdp-eurostat-2026-09-07-1f8aa18f941a",
-        "title": "National Accounts - GDP (Eurostat)",
-        "originalTitle": "National Accounts - GDP (Eurostat)",
-        "titleKo": "유로존 국민계정(GDP, Eurostat)",
-        "country": "US",
-        "category": "macro",
-        "importance": "high",
-        "scheduledDate": "2026-09-07",
-        "scheduledAt": null,
-        "timezone": null,
-        "timePrecision": "date",
-        "status": "scheduled",
-        "previous": null,
-        "consensus": null,
-        "actual": null,
-        "unit": null,
-        "sourceName": "FRED",
-        "sourceTier": "official_aggregator",
-        "sourceUrl": "https://fred.stlouisfed.org/release?rid=267",
-        "sourceEventId": "267",
-        "updatedAt": "2026-09-06T22:11:19.072518+00:00",
-        "confidence": "single_source",
-        "sourceRefs": [
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=267",
-            "sourceTier": "official_aggregator"
-          }
-        ]
-      },
-      {
-        "id": "fred-coinbase-cryptocurrencies-2026-09-07-3189d3a11763",
-        "title": "Coinbase Cryptocurrencies",
-        "originalTitle": "Coinbase Cryptocurrencies",
-        "titleKo": "코인베이스 암호화폐 시세",
-        "country": "US",
-        "category": "macro",
-        "importance": "low",
-        "scheduledDate": "2026-09-07",
-        "scheduledAt": null,
-        "timezone": null,
-        "timePrecision": "date",
-        "status": "scheduled",
-        "previous": null,
-        "consensus": null,
-        "actual": null,
-        "unit": null,
-        "sourceName": "FRED",
-        "sourceTier": "official_aggregator",
-        "sourceUrl": "https://fred.stlouisfed.org/release?rid=441",
-        "sourceEventId": "441",
-        "updatedAt": "2026-09-06T22:11:19.072497+00:00",
-        "confidence": "cross_checked",
-        "sourceRefs": [
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=441",
-            "sourceTier": "official_aggregator"
-          },
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=441",
             "sourceTier": "official_aggregator"
           }
         ]
@@ -2233,7 +2476,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=279",
         "sourceEventId": "279",
-        "updatedAt": "2026-09-06T22:11:19.072500+00:00",
+        "updatedAt": "2026-09-07T22:54:12.229877+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -2269,7 +2512,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=502",
         "sourceEventId": "502",
-        "updatedAt": "2026-09-06T22:11:19.072503+00:00",
+        "updatedAt": "2026-09-07T22:54:12.229881+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -2280,42 +2523,6 @@
           {
             "sourceName": "FRED",
             "sourceUrl": "https://fred.stlouisfed.org/release?rid=502",
-            "sourceTier": "official_aggregator"
-          }
-        ]
-      },
-      {
-        "id": "fred-ice-bofa-indices-2026-09-07-2d8d02538ef5",
-        "title": "ICE BofA Indices",
-        "originalTitle": "ICE BofA Indices",
-        "titleKo": "ICE BofA 채권지수",
-        "country": "US",
-        "category": "macro",
-        "importance": "low",
-        "scheduledDate": "2026-09-07",
-        "scheduledAt": null,
-        "timezone": null,
-        "timePrecision": "date",
-        "status": "scheduled",
-        "previous": null,
-        "consensus": null,
-        "actual": null,
-        "unit": null,
-        "sourceName": "FRED",
-        "sourceTier": "official_aggregator",
-        "sourceUrl": "https://fred.stlouisfed.org/release?rid=209",
-        "sourceEventId": "209",
-        "updatedAt": "2026-09-06T22:11:19.072507+00:00",
-        "confidence": "cross_checked",
-        "sourceRefs": [
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=209",
-            "sourceTier": "official_aggregator"
-          },
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=209",
             "sourceTier": "official_aggregator"
           }
         ]
@@ -2341,7 +2548,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=239",
         "sourceEventId": "239",
-        "updatedAt": "2026-09-06T22:11:19.072511+00:00",
+        "updatedAt": "2026-09-07T22:54:12.229889+00:00",
         "confidence": "single_source",
         "sourceRefs": [
           {
@@ -2372,7 +2579,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=484",
         "sourceEventId": "484",
-        "updatedAt": "2026-09-06T22:11:19.072516+00:00",
+        "updatedAt": "2026-09-07T22:54:12.229893+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -2383,37 +2590,6 @@
           {
             "sourceName": "FRED",
             "sourceUrl": "https://fred.stlouisfed.org/release?rid=484",
-            "sourceTier": "official_aggregator"
-          }
-        ]
-      },
-      {
-        "id": "fred-national-accounts-of-japan-2026-09-07-99a3529ebd68",
-        "title": "National Accounts of Japan",
-        "originalTitle": "National Accounts of Japan",
-        "titleKo": "일본 국민계정",
-        "country": "US",
-        "category": "macro",
-        "importance": "low",
-        "scheduledDate": "2026-09-07",
-        "scheduledAt": null,
-        "timezone": null,
-        "timePrecision": "date",
-        "status": "scheduled",
-        "previous": null,
-        "consensus": null,
-        "actual": null,
-        "unit": null,
-        "sourceName": "FRED",
-        "sourceTier": "official_aggregator",
-        "sourceUrl": "https://fred.stlouisfed.org/release?rid=269",
-        "sourceEventId": "269",
-        "updatedAt": "2026-09-06T22:11:19.072521+00:00",
-        "confidence": "single_source",
-        "sourceRefs": [
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=269",
             "sourceTier": "official_aggregator"
           }
         ]
@@ -2439,7 +2615,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=287",
         "sourceEventId": "287",
-        "updatedAt": "2026-09-06T22:11:19.072524+00:00",
+        "updatedAt": "2026-09-07T22:54:12.229900+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -2450,42 +2626,6 @@
           {
             "sourceName": "FRED",
             "sourceUrl": "https://fred.stlouisfed.org/release?rid=287",
-            "sourceTier": "official_aggregator"
-          }
-        ]
-      },
-      {
-        "id": "fred-recession-indicators-series-2026-09-07-1e85f11e39be",
-        "title": "Recession Indicators Series",
-        "originalTitle": "Recession Indicators Series",
-        "titleKo": "경기침체 지표 시계열",
-        "country": "US",
-        "category": "macro",
-        "importance": "low",
-        "scheduledDate": "2026-09-07",
-        "scheduledAt": null,
-        "timezone": null,
-        "timePrecision": "date",
-        "status": "scheduled",
-        "previous": null,
-        "consensus": null,
-        "actual": null,
-        "unit": null,
-        "sourceName": "FRED",
-        "sourceTier": "official_aggregator",
-        "sourceUrl": "https://fred.stlouisfed.org/release?rid=242",
-        "sourceEventId": "242",
-        "updatedAt": "2026-09-06T22:11:19.072527+00:00",
-        "confidence": "cross_checked",
-        "sourceRefs": [
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=242",
-            "sourceTier": "official_aggregator"
-          },
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=242",
             "sourceTier": "official_aggregator"
           }
         ]
@@ -2511,7 +2651,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=492",
         "sourceEventId": "492",
-        "updatedAt": "2026-09-06T22:11:19.072529+00:00",
+        "updatedAt": "2026-09-07T22:54:12.229905+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -2523,6 +2663,1011 @@
             "sourceName": "FRED",
             "sourceUrl": "https://fred.stlouisfed.org/release?rid=492",
             "sourceTier": "official_aggregator"
+          }
+        ]
+      },
+      {
+        "id": "fred-ice-bofa-indices-2026-09-07-2d8d02538ef5",
+        "title": "ICE BofA Indices",
+        "originalTitle": "ICE BofA Indices",
+        "titleKo": "ICE BofA 채권지수",
+        "country": "US",
+        "category": "macro",
+        "importance": "low",
+        "scheduledDate": "2026-09-07",
+        "scheduledAt": null,
+        "timezone": null,
+        "timePrecision": "date",
+        "status": "scheduled",
+        "previous": null,
+        "consensus": null,
+        "actual": null,
+        "unit": null,
+        "sourceName": "FRED",
+        "sourceTier": "official_aggregator",
+        "sourceUrl": "https://fred.stlouisfed.org/release?rid=209",
+        "sourceEventId": "209",
+        "updatedAt": "2026-09-07T22:54:12.229913+00:00",
+        "confidence": "cross_checked",
+        "sourceRefs": [
+          {
+            "sourceName": "FRED",
+            "sourceUrl": "https://fred.stlouisfed.org/release?rid=209",
+            "sourceTier": "official_aggregator"
+          },
+          {
+            "sourceName": "FRED",
+            "sourceUrl": "https://fred.stlouisfed.org/release?rid=209",
+            "sourceTier": "official_aggregator"
+          }
+        ]
+      },
+      {
+        "id": "fred-national-accounts-of-japan-2026-09-07-99a3529ebd68",
+        "title": "National Accounts of Japan",
+        "originalTitle": "National Accounts of Japan",
+        "titleKo": "일본 국민계정",
+        "country": "US",
+        "category": "macro",
+        "importance": "low",
+        "scheduledDate": "2026-09-07",
+        "scheduledAt": null,
+        "timezone": null,
+        "timePrecision": "date",
+        "status": "scheduled",
+        "previous": null,
+        "consensus": null,
+        "actual": null,
+        "unit": null,
+        "sourceName": "FRED",
+        "sourceTier": "official_aggregator",
+        "sourceUrl": "https://fred.stlouisfed.org/release?rid=269",
+        "sourceEventId": "269",
+        "updatedAt": "2026-09-07T22:54:12.229922+00:00",
+        "confidence": "single_source",
+        "sourceRefs": [
+          {
+            "sourceName": "FRED",
+            "sourceUrl": "https://fred.stlouisfed.org/release?rid=269",
+            "sourceTier": "official_aggregator"
+          }
+        ]
+      },
+      {
+        "id": "fred-recession-indicators-series-2026-09-07-1e85f11e39be",
+        "title": "Recession Indicators Series",
+        "originalTitle": "Recession Indicators Series",
+        "titleKo": "경기침체 지표 시계열",
+        "country": "US",
+        "category": "macro",
+        "importance": "low",
+        "scheduledDate": "2026-09-07",
+        "scheduledAt": null,
+        "timezone": null,
+        "timePrecision": "date",
+        "status": "scheduled",
+        "previous": null,
+        "consensus": null,
+        "actual": null,
+        "unit": null,
+        "sourceName": "FRED",
+        "sourceTier": "official_aggregator",
+        "sourceUrl": "https://fred.stlouisfed.org/release?rid=242",
+        "sourceEventId": "242",
+        "updatedAt": "2026-09-07T22:54:12.229926+00:00",
+        "confidence": "cross_checked",
+        "sourceRefs": [
+          {
+            "sourceName": "FRED",
+            "sourceUrl": "https://fred.stlouisfed.org/release?rid=242",
+            "sourceTier": "official_aggregator"
+          },
+          {
+            "sourceName": "FRED",
+            "sourceUrl": "https://fred.stlouisfed.org/release?rid=242",
+            "sourceTier": "official_aggregator"
+          }
+        ]
+      },
+      {
+        "id": "dart-20260907800650-2026-09-07-a243620897a3",
+        "title": "IPARK현대산업개발 - 불성실공시법인지정",
+        "originalTitle": "IPARK현대산업개발 - 불성실공시법인지정",
+        "titleKo": "IPARK현대산업개발 - 불성실공시법인지정",
+        "country": "KR",
+        "category": "disclosure",
+        "importance": "low",
+        "scheduledDate": "2026-09-07",
+        "scheduledAt": null,
+        "timezone": null,
+        "timePrecision": "date",
+        "status": "published",
+        "previous": null,
+        "consensus": null,
+        "actual": null,
+        "unit": null,
+        "sourceName": "OpenDART",
+        "sourceTier": "official_disclosure",
+        "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907800650",
+        "sourceEventId": "20260907800650",
+        "updatedAt": "2026-09-07T22:54:12.233576+00:00",
+        "confidence": "single_source",
+        "sourceRefs": [
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907800650",
+            "sourceTier": "official_disclosure"
+          }
+        ]
+      },
+      {
+        "id": "dart-20260907800647-2026-09-07-f5fc47bafe96",
+        "title": "HDC - 불성실공시법인지정",
+        "originalTitle": "HDC - 불성실공시법인지정",
+        "titleKo": "HDC - 불성실공시법인지정",
+        "country": "KR",
+        "category": "disclosure",
+        "importance": "low",
+        "scheduledDate": "2026-09-07",
+        "scheduledAt": null,
+        "timezone": null,
+        "timePrecision": "date",
+        "status": "published",
+        "previous": null,
+        "consensus": null,
+        "actual": null,
+        "unit": null,
+        "sourceName": "OpenDART",
+        "sourceTier": "official_disclosure",
+        "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907800647",
+        "sourceEventId": "20260907800647",
+        "updatedAt": "2026-09-07T22:54:12.233581+00:00",
+        "confidence": "single_source",
+        "sourceRefs": [
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907800647",
+            "sourceTier": "official_disclosure"
+          }
+        ]
+      },
+      {
+        "id": "dart-20260907900665-2026-09-07-6bf7878e925b",
+        "title": "신라에스지 - 기타시장안내              (시가총액 미달에 따른 상장폐지 우려 관련 안내)",
+        "originalTitle": "신라에스지 - 기타시장안내              (시가총액 미달에 따른 상장폐지 우려 관련 안내)",
+        "titleKo": "신라에스지 - 기타시장안내              (시가총액 미달에 따른 상장폐지 우려 관련 안내)",
+        "country": "KR",
+        "category": "disclosure",
+        "importance": "low",
+        "scheduledDate": "2026-09-07",
+        "scheduledAt": null,
+        "timezone": null,
+        "timePrecision": "date",
+        "status": "published",
+        "previous": null,
+        "consensus": null,
+        "actual": null,
+        "unit": null,
+        "sourceName": "OpenDART",
+        "sourceTier": "official_disclosure",
+        "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900665",
+        "sourceEventId": "20260907900665",
+        "updatedAt": "2026-09-07T22:54:12.233588+00:00",
+        "confidence": "cross_checked",
+        "sourceRefs": [
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900665",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900649",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900635",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900642",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000327",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907800634",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000331",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900631",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000330",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900627",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900620",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000326",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000325",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900621",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000324",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000323",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000321",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907800600",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000319",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000318",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000317",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000316",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000313",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000312",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000309",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907800560",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000307",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000306",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907800588",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907800543",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000305",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000304",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900556",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900538",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000303",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000302",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900494",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900530",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900524",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900516",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000300",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000299",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000298",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907800522",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000295",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000294",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000293",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900502",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000292",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000272",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000290",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000289",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000288",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000286",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000285",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000284",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000282",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000280",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000279",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000278",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900511",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900507",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000277",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000275",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000274",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907600483",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000271",
+            "sourceTier": "official_disclosure"
+          }
+        ]
+      },
+      {
+        "id": "dart-20260907900644-2026-09-07-75bb30eecb23",
+        "title": "CG인바이츠 - [기재정정]단일판매ㆍ공급계약체결",
+        "originalTitle": "CG인바이츠 - [기재정정]단일판매ㆍ공급계약체결",
+        "titleKo": "CG인바이츠 - [기재정정]단일판매ㆍ공급계약체결",
+        "country": "KR",
+        "category": "disclosure",
+        "importance": "low",
+        "scheduledDate": "2026-09-07",
+        "scheduledAt": null,
+        "timezone": null,
+        "timePrecision": "date",
+        "status": "published",
+        "previous": null,
+        "consensus": null,
+        "actual": null,
+        "unit": null,
+        "sourceName": "OpenDART",
+        "sourceTier": "official_disclosure",
+        "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900644",
+        "sourceEventId": "20260907900644",
+        "updatedAt": "2026-09-07T22:54:12.233594+00:00",
+        "confidence": "single_source",
+        "sourceRefs": [
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900644",
+            "sourceTier": "official_disclosure"
+          }
+        ]
+      },
+      {
+        "id": "dart-20260907900606-2026-09-07-82a302fc7f0d",
+        "title": "조이웍스앤코 - 기타시장안내(관리종목지정우려종목)              (시가총액 200억원 미달)",
+        "originalTitle": "조이웍스앤코 - 기타시장안내(관리종목지정우려종목)              (시가총액 200억원 미달)",
+        "titleKo": "조이웍스앤코 - 기타시장안내(관리종목지정우려종목)              (시가총액 200억원 미달)",
+        "country": "KR",
+        "category": "disclosure",
+        "importance": "low",
+        "scheduledDate": "2026-09-07",
+        "scheduledAt": null,
+        "timezone": null,
+        "timePrecision": "date",
+        "status": "published",
+        "previous": null,
+        "consensus": null,
+        "actual": null,
+        "unit": null,
+        "sourceName": "OpenDART",
+        "sourceTier": "official_disclosure",
+        "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900606",
+        "sourceEventId": "20260907900606",
+        "updatedAt": "2026-09-07T22:54:12.233613+00:00",
+        "confidence": "single_source",
+        "sourceRefs": [
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900606",
+            "sourceTier": "official_disclosure"
+          }
+        ]
+      },
+      {
+        "id": "dart-20260907000328-2026-09-07-c6dd14fe0605",
+        "title": "HPSP - [기재정정]주요사항보고서(자기주식처분결정)",
+        "originalTitle": "HPSP - [기재정정]주요사항보고서(자기주식처분결정)",
+        "titleKo": "HPSP - [기재정정]주요사항보고서(자기주식처분결정)",
+        "country": "KR",
+        "category": "disclosure",
+        "importance": "low",
+        "scheduledDate": "2026-09-07",
+        "scheduledAt": null,
+        "timezone": null,
+        "timePrecision": "date",
+        "status": "published",
+        "previous": null,
+        "consensus": null,
+        "actual": null,
+        "unit": null,
+        "sourceName": "OpenDART",
+        "sourceTier": "official_disclosure",
+        "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000328",
+        "sourceEventId": "20260907000328",
+        "updatedAt": "2026-09-07T22:54:12.233622+00:00",
+        "confidence": "single_source",
+        "sourceRefs": [
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000328",
+            "sourceTier": "official_disclosure"
+          }
+        ]
+      },
+      {
+        "id": "dart-20260907800640-2026-09-07-801ceaed4dd5",
+        "title": "IPARK현대산업개발 - 기업설명회(IR)개최(안내공시)",
+        "originalTitle": "IPARK현대산업개발 - 기업설명회(IR)개최(안내공시)",
+        "titleKo": "IPARK현대산업개발 - 기업설명회(IR)개최(안내공시)",
+        "country": "KR",
+        "category": "disclosure",
+        "importance": "low",
+        "scheduledDate": "2026-09-07",
+        "scheduledAt": null,
+        "timezone": null,
+        "timePrecision": "date",
+        "status": "published",
+        "previous": null,
+        "consensus": null,
+        "actual": null,
+        "unit": null,
+        "sourceName": "OpenDART",
+        "sourceTier": "official_disclosure",
+        "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907800640",
+        "sourceEventId": "20260907800640",
+        "updatedAt": "2026-09-07T22:54:12.233635+00:00",
+        "confidence": "single_source",
+        "sourceRefs": [
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907800640",
+            "sourceTier": "official_disclosure"
+          }
+        ]
+      },
+      {
+        "id": "dart-20260907000322-2026-09-07-76db74bd6e38",
+        "title": "SK디스커버리 - 신탁계약해지결과보고서",
+        "originalTitle": "SK디스커버리 - 신탁계약해지결과보고서",
+        "titleKo": "SK디스커버리 - 신탁계약해지결과보고서",
+        "country": "KR",
+        "category": "disclosure",
+        "importance": "low",
+        "scheduledDate": "2026-09-07",
+        "scheduledAt": null,
+        "timezone": null,
+        "timePrecision": "date",
+        "status": "published",
+        "previous": null,
+        "consensus": null,
+        "actual": null,
+        "unit": null,
+        "sourceName": "OpenDART",
+        "sourceTier": "official_disclosure",
+        "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000322",
+        "sourceEventId": "20260907000322",
+        "updatedAt": "2026-09-07T22:54:12.233710+00:00",
+        "confidence": "cross_checked",
+        "sourceRefs": [
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000322",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000315",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907800593",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000308",
+            "sourceTier": "official_disclosure"
+          }
+        ]
+      },
+      {
+        "id": "dart-20260907000314-2026-09-07-435565aaddec",
+        "title": "지에프씨생명과학 - [기재정정]반기보고서 (2026.06)",
+        "originalTitle": "지에프씨생명과학 - [기재정정]반기보고서 (2026.06)",
+        "titleKo": "지에프씨생명과학 - [기재정정]반기보고서 (2026.06)",
+        "country": "KR",
+        "category": "disclosure",
+        "importance": "low",
+        "scheduledDate": "2026-09-07",
+        "scheduledAt": null,
+        "timezone": null,
+        "timePrecision": "date",
+        "status": "published",
+        "previous": null,
+        "consensus": null,
+        "actual": null,
+        "unit": null,
+        "sourceName": "OpenDART",
+        "sourceTier": "official_disclosure",
+        "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000314",
+        "sourceEventId": "20260907000314",
+        "updatedAt": "2026-09-07T22:54:12.233767+00:00",
+        "confidence": "cross_checked",
+        "sourceRefs": [
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000314",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000310",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000301",
+            "sourceTier": "official_disclosure"
+          }
+        ]
+      },
+      {
+        "id": "dart-20260907800590-2026-09-07-b1d3a27a1548",
+        "title": "롯데칠성음료 - 기업설명회(IR)개최(안내공시)",
+        "originalTitle": "롯데칠성음료 - 기업설명회(IR)개최(안내공시)",
+        "titleKo": "롯데칠성음료 - 기업설명회(IR)개최(안내공시)",
+        "country": "KR",
+        "category": "disclosure",
+        "importance": "low",
+        "scheduledDate": "2026-09-07",
+        "scheduledAt": null,
+        "timezone": null,
+        "timePrecision": "date",
+        "status": "published",
+        "previous": null,
+        "consensus": null,
+        "actual": null,
+        "unit": null,
+        "sourceName": "OpenDART",
+        "sourceTier": "official_disclosure",
+        "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907800590",
+        "sourceEventId": "20260907800590",
+        "updatedAt": "2026-09-07T22:54:12.233823+00:00",
+        "confidence": "cross_checked",
+        "sourceRefs": [
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907800590",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900546",
+            "sourceTier": "official_disclosure"
+          }
+        ]
+      },
+      {
+        "id": "dart-20260907800547-2026-09-07-e8e82960f0d5",
+        "title": "STX그린로지스 - 유형자산처분결정",
+        "originalTitle": "STX그린로지스 - 유형자산처분결정",
+        "titleKo": "STX그린로지스 - 유형자산처분결정",
+        "country": "KR",
+        "category": "disclosure",
+        "importance": "low",
+        "scheduledDate": "2026-09-07",
+        "scheduledAt": null,
+        "timezone": null,
+        "timePrecision": "date",
+        "status": "published",
+        "previous": null,
+        "consensus": null,
+        "actual": null,
+        "unit": null,
+        "sourceName": "OpenDART",
+        "sourceTier": "official_disclosure",
+        "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907800547",
+        "sourceEventId": "20260907800547",
+        "updatedAt": "2026-09-07T22:54:12.233834+00:00",
+        "confidence": "single_source",
+        "sourceRefs": [
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907800547",
+            "sourceTier": "official_disclosure"
+          }
+        ]
+      },
+      {
+        "id": "dart-20260907800562-2026-09-07-b01e7904fc7c",
+        "title": "GS - 최대주주등소유주식변동신고서",
+        "originalTitle": "GS - 최대주주등소유주식변동신고서",
+        "titleKo": "GS - 최대주주등소유주식변동신고서",
+        "country": "KR",
+        "category": "disclosure",
+        "importance": "low",
+        "scheduledDate": "2026-09-07",
+        "scheduledAt": null,
+        "timezone": null,
+        "timePrecision": "date",
+        "status": "published",
+        "previous": null,
+        "consensus": null,
+        "actual": null,
+        "unit": null,
+        "sourceName": "OpenDART",
+        "sourceTier": "official_disclosure",
+        "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907800562",
+        "sourceEventId": "20260907800562",
+        "updatedAt": "2026-09-07T22:54:12.233850+00:00",
+        "confidence": "single_source",
+        "sourceRefs": [
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907800562",
+            "sourceTier": "official_disclosure"
+          }
+        ]
+      },
+      {
+        "id": "dart-20260907800518-2026-09-07-18f54c424aa8",
+        "title": "HS효성 - 타인에대한채무보증결정(자회사의 주요경영사항)",
+        "originalTitle": "HS효성 - 타인에대한채무보증결정(자회사의 주요경영사항)",
+        "titleKo": "HS효성 - 타인에대한채무보증결정(자회사의 주요경영사항)",
+        "country": "KR",
+        "category": "disclosure",
+        "importance": "low",
+        "scheduledDate": "2026-09-07",
+        "scheduledAt": null,
+        "timezone": null,
+        "timePrecision": "date",
+        "status": "published",
+        "previous": null,
+        "consensus": null,
+        "actual": null,
+        "unit": null,
+        "sourceName": "OpenDART",
+        "sourceTier": "official_disclosure",
+        "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907800518",
+        "sourceEventId": "20260907800518",
+        "updatedAt": "2026-09-07T22:54:12.233855+00:00",
+        "confidence": "cross_checked",
+        "sourceRefs": [
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907800518",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907800517",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907800498",
+            "sourceTier": "official_disclosure"
+          },
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907800491",
+            "sourceTier": "official_disclosure"
+          }
+        ]
+      },
+      {
+        "id": "dart-20260907900489-2026-09-07-a77e36d33fbf",
+        "title": "보로노이 - [기재정정]투자판단관련주요경영사항(임상시험계획변경승인)              (VRN110755의 제 1/2상 임상시험)",
+        "originalTitle": "보로노이 - [기재정정]투자판단관련주요경영사항(임상시험계획변경승인)              (VRN110755의 제 1/2상 임상시험)",
+        "titleKo": "보로노이 - [기재정정]투자판단관련주요경영사항(임상시험계획변경승인)              (VRN110755의 제 1/2상 임상시험)",
+        "country": "KR",
+        "category": "disclosure",
+        "importance": "low",
+        "scheduledDate": "2026-09-07",
+        "scheduledAt": null,
+        "timezone": null,
+        "timePrecision": "date",
+        "status": "published",
+        "previous": null,
+        "consensus": null,
+        "actual": null,
+        "unit": null,
+        "sourceName": "OpenDART",
+        "sourceTier": "official_disclosure",
+        "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900489",
+        "sourceEventId": "20260907900489",
+        "updatedAt": "2026-09-07T22:54:12.233902+00:00",
+        "confidence": "single_source",
+        "sourceRefs": [
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900489",
+            "sourceTier": "official_disclosure"
+          }
+        ]
+      },
+      {
+        "id": "dart-20260907900512-2026-09-07-3fe4501d206c",
+        "title": "사토시홀딩스 - 증권발행결과(자율공시)              (제3자배정 유상증자)",
+        "originalTitle": "사토시홀딩스 - 증권발행결과(자율공시)              (제3자배정 유상증자)",
+        "titleKo": "사토시홀딩스 - 증권발행결과(자율공시)              (제3자배정 유상증자)",
+        "country": "KR",
+        "category": "disclosure",
+        "importance": "low",
+        "scheduledDate": "2026-09-07",
+        "scheduledAt": null,
+        "timezone": null,
+        "timePrecision": "date",
+        "status": "published",
+        "previous": null,
+        "consensus": null,
+        "actual": null,
+        "unit": null,
+        "sourceName": "OpenDART",
+        "sourceTier": "official_disclosure",
+        "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900512",
+        "sourceEventId": "20260907900512",
+        "updatedAt": "2026-09-07T22:54:12.233925+00:00",
+        "confidence": "single_source",
+        "sourceRefs": [
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900512",
+            "sourceTier": "official_disclosure"
+          }
+        ]
+      },
+      {
+        "id": "dart-20260907900545-2026-09-07-26d748e0c05e",
+        "title": "DH오토리드 - 전환사채(해외전환사채포함)발행후만기전사채취득",
+        "originalTitle": "DH오토리드 - 전환사채(해외전환사채포함)발행후만기전사채취득",
+        "titleKo": "DH오토리드 - 전환사채(해외전환사채포함)발행후만기전사채취득",
+        "country": "KR",
+        "category": "disclosure",
+        "importance": "low",
+        "scheduledDate": "2026-09-07",
+        "scheduledAt": null,
+        "timezone": null,
+        "timePrecision": "date",
+        "status": "published",
+        "previous": null,
+        "consensus": null,
+        "actual": null,
+        "unit": null,
+        "sourceName": "OpenDART",
+        "sourceTier": "official_disclosure",
+        "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900545",
+        "sourceEventId": "20260907900545",
+        "updatedAt": "2026-09-07T22:54:12.233943+00:00",
+        "confidence": "single_source",
+        "sourceRefs": [
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907900545",
+            "sourceTier": "official_disclosure"
+          }
+        ]
+      },
+      {
+        "id": "dart-20260907000283-2026-09-07-7be196f7d839",
+        "title": "AK홀딩스 - 주식등의대량보유상황보고서(일반)",
+        "originalTitle": "AK홀딩스 - 주식등의대량보유상황보고서(일반)",
+        "titleKo": "AK홀딩스 - 주식등의대량보유상황보고서(일반)",
+        "country": "KR",
+        "category": "disclosure",
+        "importance": "low",
+        "scheduledDate": "2026-09-07",
+        "scheduledAt": null,
+        "timezone": null,
+        "timePrecision": "date",
+        "status": "published",
+        "previous": null,
+        "consensus": null,
+        "actual": null,
+        "unit": null,
+        "sourceName": "OpenDART",
+        "sourceTier": "official_disclosure",
+        "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000283",
+        "sourceEventId": "20260907000283",
+        "updatedAt": "2026-09-07T22:54:12.234043+00:00",
+        "confidence": "single_source",
+        "sourceRefs": [
+          {
+            "sourceName": "OpenDART",
+            "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260907000283",
+            "sourceTier": "official_disclosure"
           }
         ]
       }
@@ -2549,7 +3694,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=378",
         "sourceEventId": "378",
-        "updatedAt": "2026-09-06T22:11:19.072547+00:00",
+        "updatedAt": "2026-09-07T22:54:12.229954+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -2560,6 +3705,42 @@
           {
             "sourceName": "FRED",
             "sourceUrl": "https://fred.stlouisfed.org/release?rid=378",
+            "sourceTier": "official_aggregator"
+          }
+        ]
+      },
+      {
+        "id": "fred-fomc-press-release-2026-09-08-481e12cc9365",
+        "title": "FOMC Press Release",
+        "originalTitle": "FOMC Press Release",
+        "titleKo": "FOMC 보도자료",
+        "country": "US",
+        "category": "macro",
+        "importance": "high",
+        "scheduledDate": "2026-09-08",
+        "scheduledAt": null,
+        "timezone": null,
+        "timePrecision": "date",
+        "status": "scheduled",
+        "previous": null,
+        "consensus": null,
+        "actual": null,
+        "unit": null,
+        "sourceName": "FRED",
+        "sourceTier": "official_aggregator",
+        "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+        "sourceEventId": "101",
+        "updatedAt": "2026-09-07T22:54:12.229957+00:00",
+        "confidence": "cross_checked",
+        "sourceRefs": [
+          {
+            "sourceName": "FRED",
+            "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+            "sourceTier": "official_aggregator"
+          },
+          {
+            "sourceName": "FRED",
+            "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
             "sourceTier": "official_aggregator"
           }
         ]
@@ -2585,7 +3766,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=4",
         "sourceEventId": "4",
-        "updatedAt": "2026-09-06T22:11:19.072575+00:00",
+        "updatedAt": "2026-09-07T22:54:12.229997+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -2621,49 +3802,13 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=471",
         "sourceEventId": "471",
-        "updatedAt": "2026-09-06T22:11:19.072581+00:00",
+        "updatedAt": "2026-09-07T22:54:12.230006+00:00",
         "confidence": "single_source",
         "sourceRefs": [
           {
             "sourceName": "FRED",
             "sourceUrl": "https://fred.stlouisfed.org/release?rid=471",
             "sourceTier": "official_aggregator"
-          }
-        ]
-      },
-      {
-        "id": "bok-2026-2-4-2026-09-08-dbb0ef27f5a7",
-        "title": "2026년 2/4분기 국민소득(잠정)",
-        "originalTitle": "2026년 2/4분기 국민소득(잠정)",
-        "titleKo": "2026년 2/4분기 국민소득(잠정)",
-        "country": "KR",
-        "category": "macro",
-        "importance": "low",
-        "scheduledDate": "2026-09-08",
-        "scheduledAt": null,
-        "timezone": null,
-        "timePrecision": "date",
-        "status": "scheduled",
-        "previous": null,
-        "consensus": null,
-        "actual": null,
-        "unit": null,
-        "sourceName": "BOK",
-        "sourceTier": "official",
-        "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-09",
-        "sourceEventId": null,
-        "updatedAt": "2026-09-06T22:11:19.074697+00:00",
-        "confidence": "cross_checked",
-        "sourceRefs": [
-          {
-            "sourceName": "BOK",
-            "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-09",
-            "sourceTier": "official"
-          },
-          {
-            "sourceName": "BOK",
-            "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-09",
-            "sourceTier": "official"
           }
         ]
       },
@@ -2688,7 +3833,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=200",
         "sourceEventId": "200",
-        "updatedAt": "2026-09-06T22:11:19.072532+00:00",
+        "updatedAt": "2026-09-07T22:54:12.229930+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -2699,6 +3844,42 @@
           {
             "sourceName": "FRED",
             "sourceUrl": "https://fred.stlouisfed.org/release?rid=200",
+            "sourceTier": "official_aggregator"
+          }
+        ]
+      },
+      {
+        "id": "fred-coinbase-cryptocurrencies-2026-09-08-ac50529e49cf",
+        "title": "Coinbase Cryptocurrencies",
+        "originalTitle": "Coinbase Cryptocurrencies",
+        "titleKo": "코인베이스 암호화폐 시세",
+        "country": "US",
+        "category": "macro",
+        "importance": "low",
+        "scheduledDate": "2026-09-08",
+        "scheduledAt": null,
+        "timezone": null,
+        "timePrecision": "date",
+        "status": "scheduled",
+        "previous": null,
+        "consensus": null,
+        "actual": null,
+        "unit": null,
+        "sourceName": "FRED",
+        "sourceTier": "official_aggregator",
+        "sourceUrl": "https://fred.stlouisfed.org/release?rid=441",
+        "sourceEventId": "441",
+        "updatedAt": "2026-09-07T22:54:12.229934+00:00",
+        "confidence": "cross_checked",
+        "sourceRefs": [
+          {
+            "sourceName": "FRED",
+            "sourceUrl": "https://fred.stlouisfed.org/release?rid=441",
+            "sourceTier": "official_aggregator"
+          },
+          {
+            "sourceName": "FRED",
+            "sourceUrl": "https://fred.stlouisfed.org/release?rid=441",
             "sourceTier": "official_aggregator"
           }
         ]
@@ -2724,7 +3905,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=86",
         "sourceEventId": "86",
-        "updatedAt": "2026-09-06T22:11:19.072537+00:00",
+        "updatedAt": "2026-09-07T22:54:12.229938+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -2760,7 +3941,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=72",
         "sourceEventId": "72",
-        "updatedAt": "2026-09-06T22:11:19.072540+00:00",
+        "updatedAt": "2026-09-07T22:54:12.229943+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -2796,7 +3977,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=14",
         "sourceEventId": "14",
-        "updatedAt": "2026-09-06T22:11:19.072552+00:00",
+        "updatedAt": "2026-09-07T22:54:12.229962+00:00",
         "confidence": "single_source",
         "sourceRefs": [
           {
@@ -2827,7 +4008,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=183",
         "sourceEventId": "183",
-        "updatedAt": "2026-09-06T22:11:19.072556+00:00",
+        "updatedAt": "2026-09-07T22:54:12.229967+00:00",
         "confidence": "single_source",
         "sourceRefs": [
           {
@@ -2858,7 +4039,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=17",
         "sourceEventId": "17",
-        "updatedAt": "2026-09-06T22:11:19.072558+00:00",
+        "updatedAt": "2026-09-07T22:54:12.229972+00:00",
         "confidence": "single_source",
         "sourceRefs": [
           {
@@ -2889,7 +4070,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=18",
         "sourceEventId": "18",
-        "updatedAt": "2026-09-06T22:11:19.072561+00:00",
+        "updatedAt": "2026-09-07T22:54:12.229976+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -2925,7 +4106,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=504",
         "sourceEventId": "504",
-        "updatedAt": "2026-09-06T22:11:19.072565+00:00",
+        "updatedAt": "2026-09-07T22:54:12.229980+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -2961,7 +4142,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=185",
         "sourceEventId": "185",
-        "updatedAt": "2026-09-06T22:11:19.072570+00:00",
+        "updatedAt": "2026-09-07T22:54:12.229989+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -2997,7 +4178,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=304",
         "sourceEventId": "304",
-        "updatedAt": "2026-09-06T22:11:19.072573+00:00",
+        "updatedAt": "2026-09-07T22:54:12.229993+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -3033,7 +4214,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=427",
         "sourceEventId": "427",
-        "updatedAt": "2026-09-06T22:11:19.072584+00:00",
+        "updatedAt": "2026-09-07T22:54:12.230011+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -3044,398 +4225,12 @@
           {
             "sourceName": "FRED",
             "sourceUrl": "https://fred.stlouisfed.org/release?rid=427",
-            "sourceTier": "official_aggregator"
-          }
-        ]
-      },
-      {
-        "id": "fred-nasdaq-daily-index-data-2026-09-08-9e90b9b429e5",
-        "title": "Nasdaq Daily Index Data",
-        "originalTitle": "Nasdaq Daily Index Data",
-        "titleKo": "나스닥 일별 지수 데이터",
-        "country": "US",
-        "category": "macro",
-        "importance": "low",
-        "scheduledDate": "2026-09-08",
-        "scheduledAt": null,
-        "timezone": null,
-        "timePrecision": "date",
-        "status": "scheduled",
-        "previous": null,
-        "consensus": null,
-        "actual": null,
-        "unit": null,
-        "sourceName": "FRED",
-        "sourceTier": "official_aggregator",
-        "sourceUrl": "https://fred.stlouisfed.org/release?rid=328",
-        "sourceEventId": "328",
-        "updatedAt": "2026-09-06T22:11:19.072587+00:00",
-        "confidence": "cross_checked",
-        "sourceRefs": [
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=328",
-            "sourceTier": "official_aggregator"
-          },
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=328",
-            "sourceTier": "official_aggregator"
-          }
-        ]
-      },
-      {
-        "id": "fred-optimal-blue-mortgage-market-indices-2026-09-08-a888c095163a",
-        "title": "Optimal Blue Mortgage Market Indices",
-        "originalTitle": "Optimal Blue Mortgage Market Indices",
-        "titleKo": "옵티멀블루 모기지 시장지수",
-        "country": "US",
-        "category": "macro",
-        "importance": "low",
-        "scheduledDate": "2026-09-08",
-        "scheduledAt": null,
-        "timezone": null,
-        "timePrecision": "date",
-        "status": "scheduled",
-        "previous": null,
-        "consensus": null,
-        "actual": null,
-        "unit": null,
-        "sourceName": "FRED",
-        "sourceTier": "official_aggregator",
-        "sourceUrl": "https://fred.stlouisfed.org/release?rid=473",
-        "sourceEventId": "473",
-        "updatedAt": "2026-09-06T22:11:19.072593+00:00",
-        "confidence": "cross_checked",
-        "sourceRefs": [
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=473",
-            "sourceTier": "official_aggregator"
-          },
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=473",
-            "sourceTier": "official_aggregator"
-          }
-        ]
-      },
-      {
-        "id": "fred-overnight-bank-funding-rate-data-2026-09-08-f95162ac2c3e",
-        "title": "Overnight Bank Funding Rate Data",
-        "originalTitle": "Overnight Bank Funding Rate Data",
-        "titleKo": "익일물 은행 자금조달금리(OBFR) 데이터",
-        "country": "US",
-        "category": "macro",
-        "importance": "low",
-        "scheduledDate": "2026-09-08",
-        "scheduledAt": null,
-        "timezone": null,
-        "timePrecision": "date",
-        "status": "scheduled",
-        "previous": null,
-        "consensus": null,
-        "actual": null,
-        "unit": null,
-        "sourceName": "FRED",
-        "sourceTier": "official_aggregator",
-        "sourceUrl": "https://fred.stlouisfed.org/release?rid=375",
-        "sourceEventId": "375",
-        "updatedAt": "2026-09-06T22:11:19.072595+00:00",
-        "confidence": "cross_checked",
-        "sourceRefs": [
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=375",
-            "sourceTier": "official_aggregator"
-          },
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=375",
-            "sourceTier": "official_aggregator"
-          }
-        ]
-      },
-      {
-        "id": "fred-quarterly-financial-report-2026-09-08-8f4892f2a3c9",
-        "title": "Quarterly Financial Report",
-        "originalTitle": "Quarterly Financial Report",
-        "titleKo": "분기 재무보고서(제조·유통업)",
-        "country": "US",
-        "category": "macro",
-        "importance": "low",
-        "scheduledDate": "2026-09-08",
-        "scheduledAt": null,
-        "timezone": null,
-        "timePrecision": "date",
-        "status": "scheduled",
-        "previous": null,
-        "consensus": null,
-        "actual": null,
-        "unit": null,
-        "sourceName": "FRED",
-        "sourceTier": "official_aggregator",
-        "sourceUrl": "https://fred.stlouisfed.org/release?rid=434",
-        "sourceEventId": "434",
-        "updatedAt": "2026-09-06T22:11:19.072598+00:00",
-        "confidence": "single_source",
-        "sourceRefs": [
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=434",
-            "sourceTier": "official_aggregator"
-          }
-        ]
-      },
-      {
-        "id": "fred-risk-on-risk-off-index-2026-09-08-bb727347f698",
-        "title": "Risk-On Risk-Off Index",
-        "originalTitle": "Risk-On Risk-Off Index",
-        "titleKo": "리스크온·리스크오프 지수",
-        "country": "US",
-        "category": "macro",
-        "importance": "low",
-        "scheduledDate": "2026-09-08",
-        "scheduledAt": null,
-        "timezone": null,
-        "timePrecision": "date",
-        "status": "scheduled",
-        "previous": null,
-        "consensus": null,
-        "actual": null,
-        "unit": null,
-        "sourceName": "FRED",
-        "sourceTier": "official_aggregator",
-        "sourceUrl": "https://fred.stlouisfed.org/release?rid=2",
-        "sourceEventId": "2",
-        "updatedAt": "2026-09-06T22:11:19.072604+00:00",
-        "confidence": "cross_checked",
-        "sourceRefs": [
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=2",
-            "sourceTier": "official_aggregator"
-          },
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=2",
-            "sourceTier": "official_aggregator"
-          }
-        ]
-      },
-      {
-        "id": "fred-secured-overnight-financing-rate-data-2026-09-08-8647ae6b6c54",
-        "title": "Secured Overnight Financing Rate Data",
-        "originalTitle": "Secured Overnight Financing Rate Data",
-        "titleKo": "담보부 익일물 금융금리(SOFR) 데이터",
-        "country": "US",
-        "category": "macro",
-        "importance": "low",
-        "scheduledDate": "2026-09-08",
-        "scheduledAt": null,
-        "timezone": null,
-        "timePrecision": "date",
-        "status": "scheduled",
-        "previous": null,
-        "consensus": null,
-        "actual": null,
-        "unit": null,
-        "sourceName": "FRED",
-        "sourceTier": "official_aggregator",
-        "sourceUrl": "https://fred.stlouisfed.org/release?rid=445",
-        "sourceEventId": "445",
-        "updatedAt": "2026-09-06T22:11:19.072607+00:00",
-        "confidence": "cross_checked",
-        "sourceRefs": [
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=445",
-            "sourceTier": "official_aggregator"
-          },
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=445",
-            "sourceTier": "official_aggregator"
-          }
-        ]
-      },
-      {
-        "id": "fred-sofr-averages-and-index-data-2026-09-08-d2e04c2b375b",
-        "title": "SOFR Averages and Index Data",
-        "originalTitle": "SOFR Averages and Index Data",
-        "titleKo": "SOFR 평균 및 지수 데이터",
-        "country": "US",
-        "category": "macro",
-        "importance": "low",
-        "scheduledDate": "2026-09-08",
-        "scheduledAt": null,
-        "timezone": null,
-        "timePrecision": "date",
-        "status": "scheduled",
-        "previous": null,
-        "consensus": null,
-        "actual": null,
-        "unit": null,
-        "sourceName": "FRED",
-        "sourceTier": "official_aggregator",
-        "sourceUrl": "https://fred.stlouisfed.org/release?rid=483",
-        "sourceEventId": "483",
-        "updatedAt": "2026-09-06T22:11:19.072610+00:00",
-        "confidence": "cross_checked",
-        "sourceRefs": [
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=483",
-            "sourceTier": "official_aggregator"
-          },
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=483",
-            "sourceTier": "official_aggregator"
-          }
-        ]
-      },
-      {
-        "id": "fred-temporary-open-market-operations-2026-09-08-ef8eb71ac178",
-        "title": "Temporary Open Market Operations",
-        "originalTitle": "Temporary Open Market Operations",
-        "titleKo": "임시 공개시장운영",
-        "country": "US",
-        "category": "macro",
-        "importance": "low",
-        "scheduledDate": "2026-09-08",
-        "scheduledAt": null,
-        "timezone": null,
-        "timePrecision": "date",
-        "status": "scheduled",
-        "previous": null,
-        "consensus": null,
-        "actual": null,
-        "unit": null,
-        "sourceName": "FRED",
-        "sourceTier": "official_aggregator",
-        "sourceUrl": "https://fred.stlouisfed.org/release?rid=379",
-        "sourceEventId": "379",
-        "updatedAt": "2026-09-06T22:11:19.072615+00:00",
-        "confidence": "cross_checked",
-        "sourceRefs": [
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=379",
-            "sourceTier": "official_aggregator"
-          },
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=379",
-            "sourceTier": "official_aggregator"
-          }
-        ]
-      },
-      {
-        "id": "fred-tri-party-general-collateral-rate-data-2026-09-08-763ea098d2a9",
-        "title": "Tri-Party General Collateral Rate Data",
-        "originalTitle": "Tri-Party General Collateral Rate Data",
-        "titleKo": "트라이파티 일반담보금리(TGCR) 데이터",
-        "country": "US",
-        "category": "macro",
-        "importance": "low",
-        "scheduledDate": "2026-09-08",
-        "scheduledAt": null,
-        "timezone": null,
-        "timePrecision": "date",
-        "status": "scheduled",
-        "previous": null,
-        "consensus": null,
-        "actual": null,
-        "unit": null,
-        "sourceName": "FRED",
-        "sourceTier": "official_aggregator",
-        "sourceUrl": "https://fred.stlouisfed.org/release?rid=1105",
-        "sourceEventId": "1105",
-        "updatedAt": "2026-09-06T22:11:19.072618+00:00",
-        "confidence": "cross_checked",
-        "sourceRefs": [
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=1105",
-            "sourceTier": "official_aggregator"
-          },
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=1105",
-            "sourceTier": "official_aggregator"
-          }
-        ]
-      },
-      {
-        "id": "fred-weekly-financial-statements-of-the-eurosystem-2026-09-08-372582127327",
-        "title": "Weekly Financial Statements of the Eurosystem",
-        "originalTitle": "Weekly Financial Statements of the Eurosystem",
-        "titleKo": "유로시스템 주간 재무제표",
-        "country": "US",
-        "category": "macro",
-        "importance": "low",
-        "scheduledDate": "2026-09-08",
-        "scheduledAt": null,
-        "timezone": null,
-        "timePrecision": "date",
-        "status": "scheduled",
-        "previous": null,
-        "consensus": null,
-        "actual": null,
-        "unit": null,
-        "sourceName": "FRED",
-        "sourceTier": "official_aggregator",
-        "sourceUrl": "https://fred.stlouisfed.org/release?rid=271",
-        "sourceEventId": "271",
-        "updatedAt": "2026-09-06T22:11:19.072621+00:00",
-        "confidence": "single_source",
-        "sourceRefs": [
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=271",
             "sourceTier": "official_aggregator"
           }
         ]
       }
     ],
     "2026-09-09": [
-      {
-        "id": "fred-fomc-press-release-2026-09-09-feacbc1ca246",
-        "title": "FOMC Press Release",
-        "originalTitle": "FOMC Press Release",
-        "titleKo": "FOMC 보도자료",
-        "country": "US",
-        "category": "macro",
-        "importance": "high",
-        "scheduledDate": "2026-09-09",
-        "scheduledAt": null,
-        "timezone": null,
-        "timePrecision": "date",
-        "status": "scheduled",
-        "previous": null,
-        "consensus": null,
-        "actual": null,
-        "unit": null,
-        "sourceName": "FRED",
-        "sourceTier": "official_aggregator",
-        "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-        "sourceEventId": "101",
-        "updatedAt": "2026-09-06T22:11:19.072648+00:00",
-        "confidence": "cross_checked",
-        "sourceRefs": [
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-            "sourceTier": "official_aggregator"
-          },
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-            "sourceTier": "official_aggregator"
-          }
-        ]
-      },
       {
         "id": "fred-kansas-city-fed-policy-rate-uncertainty-2026-09-09-66b55026cc7d",
         "title": "Kansas City Fed Policy Rate Uncertainty",
@@ -3457,7 +4252,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=739",
         "sourceEventId": "739",
-        "updatedAt": "2026-09-06T22:11:19.072669+00:00",
+        "updatedAt": "2026-09-07T22:54:12.230143+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -3468,315 +4263,6 @@
           {
             "sourceName": "FRED",
             "sourceUrl": "https://fred.stlouisfed.org/release?rid=739",
-            "sourceTier": "official_aggregator"
-          }
-        ]
-      },
-      {
-        "id": "fred-chicago-fed-advance-retail-trade-summary-2026-09-09-043dc774066f",
-        "title": "Chicago Fed Advance Retail Trade Summary",
-        "originalTitle": "Chicago Fed Advance Retail Trade Summary",
-        "titleKo": "시카고 연은 소매판매 속보",
-        "country": "US",
-        "category": "macro",
-        "importance": "low",
-        "scheduledDate": "2026-09-09",
-        "scheduledAt": null,
-        "timezone": null,
-        "timePrecision": "date",
-        "status": "scheduled",
-        "previous": null,
-        "consensus": null,
-        "actual": null,
-        "unit": null,
-        "sourceName": "FRED",
-        "sourceTier": "official_aggregator",
-        "sourceUrl": "https://fred.stlouisfed.org/release?rid=494",
-        "sourceEventId": "494",
-        "updatedAt": "2026-09-06T22:11:19.072628+00:00",
-        "confidence": "single_source",
-        "sourceRefs": [
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=494",
-            "sourceTier": "official_aggregator"
-          }
-        ]
-      },
-      {
-        "id": "fred-coinbase-cryptocurrencies-2026-09-09-5af5a858dd6a",
-        "title": "Coinbase Cryptocurrencies",
-        "originalTitle": "Coinbase Cryptocurrencies",
-        "titleKo": "코인베이스 암호화폐 시세",
-        "country": "US",
-        "category": "macro",
-        "importance": "low",
-        "scheduledDate": "2026-09-09",
-        "scheduledAt": null,
-        "timezone": null,
-        "timePrecision": "date",
-        "status": "scheduled",
-        "previous": null,
-        "consensus": null,
-        "actual": null,
-        "unit": null,
-        "sourceName": "FRED",
-        "sourceTier": "official_aggregator",
-        "sourceUrl": "https://fred.stlouisfed.org/release?rid=441",
-        "sourceEventId": "441",
-        "updatedAt": "2026-09-06T22:11:19.072630+00:00",
-        "confidence": "cross_checked",
-        "sourceRefs": [
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=441",
-            "sourceTier": "official_aggregator"
-          },
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=441",
-            "sourceTier": "official_aggregator"
-          }
-        ]
-      },
-      {
-        "id": "fred-consumer-expenditure-surveys-2026-09-09-51fb3f20b39c",
-        "title": "Consumer Expenditure Surveys",
-        "originalTitle": "Consumer Expenditure Surveys",
-        "titleKo": "소비자지출조사",
-        "country": "US",
-        "category": "macro",
-        "importance": "low",
-        "scheduledDate": "2026-09-09",
-        "scheduledAt": null,
-        "timezone": null,
-        "timePrecision": "date",
-        "status": "scheduled",
-        "previous": null,
-        "consensus": null,
-        "actual": null,
-        "unit": null,
-        "sourceName": "FRED",
-        "sourceTier": "official_aggregator",
-        "sourceUrl": "https://fred.stlouisfed.org/release?rid=479",
-        "sourceEventId": "479",
-        "updatedAt": "2026-09-06T22:11:19.072636+00:00",
-        "confidence": "single_source",
-        "sourceRefs": [
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=479",
-            "sourceTier": "official_aggregator"
-          }
-        ]
-      },
-      {
-        "id": "fred-economic-policy-uncertainty-2026-09-09-437fd8780d35",
-        "title": "Economic Policy Uncertainty",
-        "originalTitle": "Economic Policy Uncertainty",
-        "titleKo": "경제정책 불확실성지수",
-        "country": "US",
-        "category": "macro",
-        "importance": "low",
-        "scheduledDate": "2026-09-09",
-        "scheduledAt": null,
-        "timezone": null,
-        "timePrecision": "date",
-        "status": "scheduled",
-        "previous": null,
-        "consensus": null,
-        "actual": null,
-        "unit": null,
-        "sourceName": "FRED",
-        "sourceTier": "official_aggregator",
-        "sourceUrl": "https://fred.stlouisfed.org/release?rid=279",
-        "sourceEventId": "279",
-        "updatedAt": "2026-09-06T22:11:19.072641+00:00",
-        "confidence": "cross_checked",
-        "sourceRefs": [
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=279",
-            "sourceTier": "official_aggregator"
-          },
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=279",
-            "sourceTier": "official_aggregator"
-          }
-        ]
-      },
-      {
-        "id": "fred-euro-short-term-rate-2026-09-09-d1e74917c940",
-        "title": "Euro Short Term Rate",
-        "originalTitle": "Euro Short Term Rate",
-        "titleKo": "유로 단기금리(€STR)",
-        "country": "US",
-        "category": "macro",
-        "importance": "low",
-        "scheduledDate": "2026-09-09",
-        "scheduledAt": null,
-        "timezone": null,
-        "timePrecision": "date",
-        "status": "scheduled",
-        "previous": null,
-        "consensus": null,
-        "actual": null,
-        "unit": null,
-        "sourceName": "FRED",
-        "sourceTier": "official_aggregator",
-        "sourceUrl": "https://fred.stlouisfed.org/release?rid=502",
-        "sourceEventId": "502",
-        "updatedAt": "2026-09-06T22:11:19.072644+00:00",
-        "confidence": "cross_checked",
-        "sourceRefs": [
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=502",
-            "sourceTier": "official_aggregator"
-          },
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=502",
-            "sourceTier": "official_aggregator"
-          }
-        ]
-      },
-      {
-        "id": "fred-ice-bofa-indices-2026-09-09-8bbfd3271e90",
-        "title": "ICE BofA Indices",
-        "originalTitle": "ICE BofA Indices",
-        "titleKo": "ICE BofA 채권지수",
-        "country": "US",
-        "category": "macro",
-        "importance": "low",
-        "scheduledDate": "2026-09-09",
-        "scheduledAt": null,
-        "timezone": null,
-        "timePrecision": "date",
-        "status": "scheduled",
-        "previous": null,
-        "consensus": null,
-        "actual": null,
-        "unit": null,
-        "sourceName": "FRED",
-        "sourceTier": "official_aggregator",
-        "sourceUrl": "https://fred.stlouisfed.org/release?rid=209",
-        "sourceEventId": "209",
-        "updatedAt": "2026-09-06T22:11:19.072656+00:00",
-        "confidence": "cross_checked",
-        "sourceRefs": [
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=209",
-            "sourceTier": "official_aggregator"
-          },
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=209",
-            "sourceTier": "official_aggregator"
-          }
-        ]
-      },
-      {
-        "id": "fred-kansas-city-fed-labor-market-conditions-indicators-2026-09-09-81b70651aacb",
-        "title": "Kansas City Fed Labor Market Conditions Indicators",
-        "originalTitle": "Kansas City Fed Labor Market Conditions Indicators",
-        "titleKo": "캔자스시티 연은 노동시장 여건지표",
-        "country": "US",
-        "category": "macro",
-        "importance": "low",
-        "scheduledDate": "2026-09-09",
-        "scheduledAt": null,
-        "timezone": null,
-        "timePrecision": "date",
-        "status": "scheduled",
-        "previous": null,
-        "consensus": null,
-        "actual": null,
-        "unit": null,
-        "sourceName": "FRED",
-        "sourceTier": "official_aggregator",
-        "sourceUrl": "https://fred.stlouisfed.org/release?rid=341",
-        "sourceEventId": "341",
-        "updatedAt": "2026-09-06T22:11:19.072665+00:00",
-        "confidence": "single_source",
-        "sourceRefs": [
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=341",
-            "sourceTier": "official_aggregator"
-          }
-        ]
-      },
-      {
-        "id": "fred-key-ecb-interest-rates-2026-09-09-bee5bce27401",
-        "title": "Key ECB Interest Rates",
-        "originalTitle": "Key ECB Interest Rates",
-        "titleKo": "유럽중앙은행(ECB) 기준금리",
-        "country": "US",
-        "category": "macro",
-        "importance": "low",
-        "scheduledDate": "2026-09-09",
-        "scheduledAt": null,
-        "timezone": null,
-        "timePrecision": "date",
-        "status": "scheduled",
-        "previous": null,
-        "consensus": null,
-        "actual": null,
-        "unit": null,
-        "sourceName": "FRED",
-        "sourceTier": "official_aggregator",
-        "sourceUrl": "https://fred.stlouisfed.org/release?rid=484",
-        "sourceEventId": "484",
-        "updatedAt": "2026-09-06T22:11:19.072672+00:00",
-        "confidence": "cross_checked",
-        "sourceRefs": [
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=484",
-            "sourceTier": "official_aggregator"
-          },
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=484",
-            "sourceTier": "official_aggregator"
-          }
-        ]
-      },
-      {
-        "id": "fred-nikkei-indexes-2026-09-09-f279ad2b37a2",
-        "title": "Nikkei Indexes",
-        "originalTitle": "Nikkei Indexes",
-        "titleKo": "니케이지수",
-        "country": "US",
-        "category": "macro",
-        "importance": "low",
-        "scheduledDate": "2026-09-09",
-        "scheduledAt": null,
-        "timezone": null,
-        "timePrecision": "date",
-        "status": "scheduled",
-        "previous": null,
-        "consensus": null,
-        "actual": null,
-        "unit": null,
-        "sourceName": "FRED",
-        "sourceTier": "official_aggregator",
-        "sourceUrl": "https://fred.stlouisfed.org/release?rid=287",
-        "sourceEventId": "287",
-        "updatedAt": "2026-09-06T22:11:19.072680+00:00",
-        "confidence": "cross_checked",
-        "sourceRefs": [
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=287",
-            "sourceTier": "official_aggregator"
-          },
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=287",
             "sourceTier": "official_aggregator"
           }
         ]
@@ -3804,7 +4290,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=378",
         "sourceEventId": "378",
-        "updatedAt": "2026-09-06T22:11:19.072735+00:00",
+        "updatedAt": "2026-09-07T22:54:12.230249+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -3815,6 +4301,42 @@
           {
             "sourceName": "FRED",
             "sourceUrl": "https://fred.stlouisfed.org/release?rid=378",
+            "sourceTier": "official_aggregator"
+          }
+        ]
+      },
+      {
+        "id": "fred-fomc-press-release-2026-09-10-142c038888a6",
+        "title": "FOMC Press Release",
+        "originalTitle": "FOMC Press Release",
+        "titleKo": "FOMC 보도자료",
+        "country": "US",
+        "category": "macro",
+        "importance": "high",
+        "scheduledDate": "2026-09-10",
+        "scheduledAt": null,
+        "timezone": null,
+        "timePrecision": "date",
+        "status": "scheduled",
+        "previous": null,
+        "consensus": null,
+        "actual": null,
+        "unit": null,
+        "sourceName": "FRED",
+        "sourceTier": "official_aggregator",
+        "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+        "sourceEventId": "101",
+        "updatedAt": "2026-09-07T22:54:12.230252+00:00",
+        "confidence": "cross_checked",
+        "sourceRefs": [
+          {
+            "sourceName": "FRED",
+            "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+            "sourceTier": "official_aggregator"
+          },
+          {
+            "sourceName": "FRED",
+            "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
             "sourceTier": "official_aggregator"
           }
         ]
@@ -3840,7 +4362,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=386",
         "sourceEventId": "386",
-        "updatedAt": "2026-09-06T22:11:19.072739+00:00",
+        "updatedAt": "2026-09-07T22:54:12.230255+00:00",
         "confidence": "single_source",
         "sourceRefs": [
           {
@@ -3871,7 +4393,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=4",
         "sourceEventId": "4",
-        "updatedAt": "2026-09-06T22:11:19.072758+00:00",
+        "updatedAt": "2026-09-07T22:54:12.230285+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -3907,7 +4429,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=46",
         "sourceEventId": "46",
-        "updatedAt": "2026-09-06T22:11:19.072791+00:00",
+        "updatedAt": "2026-09-07T22:54:12.230336+00:00",
         "confidence": "single_source",
         "sourceRefs": [
           {
@@ -3940,7 +4462,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=10",
         "sourceEventId": "10",
-        "updatedAt": "2026-09-06T22:11:19.072839+00:00",
+        "updatedAt": "2026-09-07T22:54:12.230415+00:00",
         "confidence": "single_source",
         "sourceRefs": [
           {
@@ -3971,48 +4493,12 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=315",
         "sourceEventId": "315",
-        "updatedAt": "2026-09-06T22:11:19.072841+00:00",
+        "updatedAt": "2026-09-07T22:54:12.230418+00:00",
         "confidence": "single_source",
         "sourceRefs": [
           {
             "sourceName": "FRED",
             "sourceUrl": "https://fred.stlouisfed.org/release?rid=315",
-            "sourceTier": "official_aggregator"
-          }
-        ]
-      },
-      {
-        "id": "fred-fomc-press-release-2026-09-11-5acc2f11abc2",
-        "title": "FOMC Press Release",
-        "originalTitle": "FOMC Press Release",
-        "titleKo": "FOMC 보도자료",
-        "country": "US",
-        "category": "macro",
-        "importance": "high",
-        "scheduledDate": "2026-09-11",
-        "scheduledAt": null,
-        "timezone": null,
-        "timePrecision": "date",
-        "status": "scheduled",
-        "previous": null,
-        "consensus": null,
-        "actual": null,
-        "unit": null,
-        "sourceName": "FRED",
-        "sourceTier": "official_aggregator",
-        "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-        "sourceEventId": "101",
-        "updatedAt": "2026-09-06T22:11:19.072852+00:00",
-        "confidence": "cross_checked",
-        "sourceRefs": [
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-            "sourceTier": "official_aggregator"
-          },
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
             "sourceTier": "official_aggregator"
           }
         ]
@@ -4038,7 +4524,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=739",
         "sourceEventId": "739",
-        "updatedAt": "2026-09-06T22:11:19.072879+00:00",
+        "updatedAt": "2026-09-07T22:54:12.230477+00:00",
         "confidence": "single_source",
         "sourceRefs": [
           {
@@ -4069,7 +4555,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=345",
         "sourceEventId": "345",
-        "updatedAt": "2026-09-06T22:11:19.072905+00:00",
+        "updatedAt": "2026-09-07T22:54:12.230519+00:00",
         "confidence": "single_source",
         "sourceRefs": [
           {
@@ -4100,7 +4586,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=313",
         "sourceEventId": "313",
-        "updatedAt": "2026-09-06T22:11:19.072921+00:00",
+        "updatedAt": "2026-09-07T22:54:12.230544+00:00",
         "confidence": "single_source",
         "sourceRefs": [
           {
@@ -4111,16 +4597,16 @@
         ]
       }
     ],
-    "2026-09-13": [
+    "2026-09-12": [
       {
-        "id": "fred-fomc-press-release-2026-09-13-08b5bd7224cc",
+        "id": "fred-fomc-press-release-2026-09-12-93b3570e5e53",
         "title": "FOMC Press Release",
         "originalTitle": "FOMC Press Release",
         "titleKo": "FOMC 보도자료",
         "country": "US",
         "category": "macro",
         "importance": "high",
-        "scheduledDate": "2026-09-13",
+        "scheduledDate": "2026-09-12",
         "scheduledAt": null,
         "timezone": null,
         "timePrecision": "date",
@@ -4133,7 +4619,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
         "sourceEventId": "101",
-        "updatedAt": "2026-09-06T22:11:19.072944+00:00",
+        "updatedAt": "2026-09-07T22:54:12.230573+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -4144,6 +4630,152 @@
           {
             "sourceName": "FRED",
             "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+            "sourceTier": "official_aggregator"
+          }
+        ]
+      }
+    ],
+    "2026-09-14": [
+      {
+        "id": "fred-federal-funds-data-2026-09-14-e46d91666ce3",
+        "title": "Federal Funds Data",
+        "originalTitle": "Federal Funds Data",
+        "titleKo": "미국 연방기금금리 데이터",
+        "country": "US",
+        "category": "macro",
+        "importance": "high",
+        "scheduledDate": "2026-09-14",
+        "scheduledAt": null,
+        "timezone": null,
+        "timePrecision": "date",
+        "status": "scheduled",
+        "previous": null,
+        "consensus": null,
+        "actual": null,
+        "unit": null,
+        "sourceName": "FRED",
+        "sourceTier": "official_aggregator",
+        "sourceUrl": "https://fred.stlouisfed.org/release?rid=378",
+        "sourceEventId": "378",
+        "updatedAt": "2026-09-07T22:54:12.230610+00:00",
+        "confidence": "cross_checked",
+        "sourceRefs": [
+          {
+            "sourceName": "FRED",
+            "sourceUrl": "https://fred.stlouisfed.org/release?rid=378",
+            "sourceTier": "official_aggregator"
+          },
+          {
+            "sourceName": "FRED",
+            "sourceUrl": "https://fred.stlouisfed.org/release?rid=378",
+            "sourceTier": "official_aggregator"
+          }
+        ]
+      },
+      {
+        "id": "fred-fomc-press-release-2026-09-14-926ed5ccde3e",
+        "title": "FOMC Press Release",
+        "originalTitle": "FOMC Press Release",
+        "titleKo": "FOMC 보도자료",
+        "country": "US",
+        "category": "macro",
+        "importance": "high",
+        "scheduledDate": "2026-09-14",
+        "scheduledAt": null,
+        "timezone": null,
+        "timePrecision": "date",
+        "status": "scheduled",
+        "previous": null,
+        "consensus": null,
+        "actual": null,
+        "unit": null,
+        "sourceName": "FRED",
+        "sourceTier": "official_aggregator",
+        "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+        "sourceEventId": "101",
+        "updatedAt": "2026-09-07T22:54:12.230613+00:00",
+        "confidence": "cross_checked",
+        "sourceRefs": [
+          {
+            "sourceName": "FRED",
+            "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+            "sourceTier": "official_aggregator"
+          },
+          {
+            "sourceName": "FRED",
+            "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+            "sourceTier": "official_aggregator"
+          }
+        ]
+      },
+      {
+        "id": "fred-kansas-city-fed-policy-rate-skew-2026-09-14-58720c919e34",
+        "title": "Kansas City Fed Policy Rate Skew",
+        "originalTitle": "Kansas City Fed Policy Rate Skew",
+        "titleKo": "캔자스시티 연은 정책금리 스큐지수",
+        "country": "US",
+        "category": "macro",
+        "importance": "high",
+        "scheduledDate": "2026-09-14",
+        "scheduledAt": null,
+        "timezone": null,
+        "timePrecision": "date",
+        "status": "scheduled",
+        "previous": null,
+        "consensus": null,
+        "actual": null,
+        "unit": null,
+        "sourceName": "FRED",
+        "sourceTier": "official_aggregator",
+        "sourceUrl": "https://fred.stlouisfed.org/release?rid=4",
+        "sourceEventId": "4",
+        "updatedAt": "2026-09-07T22:54:12.230647+00:00",
+        "confidence": "cross_checked",
+        "sourceRefs": [
+          {
+            "sourceName": "FRED",
+            "sourceUrl": "https://fred.stlouisfed.org/release?rid=4",
+            "sourceTier": "official_aggregator"
+          },
+          {
+            "sourceName": "FRED",
+            "sourceUrl": "https://fred.stlouisfed.org/release?rid=4",
+            "sourceTier": "official_aggregator"
+          }
+        ]
+      },
+      {
+        "id": "fred-kansas-city-fed-policy-rate-uncertainty-2026-09-14-d676f2b8e163",
+        "title": "Kansas City Fed Policy Rate Uncertainty",
+        "originalTitle": "Kansas City Fed Policy Rate Uncertainty",
+        "titleKo": "캔자스시티 연은 정책금리 불확실성지수",
+        "country": "US",
+        "category": "macro",
+        "importance": "high",
+        "scheduledDate": "2026-09-14",
+        "scheduledAt": null,
+        "timezone": null,
+        "timePrecision": "date",
+        "status": "scheduled",
+        "previous": null,
+        "consensus": null,
+        "actual": null,
+        "unit": null,
+        "sourceName": "FRED",
+        "sourceTier": "official_aggregator",
+        "sourceUrl": "https://fred.stlouisfed.org/release?rid=739",
+        "sourceEventId": "739",
+        "updatedAt": "2026-09-07T22:54:12.230651+00:00",
+        "confidence": "cross_checked",
+        "sourceRefs": [
+          {
+            "sourceName": "FRED",
+            "sourceUrl": "https://fred.stlouisfed.org/release?rid=739",
+            "sourceTier": "official_aggregator"
+          },
+          {
+            "sourceName": "FRED",
+            "sourceUrl": "https://fred.stlouisfed.org/release?rid=739",
             "sourceTier": "official_aggregator"
           }
         ]
