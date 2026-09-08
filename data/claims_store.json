@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-08T06:44:07+09:00",
+  "updatedAt": "2026-09-09T06:43:19+09:00",
   "claims": {
     "2026-07-19-c1": {
       "schemaVersion": 1,
@@ -2359,6 +2359,46 @@
         "asOf": "2026-09-07",
         "benchmarkValue": 26506.99,
         "benchmarkAsOf": "2026-09-04"
+      },
+      "resolution": null
+    },
+    "2026-09-09-c1": {
+      "schemaVersion": 1,
+      "claimId": "2026-09-09-c1",
+      "publicationId": "2026-09-09",
+      "issuedAt": "2026-09-09T06:43:19+09:00",
+      "dataCutoffAt": "2026-09-09T06:43:19+09:00",
+      "lockedAt": "2026-09-09T06:43:19+09:00",
+      "claimMode": "auto",
+      "verificationType": "proxy",
+      "topic": "나스닥 vs S&P500 상대성과(LLM 후보, 5거래일)",
+      "sourceNewsIds": [],
+      "observationText": "나스닥은 전일 대비 -0.32%, S&P500는 -0.58% — 상대 괴리 +0.26%p.",
+      "interpretationText": "나스닥이 S&P500 대비 상대적으로 강세를 보이는지 검증합니다.",
+      "claimText": "유가 급등과 무역 긴장의 영향으로 뉴욕증시가 하락했습니다. 다만 기술주 중심으로 반도체 종목은 반등세를 나타냈습니다. — 나스닥가 S&P500 대비 강세를 이어갈까요?",
+      "metricId": "nasdaq",
+      "benchmarkMetricId": "sp500",
+      "comparisonType": "excess_return",
+      "expectedDirection": "up",
+      "horizon": {
+        "type": "multi_session",
+        "market": "US",
+        "resolutionAt": "2026-09-10",
+        "sessions": 5
+      },
+      "thresholdRuleId": "pct_030",
+      "confidence": null,
+      "status": "unresolved",
+      "revision": {
+        "version": 1,
+        "contentHash": "3f1a359b6829bd0a629b73d5e450d485cf155c918a0840e106452a952d1e17e6",
+        "correctedFrom": null
+      },
+      "baseline": {
+        "value": 26421.41,
+        "asOf": "2026-09-08",
+        "benchmarkValue": 7673.52,
+        "benchmarkAsOf": "2026-09-08"
       },
       "resolution": null
     }
