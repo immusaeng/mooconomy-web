@@ -1,82 +1,20 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-09-07T22:54:12.258958+00:00",
+  "generatedAt": "2026-09-08T22:47:55.853326+00:00",
   "timezone": "Asia/Seoul",
   "range": {
-    "from": "2026-09-07",
-    "to": "2026-09-21"
+    "from": "2026-09-08",
+    "to": "2026-09-22"
   },
   "freshness": {
     "status": "partial",
-    "lastSuccessfulAt": "2026-09-07T22:54:12.258967+00:00",
+    "lastSuccessfulAt": "2026-09-08T22:47:55.853337+00:00",
     "failedSources": [
       "fmp",
       "finnhub"
     ]
   },
   "events": [
-    {
-      "id": "fred-national-accounts-gdp-eurostat-2026-09-07-1f8aa18f941a",
-      "title": "National Accounts - GDP (Eurostat)",
-      "originalTitle": "National Accounts - GDP (Eurostat)",
-      "titleKo": "유로존 국민계정(GDP, Eurostat)",
-      "country": "US",
-      "category": "macro",
-      "importance": "high",
-      "scheduledDate": "2026-09-07",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "FRED",
-      "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=267",
-      "sourceEventId": "267",
-      "updatedAt": "2026-09-07T22:54:12.229896+00:00",
-      "confidence": "single_source",
-      "sourceRefs": [
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=267",
-          "sourceTier": "official_aggregator"
-        }
-      ]
-    },
-    {
-      "id": "fred-kansas-city-fed-policy-rate-uncertainty-2026-09-07-9fa769ea2f74",
-      "title": "Kansas City Fed Policy Rate Uncertainty",
-      "originalTitle": "Kansas City Fed Policy Rate Uncertainty",
-      "titleKo": "캔자스시티 연은 정책금리 불확실성지수",
-      "country": "US",
-      "category": "macro",
-      "importance": "high",
-      "scheduledDate": "2026-09-07",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "FRED",
-      "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=739",
-      "sourceEventId": "739",
-      "updatedAt": "2026-09-07T22:54:12.229917+00:00",
-      "confidence": "single_source",
-      "sourceRefs": [
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=739",
-          "sourceTier": "official_aggregator"
-        }
-      ]
-    },
     {
       "id": "fred-federal-funds-data-2026-09-08-1715d31add29",
       "title": "Federal Funds Data",
@@ -98,7 +36,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=378",
       "sourceEventId": "378",
-      "updatedAt": "2026-09-07T22:54:12.229954+00:00",
+      "updatedAt": "2026-09-08T22:47:55.824187+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -109,42 +47,6 @@
         {
           "sourceName": "FRED",
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=378",
-          "sourceTier": "official_aggregator"
-        }
-      ]
-    },
-    {
-      "id": "fred-fomc-press-release-2026-09-08-481e12cc9365",
-      "title": "FOMC Press Release",
-      "originalTitle": "FOMC Press Release",
-      "titleKo": "FOMC 보도자료",
-      "country": "US",
-      "category": "macro",
-      "importance": "high",
-      "scheduledDate": "2026-09-08",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "FRED",
-      "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-      "sourceEventId": "101",
-      "updatedAt": "2026-09-07T22:54:12.229957+00:00",
-      "confidence": "cross_checked",
-      "sourceRefs": [
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-          "sourceTier": "official_aggregator"
-        },
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
           "sourceTier": "official_aggregator"
         }
       ]
@@ -170,7 +72,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=4",
       "sourceEventId": "4",
-      "updatedAt": "2026-09-07T22:54:12.229997+00:00",
+      "updatedAt": "2026-09-08T22:47:55.824221+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -181,6 +83,42 @@
         {
           "sourceName": "FRED",
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=4",
+          "sourceTier": "official_aggregator"
+        }
+      ]
+    },
+    {
+      "id": "fred-fomc-press-release-2026-09-09-feacbc1ca246",
+      "title": "FOMC Press Release",
+      "originalTitle": "FOMC Press Release",
+      "titleKo": "FOMC 보도자료",
+      "country": "US",
+      "category": "macro",
+      "importance": "high",
+      "scheduledDate": "2026-09-09",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "scheduled",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "FRED",
+      "sourceTier": "official_aggregator",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+      "sourceEventId": "101",
+      "updatedAt": "2026-09-08T22:47:55.824352+00:00",
+      "confidence": "cross_checked",
+      "sourceRefs": [
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+          "sourceTier": "official_aggregator"
+        },
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
           "sourceTier": "official_aggregator"
         }
       ]
@@ -206,7 +144,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=739",
       "sourceEventId": "739",
-      "updatedAt": "2026-09-07T22:54:12.230143+00:00",
+      "updatedAt": "2026-09-08T22:47:55.824393+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -242,7 +180,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=378",
       "sourceEventId": "378",
-      "updatedAt": "2026-09-07T22:54:12.230249+00:00",
+      "updatedAt": "2026-09-08T22:47:55.824497+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -253,42 +191,6 @@
         {
           "sourceName": "FRED",
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=378",
-          "sourceTier": "official_aggregator"
-        }
-      ]
-    },
-    {
-      "id": "fred-fomc-press-release-2026-09-10-142c038888a6",
-      "title": "FOMC Press Release",
-      "originalTitle": "FOMC Press Release",
-      "titleKo": "FOMC 보도자료",
-      "country": "US",
-      "category": "macro",
-      "importance": "high",
-      "scheduledDate": "2026-09-10",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "FRED",
-      "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-      "sourceEventId": "101",
-      "updatedAt": "2026-09-07T22:54:12.230252+00:00",
-      "confidence": "cross_checked",
-      "sourceRefs": [
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-          "sourceTier": "official_aggregator"
-        },
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
           "sourceTier": "official_aggregator"
         }
       ]
@@ -314,7 +216,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=386",
       "sourceEventId": "386",
-      "updatedAt": "2026-09-07T22:54:12.230255+00:00",
+      "updatedAt": "2026-09-08T22:47:55.824504+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -345,7 +247,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=4",
       "sourceEventId": "4",
-      "updatedAt": "2026-09-07T22:54:12.230285+00:00",
+      "updatedAt": "2026-09-08T22:47:55.824535+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -381,7 +283,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=46",
       "sourceEventId": "46",
-      "updatedAt": "2026-09-07T22:54:12.230336+00:00",
+      "updatedAt": "2026-09-08T22:47:55.824586+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -412,7 +314,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=10",
       "sourceEventId": "10",
-      "updatedAt": "2026-09-07T22:54:12.230415+00:00",
+      "updatedAt": "2026-09-08T22:47:55.824661+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -443,12 +345,48 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=315",
       "sourceEventId": "315",
-      "updatedAt": "2026-09-07T22:54:12.230418+00:00",
+      "updatedAt": "2026-09-08T22:47:55.824664+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
           "sourceName": "FRED",
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=315",
+          "sourceTier": "official_aggregator"
+        }
+      ]
+    },
+    {
+      "id": "fred-fomc-press-release-2026-09-11-5acc2f11abc2",
+      "title": "FOMC Press Release",
+      "originalTitle": "FOMC Press Release",
+      "titleKo": "FOMC 보도자료",
+      "country": "US",
+      "category": "macro",
+      "importance": "high",
+      "scheduledDate": "2026-09-11",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "scheduled",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "FRED",
+      "sourceTier": "official_aggregator",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+      "sourceEventId": "101",
+      "updatedAt": "2026-09-08T22:47:55.824685+00:00",
+      "confidence": "cross_checked",
+      "sourceRefs": [
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+          "sourceTier": "official_aggregator"
+        },
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
           "sourceTier": "official_aggregator"
         }
       ]
@@ -474,7 +412,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=739",
       "sourceEventId": "739",
-      "updatedAt": "2026-09-07T22:54:12.230477+00:00",
+      "updatedAt": "2026-09-08T22:47:55.824728+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -505,7 +443,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=345",
       "sourceEventId": "345",
-      "updatedAt": "2026-09-07T22:54:12.230519+00:00",
+      "updatedAt": "2026-09-08T22:47:55.824774+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -536,7 +474,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=313",
       "sourceEventId": "313",
-      "updatedAt": "2026-09-07T22:54:12.230544+00:00",
+      "updatedAt": "2026-09-08T22:47:55.824801+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -547,14 +485,14 @@
       ]
     },
     {
-      "id": "fred-fomc-press-release-2026-09-12-93b3570e5e53",
+      "id": "fred-fomc-press-release-2026-09-13-08b5bd7224cc",
       "title": "FOMC Press Release",
       "originalTitle": "FOMC Press Release",
       "titleKo": "FOMC 보도자료",
       "country": "US",
       "category": "macro",
       "importance": "high",
-      "scheduledDate": "2026-09-12",
+      "scheduledDate": "2026-09-13",
       "scheduledAt": null,
       "timezone": null,
       "timePrecision": "date",
@@ -567,7 +505,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
       "sourceEventId": "101",
-      "updatedAt": "2026-09-07T22:54:12.230573+00:00",
+      "updatedAt": "2026-09-08T22:47:55.824841+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -603,7 +541,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=378",
       "sourceEventId": "378",
-      "updatedAt": "2026-09-07T22:54:12.230610+00:00",
+      "updatedAt": "2026-09-08T22:47:55.824871+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -614,42 +552,6 @@
         {
           "sourceName": "FRED",
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=378",
-          "sourceTier": "official_aggregator"
-        }
-      ]
-    },
-    {
-      "id": "fred-fomc-press-release-2026-09-14-926ed5ccde3e",
-      "title": "FOMC Press Release",
-      "originalTitle": "FOMC Press Release",
-      "titleKo": "FOMC 보도자료",
-      "country": "US",
-      "category": "macro",
-      "importance": "high",
-      "scheduledDate": "2026-09-14",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "FRED",
-      "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-      "sourceEventId": "101",
-      "updatedAt": "2026-09-07T22:54:12.230613+00:00",
-      "confidence": "cross_checked",
-      "sourceRefs": [
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-          "sourceTier": "official_aggregator"
-        },
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
           "sourceTier": "official_aggregator"
         }
       ]
@@ -675,7 +577,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=4",
       "sourceEventId": "4",
-      "updatedAt": "2026-09-07T22:54:12.230647+00:00",
+      "updatedAt": "2026-09-08T22:47:55.824910+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -711,7 +613,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=739",
       "sourceEventId": "739",
-      "updatedAt": "2026-09-07T22:54:12.230651+00:00",
+      "updatedAt": "2026-09-08T22:47:55.824914+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -722,6 +624,42 @@
         {
           "sourceName": "FRED",
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=739",
+          "sourceTier": "official_aggregator"
+        }
+      ]
+    },
+    {
+      "id": "fred-fomc-press-release-2026-09-15-755997b0f184",
+      "title": "FOMC Press Release",
+      "originalTitle": "FOMC Press Release",
+      "titleKo": "FOMC 보도자료",
+      "country": "US",
+      "category": "macro",
+      "importance": "high",
+      "scheduledDate": "2026-09-15",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "scheduled",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "FRED",
+      "sourceTier": "official_aggregator",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+      "sourceEventId": "101",
+      "updatedAt": "2026-09-08T22:47:55.825014+00:00",
+      "confidence": "cross_checked",
+      "sourceRefs": [
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+          "sourceTier": "official_aggregator"
+        },
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
           "sourceTier": "official_aggregator"
         }
       ]
@@ -747,7 +685,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=378",
       "sourceEventId": "378",
-      "updatedAt": "2026-09-07T22:54:12.230893+00:00",
+      "updatedAt": "2026-09-08T22:47:55.825169+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -758,42 +696,6 @@
         {
           "sourceName": "FRED",
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=378",
-          "sourceTier": "official_aggregator"
-        }
-      ]
-    },
-    {
-      "id": "fred-fomc-press-release-2026-09-16-2ba6ebe54474",
-      "title": "FOMC Press Release",
-      "originalTitle": "FOMC Press Release",
-      "titleKo": "FOMC 보도자료",
-      "country": "US",
-      "category": "macro",
-      "importance": "high",
-      "scheduledDate": "2026-09-16",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "FRED",
-      "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-      "sourceEventId": "101",
-      "updatedAt": "2026-09-07T22:54:12.230896+00:00",
-      "confidence": "cross_checked",
-      "sourceRefs": [
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-          "sourceTier": "official_aggregator"
-        },
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
           "sourceTier": "official_aggregator"
         }
       ]
@@ -819,7 +721,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=386",
       "sourceEventId": "386",
-      "updatedAt": "2026-09-07T22:54:12.230899+00:00",
+      "updatedAt": "2026-09-08T22:47:55.825175+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -855,7 +757,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=4",
       "sourceEventId": "4",
-      "updatedAt": "2026-09-07T22:54:12.230924+00:00",
+      "updatedAt": "2026-09-08T22:47:55.825201+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -891,7 +793,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=739",
       "sourceEventId": "739",
-      "updatedAt": "2026-09-07T22:54:12.230928+00:00",
+      "updatedAt": "2026-09-08T22:47:55.825205+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -902,6 +804,42 @@
         {
           "sourceName": "FRED",
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=739",
+          "sourceTier": "official_aggregator"
+        }
+      ]
+    },
+    {
+      "id": "fred-fomc-press-release-2026-09-17-cac52cd1a06d",
+      "title": "FOMC Press Release",
+      "originalTitle": "FOMC Press Release",
+      "titleKo": "FOMC 보도자료",
+      "country": "US",
+      "category": "macro",
+      "importance": "high",
+      "scheduledDate": "2026-09-17",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "scheduled",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "FRED",
+      "sourceTier": "official_aggregator",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+      "sourceEventId": "101",
+      "updatedAt": "2026-09-08T22:47:55.825348+00:00",
+      "confidence": "cross_checked",
+      "sourceRefs": [
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+          "sourceTier": "official_aggregator"
+        },
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
           "sourceTier": "official_aggregator"
         }
       ]
@@ -927,7 +865,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=251",
       "sourceEventId": "251",
-      "updatedAt": "2026-09-07T22:54:12.231079+00:00",
+      "updatedAt": "2026-09-08T22:47:55.825364+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -958,48 +896,12 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=378",
       "sourceEventId": "378",
-      "updatedAt": "2026-09-07T22:54:12.231218+00:00",
+      "updatedAt": "2026-09-08T22:47:55.825511+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
           "sourceName": "FRED",
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=378",
-          "sourceTier": "official_aggregator"
-        }
-      ]
-    },
-    {
-      "id": "fred-fomc-press-release-2026-09-18-42801c992d35",
-      "title": "FOMC Press Release",
-      "originalTitle": "FOMC Press Release",
-      "titleKo": "FOMC 보도자료",
-      "country": "US",
-      "category": "macro",
-      "importance": "high",
-      "scheduledDate": "2026-09-18",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "FRED",
-      "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-      "sourceEventId": "101",
-      "updatedAt": "2026-09-07T22:54:12.231221+00:00",
-      "confidence": "cross_checked",
-      "sourceRefs": [
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-          "sourceTier": "official_aggregator"
-        },
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
           "sourceTier": "official_aggregator"
         }
       ]
@@ -1025,7 +927,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=4",
       "sourceEventId": "4",
-      "updatedAt": "2026-09-07T22:54:12.231256+00:00",
+      "updatedAt": "2026-09-08T22:47:55.825550+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -1056,7 +958,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=739",
       "sourceEventId": "739",
-      "updatedAt": "2026-09-07T22:54:12.231260+00:00",
+      "updatedAt": "2026-09-08T22:47:55.825554+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -1067,14 +969,14 @@
       ]
     },
     {
-      "id": "fred-fomc-press-release-2026-09-20-8ca603964009",
+      "id": "fred-fomc-press-release-2026-09-19-7c3e5ebdafab",
       "title": "FOMC Press Release",
       "originalTitle": "FOMC Press Release",
       "titleKo": "FOMC 보도자료",
       "country": "US",
       "category": "macro",
       "importance": "high",
-      "scheduledDate": "2026-09-20",
+      "scheduledDate": "2026-09-19",
       "scheduledAt": null,
       "timezone": null,
       "timePrecision": "date",
@@ -1087,7 +989,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
       "sourceEventId": "101",
-      "updatedAt": "2026-09-07T22:54:12.231359+00:00",
+      "updatedAt": "2026-09-08T22:47:55.825648+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -1123,7 +1025,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=378",
       "sourceEventId": "378",
-      "updatedAt": "2026-09-07T22:54:12.231392+00:00",
+      "updatedAt": "2026-09-08T22:47:55.825690+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -1134,6 +1036,42 @@
         {
           "sourceName": "FRED",
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=378",
+          "sourceTier": "official_aggregator"
+        }
+      ]
+    },
+    {
+      "id": "fred-fomc-press-release-2026-09-21-6e48332318be",
+      "title": "FOMC Press Release",
+      "originalTitle": "FOMC Press Release",
+      "titleKo": "FOMC 보도자료",
+      "country": "US",
+      "category": "macro",
+      "importance": "high",
+      "scheduledDate": "2026-09-21",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "scheduled",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "FRED",
+      "sourceTier": "official_aggregator",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+      "sourceEventId": "101",
+      "updatedAt": "2026-09-08T22:47:55.825693+00:00",
+      "confidence": "cross_checked",
+      "sourceRefs": [
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+          "sourceTier": "official_aggregator"
+        },
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
           "sourceTier": "official_aggregator"
         }
       ]
@@ -1159,7 +1097,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=4",
       "sourceEventId": "4",
-      "updatedAt": "2026-09-07T22:54:12.231428+00:00",
+      "updatedAt": "2026-09-08T22:47:55.825730+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -1195,7 +1133,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=739",
       "sourceEventId": "739",
-      "updatedAt": "2026-09-07T22:54:12.231432+00:00",
+      "updatedAt": "2026-09-08T22:47:55.825734+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -1231,7 +1169,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=471",
       "sourceEventId": "471",
-      "updatedAt": "2026-09-07T22:54:12.230006+00:00",
+      "updatedAt": "2026-09-08T22:47:55.824231+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -1262,7 +1200,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=92",
       "sourceEventId": "92",
-      "updatedAt": "2026-09-07T22:54:12.230984+00:00",
+      "updatedAt": "2026-09-08T22:47:55.825268+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -1293,7 +1231,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=13",
       "sourceEventId": "13",
-      "updatedAt": "2026-09-07T22:54:12.231226+00:00",
+      "updatedAt": "2026-09-08T22:47:55.825519+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -1304,14 +1242,14 @@
       ]
     },
     {
-      "id": "fred-economic-policy-uncertainty-2026-09-07-f38daa0d6417",
-      "title": "Economic Policy Uncertainty",
-      "originalTitle": "Economic Policy Uncertainty",
-      "titleKo": "경제정책 불확실성지수",
+      "id": "fred-an-arbitrage-free-three-factor-term-structure-model-and-the-recent-behavior-of-long-term-yields-and-distant-horizon-forward-rates-2026-09-08-f66e827c9b4e",
+      "title": "An Arbitrage-Free Three-Factor Term Structure Model and the Recent Behavior of Long-Term Yields and Distant-Horizon Forward Rates",
+      "originalTitle": "An Arbitrage-Free Three-Factor Term Structure Model and the Recent Behavior of Long-Term Yields and Distant-Horizon Forward Rates",
+      "titleKo": "무재정거래 3요인 기간구조 모델과 장기 금리 및 원거리 선도 금리의 최근 추이",
       "country": "US",
       "category": "macro",
       "importance": "low",
-      "scheduledDate": "2026-09-07",
+      "scheduledDate": "2026-09-08",
       "scheduledAt": null,
       "timezone": null,
       "timePrecision": "date",
@@ -1322,32 +1260,27 @@
       "unit": null,
       "sourceName": "FRED",
       "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=279",
-      "sourceEventId": "279",
-      "updatedAt": "2026-09-07T22:54:12.229877+00:00",
-      "confidence": "cross_checked",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=354",
+      "sourceEventId": "354",
+      "updatedAt": "2026-09-08T22:47:55.824171+00:00",
+      "confidence": "single_source",
       "sourceRefs": [
         {
           "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=279",
-          "sourceTier": "official_aggregator"
-        },
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=279",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=354",
           "sourceTier": "official_aggregator"
         }
       ]
     },
     {
-      "id": "fred-euro-short-term-rate-2026-09-07-94d0317477a0",
-      "title": "Euro Short Term Rate",
-      "originalTitle": "Euro Short Term Rate",
-      "titleKo": "유로 단기금리(€STR)",
+      "id": "fred-commercial-paper-2026-09-08-ad4837faee6e",
+      "title": "Commercial Paper",
+      "originalTitle": "Commercial Paper",
+      "titleKo": "기업어음(CP) 금리",
       "country": "US",
       "category": "macro",
       "importance": "low",
-      "scheduledDate": "2026-09-07",
+      "scheduledDate": "2026-09-08",
       "scheduledAt": null,
       "timezone": null,
       "timePrecision": "date",
@@ -1358,19 +1291,81 @@
       "unit": null,
       "sourceName": "FRED",
       "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=502",
-      "sourceEventId": "502",
-      "updatedAt": "2026-09-07T22:54:12.229881+00:00",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=86",
+      "sourceEventId": "86",
+      "updatedAt": "2026-09-08T22:47:55.824175+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
           "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=502",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=86",
           "sourceTier": "official_aggregator"
         },
         {
           "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=502",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=86",
+          "sourceTier": "official_aggregator"
+        }
+      ]
+    },
+    {
+      "id": "fred-g-19-consumer-credit-2026-09-08-42ed9b0b1992",
+      "title": "G.19 Consumer Credit",
+      "originalTitle": "G.19 Consumer Credit",
+      "titleKo": "G.19 소비자신용",
+      "country": "US",
+      "category": "macro",
+      "importance": "low",
+      "scheduledDate": "2026-09-08",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "scheduled",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "FRED",
+      "sourceTier": "official_aggregator",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=14",
+      "sourceEventId": "14",
+      "updatedAt": "2026-09-08T22:47:55.824194+00:00",
+      "confidence": "single_source",
+      "sourceRefs": [
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=14",
+          "sourceTier": "official_aggregator"
+        }
+      ]
+    },
+    {
+      "id": "fred-h-10-foreign-exchange-rates-2026-09-08-11c0109c19d3",
+      "title": "H.10 Foreign Exchange Rates",
+      "originalTitle": "H.10 Foreign Exchange Rates",
+      "titleKo": "H.10 외국환 환율",
+      "country": "US",
+      "category": "macro",
+      "importance": "low",
+      "scheduledDate": "2026-09-08",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "scheduled",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "FRED",
+      "sourceTier": "official_aggregator",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=17",
+      "sourceEventId": "17",
+      "updatedAt": "2026-09-08T22:47:55.824199+00:00",
+      "confidence": "single_source",
+      "sourceRefs": [
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=17",
           "sourceTier": "official_aggregator"
         }
       ]
