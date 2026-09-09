@@ -1,0 +1,234 @@
+{
+  "schema_version": "normalized-daily-issue/v1",
+  "edition_id": "2026-09-10",
+  "edition_date_kst": "2026-09-10",
+  "canonical_status": "production",
+  "production_status": "SEND_CONFIRMED",
+  "source_commit_sha": "b5486743f3b4466aaa81c651c3c1b32b69ac7777",
+  "subject": "국제 유가 100달러 재돌파, 증시에는 어떤 영향일까?",
+  "preheader": "국제 유가 100달러 돌파에 따른 글로벌 인플레이션 재발 우려",
+  "thesis": {
+    "headline": "국제 유가 100달러 재돌파, 증시에는 어떤 영향일까?",
+    "three_signals": [
+      "유가가 100달러를 돌파하며 미국 국채 금리가 오르고 증시는 하락했습니다.",
+      "지난 거래일 코스피와 코스닥은 기관과 외국인 매수세 속에 상승 마감했습니다.",
+      "오늘은 유가 상승에 따른 인플레이션 우려와 외국인 수급 방향이 관건입니다."
+    ]
+  },
+  "main_story": {
+    "headline": "유가 100달러 재돌파로 물가 우려",
+    "verified_fact": "국제 유가가 배럴당 100달러를 넘어서며 주요국 중앙은행의 금리 정책 결정에 부담을 주고 있습니다.",
+    "why_it_matters": null,
+    "sources": []
+  },
+  "entities": [
+    {
+      "name": "금",
+      "type": "commodity"
+    }
+  ],
+  "metrics": [
+    {
+      "id": "kospi",
+      "value": 7051.64,
+      "change": 0.8041,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "kosdaq",
+      "value": 830.37,
+      "change": 0.9949,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "nasdaq",
+      "value": 26253.34,
+      "change": -0.6361,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "sp500",
+      "value": 7636.36,
+      "change": -0.4843,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1339.59,
+      "change": -0.33,
+      "displayMode": "delta",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "us10y",
+      "value": 4.84,
+      "change": 0.03,
+      "displayMode": "delta",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "wti",
+      "value": 96.67,
+      "change": 2.5676,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "vix",
+      "value": 16.46,
+      "change": 4.7074,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    }
+  ],
+  "market_changes": [
+    {
+      "id": "kospi",
+      "change": 0.8041,
+      "changeUnit": "%",
+      "direction": "up"
+    },
+    {
+      "id": "kosdaq",
+      "change": 0.9949,
+      "changeUnit": "%",
+      "direction": "up"
+    },
+    {
+      "id": "nasdaq",
+      "change": -0.6361,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "sp500",
+      "change": -0.4843,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "usdkrw",
+      "change": -0.33,
+      "changeUnit": "원",
+      "direction": "down"
+    },
+    {
+      "id": "us10y",
+      "change": 0.03,
+      "changeUnit": "%p",
+      "direction": "up"
+    },
+    {
+      "id": "wti",
+      "change": 2.5676,
+      "changeUnit": "%",
+      "direction": "up"
+    },
+    {
+      "id": "vix",
+      "change": 4.7074,
+      "changeUnit": "%",
+      "direction": "up"
+    }
+  ],
+  "narratives": {
+    "moo_view": "오늘 시장 온도는 '중립' 상태로 관찰됩니다. 나스닥 -0.64%. S&P500 -0.48%.\n\n코스피 +0.80%. 코스닥 +0.99%. 오늘의 대표 뉴스는 '유가 100달러 재돌파로 물가 우려'입니다.\n\n국내 수급은 코스피 개인 -22,879, 코스피 외국인 -4,348, 코스피 기관 +9,422, 코스닥 개인 -2,548, 코스닥 외국인 +2,646, 코스닥 기관 -190로 나타났습니다.\n\n다음 확인 변수는 WTI 유가 100달러 안착 여부(글로벌 물가 상방 압력 지속 여부를 가늠하는 핵심 기준이기 때문입니다.), 외국인 코스피 순매수 전환 여부(국내 증시의 추가 상승 모멘텀 확보 여부를 결정하기 때문입니다.)입니다.",
+    "todays_watch": [],
+    "todays_watch_oneliner": null,
+    "content_status": "DETERMINISTIC_FALLBACK_VALIDATION_FAILURE"
+  },
+  "moo_q": {
+    "claim_id": "2026-09-10-c1",
+    "claim_text": "2분기 기업 영업이익률 역대 최고 — 코스닥가 나스닥 대비 강세를 이어갈까요?",
+    "topic": "코스닥 vs 나스닥 상대성과(LLM 후보, 5거래일)",
+    "resolution_at": "2026-09-11",
+    "status": "unresolved"
+  },
+  "moo_check": [
+    {
+      "previous_claim": "유가 급등과 무역 긴장의 영향으로 뉴욕증시가 하락했습니다. 다만 기술주 중심으로 반도체 종목은 반등세를 나타냈습니다. — 나스닥가 S&P500 대비 강세를 이어갈까요?",
+      "claim_date": "2026-09-09",
+      "evaluation_date": null,
+      "observed_result": null,
+      "verdict": "INSUFFICIENT_DATA",
+      "evidence": null,
+      "source": null
+    }
+  ],
+  "moo_word": {
+    "id": "open_바이백",
+    "term": "바이백",
+    "definition": "바이백은 기업이 주주환원이나 주가 안정을 위해 이미 발행한 주식을 다시 사들이는 과정으로 이해될 수 있습니다. 또한 정부나 중앙은행이 유동성 조절을 위해 국채를 만기 전에 다시 매입하는 조치로도 활용되는 모습이 관찰됩니다.",
+    "why_today": "미 재무부의 국채 매입 수급 정책이 시장 국채 금리에 영향을 미쳤기 때문입니다.",
+    "memory_hook": null,
+    "source_label": "한국경제증권",
+    "article_id": "news_5",
+    "article_url": "https://www.hankyung.com/article/202609105087i",
+    "article_publisher": "한국경제증권",
+    "evidence_snippets": [
+      "기대 너무 컸나…美 재무부 바이백 60억달러에 금리는 더 올랐다."
+    ],
+    "definition_source_name": null,
+    "definition_source_url": null,
+    "definition_priority": "P2_SOURCES_PARTIAL",
+    "origin": "llm_proposed",
+    "grounded_in_article": true,
+    "definition_evidence_verified": true,
+    "status": "ELIGIBLE_FOR_PUBLICATION",
+    "eligible_for_publication": true
+  },
+  "sources": [
+    {
+      "source_name": "파이낸셜뉴스",
+      "source_url": "https://www.fnnews.com/news/202609091816245174",
+      "published_at": "2026-09-09",
+      "source_headline": "2분기 기업 영업이익률 16.9% 역대 최고… 삼전닉스가 견인"
+    },
+    {
+      "source_name": "파이낸셜뉴스",
+      "source_url": "https://www.fnnews.com/news/202609091816263090",
+      "published_at": "2026-09-09",
+      "source_headline": "연간 수출 1조달러 눈앞... 정부, 중기 무역금융 확대"
+    },
+    {
+      "source_name": "연합뉴스",
+      "source_url": "https://www.yna.co.kr/view/AKR20260909142700003",
+      "published_at": "2026-09-10",
+      "source_headline": "\"국내 생산·청년 고용 늘리려면 세제지원 실효성 높여야\""
+    },
+    {
+      "source_name": "한국경제",
+      "source_url": "https://www.hankyung.com/article/202609105070i",
+      "published_at": "2026-09-10",
+      "source_headline": "美,\"장기국채 바이백 3배 확대\"…시장 실망에 국채수익률 오히려 상승"
+    },
+    {
+      "source_name": "한국경제",
+      "source_url": "https://www.hankyung.com/article/202609105067i",
+      "published_at": "2026-09-10",
+      "source_headline": "美 경제학자 70% \"9월 금리 동결\"…시장 예상과 반대"
+    }
+  ],
+  "public_url": "https://mooconomy.co.kr/latest-email.html",
+  "validation_status": {
+    "main_story_status": "SELECTED",
+    "content_provenance": "VALIDATED_GEMINI_36",
+    "moo_word_present": true,
+    "sources_count": 5,
+    "is_approximate": false
+  },
+  "content_hash": "25b323ddea21b268ebba22c2be20c22ed1829d12f8e8b001c10cfd7447e0f63f",
+  "archived_at": "2026-09-09T21:47:26.161863+00:00"
+}

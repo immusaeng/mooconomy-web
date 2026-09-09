@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-09T06:43:19+09:00",
+  "updatedAt": "2026-09-10T06:43:16+09:00",
   "claims": {
     "2026-07-19-c1": {
       "schemaVersion": 1,
@@ -2399,6 +2399,46 @@
         "asOf": "2026-09-08",
         "benchmarkValue": 7673.52,
         "benchmarkAsOf": "2026-09-08"
+      },
+      "resolution": null
+    },
+    "2026-09-10-c1": {
+      "schemaVersion": 1,
+      "claimId": "2026-09-10-c1",
+      "publicationId": "2026-09-10",
+      "issuedAt": "2026-09-10T06:43:16+09:00",
+      "dataCutoffAt": "2026-09-10T06:43:16+09:00",
+      "lockedAt": "2026-09-10T06:43:16+09:00",
+      "claimMode": "auto",
+      "verificationType": "proxy",
+      "topic": "코스닥 vs 나스닥 상대성과(LLM 후보, 5거래일)",
+      "sourceNewsIds": [],
+      "observationText": "코스닥은 전일 대비 +0.99%, 나스닥은 -0.64% — 상대 괴리 +1.63%p.",
+      "interpretationText": "코스닥 지수가 나스닥 지수 대비 상대적으로 강세 혹은 약세를 기록하는지 검증합니다.",
+      "claimText": "2분기 기업 영업이익률 역대 최고 — 코스닥가 나스닥 대비 강세를 이어갈까요?",
+      "metricId": "kosdaq",
+      "benchmarkMetricId": "nasdaq",
+      "comparisonType": "excess_return",
+      "expectedDirection": "up",
+      "horizon": {
+        "type": "multi_session",
+        "market": "KR",
+        "resolutionAt": "2026-09-11",
+        "sessions": 5
+      },
+      "thresholdRuleId": "pct_030",
+      "confidence": null,
+      "status": "unresolved",
+      "revision": {
+        "version": 1,
+        "contentHash": "788d64e2302d20baa9b5a3077ab345c12744b0dc56f66cde6b350ec0d95a7428",
+        "correctedFrom": null
+      },
+      "baseline": {
+        "value": 830.37,
+        "asOf": "2026-09-09",
+        "benchmarkValue": 26253.34,
+        "benchmarkAsOf": "2026-09-09"
       },
       "resolution": null
     }

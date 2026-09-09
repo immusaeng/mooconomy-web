@@ -1,21 +1,21 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-09T06:43:10+09:00",
-  "publishDate": "2026-09-09",
-  "marketDateKr": "2026-09-07",
-  "marketDateUs": "2026-09-08",
+  "generatedAt": "2026-09-10T06:43:03+09:00",
+  "publishDate": "2026-09-10",
+  "marketDateKr": "2026-09-09",
+  "marketDateUs": "2026-09-09",
   "isDelayed": true,
   "status": "ok",
   "marketTemperature": {
     "label": "neutral",
     "displayLabel": "중립",
-    "summary": "간밤 미국 증시의 하락세에도 불구하고 외국인의 대규모 순매수가 유입되며 중립적인 시장 분위기가 관찰됩니다.",
+    "summary": "간밤 미국 증시가 평균 -0.63% 하락한 가운데 국내 증시는 +0.80% 상승 마감했습니다. 다만 외국인이 코스피 시장에서 4,348억원을 순매도하며 혼조세가 나타나는 모습입니다.",
     "reasons": [
-      "간밤 미국 증시 평균 -0.69% 하락",
-      "외국인 코스피 순매수 25,532억원"
+      "간밤 미국 증시 평균 -0.63% 하락",
+      "국내 증시 +0.80% 상승",
+      "외국인 코스피 순매도 4,348억원"
     ],
     "watchItems": [
-      "원/달러 환율",
       "외국인 수급"
     ],
     "status": "ok"
@@ -24,19 +24,19 @@
     {
       "id": "overnight-global",
       "title": "간밤 글로벌 시장",
-      "text": "나스닥과 S&P500을 비롯한 주요 미국 증시가 하락 마감한 가운데, VIX와 미국채 10년물 금리가 변동성을 보였습니다.",
+      "text": "나스닥이 -0.64%, S&P500이 -0.48%, 다우가 -0.77% 하락하였으며 VIX는 16.46, 미국채 10년물 금리는 4.84%를 기록했습니다.",
       "status": "ok"
     },
     {
       "id": "today-domestic",
       "title": "전일 국내 시장",
-      "text": "전일 국내 시장에서 코스피와 코스닥은 보합세를 보였으며, 외국인의 코스피 순매수와 원/달러 환율 하락이 나타났습니다.",
+      "text": "코스피가 +0.80%, 코스닥이 +0.99% 상승하였고 원/달러 환율은 -0.02% 변동을 보였습니다. 외국인은 코스피 시장에서 4,348억원을 순매도했습니다.",
       "status": "ok"
     },
     {
       "id": "today-checkpoint",
       "title": "오늘의 체크포인트",
-      "text": "글로벌 시장의 하락 압력과 국내 지표들이 맞물리며, 시장은 뚜렷한 방향성보다 신중한 흐름을 시사하는 분위기입니다.",
+      "text": "국제 유가 상승과 미국 국채 금리 오름세가 부담으로 작용하는 가운데, 외국인 수급을 주시하며 신중한 접근이 이어지는 분위기입니다.",
       "status": "ok"
     }
   ],
@@ -52,211 +52,189 @@
       {
         "id": "foreign",
         "label": "외국인 수급",
-        "value": 25532,
-        "displayValue": "+25,532억원",
-        "direction": "up",
+        "value": -4348,
+        "displayValue": "-4,348억원",
+        "direction": "down",
         "status": "ok"
       },
       {
         "id": "institution",
         "label": "기관 수급",
-        "value": 26491,
-        "displayValue": "+26,491억원",
+        "value": 9422,
+        "displayValue": "+9,422억원",
         "direction": "up",
         "status": "ok"
       },
       {
         "id": "individual",
         "label": "개인 수급",
-        "value": -68374,
-        "displayValue": "-68,374억원",
+        "value": -22879,
+        "displayValue": "-22,879억원",
         "direction": "down",
         "status": "ok"
       },
       {
         "id": "usdkrw",
         "label": "원/달러",
-        "value": 1339.92,
-        "displayValue": "1,339.9원",
+        "value": 1339.59,
+        "displayValue": "1,339.6원",
         "direction": "down",
         "status": "ok"
       },
       {
         "id": "leading-sector",
         "label": "주도 업종",
-        "value": 6.25,
-        "displayValue": "전기유틸리티 +6.25%",
+        "value": 7.16,
+        "displayValue": "전기제품 +7.16%",
         "direction": "up",
         "status": "ok"
       }
     ],
-    "summary": "개인 수급의 순매도 속에서 외국인과 기관의 수급이 유입되었고, 전기유틸리티 업종이 주도하는 모습이 관찰됩니다.",
+    "summary": "외국인 수급 -4,348억원, 기관 수급 +9,422억원, 개인 수급 -22,879억원, 원/달러 1,339.6원, 주도 업종 전기제품 +7.16%.",
     "status": "ok"
   },
   "risks": [],
-  "calendar": [
-    {
-      "id": "us-2026-09-11-미국 소비자물가(CPI)",
-      "time": "2026-09-11",
-      "country": "US",
-      "title": "미국 소비자물가(CPI)",
-      "importance": "high",
-      "status": "ok"
-    }
-  ],
+  "calendar": [],
   "news": {
     "items": [
       {
-        "id": "news-매일경제-내년 ‘820조 슈퍼예산’이 온다 … 우리 살림살이에 미칠 영향은",
-        "category": "news",
-        "source": "매일경제",
-        "title": "내년 ‘820조 슈퍼예산’이 온다 … 우리 살림살이에 미칠 영향은",
-        "url": "https://www.mk.co.kr/news/economy/12147136",
-        "publishedAt": "2026-09-09",
-        "status": "ok"
-      },
-      {
-        "id": "news-연합뉴스마켓-[코스피·코스닥 전 거래일(8일) 주요공시]",
+        "id": "news-연합뉴스마켓-[코스피·코스닥 전 거래일(9일) 주요공시]",
         "category": "news",
         "source": "연합뉴스마켓",
-        "title": "[코스피·코스닥 전 거래일(8일) 주요공시]",
-        "url": "https://www.yna.co.kr/view/AKR20260908161300008",
-        "publishedAt": "2026-09-09",
+        "title": "[코스피·코스닥 전 거래일(9일) 주요공시]",
+        "url": "https://www.yna.co.kr/view/AKR20260909177300008",
+        "publishedAt": "2026-09-10",
         "status": "ok"
       },
       {
-        "id": "news-연합뉴스-대출한도 높이려 '업계약' 불사…부동산 교란행위 5년반만 1천건",
+        "id": "news-연합뉴스-끊이지 않는 설계공모 '로비' 논란…징계받고도 심사위원으로",
         "category": "news",
         "source": "연합뉴스",
-        "title": "대출한도 높이려 '업계약' 불사…부동산 교란행위 5년반만 1천건",
-        "url": "https://www.yna.co.kr/view/AKR20260908159000003",
-        "publishedAt": "2026-09-09",
+        "title": "끊이지 않는 설계공모 '로비' 논란…징계받고도 심사위원으로",
+        "url": "https://www.yna.co.kr/view/AKR20260909159700003",
+        "publishedAt": "2026-09-10",
         "status": "ok"
       },
       {
-        "id": "news-연합뉴스-[게시판] 농식품부, 대국민 농업·농촌 R&D 아이디어 공모",
+        "id": "news-연합뉴스-\"국내 생산·청년 고용 늘리려면 세제지원 실효성 높여야\"",
         "category": "news",
         "source": "연합뉴스",
-        "title": "[게시판] 농식품부, 대국민 농업·농촌 R&D 아이디어 공모",
-        "url": "https://www.yna.co.kr/view/AKR20260908121900030",
-        "publishedAt": "2026-09-09",
+        "title": "\"국내 생산·청년 고용 늘리려면 세제지원 실효성 높여야\"",
+        "url": "https://www.yna.co.kr/view/AKR20260909142700003",
+        "publishedAt": "2026-09-10",
         "status": "ok"
       },
       {
-        "id": "news-연합뉴스마켓-\"중복상장 시 '모회사 주주 동의·보상' 의무화\"…與 법안 발의",
+        "id": "news-한국경제증권-기대 너무 컸나…美 재무부 바이백 60억달러에 금리는 더 올랐다",
         "category": "news",
-        "source": "연합뉴스마켓",
-        "title": "\"중복상장 시 '모회사 주주 동의·보상' 의무화\"…與 법안 발의",
-        "url": "https://www.yna.co.kr/view/AKR20260908169900002",
-        "publishedAt": "2026-09-09",
+        "source": "한국경제증권",
+        "title": "기대 너무 컸나…美 재무부 바이백 60억달러에 금리는 더 올랐다",
+        "url": "https://www.hankyung.com/article/202609105087i",
+        "publishedAt": "2026-09-10",
         "status": "ok"
       },
       {
-        "id": "news-한국경제-삼성전자, 佛 AI기업 '미스트랄'에 수천억원 투자",
+        "id": "news-한국경제-美,\"장기국채 바이백 3배 확대\"…시장 실망에 국채수익률 오히려 상승",
         "category": "news",
         "source": "한국경제",
-        "title": "삼성전자, 佛 AI기업 '미스트랄'에 수천억원 투자",
-        "url": "https://www.hankyung.com/article/2026090823501",
-        "publishedAt": "2026-09-09",
+        "title": "美,\"장기국채 바이백 3배 확대\"…시장 실망에 국채수익률 오히려 상승",
+        "url": "https://www.hankyung.com/article/202609105070i",
+        "publishedAt": "2026-09-10",
         "status": "ok"
       },
       {
-        "id": "news-매일경제-김영훈 노동장관 “N% 성과급 파업, 노란봉투법 새 지침대로면 불법”",
+        "id": "news-한국경제-美 경제학자 70% \"9월 금리 동결\"…시장 예상과 반대",
+        "category": "news",
+        "source": "한국경제",
+        "title": "美 경제학자 70% \"9월 금리 동결\"…시장 예상과 반대",
+        "url": "https://www.hankyung.com/article/202609105067i",
+        "publishedAt": "2026-09-10",
+        "status": "ok"
+      },
+      {
+        "id": "news-매일경제-“고점에 물린 개미들만 피눈물”…김승원 의혹에 드러난 주식시장 민낯",
         "category": "news",
         "source": "매일경제",
-        "title": "김영훈 노동장관 “N% 성과급 파업, 노란봉투법 새 지침대로면 불법”",
-        "url": "https://www.mk.co.kr/news/economy/12147581",
-        "publishedAt": "2026-09-08",
+        "title": "“고점에 물린 개미들만 피눈물”…김승원 의혹에 드러난 주식시장 민낯",
+        "url": "https://www.mk.co.kr/news/stock/12148668",
+        "publishedAt": "2026-09-09",
         "status": "ok"
       },
       {
-        "id": "news-한국경제-유가급등,무역긴장에 뉴욕증시 하락…반도체주는 반등",
+        "id": "news-매일경제-전세계 바이어 집결…K중기 수출길 연다",
         "category": "news",
-        "source": "한국경제",
-        "title": "유가급등,무역긴장에 뉴욕증시 하락…반도체주는 반등",
-        "url": "https://www.hankyung.com/article/202609082357i",
-        "publishedAt": "2026-09-08",
+        "source": "매일경제",
+        "title": "전세계 바이어 집결…K중기 수출길 연다",
+        "url": "https://www.mk.co.kr/news/business/12148655",
+        "publishedAt": "2026-09-09",
         "status": "ok"
       },
       {
-        "id": "news-MarketWatch-Oracle’s stock gets a boost as the OpenAI ecosystem comes back ",
+        "id": "news-MarketWatch-The bull market’s biggest enemy right now could be Bessent’s in",
         "category": "news",
         "source": "MarketWatch",
-        "title": "Oracle’s stock gets a boost as the OpenAI ecosystem comes back into favor",
-        "url": "https://www.marketwatch.com/story/oracles-stock-gets-a-boost-as-the-openai-ecosystem-comes-back-into-favor-f53c8024?mod=mw_rss_topstories",
-        "publishedAt": "2026-09-08",
+        "title": "The bull market’s biggest enemy right now could be Bessent’s interventions",
+        "url": "https://www.marketwatch.com/story/the-bull-markets-biggest-enemy-right-now-could-be-bessents-interventions-134bbe78?mod=mw_rss_topstories",
+        "publishedAt": "2026-09-09",
         "status": "ok"
       },
       {
-        "id": "news-CNBC-Trump administration expresses 'profound concern' over Ford's ties to ",
+        "id": "news-CNBC-Bond sell-off, stock boom: Why rebalancing is a good strategy right no",
         "category": "news",
         "source": "CNBC",
-        "title": "Trump administration expresses 'profound concern' over Ford's ties to China",
-        "url": "https://www.cnbc.com/2026/09/08/ford-china-dot-sean-duffy.html",
-        "publishedAt": "2026-09-08",
+        "title": "Bond sell-off, stock boom: Why rebalancing is a good strategy right now",
+        "url": "https://www.cnbc.com/2026/09/09/bond-selloff-stock-boom-rebalancing.html",
+        "publishedAt": "2026-09-09",
         "status": "ok"
       },
       {
-        "id": "news-MarketWatch-Qualcomm’s stock climbs as Amazon chip deal offers investors mu",
+        "id": "news-Investing-Trading Day: $100 oil bites",
+        "category": "news",
+        "source": "Investing",
+        "title": "Trading Day: $100 oil bites",
+        "url": "https://www.investing.com/news/economy-news/trading-day-100-oil-bites-4894600",
+        "publishedAt": "2026-09-09",
+        "status": "ok"
+      },
+      {
+        "id": "news-CNBC-Bessent’s political turn in GOP speech tests his bond-market credibili",
+        "category": "news",
+        "source": "CNBC",
+        "title": "Bessent’s political turn in GOP speech tests his bond-market credibility",
+        "url": "https://www.cnbc.com/2026/09/09/bessent-treasury-yields-buybacks-republican-convention.html",
+        "publishedAt": "2026-09-09",
+        "status": "ok"
+      },
+      {
+        "id": "news-Investing-10-year yields highest since 2023",
+        "category": "news",
+        "source": "Investing",
+        "title": "10-year yields highest since 2023",
+        "url": "https://www.investing.com/news/economy-news/10year-yields-highest-since-2023-4894582",
+        "publishedAt": "2026-09-09",
+        "status": "ok"
+      },
+      {
+        "id": "news-MarketWatch-Oil’s surge back above $100 fuels fresh inflation fears at a cr",
         "category": "news",
         "source": "MarketWatch",
-        "title": "Qualcomm’s stock climbs as Amazon chip deal offers investors much-needed good news",
-        "url": "https://www.marketwatch.com/story/qualcomms-stock-climbs-as-amazon-chip-deal-offers-investors-some-much-needed-good-news-5b6a95ca?mod=mw_rss_topstories",
-        "publishedAt": "2026-09-08",
+        "title": "Oil’s surge back above $100 fuels fresh inflation fears at a crucial time for interest rates",
+        "url": "https://www.marketwatch.com/story/brent-crude-reaches-100-as-war-in-iran-intensifies-b73832e2?mod=mw_rss_topstories",
+        "publishedAt": "2026-09-09",
         "status": "ok"
       },
       {
-        "id": "news-MarketWatch-Intel’s stock is rising as the company looks primed to boost pr",
+        "id": "news-Investing-Dollar trades near 7-month low against yen as oil settles above $",
         "category": "news",
-        "source": "MarketWatch",
-        "title": "Intel’s stock is rising as the company looks primed to boost prices even more",
-        "url": "https://www.marketwatch.com/story/intels-stock-is-rising-as-the-company-looks-primed-to-boost-prices-even-more-8b8dfc99?mod=mw_rss_topstories",
-        "publishedAt": "2026-09-08",
-        "status": "ok"
-      },
-      {
-        "id": "news-CNBC-LIV Golf files for Chapter 11 bankruptcy",
-        "category": "news",
-        "source": "CNBC",
-        "title": "LIV Golf files for Chapter 11 bankruptcy",
-        "url": "https://www.cnbc.com/2026/09/08/liv-golf-chapter-11-bankruptcy.html",
-        "publishedAt": "2026-09-08",
-        "status": "ok",
-        "related": [
-          {
-            "source": "Investing",
-            "title": "LIV Golf files for bankruptcy, plans player ownership model",
-            "url": "https://www.investing.com/news/economy-news/liv-golf-files-for-bankruptcy-plans-player-ownership-model-93CH-4892442",
-            "publishedAt": "2026-09-08",
-            "id": "news-Investing-LIV Golf files for bankruptcy, plans player ownership model"
-          }
-        ]
-      },
-      {
-        "id": "news-CNBC-U.S. downplays Iran's seizure of unmanned sub in Hormuz Strait",
-        "category": "news",
-        "source": "CNBC",
-        "title": "U.S. downplays Iran's seizure of unmanned sub in Hormuz Strait",
-        "url": "https://www.cnbc.com/2026/09/08/iran-us-sub-strait-hormuz.html",
-        "publishedAt": "2026-09-08",
+        "source": "Investing",
+        "title": "Dollar trades near 7-month low against yen as oil settles above $100",
+        "url": "https://www.investing.com/news/economy-news/yen-stands-tall-as-dollar-wobbles-oils-run-towards-100-chills-sentiment-4892667",
+        "publishedAt": "2026-09-09",
         "status": "ok"
       }
     ],
-    "clusters": [
-      {
-        "id": "cluster-news-CNBC-LIV Golf files for Chapter 11 bankruptcy",
-        "title": "LIV Golf files for Chapter 11 bankruptcy",
-        "summary": "2개 매체가 이 소식을 함께 보도했습니다.",
-        "leadItemId": "news-CNBC-LIV Golf files for Chapter 11 bankruptcy",
-        "relatedItemIds": [
-          "news-Investing-LIV Golf files for bankruptcy, plans player ownership model"
-        ],
-        "sourceCount": 2,
-        "topic": "LIV Golf files for Chapter 11 bankruptcy",
-        "status": "ok"
-      }
-    ],
-    "summary": "삼성전자의 프랑스 AI 기업 미스트랄 투자를 비롯해 주요 정책 및 예산 관련 소식들이 주목받고 있습니다.",
+    "clusters": [],
+    "summary": "미국 재무부의 장기국채 바이백 규모에 대한 시장 실망으로 국채수익률이 상승한 소식이 전해졌습니다.",
     "status": "ok"
   },
   "latestBriefing": null,
@@ -264,47 +242,47 @@
     {
       "id": "kospi",
       "name": "코스피",
-      "value": 6995.39,
-      "displayValue": "6,995.39",
-      "change": 0.0,
+      "value": 7051.64,
+      "displayValue": "7,051.64",
+      "change": 0.8041,
       "changeUnit": "%",
       "displayMode": "pct",
-      "direction": "flat",
-      "asOf": "2026-09-07",
+      "direction": "up",
+      "asOf": "2026-09-09",
       "source": "KRX",
       "sourceUrl": "",
       "frequency": "daily",
       "isDelayed": true,
       "status": "ok",
-      "insight": "보합권"
+      "insight": "전일 대비 상승"
     },
     {
       "id": "kosdaq",
       "name": "코스닥",
-      "value": 822.19,
-      "displayValue": "822.19",
-      "change": 0.0,
+      "value": 830.37,
+      "displayValue": "830.37",
+      "change": 0.9949,
       "changeUnit": "%",
       "displayMode": "pct",
-      "direction": "flat",
-      "asOf": "2026-09-07",
+      "direction": "up",
+      "asOf": "2026-09-09",
       "source": "KRX",
       "sourceUrl": "",
       "frequency": "daily",
       "isDelayed": true,
       "status": "ok",
-      "insight": "보합권"
+      "insight": "전일 대비 상승"
     },
     {
       "id": "nasdaq",
       "name": "나스닥",
-      "value": 26421.41,
-      "displayValue": "26,421.41",
-      "change": -0.3229,
+      "value": 26253.34,
+      "displayValue": "26,253.34",
+      "change": -0.6361,
       "changeUnit": "%",
       "displayMode": "pct",
       "direction": "down",
-      "asOf": "2026-09-08",
+      "asOf": "2026-09-09",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
@@ -315,13 +293,13 @@
     {
       "id": "sp500",
       "name": "S&P500",
-      "value": 7673.52,
-      "displayValue": "7,673.52",
-      "change": -0.584,
+      "value": 7636.36,
+      "displayValue": "7,636.36",
+      "change": -0.4843,
       "changeUnit": "%",
       "displayMode": "pct",
       "direction": "down",
-      "asOf": "2026-09-08",
+      "asOf": "2026-09-09",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
@@ -332,30 +310,30 @@
     {
       "id": "usdkrw",
       "name": "원/달러",
-      "value": 1339.92,
-      "displayValue": "1,339.9",
-      "change": -5.14,
+      "value": 1339.59,
+      "displayValue": "1,339.6",
+      "change": -0.33,
       "changeUnit": "원",
       "displayMode": "delta",
       "direction": "down",
-      "asOf": "2026-09-08",
+      "asOf": "2026-09-09",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
       "isDelayed": true,
       "status": "ok",
-      "insight": "전일 대비 큰 폭 하락"
+      "insight": "전일 대비 하락"
     },
     {
       "id": "us10y",
       "name": "미국채10년",
-      "value": 4.81,
-      "displayValue": "4.81%",
+      "value": 4.84,
+      "displayValue": "4.84%",
       "change": 0.03,
       "changeUnit": "%p",
       "displayMode": "delta",
       "direction": "up",
-      "asOf": "2026-09-08",
+      "asOf": "2026-09-09",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
@@ -366,13 +344,13 @@
     {
       "id": "wti",
       "name": "WTI",
-      "value": 94.25,
-      "displayValue": "$94.25",
-      "change": 3.028,
+      "value": 96.67,
+      "displayValue": "$96.67",
+      "change": 2.5676,
       "changeUnit": "%",
       "displayMode": "pct",
       "direction": "up",
-      "asOf": "2026-09-08",
+      "asOf": "2026-09-09",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
@@ -383,13 +361,13 @@
     {
       "id": "vix",
       "name": "VIX",
-      "value": 15.72,
-      "displayValue": "15.72",
-      "change": 2.7451,
+      "value": 16.46,
+      "displayValue": "16.46",
+      "change": 4.7074,
       "changeUnit": "%",
       "displayMode": "pct",
       "direction": "up",
-      "asOf": "2026-09-08",
+      "asOf": "2026-09-09",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
@@ -407,7 +385,7 @@
       "valueLabel": "+0.41%p",
       "insight": "장단기 금리차가 정상 범위에 있어 침체 신호는 뚜렷하지 않습니다.",
       "sourceLabel": "장단기 금리차 (미국채 10Y-2Y)",
-      "asOf": "2026-09-09"
+      "asOf": "2026-09-10"
     },
     {
       "id": "rate-gap",
@@ -417,17 +395,17 @@
       "valueLabel": "+0.75%p",
       "insight": "한미 금리차가 관리 가능한 수준이라 자본유출 압력은 크지 않습니다.",
       "sourceLabel": "한미 기준금리차 (Fed-한은)",
-      "asOf": "2026-09-09"
+      "asOf": "2026-09-10"
     },
     {
       "id": "liquidity-stress",
       "name": "유동성 스트레스",
       "color": "green",
-      "value": 2.68,
-      "valueLabel": "2.68%p",
+      "value": 2.67,
+      "valueLabel": "2.67%p",
       "insight": "신용시장 스프레드가 평상 수준이라 유동성 경색 신호는 없습니다.",
       "sourceLabel": "하이일드 스프레드 (BAMLH0A0HYM2)",
-      "asOf": "2026-09-09"
+      "asOf": "2026-09-10"
     }
   ],
   "claims": {
@@ -815,6 +793,10 @@
     ],
     "todayClaims": [
       {
+        "claimText": "2분기 기업 영업이익률 역대 최고 — 코스닥가 나스닥 대비 강세를 이어갈까요?",
+        "status": "unresolved"
+      },
+      {
         "claimText": "유가 급등과 무역 긴장의 영향으로 뉴욕증시가 하락했습니다. 다만 기술주 중심으로 반도체 종목은 반등세를 나타냈습니다. — 나스닥가 S&P500 대비 강세를 이어갈까요?",
         "status": "unresolved"
       },
@@ -831,11 +813,11 @@
       "hit": 12,
       "miss": 19,
       "neutral": 7,
-      "unresolved": 3
+      "unresolved": 4
     }
   },
   "newsletterClaimsTeaser": {
-    "publicationId": "2026-09-08",
+    "publicationId": "2026-09-09",
     "resolvedCount": 0,
     "hitCount": 0,
     "missCount": 0,
