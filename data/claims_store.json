@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-10T06:43:16+09:00",
+  "updatedAt": "2026-09-11T06:43:23+09:00",
   "claims": {
     "2026-07-19-c1": {
       "schemaVersion": 1,
@@ -2439,6 +2439,46 @@
         "asOf": "2026-09-09",
         "benchmarkValue": 26253.34,
         "benchmarkAsOf": "2026-09-09"
+      },
+      "resolution": null
+    },
+    "2026-09-11-c1": {
+      "schemaVersion": 1,
+      "claimId": "2026-09-11-c1",
+      "publicationId": "2026-09-11",
+      "issuedAt": "2026-09-11T06:43:23+09:00",
+      "dataCutoffAt": "2026-09-11T06:43:23+09:00",
+      "lockedAt": "2026-09-11T06:43:23+09:00",
+      "claimMode": "auto",
+      "verificationType": "proxy",
+      "topic": "나스닥 vs S&P500 상대성과(LLM 후보, 5거래일)",
+      "sourceNewsIds": [],
+      "observationText": "나스닥은 전일 대비 -0.65%, S&P500는 -0.58% — 상대 괴리 -0.07%p.",
+      "interpretationText": "나스닥이 S&P500 대비 상대적으로 강세 또는 약세를 보이는지 검증합니다.",
+      "claimText": "유가와 원자재 가격 상승 여파로 인플레이션 우려가 다시 자극받으며 미국 국채금리가 급등했습니다. — 나스닥가 S&P500 대비 약세를 이어갈까요?",
+      "metricId": "nasdaq",
+      "benchmarkMetricId": "sp500",
+      "comparisonType": "excess_return",
+      "expectedDirection": "down",
+      "horizon": {
+        "type": "multi_session",
+        "market": "US",
+        "resolutionAt": "2026-09-12",
+        "sessions": 5
+      },
+      "thresholdRuleId": "pct_030",
+      "confidence": null,
+      "status": "unresolved",
+      "revision": {
+        "version": 1,
+        "contentHash": "e196ed5e1b17f90a7f73d4d546a464e05d64cf3323dc28642a5dce31d24c0dd1",
+        "correctedFrom": null
+      },
+      "baseline": {
+        "value": 26081.72,
+        "asOf": "2026-09-10",
+        "benchmarkValue": 7591.7,
+        "benchmarkAsOf": "2026-09-10"
       },
       "resolution": null
     }

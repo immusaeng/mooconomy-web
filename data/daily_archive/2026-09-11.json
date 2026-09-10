@@ -1,0 +1,244 @@
+{
+  "schema_version": "normalized-daily-issue/v1",
+  "edition_id": "2026-09-11",
+  "edition_date_kst": "2026-09-11",
+  "canonical_status": "production",
+  "production_status": "SEND_CONFIRMED",
+  "source_commit_sha": "81bea40d83e369c81a005f7f2cb3567d5ac3253d",
+  "subject": "국제유가 급등과 국채금리 상승, 증시 향방은?",
+  "preheader": "유가와 채권 금리가 급등하며 시장 전반에 영향을 준 요인 중 하나로 해석할 수 있으며, 지정학적 위기와 같은 대외 뉴스 등 다른 요인이 함께 작용할 수 있습니다.",
+  "thesis": {
+    "headline": "국제유가 급등과 국채금리 상승, 증시 향방은?",
+    "three_signals": [
+      "이란전쟁 확전 우려에 서부 텍사스산 원유가 100달러를 돌파하며 뉴욕증시는 하락세로 마감했습니다.",
+      "외국인이 코스피 시장에서 2조 6천억 원 넘게 매도세를 쏟아내며 지수 상승을 무겁게 눌렀습니다.",
+      "오늘 밤 예정된 미국 8월 소비자물가지수 발표에 따라 추가 금리 인상 확률 변동이 핵심입니다."
+    ]
+  },
+  "main_story": {
+    "headline": "국제유가 100달러 돌파와 인플레 우려",
+    "verified_fact": "미국과 이란 간의 무력 충돌 격화 여파로 서부 텍사스산 원유 가격이 배럴당 100달러를 넘어섰습니다.",
+    "why_it_matters": null,
+    "sources": []
+  },
+  "entities": [
+    {
+      "name": "금",
+      "type": "commodity"
+    }
+  ],
+  "metrics": [
+    {
+      "id": "kospi",
+      "value": 7033.92,
+      "change": -0.2513,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "kosdaq",
+      "value": 836.92,
+      "change": 0.7888,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "nasdaq",
+      "value": 26081.72,
+      "change": -0.6537,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "sp500",
+      "value": 7591.7,
+      "change": -0.5848,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1349.2,
+      "change": 9.61,
+      "displayMode": "delta",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "us10y",
+      "value": 4.94,
+      "change": 0.1,
+      "displayMode": "delta",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "wti",
+      "value": 103.93,
+      "change": 7.5101,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "vix",
+      "value": 17.84,
+      "change": 8.384,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    }
+  ],
+  "market_changes": [
+    {
+      "id": "kospi",
+      "change": -0.2513,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "kosdaq",
+      "change": 0.7888,
+      "changeUnit": "%",
+      "direction": "up"
+    },
+    {
+      "id": "nasdaq",
+      "change": -0.6537,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "sp500",
+      "change": -0.5848,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "usdkrw",
+      "change": 9.61,
+      "changeUnit": "원",
+      "direction": "up"
+    },
+    {
+      "id": "us10y",
+      "change": 0.1,
+      "changeUnit": "%p",
+      "direction": "up"
+    },
+    {
+      "id": "wti",
+      "change": 7.5101,
+      "changeUnit": "%",
+      "direction": "up"
+    },
+    {
+      "id": "vix",
+      "change": 8.384,
+      "changeUnit": "%",
+      "direction": "up"
+    }
+  ],
+  "narratives": {
+    "moo_view": "미국과 이란 간의 무력 충돌 격화로 서부 텍사스산 원유(WTI)가 103.93달러선으로 치솟고 국채 입찰 부진에 따른 미국채 금리 급등세가 겹치면서 글로벌 자산시장의 위험회피 심리가 확산되는 흐름입니다. 뉴욕 증시 약세의 여파가 이어진 가운데 원/달러 환율도 1349.20원까지 상승하며 원화 약세 압력이 유입되었습니다.\n\n국내 증시에서는 대규모 외국인 이탈이 발생한 코스피가 하락한 것과 달리 코스닥은 기관 중심의 매수세가 유입되며 상대적 강세를 나타냈습니다. 지수 조정 국면 속에서도 코스닥 중심의 선별적 수급 유입이 지수를 방어하는 차별화 양상으로 해석할 여지도 존재합니다.\n\n향후 국제유가가 100달러 선 아래로 안정세를 찾는다면 공급발 인플레이션 경계가 완화되며 지수 반등의 계기가 마련되겠으나, 고유가와 국채금리 폭등세가 진정되지 않는다면 할인율 부담 지속으로 자산시장 전반의 추가 하락 압력이 이어질 것으로 보입니다.",
+    "todays_watch": [
+      "서부 텍사스산 원유 가격의 100달러 돌파 이후 국제유가 추이",
+      "미국 국채 입찰 부진 이후 글로벌 채권 금리 추가 등락 여부",
+      "원/달러 환율 변동성에 따른 외국인 수급 변화"
+    ],
+    "todays_watch_oneliner": "유가 급등과 미국채 금리 상승세 속에서 원/달러 환율 및 국내 수급 차별화 지속 여부에 주목할 필요가 있습니다.",
+    "content_status": "GENERATED_PASS2"
+  },
+  "moo_q": {
+    "claim_id": "2026-09-11-c1",
+    "claim_text": "유가와 원자재 가격 상승 여파로 인플레이션 우려가 다시 자극받으며 미국 국채금리가 급등했습니다. — 나스닥가 S&P500 대비 약세를 이어갈까요?",
+    "topic": "나스닥 vs S&P500 상대성과(LLM 후보, 5거래일)",
+    "resolution_at": "2026-09-12",
+    "status": "unresolved"
+  },
+  "moo_check": [
+    {
+      "previous_claim": "2분기 기업 영업이익률 역대 최고 — 코스닥가 나스닥 대비 강세를 이어갈까요?",
+      "claim_date": "2026-09-10",
+      "evaluation_date": null,
+      "observed_result": null,
+      "verdict": "INSUFFICIENT_DATA",
+      "evidence": null,
+      "source": null
+    }
+  ],
+  "moo_word": {
+    "id": "open_생산자물가지수",
+    "term": "생산자물가지수",
+    "definition": "국내생산자가 국내시장에 공급하는 상품 및 서비스의 가격변동을 측정하는 통계로서 경기동향 판단지표, GDP 디플레이터 등으로 이용된다. 지수작성에 이용되는 가격은 기초가격*(basic prices)을 원칙으로 하고 있다.\n\n* 생산자가 실질적으로 수취하는 단위당 가격으로 생산자가격에서 담배소비세, 주세 등 기타생산물세를 차감하고 보조금을 합산한 가격",
+    "why_today": "인플레이션 추세를 사전 진단할 수 있는 주요 지표로서 뉴욕증시 개장 초기 방향성에 영향을 미쳤습니다.",
+    "memory_hook": null,
+    "source_label": "연합뉴스마켓",
+    "article_id": "news_10",
+    "article_url": "https://www.yna.co.kr/view/AKR20260910174900009",
+    "article_publisher": "연합뉴스마켓",
+    "evidence_snippets": [
+      "(서울=연합뉴스) 윤정원 연합인포맥스 기자 = 뉴욕증시의 3대 주가지수는 8월 생산자물가지수(PPI)를 소화하며 하락 출발했다."
+    ],
+    "definition_source_name": "한국은행 경제금융용어 700선",
+    "definition_source_url": "https://ecos.bok.or.kr/",
+    "definition_priority": "P1_SOURCES_VERIFIED",
+    "origin": "llm_proposed",
+    "grounded_in_article": true,
+    "definition_evidence_verified": true,
+    "status": "ELIGIBLE_FOR_PUBLICATION",
+    "eligible_for_publication": true
+  },
+  "sources": [
+    {
+      "source_name": "한국경제",
+      "source_url": "https://www.hankyung.com/article/202609117718i",
+      "published_at": "2026-09-11",
+      "source_headline": "인플레 압박에 美 국채금리 급등…9월 금리인상 확률 70% 넘어"
+    },
+    {
+      "source_name": "파이낸셜뉴스",
+      "source_url": "https://www.fnnews.com/news/202609101957372484",
+      "published_at": "2026-09-11",
+      "source_headline": "\"'꿈의 9000피' 상승 기여도…진짜 '삼전·닉스'였다\""
+    },
+    {
+      "source_name": "Investing",
+      "source_url": "https://www.investing.com/news/economy-news/wall-st-set-for-lower-open-after-hotterthanexpected-producer-inflation-data-4896053",
+      "published_at": "2026-09-10",
+      "source_headline": "S&P 500 ends down as Treasury yields rise and traders fret about inflation"
+    },
+    {
+      "source_name": "연합뉴스마켓",
+      "source_url": "https://www.yna.co.kr/view/AKR20260910174900009",
+      "published_at": "2026-09-10",
+      "source_headline": "뉴욕증시, PPI 소화하며 하락 출발"
+    },
+    {
+      "source_name": "MarketWatch",
+      "source_url": "https://www.marketwatch.com/story/treasury-yields-surge-toward-the-danger-zone-for-stocks-as-inflation-pressures-heat-up-fe0f9aa6?mod=mw_rss_topstories",
+      "published_at": "2026-09-10",
+      "source_headline": "Treasury yields surge after Bessent’s beefed-up buyback operation fails to calm market"
+    },
+    {
+      "source_name": "MarketWatch",
+      "source_url": "https://www.marketwatch.com/story/adobes-latest-earnings-leave-wall-street-wanting-more-137ea782?mod=mw_rss_topstories",
+      "published_at": "2026-09-10",
+      "source_headline": "Adobe’s latest earnings leave Wall Street wanting more"
+    }
+  ],
+  "public_url": "https://mooconomy.co.kr/latest-email.html",
+  "validation_status": {
+    "main_story_status": "SELECTED",
+    "content_provenance": "VALIDATED_GEMINI_35",
+    "moo_word_present": true,
+    "sources_count": 6,
+    "is_approximate": false
+  },
+  "content_hash": "847d719f362b62346305e914fa92dc078e5fc1e16399f991d17d2132f26b5a4d",
+  "archived_at": "2026-09-10T21:44:22.907792+00:00"
+}
