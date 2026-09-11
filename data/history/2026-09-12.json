@@ -1,0 +1,167 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-12",
+  "generatedAt": "2026-09-12T06:42:54+09:00",
+  "indicators": [
+    {
+      "id": "kospi",
+      "value": 6909.91,
+      "change": -1.763,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "kosdaq",
+      "value": 820.64,
+      "change": -1.9452,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "nasdaq",
+      "value": 26333.04,
+      "change": 0.9636,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "sp500",
+      "value": 7656.98,
+      "change": 0.8599,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1341.05,
+      "change": -8.15,
+      "displayMode": "delta",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "us10y",
+      "value": 4.97,
+      "change": 0.03,
+      "displayMode": "delta",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "wti",
+      "value": 99.99,
+      "change": -3.791,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "vix",
+      "value": 15.84,
+      "change": -11.2108,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    }
+  ],
+  "auditIndicators": [
+    {
+      "id": "kospi",
+      "value": 6909.91,
+      "displayMode": "pct"
+    },
+    {
+      "id": "kosdaq",
+      "value": 820.64,
+      "displayMode": "pct"
+    },
+    {
+      "id": "nasdaq",
+      "value": 26333.04,
+      "displayMode": "pct"
+    },
+    {
+      "id": "sp500",
+      "value": 7656.98,
+      "displayMode": "pct"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1341.05,
+      "displayMode": "dual"
+    },
+    {
+      "id": "us10y",
+      "value": 4.97,
+      "displayMode": "delta"
+    },
+    {
+      "id": "wti",
+      "value": 99.99,
+      "displayMode": "pct"
+    },
+    {
+      "id": "vix",
+      "value": 15.84,
+      "displayMode": "pct"
+    },
+    {
+      "id": "gold",
+      "value": 4390.0,
+      "displayMode": "pct"
+    },
+    {
+      "id": "dollarindex",
+      "value": 99.1,
+      "displayMode": "pct"
+    },
+    {
+      "id": "brent",
+      "value": 104.42,
+      "displayMode": "pct"
+    },
+    {
+      "id": "dow",
+      "value": 52573.29,
+      "displayMode": "pct"
+    },
+    {
+      "id": "nikkei",
+      "value": 65270.95,
+      "displayMode": "pct"
+    },
+    {
+      "id": "shanghai",
+      "value": 3934.4,
+      "displayMode": "pct"
+    }
+  ],
+  "signals": [
+    {
+      "id": "recession",
+      "color": "green",
+      "value": 0.39
+    },
+    {
+      "id": "rate-gap",
+      "color": "green",
+      "value": 0.75
+    },
+    {
+      "id": "liquidity-stress",
+      "color": "green",
+      "value": 2.7
+    }
+  ],
+  "calendarSnapshot": [],
+  "marketTemperature": {
+    "label": "neutral",
+    "displayLabel": "중립",
+    "status": "ok"
+  },
+  "connectionTopology": "CPI>금리>미국>순매도>외국인>유가>증시"
+}

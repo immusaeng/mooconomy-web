@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-11T06:43:23+09:00",
+  "updatedAt": "2026-09-12T06:42:53+09:00",
   "claims": {
     "2026-07-19-c1": {
       "schemaVersion": 1,
@@ -2308,7 +2308,7 @@
       },
       "thresholdRuleId": "pct_030",
       "confidence": null,
-      "status": "unresolved",
+      "status": "miss",
       "revision": {
         "version": 1,
         "contentHash": "20d6316d12850f3d8b15c3fc228e84a9759ab8168fff3cf71ddbba5cdaad7b47",
@@ -2320,7 +2320,28 @@
         "benchmarkValue": 6687.21,
         "benchmarkAsOf": "2026-09-04"
       },
-      "resolution": null
+      "resolution": {
+        "resolutionId": "2026-09-05-c1-res",
+        "claimId": "2026-09-05-c1",
+        "resolvedAt": "2026-09-12T06:42:47+09:00",
+        "verdict": "miss",
+        "metricId": "kosdaq",
+        "comparisonType": "excess_return",
+        "startValue": 813.5,
+        "endValue": 820.64,
+        "changeValue": -2.4525488738413235,
+        "changeUnit": "%",
+        "benchmarkMetricId": "kospi",
+        "benchmarkStartValue": 6687.21,
+        "benchmarkEndValue": 6909.91,
+        "neutralLower": -0.3,
+        "neutralUpper": 0.3,
+        "neutralBand": 0.3,
+        "dataProvider": "KRX",
+        "sourceUrl": "",
+        "observedAt": "2026-09-11",
+        "explanation": "실제 변화가 예상한 상승 방향과 다르게 움직였습니다."
+      }
     },
     "2026-09-08-c1": {
       "schemaVersion": 1,
@@ -2479,6 +2500,46 @@
         "asOf": "2026-09-10",
         "benchmarkValue": 7591.7,
         "benchmarkAsOf": "2026-09-10"
+      },
+      "resolution": null
+    },
+    "2026-09-12-c1": {
+      "schemaVersion": 1,
+      "claimId": "2026-09-12-c1",
+      "publicationId": "2026-09-12",
+      "issuedAt": "2026-09-12T06:42:53+09:00",
+      "dataCutoffAt": "2026-09-12T06:42:53+09:00",
+      "lockedAt": "2026-09-12T06:42:53+09:00",
+      "claimMode": "auto",
+      "verificationType": "proxy",
+      "topic": "코스피 vs 나스닥 상대성과(LLM 후보, 5거래일)",
+      "sourceNewsIds": [],
+      "observationText": "코스피는 전일 대비 -1.76%, 나스닥은 +0.96% — 상대 괴리 -2.73%p.",
+      "interpretationText": "코스피가 나스닥 대비 상대적으로 강세를 보이는지 검증",
+      "claimText": "NH농협은행이 시장금리 상승세 속에서 주택담보대출 금리를 최대 0.45%포인트 낮추기로 결정했습니다. — 코스피가 나스닥 대비 약세를 이어갈까요?",
+      "metricId": "kospi",
+      "benchmarkMetricId": "nasdaq",
+      "comparisonType": "excess_return",
+      "expectedDirection": "down",
+      "horizon": {
+        "type": "multi_session",
+        "market": "KR",
+        "resolutionAt": "2026-09-13",
+        "sessions": 5
+      },
+      "thresholdRuleId": "pct_030",
+      "confidence": null,
+      "status": "unresolved",
+      "revision": {
+        "version": 1,
+        "contentHash": "1a258a2e1e49800710b71b7f90166650f3fea4845dfb106fe23b3ad12d418845",
+        "correctedFrom": null
+      },
+      "baseline": {
+        "value": 6909.91,
+        "asOf": "2026-09-11",
+        "benchmarkValue": 26333.04,
+        "benchmarkAsOf": "2026-09-11"
       },
       "resolution": null
     }
