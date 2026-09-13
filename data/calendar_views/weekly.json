@@ -1,56 +1,20 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-09-12T22:25:36.179412+00:00",
+  "generatedAt": "2026-09-13T22:30:19.631940+00:00",
   "timezone": "Asia/Seoul",
   "range": {
-    "from": "2026-09-12",
-    "to": "2026-09-19"
+    "from": "2026-09-13",
+    "to": "2026-09-20"
   },
   "freshness": {
     "status": "partial",
-    "lastSuccessfulAt": "2026-09-12T22:25:36.179422+00:00",
+    "lastSuccessfulAt": "2026-09-13T22:30:19.631949+00:00",
     "failedSources": [
       "fmp",
       "finnhub"
     ]
   },
   "events": [
-    {
-      "id": "fred-fomc-press-release-2026-09-13-08b5bd7224cc",
-      "title": "FOMC Press Release",
-      "originalTitle": "FOMC Press Release",
-      "titleKo": "FOMC 보도자료",
-      "country": "US",
-      "category": "macro",
-      "importance": "high",
-      "scheduledDate": "2026-09-13",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "FRED",
-      "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-      "sourceEventId": "101",
-      "updatedAt": "2026-09-12T22:25:36.155267+00:00",
-      "confidence": "cross_checked",
-      "sourceRefs": [
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-          "sourceTier": "official_aggregator"
-        },
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-          "sourceTier": "official_aggregator"
-        }
-      ]
-    },
     {
       "id": "fred-federal-funds-data-2026-09-14-e46d91666ce3",
       "title": "Federal Funds Data",
@@ -72,7 +36,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=378",
       "sourceEventId": "378",
-      "updatedAt": "2026-09-12T22:25:36.155295+00:00",
+      "updatedAt": "2026-09-13T22:30:19.608823+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -83,6 +47,42 @@
         {
           "sourceName": "FRED",
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=378",
+          "sourceTier": "official_aggregator"
+        }
+      ]
+    },
+    {
+      "id": "fred-fomc-press-release-2026-09-14-926ed5ccde3e",
+      "title": "FOMC Press Release",
+      "originalTitle": "FOMC Press Release",
+      "titleKo": "FOMC 보도자료",
+      "country": "US",
+      "category": "macro",
+      "importance": "high",
+      "scheduledDate": "2026-09-14",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "scheduled",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "FRED",
+      "sourceTier": "official_aggregator",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+      "sourceEventId": "101",
+      "updatedAt": "2026-09-13T22:30:19.608826+00:00",
+      "confidence": "cross_checked",
+      "sourceRefs": [
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+          "sourceTier": "official_aggregator"
+        },
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
           "sourceTier": "official_aggregator"
         }
       ]
@@ -108,7 +108,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=4",
       "sourceEventId": "4",
-      "updatedAt": "2026-09-12T22:25:36.155331+00:00",
+      "updatedAt": "2026-09-13T22:30:19.608853+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -144,7 +144,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=739",
       "sourceEventId": "739",
-      "updatedAt": "2026-09-12T22:25:36.155334+00:00",
+      "updatedAt": "2026-09-13T22:30:19.608856+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -155,42 +155,6 @@
         {
           "sourceName": "FRED",
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=739",
-          "sourceTier": "official_aggregator"
-        }
-      ]
-    },
-    {
-      "id": "fred-fomc-press-release-2026-09-15-755997b0f184",
-      "title": "FOMC Press Release",
-      "originalTitle": "FOMC Press Release",
-      "titleKo": "FOMC 보도자료",
-      "country": "US",
-      "category": "macro",
-      "importance": "high",
-      "scheduledDate": "2026-09-15",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "FRED",
-      "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-      "sourceEventId": "101",
-      "updatedAt": "2026-09-12T22:25:36.155422+00:00",
-      "confidence": "cross_checked",
-      "sourceRefs": [
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-          "sourceTier": "official_aggregator"
-        },
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
           "sourceTier": "official_aggregator"
         }
       ]
@@ -216,7 +180,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=378",
       "sourceEventId": "378",
-      "updatedAt": "2026-09-12T22:25:36.155552+00:00",
+      "updatedAt": "2026-09-13T22:30:19.609044+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -227,6 +191,42 @@
         {
           "sourceName": "FRED",
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=378",
+          "sourceTier": "official_aggregator"
+        }
+      ]
+    },
+    {
+      "id": "fred-fomc-press-release-2026-09-16-2ba6ebe54474",
+      "title": "FOMC Press Release",
+      "originalTitle": "FOMC Press Release",
+      "titleKo": "FOMC 보도자료",
+      "country": "US",
+      "category": "macro",
+      "importance": "high",
+      "scheduledDate": "2026-09-16",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "scheduled",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "FRED",
+      "sourceTier": "official_aggregator",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+      "sourceEventId": "101",
+      "updatedAt": "2026-09-13T22:30:19.609046+00:00",
+      "confidence": "cross_checked",
+      "sourceRefs": [
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+          "sourceTier": "official_aggregator"
+        },
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
           "sourceTier": "official_aggregator"
         }
       ]
@@ -252,7 +252,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=386",
       "sourceEventId": "386",
-      "updatedAt": "2026-09-12T22:25:36.155557+00:00",
+      "updatedAt": "2026-09-13T22:30:19.609049+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -288,7 +288,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=4",
       "sourceEventId": "4",
-      "updatedAt": "2026-09-12T22:25:36.155580+00:00",
+      "updatedAt": "2026-09-13T22:30:19.609069+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -324,7 +324,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=739",
       "sourceEventId": "739",
-      "updatedAt": "2026-09-12T22:25:36.155584+00:00",
+      "updatedAt": "2026-09-13T22:30:19.609072+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -335,42 +335,6 @@
         {
           "sourceName": "FRED",
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=739",
-          "sourceTier": "official_aggregator"
-        }
-      ]
-    },
-    {
-      "id": "fred-fomc-press-release-2026-09-17-cac52cd1a06d",
-      "title": "FOMC Press Release",
-      "originalTitle": "FOMC Press Release",
-      "titleKo": "FOMC 보도자료",
-      "country": "US",
-      "category": "macro",
-      "importance": "high",
-      "scheduledDate": "2026-09-17",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "FRED",
-      "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-      "sourceEventId": "101",
-      "updatedAt": "2026-09-12T22:25:36.155723+00:00",
-      "confidence": "cross_checked",
-      "sourceRefs": [
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-          "sourceTier": "official_aggregator"
-        },
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
           "sourceTier": "official_aggregator"
         }
       ]
@@ -396,7 +360,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=251",
       "sourceEventId": "251",
-      "updatedAt": "2026-09-12T22:25:36.155739+00:00",
+      "updatedAt": "2026-09-13T22:30:19.609191+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -427,12 +391,48 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=378",
       "sourceEventId": "378",
-      "updatedAt": "2026-09-12T22:25:36.155869+00:00",
+      "updatedAt": "2026-09-13T22:30:19.609302+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
           "sourceName": "FRED",
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=378",
+          "sourceTier": "official_aggregator"
+        }
+      ]
+    },
+    {
+      "id": "fred-fomc-press-release-2026-09-18-42801c992d35",
+      "title": "FOMC Press Release",
+      "originalTitle": "FOMC Press Release",
+      "titleKo": "FOMC 보도자료",
+      "country": "US",
+      "category": "macro",
+      "importance": "high",
+      "scheduledDate": "2026-09-18",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "scheduled",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "FRED",
+      "sourceTier": "official_aggregator",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+      "sourceEventId": "101",
+      "updatedAt": "2026-09-13T22:30:19.609304+00:00",
+      "confidence": "cross_checked",
+      "sourceRefs": [
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+          "sourceTier": "official_aggregator"
+        },
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
           "sourceTier": "official_aggregator"
         }
       ]
@@ -458,7 +458,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=4",
       "sourceEventId": "4",
-      "updatedAt": "2026-09-12T22:25:36.155905+00:00",
+      "updatedAt": "2026-09-13T22:30:19.609332+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -489,7 +489,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=739",
       "sourceEventId": "739",
-      "updatedAt": "2026-09-12T22:25:36.155909+00:00",
+      "updatedAt": "2026-09-13T22:30:19.609334+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -500,14 +500,14 @@
       ]
     },
     {
-      "id": "fred-fomc-press-release-2026-09-19-7c3e5ebdafab",
+      "id": "fred-fomc-press-release-2026-09-20-8ca603964009",
       "title": "FOMC Press Release",
       "originalTitle": "FOMC Press Release",
       "titleKo": "FOMC 보도자료",
       "country": "US",
       "category": "macro",
       "importance": "high",
-      "scheduledDate": "2026-09-19",
+      "scheduledDate": "2026-09-20",
       "scheduledAt": null,
       "timezone": null,
       "timePrecision": "date",
@@ -520,7 +520,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
       "sourceEventId": "101",
-      "updatedAt": "2026-09-12T22:25:36.155993+00:00",
+      "updatedAt": "2026-09-13T22:30:19.609412+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -556,7 +556,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=92",
       "sourceEventId": "92",
-      "updatedAt": "2026-09-12T22:25:36.155638+00:00",
+      "updatedAt": "2026-09-13T22:30:19.609117+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -587,7 +587,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=13",
       "sourceEventId": "13",
-      "updatedAt": "2026-09-12T22:25:36.155877+00:00",
+      "updatedAt": "2026-09-13T22:30:19.609308+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -598,10 +598,10 @@
       ]
     },
     {
-      "id": "fred-coinbase-cryptocurrencies-2026-09-13-b0b46785cbdc",
-      "title": "Coinbase Cryptocurrencies",
-      "originalTitle": "Coinbase Cryptocurrencies",
-      "titleKo": "코인베이스 암호화폐 시세",
+      "id": "fred-income-and-poverty-in-the-united-states-2026-09-13-cb1dfa7973a8",
+      "title": "Income and Poverty in the United States",
+      "originalTitle": "Income and Poverty in the United States",
+      "titleKo": "미국 소득·빈곤 통계",
       "country": "US",
       "category": "macro",
       "importance": "low",
@@ -616,19 +616,14 @@
       "unit": null,
       "sourceName": "FRED",
       "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=441",
-      "sourceEventId": "441",
-      "updatedAt": "2026-09-12T22:25:36.155265+00:00",
-      "confidence": "cross_checked",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=249",
+      "sourceEventId": "249",
+      "updatedAt": "2026-09-13T22:30:19.608801+00:00",
+      "confidence": "single_source",
       "sourceRefs": [
         {
           "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=441",
-          "sourceTier": "official_aggregator"
-        },
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=441",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=249",
           "sourceTier": "official_aggregator"
         }
       ]
@@ -654,7 +649,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=200",
       "sourceEventId": "200",
-      "updatedAt": "2026-09-12T22:25:36.155271+00:00",
+      "updatedAt": "2026-09-13T22:30:19.608804+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -665,6 +660,42 @@
         {
           "sourceName": "FRED",
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=200",
+          "sourceTier": "official_aggregator"
+        }
+      ]
+    },
+    {
+      "id": "fred-coinbase-cryptocurrencies-2026-09-14-5941de366d12",
+      "title": "Coinbase Cryptocurrencies",
+      "originalTitle": "Coinbase Cryptocurrencies",
+      "titleKo": "코인베이스 암호화폐 시세",
+      "country": "US",
+      "category": "macro",
+      "importance": "low",
+      "scheduledDate": "2026-09-14",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "scheduled",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "FRED",
+      "sourceTier": "official_aggregator",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=441",
+      "sourceEventId": "441",
+      "updatedAt": "2026-09-13T22:30:19.608807+00:00",
+      "confidence": "cross_checked",
+      "sourceRefs": [
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=441",
+          "sourceTier": "official_aggregator"
+        },
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=441",
           "sourceTier": "official_aggregator"
         }
       ]
@@ -690,7 +721,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=86",
       "sourceEventId": "86",
-      "updatedAt": "2026-09-12T22:25:36.155279+00:00",
+      "updatedAt": "2026-09-13T22:30:19.608810+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -726,7 +757,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=72",
       "sourceEventId": "72",
-      "updatedAt": "2026-09-12T22:25:36.155284+00:00",
+      "updatedAt": "2026-09-13T22:30:19.608814+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -762,7 +793,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=279",
       "sourceEventId": "279",
-      "updatedAt": "2026-09-12T22:25:36.155288+00:00",
+      "updatedAt": "2026-09-13T22:30:19.608817+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -798,7 +829,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=502",
       "sourceEventId": "502",
-      "updatedAt": "2026-09-12T22:25:36.155292+00:00",
+      "updatedAt": "2026-09-13T22:30:19.608821+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -834,7 +865,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=17",
       "sourceEventId": "17",
-      "updatedAt": "2026-09-12T22:25:36.155302+00:00",
+      "updatedAt": "2026-09-13T22:30:19.608829+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -865,7 +896,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=18",
       "sourceEventId": "18",
-      "updatedAt": "2026-09-12T22:25:36.155306+00:00",
+      "updatedAt": "2026-09-13T22:30:19.608833+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -901,7 +932,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=504",
       "sourceEventId": "504",
-      "updatedAt": "2026-09-12T22:25:36.155310+00:00",
+      "updatedAt": "2026-09-13T22:30:19.608836+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -937,7 +968,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=209",
       "sourceEventId": "209",
-      "updatedAt": "2026-09-12T22:25:36.155314+00:00",
+      "updatedAt": "2026-09-13T22:30:19.608839+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -973,7 +1004,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=185",
       "sourceEventId": "185",
-      "updatedAt": "2026-09-12T22:25:36.155319+00:00",
+      "updatedAt": "2026-09-13T22:30:19.608843+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -1009,7 +1040,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=304",
       "sourceEventId": "304",
-      "updatedAt": "2026-09-12T22:25:36.155323+00:00",
+      "updatedAt": "2026-09-13T22:30:19.608846+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -1045,7 +1076,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=239",
       "sourceEventId": "239",
-      "updatedAt": "2026-09-12T22:25:36.155328+00:00",
+      "updatedAt": "2026-09-13T22:30:19.608850+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -1076,7 +1107,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=484",
       "sourceEventId": "484",
-      "updatedAt": "2026-09-12T22:25:36.155339+00:00",
+      "updatedAt": "2026-09-13T22:30:19.608859+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -1112,7 +1143,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=427",
       "sourceEventId": "427",
-      "updatedAt": "2026-09-12T22:25:36.155343+00:00",
+      "updatedAt": "2026-09-13T22:30:19.608863+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -1148,7 +1179,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=328",
       "sourceEventId": "328",
-      "updatedAt": "2026-09-12T22:25:36.155347+00:00",
+      "updatedAt": "2026-09-13T22:30:19.608866+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -1184,7 +1215,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=287",
       "sourceEventId": "287",
-      "updatedAt": "2026-09-12T22:25:36.155351+00:00",
+      "updatedAt": "2026-09-13T22:30:19.608869+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -1215,7 +1246,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=473",
       "sourceEventId": "473",
-      "updatedAt": "2026-09-12T22:25:36.155355+00:00",
+      "updatedAt": "2026-09-13T22:30:19.608872+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -1251,7 +1282,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=375",
       "sourceEventId": "375",
-      "updatedAt": "2026-09-12T22:25:36.155359+00:00",
+      "updatedAt": "2026-09-13T22:30:19.608876+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -1287,7 +1318,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=242",
       "sourceEventId": "242",
-      "updatedAt": "2026-09-12T22:25:36.155363+00:00",
+      "updatedAt": "2026-09-13T22:30:19.608879+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -1323,7 +1354,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=2",
       "sourceEventId": "2",
-      "updatedAt": "2026-09-12T22:25:36.155367+00:00",
+      "updatedAt": "2026-09-13T22:30:19.608883+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -1359,7 +1390,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=445",
       "sourceEventId": "445",
-      "updatedAt": "2026-09-12T22:25:36.155371+00:00",
+      "updatedAt": "2026-09-13T22:30:19.608886+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -1395,7 +1426,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=483",
       "sourceEventId": "483",
-      "updatedAt": "2026-09-12T22:25:36.155375+00:00",
+      "updatedAt": "2026-09-13T22:30:19.608890+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -1431,7 +1462,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=492",
       "sourceEventId": "492",
-      "updatedAt": "2026-09-12T22:25:36.155380+00:00",
+      "updatedAt": "2026-09-13T22:30:19.608893+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -1467,7 +1498,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=379",
       "sourceEventId": "379",
-      "updatedAt": "2026-09-12T22:25:36.155385+00:00",
+      "updatedAt": "2026-09-13T22:30:19.608896+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -1503,7 +1534,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=1105",
       "sourceEventId": "1105",
-      "updatedAt": "2026-09-12T22:25:36.155389+00:00",
+      "updatedAt": "2026-09-13T22:30:19.608900+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -1539,7 +1570,7 @@
       "sourceTier": "official",
       "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-09",
       "sourceEventId": null,
-      "updatedAt": "2026-09-12T22:25:36.158471+00:00",
+      "updatedAt": "2026-09-13T22:30:19.611602+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -1570,49 +1601,13 @@
       "sourceTier": "official",
       "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-09",
       "sourceEventId": null,
-      "updatedAt": "2026-09-12T22:25:36.158479+00:00",
+      "updatedAt": "2026-09-13T22:30:19.611608+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
           "sourceName": "BOK",
           "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-09",
           "sourceTier": "official"
-        }
-      ]
-    },
-    {
-      "id": "fred-coinbase-cryptocurrencies-2026-09-15-6ec13123c879",
-      "title": "Coinbase Cryptocurrencies",
-      "originalTitle": "Coinbase Cryptocurrencies",
-      "titleKo": "코인베이스 암호화폐 시세",
-      "country": "US",
-      "category": "macro",
-      "importance": "low",
-      "scheduledDate": "2026-09-15",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "FRED",
-      "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=441",
-      "sourceEventId": "441",
-      "updatedAt": "2026-09-12T22:25:36.155397+00:00",
-      "confidence": "cross_checked",
-      "sourceRefs": [
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=441",
-          "sourceTier": "official_aggregator"
-        },
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=441",
-          "sourceTier": "official_aggregator"
         }
       ]
     },
@@ -1637,7 +1632,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=321",
       "sourceEventId": "321",
-      "updatedAt": "2026-09-12T22:25:36.155413+00:00",
+      "updatedAt": "2026-09-13T22:30:19.608921+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -1668,7 +1663,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=183",
       "sourceEventId": "183",
-      "updatedAt": "2026-09-12T22:25:36.155427+00:00",
+      "updatedAt": "2026-09-13T22:30:19.608933+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -1699,7 +1694,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=271",
       "sourceEventId": "271",
-      "updatedAt": "2026-09-12T22:25:36.155506+00:00",
+      "updatedAt": "2026-09-13T22:30:19.608998+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -1730,7 +1725,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=9",
       "sourceEventId": "9",
-      "updatedAt": "2026-09-12T22:25:36.155511+00:00",
+      "updatedAt": "2026-09-13T22:30:19.609003+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -1761,7 +1756,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=322",
       "sourceEventId": "322",
-      "updatedAt": "2026-09-12T22:25:36.155515+00:00",
+      "updatedAt": "2026-09-13T22:30:19.609006+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -1792,7 +1787,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=200",
       "sourceEventId": "200",
-      "updatedAt": "2026-09-12T22:25:36.155519+00:00",
+      "updatedAt": "2026-09-13T22:30:19.609009+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -1828,7 +1823,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=494",
       "sourceEventId": "494",
-      "updatedAt": "2026-09-12T22:25:36.155524+00:00",
+      "updatedAt": "2026-09-13T22:30:19.609013+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -1859,12 +1854,48 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=221",
       "sourceEventId": "221",
-      "updatedAt": "2026-09-12T22:25:36.155529+00:00",
+      "updatedAt": "2026-09-13T22:30:19.609017+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
           "sourceName": "FRED",
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=221",
+          "sourceTier": "official_aggregator"
+        }
+      ]
+    },
+    {
+      "id": "fred-coinbase-cryptocurrencies-2026-09-16-0ae4f26e4e71",
+      "title": "Coinbase Cryptocurrencies",
+      "originalTitle": "Coinbase Cryptocurrencies",
+      "titleKo": "코인베이스 암호화폐 시세",
+      "country": "US",
+      "category": "macro",
+      "importance": "low",
+      "scheduledDate": "2026-09-16",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "scheduled",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "FRED",
+      "sourceTier": "official_aggregator",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=441",
+      "sourceEventId": "441",
+      "updatedAt": "2026-09-13T22:30:19.609020+00:00",
+      "confidence": "cross_checked",
+      "sourceRefs": [
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=441",
+          "sourceTier": "official_aggregator"
+        },
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=441",
           "sourceTier": "official_aggregator"
         }
       ]
@@ -1890,7 +1921,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=86",
       "sourceEventId": "86",
-      "updatedAt": "2026-09-12T22:25:36.155537+00:00",
+      "updatedAt": "2026-09-13T22:30:19.609024+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -1926,7 +1957,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=72",
       "sourceEventId": "72",
-      "updatedAt": "2026-09-12T22:25:36.155541+00:00",
+      "updatedAt": "2026-09-13T22:30:19.609027+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -1962,7 +1993,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=279",
       "sourceEventId": "279",
-      "updatedAt": "2026-09-12T22:25:36.155545+00:00",
+      "updatedAt": "2026-09-13T22:30:19.609038+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -1998,7 +2029,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=502",
       "sourceEventId": "502",
-      "updatedAt": "2026-09-12T22:25:36.155549+00:00",
+      "updatedAt": "2026-09-13T22:30:19.609042+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -2034,7 +2065,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=18",
       "sourceEventId": "18",
-      "updatedAt": "2026-09-12T22:25:36.155561+00:00",
+      "updatedAt": "2026-09-13T22:30:19.609052+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -2045,122 +2076,12 @@
         {
           "sourceName": "FRED",
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=18",
-          "sourceTier": "official_aggregator"
-        }
-      ]
-    },
-    {
-      "id": "fred-historical-overnight-ameribor-unsecured-interest-rate-2026-09-16-d56395c294fe",
-      "title": "Historical Overnight AMERIBOR Unsecured Interest Rate",
-      "originalTitle": "Historical Overnight AMERIBOR Unsecured Interest Rate",
-      "titleKo": "AMERIBOR 무담보 익일물 금리(과거 시계열)",
-      "country": "US",
-      "category": "macro",
-      "importance": "low",
-      "scheduledDate": "2026-09-16",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "FRED",
-      "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=504",
-      "sourceEventId": "504",
-      "updatedAt": "2026-09-12T22:25:36.155565+00:00",
-      "confidence": "cross_checked",
-      "sourceRefs": [
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=504",
-          "sourceTier": "official_aggregator"
-        },
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=504",
           "sourceTier": "official_aggregator"
         }
       ]
     }
   ],
   "byDate": {
-    "2026-09-13": [
-      {
-        "id": "fred-fomc-press-release-2026-09-13-08b5bd7224cc",
-        "title": "FOMC Press Release",
-        "originalTitle": "FOMC Press Release",
-        "titleKo": "FOMC 보도자료",
-        "country": "US",
-        "category": "macro",
-        "importance": "high",
-        "scheduledDate": "2026-09-13",
-        "scheduledAt": null,
-        "timezone": null,
-        "timePrecision": "date",
-        "status": "scheduled",
-        "previous": null,
-        "consensus": null,
-        "actual": null,
-        "unit": null,
-        "sourceName": "FRED",
-        "sourceTier": "official_aggregator",
-        "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-        "sourceEventId": "101",
-        "updatedAt": "2026-09-12T22:25:36.155267+00:00",
-        "confidence": "cross_checked",
-        "sourceRefs": [
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-            "sourceTier": "official_aggregator"
-          },
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-            "sourceTier": "official_aggregator"
-          }
-        ]
-      },
-      {
-        "id": "fred-coinbase-cryptocurrencies-2026-09-13-b0b46785cbdc",
-        "title": "Coinbase Cryptocurrencies",
-        "originalTitle": "Coinbase Cryptocurrencies",
-        "titleKo": "코인베이스 암호화폐 시세",
-        "country": "US",
-        "category": "macro",
-        "importance": "low",
-        "scheduledDate": "2026-09-13",
-        "scheduledAt": null,
-        "timezone": null,
-        "timePrecision": "date",
-        "status": "scheduled",
-        "previous": null,
-        "consensus": null,
-        "actual": null,
-        "unit": null,
-        "sourceName": "FRED",
-        "sourceTier": "official_aggregator",
-        "sourceUrl": "https://fred.stlouisfed.org/release?rid=441",
-        "sourceEventId": "441",
-        "updatedAt": "2026-09-12T22:25:36.155265+00:00",
-        "confidence": "cross_checked",
-        "sourceRefs": [
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=441",
-            "sourceTier": "official_aggregator"
-          },
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=441",
-            "sourceTier": "official_aggregator"
-          }
-        ]
-      }
-    ],
     "2026-09-14": [
       {
         "id": "fred-federal-funds-data-2026-09-14-e46d91666ce3",
@@ -2183,7 +2104,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=378",
         "sourceEventId": "378",
-        "updatedAt": "2026-09-12T22:25:36.155295+00:00",
+        "updatedAt": "2026-09-13T22:30:19.608823+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -2194,6 +2115,42 @@
           {
             "sourceName": "FRED",
             "sourceUrl": "https://fred.stlouisfed.org/release?rid=378",
+            "sourceTier": "official_aggregator"
+          }
+        ]
+      },
+      {
+        "id": "fred-fomc-press-release-2026-09-14-926ed5ccde3e",
+        "title": "FOMC Press Release",
+        "originalTitle": "FOMC Press Release",
+        "titleKo": "FOMC 보도자료",
+        "country": "US",
+        "category": "macro",
+        "importance": "high",
+        "scheduledDate": "2026-09-14",
+        "scheduledAt": null,
+        "timezone": null,
+        "timePrecision": "date",
+        "status": "scheduled",
+        "previous": null,
+        "consensus": null,
+        "actual": null,
+        "unit": null,
+        "sourceName": "FRED",
+        "sourceTier": "official_aggregator",
+        "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+        "sourceEventId": "101",
+        "updatedAt": "2026-09-13T22:30:19.608826+00:00",
+        "confidence": "cross_checked",
+        "sourceRefs": [
+          {
+            "sourceName": "FRED",
+            "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+            "sourceTier": "official_aggregator"
+          },
+          {
+            "sourceName": "FRED",
+            "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
             "sourceTier": "official_aggregator"
           }
         ]
@@ -2219,7 +2176,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=4",
         "sourceEventId": "4",
-        "updatedAt": "2026-09-12T22:25:36.155331+00:00",
+        "updatedAt": "2026-09-13T22:30:19.608853+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -2255,7 +2212,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=739",
         "sourceEventId": "739",
-        "updatedAt": "2026-09-12T22:25:36.155334+00:00",
+        "updatedAt": "2026-09-13T22:30:19.608856+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -2291,7 +2248,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=200",
         "sourceEventId": "200",
-        "updatedAt": "2026-09-12T22:25:36.155271+00:00",
+        "updatedAt": "2026-09-13T22:30:19.608804+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -2302,6 +2259,42 @@
           {
             "sourceName": "FRED",
             "sourceUrl": "https://fred.stlouisfed.org/release?rid=200",
+            "sourceTier": "official_aggregator"
+          }
+        ]
+      },
+      {
+        "id": "fred-coinbase-cryptocurrencies-2026-09-14-5941de366d12",
+        "title": "Coinbase Cryptocurrencies",
+        "originalTitle": "Coinbase Cryptocurrencies",
+        "titleKo": "코인베이스 암호화폐 시세",
+        "country": "US",
+        "category": "macro",
+        "importance": "low",
+        "scheduledDate": "2026-09-14",
+        "scheduledAt": null,
+        "timezone": null,
+        "timePrecision": "date",
+        "status": "scheduled",
+        "previous": null,
+        "consensus": null,
+        "actual": null,
+        "unit": null,
+        "sourceName": "FRED",
+        "sourceTier": "official_aggregator",
+        "sourceUrl": "https://fred.stlouisfed.org/release?rid=441",
+        "sourceEventId": "441",
+        "updatedAt": "2026-09-13T22:30:19.608807+00:00",
+        "confidence": "cross_checked",
+        "sourceRefs": [
+          {
+            "sourceName": "FRED",
+            "sourceUrl": "https://fred.stlouisfed.org/release?rid=441",
+            "sourceTier": "official_aggregator"
+          },
+          {
+            "sourceName": "FRED",
+            "sourceUrl": "https://fred.stlouisfed.org/release?rid=441",
             "sourceTier": "official_aggregator"
           }
         ]
@@ -2327,7 +2320,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=86",
         "sourceEventId": "86",
-        "updatedAt": "2026-09-12T22:25:36.155279+00:00",
+        "updatedAt": "2026-09-13T22:30:19.608810+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -2363,7 +2356,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=72",
         "sourceEventId": "72",
-        "updatedAt": "2026-09-12T22:25:36.155284+00:00",
+        "updatedAt": "2026-09-13T22:30:19.608814+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -2399,7 +2392,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=279",
         "sourceEventId": "279",
-        "updatedAt": "2026-09-12T22:25:36.155288+00:00",
+        "updatedAt": "2026-09-13T22:30:19.608817+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -2435,7 +2428,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=502",
         "sourceEventId": "502",
-        "updatedAt": "2026-09-12T22:25:36.155292+00:00",
+        "updatedAt": "2026-09-13T22:30:19.608821+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -2471,7 +2464,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=17",
         "sourceEventId": "17",
-        "updatedAt": "2026-09-12T22:25:36.155302+00:00",
+        "updatedAt": "2026-09-13T22:30:19.608829+00:00",
         "confidence": "single_source",
         "sourceRefs": [
           {
@@ -2502,7 +2495,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=18",
         "sourceEventId": "18",
-        "updatedAt": "2026-09-12T22:25:36.155306+00:00",
+        "updatedAt": "2026-09-13T22:30:19.608833+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -2538,7 +2531,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=504",
         "sourceEventId": "504",
-        "updatedAt": "2026-09-12T22:25:36.155310+00:00",
+        "updatedAt": "2026-09-13T22:30:19.608836+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -2574,7 +2567,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=209",
         "sourceEventId": "209",
-        "updatedAt": "2026-09-12T22:25:36.155314+00:00",
+        "updatedAt": "2026-09-13T22:30:19.608839+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -2610,7 +2603,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=185",
         "sourceEventId": "185",
-        "updatedAt": "2026-09-12T22:25:36.155319+00:00",
+        "updatedAt": "2026-09-13T22:30:19.608843+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -2646,7 +2639,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=304",
         "sourceEventId": "304",
-        "updatedAt": "2026-09-12T22:25:36.155323+00:00",
+        "updatedAt": "2026-09-13T22:30:19.608846+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -2682,7 +2675,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=239",
         "sourceEventId": "239",
-        "updatedAt": "2026-09-12T22:25:36.155328+00:00",
+        "updatedAt": "2026-09-13T22:30:19.608850+00:00",
         "confidence": "single_source",
         "sourceRefs": [
           {
@@ -2713,7 +2706,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=484",
         "sourceEventId": "484",
-        "updatedAt": "2026-09-12T22:25:36.155339+00:00",
+        "updatedAt": "2026-09-13T22:30:19.608859+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -2749,7 +2742,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=427",
         "sourceEventId": "427",
-        "updatedAt": "2026-09-12T22:25:36.155343+00:00",
+        "updatedAt": "2026-09-13T22:30:19.608863+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -2785,7 +2778,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=328",
         "sourceEventId": "328",
-        "updatedAt": "2026-09-12T22:25:36.155347+00:00",
+        "updatedAt": "2026-09-13T22:30:19.608866+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -2821,7 +2814,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=287",
         "sourceEventId": "287",
-        "updatedAt": "2026-09-12T22:25:36.155351+00:00",
+        "updatedAt": "2026-09-13T22:30:19.608869+00:00",
         "confidence": "single_source",
         "sourceRefs": [
           {
@@ -2852,7 +2845,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=473",
         "sourceEventId": "473",
-        "updatedAt": "2026-09-12T22:25:36.155355+00:00",
+        "updatedAt": "2026-09-13T22:30:19.608872+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -2888,7 +2881,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=375",
         "sourceEventId": "375",
-        "updatedAt": "2026-09-12T22:25:36.155359+00:00",
+        "updatedAt": "2026-09-13T22:30:19.608876+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -2924,7 +2917,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=242",
         "sourceEventId": "242",
-        "updatedAt": "2026-09-12T22:25:36.155363+00:00",
+        "updatedAt": "2026-09-13T22:30:19.608879+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -2960,7 +2953,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=2",
         "sourceEventId": "2",
-        "updatedAt": "2026-09-12T22:25:36.155367+00:00",
+        "updatedAt": "2026-09-13T22:30:19.608883+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -2996,7 +2989,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=445",
         "sourceEventId": "445",
-        "updatedAt": "2026-09-12T22:25:36.155371+00:00",
+        "updatedAt": "2026-09-13T22:30:19.608886+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -3032,7 +3025,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=483",
         "sourceEventId": "483",
-        "updatedAt": "2026-09-12T22:25:36.155375+00:00",
+        "updatedAt": "2026-09-13T22:30:19.608890+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -3068,7 +3061,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=492",
         "sourceEventId": "492",
-        "updatedAt": "2026-09-12T22:25:36.155380+00:00",
+        "updatedAt": "2026-09-13T22:30:19.608893+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -3104,7 +3097,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=379",
         "sourceEventId": "379",
-        "updatedAt": "2026-09-12T22:25:36.155385+00:00",
+        "updatedAt": "2026-09-13T22:30:19.608896+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -3140,7 +3133,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=1105",
         "sourceEventId": "1105",
-        "updatedAt": "2026-09-12T22:25:36.155389+00:00",
+        "updatedAt": "2026-09-13T22:30:19.608900+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -3151,235 +3144,6 @@
           {
             "sourceName": "FRED",
             "sourceUrl": "https://fred.stlouisfed.org/release?rid=1105",
-            "sourceTier": "official_aggregator"
-          }
-        ]
-      }
-    ],
-    "2026-09-15": [
-      {
-        "id": "fred-fomc-press-release-2026-09-15-755997b0f184",
-        "title": "FOMC Press Release",
-        "originalTitle": "FOMC Press Release",
-        "titleKo": "FOMC 보도자료",
-        "country": "US",
-        "category": "macro",
-        "importance": "high",
-        "scheduledDate": "2026-09-15",
-        "scheduledAt": null,
-        "timezone": null,
-        "timePrecision": "date",
-        "status": "scheduled",
-        "previous": null,
-        "consensus": null,
-        "actual": null,
-        "unit": null,
-        "sourceName": "FRED",
-        "sourceTier": "official_aggregator",
-        "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-        "sourceEventId": "101",
-        "updatedAt": "2026-09-12T22:25:36.155422+00:00",
-        "confidence": "cross_checked",
-        "sourceRefs": [
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-            "sourceTier": "official_aggregator"
-          },
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-            "sourceTier": "official_aggregator"
-          }
-        ]
-      },
-      {
-        "id": "bok-2026-7-2026-09-15-473ce436e996",
-        "title": "2026년 7월 통화 및 유동성",
-        "originalTitle": "2026년 7월 통화 및 유동성",
-        "titleKo": "2026년 7월 통화 및 유동성",
-        "country": "KR",
-        "category": "macro",
-        "importance": "low",
-        "scheduledDate": "2026-09-15",
-        "scheduledAt": null,
-        "timezone": null,
-        "timePrecision": "date",
-        "status": "scheduled",
-        "previous": null,
-        "consensus": null,
-        "actual": null,
-        "unit": null,
-        "sourceName": "BOK",
-        "sourceTier": "official",
-        "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-09",
-        "sourceEventId": null,
-        "updatedAt": "2026-09-12T22:25:36.158471+00:00",
-        "confidence": "single_source",
-        "sourceRefs": [
-          {
-            "sourceName": "BOK",
-            "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-09",
-            "sourceTier": "official"
-          }
-        ]
-      },
-      {
-        "id": "bok-2026-8-2026-09-15-98695a3adeca",
-        "title": "2026년 8월 수출입물가지수 및 무역지수(잠정)",
-        "originalTitle": "2026년 8월 수출입물가지수 및 무역지수(잠정)",
-        "titleKo": "2026년 8월 수출입물가지수 및 무역지수(잠정)",
-        "country": "KR",
-        "category": "macro",
-        "importance": "low",
-        "scheduledDate": "2026-09-15",
-        "scheduledAt": null,
-        "timezone": null,
-        "timePrecision": "date",
-        "status": "scheduled",
-        "previous": null,
-        "consensus": null,
-        "actual": null,
-        "unit": null,
-        "sourceName": "BOK",
-        "sourceTier": "official",
-        "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-09",
-        "sourceEventId": null,
-        "updatedAt": "2026-09-12T22:25:36.158479+00:00",
-        "confidence": "single_source",
-        "sourceRefs": [
-          {
-            "sourceName": "BOK",
-            "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-09",
-            "sourceTier": "official"
-          }
-        ]
-      },
-      {
-        "id": "fred-coinbase-cryptocurrencies-2026-09-15-6ec13123c879",
-        "title": "Coinbase Cryptocurrencies",
-        "originalTitle": "Coinbase Cryptocurrencies",
-        "titleKo": "코인베이스 암호화폐 시세",
-        "country": "US",
-        "category": "macro",
-        "importance": "low",
-        "scheduledDate": "2026-09-15",
-        "scheduledAt": null,
-        "timezone": null,
-        "timePrecision": "date",
-        "status": "scheduled",
-        "previous": null,
-        "consensus": null,
-        "actual": null,
-        "unit": null,
-        "sourceName": "FRED",
-        "sourceTier": "official_aggregator",
-        "sourceUrl": "https://fred.stlouisfed.org/release?rid=441",
-        "sourceEventId": "441",
-        "updatedAt": "2026-09-12T22:25:36.155397+00:00",
-        "confidence": "cross_checked",
-        "sourceRefs": [
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=441",
-            "sourceTier": "official_aggregator"
-          },
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=441",
-            "sourceTier": "official_aggregator"
-          }
-        ]
-      },
-      {
-        "id": "fred-empire-state-manufacturing-survey-2026-09-15-86c66334a66e",
-        "title": "Empire State Manufacturing Survey",
-        "originalTitle": "Empire State Manufacturing Survey",
-        "titleKo": "엠파이어스테이트 제조업지수(뉴욕 연은)",
-        "country": "US",
-        "category": "macro",
-        "importance": "low",
-        "scheduledDate": "2026-09-15",
-        "scheduledAt": null,
-        "timezone": null,
-        "timePrecision": "date",
-        "status": "scheduled",
-        "previous": null,
-        "consensus": null,
-        "actual": null,
-        "unit": null,
-        "sourceName": "FRED",
-        "sourceTier": "official_aggregator",
-        "sourceUrl": "https://fred.stlouisfed.org/release?rid=321",
-        "sourceEventId": "321",
-        "updatedAt": "2026-09-12T22:25:36.155413+00:00",
-        "confidence": "single_source",
-        "sourceRefs": [
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=321",
-            "sourceTier": "official_aggregator"
-          }
-        ]
-      },
-      {
-        "id": "fred-gasoline-and-diesel-fuel-update-2026-09-15-85b6ad4a6378",
-        "title": "Gasoline and Diesel Fuel Update",
-        "originalTitle": "Gasoline and Diesel Fuel Update",
-        "titleKo": "휘발유·경유 가격 업데이트",
-        "country": "US",
-        "category": "macro",
-        "importance": "low",
-        "scheduledDate": "2026-09-15",
-        "scheduledAt": null,
-        "timezone": null,
-        "timePrecision": "date",
-        "status": "scheduled",
-        "previous": null,
-        "consensus": null,
-        "actual": null,
-        "unit": null,
-        "sourceName": "FRED",
-        "sourceTier": "official_aggregator",
-        "sourceUrl": "https://fred.stlouisfed.org/release?rid=183",
-        "sourceEventId": "183",
-        "updatedAt": "2026-09-12T22:25:36.155427+00:00",
-        "confidence": "single_source",
-        "sourceRefs": [
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=183",
-            "sourceTier": "official_aggregator"
-          }
-        ]
-      },
-      {
-        "id": "fred-weekly-financial-statements-of-the-eurosystem-2026-09-15-e5e7359909d3",
-        "title": "Weekly Financial Statements of the Eurosystem",
-        "originalTitle": "Weekly Financial Statements of the Eurosystem",
-        "titleKo": "유로시스템 주간 재무제표",
-        "country": "US",
-        "category": "macro",
-        "importance": "low",
-        "scheduledDate": "2026-09-15",
-        "scheduledAt": null,
-        "timezone": null,
-        "timePrecision": "date",
-        "status": "scheduled",
-        "previous": null,
-        "consensus": null,
-        "actual": null,
-        "unit": null,
-        "sourceName": "FRED",
-        "sourceTier": "official_aggregator",
-        "sourceUrl": "https://fred.stlouisfed.org/release?rid=271",
-        "sourceEventId": "271",
-        "updatedAt": "2026-09-12T22:25:36.155506+00:00",
-        "confidence": "single_source",
-        "sourceRefs": [
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=271",
             "sourceTier": "official_aggregator"
           }
         ]
@@ -3407,7 +3171,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=378",
         "sourceEventId": "378",
-        "updatedAt": "2026-09-12T22:25:36.155552+00:00",
+        "updatedAt": "2026-09-13T22:30:19.609044+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -3418,6 +3182,42 @@
           {
             "sourceName": "FRED",
             "sourceUrl": "https://fred.stlouisfed.org/release?rid=378",
+            "sourceTier": "official_aggregator"
+          }
+        ]
+      },
+      {
+        "id": "fred-fomc-press-release-2026-09-16-2ba6ebe54474",
+        "title": "FOMC Press Release",
+        "originalTitle": "FOMC Press Release",
+        "titleKo": "FOMC 보도자료",
+        "country": "US",
+        "category": "macro",
+        "importance": "high",
+        "scheduledDate": "2026-09-16",
+        "scheduledAt": null,
+        "timezone": null,
+        "timePrecision": "date",
+        "status": "scheduled",
+        "previous": null,
+        "consensus": null,
+        "actual": null,
+        "unit": null,
+        "sourceName": "FRED",
+        "sourceTier": "official_aggregator",
+        "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+        "sourceEventId": "101",
+        "updatedAt": "2026-09-13T22:30:19.609046+00:00",
+        "confidence": "cross_checked",
+        "sourceRefs": [
+          {
+            "sourceName": "FRED",
+            "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+            "sourceTier": "official_aggregator"
+          },
+          {
+            "sourceName": "FRED",
+            "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
             "sourceTier": "official_aggregator"
           }
         ]
@@ -3443,7 +3243,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=386",
         "sourceEventId": "386",
-        "updatedAt": "2026-09-12T22:25:36.155557+00:00",
+        "updatedAt": "2026-09-13T22:30:19.609049+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -3479,7 +3279,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=4",
         "sourceEventId": "4",
-        "updatedAt": "2026-09-12T22:25:36.155580+00:00",
+        "updatedAt": "2026-09-13T22:30:19.609069+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -3515,7 +3315,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=739",
         "sourceEventId": "739",
-        "updatedAt": "2026-09-12T22:25:36.155584+00:00",
+        "updatedAt": "2026-09-13T22:30:19.609072+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -3551,7 +3351,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=92",
         "sourceEventId": "92",
-        "updatedAt": "2026-09-12T22:25:36.155638+00:00",
+        "updatedAt": "2026-09-13T22:30:19.609117+00:00",
         "confidence": "single_source",
         "sourceRefs": [
           {
@@ -3582,7 +3382,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=9",
         "sourceEventId": "9",
-        "updatedAt": "2026-09-12T22:25:36.155511+00:00",
+        "updatedAt": "2026-09-13T22:30:19.609003+00:00",
         "confidence": "single_source",
         "sourceRefs": [
           {
@@ -3613,7 +3413,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=322",
         "sourceEventId": "322",
-        "updatedAt": "2026-09-12T22:25:36.155515+00:00",
+        "updatedAt": "2026-09-13T22:30:19.609006+00:00",
         "confidence": "single_source",
         "sourceRefs": [
           {
@@ -3644,7 +3444,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=200",
         "sourceEventId": "200",
-        "updatedAt": "2026-09-12T22:25:36.155519+00:00",
+        "updatedAt": "2026-09-13T22:30:19.609009+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -3680,7 +3480,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=494",
         "sourceEventId": "494",
-        "updatedAt": "2026-09-12T22:25:36.155524+00:00",
+        "updatedAt": "2026-09-13T22:30:19.609013+00:00",
         "confidence": "single_source",
         "sourceRefs": [
           {
@@ -3711,12 +3511,48 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=221",
         "sourceEventId": "221",
-        "updatedAt": "2026-09-12T22:25:36.155529+00:00",
+        "updatedAt": "2026-09-13T22:30:19.609017+00:00",
         "confidence": "single_source",
         "sourceRefs": [
           {
             "sourceName": "FRED",
             "sourceUrl": "https://fred.stlouisfed.org/release?rid=221",
+            "sourceTier": "official_aggregator"
+          }
+        ]
+      },
+      {
+        "id": "fred-coinbase-cryptocurrencies-2026-09-16-0ae4f26e4e71",
+        "title": "Coinbase Cryptocurrencies",
+        "originalTitle": "Coinbase Cryptocurrencies",
+        "titleKo": "코인베이스 암호화폐 시세",
+        "country": "US",
+        "category": "macro",
+        "importance": "low",
+        "scheduledDate": "2026-09-16",
+        "scheduledAt": null,
+        "timezone": null,
+        "timePrecision": "date",
+        "status": "scheduled",
+        "previous": null,
+        "consensus": null,
+        "actual": null,
+        "unit": null,
+        "sourceName": "FRED",
+        "sourceTier": "official_aggregator",
+        "sourceUrl": "https://fred.stlouisfed.org/release?rid=441",
+        "sourceEventId": "441",
+        "updatedAt": "2026-09-13T22:30:19.609020+00:00",
+        "confidence": "cross_checked",
+        "sourceRefs": [
+          {
+            "sourceName": "FRED",
+            "sourceUrl": "https://fred.stlouisfed.org/release?rid=441",
+            "sourceTier": "official_aggregator"
+          },
+          {
+            "sourceName": "FRED",
+            "sourceUrl": "https://fred.stlouisfed.org/release?rid=441",
             "sourceTier": "official_aggregator"
           }
         ]
@@ -3742,7 +3578,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=86",
         "sourceEventId": "86",
-        "updatedAt": "2026-09-12T22:25:36.155537+00:00",
+        "updatedAt": "2026-09-13T22:30:19.609024+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -3778,7 +3614,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=72",
         "sourceEventId": "72",
-        "updatedAt": "2026-09-12T22:25:36.155541+00:00",
+        "updatedAt": "2026-09-13T22:30:19.609027+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -3814,7 +3650,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=279",
         "sourceEventId": "279",
-        "updatedAt": "2026-09-12T22:25:36.155545+00:00",
+        "updatedAt": "2026-09-13T22:30:19.609038+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -3850,7 +3686,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=502",
         "sourceEventId": "502",
-        "updatedAt": "2026-09-12T22:25:36.155549+00:00",
+        "updatedAt": "2026-09-13T22:30:19.609042+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -3886,7 +3722,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=18",
         "sourceEventId": "18",
-        "updatedAt": "2026-09-12T22:25:36.155561+00:00",
+        "updatedAt": "2026-09-13T22:30:19.609052+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -3897,84 +3733,12 @@
           {
             "sourceName": "FRED",
             "sourceUrl": "https://fred.stlouisfed.org/release?rid=18",
-            "sourceTier": "official_aggregator"
-          }
-        ]
-      },
-      {
-        "id": "fred-historical-overnight-ameribor-unsecured-interest-rate-2026-09-16-d56395c294fe",
-        "title": "Historical Overnight AMERIBOR Unsecured Interest Rate",
-        "originalTitle": "Historical Overnight AMERIBOR Unsecured Interest Rate",
-        "titleKo": "AMERIBOR 무담보 익일물 금리(과거 시계열)",
-        "country": "US",
-        "category": "macro",
-        "importance": "low",
-        "scheduledDate": "2026-09-16",
-        "scheduledAt": null,
-        "timezone": null,
-        "timePrecision": "date",
-        "status": "scheduled",
-        "previous": null,
-        "consensus": null,
-        "actual": null,
-        "unit": null,
-        "sourceName": "FRED",
-        "sourceTier": "official_aggregator",
-        "sourceUrl": "https://fred.stlouisfed.org/release?rid=504",
-        "sourceEventId": "504",
-        "updatedAt": "2026-09-12T22:25:36.155565+00:00",
-        "confidence": "cross_checked",
-        "sourceRefs": [
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=504",
-            "sourceTier": "official_aggregator"
-          },
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=504",
             "sourceTier": "official_aggregator"
           }
         ]
       }
     ],
     "2026-09-17": [
-      {
-        "id": "fred-fomc-press-release-2026-09-17-cac52cd1a06d",
-        "title": "FOMC Press Release",
-        "originalTitle": "FOMC Press Release",
-        "titleKo": "FOMC 보도자료",
-        "country": "US",
-        "category": "macro",
-        "importance": "high",
-        "scheduledDate": "2026-09-17",
-        "scheduledAt": null,
-        "timezone": null,
-        "timePrecision": "date",
-        "status": "scheduled",
-        "previous": null,
-        "consensus": null,
-        "actual": null,
-        "unit": null,
-        "sourceName": "FRED",
-        "sourceTier": "official_aggregator",
-        "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-        "sourceEventId": "101",
-        "updatedAt": "2026-09-12T22:25:36.155723+00:00",
-        "confidence": "cross_checked",
-        "sourceRefs": [
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-            "sourceTier": "official_aggregator"
-          },
-          {
-            "sourceName": "FRED",
-            "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-            "sourceTier": "official_aggregator"
-          }
-        ]
-      },
       {
         "id": "fred-harmonized-indices-of-consumer-prices-hicp-2026-09-17-fac75c9127e6",
         "title": "Harmonized Indices of Consumer Prices (HICP)",
@@ -3996,7 +3760,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=251",
         "sourceEventId": "251",
-        "updatedAt": "2026-09-12T22:25:36.155739+00:00",
+        "updatedAt": "2026-09-13T22:30:19.609191+00:00",
         "confidence": "single_source",
         "sourceRefs": [
           {
@@ -4029,12 +3793,48 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=378",
         "sourceEventId": "378",
-        "updatedAt": "2026-09-12T22:25:36.155869+00:00",
+        "updatedAt": "2026-09-13T22:30:19.609302+00:00",
         "confidence": "single_source",
         "sourceRefs": [
           {
             "sourceName": "FRED",
             "sourceUrl": "https://fred.stlouisfed.org/release?rid=378",
+            "sourceTier": "official_aggregator"
+          }
+        ]
+      },
+      {
+        "id": "fred-fomc-press-release-2026-09-18-42801c992d35",
+        "title": "FOMC Press Release",
+        "originalTitle": "FOMC Press Release",
+        "titleKo": "FOMC 보도자료",
+        "country": "US",
+        "category": "macro",
+        "importance": "high",
+        "scheduledDate": "2026-09-18",
+        "scheduledAt": null,
+        "timezone": null,
+        "timePrecision": "date",
+        "status": "scheduled",
+        "previous": null,
+        "consensus": null,
+        "actual": null,
+        "unit": null,
+        "sourceName": "FRED",
+        "sourceTier": "official_aggregator",
+        "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+        "sourceEventId": "101",
+        "updatedAt": "2026-09-13T22:30:19.609304+00:00",
+        "confidence": "cross_checked",
+        "sourceRefs": [
+          {
+            "sourceName": "FRED",
+            "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+            "sourceTier": "official_aggregator"
+          },
+          {
+            "sourceName": "FRED",
+            "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
             "sourceTier": "official_aggregator"
           }
         ]
@@ -4060,7 +3860,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=4",
         "sourceEventId": "4",
-        "updatedAt": "2026-09-12T22:25:36.155905+00:00",
+        "updatedAt": "2026-09-13T22:30:19.609332+00:00",
         "confidence": "single_source",
         "sourceRefs": [
           {
@@ -4091,7 +3891,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=739",
         "sourceEventId": "739",
-        "updatedAt": "2026-09-12T22:25:36.155909+00:00",
+        "updatedAt": "2026-09-13T22:30:19.609334+00:00",
         "confidence": "single_source",
         "sourceRefs": [
           {
@@ -4122,7 +3922,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=13",
         "sourceEventId": "13",
-        "updatedAt": "2026-09-12T22:25:36.155877+00:00",
+        "updatedAt": "2026-09-13T22:30:19.609308+00:00",
         "confidence": "single_source",
         "sourceRefs": [
           {
@@ -4133,16 +3933,16 @@
         ]
       }
     ],
-    "2026-09-19": [
+    "2026-09-20": [
       {
-        "id": "fred-fomc-press-release-2026-09-19-7c3e5ebdafab",
+        "id": "fred-fomc-press-release-2026-09-20-8ca603964009",
         "title": "FOMC Press Release",
         "originalTitle": "FOMC Press Release",
         "titleKo": "FOMC 보도자료",
         "country": "US",
         "category": "macro",
         "importance": "high",
-        "scheduledDate": "2026-09-19",
+        "scheduledDate": "2026-09-20",
         "scheduledAt": null,
         "timezone": null,
         "timePrecision": "date",
@@ -4155,7 +3955,7 @@
         "sourceTier": "official_aggregator",
         "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
         "sourceEventId": "101",
-        "updatedAt": "2026-09-12T22:25:36.155993+00:00",
+        "updatedAt": "2026-09-13T22:30:19.609412+00:00",
         "confidence": "cross_checked",
         "sourceRefs": [
           {
@@ -4166,6 +3966,196 @@
           {
             "sourceName": "FRED",
             "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+            "sourceTier": "official_aggregator"
+          }
+        ]
+      }
+    ],
+    "2026-09-13": [
+      {
+        "id": "fred-income-and-poverty-in-the-united-states-2026-09-13-cb1dfa7973a8",
+        "title": "Income and Poverty in the United States",
+        "originalTitle": "Income and Poverty in the United States",
+        "titleKo": "미국 소득·빈곤 통계",
+        "country": "US",
+        "category": "macro",
+        "importance": "low",
+        "scheduledDate": "2026-09-13",
+        "scheduledAt": null,
+        "timezone": null,
+        "timePrecision": "date",
+        "status": "scheduled",
+        "previous": null,
+        "consensus": null,
+        "actual": null,
+        "unit": null,
+        "sourceName": "FRED",
+        "sourceTier": "official_aggregator",
+        "sourceUrl": "https://fred.stlouisfed.org/release?rid=249",
+        "sourceEventId": "249",
+        "updatedAt": "2026-09-13T22:30:19.608801+00:00",
+        "confidence": "single_source",
+        "sourceRefs": [
+          {
+            "sourceName": "FRED",
+            "sourceUrl": "https://fred.stlouisfed.org/release?rid=249",
+            "sourceTier": "official_aggregator"
+          }
+        ]
+      }
+    ],
+    "2026-09-15": [
+      {
+        "id": "bok-2026-7-2026-09-15-473ce436e996",
+        "title": "2026년 7월 통화 및 유동성",
+        "originalTitle": "2026년 7월 통화 및 유동성",
+        "titleKo": "2026년 7월 통화 및 유동성",
+        "country": "KR",
+        "category": "macro",
+        "importance": "low",
+        "scheduledDate": "2026-09-15",
+        "scheduledAt": null,
+        "timezone": null,
+        "timePrecision": "date",
+        "status": "scheduled",
+        "previous": null,
+        "consensus": null,
+        "actual": null,
+        "unit": null,
+        "sourceName": "BOK",
+        "sourceTier": "official",
+        "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-09",
+        "sourceEventId": null,
+        "updatedAt": "2026-09-13T22:30:19.611602+00:00",
+        "confidence": "single_source",
+        "sourceRefs": [
+          {
+            "sourceName": "BOK",
+            "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-09",
+            "sourceTier": "official"
+          }
+        ]
+      },
+      {
+        "id": "bok-2026-8-2026-09-15-98695a3adeca",
+        "title": "2026년 8월 수출입물가지수 및 무역지수(잠정)",
+        "originalTitle": "2026년 8월 수출입물가지수 및 무역지수(잠정)",
+        "titleKo": "2026년 8월 수출입물가지수 및 무역지수(잠정)",
+        "country": "KR",
+        "category": "macro",
+        "importance": "low",
+        "scheduledDate": "2026-09-15",
+        "scheduledAt": null,
+        "timezone": null,
+        "timePrecision": "date",
+        "status": "scheduled",
+        "previous": null,
+        "consensus": null,
+        "actual": null,
+        "unit": null,
+        "sourceName": "BOK",
+        "sourceTier": "official",
+        "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-09",
+        "sourceEventId": null,
+        "updatedAt": "2026-09-13T22:30:19.611608+00:00",
+        "confidence": "single_source",
+        "sourceRefs": [
+          {
+            "sourceName": "BOK",
+            "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-09",
+            "sourceTier": "official"
+          }
+        ]
+      },
+      {
+        "id": "fred-empire-state-manufacturing-survey-2026-09-15-86c66334a66e",
+        "title": "Empire State Manufacturing Survey",
+        "originalTitle": "Empire State Manufacturing Survey",
+        "titleKo": "엠파이어스테이트 제조업지수(뉴욕 연은)",
+        "country": "US",
+        "category": "macro",
+        "importance": "low",
+        "scheduledDate": "2026-09-15",
+        "scheduledAt": null,
+        "timezone": null,
+        "timePrecision": "date",
+        "status": "scheduled",
+        "previous": null,
+        "consensus": null,
+        "actual": null,
+        "unit": null,
+        "sourceName": "FRED",
+        "sourceTier": "official_aggregator",
+        "sourceUrl": "https://fred.stlouisfed.org/release?rid=321",
+        "sourceEventId": "321",
+        "updatedAt": "2026-09-13T22:30:19.608921+00:00",
+        "confidence": "single_source",
+        "sourceRefs": [
+          {
+            "sourceName": "FRED",
+            "sourceUrl": "https://fred.stlouisfed.org/release?rid=321",
+            "sourceTier": "official_aggregator"
+          }
+        ]
+      },
+      {
+        "id": "fred-gasoline-and-diesel-fuel-update-2026-09-15-85b6ad4a6378",
+        "title": "Gasoline and Diesel Fuel Update",
+        "originalTitle": "Gasoline and Diesel Fuel Update",
+        "titleKo": "휘발유·경유 가격 업데이트",
+        "country": "US",
+        "category": "macro",
+        "importance": "low",
+        "scheduledDate": "2026-09-15",
+        "scheduledAt": null,
+        "timezone": null,
+        "timePrecision": "date",
+        "status": "scheduled",
+        "previous": null,
+        "consensus": null,
+        "actual": null,
+        "unit": null,
+        "sourceName": "FRED",
+        "sourceTier": "official_aggregator",
+        "sourceUrl": "https://fred.stlouisfed.org/release?rid=183",
+        "sourceEventId": "183",
+        "updatedAt": "2026-09-13T22:30:19.608933+00:00",
+        "confidence": "single_source",
+        "sourceRefs": [
+          {
+            "sourceName": "FRED",
+            "sourceUrl": "https://fred.stlouisfed.org/release?rid=183",
+            "sourceTier": "official_aggregator"
+          }
+        ]
+      },
+      {
+        "id": "fred-weekly-financial-statements-of-the-eurosystem-2026-09-15-e5e7359909d3",
+        "title": "Weekly Financial Statements of the Eurosystem",
+        "originalTitle": "Weekly Financial Statements of the Eurosystem",
+        "titleKo": "유로시스템 주간 재무제표",
+        "country": "US",
+        "category": "macro",
+        "importance": "low",
+        "scheduledDate": "2026-09-15",
+        "scheduledAt": null,
+        "timezone": null,
+        "timePrecision": "date",
+        "status": "scheduled",
+        "previous": null,
+        "consensus": null,
+        "actual": null,
+        "unit": null,
+        "sourceName": "FRED",
+        "sourceTier": "official_aggregator",
+        "sourceUrl": "https://fred.stlouisfed.org/release?rid=271",
+        "sourceEventId": "271",
+        "updatedAt": "2026-09-13T22:30:19.608998+00:00",
+        "confidence": "single_source",
+        "sourceRefs": [
+          {
+            "sourceName": "FRED",
+            "sourceUrl": "https://fred.stlouisfed.org/release?rid=271",
             "sourceTier": "official_aggregator"
           }
         ]
