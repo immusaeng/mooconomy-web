@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-12T06:42:53+09:00",
+  "updatedAt": "2026-09-15T06:43:45+09:00",
   "claims": {
     "2026-07-19-c1": {
       "schemaVersion": 1,
@@ -2369,7 +2369,7 @@
       },
       "thresholdRuleId": "pct_030",
       "confidence": null,
-      "status": "unresolved",
+      "status": "miss",
       "revision": {
         "version": 1,
         "contentHash": "b1d35756a517abf844bc270b4cf1781abb9a224bfd52d2ef7100e9bb158d9d23",
@@ -2381,7 +2381,28 @@
         "benchmarkValue": 26506.99,
         "benchmarkAsOf": "2026-09-04"
       },
-      "resolution": null
+      "resolution": {
+        "resolutionId": "2026-09-08-c1-res",
+        "claimId": "2026-09-08-c1",
+        "resolvedAt": "2026-09-15T06:43:38+09:00",
+        "verdict": "miss",
+        "metricId": "kospi",
+        "comparisonType": "excess_return",
+        "startValue": 6995.39,
+        "endValue": 6684.37,
+        "changeValue": -3.236654075573271,
+        "changeUnit": "%",
+        "benchmarkMetricId": "nasdaq",
+        "benchmarkStartValue": 26506.99,
+        "benchmarkEndValue": 26186.41,
+        "neutralLower": -0.3,
+        "neutralUpper": 0.3,
+        "neutralBand": 0.3,
+        "dataProvider": "KRX",
+        "sourceUrl": "",
+        "observedAt": "2026-09-14",
+        "explanation": "실제 변화가 예상한 상승 방향과 다르게 움직였습니다."
+      }
     },
     "2026-09-09-c1": {
       "schemaVersion": 1,
@@ -2540,6 +2561,46 @@
         "asOf": "2026-09-11",
         "benchmarkValue": 26333.04,
         "benchmarkAsOf": "2026-09-11"
+      },
+      "resolution": null
+    },
+    "2026-09-15-c1": {
+      "schemaVersion": 1,
+      "claimId": "2026-09-15-c1",
+      "publicationId": "2026-09-15",
+      "issuedAt": "2026-09-15T06:43:45+09:00",
+      "dataCutoffAt": "2026-09-15T06:43:45+09:00",
+      "lockedAt": "2026-09-15T06:43:45+09:00",
+      "claimMode": "auto",
+      "verificationType": "proxy",
+      "topic": "WTI vs 나스닥 상대성과(LLM 후보, 5거래일)",
+      "sourceNewsIds": [],
+      "observationText": "WTI는 전일 대비 +1.90%, 나스닥은 -0.56% — 상대 괴리 +2.46%p.",
+      "interpretationText": "지정된 기간 동안 target이 benchmark 대비 상대적으로 강세를 보이는지 검증합니다.",
+      "claimText": "사우디아라비아의 핵심 송유관이 폐쇄되면서 14일 국제유가가 상승했다. — WTI가 나스닥 대비 강세를 이어갈까요?",
+      "metricId": "wti",
+      "benchmarkMetricId": "nasdaq",
+      "comparisonType": "excess_return",
+      "expectedDirection": "up",
+      "horizon": {
+        "type": "multi_session",
+        "market": "US",
+        "sessions": 5,
+        "resolutionAt": "2026-09-21"
+      },
+      "thresholdRuleId": "pct_100",
+      "confidence": null,
+      "status": "unresolved",
+      "revision": {
+        "version": 1,
+        "contentHash": "680be21846cea400781298ac7f6f626286b24dacff312e608786de7ede0459fe",
+        "correctedFrom": null
+      },
+      "baseline": {
+        "value": 101.89,
+        "asOf": "2026-09-14",
+        "benchmarkValue": 26186.41,
+        "benchmarkAsOf": "2026-09-14"
       },
       "resolution": null
     }
