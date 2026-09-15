@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-15T06:43:45+09:00",
+  "updatedAt": "2026-09-16T06:43:14+09:00",
   "claims": {
     "2026-07-19-c1": {
       "schemaVersion": 1,
@@ -2430,7 +2430,7 @@
       },
       "thresholdRuleId": "pct_030",
       "confidence": null,
-      "status": "unresolved",
+      "status": "miss",
       "revision": {
         "version": 1,
         "contentHash": "3f1a359b6829bd0a629b73d5e450d485cf155c918a0840e106452a952d1e17e6",
@@ -2442,7 +2442,28 @@
         "benchmarkValue": 7673.52,
         "benchmarkAsOf": "2026-09-08"
       },
-      "resolution": null
+      "resolution": {
+        "resolutionId": "2026-09-09-c1-res",
+        "claimId": "2026-09-09-c1",
+        "resolvedAt": "2026-09-16T06:43:09+09:00",
+        "verdict": "miss",
+        "metricId": "nasdaq",
+        "comparisonType": "excess_return",
+        "startValue": 26421.41,
+        "endValue": 25981.57,
+        "changeValue": -0.520646288471736,
+        "changeUnit": "%",
+        "benchmarkMetricId": "sp500",
+        "benchmarkStartValue": 7673.52,
+        "benchmarkEndValue": 7585.73,
+        "neutralLower": -0.3,
+        "neutralUpper": 0.3,
+        "neutralBand": 0.3,
+        "dataProvider": "FinanceDataReader",
+        "sourceUrl": "",
+        "observedAt": "2026-09-15",
+        "explanation": "실제 변화가 예상한 상승 방향과 다르게 움직였습니다."
+      }
     },
     "2026-09-10-c1": {
       "schemaVersion": 1,

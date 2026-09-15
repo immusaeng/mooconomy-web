@@ -1,0 +1,246 @@
+{
+  "schema_version": "normalized-daily-issue/v1",
+  "edition_id": "2026-09-16",
+  "edition_date_kst": "2026-09-16",
+  "canonical_status": "production",
+  "production_status": "SEND_CONFIRMED",
+  "source_commit_sha": "e7d98a884f66cba2a7b2a3ed870d3dfe2388259e",
+  "subject": "국채금리와 유가 상승, 글로벌 증시에 미치는 영향은?",
+  "preheader": "WTI 유가 급등과 미국채 10년물 금리 상승이 원/달러 환율 상승과 외국인 순매도에 영향을 준 요인 중 하나로 해석할 수 있습니다. 다만, 대외 매크로 불확실성…",
+  "thesis": {
+    "headline": "국채금리와 유가 상승, 글로벌 증시에 미치는 영향은?",
+    "three_signals": [
+      "미국 국채 금리와 유가 상승세 지속에 뉴욕증시 3대 지수가 이틀째 하락했습니다.",
+      "코스피는 외국인과 기관의 동반 매도세 속에 6,627.26pt로 하락 마감했습니다.",
+      "오늘은 원/달러 환율 진정 여부와 외국인 수급 방향성이 관건입니다."
+    ]
+  },
+  "main_story": {
+    "headline": "국채금리·유가 급등에 증시 압박",
+    "verified_fact": "미국 국채 금리와 국제유가의 상승세가 지속되면서 글로벌 증시 전반에 하락 압력이 가해졌고, 국내 증시 역시 상승 모멘텀을 얻지 못한 채 하락세를 나타냈다.",
+    "why_it_matters": null,
+    "sources": []
+  },
+  "entities": [
+    {
+      "name": "원/달러",
+      "type": "fx"
+    },
+    {
+      "name": "WTI",
+      "type": "commodity"
+    },
+    {
+      "name": "금",
+      "type": "commodity"
+    }
+  ],
+  "metrics": [
+    {
+      "id": "kospi",
+      "value": 6627.26,
+      "change": -0.8544,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "kosdaq",
+      "value": 812.41,
+      "change": 0.6966,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "nasdaq",
+      "value": 25981.57,
+      "change": -0.7822,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "sp500",
+      "value": 7585.73,
+      "change": -0.4495,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1362.97,
+      "change": 17.0,
+      "displayMode": "delta",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "us10y",
+      "value": 5.0,
+      "change": 0.04,
+      "displayMode": "delta",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "wti",
+      "value": 105.48,
+      "change": 3.5234,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "vix",
+      "value": 17.2,
+      "change": 0.5848,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    }
+  ],
+  "market_changes": [
+    {
+      "id": "kospi",
+      "change": -0.8544,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "kosdaq",
+      "change": 0.6966,
+      "changeUnit": "%",
+      "direction": "up"
+    },
+    {
+      "id": "nasdaq",
+      "change": -0.7822,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "sp500",
+      "change": -0.4495,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "usdkrw",
+      "change": 17.0,
+      "changeUnit": "원",
+      "direction": "up"
+    },
+    {
+      "id": "us10y",
+      "change": 0.04,
+      "changeUnit": "%p",
+      "direction": "up"
+    },
+    {
+      "id": "wti",
+      "change": 3.5234,
+      "changeUnit": "%",
+      "direction": "up"
+    },
+    {
+      "id": "vix",
+      "change": 0.5848,
+      "changeUnit": "%",
+      "direction": "up"
+    }
+  ],
+  "narratives": {
+    "moo_view": "미국 국채 금리 상승세와 국제유가 오름세가 글로벌 증시 전반에 부담을 주면서 국내 증시의 상승 모멘텀을 제약하는 촉매로 작용하고 있습니다. 이러한 매크로 변수들이 원/달러 환율의 상승을 자극하여 원화 약세를 유발하고 자산시장 전반의 위험회피 심리를 자극하는 흐름입니다.\n\n코스피와 코스닥 지수는 수급과 방향성에서 차별화된 양상을 보이고 있습니다. 대형주 중심의 코스피 시장에서는 외국인과 기관의 동반 매도세가 지수 하락을 견인한 반면, 코스닥 시장은 양 기관의 매수세에 힘입어 상승 마감하는 대조적인 모습을 기록했습니다. 한편 글로벌 시장에서 AI 반도체 수요가 지속될 것이라는 전망은 국내 관련 업종의 하방 지지력을 확보하는 별도의 요인으로 작용할 가능성도 있습니다.\n\n만약 미 재무장관이 언급한 금리 급등 우려와 국채시장 변동성이 진정된다면 국내 증시의 박스권 탈출 시도가 가능하겠지만, 유가 상승세가 장기화된다면 외국인 수급 이탈과 지수 하락 압력이 한층 가중될 수 있습니다.",
+    "todays_watch": [
+      "미 재무장관 금리 급등 언급에 따른 미 국채시장 변동성 지속 여부",
+      "WTI 105.48달러 기록 등 에너지 가격 상승에 따른 금융시장 리스크 프리미엄 변화",
+      "미 암호화폐 입법안 차질에 따른 정책적 불확실성 전개 양상"
+    ],
+    "todays_watch_oneliner": "국채금리와 유가 상승에 따른 매크로 불안 속에서 국내 증시 수급 차별화 양상에 주목할 필요가 있습니다.",
+    "content_status": "GENERATED_PASS2"
+  },
+  "moo_q": null,
+  "moo_check": [
+    {
+      "previous_claim": "사우디아라비아의 핵심 송유관이 폐쇄되면서 14일 국제유가가 상승했다. — WTI가 나스닥 대비 강세를 이어갈까요?",
+      "claim_date": "2026-09-15",
+      "evaluation_date": null,
+      "observed_result": null,
+      "verdict": "PENDING",
+      "evidence": null,
+      "source": null
+    }
+  ],
+  "moo_word": {
+    "id": "trade_balance",
+    "term": "무역수지",
+    "definition": "일정 기간 수출액에서 수입액을 뺀 값입니다.",
+    "why_today": null,
+    "memory_hook": "흑자면 원화 강세, 적자면 원화 약세 요인이 됩니다.",
+    "source_label": "파이낸셜뉴스",
+    "article_id": "news_10",
+    "article_url": "https://www.fnnews.com/news/202609151829502596",
+    "article_publisher": "파이낸셜뉴스",
+    "evidence_snippets": [
+      "무역수지 연속 흑자는 끝."
+    ],
+    "definition_source_name": "관세청",
+    "definition_source_url": "https://www.customs.go.kr/",
+    "definition_priority": "P1_GLOSSARY_OFFICIAL_SOURCE",
+    "origin": "glossary",
+    "grounded_in_article": true,
+    "definition_evidence_verified": true,
+    "status": "ELIGIBLE_FOR_PUBLICATION",
+    "eligible_for_publication": true
+  },
+  "sources": [
+    {
+      "source_name": "연합뉴스",
+      "source_url": "https://www.yna.co.kr/view/AKR20260916001751071",
+      "published_at": "2026-09-16",
+      "source_headline": "베선트, 美국채금리 급등에 \"글로벌 이슈때문…재정적자도 반영\"(종합)"
+    },
+    {
+      "source_name": "파이낸셜뉴스",
+      "source_url": "https://www.fnnews.com/news/202609151829502596",
+      "published_at": "2026-09-15",
+      "source_headline": "부산 8월 수출 7.2% 증가... 무역수지 연속 흑자는 끝"
+    },
+    {
+      "source_name": "MarketWatch",
+      "source_url": "https://www.marketwatch.com/story/these-four-stocks-could-benefit-most-from-a-3-2-trillion-semiconductor-opportunity-e6bf58b4?mod=mw_rss_topstories",
+      "published_at": "2026-09-15",
+      "source_headline": "These four stocks could benefit most from a $3.2 trillion semiconductor opportunity"
+    },
+    {
+      "source_name": "MarketWatch",
+      "source_url": "https://www.marketwatch.com/story/ai-stocks-are-rebounding-one-analyst-says-theres-no-spending-slowdown-in-sight-8fd99c4b?mod=mw_rss_topstories",
+      "published_at": "2026-09-15",
+      "source_headline": "AI stocks are rebounding. One analyst says there’s no spending slowdown in sight."
+    },
+    {
+      "source_name": "MarketWatch",
+      "source_url": "https://www.marketwatch.com/story/2-charts-showing-how-oil-is-becoming-the-global-markets-biggest-wild-card-ec273da8?mod=mw_rss_topstories",
+      "published_at": "2026-09-15",
+      "source_headline": "How the Iran war is transforming the relationship between stocks, bonds and oil"
+    },
+    {
+      "source_name": "CNBC",
+      "source_url": "https://www.cnbc.com/2026/09/15/senate-cloture-vote-on-clarity-act-fails-dealing-regulatory-setback-to-crypto-industry.html",
+      "published_at": "2026-09-15",
+      "source_headline": "Senate cloture vote on Clarity Act fails, dealing regulatory blow to crypto industry"
+    }
+  ],
+  "public_url": "https://mooconomy.co.kr/latest-email.html",
+  "validation_status": {
+    "main_story_status": "SELECTED",
+    "content_provenance": "VALIDATED_GEMINI_36",
+    "moo_word_present": true,
+    "sources_count": 6,
+    "is_approximate": false
+  },
+  "content_hash": "7562f4cfa2cf55b012a00ba1ee275eb0e4c4f6da825a06c1d943bd00dd62ba4c",
+  "archived_at": "2026-09-15T21:44:27.292394+00:00"
+}
