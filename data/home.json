@@ -1,20 +1,20 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-16T06:43:06+09:00",
-  "publishDate": "2026-09-16",
-  "marketDateKr": "2026-09-15",
-  "marketDateUs": "2026-09-15",
+  "generatedAt": "2026-09-17T06:43:49+09:00",
+  "publishDate": "2026-09-17",
+  "marketDateKr": "2026-09-16",
+  "marketDateUs": "2026-09-16",
   "isDelayed": true,
   "status": "ok",
   "marketTemperature": {
-    "label": "risk_off",
-    "displayLabel": "위험회피",
-    "summary": "간밤 미국 증시와 국내 증시가 모두 하락세를 보이고 원/달러 환율이 상승한 가운데, 외국인의 대규모 순매도가 관찰되며 위험회피 심리가 확산되는 모습입니다.",
+    "label": "cautious",
+    "displayLabel": "경계",
+    "summary": "간밤 미국 증시가 평균 -0.56% 하락한 가운데 국내 증시는 +1.37% 상승세를 보였습니다. 다만 원/달러 환율이 +1.00% 오르고 외국인이 코스피에서 16,726억원을 순매도하는 등 경계감이 관찰됩니다.",
     "reasons": [
-      "간밤 미국 증시 평균 -0.62% 하락",
-      "국내 증시 -0.85% 하락",
-      "원/달러 +1.26%(원화 약세)",
-      "외국인 코스피 순매도 15,458억원"
+      "간밤 미국 증시 평균 -0.56% 하락",
+      "국내 증시 +1.37% 상승",
+      "원/달러 +1.00%(원화 약세)",
+      "외국인 코스피 순매도 16,726억원"
     ],
     "watchItems": [
       "원/달러 환율",
@@ -26,81 +26,60 @@
     {
       "id": "overnight-global",
       "title": "간밤 글로벌 시장",
-      "text": "나스닥이 -0.78%, S&P500이 -0.45%, 다우가 -0.63% 하락한 가운데 VIX는 17.20을 기록했고 미국채 10년물 금리는 5.00%를 나타냈습니다.",
+      "text": "간밤 글로벌 시장에서는 나스닥이 -0.01%, S&P500이 -0.45%, 다우가 -1.21% 하락했습니다. VIX는 17.71, 미국채 10년물 금리는 5.01%를 기록했습니다.",
       "status": "ok"
     },
     {
       "id": "today-domestic",
       "title": "전일 국내 시장",
-      "text": "코스피는 -0.85% 하락하고 코스닥은 +0.70% 상승했으며, 외국인은 코스피 시장에서 15,458억원을 순매도했고 원/달러 환율은 +1.26% 상승했습니다.",
+      "text": "전일 국내 시장에서는 코스피가 +1.37%, 코스닥이 +0.44% 상승 마감했습니다. 외국인은 코스피 시장에서 16,726억원을 순매도했고, 원/달러 환율은 +1.00% 변동을 보였습니다.",
       "status": "ok"
     },
     {
       "id": "today-checkpoint",
       "title": "오늘의 체크포인트",
-      "text": "간밤 글로벌 시장의 금리 상승과 위험회피 기조가 국내 증시의 외국인 자금 이탈로 이어지며, 시장은 방어적 흐름을 보이고 있는 것으로 보입니다.",
+      "text": "간밤의 글로벌 시장 조정과 국내 시장의 엇갈린 흐름 속에서, 지표들은 시장 참여자들이 수급과 환율 변화를 주의 깊게 살피며 방어적인 태도를 취하고 있음을 시사하는 분위기입니다.",
       "status": "ok"
     }
   ],
   "connection": {
-    "nodes": [
-      {
-        "label": "국내 증시(코스피)",
-        "detail": "6,627.26 · -0.85% 하락",
-        "timeAxis": "KR_T_MINUS_1"
-      },
-      {
-        "label": "미국채10년 금리",
-        "detail": "5.00% · +4bp 상승",
-        "timeAxis": "US_OVERNIGHT_T_MINUS_1"
-      },
-      {
-        "label": "지난밤 확인된 사건",
-        "detail": "WTI 유가가 105달러선으로 급등하고 미국채 10년물 금리가 5.0%에 진입하면서 매크로 불확실성이 심화되었습니다.",
-        "timeAxis": "US_OVERNIGHT_T_MINUS_1"
-      },
-      {
-        "label": "오늘 확인할 지점",
-        "detail": "외국인의 코스피 순매도세가 지속되고 원/달러 환율이 고점을 높이는 경우 확인됩니다.",
-        "timeAxis": "FORWARD_T"
-      }
-    ],
-    "topologyId": "WTI>금리>달러>미국>유가>환율",
-    "summary": "WTI 유가 급등과 미국채 10년물 금리 상승이 원/달러 환율 상승과 외국인 순매도에 영향을 준 요인 중 하나로 해석할 수 있습니다. 다만, 대외 매크로 불확실성 외에도 개별 업종별 수급 동향 등 다양한 요인이 복합적으로 작용했을 가능성이 있습니다.",
-    "counterScenario": "대외 지표의 변동성이 완화될 경우 외국인 수급과 환율이 안정을 찾을 가능성이 있습니다.",
-    "status": "ok"
+    "nodes": [],
+    "topologyId": null,
+    "summary": null,
+    "counterScenario": null,
+    "status": "missing"
   },
   "koreaWatch": {
     "items": [
       {
         "id": "foreign",
         "label": "외국인 수급",
-        "value": -15458,
-        "displayValue": "-15,458억원",
+        "value": -16726,
+        "displayValue": "-16,726억원",
         "direction": "down",
         "status": "ok"
       },
       {
         "id": "institution",
         "label": "기관 수급",
-        "value": -9585,
-        "displayValue": "-9,585억원",
-        "direction": "down",
+        "value": 12251,
+        "displayValue": "+12,251억원",
+        "direction": "up",
         "status": "ok"
       },
       {
         "id": "individual",
         "label": "개인 수급",
-        "value": 8596,
-        "displayValue": "+8,596억원",
-        "direction": "up",
+        "value": -12061,
+        "displayValue": "-12,061억원",
+        "direction": "down",
         "status": "ok"
       },
       {
         "id": "usdkrw",
         "label": "원/달러",
-        "value": 1362.97,
-        "displayValue": "1,363.0원",
+        "value": 1376.66,
+        "displayValue": "1,376.7원",
         "direction": "up",
         "status": "ok"
       },
@@ -113,21 +92,21 @@
         "status": "missing"
       }
     ],
-    "summary": "외국인 수급 -15,458억원, 기관 수급 -9,585억원, 개인 수급 +8,596억원, 원/달러 1,363.0원.",
+    "summary": "외국인이 16,726억원을 순매도한 반면 기관은 12,251억원을 순매수했으며, 원/달러 환율은 1,376.7원을 기록했습니다.",
     "status": "ok"
   },
   "risks": [
     {
       "id": "foreign-outflow",
       "title": "외국인 수급 이탈",
-      "detail": "외국인의 코스피 순매도 규모가 15,458억원에 달하며 수급 이탈 흐름이 관찰됩니다.",
+      "detail": "외국인의 대규모 코스피 순매도가 이어지면서 수급 측면의 압박이 지속될 가능성이 있습니다.",
       "level": "주의",
       "status": "ok"
     },
     {
       "id": "fx-swing",
       "title": "환율 변동성",
-      "detail": "원/달러 환율이 +1.26% 상승하며 환율 변동성 확대 가능성이 나타납니다.",
+      "detail": "원/달러 환율이 +1.00% 상승하며 환율 변동성에 따른 시장의 경계감이 나타나는 모습입니다.",
       "level": "관찰",
       "status": "ok"
     }
@@ -136,143 +115,156 @@
   "news": {
     "items": [
       {
-        "id": "news-매일경제-종부세 완화된걸까 … 안심하기에는 이르다",
+        "id": "news-매일경제-트럼프 “美 금리 1% 이하여야” 금리 올린 워시에 분노",
         "category": "news",
         "source": "매일경제",
-        "title": "종부세 완화된걸까 … 안심하기에는 이르다",
-        "url": "https://www.mk.co.kr/news/economy/12153076",
-        "publishedAt": "2026-09-16",
+        "title": "트럼프 “美 금리 1% 이하여야” 금리 올린 워시에 분노",
+        "url": "https://www.mk.co.kr/news/economy/12154948",
+        "publishedAt": "2026-09-17",
+        "status": "ok",
+        "related": [
+          {
+            "source": "한국경제",
+            "title": "트럼프 \"美 금리 1%이거나 그보다 낮아야\"…Fed 금리인상 맹공",
+            "url": "https://www.hankyung.com/article/2026091797877",
+            "publishedAt": "2026-09-17",
+            "id": "news-한국경제-트럼프 \"美 금리 1%이거나 그보다 낮아야\"…Fed 금리인상 맹공"
+          }
+        ]
+      },
+      {
+        "id": "news-매일경제-“달러는 이제 재미없네요”…환테크 고수들 몰리는 ‘엔화예금’",
+        "category": "news",
+        "source": "매일경제",
+        "title": "“달러는 이제 재미없네요”…환테크 고수들 몰리는 ‘엔화예금’",
+        "url": "https://www.mk.co.kr/news/economy/12154934",
+        "publishedAt": "2026-09-17",
         "status": "ok"
       },
       {
-        "id": "news-연합뉴스-베선트, 美국채금리 급등에 \"글로벌 이슈때문…재정적자도 반영\"(종합)",
+        "id": "news-매일경제-워시 “인플레 너무 높아” 추가 인상 예고…美증시·채권 약세",
+        "category": "news",
+        "source": "매일경제",
+        "title": "워시 “인플레 너무 높아” 추가 인상 예고…美증시·채권 약세",
+        "url": "https://www.mk.co.kr/news/world/12154906",
+        "publishedAt": "2026-09-17",
+        "status": "ok"
+      },
+      {
+        "id": "news-연합뉴스-내한 공연 뒤 탈세 먹튀?…\"국세청, 39명 조사해 55억원 추징\"",
         "category": "news",
         "source": "연합뉴스",
-        "title": "베선트, 美국채금리 급등에 \"글로벌 이슈때문…재정적자도 반영\"(종합)",
-        "url": "https://www.yna.co.kr/view/AKR20260916001751071",
-        "publishedAt": "2026-09-16",
+        "title": "내한 공연 뒤 탈세 먹튀?…\"국세청, 39명 조사해 55억원 추징\"",
+        "url": "https://www.yna.co.kr/view/AKR20260916180000001",
+        "publishedAt": "2026-09-17",
         "status": "ok"
       },
       {
-        "id": "news-연합뉴스마켓-[코스피·코스닥 전 거래일(15일) 주요공시]",
+        "id": "news-연합뉴스-美기준금리 0.25%p 인상, 3년만에 긴축…연내 추가인상 시사(종합2보)",
+        "category": "news",
+        "source": "연합뉴스",
+        "title": "美기준금리 0.25%p 인상, 3년만에 긴축…연내 추가인상 시사(종합2보)",
+        "url": "https://www.yna.co.kr/view/AKR20260917002453071",
+        "publishedAt": "2026-09-17",
+        "status": "ok"
+      },
+      {
+        "id": "news-연합뉴스마켓-[코스피·코스닥 전 거래일(16일) 주요공시]",
         "category": "news",
         "source": "연합뉴스마켓",
-        "title": "[코스피·코스닥 전 거래일(15일) 주요공시]",
-        "url": "https://www.yna.co.kr/view/AKR20260915173300008",
-        "publishedAt": "2026-09-16",
+        "title": "[코스피·코스닥 전 거래일(16일) 주요공시]",
+        "url": "https://www.yna.co.kr/view/AKR20260916178400008",
+        "publishedAt": "2026-09-17",
         "status": "ok"
       },
       {
-        "id": "news-한국경제-코스피 제자리인데, 시총 요동…'배전반' 웃고 자동차株 울상",
+        "id": "news-한국경제-\"금리 1% 이하로 낮춰라\" 트럼프 압박에…워시가 내놓은 대답 [Fed 워치]",
         "category": "news",
         "source": "한국경제",
-        "title": "코스피 제자리인데, 시총 요동…'배전반' 웃고 자동차株 울상",
-        "url": "https://www.hankyung.com/article/2026091566361",
-        "publishedAt": "2026-09-16",
+        "title": "\"금리 1% 이하로 낮춰라\" 트럼프 압박에…워시가 내놓은 대답 [Fed 워치]",
+        "url": "https://www.hankyung.com/article/202609179777i",
+        "publishedAt": "2026-09-17",
         "status": "ok"
       },
       {
-        "id": "news-한국경제-한달째 '6000 박스피' 갇힌 증시…호재에 목마르다",
-        "category": "news",
-        "source": "한국경제",
-        "title": "한달째 '6000 박스피' 갇힌 증시…호재에 목마르다",
-        "url": "https://www.hankyung.com/article/2026091566451",
-        "publishedAt": "2026-09-16",
-        "status": "ok"
-      },
-      {
-        "id": "news-연합뉴스-서울서 취업 준비하는 외국인 유학생에 한국어·취업준비 교육",
-        "category": "news",
-        "source": "연합뉴스",
-        "title": "서울서 취업 준비하는 외국인 유학생에 한국어·취업준비 교육",
-        "url": "https://www.yna.co.kr/view/AKR20260915173800004",
-        "publishedAt": "2026-09-16",
-        "status": "ok"
-      },
-      {
-        "id": "news-연합뉴스마켓-美국채 금리·유가 상승 지속…뉴욕증시 이틀째 하락(종합)",
-        "category": "news",
-        "source": "연합뉴스마켓",
-        "title": "美국채 금리·유가 상승 지속…뉴욕증시 이틀째 하락(종합)",
-        "url": "https://www.yna.co.kr/view/AKR20260916006251072",
-        "publishedAt": "2026-09-16",
-        "status": "ok"
-      },
-      {
-        "id": "news-연합뉴스-'연간 17조' 인천시금고 17일 판가름…'청라 하나'vs'20년 신한'",
-        "category": "news",
-        "source": "연합뉴스",
-        "title": "'연간 17조' 인천시금고 17일 판가름…'청라 하나'vs'20년 신한'",
-        "url": "https://www.yna.co.kr/view/AKR20260915176100002",
-        "publishedAt": "2026-09-16",
-        "status": "ok"
-      },
-      {
-        "id": "news-MarketWatch-These four stocks could benefit most from a $3.2 trillion semic",
-        "category": "news",
-        "source": "MarketWatch",
-        "title": "These four stocks could benefit most from a $3.2 trillion semiconductor opportunity",
-        "url": "https://www.marketwatch.com/story/these-four-stocks-could-benefit-most-from-a-3-2-trillion-semiconductor-opportunity-e6bf58b4?mod=mw_rss_topstories",
-        "publishedAt": "2026-09-15",
-        "status": "ok"
-      },
-      {
-        "id": "news-CNBC-Nvidia and Anthropic CEOs diverge on AI safety at Dreamforce: Huang sa",
+        "id": "news-CNBC-Amazon obtains right to buy stock in Generac, boosting power company's",
         "category": "news",
         "source": "CNBC",
-        "title": "Nvidia and Anthropic CEOs diverge on AI safety at Dreamforce: Huang says fast vs. pacing is 'false choice'",
-        "url": "https://www.cnbc.com/2026/09/15/nvidia-and-anthropic-ceos-diverge-on-ai-safety-at-dreamforce.html",
-        "publishedAt": "2026-09-15",
+        "title": "Amazon obtains right to buy stock in Generac, boosting power company's share price by over 40%",
+        "url": "https://www.cnbc.com/2026/09/16/amazon-obtains-right-to-buy-up-to-340m-of-generac-boosting-stock-.html",
+        "publishedAt": "2026-09-16",
         "status": "ok"
       },
       {
-        "id": "news-MarketWatch-How the Iran war is transforming the relationship between stock",
-        "category": "news",
-        "source": "MarketWatch",
-        "title": "How the Iran war is transforming the relationship between stocks, bonds and oil",
-        "url": "https://www.marketwatch.com/story/2-charts-showing-how-oil-is-becoming-the-global-markets-biggest-wild-card-ec273da8?mod=mw_rss_topstories",
-        "publishedAt": "2026-09-15",
-        "status": "ok"
-      },
-      {
-        "id": "news-CNBC-Americans' incomes rose and poverty fell in 2025, Census Bureau says",
+        "id": "news-CNBC-Trump demands 1% or lower interest rate after first Fed hike since 202",
         "category": "news",
         "source": "CNBC",
-        "title": "Americans' incomes rose and poverty fell in 2025, Census Bureau says",
-        "url": "https://www.cnbc.com/2026/09/15/income-poverty-census-fed-interest-rates.html",
-        "publishedAt": "2026-09-15",
+        "title": "Trump demands 1% or lower interest rate after first Fed hike since 2023",
+        "url": "https://www.cnbc.com/2026/09/16/trump-fed-interest-rate-warsh.html",
+        "publishedAt": "2026-09-16",
         "status": "ok"
       },
       {
-        "id": "news-MarketWatch-AI stocks are rebounding. One analyst says there’s no spending ",
-        "category": "news",
-        "source": "MarketWatch",
-        "title": "AI stocks are rebounding. One analyst says there’s no spending slowdown in sight.",
-        "url": "https://www.marketwatch.com/story/ai-stocks-are-rebounding-one-analyst-says-theres-no-spending-slowdown-in-sight-8fd99c4b?mod=mw_rss_topstories",
-        "publishedAt": "2026-09-15",
-        "status": "ok"
-      },
-      {
-        "id": "news-Investing-Argentina submits 2027 budget bill to Congress, foresees 4% GDP g",
+        "id": "news-Investing-Fed’s Warsh lays out forces driving up bond yields",
         "category": "news",
         "source": "Investing",
-        "title": "Argentina submits 2027 budget bill to Congress, foresees 4% GDP growth",
-        "url": "https://www.investing.com/news/economy-news/argentina-submits-2027-budget-bill-to-congress-foresees-4-gdp-growth-4902554",
-        "publishedAt": "2026-09-15",
+        "title": "Fed’s Warsh lays out forces driving up bond yields",
+        "url": "https://www.investing.com/news/economy-news/feds-warsh-lays-out-forces-driving-up-bond-yields-4904580",
+        "publishedAt": "2026-09-16",
         "status": "ok"
       },
       {
-        "id": "news-CNBC-Senate cloture vote on Clarity Act fails, dealing regulatory blow to c",
+        "id": "news-Investing-Stocks fall as Fed delivers hawkish rate hike",
+        "category": "news",
+        "source": "Investing",
+        "title": "Stocks fall as Fed delivers hawkish rate hike",
+        "url": "https://www.investing.com/news/economy-news/asian-markets-make-nervous-start-ahead-of-fed-decision-4902821",
+        "publishedAt": "2026-09-16",
+        "status": "ok"
+      },
+      {
+        "id": "news-Investing-Major US banks raise prime lending rate after Fed hike",
+        "category": "news",
+        "source": "Investing",
+        "title": "Major US banks raise prime lending rate after Fed hike",
+        "url": "https://www.investing.com/news/economy-news/major-us-banks-raise-prime-lending-rate-after-fed-hike-93CH-4904586",
+        "publishedAt": "2026-09-16",
+        "status": "ok"
+      },
+      {
+        "id": "news-CNBC-Analysis: How Trump could reignite the Fed independence fight after Wa",
         "category": "news",
         "source": "CNBC",
-        "title": "Senate cloture vote on Clarity Act fails, dealing regulatory blow to crypto industry",
-        "url": "https://www.cnbc.com/2026/09/15/senate-cloture-vote-on-clarity-act-fails-dealing-regulatory-setback-to-crypto-industry.html",
-        "publishedAt": "2026-09-15",
+        "title": "Analysis: How Trump could reignite the Fed independence fight after Warsh's rate hike",
+        "url": "https://www.cnbc.com/2026/09/16/fed-interest-rates-kevin-warsh-trump.html",
+        "publishedAt": "2026-09-16",
+        "status": "ok"
+      },
+      {
+        "id": "news-MarketWatch-Intel’s stock rises as investors hope memory chips can mark the",
+        "category": "news",
+        "source": "MarketWatch",
+        "title": "Intel’s stock rises as investors hope memory chips can mark the next step in its turnaround",
+        "url": "https://www.marketwatch.com/story/intels-stock-rises-as-investors-hope-memory-chips-can-mark-the-next-step-in-its-turnaround-a276608f?mod=mw_rss_topstories",
+        "publishedAt": "2026-09-16",
         "status": "ok"
       }
     ],
-    "clusters": [],
-    "summary": "베선트가 미국 국채금리 급등의 배경으로 글로벌 이슈와 재정적자를 언급한 가운데, 증시 안팎의 불확실성이 주목받고 있습니다.",
+    "clusters": [
+      {
+        "id": "cluster-news-매일경제-트럼프 “美 금리 1% 이하여야” 금리 올린 워시에 분노",
+        "title": "트럼프 “美 금리 1% 이하여야” 금리 올린 워시에 분노",
+        "summary": "2개 매체가 이 소식을 함께 보도했습니다.",
+        "leadItemId": "news-매일경제-트럼프 “美 금리 1% 이하여야” 금리 올린 워시에 분노",
+        "relatedItemIds": [
+          "news-한국경제-트럼프 \"美 금리 1%이거나 그보다 낮아야\"…Fed 금리인상 맹공"
+        ],
+        "sourceCount": 2,
+        "topic": "트럼프 “美 금리 1% 이하여야” 금리 올린 워시에 분노",
+        "status": "ok"
+      }
+    ],
+    "summary": "미국의 기준금리 인상과 트럼프의 발언 속에서 연내 추가 인상 시사가 전해지며 긴축 우려가 부각되는 모습입니다.",
     "status": "ok"
   },
   "latestBriefing": null,
@@ -280,30 +272,30 @@
     {
       "id": "kospi",
       "name": "코스피",
-      "value": 6627.26,
-      "displayValue": "6,627.26",
-      "change": -0.8544,
+      "value": 6717.97,
+      "displayValue": "6,717.97",
+      "change": 1.3687,
       "changeUnit": "%",
       "displayMode": "pct",
-      "direction": "down",
-      "asOf": "2026-09-15",
+      "direction": "up",
+      "asOf": "2026-09-16",
       "source": "KRX",
       "sourceUrl": "",
       "frequency": "daily",
       "isDelayed": true,
       "status": "ok",
-      "insight": "전일 대비 하락"
+      "insight": "전일 대비 상승"
     },
     {
       "id": "kosdaq",
       "name": "코스닥",
-      "value": 812.41,
-      "displayValue": "812.41",
-      "change": 0.6966,
+      "value": 815.98,
+      "displayValue": "815.98",
+      "change": 0.4394,
       "changeUnit": "%",
       "displayMode": "pct",
       "direction": "up",
-      "asOf": "2026-09-15",
+      "asOf": "2026-09-16",
       "source": "KRX",
       "sourceUrl": "",
       "frequency": "daily",
@@ -314,30 +306,30 @@
     {
       "id": "nasdaq",
       "name": "나스닥",
-      "value": 25981.57,
-      "displayValue": "25,981.57",
-      "change": -0.7822,
+      "value": 25978.42,
+      "displayValue": "25,978.42",
+      "change": -0.0121,
       "changeUnit": "%",
       "displayMode": "pct",
       "direction": "down",
-      "asOf": "2026-09-15",
+      "asOf": "2026-09-16",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
       "isDelayed": true,
       "status": "ok",
-      "insight": "전일 대비 하락"
+      "insight": "보합권"
     },
     {
       "id": "sp500",
       "name": "S&P500",
-      "value": 7585.73,
-      "displayValue": "7,585.73",
-      "change": -0.4495,
+      "value": 7551.81,
+      "displayValue": "7,551.81",
+      "change": -0.4472,
       "changeUnit": "%",
       "displayMode": "pct",
       "direction": "down",
-      "asOf": "2026-09-15",
+      "asOf": "2026-09-16",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
@@ -348,13 +340,13 @@
     {
       "id": "usdkrw",
       "name": "원/달러",
-      "value": 1362.97,
-      "displayValue": "1,363.0",
-      "change": 17.0,
+      "value": 1376.66,
+      "displayValue": "1,376.7",
+      "change": 13.69,
       "changeUnit": "원",
       "displayMode": "delta",
       "direction": "up",
-      "asOf": "2026-09-15",
+      "asOf": "2026-09-16",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
@@ -365,13 +357,13 @@
     {
       "id": "us10y",
       "name": "미국채10년",
-      "value": 5.0,
-      "displayValue": "5.00%",
-      "change": 0.04,
+      "value": 5.01,
+      "displayValue": "5.01%",
+      "change": 0.01,
       "changeUnit": "%p",
       "displayMode": "delta",
       "direction": "up",
-      "asOf": "2026-09-15",
+      "asOf": "2026-09-16",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
@@ -382,36 +374,36 @@
     {
       "id": "wti",
       "name": "WTI",
-      "value": 105.48,
-      "displayValue": "$105.48",
-      "change": 3.5234,
+      "value": 102.02,
+      "displayValue": "$102.02",
+      "change": -3.2802,
+      "changeUnit": "%",
+      "displayMode": "pct",
+      "direction": "down",
+      "asOf": "2026-09-16",
+      "source": "FinanceDataReader",
+      "sourceUrl": "",
+      "frequency": "daily",
+      "isDelayed": true,
+      "status": "ok",
+      "insight": "전일 대비 큰 폭 하락"
+    },
+    {
+      "id": "vix",
+      "name": "VIX",
+      "value": 17.71,
+      "displayValue": "17.71",
+      "change": 2.9651,
       "changeUnit": "%",
       "displayMode": "pct",
       "direction": "up",
-      "asOf": "2026-09-15",
+      "asOf": "2026-09-16",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
       "isDelayed": true,
       "status": "ok",
       "insight": "전일 대비 큰 폭 상승"
-    },
-    {
-      "id": "vix",
-      "name": "VIX",
-      "value": 17.2,
-      "displayValue": "17.20",
-      "change": 0.5848,
-      "changeUnit": "%",
-      "displayMode": "pct",
-      "direction": "up",
-      "asOf": "2026-09-15",
-      "source": "FinanceDataReader",
-      "sourceUrl": "",
-      "frequency": "daily",
-      "isDelayed": true,
-      "status": "ok",
-      "insight": "전일 대비 상승"
     }
   ],
   "signals": [
@@ -419,11 +411,11 @@
       "id": "recession",
       "name": "경기침체 경보등",
       "color": "green",
-      "value": 0.32,
-      "valueLabel": "+0.32%p",
+      "value": 0.33,
+      "valueLabel": "+0.33%p",
       "insight": "장단기 금리차가 정상 범위에 있어 침체 신호는 뚜렷하지 않습니다.",
       "sourceLabel": "장단기 금리차 (미국채 10Y-2Y)",
-      "asOf": "2026-09-16"
+      "asOf": "2026-09-17"
     },
     {
       "id": "rate-gap",
@@ -433,21 +425,31 @@
       "valueLabel": "+0.75%p",
       "insight": "한미 금리차가 관리 가능한 수준이라 자본유출 압력은 크지 않습니다.",
       "sourceLabel": "한미 기준금리차 (Fed-한은)",
-      "asOf": "2026-09-16"
+      "asOf": "2026-09-17"
     },
     {
       "id": "liquidity-stress",
       "name": "유동성 스트레스",
       "color": "green",
-      "value": 2.71,
-      "valueLabel": "2.71%p",
+      "value": 2.76,
+      "valueLabel": "2.76%p",
       "insight": "신용시장 스프레드가 평상 수준이라 유동성 경색 신호는 없습니다.",
       "sourceLabel": "하이일드 스프레드 (BAMLH0A0HYM2)",
-      "asOf": "2026-09-16"
+      "asOf": "2026-09-17"
     }
   ],
   "claims": {
     "previousClaims": [
+      {
+        "claimText": "2분기 기업 영업이익률 역대 최고 — 코스닥가 나스닥 대비 강세를 이어갈까요?",
+        "status": "miss",
+        "resolution": {
+          "verdict": "miss",
+          "startValue": 830.37,
+          "endValue": 815.98,
+          "metricId": "kosdaq"
+        }
+      },
       {
         "claimText": "유가 급등과 무역 긴장의 영향으로 뉴욕증시가 하락했습니다. 다만 기술주 중심으로 반도체 종목은 반등세를 나타냈습니다. — 나스닥가 S&P500 대비 강세를 이어갈까요?",
         "status": "miss",
@@ -861,6 +863,10 @@
     ],
     "todayClaims": [
       {
+        "claimText": "미국 연방준비제도가 유가 급등에 따른 인플레이션 확산을 막고자 기준금리를 연 3.75%~4.00%로 0.25%p 인상했습니다. — 나스닥이 S&P500 대비 강세를 이어갈까요?",
+        "status": "unresolved"
+      },
+      {
         "claimText": "사우디아라비아의 핵심 송유관이 폐쇄되면서 14일 국제유가가 상승했다. — WTI가 나스닥 대비 강세를 이어갈까요?",
         "status": "unresolved"
       },
@@ -871,15 +877,11 @@
       {
         "claimText": "유가와 원자재 가격 상승 여파로 인플레이션 우려가 다시 자극받으며 미국 국채금리가 급등했습니다. — 나스닥가 S&P500 대비 약세를 이어갈까요?",
         "status": "unresolved"
-      },
-      {
-        "claimText": "2분기 기업 영업이익률 역대 최고 — 코스닥가 나스닥 대비 강세를 이어갈까요?",
-        "status": "unresolved"
       }
     ],
     "totals": {
       "hit": 12,
-      "miss": 22,
+      "miss": 23,
       "neutral": 7,
       "unresolved": 4
     }

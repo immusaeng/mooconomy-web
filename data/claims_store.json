@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-16T06:43:14+09:00",
+  "updatedAt": "2026-09-17T06:43:58+09:00",
   "claims": {
     "2026-07-19-c1": {
       "schemaVersion": 1,
@@ -2491,7 +2491,7 @@
       },
       "thresholdRuleId": "pct_030",
       "confidence": null,
-      "status": "unresolved",
+      "status": "miss",
       "revision": {
         "version": 1,
         "contentHash": "788d64e2302d20baa9b5a3077ab345c12744b0dc56f66cde6b350ec0d95a7428",
@@ -2503,7 +2503,28 @@
         "benchmarkValue": 26253.34,
         "benchmarkAsOf": "2026-09-09"
       },
-      "resolution": null
+      "resolution": {
+        "resolutionId": "2026-09-10-c1-res",
+        "claimId": "2026-09-10-c1",
+        "resolvedAt": "2026-09-17T06:43:51+09:00",
+        "verdict": "miss",
+        "metricId": "kosdaq",
+        "comparisonType": "excess_return",
+        "startValue": 830.37,
+        "endValue": 815.98,
+        "changeValue": -0.6857813699525759,
+        "changeUnit": "%",
+        "benchmarkMetricId": "nasdaq",
+        "benchmarkStartValue": 26253.34,
+        "benchmarkEndValue": 25978.42,
+        "neutralLower": -0.3,
+        "neutralUpper": 0.3,
+        "neutralBand": 0.3,
+        "dataProvider": "KRX",
+        "sourceUrl": "",
+        "observedAt": "2026-09-16",
+        "explanation": "실제 변화가 예상한 상승 방향과 다르게 움직였습니다."
+      }
     },
     "2026-09-11-c1": {
       "schemaVersion": 1,
@@ -2622,6 +2643,46 @@
         "asOf": "2026-09-14",
         "benchmarkValue": 26186.41,
         "benchmarkAsOf": "2026-09-14"
+      },
+      "resolution": null
+    },
+    "2026-09-17-c1": {
+      "schemaVersion": 1,
+      "claimId": "2026-09-17-c1",
+      "publicationId": "2026-09-17",
+      "issuedAt": "2026-09-17T06:43:58+09:00",
+      "dataCutoffAt": "2026-09-17T06:43:58+09:00",
+      "lockedAt": "2026-09-17T06:43:58+09:00",
+      "claimMode": "auto",
+      "verificationType": "proxy",
+      "topic": "나스닥 vs S&P500 상대성과(LLM 후보, 5거래일)",
+      "sourceNewsIds": [],
+      "observationText": "나스닥은 전일 대비 -0.01%, S&P500는 -0.45% — 상대 괴리 +0.44%p.",
+      "interpretationText": "target이 benchmark 대비 상대적으로 강세 또는 약세를 보이는지 검증합니다.",
+      "claimText": "미국 연방준비제도가 유가 급등에 따른 인플레이션 확산을 막고자 기준금리를 연 3.75%~4.00%로 0.25%p 인상했습니다. — 나스닥이 S&P500 대비 강세를 이어갈까요?",
+      "metricId": "nasdaq",
+      "benchmarkMetricId": "sp500",
+      "comparisonType": "excess_return",
+      "expectedDirection": "up",
+      "horizon": {
+        "type": "multi_session",
+        "market": "US",
+        "sessions": 5,
+        "resolutionAt": "2026-09-23"
+      },
+      "thresholdRuleId": "pct_030",
+      "confidence": null,
+      "status": "unresolved",
+      "revision": {
+        "version": 1,
+        "contentHash": "939a7a358ba947fdefa7f38ff056ec67b8a6172263009cd8c7ca3c1876b2d167",
+        "correctedFrom": null
+      },
+      "baseline": {
+        "value": 25978.42,
+        "asOf": "2026-09-16",
+        "benchmarkValue": 7551.81,
+        "benchmarkAsOf": "2026-09-16"
       },
       "resolution": null
     }
