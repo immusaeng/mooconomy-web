@@ -1,0 +1,167 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-19",
+  "generatedAt": "2026-09-19T06:43:20+09:00",
+  "indicators": [
+    {
+      "id": "kospi",
+      "value": 6724.34,
+      "change": null,
+      "displayMode": "pct",
+      "direction": null,
+      "status": "stale"
+    },
+    {
+      "id": "kosdaq",
+      "value": 821.67,
+      "change": null,
+      "displayMode": "pct",
+      "direction": null,
+      "status": "stale"
+    },
+    {
+      "id": "nasdaq",
+      "value": 26522.54,
+      "change": 0.3946,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "sp500",
+      "value": 7650.5,
+      "change": 0.1668,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1385.95,
+      "change": 5.97,
+      "displayMode": "delta",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "us10y",
+      "value": 5.0,
+      "change": 0.05,
+      "displayMode": "delta",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "wti",
+      "value": 95.47,
+      "change": -5.5594,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "vix",
+      "value": 14.81,
+      "change": -4.0803,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    }
+  ],
+  "auditIndicators": [
+    {
+      "id": "kospi",
+      "value": 6724.34,
+      "displayMode": "pct"
+    },
+    {
+      "id": "kosdaq",
+      "value": 821.67,
+      "displayMode": "pct"
+    },
+    {
+      "id": "nasdaq",
+      "value": 26522.54,
+      "displayMode": "pct"
+    },
+    {
+      "id": "sp500",
+      "value": 7650.5,
+      "displayMode": "pct"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1385.95,
+      "displayMode": "dual"
+    },
+    {
+      "id": "us10y",
+      "value": 5.0,
+      "displayMode": "delta"
+    },
+    {
+      "id": "wti",
+      "value": 95.47,
+      "displayMode": "pct"
+    },
+    {
+      "id": "vix",
+      "value": 14.81,
+      "displayMode": "pct"
+    },
+    {
+      "id": "gold",
+      "value": 4415.9,
+      "displayMode": "pct"
+    },
+    {
+      "id": "dollarindex",
+      "value": 100.21,
+      "displayMode": "pct"
+    },
+    {
+      "id": "brent",
+      "value": 98.77,
+      "displayMode": "pct"
+    },
+    {
+      "id": "dow",
+      "value": 51682.64,
+      "displayMode": "pct"
+    },
+    {
+      "id": "nikkei",
+      "value": 64136.25,
+      "displayMode": "pct"
+    },
+    {
+      "id": "shanghai",
+      "value": 3875.6,
+      "displayMode": "pct"
+    }
+  ],
+  "signals": [
+    {
+      "id": "recession",
+      "color": "green",
+      "value": 0.27
+    },
+    {
+      "id": "rate-gap",
+      "color": "green",
+      "value": 1.0
+    },
+    {
+      "id": "liquidity-stress",
+      "color": "green",
+      "value": 2.7
+    }
+  ],
+  "calendarSnapshot": [],
+  "marketTemperature": {
+    "label": "neutral",
+    "displayLabel": "중립",
+    "status": "ok"
+  },
+  "connectionTopology": null
+}

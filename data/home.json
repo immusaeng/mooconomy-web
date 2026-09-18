@@ -1,18 +1,16 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-18T06:45:34+09:00",
-  "publishDate": "2026-09-18",
+  "generatedAt": "2026-09-19T06:43:12+09:00",
+  "publishDate": "2026-09-19",
   "marketDateKr": "2026-09-17",
-  "marketDateUs": "2026-09-17",
+  "marketDateUs": "2026-09-18",
   "isDelayed": true,
   "status": "ok",
   "marketTemperature": {
     "label": "neutral",
     "displayLabel": "중립",
-    "summary": "간밤 미국 증시의 평균 상승세에도 불구하고 국내는 생산자물가 반등 부담이 상존하여 중립적인 흐름이 나타날 것으로 보입니다.",
-    "reasons": [
-      "간밤 미국 증시 평균 +1.15% 상승"
-    ],
+    "summary": "유가 급락에도 미 국채 10년물 금리가 5.0%에 진입하면서, 시장은 금리 부담과 인플레이션 완화 기대를 함께 소화하는 중립적 흐름을 보이는 것으로 관찰됩니다.",
+    "reasons": [],
     "watchItems": [
       "원/달러 환율",
       "외국인 수급"
@@ -23,19 +21,19 @@
     {
       "id": "overnight-global",
       "title": "간밤 글로벌 시장",
-      "text": "나스닥이 1.69%, S&P500이 1.14%, 다우가 0.61% 상승하였으며, VIX는 15.44, 미국채 10년물은 4.95%를 기록했습니다.",
+      "text": "간밤 뉴욕증시는 나스닥과 S&P500이 상승하고 다우가 하락하며 혼조세를 보였고, VIX는 14.81, 미국채 10년물은 5.00%를 기록했습니다.",
       "status": "ok"
     },
     {
       "id": "today-domestic",
       "title": "전일 국내 시장",
-      "text": "전일 국내 시장에서는 코스피가 0.09%, 코스닥이 0.70% 상승했고 원/달러 환율은 0.24% 올랐습니다.",
+      "text": "전일 국내 시장에서는 원/달러 환율이 0.43% 상승하는 움직임이 나타났습니다.",
       "status": "ok"
     },
     {
       "id": "today-checkpoint",
       "title": "오늘의 체크포인트",
-      "text": "환율과 외국인 수급을 주시하는 가운데, 지표들은 뚜렷한 방향성보다는 경계감을 가리키는 분위기입니다.",
+      "text": "글로벌 금리 환경과 환율 변동성 속에서 시장은 뚜렷한 방향성보다는 신중한 관망 심리가 우세한 분위기로 보입니다.",
       "status": "ok"
     }
   ],
@@ -75,8 +73,8 @@
       {
         "id": "usdkrw",
         "label": "원/달러",
-        "value": 1379.98,
-        "displayValue": "1,380.0원",
+        "value": 1385.95,
+        "displayValue": "1,386.0원",
         "direction": "up",
         "status": "ok"
       },
@@ -89,7 +87,7 @@
         "status": "missing"
       }
     ],
-    "summary": "원/달러 1,380.0원.",
+    "summary": "원/달러 1,386.0원.",
     "status": "ok"
   },
   "risks": [],
@@ -97,143 +95,143 @@
   "news": {
     "items": [
       {
-        "id": "news-연합뉴스마켓-[코스피·코스닥 전 거래일(17일) 주요공시]",
+        "id": "news-매일경제-“나라안에서 해결되는데 왜 무역합니까” … 천재경제학자의 답변이",
+        "category": "news",
+        "source": "매일경제",
+        "title": "“나라안에서 해결되는데 왜 무역합니까” … 천재경제학자의 답변이",
+        "url": "https://www.mk.co.kr/news/economy/12156559",
+        "publishedAt": "2026-09-19",
+        "status": "ok"
+      },
+      {
+        "id": "news-매일경제-기뢰 한 발에 국제유가 ‘출렁’ … 열린듯 닫힌 호르무즈의 역설",
+        "category": "news",
+        "source": "매일경제",
+        "title": "기뢰 한 발에 국제유가 ‘출렁’ … 열린듯 닫힌 호르무즈의 역설",
+        "url": "https://www.mk.co.kr/news/economy/12156610",
+        "publishedAt": "2026-09-19",
+        "status": "ok"
+      },
+      {
+        "id": "news-연합뉴스마켓-대선 앞둔 프랑스 재정 불안…국채금리 독일과 격차 14년만에 최대",
         "category": "news",
         "source": "연합뉴스마켓",
-        "title": "[코스피·코스닥 전 거래일(17일) 주요공시]",
-        "url": "https://www.yna.co.kr/view/AKR20260917190400008",
-        "publishedAt": "2026-09-18",
+        "title": "대선 앞둔 프랑스 재정 불안…국채금리 독일과 격차 14년만에 최대",
+        "url": "https://www.yna.co.kr/view/AKR20260919004000085",
+        "publishedAt": "2026-09-19",
         "status": "ok"
       },
       {
-        "id": "news-연합뉴스-입법조사처 \"CPTPP 가입 시 마사회·aT 규범 충돌 가능성\"",
+        "id": "news-매일경제-폭염은 끝났는데 이제 기름값이 문제…휘발유·경유 부담 다시 커진다",
         "category": "news",
-        "source": "연합뉴스",
-        "title": "입법조사처 \"CPTPP 가입 시 마사회·aT 규범 충돌 가능성\"",
-        "url": "https://www.yna.co.kr/view/AKR20260917141000030",
+        "source": "매일경제",
+        "title": "폭염은 끝났는데 이제 기름값이 문제…휘발유·경유 부담 다시 커진다",
+        "url": "https://www.mk.co.kr/news/economy/12156866",
         "publishedAt": "2026-09-18",
         "status": "ok"
       },
       {
-        "id": "news-연합뉴스-금융정보분석원, 타지키스탄 국립은행과 자금세탁방지 대응 협력",
+        "id": "news-연합뉴스마켓-뉴욕증시, 재료 부재 속 혼조 출발",
         "category": "news",
-        "source": "연합뉴스",
-        "title": "금융정보분석원, 타지키스탄 국립은행과 자금세탁방지 대응 협력",
-        "url": "https://www.yna.co.kr/view/AKR20260917181900002",
+        "source": "연합뉴스마켓",
+        "title": "뉴욕증시, 재료 부재 속 혼조 출발",
+        "url": "https://www.yna.co.kr/view/AKR20260918187700009",
         "publishedAt": "2026-09-18",
         "status": "ok"
       },
       {
-        "id": "news-연합뉴스-생산자물가 한 달 만에 반등…8월 폭염·유가 상승에 0.2%↑",
-        "category": "news",
-        "source": "연합뉴스",
-        "title": "생산자물가 한 달 만에 반등…8월 폭염·유가 상승에 0.2%↑",
-        "url": "https://www.yna.co.kr/view/AKR20260917177300002",
-        "publishedAt": "2026-09-18",
-        "status": "ok"
-      },
-      {
-        "id": "news-파이낸셜뉴스-폭염에 밥상물가 뛰고 가스비 오르고..8월 생산자물가 7.9%↑",
-        "category": "news",
-        "source": "파이낸셜뉴스",
-        "title": "폭염에 밥상물가 뛰고 가스비 오르고..8월 생산자물가 7.9%↑",
-        "url": "https://www.fnnews.com/news/202609171712222751",
-        "publishedAt": "2026-09-18",
-        "status": "ok"
-      },
-      {
-        "id": "news-한국경제-오픈웨이트AI 모델 주의보…암호화폐 해킹 1년새 440% 급증",
+        "id": "news-한국경제-\"설립 2년 만에 7500억 회사 됐다\"…투자자들 몰린 '이 기술'",
         "category": "news",
         "source": "한국경제",
-        "title": "오픈웨이트AI 모델 주의보…암호화폐 해킹 1년새 440% 급증",
-        "url": "https://www.hankyung.com/article/202609182447i",
+        "title": "\"설립 2년 만에 7500억 회사 됐다\"…투자자들 몰린 '이 기술'",
+        "url": "https://www.hankyung.com/article/2026091844761",
         "publishedAt": "2026-09-18",
         "status": "ok"
       },
       {
-        "id": "news-매일경제-[표] 외국환율고시표",
+        "id": "news-한국경제-긴축·AI 공포 이겨낸 증시…이제 이 둘의 만남이 기다린다 [다음주 주요 변수 미리보기]",
         "category": "news",
-        "source": "매일경제",
-        "title": "[표] 외국환율고시표",
-        "url": "https://www.mk.co.kr/news/economy/12155734",
-        "publishedAt": "2026-09-17",
+        "source": "한국경제",
+        "title": "긴축·AI 공포 이겨낸 증시…이제 이 둘의 만남이 기다린다 [다음주 주요 변수 미리보기]",
+        "url": "https://www.hankyung.com/article/202609184415i",
+        "publishedAt": "2026-09-18",
         "status": "ok"
       },
       {
-        "id": "news-매일경제-남북협력기금 1% 썼는데 … 내년 예산 1조로 쑥",
+        "id": "news-연합뉴스-케이비제34호·한국제17호 스팩, 22일 코스닥 신규 상장",
         "category": "news",
-        "source": "매일경제",
-        "title": "남북협력기금 1% 썼는데 … 내년 예산 1조로 쑥",
-        "url": "https://www.mk.co.kr/news/economy/12155732",
-        "publishedAt": "2026-09-17",
+        "source": "연합뉴스",
+        "title": "케이비제34호·한국제17호 스팩, 22일 코스닥 신규 상장",
+        "url": "https://www.yna.co.kr/view/AKR20260918176600008",
+        "publishedAt": "2026-09-18",
         "status": "ok"
       },
       {
-        "id": "news-Investing-World stocks rebound, Treasury yields retreat after Fed, BoE deci",
-        "category": "news",
-        "source": "Investing",
-        "title": "World stocks rebound, Treasury yields retreat after Fed, BoE decisions",
-        "url": "https://www.investing.com/news/economy-news/shares-tick-higher-as-fed-hikes-rates-dollar-jumps-with-shortterm-yields-4904754",
-        "publishedAt": "2026-09-17",
-        "status": "ok"
-      },
-      {
-        "id": "news-MarketWatch-Micron, Intel and other chip stocks are furthering their strong",
+        "id": "news-MarketWatch-Amazon, Palantir and 12 more top tech stock picks from UBS anal",
         "category": "news",
         "source": "MarketWatch",
-        "title": "Micron, Intel and other chip stocks are furthering their strong comebacks",
-        "url": "https://www.marketwatch.com/story/micron-intel-and-other-chip-stocks-are-furthering-their-strong-comebacks-14b1ecac?mod=mw_rss_topstories",
-        "publishedAt": "2026-09-17",
+        "title": "Amazon, Palantir and 12 more top tech stock picks from UBS analysts",
+        "url": "https://www.marketwatch.com/story/amazon-palantir-and-12-more-top-tech-stock-picks-from-ubs-analysts-435244bb?mod=mw_rss_topstories",
+        "publishedAt": "2026-09-18",
         "status": "ok"
       },
       {
-        "id": "news-MarketWatch-The bond market is seeing trouble. Why investors are buying now",
+        "id": "news-CNBC-AI cloud provider Nscale files to go public",
+        "category": "news",
+        "source": "CNBC",
+        "title": "AI cloud provider Nscale files to go public",
+        "url": "https://www.cnbc.com/2026/09/18/nscale-ai-cloud-provider-ipo-nscl.html",
+        "publishedAt": "2026-09-18",
+        "status": "ok"
+      },
+      {
+        "id": "news-Investing-Global shares edge higher as central banks double down on inflati",
+        "category": "news",
+        "source": "Investing",
+        "title": "Global shares edge higher as central banks double down on inflation fight",
+        "url": "https://www.investing.com/news/economy-news/stocks-rise-as-oil-dips-yen-wobbles-ahead-of-boj-4906608",
+        "publishedAt": "2026-09-18",
+        "status": "ok"
+      },
+      {
+        "id": "news-Investing-Bank of Japan lifts rates as global tightening cycle takes shape",
+        "category": "news",
+        "source": "Investing",
+        "title": "Bank of Japan lifts rates as global tightening cycle takes shape",
+        "url": "https://www.investing.com/news/economy-news/bank-of-japan-lifts-rates-as-global-tightening-cycle-takes-shape-93CH-4907895",
+        "publishedAt": "2026-09-18",
+        "status": "ok"
+      },
+      {
+        "id": "news-MarketWatch-Stocks are failing the ‘breadth’ test, but options traders stil",
         "category": "news",
         "source": "MarketWatch",
-        "title": "The bond market is seeing trouble. Why investors are buying now anyway.",
-        "url": "https://www.marketwatch.com/story/the-bond-market-is-seeing-trouble-why-investors-are-buying-now-anyway-065a2f9f?mod=mw_rss_topstories",
-        "publishedAt": "2026-09-17",
+        "title": "Stocks are failing the ‘breadth’ test, but options traders still see reason to buy",
+        "url": "https://www.marketwatch.com/story/stocks-are-failing-the-breadth-test-but-options-traders-still-see-reason-to-buy-ef78ef14?mod=mw_rss_topstories",
+        "publishedAt": "2026-09-18",
         "status": "ok"
       },
       {
-        "id": "news-CNBC-America’s AI chip talent crisis — why The U.S. needs 157,000 more work",
+        "id": "news-MarketWatch-My rental property is paid off, but I need cash. Is this a bad ",
         "category": "news",
-        "source": "CNBC",
-        "title": "America’s AI chip talent crisis — why The U.S. needs 157,000 more workers",
-        "url": "https://www.cnbc.com/2026/09/17/us-chipmakers-face-deep-labor-shortage-samsung-micron-sound-alarm.html",
-        "publishedAt": "2026-09-17",
+        "source": "MarketWatch",
+        "title": "My rental property is paid off, but I need cash. Is this a bad time to take out a $50,000 HELOC?",
+        "url": "https://www.marketwatch.com/story/my-rental-property-is-paid-off-but-i-need-cash-is-this-a-bad-time-to-take-out-a-50-000-heloc-d094bbc5?mod=mw_rss_topstories",
+        "publishedAt": "2026-09-18",
         "status": "ok"
       },
       {
-        "id": "news-Investing-U.S. Treasury yields drop as oil prices ease",
-        "category": "news",
-        "source": "Investing",
-        "title": "U.S. Treasury yields drop as oil prices ease",
-        "url": "https://www.investing.com/news/economy-news/us-treasury-yields-drop-as-oil-prices-ease-93CH-4906477",
-        "publishedAt": "2026-09-17",
-        "status": "ok"
-      },
-      {
-        "id": "news-Investing-Trading Day: Lower oil, yields boost stocks",
+        "id": "news-Investing-Dollar advances vs yen as BOJ dissent clouds rate-hike outlook",
         "category": "news",
         "source": "Investing",
-        "title": "Trading Day: Lower oil, yields boost stocks",
-        "url": "https://www.investing.com/news/economy-news/trading-day-lower-oil-yields-boost-stocks-4906478",
-        "publishedAt": "2026-09-17",
-        "status": "ok"
-      },
-      {
-        "id": "news-CNBC-Jensen Huang says Nvidia will sell twice as many chips next year",
-        "category": "news",
-        "source": "CNBC",
-        "title": "Jensen Huang says Nvidia will sell twice as many chips next year",
-        "url": "https://www.cnbc.com/2026/09/17/nvidia-huang-ai-chip-guidance.html",
-        "publishedAt": "2026-09-17",
+        "title": "Dollar advances vs yen as BOJ dissent clouds rate-hike outlook",
+        "url": "https://www.investing.com/news/economy-news/yen-weak-ahead-of-boj-decision-rate-hike-expected-4906595",
+        "publishedAt": "2026-09-18",
         "status": "ok"
       }
     ],
     "clusters": [],
-    "summary": "8월 폭염과 유가 상승 여파로 생산자물가가 한 달 만에 반등하며 물가 부담이 고개를 드는 모습입니다.",
+    "summary": "기뢰 영향으로 인한 국제유가 불안과 휘발유 및 경유 부담 재확대 이슈가 주목받고 있습니다.",
     "status": "ok"
   },
   "latestBriefing": null,
@@ -243,12 +241,63 @@
       "name": "코스피",
       "value": 6724.34,
       "displayValue": "6,724.34",
-      "change": 0.0948,
+      "change": null,
+      "changeUnit": "%",
+      "displayMode": "pct",
+      "direction": null,
+      "asOf": "2026-09-17",
+      "source": "KRX",
+      "sourceUrl": "",
+      "frequency": "daily",
+      "isDelayed": true,
+      "status": "stale",
+      "insight": null
+    },
+    {
+      "id": "kosdaq",
+      "name": "코스닥",
+      "value": 821.67,
+      "displayValue": "821.67",
+      "change": null,
+      "changeUnit": "%",
+      "displayMode": "pct",
+      "direction": null,
+      "asOf": "2026-09-17",
+      "source": "KRX",
+      "sourceUrl": "",
+      "frequency": "daily",
+      "isDelayed": true,
+      "status": "stale",
+      "insight": null
+    },
+    {
+      "id": "nasdaq",
+      "name": "나스닥",
+      "value": 26522.54,
+      "displayValue": "26,522.54",
+      "change": 0.3946,
       "changeUnit": "%",
       "displayMode": "pct",
       "direction": "up",
-      "asOf": "2026-09-17",
-      "source": "KRX",
+      "asOf": "2026-09-18",
+      "source": "FinanceDataReader",
+      "sourceUrl": "",
+      "frequency": "daily",
+      "isDelayed": true,
+      "status": "ok",
+      "insight": "전일 대비 상승"
+    },
+    {
+      "id": "sp500",
+      "name": "S&P500",
+      "value": 7650.5,
+      "displayValue": "7,650.50",
+      "change": 0.1668,
+      "changeUnit": "%",
+      "displayMode": "pct",
+      "direction": "up",
+      "asOf": "2026-09-18",
+      "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
       "isDelayed": true,
@@ -256,66 +305,15 @@
       "insight": "전일 대비 소폭 상승"
     },
     {
-      "id": "kosdaq",
-      "name": "코스닥",
-      "value": 821.67,
-      "displayValue": "821.67",
-      "change": 0.6973,
-      "changeUnit": "%",
-      "displayMode": "pct",
-      "direction": "up",
-      "asOf": "2026-09-17",
-      "source": "KRX",
-      "sourceUrl": "",
-      "frequency": "daily",
-      "isDelayed": true,
-      "status": "ok",
-      "insight": "전일 대비 상승"
-    },
-    {
-      "id": "nasdaq",
-      "name": "나스닥",
-      "value": 26418.3,
-      "displayValue": "26,418.30",
-      "change": 1.6933,
-      "changeUnit": "%",
-      "displayMode": "pct",
-      "direction": "up",
-      "asOf": "2026-09-17",
-      "source": "FinanceDataReader",
-      "sourceUrl": "",
-      "frequency": "daily",
-      "isDelayed": true,
-      "status": "ok",
-      "insight": "전일 대비 큰 폭 상승"
-    },
-    {
-      "id": "sp500",
-      "name": "S&P500",
-      "value": 7637.76,
-      "displayValue": "7,637.76",
-      "change": 1.1381,
-      "changeUnit": "%",
-      "displayMode": "pct",
-      "direction": "up",
-      "asOf": "2026-09-17",
-      "source": "FinanceDataReader",
-      "sourceUrl": "",
-      "frequency": "daily",
-      "isDelayed": true,
-      "status": "ok",
-      "insight": "전일 대비 상승"
-    },
-    {
       "id": "usdkrw",
       "name": "원/달러",
-      "value": 1379.98,
-      "displayValue": "1,380.0",
-      "change": 3.32,
+      "value": 1385.95,
+      "displayValue": "1,386.0",
+      "change": 5.97,
       "changeUnit": "원",
       "displayMode": "delta",
       "direction": "up",
-      "asOf": "2026-09-17",
+      "asOf": "2026-09-18",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
@@ -326,47 +324,47 @@
     {
       "id": "us10y",
       "name": "미국채10년",
-      "value": 4.95,
-      "displayValue": "4.95%",
-      "change": -0.06,
+      "value": 5.0,
+      "displayValue": "5.00%",
+      "change": 0.05,
       "changeUnit": "%p",
       "displayMode": "delta",
-      "direction": "down",
-      "asOf": "2026-09-17",
+      "direction": "up",
+      "asOf": "2026-09-18",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
       "isDelayed": true,
       "status": "ok",
-      "insight": "전일 대비 소폭 하락"
+      "insight": "전일 대비 소폭 상승"
     },
     {
       "id": "wti",
       "name": "WTI",
-      "value": 101.09,
-      "displayValue": "$101.09",
-      "change": -0.9116,
+      "value": 95.47,
+      "displayValue": "$95.47",
+      "change": -5.5594,
       "changeUnit": "%",
       "displayMode": "pct",
       "direction": "down",
-      "asOf": "2026-09-17",
+      "asOf": "2026-09-18",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
       "isDelayed": true,
       "status": "ok",
-      "insight": "전일 대비 하락"
+      "insight": "전일 대비 큰 폭 하락"
     },
     {
       "id": "vix",
       "name": "VIX",
-      "value": 15.44,
-      "displayValue": "15.44",
-      "change": -12.8176,
+      "value": 14.81,
+      "displayValue": "14.81",
+      "change": -4.0803,
       "changeUnit": "%",
       "displayMode": "pct",
       "direction": "down",
-      "asOf": "2026-09-17",
+      "asOf": "2026-09-18",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
@@ -384,7 +382,7 @@
       "valueLabel": "+0.27%p",
       "insight": "장단기 금리차가 정상 범위에 있어 침체 신호는 뚜렷하지 않습니다.",
       "sourceLabel": "장단기 금리차 (미국채 10Y-2Y)",
-      "asOf": "2026-09-18"
+      "asOf": "2026-09-19"
     },
     {
       "id": "rate-gap",
@@ -394,7 +392,7 @@
       "valueLabel": "+1.00%p",
       "insight": "한미 금리차가 관리 가능한 수준이라 자본유출 압력은 크지 않습니다.",
       "sourceLabel": "한미 기준금리차 (Fed-한은)",
-      "asOf": "2026-09-18"
+      "asOf": "2026-09-19"
     },
     {
       "id": "liquidity-stress",
@@ -404,7 +402,7 @@
       "valueLabel": "2.70%p",
       "insight": "신용시장 스프레드가 평상 수준이라 유동성 경색 신호는 없습니다.",
       "sourceLabel": "하이일드 스프레드 (BAMLH0A0HYM2)",
-      "asOf": "2026-09-18"
+      "asOf": "2026-09-19"
     }
   ],
   "claims": {
@@ -866,7 +864,7 @@
     }
   },
   "newsletterClaimsTeaser": {
-    "publicationId": "2026-09-17",
+    "publicationId": "2026-09-18",
     "resolvedCount": 0,
     "hitCount": 0,
     "missCount": 0,
