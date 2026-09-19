@@ -1,0 +1,145 @@
+{
+  "schema_version": "normalized-daily-issue/v1",
+  "edition_id": "2026-09-19",
+  "edition_date_kst": "2026-09-19",
+  "canonical_status": "SEND_BLOCKED",
+  "production_status": "SEND_BLOCKED",
+  "source_commit_sha": null,
+  "subject": null,
+  "preheader": null,
+  "thesis": null,
+  "main_story": null,
+  "entities": [],
+  "metrics": [
+    {
+      "id": "kospi",
+      "value": 6724.34,
+      "change": null,
+      "displayMode": "pct",
+      "direction": null,
+      "status": "stale"
+    },
+    {
+      "id": "kosdaq",
+      "value": 821.67,
+      "change": null,
+      "displayMode": "pct",
+      "direction": null,
+      "status": "stale"
+    },
+    {
+      "id": "nasdaq",
+      "value": 26522.54,
+      "change": 0.3946,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "sp500",
+      "value": 7650.5,
+      "change": 0.1668,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1385.95,
+      "change": 5.97,
+      "displayMode": "delta",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "us10y",
+      "value": 5.0,
+      "change": 0.05,
+      "displayMode": "delta",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "wti",
+      "value": 95.47,
+      "change": -5.5594,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "vix",
+      "value": 14.81,
+      "change": -4.0803,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    }
+  ],
+  "market_changes": [
+    {
+      "id": "kospi",
+      "change": null,
+      "changeUnit": null,
+      "direction": null
+    },
+    {
+      "id": "kosdaq",
+      "change": null,
+      "changeUnit": null,
+      "direction": null
+    },
+    {
+      "id": "nasdaq",
+      "change": 0.3946,
+      "changeUnit": null,
+      "direction": "up"
+    },
+    {
+      "id": "sp500",
+      "change": 0.1668,
+      "changeUnit": null,
+      "direction": "up"
+    },
+    {
+      "id": "usdkrw",
+      "change": 5.97,
+      "changeUnit": null,
+      "direction": "up"
+    },
+    {
+      "id": "us10y",
+      "change": 0.05,
+      "changeUnit": null,
+      "direction": "up"
+    },
+    {
+      "id": "wti",
+      "change": -5.5594,
+      "changeUnit": null,
+      "direction": "down"
+    },
+    {
+      "id": "vix",
+      "change": -4.0803,
+      "changeUnit": null,
+      "direction": "down"
+    }
+  ],
+  "narratives": null,
+  "moo_q": null,
+  "moo_check": [],
+  "moo_word": null,
+  "sources": [],
+  "public_url": null,
+  "validation_status": {
+    "main_story_status": "NARRATIVE_DEFERRED_PENDING_DECISION",
+    "content_provenance": "NOT_PERSISTED",
+    "moo_word_present": false,
+    "sources_count": 0,
+    "is_approximate": true,
+    "note": "2026-09-19 06:41 KST 정기 실행(run 35397992498)에서 KR_MARKET_FRESHNESS_GATE(코스피/코스닥 소스 stale, Naver 이중검증 폴백도 실패)가 발송을 확정적으로차단함(email_sent=false, risk_manifest.json 확인). main.py의 run_kr_market_freshness_gated_send()가 블록되면 send_attempt_fn() 자체를호출하지 않아 daily_archive.persist_normalized_daily_issue()가 이번 실행에서전혀 실행되지 않았다 — 콘텐츠가 유실된 게 아니라 애초에 이 아카이브 단계에도달하지 못했다. 지표(metrics/market_changes)는 같은 실행이 이미 공개push한 data/history/2026-09-19.json에서 그대로 옮김(신규 계산 없음). main_story/narratives/moo_q/moo_word 등 서사 필드는 CEO 지시로 이번백필에서는 null로 남긴다 — 원본 초안은 GitHub Actions run 35397992498의아티팩트(daily-briefing-candidates-35397992498, 2026-09-25 만료 전 별도보존 완료)에 남아있어 향후 필요하면 복원 가능하나, 그 결정은 이 백필의범위 밖(CEO 판단 대기). 백필 근거: docs/state-inbox/2026-09-19-trackC-state-integrity.md."
+  },
+  "content_hash": "8e9c6882e32c8f249162c9c45ac464640b4de8cfa84cb7043a2328f63f213dd5",
+  "archived_at": "2026-09-19T23:40:13.356023+00:00"
+}
