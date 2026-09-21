@@ -24,7 +24,7 @@ class InternalLinkTests(unittest.TestCase):
         hrefs = re.findall(r'href="(/[^"#?]*)"', html)
         missing = []
         for href in set(hrefs):
-            if href in ("/rss.xml", "/feed.xml"):
+            if href == "/rss.xml":
                 continue
             local = href.lstrip("/")
             candidates = [local, local + ".html", os.path.join(local, "index.html")]
