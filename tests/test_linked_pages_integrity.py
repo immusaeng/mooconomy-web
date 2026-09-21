@@ -120,5 +120,62 @@ class MooQDataIntegrityTests(unittest.TestCase):
         self.assertEqual(latest["claimText"], newest_resolved["claimText"])
 
 
+# (TASK_ID=WEEKLY_CH1_REVERT_AND_CARD_REAL_DATA, 2026-09-21, CEO 지시)
+# 2026-09-21 오전 커밋(d2a6f10)이 월요일마다 홈 CH·I("Today's Edition")을
+# 위클리 커버로 바꾸는 분기를 넣었는데, 같은 날 CEO가 그 전제 자체를
+# 폐기했다 — CH·I은 항상 데일리 전용 슬롯이다. 되돌린 뒤 다시 새지
+# 않도록 고정.
+class ChapterOneStaysDailyOnlyTests(unittest.TestCase):
+    def test_home_data_js_has_no_weekly_hero_branch(self):
+        js = read("home-data.js")
+        for marker in ("isMondayKST", "renderWeeklyHero", "This Week's Edition", "WEEKLY ·"):
+            self.assertNotIn(marker, js, f"CH·I hero-swap-to-weekly branch leaked back in: {marker!r}")
+
+    def test_render_cover_only_reads_daily_manifest(self):
+        js = read("home-data.js")
+        m = re.search(r"function renderCover\(.*?\n  \}\n", js, re.DOTALL)
+        self.assertIsNotNone(m, "renderCover() not found")
+        body = m.group(0)
+        self.assertNotIn("weekly", body.lower())
+
+
+class WeeklyCardNoPlaceholderTests(unittest.TestCase):
+    def test_no_summary_pending_placeholder_string_anywhere(self):
+        # (2026-09-21 CEO 지시) 문자열 자체를 코드베이스에 남기지 않는다 --
+        # 특정 파일 하나만 검사하면 다른 곳에 재도입돼도 못 잡으므로 추적
+        # 대상 텍스트/스크립트 확장자 전체를 훑는다.
+        placeholder = "요약 준비 중"
+        self_path = os.path.abspath(__file__)
+        hits = []
+        for dirpath, dirnames, filenames in os.walk(ROOT):
+            dirnames[:] = [d for d in dirnames if d not in (".git", "node_modules", "_build_tmp")]
+            for fname in filenames:
+                if not fname.endswith((".html", ".js", ".py", ".css")):
+                    continue
+                path = os.path.join(dirpath, fname)
+                if os.path.abspath(path) == self_path:
+                    continue  # 이 테스트 자신은 검사 대상 문자열을 리터럴로 담고 있다
+                try:
+                    with open(path, encoding="utf-8") as f:
+                        content = f.read()
+                except (UnicodeDecodeError, OSError):
+                    continue
+                if placeholder in content:
+                    hits.append(os.path.relpath(path, ROOT))
+        self.assertEqual(hits, [], f"placeholder string leaked back into: {hits}")
+
+    def test_weekly_card_uses_real_headline_metrics_when_present(self):
+        with open(os.path.join(ROOT, "data", "weekly", "index.json"), encoding="utf-8") as f:
+            idx = json.load(f)
+        canonical = [w for w in idx["weeks"] if w.get("has_canonical_page")]
+        self.assertTrue(canonical, "no canonical weeks to check against")
+        for w in canonical:
+            self.assertIn("headline_metrics", w)
+            self.assertIn("source_edition_count", w)
+            for m in w["headline_metrics"]:
+                self.assertIn(m["metric_id"], ("kospi", "nasdaq"))
+                self.assertIsNotNone(m["weekly_change_percent"])
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -409,14 +409,38 @@
     }
   }
 
+  // (TASK_ID=WEEKLY_CARD_REAL_DATA, 2026-09-21, CEO 지시) 지표 라벨 -- 새
+  // 지표를 추가할 근거가 없어 publish_weekly_archive.py의 _HEADLINE_METRIC_IDS
+  // (코스피/나스닥 고정 2개)와 정확히 1:1로만 맞춘다.
+  var WEEKLY_HEADLINE_METRIC_LABELS = { kospi: '코스피', nasdaq: '나스닥' };
+
   async function renderWeeklyRecent() {
     var ul = $('weeklyRecent');
     var idx = await fetchJSON('data/weekly/index.json');
-    var weeks = (idx && idx.weeks) || [];
+    // (2026-09-21) has_canonical_page=true인 주만 -- weekly.html이 이미 쓰는
+    // 필터와 동일(그 필터가 "정본" 판단, 여기서 새로 판단하지 않는다). W31/W32
+    // 같은 파이프라인 이전 fixture(canonical 페이지 없음)는 홈 카드에도
+    // 제외돼야 한다 -- 클릭하면 404가 나는 링크를 홈에 노출할 수 없다.
+    var weeks = ((idx && idx.weeks) || []).filter(function (w) { return w.has_canonical_page === true; });
     if (!weeks.length) { ul.innerHTML = '<li class="rc-empty">발행된 주간 리포트가 없습니다.</li>'; return; }
     var recent = weeks.slice(0, 3);
     ul.innerHTML = recent.map(function (w) {
-      return '<li><span class="date">' + esc(w.week_id) + '</span><span class="title">' + esc(w.period_start_kst) + ' – ' + esc(w.period_end_kst) + ' · 요약 준비 중</span></li>';
+      // (2026-09-21) weekly_thesis(데일리 헤드라인 원문 인용)는 CH·I 헤드라인과
+      // 중복이라 카드에 쓰지 않는다 -- 대신 그 주 실제로 집계된 값(publish_
+      // weekly_archive.py가 재계산 없이 그대로 옮긴 것)만, 있는 것만 보여준다.
+      var metricsText = (w.headline_metrics || []).map(function (m) {
+        var label = WEEKLY_HEADLINE_METRIC_LABELS[m.metric_id];
+        if (!label || m.weekly_change_percent == null) return null;
+        var pct = m.weekly_change_percent;
+        var sign = pct > 0 ? '+' : '';
+        return label + ' ' + sign + pct.toFixed(2) + '%';
+      }).filter(Boolean).join(' ');
+      var parts = [esc(w.period_start_kst) + ' – ' + esc(w.period_end_kst)];
+      if (w.source_edition_count) parts.push('데일리 ' + w.source_edition_count + '건 집계');
+      if (metricsText) parts.push(esc(metricsText));
+      return '<li><a href="/weekly/' + encodeURIComponent(w.week_id) + '.html">'
+        + '<span class="date">' + esc(w.week_id) + '</span>'
+        + '<span class="title">' + parts.join(' · ') + '</span></a></li>';
     }).join('');
     $('weeklyMeta').textContent = '누적 ' + weeks.length + '건 발행';
   }
@@ -563,43 +587,6 @@
     });
   }
 
-  /* ─── 2b. 월요일 히어로 분기(2026-09-21, TASK_TRACK=STATE_REPAIR_20260921) ───
-     CEO 승인. main.py/home.json 계약은 전혀 건드리지 않는다 — 이미 매주
-     publish_weekly_archive.py가 갱신해 온 data/weekly/index.json만 클라이언트
-     에서 읽어, (KST 기준) 월요일이고 최신 주가 has_canonical_page=true일 때만
-     히어로를 그 주의 Weekly 커버로 바꾼다. 위클리 발행이 실패했거나
-     (has_canonical_page=false) fetch 자체가 실패하면 조용히 기존 Daily 커버
-     (renderCover)로 폴백한다 — 새 판단 로직을 서버에 추가하지 않는다. */
-  function isMondayKST() {
-    // Date.getTime()은 항상 timezone-무관 UTC epoch ms이므로(로컬 오프셋을
-    // 이미 안 타므로) getTimezoneOffset() 보정이 오히려 버그였다(방문자
-    // 브라우저의 로컬 시간대에 따라 결과가 흔들림 — 실측: 이 값이 이미
-    // KST인 환경에서 하루 밀림을 확인). UTC epoch에 9시간만 더하고
-    // getUTCDay()로 읽으면 로컬 시간대와 무관하게 항상 정확하다.
-    var kstMs = Date.now() + 9 * 60 * 60000;
-    return new Date(kstMs).getUTCDay() === 1;
-  }
-
-  function renderWeeklyHero(latestWeek) {
-    var section = document.getElementById('edition');
-    var headlineEl = $('csHeadline'), deckEl = $('csDeck'), flagR = $('csFlagR');
-    if (!section || !headlineEl) return false;
-    var titleEl = section.querySelector('.chap-title');
-    var kickerEl = section.querySelector('.chap-kicker');
-    if (titleEl) titleEl.textContent = "This Week's Edition";
-    if (kickerEl) kickerEl.textContent = '— 이번 주 Weekly 리캡의 커버';
-    headlineEl.textContent = 'MOO:conomy WEEKLY ' + latestWeek.week_id + ' 리캡';
-    if (headlineEl.tagName === 'A') headlineEl.href = '/weekly/' + latestWeek.week_id + '.html';
-    if (deckEl) {
-      deckEl.textContent = esc(latestWeek.period_start_kst) + ' – ' + esc(latestWeek.period_end_kst);
-      deckEl.hidden = false;
-    }
-    if (flagR) flagR.textContent = 'WEEKLY · ' + esc(latestWeek.week_id);
-    var sigBlock = $('csSignalsBlock');
-    if (sigBlock) sigBlock.hidden = true;
-    return true;
-  }
-
   /* ─── 실행 ─── */
   async function init() {
     wireSubscribeForm();
@@ -607,16 +594,19 @@
     var manifestP = fetchJSON('data/archive/issues_manifest.json');
     var calResultsP = fetchJSON('data/calendar_results.json');
     var calViewP = fetchJSON('data/calendar_views/home.json');
-    var weeklyIdxP = isMondayKST() ? fetchJSON('data/weekly/index.json') : Promise.resolve(null);
 
     var home = await homeP;
     var manifest = (await manifestP) || [];
 
     renderMasthead(home, manifest);
-    var weeklyIdx = await weeklyIdxP;
-    var latestWeek = weeklyIdx && Array.isArray(weeklyIdx.weeks) ? weeklyIdx.weeks[0] : null;
-    var heroIsWeekly = !!(latestWeek && latestWeek.has_canonical_page && renderWeeklyHero(latestWeek));
-    if (!heroIsWeekly) renderCover(home, manifest);
+    // (2026-09-21, CEO 결정) CH·I("Today's Edition")은 데일리 뉴스레터
+    // 전용 슬롯이다 — 위클리는 여기 절대 올라오지 않는다. "월 Weekly ·
+    // 화–토 Daily"는 메일 발송 스케줄일 뿐 이 슬롯의 소스 선택과 무관하다
+    // (2026-09-21 오전 STATE_REPAIR_20260921 커밋이 월요일에 이 슬롯을
+    // Weekly 커버로 바꾸는 분기를 넣었었는데, 같은 날 CEO가 그 전제
+    // 자체를 폐기했다 — renderCover()는 항상 issues_manifest.json 최신
+    // 항목만 쓴다).
+    renderCover(home, manifest);
     if (home) { renderMetrics(home); renderMooCheck(home); }
     renderDailyRecent(manifest);
     if (manifest.length) $('subProofCount').textContent = manifest.length;
