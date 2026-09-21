@@ -177,5 +177,38 @@ class WeeklyCardNoPlaceholderTests(unittest.TestCase):
                 self.assertIsNotNone(m["weekly_change_percent"])
 
 
+# (TASK_ID=CS_HEADLINE_LONG_TITLE_HIERARCHY, 2026-09-21) CH·I 헤드라인이
+# 길어 2줄 이상 줄바꿈될 때 TODAY'S HEADLINE 라벨/CH·I TODAY'S ANGLE
+# eyebrow 대비 위계가 깨지던 문제. renderCover()가 실측 줄바꿈 여부로
+# .is-long을 토글하는 로직 자체는 실제 레이아웃 엔진(scrollHeight)이
+# 필요해 이 저장소의 정적 테스트로는 실행할 수 없다(jsdom도 없음, 이미
+# 다른 반응형 타이포 라운드에서 확인된 이 저장소의 제약) — 대신
+# ShareScriptSourceTests와 동일한 방식(소스 문자열 검사)으로 로직/CSS가
+# 실제로 존재하고 각 뷰포트 타이어에서 기본값보다 작은지만 고정한다.
+class HeadlineLongTitleHierarchyTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.js = read("home-data.js")
+        cls.css = read("styles.css")
+
+    def test_render_cover_toggles_is_long_class(self):
+        self.assertIn("classList.add('is-long')", self.js)
+        self.assertIn("classList.remove('is-long')", self.js)
+        self.assertIn("scrollHeight", self.js)
+
+    def test_css_defines_smaller_size_per_tier(self):
+        # 각 (base, is-long) 쌍에서 is-long이 항상 더 작아야 한다 --
+        # 하드코딩된 숫자를 바꾸는 다음 사람이 실수로 역전시키면 잡는다.
+        pairs = re.findall(
+            r'\.cs-headline(?:\.is-long)?\s*\{[^}]*?font-size:\s*(\d+)px', self.css)
+        # 소스 순서: base 34, is-long 28, (1279)base 32, is-long 26,
+        # (1023)base 30, is-long 24, (767)base 27, is-long 22,
+        # (390)base 26, is-long 21 -- 쌍으로 묶어 비교.
+        self.assertEqual(len(pairs) % 2, 0, pairs)
+        for i in range(0, len(pairs), 2):
+            base, long_ = int(pairs[i]), int(pairs[i + 1])
+            self.assertLess(long_, base, f"tier {i//2}: is-long({long_}) not smaller than base({base})")
+
+
 if __name__ == "__main__":
     unittest.main()

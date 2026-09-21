@@ -103,6 +103,19 @@
       flagR.remove();
     }
 
+    // (2026-09-21) 헤드라인이 길어 2줄 이상으로 줄바꿈되면 CH·I 위계
+    // (TODAY'S HEADLINE 라벨/CH·I TODAY'S ANGLE eyebrow 대비 헤드라인이
+    // 지나치게 커 보이던 문제)를 깨뜨린다 -- 글자수로 추정하지 않고
+    // 실제 렌더된 높이를 재서(CJK/영문/숫자 혼입 폭 차이를 글자수만으로는
+    // 정확히 알 수 없다) 1줄 높이의 1.5배를 넘으면(=2줄 이상)만
+    // .is-long을 붙인다. CSS(styles.css .cs-headline.is-long)가 이미
+    // 정의된 뷰포트별 타이어를 그대로 따라 한 단계씩 낮춘 값을 쓴다.
+    headlineEl.classList.remove('is-long');
+    var headlineLH = parseFloat(getComputedStyle(headlineEl).lineHeight) || 0;
+    if (headlineLH && headlineEl.scrollHeight > headlineLH * 1.5) {
+      headlineEl.classList.add('is-long');
+    }
+
     var signals = (home && Array.isArray(home.dailyThree)) ? home.dailyThree.filter(function (s) { return s && s.status === 'ok' && s.text; }) : [];
     if (signals.length) {
       var list = $('sigList');
