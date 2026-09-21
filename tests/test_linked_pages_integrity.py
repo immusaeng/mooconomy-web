@@ -40,9 +40,12 @@ class MarketsWeeklyExposureTests(unittest.TestCase):
         self.assertNotIn("demoBanner", html)
         self.assertNotIn("투자 방향성", html)
 
-    def test_weekly_page_is_noindex_and_not_presented_as_published(self):
+    def test_weekly_page_is_public_and_leaks_no_internal_fields(self):
+        # (2026-09-21 정책 변경) PR#14의 noindex 정책은 폐기됐다 — MOO:WEEKLY는
+        # 이제 정식 공개 발행물이다. noindex 메타가 다시 생기지 않는지, 내부
+        # JSON 필드명 같은 게 실수로 마크업에 새지 않는지만 고정 검증한다.
         html = read("weekly.html")
-        self.assertIn('name="robots" content="noindex,nofollow"', html)
+        self.assertNotIn('name="robots" content="noindex,nofollow"', html)
         self.assertNotIn("canonical_status=production", html)
 
     def test_homepage_has_no_markets_dashboard_cta(self):

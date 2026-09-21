@@ -258,11 +258,15 @@ class CanonicalLatestArchiveLinkingTests(_TempWebRepoTestCase):
 class WeeklyHtmlSharedShellAndCanonicalPolicyTests(unittest.TestCase):
     """2026-09-05(TASK_ID=CORRECT_WEEKLY_PHASE0_PRS_BEFORE_MERGE) — weekly.html
     자체(index.json을 소비하는 클라이언트 페이지)에 대한 회귀 가드.
-    PR#14가 도입한 공유 셸/noindex 정책을 이 파일이 실수로 되돌리지
-    않았는지, has_canonical_page=false인 fixture가 실제 리포트 링크로
-    노출되지 않는지 소스 레벨로 확인한다(DOM 실행 환경이 이 저장소에
-    없어 문자열 검사로 대체 — tests/test_build_issue_page_share.py의
-    ShareScriptSourceTests와 동일한 검증 방식)."""
+    PR#14가 도입한 공유 셸 정책을 이 파일이 실수로 되돌리지 않았는지,
+    has_canonical_page=false인 fixture가 실제 리포트 링크로 노출되지
+    않는지 소스 레벨로 확인한다(DOM 실행 환경이 이 저장소에 없어 문자열
+    검사로 대체 — tests/test_build_issue_page_share.py의
+    ShareScriptSourceTests와 동일한 검증 방식).
+
+    2026-09-21(정책 변경): PR#14의 noindex 정책은 폐기됐다(MOO:WEEKLY
+    웹 정식 공개) — 공유 셸/필터 로직 가드는 그대로 유지하고 noindex
+    관련 테스트만 새 정책에 맞게 뒤집었다."""
 
     @classmethod
     def setUpClass(cls):
@@ -278,8 +282,8 @@ class WeeklyHtmlSharedShellAndCanonicalPolicyTests(unittest.TestCase):
         self.assertIn('shared-shell.css', self.html)
         self.assertIn('styles.css', self.html)
 
-    def test_noindex_policy_preserved(self):
-        self.assertIn('<meta name="robots" content="noindex,nofollow">', self.html)
+    def test_noindex_policy_repealed(self):
+        self.assertNotIn('<meta name="robots" content="noindex,nofollow">', self.html)
 
     def test_no_leftover_merge_conflict_markers(self):
         for marker in ("<<<<<<<", "=======", ">>>>>>>"):
@@ -300,10 +304,12 @@ class WeeklyHtmlSharedShellAndCanonicalPolicyTests(unittest.TestCase):
         self.assertNotIn("(idx.weeks || []).map(", self.html)
 
     def test_empty_state_fallback_markup_present(self):
-        # 실제 발행본이 하나도 없을 때(현재 상태) 보여줄 기존 "개편 준비
-        # 중" 안내문이 그대로 있어야 한다 — 완전히 새 문구로 갈아엎지 않음.
+        # 실제 발행본이 하나도 없을 때 보여줄 안내문 자체(엘리먼트)는
+        # 여전히 있어야 한다 — 카피는 2026-09-21 정책 변경으로 "정식
+        # 발행물로 공개하지 않는다"는(이제 사실과 다른) 문구에서 단순
+        # "아직 발행본 없음" 문구로 교체됐다.
         self.assertIn('id="weeklyEmptyState"', self.html)
-        self.assertIn("정식 발행물로", self.html)
+        self.assertIn("아직 발행된 MOO:WEEKLY가 없습니다", self.html)
 
 
 if __name__ == "__main__":
