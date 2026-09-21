@@ -70,38 +70,53 @@ def run(dry_run_report_only=False, today=None):
     report["valid_dates"] = valid_dates
     report["invalid_records"] = invalid
 
-    if TODAY not in valid_dates:
-        report["aborted"] = True
-        report["abort_reason"] = f"오늘({TODAY}) 레코드가 유효하지 않음 — 최신호 정합성 작업 불가"
-        return report
+    # 2026-09-21(TASK_ID=STATE_REPAIR_20260921) — TODAY가 유효분에 없다고
+    # 전체를 abort하던 이전 동작은 월요일(Weekly 전용, daily_archive 기록
+    # 자체가 없음)과 직전 발송이 차단된 날 다음 실행(latest-email.html은
+    # 차단된 날 콘텐츠로 이미 덮어써졌는데 그 날짜는 daily_archive에서
+    # invalid로 남아 영원히 TODAY==valid_dates가 성립할 수 없는 상태)
+    # 둘 다에서 매번 실행 전체가 아무 산출물도 안 남기고 종료되게 만들었다
+    # (실측: 2026-09-19 SEND_BLOCKED 이후 sitemap.xml/rss.xml/manifest가
+    # 사흘째 09-18에 고착). "오늘 새 호를 발행"과 "이미 유효한 호들로
+    # manifest/archive/sitemap/rss를 최신 상태로 유지"는 서로 다른 책임이라
+    # 분리한다 — 후자는 TODAY 유무와 무관하게 항상 시도한다.
+    today_publishable = TODAY in valid_dates
+    report["today_publishable"] = today_publishable
+    safe_email = None
 
     metas = [lib.build_normalized_metadata(d, by_date[d]) for d in valid_dates]
     metas = lib.compute_prev_next(metas)
     meta_by_date = {m["issue_date"]: m for m in metas}
 
-    # ── 오늘자 latest-email.html 발행일 검증 + public-safe 변환 ──────
-    email_path = os.path.join(ROOT, "latest-email.html")
-    if not os.path.exists(email_path):
-        report["aborted"] = True
-        report["abort_reason"] = "latest-email.html 없음"
-        return report
-    raw_email = open(email_path, encoding="utf-8").read()
-    content_date = lib.extract_kst_date_from_html(raw_email)
-    report["latest_email_content_date"] = content_date
-    if content_date != TODAY:
-        report["aborted"] = True
-        report["abort_reason"] = f"latest-email.html 콘텐츠 날짜({content_date}) != 기대값({TODAY})"
-        return report
+    if today_publishable:
+        # ── 오늘자 latest-email.html 발행일 검증 + public-safe 변환 ──────
+        email_path = os.path.join(ROOT, "latest-email.html")
+        if not os.path.exists(email_path):
+            report["aborted"] = True
+            report["abort_reason"] = "latest-email.html 없음"
+            return report
+        raw_email = open(email_path, encoding="utf-8").read()
+        content_date = lib.extract_kst_date_from_html(raw_email)
+        report["latest_email_content_date"] = content_date
+        if content_date != TODAY:
+            report["aborted"] = True
+            report["abort_reason"] = f"latest-email.html 콘텐츠 날짜({content_date}) != 기대값({TODAY})"
+            return report
 
-    pre_audit = lib.audit_privacy(raw_email)
-    safe_email = lib.make_public_safe_html(raw_email)
-    post_audit = lib.audit_privacy(safe_email)
-    report["latest_email_privacy_pre_strip_issues"] = pre_audit
-    report["latest_email_privacy_post_strip_issues"] = post_audit
-    if post_audit:
-        report["aborted"] = True
-        report["abort_reason"] = f"public-safe 변환 후에도 개인정보 이슈 잔존: {post_audit}"
-        return report
+        pre_audit = lib.audit_privacy(raw_email)
+        safe_email = lib.make_public_safe_html(raw_email)
+        post_audit = lib.audit_privacy(safe_email)
+        report["latest_email_privacy_pre_strip_issues"] = pre_audit
+        report["latest_email_privacy_post_strip_issues"] = post_audit
+        if post_audit:
+            report["aborted"] = True
+            report["abort_reason"] = f"public-safe 변환 후에도 개인정보 이슈 잔존: {post_audit}"
+            return report
+    else:
+        report["today_publish_skip_reason"] = (
+            f"오늘({TODAY}) 레코드가 없거나 유효하지 않음 — 신규 호 발행은 스킵하고 "
+            "기존 유효분만으로 manifest/archive/sitemap/rss를 재생성한다"
+        )
 
     # ── 4. 임시 디렉터리에 페이지 생성 ───────────────────────────────
     # 2026-08-21(TASK_ID=TRACK_B7_ARCHIVE_AUTOMATION): 발견한 회귀 —
@@ -152,7 +167,7 @@ def run(dry_run_report_only=False, today=None):
     report["page_checks"] = page_checks
     report["passing_dates"] = passing_dates
 
-    if TODAY not in passing_dates:
+    if today_publishable and TODAY not in passing_dates:
         report["aborted"] = True
         report["abort_reason"] = f"오늘({TODAY}) 페이지가 검사 통과하지 못함: {page_checks.get(TODAY)}"
         return report
@@ -198,13 +213,14 @@ def run(dry_run_report_only=False, today=None):
     #    latest-email.html은 noindex,follow로 서로 달라야 한다. 본문은
     #    완전히 동일 산출물이므로 robots 메타 값 하나만 치환한다) ───────
     latest_tmp_path = os.path.join(BUILD_TMP, "latest.html")
-    latest_html = re.sub(
-        r'<meta\s+name="robots"[^>]*>',
-        '<meta name="robots" content="noindex,follow">',
-        rendered[TODAY], count=1,
-    )
-    with open(latest_tmp_path, "w", encoding="utf-8") as f:
-        f.write(latest_html)
+    if today_publishable:
+        latest_html = re.sub(
+            r'<meta\s+name="robots"[^>]*>',
+            '<meta name="robots" content="noindex,follow">',
+            rendered[TODAY], count=1,
+        )
+        with open(latest_tmp_path, "w", encoding="utf-8") as f:
+            f.write(latest_html)
 
     # ── 내부 링크 존재 검사(임시 디렉터리를 site_root로, 그 안에 없는
     #    페이지 - /calendar/, /about/ 등 이번에 다시 만들지 않는 기존
@@ -259,12 +275,17 @@ def run(dry_run_report_only=False, today=None):
         return report
 
     # ── 8. 전체 통과 → 실제 경로로 교체(백업 포함) ───────────────────
-    backup_path = os.path.join(ROOT, "latest.html.bak")
-    if os.path.exists(os.path.join(ROOT, "latest.html")):
-        shutil.copy2(os.path.join(ROOT, "latest.html"), backup_path)
-        report["latest_html_backed_up_to"] = backup_path
+    # today_publishable=False면 새로 발행할 오늘자 호 자체가 없으므로
+    # latest.html은 손대지 않는다(마지막으로 실제 발행된 날짜를 계속
+    # 정확히 가리키는 상태 그대로 둔다 — 과거 확정 산출물을 덮어쓰지
+    # 않는다는 원칙과 동일).
+    if today_publishable:
+        backup_path = os.path.join(ROOT, "latest.html.bak")
+        if os.path.exists(os.path.join(ROOT, "latest.html")):
+            shutil.copy2(os.path.join(ROOT, "latest.html"), backup_path)
+            report["latest_html_backed_up_to"] = backup_path
 
-    shutil.copy2(latest_tmp_path, os.path.join(ROOT, "latest.html"))
+        shutil.copy2(latest_tmp_path, os.path.join(ROOT, "latest.html"))
 
     real_issues_dir = os.path.join(ROOT, "issues")
     os.makedirs(real_issues_dir, exist_ok=True)
