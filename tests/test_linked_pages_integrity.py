@@ -179,22 +179,46 @@ class WeeklyCardNoPlaceholderTests(unittest.TestCase):
 
 # (TASK_ID=CS_HEADLINE_LONG_TITLE_HIERARCHY, 2026-09-21) CH·I 헤드라인이
 # 길어 2줄 이상 줄바꿈될 때 TODAY'S HEADLINE 라벨/CH·I TODAY'S ANGLE
-# eyebrow 대비 위계가 깨지던 문제. renderCover()가 실측 줄바꿈 여부로
-# .is-long을 토글하는 로직 자체는 실제 레이아웃 엔진(scrollHeight)이
-# 필요해 이 저장소의 정적 테스트로는 실행할 수 없다(jsdom도 없음, 이미
-# 다른 반응형 타이포 라운드에서 확인된 이 저장소의 제약) — 대신
-# ShareScriptSourceTests와 동일한 방식(소스 문자열 검사)으로 로직/CSS가
-# 실제로 존재하고 각 뷰포트 타이어에서 기본값보다 작은지만 고정한다.
+# eyebrow 대비 위계가 깨지던 문제.
+#
+# **이 테스트가 약한 이유를 정직하게 기록한다**: 최초 구현은 이 소스
+# 문자열 검사를 전부 통과했는데도 라이브에서 완전히 무효했다(사용자가
+# 스크린샷으로 재현 보고, 2026-09-21) — 실제 버그 둘 다(클래스가
+# id="csHeadline"인 <a>에 붙었는데 CSS 선택자 .cs-headline.is-long은
+# 부모 <h2>를 요구해 매치 자체가 안 됨; scrollHeight가 인라인 <a>에서
+# 0을 반환) 문자열 검사로는 원천적으로 못 잡는 종류였다 -- 헤드리스
+# Chrome으로 --dump-dom(렌더 후 DOM)을 직접 읽어서만 발견·확인했다
+# (`chrome.exe --headless --disable-gpu --dump-dom --virtual-time-budget=4000
+# --window-size=1280,900 <url> | grep 'cs-headline'`, 이 저장소가 jsdom도
+# CI의 실브라우저 테스트도 없어 자동화하지 못했다 -- 이전 반응형 타이포
+# 라운드들과 같은 제약). 아래는 그래서 "이 두 특정 버그가 다시 나타나면"
+# 만이라도 잡도록 최소한으로 강화한 것이지, .is-long이 실제로 렌더에
+# 반영된다는 걸 증명하지 않는다 -- 이 로직을 다시 건드릴 때는 반드시
+# 위 명령으로 직접 재검증할 것.
 class HeadlineLongTitleHierarchyTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.js = read("home-data.js")
         cls.css = read("styles.css")
 
-    def test_render_cover_toggles_is_long_class(self):
+    def test_render_cover_toggles_is_long_class_on_the_element_with_the_css_class(self):
         self.assertIn("classList.add('is-long')", self.js)
         self.assertIn("classList.remove('is-long')", self.js)
-        self.assertIn("scrollHeight", self.js)
+        # 버그 1 회귀 방지: .is-long은 반드시 .closest('.cs-headline')로
+        # 찾은(또는 그 자신인) 요소에 붙어야 한다 -- #csHeadline(<a>)
+        # 자신에 직접 붙이면 CSS .cs-headline.is-long이 매치되지 않는다.
+        self.assertIn("closest('.cs-headline')", self.js)
+
+    def test_wrap_detection_uses_offsetheight_not_scrollheight(self):
+        # 버그 2 회귀 방지: scrollHeight는 인라인 요소(<a>)에서 0을
+        # 반환해(실측 확인) 줄바꿈이 항상 "아니오"로 판정됐다.
+        self.assertIn("offsetHeight", self.js)
+        # 판정 조건 자체(> headlineLH * 1.5)에 쓰이는 속성이 scrollHeight가
+        # 아님을 직접 확인 -- 이 파일에 다른 목적의 scrollHeight가 생기는
+        # 것까지 막지는 않되, is-long 판정 조건 줄에는 없어야 한다.
+        m = re.search(r"headlineEl\.(scrollHeight|offsetHeight)\s*>\s*headlineLH", self.js)
+        self.assertIsNotNone(m, "wrap-detection condition not found")
+        self.assertEqual(m.group(1), "offsetHeight")
 
     def test_css_defines_smaller_size_per_tier(self):
         # 각 (base, is-long) 쌍에서 is-long이 항상 더 작아야 한다 --

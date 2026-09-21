@@ -106,14 +106,30 @@
     // (2026-09-21) 헤드라인이 길어 2줄 이상으로 줄바꿈되면 CH·I 위계
     // (TODAY'S HEADLINE 라벨/CH·I TODAY'S ANGLE eyebrow 대비 헤드라인이
     // 지나치게 커 보이던 문제)를 깨뜨린다 -- 글자수로 추정하지 않고
-    // 실제 렌더된 높이를 재서(CJK/영문/숫자 혼입 폭 차이를 글자수만으로는
+    // 실제 렌더된 높이로(CJK/영문/숫자 혼입 폭 차이를 글자수만으로는
     // 정확히 알 수 없다) 1줄 높이의 1.5배를 넘으면(=2줄 이상)만
     // .is-long을 붙인다. CSS(styles.css .cs-headline.is-long)가 이미
     // 정의된 뷰포트별 타이어를 그대로 따라 한 단계씩 낮춘 값을 쓴다.
-    headlineEl.classList.remove('is-long');
+    //
+    // 최초 구현(같은 날 앞서 커밋)에 실제 두 가지 버그가 있어 라이브에서
+    // 전혀 동작하지 않았다 -- 사용자가 스크린샷으로 재현을 보고한 뒤
+    // --dump-dom(렌더 후 DOM)과 console.log 실측으로 둘 다 확인·수정:
+    // (1) id="csHeadline"은 index.html에서 <h2 class="cs-headline">
+    //     <a id="csHeadline">...</a></h2> 구조상 안쪽 <a>에 있고, CSS
+    //     클래스 cs-headline은 바깥 <h2>에 있다 -- headlineEl(=<a>)
+    //     자신에 .is-long을 붙이면 .cs-headline.is-long 선택자가 그
+    //     요소엔 애초에 매치되지 않아 아무 효과가 없었다. 줄바꿈 측정은
+    //     <a>에서 그대로 하되(텍스트를 직접 담은 요소), 클래스는
+    //     .closest('.cs-headline')로 찾은 실제 h2에 붙인다.
+    // (2) scrollHeight는 인라인 요소(<a>는 기본이 inline)에서 0을
+    //     반환한다(실측: scrollHeight=0, 같은 요소의 offsetHeight=86 --
+    //     Chrome이 인라인 요소의 scroll box를 정의하지 않기 때문).
+    //     offsetHeight로 교체.
+    var headlineHierEl = headlineEl.closest('.cs-headline') || headlineEl;
+    headlineHierEl.classList.remove('is-long');
     var headlineLH = parseFloat(getComputedStyle(headlineEl).lineHeight) || 0;
-    if (headlineLH && headlineEl.scrollHeight > headlineLH * 1.5) {
-      headlineEl.classList.add('is-long');
+    if (headlineLH && headlineEl.offsetHeight > headlineLH * 1.5) {
+      headlineHierEl.classList.add('is-long');
     }
 
     var signals = (home && Array.isArray(home.dailyThree)) ? home.dailyThree.filter(function (s) { return s && s.status === 'ok' && s.text; }) : [];
