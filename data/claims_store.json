@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-22T06:45:43+09:00",
+  "updatedAt": "2026-09-22T07:27:25+09:00",
   "claims": {
     "2026-07-19-c1": {
       "schemaVersion": 1,
@@ -2786,6 +2786,46 @@
         "asOf": "2026-09-17",
         "benchmarkValue": 6724.34,
         "benchmarkAsOf": "2026-09-17"
+      },
+      "resolution": null
+    },
+    "2026-09-22-c1": {
+      "schemaVersion": 1,
+      "claimId": "2026-09-22-c1",
+      "publicationId": "2026-09-22",
+      "issuedAt": "2026-09-22T07:27:25+09:00",
+      "dataCutoffAt": "2026-09-22T07:27:25+09:00",
+      "lockedAt": "2026-09-22T07:27:25+09:00",
+      "claimMode": "auto",
+      "verificationType": "proxy",
+      "topic": "나스닥 vs 코스피 상대성과(LLM 후보, 5거래일)",
+      "sourceNewsIds": [],
+      "observationText": "나스닥은 전일 대비 +2.26%, 코스피는 +4.21% — 상대 괴리 -1.95%p.",
+      "interpretationText": "나스닥이 코스피 대비 상대적으로 강세를 보이는지 검증합니다.",
+      "claimText": "메타의 AI 에이전트 뮤즈 인기로 관련 기술주가 강세를 보이며 나스닥이 사상 최고치를 기록했습니다. — 나스닥이 코스피 대비 약세를 이어갈까요?",
+      "metricId": "nasdaq",
+      "benchmarkMetricId": "kospi",
+      "comparisonType": "excess_return",
+      "expectedDirection": "down",
+      "horizon": {
+        "type": "multi_session",
+        "market": "US",
+        "sessions": 5,
+        "resolutionAt": "2026-09-28"
+      },
+      "thresholdRuleId": "pct_030",
+      "confidence": null,
+      "status": "unresolved",
+      "revision": {
+        "version": 1,
+        "contentHash": "6b40dda72a7596cc96350bd2fd0d41055f609cba81033010eb95d36f97fbe129",
+        "correctedFrom": null
+      },
+      "baseline": {
+        "value": 27122.09,
+        "asOf": "2026-09-21",
+        "benchmarkValue": 7007.72,
+        "benchmarkAsOf": "2026-09-21"
       },
       "resolution": null
     }
