@@ -302,6 +302,13 @@ h1, h2, h3, h4 { margin: 0; }
   word-break: keep-all;
   color: var(--ink);
 }
+/* (2026-09-21) 헤드라인이 실제로 2줄 이상 줄바꿈될 때만(home-data.js
+   renderCover()가 렌더된 높이를 재서 붙임) TODAY'S HEADLINE 라벨/CH·I
+   TODAY'S ANGLE eyebrow 대비 위계가 깨지지 않도록 한 단계 낮춘 크기를
+   쓴다 -- 아래 "CH·I 메인 제목 정밀 반응형 타이어" 표의 각 뷰포트별
+   값에서 그대로 한 단계씩 내린 값(34→28/32→26/30→24/27→22/26→21).
+   .is-long 없이 짧은 헤드라인은 기존 타이어 그대로 무변경. */
+.cs-headline.is-long { font-size: 28px; line-height: 1.3; }
 .cs-deck {
   font-family: var(--sans);
   font-size: 16px;
@@ -1758,6 +1765,7 @@ h1, h2, h3, h4 { margin: 0; }
    ═══════════════════════════════════════════════════════════════ */
 @media (max-width: 1279px) {
   .cs-headline { font-size: 32px; line-height: 1.24; }
+  .cs-headline.is-long { font-size: 26px; }
 }
 /* cover-grid가 1열로 바뀌는 지점(<=1024px, 위쪽 @media(max-width:1024px)
    블록 참고)과 맞춰 여기서도 margin-top:auto를 없앤다 - stretch로 카드
@@ -1769,10 +1777,13 @@ h1, h2, h3, h4 { margin: 0; }
 }
 @media (max-width: 1023px) {
   .cs-headline { font-size: 30px; line-height: 1.24; }
+  .cs-headline.is-long { font-size: 24px; }
 }
 @media (max-width: 767px) {
   .cs-headline { font-size: 27px; line-height: 1.25; }
+  .cs-headline.is-long { font-size: 22px; }
 }
 @media (max-width: 390px) {
   .cs-headline { font-size: 26px; }
+  .cs-headline.is-long { font-size: 21px; }
 }
