@@ -67,12 +67,18 @@
     return String(d.getMonth() + 1).padStart(2, '0') + '.' + String(d.getDate()).padStart(2, '0');
   }
 
-  /* ─── 1. 마스트헤드 메타 (최신 발행일 — publishDate/manifest 실제값만) ─── */
+  /* ─── 1. 마스트헤드 메타 (최신 발행일 — manifest 실제값만) ─── */
   function renderMasthead(home, manifest) {
     var row = $('mastMetaRow');
     if (!row) return;
     var latest = manifest && manifest.length ? manifest[manifest.length - 1] : null;
-    var dateStr = (home && home.publishDate) || (latest && latest.issue_date);
+    // 2026-09-21(TASK_TRACK=STATE_REPAIR_20260921) — home.json.publishDate는
+    // "그날 발행이 시도된 날짜"일 뿐 issues/{date}.html이 실제로 존재한다는
+    // 보장이 아니다(예: 발송이 게이트에 막힌 날 — 2026-09-19가 실제 사례,
+    // publishDate="2026-09-19"인데 그 issue 페이지는 끝내 안 만들어짐).
+    // 실제 발행 여부를 아는 건 manifest(issues_manifest.json)뿐이므로 그것만
+    // 신뢰한다 — 없으면 지어내지 않고 비운다.
+    var dateStr = latest && latest.issue_date;
     if (!dateStr) { row.remove(); return; }
     var html = '<div class="mast-meta-left"><span class="mm-date">' + esc(fmtKoreanDate(dateStr)) + '</span></div>';
     html += '<div class="mast-meta-right"><span class="status-badge"><span class="dot"></span> 최근 발행 ' + esc(fmtMD(dateStr)) + '</span></div>';
@@ -557,6 +563,43 @@
     });
   }
 
+  /* ─── 2b. 월요일 히어로 분기(2026-09-21, TASK_TRACK=STATE_REPAIR_20260921) ───
+     CEO 승인. main.py/home.json 계약은 전혀 건드리지 않는다 — 이미 매주
+     publish_weekly_archive.py가 갱신해 온 data/weekly/index.json만 클라이언트
+     에서 읽어, (KST 기준) 월요일이고 최신 주가 has_canonical_page=true일 때만
+     히어로를 그 주의 Weekly 커버로 바꾼다. 위클리 발행이 실패했거나
+     (has_canonical_page=false) fetch 자체가 실패하면 조용히 기존 Daily 커버
+     (renderCover)로 폴백한다 — 새 판단 로직을 서버에 추가하지 않는다. */
+  function isMondayKST() {
+    // Date.getTime()은 항상 timezone-무관 UTC epoch ms이므로(로컬 오프셋을
+    // 이미 안 타므로) getTimezoneOffset() 보정이 오히려 버그였다(방문자
+    // 브라우저의 로컬 시간대에 따라 결과가 흔들림 — 실측: 이 값이 이미
+    // KST인 환경에서 하루 밀림을 확인). UTC epoch에 9시간만 더하고
+    // getUTCDay()로 읽으면 로컬 시간대와 무관하게 항상 정확하다.
+    var kstMs = Date.now() + 9 * 60 * 60000;
+    return new Date(kstMs).getUTCDay() === 1;
+  }
+
+  function renderWeeklyHero(latestWeek) {
+    var section = document.getElementById('edition');
+    var headlineEl = $('csHeadline'), deckEl = $('csDeck'), flagR = $('csFlagR');
+    if (!section || !headlineEl) return false;
+    var titleEl = section.querySelector('.chap-title');
+    var kickerEl = section.querySelector('.chap-kicker');
+    if (titleEl) titleEl.textContent = "This Week's Edition";
+    if (kickerEl) kickerEl.textContent = '— 이번 주 Weekly 리캡의 커버';
+    headlineEl.textContent = 'MOO:conomy WEEKLY ' + latestWeek.week_id + ' 리캡';
+    if (headlineEl.tagName === 'A') headlineEl.href = '/weekly/' + latestWeek.week_id + '.html';
+    if (deckEl) {
+      deckEl.textContent = esc(latestWeek.period_start_kst) + ' – ' + esc(latestWeek.period_end_kst);
+      deckEl.hidden = false;
+    }
+    if (flagR) flagR.textContent = 'WEEKLY · ' + esc(latestWeek.week_id);
+    var sigBlock = $('csSignalsBlock');
+    if (sigBlock) sigBlock.hidden = true;
+    return true;
+  }
+
   /* ─── 실행 ─── */
   async function init() {
     wireSubscribeForm();
@@ -564,12 +607,16 @@
     var manifestP = fetchJSON('data/archive/issues_manifest.json');
     var calResultsP = fetchJSON('data/calendar_results.json');
     var calViewP = fetchJSON('data/calendar_views/home.json');
+    var weeklyIdxP = isMondayKST() ? fetchJSON('data/weekly/index.json') : Promise.resolve(null);
 
     var home = await homeP;
     var manifest = (await manifestP) || [];
 
     renderMasthead(home, manifest);
-    renderCover(home, manifest);
+    var weeklyIdx = await weeklyIdxP;
+    var latestWeek = weeklyIdx && Array.isArray(weeklyIdx.weeks) ? weeklyIdx.weeks[0] : null;
+    var heroIsWeekly = !!(latestWeek && latestWeek.has_canonical_page && renderWeeklyHero(latestWeek));
+    if (!heroIsWeekly) renderCover(home, manifest);
     if (home) { renderMetrics(home); renderMooCheck(home); }
     renderDailyRecent(manifest);
     if (manifest.length) $('subProofCount').textContent = manifest.length;
