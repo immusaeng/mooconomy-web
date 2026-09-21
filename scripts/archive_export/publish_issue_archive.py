@@ -33,6 +33,57 @@ import build_rss as brss
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 ARCHIVE_DIR = os.path.join(ROOT, "data", "daily_archive")
 BUILD_TMP = os.path.join(ROOT, "_build_tmp")
+WEEKLY_DATA_DIR = os.path.join(ROOT, "data", "weekly")
+
+
+def _load_weekly_web_entries():
+    """(TASK_ID=WEEKLY_WEB_ACCUMULATION, 2026-09-21, CEO 지시: 위클리 웹
+    정식 공개 + 아카이브 누적) sitemap.xml/rss.xml/아카이브 타임라인에
+    등재할 위클리 발행본 목록을 daily manifest와 동일한 모양(issue_date/
+    public_path/title/morning_thesis/published_at)으로 돌려준다 --
+    build_sitemap()/build_rss()/build_archive_pages._issue_card()는
+    이미 이 모양의 dict만 있으면 동작하므로(2026-08-21 설계 당시 daily
+    전용으로 만들어졌지만 필드 이름에 daily 전용 가정이 없다), 그 세
+    함수는 전혀 건드리지 않고 호출부에서 daily manifest에 이 결과를
+    이어붙이기만 한다.
+
+    data/weekly/index.json의 has_canonical_page=true인 주만 대상(그 값
+    자체는 publish_weekly_archive.py가 이미 계산해 둔 것을 그대로
+    신뢰한다 -- W31/W32 같은 파이프라인 이전 fixture는 has_canonical_
+    page=false라 여기서 자동 제외되고, 그 결과 공개 경로에 404를 유발할
+    일이 없다). 개별 week json이 없거나 읽기 실패하면 그 주만 건너뛴다
+    (daily 발행 자체를 절대 막지 않는다는 이 오케스트레이터의 원칙과
+    동일)."""
+    index_path = os.path.join(WEEKLY_DATA_DIR, "index.json")
+    if not os.path.exists(index_path):
+        return []
+    try:
+        with open(index_path, encoding="utf-8") as f:
+            index = json.load(f)
+    except (OSError, json.JSONDecodeError):
+        return []
+
+    entries = []
+    for w in index.get("weeks") or []:
+        if not w.get("has_canonical_page"):
+            continue
+        week_id = w.get("week_id")
+        try:
+            with open(os.path.join(WEEKLY_DATA_DIR, f"{week_id}.json"), encoding="utf-8") as f:
+                record = json.load(f)
+        except (OSError, json.JSONDecodeError):
+            continue
+        issue_date = record.get("edition_date") or w.get("period_end_kst")
+        if not issue_date:
+            continue
+        entries.append({
+            "issue_date": issue_date,
+            "public_path": f"/weekly/{week_id}.html",
+            "title": f"Mooconomy WEEKLY {week_id} 리캡",
+            "morning_thesis": record.get("weekly_thesis") or "",
+            "published_at": record.get("generated_at"),
+        })
+    return entries
 
 
 def _kst_today_str():
@@ -175,13 +226,22 @@ def run(dry_run_report_only=False, today=None):
     # ── 6. 통과 항목만 매니페스트 후보로 ─────────────────────────────
     passing_metas = [meta_by_date[d] for d in passing_dates]
 
-    # ── 7. 월간/전체 아카이브(통과분만, 0건인 달은 생성하지 않음) ────
+    # (TASK_ID=WEEKLY_WEB_ACCUMULATION, 2026-09-21) 위클리 발행본을 daily와
+    # 동일하게 누적 노출한다 -- 아카이브 타임라인(7단계)/sitemap.xml/
+    # rss.xml(7.5단계) 셋 다 이 목록을 쓴다. issues_manifest.json(daily
+    # 전용 계약)에는 절대 섞지 않는다 -- passing_metas 자체는 그대로 두고
+    # 이 목록이 필요한 곳에서만 별도로 이어붙인다.
+    weekly_entries = _load_weekly_web_entries()
+    report["weekly_web_entry_count"] = len(weekly_entries)
+
+    # ── 7. 월간/전체 아카이브(통과분+위클리, 0건인 달은 생성하지 않음) ─
+    archive_entries = passing_metas + weekly_entries
     months = {}
-    for m in passing_metas:
+    for m in archive_entries:
         months.setdefault(m["issue_date"][:7], []).append(m)
 
     os.makedirs(os.path.join(BUILD_TMP, "archive"), exist_ok=True)
-    full_index_html = bap.build_full_index(passing_metas)
+    full_index_html = bap.build_full_index(archive_entries)
     with open(os.path.join(BUILD_TMP, "archive", "index.html"), "w", encoding="utf-8") as f:
         f.write(full_index_html)
 
@@ -252,8 +312,15 @@ def run(dry_run_report_only=False, today=None):
     report["manifest_entry_count"] = len(manifest)
 
     # ── sitemap.xml / rss.xml (같은 manifest에서, 같은 원자적 교체에 포함) ─
-    sitemap_xml = bsm.build_sitemap(manifest)
-    rss_xml = brss.build_rss(manifest)
+    # (TASK_ID=WEEKLY_WEB_ACCUMULATION, 2026-09-21) weekly_entries는 manifest와
+    # 정확히 같은 모양이라 build_sitemap()/build_rss() 자체는 무변경 -- 위클리를
+    # daily와 한 피드/한 sitemap으로 통합한다는 CEO 지시를, 두 함수에 새
+    # 파라미터를 추가하는 대신 호출부에서 리스트를 이어붙이는 것만으로 만족한다.
+    # issues_manifest.json(daily 전용 계약)에는 위클리를 섞지 않으므로 manifest
+    # 자신은 그대로 두고 여기서만 별도 리스트를 만든다.
+    web_manifest = manifest + weekly_entries
+    sitemap_xml = bsm.build_sitemap(web_manifest)
+    rss_xml = brss.build_rss(web_manifest)
     xml_issues = {
         "sitemap.xml": bsm.validate_sitemap_xml(sitemap_xml),
         "rss.xml": brss.validate_rss_xml(rss_xml),
