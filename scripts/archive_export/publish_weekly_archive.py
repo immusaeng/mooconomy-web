@@ -45,6 +45,14 @@ WEEKLY_PAGE_DIR = os.path.join(ROOT, "weekly")
 # 가리키는 안정적인 URL이 아예 없었다.
 WEEKLY_LATEST_ALIAS_PATH = os.path.join(ROOT, "weekly-latest.html")
 
+# (TASK_ID=WEEKLY_CARD_REAL_DATA, 2026-09-21, CEO 지시) 홈/아카이브 CH·III의
+# MOO:WEEKLY 카드가 실측값 없이 고정 플레이스홀더 문구로 폴백하던 문제를
+# 없앤다 -- weekly_thesis는 카드에 쓰지 않는다(데일리 헤드라인 원문 인용이라
+# CH·I 헤드라인과 중복). 대신 그 주 실제로 집계된 지표 등락만, 값이 있는
+# 것만 노출한다. 코스피/나스닥 2개로 한정 -- 다른 지표까지 늘리면 좁은
+# 카드에서 줄바꿈이 생긴다는 이유로 CEO가 두 개만 지정.
+_HEADLINE_METRIC_IDS = ("kospi", "nasdaq")
+
 
 def _load_index_entries():
     """web_repo/data/weekly/*.json(방금 동기화된 새 파일 포함, index.json
@@ -69,12 +77,30 @@ def _load_index_entries():
             with open(path, encoding="utf-8") as f:
                 rec = json.load(f)
             week_id = rec["week_id"]
+            # (TASK_ID=WEEKLY_CARD_REAL_DATA, 2026-09-21) rec["first_last_metrics"]
+            # 는 weekly_report.py가 이미 계산해 둔 값이다 -- 재계산하지 않고
+            # 그대로 옮긴다. 코스피 먼저·나스닥 다음 고정 순서로 뽑는다(원본
+            # 배열 순서를 신뢰하지 않음 -- 카드 표기 순서가 항상 "코스피 X%
+            # 나스닥 Y%"여야 하므로), 값이 없는 지표는 조용히 뺀다(추정 금지).
+            metrics_by_id = {
+                m.get("metric_id"): m for m in (rec.get("first_last_metrics") or [])
+            }
+            headline_metrics = []
+            for mid in _HEADLINE_METRIC_IDS:
+                m = metrics_by_id.get(mid)
+                if m and m.get("weekly_change_percent") is not None:
+                    headline_metrics.append({
+                        "metric_id": mid,
+                        "weekly_change_percent": m["weekly_change_percent"],
+                    })
             entries.append({
                 "week_id": week_id,
                 "period_start_kst": rec["period_start_kst"],
                 "period_end_kst": rec["period_end_kst"],
                 "has_canonical_page": os.path.exists(
                     os.path.join(WEEKLY_PAGE_DIR, f"{week_id}.html")),
+                "source_edition_count": len(rec.get("source_edition_ids") or []),
+                "headline_metrics": headline_metrics,
             })
         except Exception as e:
             load_errors.append({"file": name, "error": str(e)})
