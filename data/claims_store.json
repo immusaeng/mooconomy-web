@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T06:45:43+09:00",
+  "updatedAt": "2026-09-22T06:45:43+09:00",
   "claims": {
     "2026-07-19-c1": {
       "schemaVersion": 1,
@@ -2613,7 +2613,7 @@
       },
       "thresholdRuleId": "pct_030",
       "confidence": null,
-      "status": "unresolved",
+      "status": "invalidated",
       "revision": {
         "version": 1,
         "contentHash": "1a258a2e1e49800710b71b7f90166650f3fea4845dfb106fe23b3ad12d418845",
@@ -2625,7 +2625,28 @@
         "benchmarkValue": 26333.04,
         "benchmarkAsOf": "2026-09-11"
       },
-      "resolution": null
+      "resolution": {
+        "resolutionId": "2026-09-12-c1-res",
+        "claimId": "2026-09-12-c1",
+        "resolvedAt": "2026-09-22T06:45:37+09:00",
+        "verdict": "invalidated",
+        "metricId": "kospi",
+        "comparisonType": "excess_return",
+        "startValue": null,
+        "endValue": null,
+        "changeValue": null,
+        "changeUnit": null,
+        "benchmarkMetricId": "nasdaq",
+        "benchmarkStartValue": null,
+        "benchmarkEndValue": null,
+        "neutralLower": null,
+        "neutralUpper": null,
+        "neutralBand": null,
+        "dataProvider": null,
+        "sourceUrl": "",
+        "observedAt": null,
+        "explanation": "[stale_v2_max_5td_7cd] 발행 후 5거래일(주말 제외 근사) 및 7달력일 중 더 늦게 도래하는 시점이 지나도 유효한 관측 데이터가 갱신되지 않아 판정을 보류합니다(데이터 갱신 없음 장기화). 휴장 자체는 무효 사유가 아니며, 관측값이 갱신되는 즉시 다음 실행에서 정상 판정됩니다."
+      }
     },
     "2026-09-15-c1": {
       "schemaVersion": 1,
@@ -2653,7 +2674,7 @@
       },
       "thresholdRuleId": "pct_100",
       "confidence": null,
-      "status": "unresolved",
+      "status": "miss",
       "revision": {
         "version": 1,
         "contentHash": "680be21846cea400781298ac7f6f626286b24dacff312e608786de7ede0459fe",
@@ -2665,7 +2686,28 @@
         "benchmarkValue": 26186.41,
         "benchmarkAsOf": "2026-09-14"
       },
-      "resolution": null
+      "resolution": {
+        "resolutionId": "2026-09-15-c1-res",
+        "claimId": "2026-09-15-c1",
+        "resolvedAt": "2026-09-22T06:45:37+09:00",
+        "verdict": "miss",
+        "metricId": "wti",
+        "comparisonType": "excess_return",
+        "startValue": 101.89,
+        "endValue": 91.97,
+        "changeValue": -13.309140904501962,
+        "changeUnit": "%",
+        "benchmarkMetricId": "nasdaq",
+        "benchmarkStartValue": 26186.41,
+        "benchmarkEndValue": 27122.09,
+        "neutralLower": -1.0,
+        "neutralUpper": 1.0,
+        "neutralBand": 1.0,
+        "dataProvider": "FinanceDataReader",
+        "sourceUrl": "",
+        "observedAt": "2026-09-21",
+        "explanation": "실제 변화가 예상한 상승 방향과 다르게 움직였습니다."
+      }
     },
     "2026-09-17-c1": {
       "schemaVersion": 1,
