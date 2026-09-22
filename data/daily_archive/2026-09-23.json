@@ -1,0 +1,232 @@
+{
+  "schema_version": "normalized-daily-issue/v1",
+  "edition_id": "2026-09-23",
+  "edition_date_kst": "2026-09-23",
+  "canonical_status": "production",
+  "production_status": "SEND_CONFIRMED",
+  "source_commit_sha": "f99f53ec090c252e25ae7e26d6eb7125990c55ec",
+  "subject": "공급 차질 우려 해소로 국제유가가 배럴당 100달러 아래로 하락했다",
+  "preheader": "가계대출 증가 속도에 따른 금융당국 규제 강화 가능성",
+  "thesis": {
+    "headline": "공급 차질 우려 해소로 국제유가가 배럴당 100달러 아래로 하락했다",
+    "three_signals": [
+      "간밤 뉴욕증시는 메타와 인공지능 관련 호재로 나스닥이 사상 최고가를 경신했으나 종목별로 희비가 갈렸다.",
+      "전일 국내 시장은 뚜렷한 방향성 없이 환율이 하락하고 코스피가 소폭 상승하는 등 혼조세를 보였다.",
+      "오늘은 미중 정상회담을 앞두고 주요 경제 지표와 환율 변동성을 주의 깊게 살펴봐야 한다."
+    ]
+  },
+  "main_story": {
+    "headline": "국제유가 배럴당 100달러 아래로",
+    "verified_fact": "중동 지역의 원유 공급 차질 우려가 해소될 것이라는 기대감이 확산되면서 국제유가가 하락해 브렌트유 11월물 가격이 배럴당 100달러 아래로 떨어졌다.",
+    "why_it_matters": null,
+    "sources": []
+  },
+  "entities": [
+    {
+      "name": "브렌트유",
+      "type": "commodity"
+    },
+    {
+      "name": "금",
+      "type": "commodity"
+    }
+  ],
+  "metrics": [
+    {
+      "id": "kospi",
+      "value": 7017.91,
+      "change": 0.1454,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "kosdaq",
+      "value": 834.38,
+      "change": -0.226,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "nasdaq",
+      "value": 27244.28,
+      "change": 0.4505,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "sp500",
+      "value": 7764.64,
+      "change": -0.0008,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1354.66,
+      "change": -19.95,
+      "displayMode": "delta",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "us10y",
+      "value": 4.97,
+      "change": 0.01,
+      "displayMode": "delta",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "wti",
+      "value": 89.85,
+      "change": -2.1348,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "vix",
+      "value": 14.21,
+      "change": -4.4385,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    }
+  ],
+  "market_changes": [
+    {
+      "id": "kospi",
+      "change": 0.1454,
+      "changeUnit": "%",
+      "direction": "up"
+    },
+    {
+      "id": "kosdaq",
+      "change": -0.226,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "nasdaq",
+      "change": 0.4505,
+      "changeUnit": "%",
+      "direction": "up"
+    },
+    {
+      "id": "sp500",
+      "change": -0.0008,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "usdkrw",
+      "change": -19.95,
+      "changeUnit": "원",
+      "direction": "down"
+    },
+    {
+      "id": "us10y",
+      "change": 0.01,
+      "changeUnit": "%p",
+      "direction": "up"
+    },
+    {
+      "id": "wti",
+      "change": -2.1348,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "vix",
+      "change": -4.4385,
+      "changeUnit": "%",
+      "direction": "down"
+    }
+  ],
+  "narratives": {
+    "moo_view": "오늘의 대표 뉴스는 '국제유가 배럴당 100달러 아래로'입니다. 그 여파로 시장 온도는 '중립' 상태로 관찰됩니다.\n\n코스피는 상승, 코스닥은 하락하며 서로 다른 흐름을 보였습니다.\n\n다만 가계대출 증가로 인한 내수 경기 제약 요인 존재는 반대 증거도 함께 확인됩니다.\n\n다음 확인 변수는 원달러 환율 추가 하락 여부(외국인 자금 유입 지속성을 판단하기 위함)입니다.",
+    "todays_watch": [],
+    "todays_watch_oneliner": null,
+    "content_status": "DETERMINISTIC_FALLBACK_LLM_FAILURE"
+  },
+  "moo_q": null,
+  "moo_check": [
+    {
+      "previous_claim": "메타의 AI 에이전트 뮤즈 인기로 관련 기술주가 강세를 보이며 나스닥이 사상 최고치를 기록했습니다. — 나스닥이 코스피 대비 약세를 이어갈까요?",
+      "claim_date": "2026-09-22",
+      "evaluation_date": null,
+      "observed_result": null,
+      "verdict": "PENDING",
+      "evidence": null,
+      "source": null
+    }
+  ],
+  "moo_word": {
+    "id": "open_인공지능",
+    "term": "인공지능",
+    "definition": "인공지능은 컴퓨터가 인간처럼 학습하고 추론하여 복잡한 문제나 의사결정을 수행하는 기술을 의미하는 것으로 보입니다. 금융 및 경제 분야에서 자동화된 자산 관리나 리스크 분석 등에 활용되는 양상이 관찰됩니다.",
+    "why_today": "글로벌 증시와 국내 IT 섹터의 주요 모멘텀으로 작용하고 있다.",
+    "memory_hook": null,
+    "source_label": "머니투데이",
+    "article_id": "news_2",
+    "article_url": "https://www.mt.co.kr/world/2026/09/23/2026092214381861660",
+    "article_publisher": "머니투데이",
+    "evidence_snippets": [
+      "무역 휴전 연장부터 인공지능(AI), 이란전쟁까지 양국이 논의할 현안이 산적한 가운데 미 경제매체 CNBC가 이번 회담을 앞두고 주목해야 할 5가지 관전포인"
+    ],
+    "definition_source_name": null,
+    "definition_source_url": null,
+    "definition_priority": "P2_SOURCES_PARTIAL",
+    "origin": "llm_proposed",
+    "grounded_in_article": true,
+    "definition_evidence_verified": true,
+    "status": "ELIGIBLE_FOR_PUBLICATION",
+    "eligible_for_publication": true
+  },
+  "sources": [
+    {
+      "source_name": "매일경제",
+      "source_url": "https://www.mk.co.kr/news/economy/12159927",
+      "published_at": "2026-09-23",
+      "source_headline": "은행대출 2.7조 늘렸는데 한달도 못갔다…연말 ‘통곡의 벽’ 불보듯"
+    },
+    {
+      "source_name": "연합뉴스",
+      "source_url": "https://www.yna.co.kr/view/AKR20260922176500002",
+      "published_at": "2026-09-23",
+      "source_headline": "9월 소비심리 한 달 만에 반등…"
+    },
+    {
+      "source_name": "머니투데이",
+      "source_url": "https://www.mt.co.kr/world/2026/09/23/2026092214381861660",
+      "published_at": "2026-09-23",
+      "source_headline": "미중 정상회담 코앞으로…무역·AI 등 관전포인트 5가지"
+    },
+    {
+      "source_name": "연합뉴스마켓",
+      "source_url": "https://www.yna.co.kr/view/AKR20260923009300075",
+      "published_at": "2026-09-23",
+      "source_headline": "뉴욕증시, 기술주 희비 엇갈리며 혼조세…나스닥 또 최고가 경신"
+    },
+    {
+      "source_name": "MarketWatch",
+      "source_url": "https://www.marketwatch.com/story/could-metas-viral-muse-app-be-the-companys-chatgpt-moment-8e7075aa?mod=mw_rss_topstories",
+      "published_at": "2026-09-22",
+      "source_headline": "Could Meta’s viral Muse app be the company’s ChatGPT moment?"
+    }
+  ],
+  "public_url": "https://mooconomy.co.kr/latest-email.html",
+  "validation_status": {
+    "main_story_status": "SELECTED",
+    "content_provenance": "VALIDATED_GEMINI_35_LITE",
+    "moo_word_present": true,
+    "sources_count": 5,
+    "is_approximate": false
+  },
+  "content_hash": "2db8ede4f9d7b3cae7094a22ddeabb74a1945985f0a06d62fd8b8de154cb81e7",
+  "archived_at": "2026-09-22T21:44:40.307165+00:00"
+}

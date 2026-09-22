@@ -1,19 +1,17 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-22T07:27:17+09:00",
-  "publishDate": "2026-09-22",
-  "marketDateKr": "2026-09-21",
-  "marketDateUs": "2026-09-21",
+  "generatedAt": "2026-09-23T06:43:20+09:00",
+  "publishDate": "2026-09-23",
+  "marketDateKr": "2026-09-22",
+  "marketDateUs": "2026-09-22",
   "isDelayed": true,
   "status": "ok",
   "marketTemperature": {
-    "label": "risk_on",
-    "displayLabel": "위험선호",
-    "summary": "위험선호 국면입니다. 간밤 미국 증시 평균 +1.49% 상승 · 국내 증시 +4.21% 상승 · 원/달러 -0.82%(원화 강세).",
+    "label": "neutral",
+    "displayLabel": "중립",
+    "summary": "원/달러 환율이 하락하며 원화 강세를 보이는 가운데, 글로벌 기술주 강세와 유가 하락이 위험선호를 지지하는 중립적인 시장 국면으로 보입니다.",
     "reasons": [
-      "간밤 미국 증시 평균 +1.49% 상승",
-      "국내 증시 +4.21% 상승",
-      "원/달러 -0.82%(원화 강세)"
+      "원/달러 -1.45%(원화 강세)"
     ],
     "watchItems": [
       "원/달러 환율",
@@ -25,19 +23,19 @@
     {
       "id": "overnight-global",
       "title": "간밤 글로벌 시장",
-      "text": "나스닥이 2.26%, S&P500이 1.49%, 다우가 0.71% 상승하며 뉴욕증시가 전반적인 강세를 보였습니다. VIX는 14.87, 미국채 10년물 금리는 4.96%를 기록한 것으로 나타납니다.",
+      "text": "나스닥은 소폭 상승하고 S&P500은 보합세를 보인 반면 다우는 하락 마감했으며, VIX는 14.21을 기록했습니다.",
       "status": "ok"
     },
     {
       "id": "today-domestic",
       "title": "전일 국내 시장",
-      "text": "코스피 +4.21%, 코스닥 +1.78%, 원/달러 -0.82%.",
+      "text": "전일 국내 시장에서는 코스피가 소폭 상승하고 코스닥은 하락세를 보인 가운데 원/달러 환율은 큰 폭으로 하락했습니다.",
       "status": "ok"
     },
     {
       "id": "today-checkpoint",
       "title": "오늘의 체크포인트",
-      "text": "글로벌 시장의 상승 흐름과 국내 증시의 강세가 맞물리면서, 시장 내 위험선호 심리가 한층 확산되는 분위기입니다.",
+      "text": "글로벌 기술주 강세와 원화 강세 흐름 속에서 시장은 뚜렷한 방향성보다 환율과 외국인 수급을 주시하며 관망세를 보이는 분위기입니다.",
       "status": "ok"
     }
   ],
@@ -77,8 +75,8 @@
       {
         "id": "usdkrw",
         "label": "원/달러",
-        "value": 1374.61,
-        "displayValue": "1,374.6원",
+        "value": 1354.66,
+        "displayValue": "1,354.7원",
         "direction": "down",
         "status": "ok"
       },
@@ -91,14 +89,14 @@
         "status": "missing"
       }
     ],
-    "summary": "원/달러 1,374.6원.",
+    "summary": "원/달러 1,354.7원.",
     "status": "ok"
   },
   "risks": [
     {
-      "id": "kr-swing",
-      "title": "국내 증시 큰 변동",
-      "detail": "코스피가 4.21% 큰 폭으로 상승하는 등 국내 증시의 변동성이 확대된 양상이 관찰됩니다.",
+      "id": "fx-swing",
+      "title": "환율 변동성",
+      "detail": "원/달러 환율이 -1.45% 변동성을 보이며 환율 흐름에 주목할 필요가 있는 것으로 관찰됩니다.",
       "level": "관찰",
       "status": "ok"
     }
@@ -107,143 +105,156 @@
   "news": {
     "items": [
       {
-        "id": "news-매일경제-“장례비 내야하는데 보험금 함흥차사”…보험사가 미리 알려드려요",
+        "id": "news-매일경제-은행대출 2.7조 늘렸는데 한달도 못갔다…연말 ‘통곡의 벽’ 불보듯",
         "category": "news",
         "source": "매일경제",
-        "title": "“장례비 내야하는데 보험금 함흥차사”…보험사가 미리 알려드려요",
-        "url": "https://www.mk.co.kr/news/economy/12158816",
-        "publishedAt": "2026-09-22",
+        "title": "은행대출 2.7조 늘렸는데 한달도 못갔다…연말 ‘통곡의 벽’ 불보듯",
+        "url": "https://www.mk.co.kr/news/economy/12159927",
+        "publishedAt": "2026-09-23",
         "status": "ok"
       },
       {
-        "id": "news-매일경제-“미·일 금리 더 간다 … 포트폴리오 재구성할 때”",
-        "category": "news",
-        "source": "매일경제",
-        "title": "“미·일 금리 더 간다 … 포트폴리오 재구성할 때”",
-        "url": "https://www.mk.co.kr/news/economy/12158584",
-        "publishedAt": "2026-09-22",
-        "status": "ok"
-      },
-      {
-        "id": "news-연합뉴스마켓-메타 AI에이전트 뮤즈 돌풍에 AMD 시총 1조달러 돌파",
-        "category": "news",
-        "source": "연합뉴스마켓",
-        "title": "메타 AI에이전트 뮤즈 돌풍에 AMD 시총 1조달러 돌파",
-        "url": "https://www.yna.co.kr/view/AKR20260922010900009",
-        "publishedAt": "2026-09-22",
-        "status": "ok"
-      },
-      {
-        "id": "news-한국경제-\"주가 곤두박칠 쳤었는데\"…이 종목 담은 개미들 '희소식' [종목+]",
-        "category": "news",
-        "source": "한국경제",
-        "title": "\"주가 곤두박칠 쳤었는데\"…이 종목 담은 개미들 '희소식' [종목+]",
-        "url": "https://www.hankyung.com/article/2026092184606",
-        "publishedAt": "2026-09-22",
-        "status": "ok"
-      },
-      {
-        "id": "news-파이낸셜뉴스-\"특별급여만 426만원\" 반도체 호황이 바꾼 직장인 월급",
-        "category": "news",
-        "source": "파이낸셜뉴스",
-        "title": "\"특별급여만 426만원\" 반도체 호황이 바꾼 직장인 월급",
-        "url": "https://www.fnnews.com/news/202609220624157409",
-        "publishedAt": "2026-09-22",
-        "status": "ok"
-      },
-      {
-        "id": "news-연합뉴스마켓-뉴욕증시, 'AI낙관론'에 메타·인텔 급등…나스닥 사상 최고치(종합)",
-        "category": "news",
-        "source": "연합뉴스마켓",
-        "title": "뉴욕증시, 'AI낙관론'에 메타·인텔 급등…나스닥 사상 최고치(종합)",
-        "url": "https://www.yna.co.kr/view/AKR20260922006551075",
-        "publishedAt": "2026-09-22",
-        "status": "ok"
-      },
-      {
-        "id": "news-한국경제-\"대출 풀린 지 한 달도 안 됐는데\"…5대 은행 '한도 바닥'",
-        "category": "news",
-        "source": "한국경제",
-        "title": "\"대출 풀린 지 한 달도 안 됐는데\"…5대 은행 '한도 바닥'",
-        "url": "https://www.hankyung.com/article/2026092294467",
-        "publishedAt": "2026-09-22",
-        "status": "ok"
-      },
-      {
-        "id": "news-연합뉴스-최근 5년 펫푸드 무역적자 1조3천억원…수입이 수출의 2배 넘어",
+        "id": "news-연합뉴스-[AI프리즘] \"한국, 아태 AI 수도로\"…블랙록 20조 투자 1년째 '답보'",
         "category": "news",
         "source": "연합뉴스",
-        "title": "최근 5년 펫푸드 무역적자 1조3천억원…수입이 수출의 2배 넘어",
-        "url": "https://www.yna.co.kr/view/AKR20260921150500030",
+        "title": "[AI프리즘] \"한국, 아태 AI 수도로\"…블랙록 20조 투자 1년째 '답보'",
+        "url": "https://www.yna.co.kr/view/AKR20260922183300017",
+        "publishedAt": "2026-09-23",
+        "status": "ok"
+      },
+      {
+        "id": "news-머니투데이-미중 정상회담 코앞으로…무역·AI 등 관전포인트 5가지",
+        "category": "news",
+        "source": "머니투데이",
+        "title": "미중 정상회담 코앞으로…무역·AI 등 관전포인트 5가지",
+        "url": "https://www.mt.co.kr/world/2026/09/23/2026092214381861660",
+        "publishedAt": "2026-09-23",
+        "status": "ok"
+      },
+      {
+        "id": "news-연합뉴스마켓-[코스피·코스닥 전 거래일(22일) 주요공시]",
+        "category": "news",
+        "source": "연합뉴스마켓",
+        "title": "[코스피·코스닥 전 거래일(22일) 주요공시]",
+        "url": "https://www.yna.co.kr/view/AKR20260922186900008",
+        "publishedAt": "2026-09-23",
+        "status": "ok"
+      },
+      {
+        "id": "news-머니투데이-유가 공급차질 우려 풀린다…배럴당 100달러 아래로",
+        "category": "news",
+        "source": "머니투데이",
+        "title": "유가 공급차질 우려 풀린다…배럴당 100달러 아래로",
+        "url": "https://www.mt.co.kr/world/2026/09/23/2026092305583416947",
+        "publishedAt": "2026-09-23",
+        "status": "ok"
+      },
+      {
+        "id": "news-연합뉴스-9월 소비심리 한 달 만에 반등…\"집값 상승 기대 여전히 높아\"",
+        "category": "news",
+        "source": "연합뉴스",
+        "title": "9월 소비심리 한 달 만에 반등…\"집값 상승 기대 여전히 높아\"",
+        "url": "https://www.yna.co.kr/view/AKR20260922176500002",
+        "publishedAt": "2026-09-23",
+        "status": "ok",
+        "related": [
+          {
+            "source": "파이낸셜뉴스",
+            "title": "9월 소비심리 한달 만에 반등..집값·물가 불안에 체감경기는 냉랭",
+            "url": "https://www.fnnews.com/news/202609221727422518",
+            "publishedAt": "2026-09-23",
+            "id": "news-파이낸셜뉴스-9월 소비심리 한달 만에 반등..집값·물가 불안에 체감경기는 냉랭"
+          }
+        ]
+      },
+      {
+        "id": "news-연합뉴스마켓-뉴욕증시, 기술주 희비 엇갈리며 혼조세…나스닥 또 최고가 경신",
+        "category": "news",
+        "source": "연합뉴스마켓",
+        "title": "뉴욕증시, 기술주 희비 엇갈리며 혼조세…나스닥 또 최고가 경신",
+        "url": "https://www.yna.co.kr/view/AKR20260923009300075",
+        "publishedAt": "2026-09-23",
+        "status": "ok"
+      },
+      {
+        "id": "news-Investing-Fed’s Collins says she supported rate hike, warns of elevated inf",
+        "category": "news",
+        "source": "Investing",
+        "title": "Fed’s Collins says she supported rate hike, warns of elevated inflation risks",
+        "url": "https://www.investing.com/news/economy-news/feds-collins-says-she-supported-rate-hike-warns-of-elevated-inflation-risks-4911212",
         "publishedAt": "2026-09-22",
         "status": "ok"
       },
       {
-        "id": "news-MarketWatch-Meta’s stock is enjoying its best month in 13 years thanks to t",
-        "category": "news",
-        "source": "MarketWatch",
-        "title": "Meta’s stock is enjoying its best month in 13 years thanks to the company’s hot new AI assistant",
-        "url": "https://www.marketwatch.com/story/metas-stock-is-enjoying-its-best-month-in-more-than-two-years-thanks-to-the-companys-hot-new-ai-assistant-bf106291?mod=mw_rss_topstories",
-        "publishedAt": "2026-09-21",
-        "status": "ok"
-      },
-      {
-        "id": "news-MarketWatch-AT&T’s stock looks like the smartest bet in the wireless sector",
-        "category": "news",
-        "source": "MarketWatch",
-        "title": "AT&T’s stock looks like the smartest bet in the wireless sector, analyst says",
-        "url": "https://www.marketwatch.com/story/at-ts-stock-looks-like-the-smartest-bet-in-the-wireless-sector-analyst-says-6e773d63?mod=mw_rss_topstories",
-        "publishedAt": "2026-09-21",
-        "status": "ok"
-      },
-      {
-        "id": "news-Investing-Nvidia, QIA-backed Iambic Therapeutics files for US IPO as biotec",
+        "id": "news-Investing-Fed’s Williams says rate-control toolkit is working well",
         "category": "news",
         "source": "Investing",
-        "title": "Nvidia, QIA-backed Iambic Therapeutics files for US IPO as biotech boom rolls on",
-        "url": "https://www.investing.com/news/economy-news/nvidia-qiabacked-iambic-therapeutics-files-for-us-ipo-as-biotech-boom-rolls-on-4909708",
-        "publishedAt": "2026-09-21",
+        "title": "Fed’s Williams says rate-control toolkit is working well",
+        "url": "https://www.investing.com/news/economy-news/feds-williams-says-ratecontrol-toolkit-is-working-well-4911121",
+        "publishedAt": "2026-09-22",
         "status": "ok"
       },
       {
-        "id": "news-CNBC-Stock boom is fueling a ‘retirement party,’ economists say — what it m",
-        "category": "news",
-        "source": "CNBC",
-        "title": "Stock boom is fueling a ‘retirement party,’ economists say — what it means for workers",
-        "url": "https://www.cnbc.com/2026/09/21/stock-gains-fuel-retirements-among-older-workers-economists.html",
-        "publishedAt": "2026-09-21",
-        "status": "ok"
-      },
-      {
-        "id": "news-CNBC-Stocks had a great day on the surface. But something alarming occurred",
-        "category": "news",
-        "source": "CNBC",
-        "title": "Stocks had a great day on the surface. But something alarming occurred not seen since 1999",
-        "url": "https://www.cnbc.com/2026/09/21/stocks-had-a-great-day-on-the-surface-but-something-alarming-occurred-not-seen-since-1999.html",
-        "publishedAt": "2026-09-21",
-        "status": "ok"
-      },
-      {
-        "id": "news-MarketWatch-As the S&P 500 nears a new record high, there are signs of weak",
+        "id": "news-MarketWatch-Sandisk’s stock is rising: Why one analyst says AI could help i",
         "category": "news",
         "source": "MarketWatch",
-        "title": "As the S&P 500 nears a new record high, there are signs of weakness below the surface",
-        "url": "https://www.marketwatch.com/story/as-the-s-p-500-nears-a-new-record-high-there-are-cracks-below-the-surface-6df3e90d?mod=mw_rss_topstories",
-        "publishedAt": "2026-09-21",
+        "title": "Sandisk’s stock is rising: Why one analyst says AI could help it reach new heights",
+        "url": "https://www.marketwatch.com/story/sandisks-stock-is-rising-why-one-analyst-says-ai-could-help-it-reach-new-heights-5541ded8?mod=mw_rss_topstories",
+        "publishedAt": "2026-09-22",
         "status": "ok"
       },
       {
-        "id": "news-CNBC-Treasury yields ease as global borrowing costs tumble",
+        "id": "news-MarketWatch-Want to bet on risky, high-beta stocks? Why you should wait for",
+        "category": "news",
+        "source": "MarketWatch",
+        "title": "Want to bet on risky, high-beta stocks? Why you should wait for mid-October.",
+        "url": "https://www.marketwatch.com/story/want-to-bet-on-risky-high-beta-stocks-why-you-should-wait-for-this-week-in-october-d9094820?mod=mw_rss_topstories",
+        "publishedAt": "2026-09-22",
+        "status": "ok"
+      },
+      {
+        "id": "news-MarketWatch-Could Meta’s viral Muse app be the company’s ChatGPT moment?",
+        "category": "news",
+        "source": "MarketWatch",
+        "title": "Could Meta’s viral Muse app be the company’s ChatGPT moment?",
+        "url": "https://www.marketwatch.com/story/could-metas-viral-muse-app-be-the-companys-chatgpt-moment-8e7075aa?mod=mw_rss_topstories",
+        "publishedAt": "2026-09-22",
+        "status": "ok"
+      },
+      {
+        "id": "news-CNBC-Trump discloses more than 1,100 July trades, including up to $25 milli",
         "category": "news",
         "source": "CNBC",
-        "title": "Treasury yields ease as global borrowing costs tumble",
-        "url": "https://www.cnbc.com/2026/09/21/treasury-yields-government-bonds.html",
-        "publishedAt": "2026-09-21",
+        "title": "Trump discloses more than 1,100 July trades, including up to $25 million each in sales of Microsoft, Amazon",
+        "url": "https://www.cnbc.com/2026/09/22/trump-trades-microsoft-amazon-july-financial-disclosure.html",
+        "publishedAt": "2026-09-22",
+        "status": "ok"
+      },
+      {
+        "id": "news-Investing-Trading Day: Oil slips, Nasdaq rips",
+        "category": "news",
+        "source": "Investing",
+        "title": "Trading Day: Oil slips, Nasdaq rips",
+        "url": "https://www.investing.com/news/economy-news/trading-day-oil-slips-nasdaq-rips-4911721",
+        "publishedAt": "2026-09-22",
         "status": "ok"
       }
     ],
-    "clusters": [],
-    "summary": "메타 AI 에이전트와 인텔 등 기술주 중심의 낙관론이 부각되며 뉴욕증시가 사상 최고치를 기록한 점이 주목됩니다.",
+    "clusters": [
+      {
+        "id": "cluster-news-연합뉴스-9월 소비심리 한 달 만에 반등…\"집값 상승 기대 여전히 높아\"",
+        "title": "9월 소비심리 한 달 만에 반등…\"집값 상승 기대 여전히 높아\"",
+        "summary": "2개 매체가 이 소식을 함께 보도했습니다.",
+        "leadItemId": "news-연합뉴스-9월 소비심리 한 달 만에 반등…\"집값 상승 기대 여전히 높아\"",
+        "relatedItemIds": [
+          "news-파이낸셜뉴스-9월 소비심리 한달 만에 반등..집값·물가 불안에 체감경기는 냉랭"
+        ],
+        "sourceCount": 2,
+        "topic": "9월 소비심리 한 달 만에 반등…\"집값 상승 기대 여전히 높아\"",
+        "status": "ok"
+      }
+    ],
+    "summary": "유가가 배럴당 100달러 아래로 하락한 가운데 미중 정상회담을 앞두고 무역과 AI 등 관전포인트에 관심이 집중되는 모습입니다.",
     "status": "ok"
   },
   "latestBriefing": null,
@@ -251,64 +262,47 @@
     {
       "id": "kospi",
       "name": "코스피",
-      "value": 7007.72,
-      "displayValue": "7,007.72",
-      "change": 4.2142,
+      "value": 7017.91,
+      "displayValue": "7,017.91",
+      "change": 0.1454,
       "changeUnit": "%",
       "displayMode": "pct",
       "direction": "up",
-      "asOf": "2026-09-21",
+      "asOf": "2026-09-22",
       "source": "KRX",
       "sourceUrl": "",
       "frequency": "daily",
       "isDelayed": true,
       "status": "ok",
-      "insight": "전일 대비 큰 폭 상승"
+      "insight": "전일 대비 소폭 상승"
     },
     {
       "id": "kosdaq",
       "name": "코스닥",
-      "value": 836.27,
-      "displayValue": "836.27",
-      "change": 1.7769,
+      "value": 834.38,
+      "displayValue": "834.38",
+      "change": -0.226,
       "changeUnit": "%",
       "displayMode": "pct",
-      "direction": "up",
-      "asOf": "2026-09-21",
+      "direction": "down",
+      "asOf": "2026-09-22",
       "source": "KRX",
       "sourceUrl": "",
       "frequency": "daily",
       "isDelayed": true,
       "status": "ok",
-      "insight": "전일 대비 큰 폭 상승"
+      "insight": "전일 대비 소폭 하락"
     },
     {
       "id": "nasdaq",
       "name": "나스닥",
-      "value": 27122.09,
-      "displayValue": "27,122.09",
-      "change": 2.2605,
+      "value": 27244.28,
+      "displayValue": "27,244.28",
+      "change": 0.4505,
       "changeUnit": "%",
       "displayMode": "pct",
       "direction": "up",
-      "asOf": "2026-09-21",
-      "source": "FinanceDataReader",
-      "sourceUrl": "",
-      "frequency": "daily",
-      "isDelayed": true,
-      "status": "ok",
-      "insight": "전일 대비 큰 폭 상승"
-    },
-    {
-      "id": "sp500",
-      "name": "S&P500",
-      "value": 7764.7,
-      "displayValue": "7,764.70",
-      "change": 1.4927,
-      "changeUnit": "%",
-      "displayMode": "pct",
-      "direction": "up",
-      "asOf": "2026-09-21",
+      "asOf": "2026-09-22",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
@@ -317,15 +311,32 @@
       "insight": "전일 대비 상승"
     },
     {
+      "id": "sp500",
+      "name": "S&P500",
+      "value": 7764.64,
+      "displayValue": "7,764.64",
+      "change": -0.0008,
+      "changeUnit": "%",
+      "displayMode": "pct",
+      "direction": "down",
+      "asOf": "2026-09-22",
+      "source": "FinanceDataReader",
+      "sourceUrl": "",
+      "frequency": "daily",
+      "isDelayed": true,
+      "status": "ok",
+      "insight": "보합권"
+    },
+    {
       "id": "usdkrw",
       "name": "원/달러",
-      "value": 1374.61,
-      "displayValue": "1,374.6",
-      "change": -11.34,
+      "value": 1354.66,
+      "displayValue": "1,354.7",
+      "change": -19.95,
       "changeUnit": "원",
       "displayMode": "delta",
       "direction": "down",
-      "asOf": "2026-09-21",
+      "asOf": "2026-09-22",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
@@ -336,13 +347,13 @@
     {
       "id": "us10y",
       "name": "미국채10년",
-      "value": 4.96,
-      "displayValue": "4.96%",
-      "change": -0.04,
+      "value": 4.97,
+      "displayValue": "4.97%",
+      "change": 0.01,
       "changeUnit": "%p",
       "displayMode": "delta",
-      "direction": "down",
-      "asOf": "2026-09-21",
+      "direction": "up",
+      "asOf": "2026-09-22",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
@@ -353,13 +364,13 @@
     {
       "id": "wti",
       "name": "WTI",
-      "value": 91.81,
-      "displayValue": "$91.81",
-      "change": -3.8337,
+      "value": 89.85,
+      "displayValue": "$89.85",
+      "change": -2.1348,
       "changeUnit": "%",
       "displayMode": "pct",
       "direction": "down",
-      "asOf": "2026-09-21",
+      "asOf": "2026-09-22",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
@@ -370,19 +381,19 @@
     {
       "id": "vix",
       "name": "VIX",
-      "value": 14.87,
-      "displayValue": "14.87",
-      "change": 0.4051,
+      "value": 14.21,
+      "displayValue": "14.21",
+      "change": -4.4385,
       "changeUnit": "%",
       "displayMode": "pct",
-      "direction": "up",
-      "asOf": "2026-09-21",
+      "direction": "down",
+      "asOf": "2026-09-22",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
       "isDelayed": true,
       "status": "ok",
-      "insight": "전일 대비 상승"
+      "insight": "전일 대비 큰 폭 하락"
     }
   ],
   "signals": [
@@ -390,11 +401,11 @@
       "id": "recession",
       "name": "경기침체 경보등",
       "color": "green",
-      "value": 0.25,
-      "valueLabel": "+0.25%p",
+      "value": 0.2,
+      "valueLabel": "+0.20%p",
       "insight": "장단기 금리차가 정상 범위에 있어 침체 신호는 뚜렷하지 않습니다.",
       "sourceLabel": "장단기 금리차 (미국채 10Y-2Y)",
-      "asOf": "2026-09-22"
+      "asOf": "2026-09-23"
     },
     {
       "id": "rate-gap",
@@ -404,7 +415,7 @@
       "valueLabel": "+1.00%p",
       "insight": "한미 금리차가 관리 가능한 수준이라 자본유출 압력은 크지 않습니다.",
       "sourceLabel": "한미 기준금리차 (Fed-한은)",
-      "asOf": "2026-09-22"
+      "asOf": "2026-09-23"
     },
     {
       "id": "liquidity-stress",
@@ -414,12 +425,13 @@
       "valueLabel": "2.68%p",
       "insight": "신용시장 스프레드가 평상 수준이라 유동성 경색 신호는 없습니다.",
       "sourceLabel": "하이일드 스프레드 (BAMLH0A0HYM2)",
-      "asOf": "2026-09-22"
+      "asOf": "2026-09-23"
     }
   ],
   "claims": {
     "status": "ok",
-    "todayClaims": [
+    "todayClaims": [],
+    "previousClaims": [
       {
         "schemaVersion": 1,
         "claimId": "2026-09-22-c1",
@@ -461,49 +473,7 @@
         "resolution": null
       }
     ],
-    "previousClaims": [
-      {
-        "schemaVersion": 1,
-        "claimId": "2026-09-18-c1",
-        "publicationId": "2026-09-18",
-        "issuedAt": "2026-09-18T06:45:43+09:00",
-        "dataCutoffAt": "2026-09-18T06:45:43+09:00",
-        "lockedAt": "2026-09-18T06:45:43+09:00",
-        "claimMode": "auto",
-        "verificationType": "proxy",
-        "topic": "나스닥 vs 코스피 상대성과(LLM 후보, 5거래일)",
-        "sourceNewsIds": [],
-        "observationText": "나스닥은 전일 대비 +1.69%, 코스피는 +0.09% — 상대 괴리 +1.60%p.",
-        "interpretationText": "나스닥이 코스피 대비 상대적으로 강세를 보이는지 검증합니다.",
-        "claimText": "엔비디아 경영진이 내년에 칩 판매량이 두 배로 늘어날 것이라는 전망을 내놓았습니다. — 나스닥이 코스피 대비 강세를 이어갈까요?",
-        "metricId": "nasdaq",
-        "benchmarkMetricId": "kospi",
-        "comparisonType": "excess_return",
-        "expectedDirection": "up",
-        "horizon": {
-          "type": "multi_session",
-          "market": "US",
-          "sessions": 5,
-          "resolutionAt": "2026-09-24"
-        },
-        "thresholdRuleId": "pct_030",
-        "confidence": null,
-        "status": "unresolved",
-        "revision": {
-          "version": 1,
-          "contentHash": "3c3da0d54d802faa3838d1cae54fb3e7853a84684c24c537b4bec40ad0a3adb7",
-          "correctedFrom": null
-        },
-        "baseline": {
-          "value": 26418.3,
-          "asOf": "2026-09-17",
-          "benchmarkValue": 6724.34,
-          "benchmarkAsOf": "2026-09-17"
-        },
-        "resolution": null
-      }
-    ],
-    "previousPublicationId": "2026-09-18",
+    "previousPublicationId": "2026-09-22",
     "totals": {
       "hit": 12,
       "miss": 25,
@@ -514,7 +484,7 @@
     }
   },
   "newsletterClaimsTeaser": {
-    "publicationId": "2026-09-18",
+    "publicationId": "2026-09-22",
     "resolvedCount": 0,
     "hitCount": 0,
     "missCount": 0,
