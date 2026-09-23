@@ -2,42 +2,55 @@
   "schema_version": "normalized-daily-issue/v1",
   "edition_id": "2026-09-22",
   "edition_date_kst": "2026-09-22",
-  "canonical_status": "SEND_BLOCKED",
-  "production_status": "SEND_BLOCKED",
-  "source_commit_sha": "f3d0d62f6dd4ef76f6cd41e1e39c6c989860cf9e",
-  "subject": "S&P 500 신고가의 그늘 속에서 메타 AI 에이전트가 이끄는 랠리",
-  "preheader": "S&P 500 내 대다수 종목의 고점 대비 하락(지수 왜곡 현상)",
+  "canonical_status": "production",
+  "production_status": "SEND_CONFIRMED",
+  "source_commit_sha": "f99f53ec090c252e25ae7e26d6eb7125990c55ec",
+  "subject": "메타 AI 강세와 미 국채 금리 하락이 이끄는 증시",
+  "preheader": "S&P500 등 미 증시 일부 지수의 종목 간 차별화 및 하부 균열 가능성",
   "thesis": {
-    "headline": "S&P 500 신고가의 그늘 속에서 메타 AI 에이전트가 이끄는 랠리",
+    "headline": "메타 AI 강세와 미 국채 금리 하락이 이끄는 증시",
     "three_signals": [
-      "간밤 뉴욕증시는 메타와 인텔 등 인공지능 관련주의 급등에 힘입어 일제히 상승했습니다.",
-      "지난 거래일 코스피는 거래일 부재 속 미국 기술주 훈풍의 영향을 대기하는 흐름입니다.",
-      "오늘은 국내 반도체 등 IT 대형주로의 외국인 수급 유입 여부를 관찰할 시점입니다."
+      "AI 낙관론과 유가 하락으로 미 나스닥이 2.26% 상승하며 사상 최고치를 기록했습니다.",
+      "지난 거래일 코스피는 글로벌 기술주 온기에 힘입어 7,000pt선을 상한 돌파했습니다.",
+      "오늘은 미 국채 금리 안정세 속 외국인 수급의 지속성을 관찰할 필요가 있습니다."
     ]
   },
   "main_story": {
-    "headline": "S&P 500 신고가 이면의 그늘",
-    "verified_fact": "미국 S&P 500 지수가 사상 최고치에 육박하고 있으나, 지수 구성 종목 중 약 60%는 역대 최고가 대비 20% 넘게 하락한 상태이다.",
-    "why_it_matters": null,
+    "headline": "메타 AI 뮤즈 돌풍에 뉴욕증시 급등",
+    "verified_fact": "메타의 인공지능 에이전트 뮤즈의 인기로 관련 기술주가 강세를 보이며 나스닥 지수가 사상 최고치를 기록했고 유가가 하락했습니다.",
+    "why_it_matters": "메타 AI 모멘텀과 유가 하락이 글로벌 위험선호 심리를 자극하여 국내외 증시 상승을 견인하는 데 기여했습니다.",
     "sources": []
   },
-  "entities": [],
+  "entities": [
+    {
+      "name": "나스닥",
+      "type": "index"
+    },
+    {
+      "name": "S&P500",
+      "type": "index"
+    },
+    {
+      "name": "금",
+      "type": "commodity"
+    }
+  ],
   "metrics": [
     {
       "id": "kospi",
-      "value": 6724.34,
-      "change": null,
+      "value": 7007.72,
+      "change": 4.2142,
       "displayMode": "pct",
-      "direction": null,
-      "status": "stale"
+      "direction": "up",
+      "status": "ok"
     },
     {
       "id": "kosdaq",
-      "value": 821.67,
-      "change": null,
+      "value": 836.27,
+      "change": 1.7769,
       "displayMode": "pct",
-      "direction": null,
-      "status": "stale"
+      "direction": "up",
+      "status": "ok"
     },
     {
       "id": "nasdaq",
@@ -57,8 +70,8 @@
     },
     {
       "id": "usdkrw",
-      "value": 1374.22,
-      "change": -11.73,
+      "value": 1374.61,
+      "change": -11.34,
       "displayMode": "delta",
       "direction": "down",
       "status": "ok"
@@ -73,8 +86,8 @@
     },
     {
       "id": "wti",
-      "value": 91.97,
-      "change": -3.6661,
+      "value": 91.81,
+      "change": -3.8337,
       "displayMode": "pct",
       "direction": "down",
       "status": "ok"
@@ -91,15 +104,15 @@
   "market_changes": [
     {
       "id": "kospi",
-      "change": null,
+      "change": 4.2142,
       "changeUnit": "%",
-      "direction": null
+      "direction": "up"
     },
     {
       "id": "kosdaq",
-      "change": null,
+      "change": 1.7769,
       "changeUnit": "%",
-      "direction": null
+      "direction": "up"
     },
     {
       "id": "nasdaq",
@@ -115,7 +128,7 @@
     },
     {
       "id": "usdkrw",
-      "change": -11.73,
+      "change": -11.34,
       "changeUnit": "원",
       "direction": "down"
     },
@@ -127,7 +140,7 @@
     },
     {
       "id": "wti",
-      "change": -3.6661,
+      "change": -3.8337,
       "changeUnit": "%",
       "direction": "down"
     },
@@ -139,61 +152,30 @@
     }
   ],
   "narratives": {
-    "moo_view": "메타의 AI 에이전트 흥행과 미국채 금리 하락 안정 속에 위험선호 심리가 형성되는 흐름입니다. 그러나 S&P 500 구성 종목의 약 60%가 역대 최고가 대비 20% 넘게 하락한 상태라는 점은 대형주 착시와 시장 내부의 뚜렷한 온도 차를 보여줍니다.\n\n국제유가가 하락하는 등 원자재 가격 완화세가 나타나는 가운데, 국내 시장에서는 우량 기업금융 발굴을 둘러싼 은행권 대응이 이어지고 있습니다. 대형주 중심의 온기가 시장 전반으로 확산된다면 투자 심리가 다져지겠지만, 소수 종목으로의 쏠림이 지속된다면 대다수 종목의 체감 약세는 이어질 것입니다.\n\n금리 안정과 원자재 가격 하락이 기업 비용 부담을 줄여주는 호재로 작용할 가능성도 있습니다. 다만 지수 착시 뒤에 숨은 개별 종목들의 실적 격차와 수면 아래 침체가 본격화될 수 있다는 반대 시각 역시 존재합니다. 지수 상단 착시 속 통화정책 긴장감이 유지되는 한 종목 간 양극화와 추가 하락 압력이 커질 수 있습니다.",
+    "moo_view": "메타의 인공지능 에이전트 뮤즈 흥행이 글로벌 기술주 강세를 이끌며 위험선호 심리를 자극했습니다. 이 흐름은 미 국채 금리 하락과 맞물려 외환시장의 원화 강세를 유도했고 국내 증시의 투자 심리를 개선하는 촉매로 작용했습니다.\n\n국내 증시에서는 유가증권시장이 4% 넘게 급등하며 강세를 주도했으나 코스닥은 소폭 상승에 머물러 지수 간 뚜렷한 온도 차를 기록했습니다. 그러나 대형주 중심의 지수 상승이 전체 시장의 체력 개선을 의미하는 것은 아닙니다. 기술주 편중으로 인한 하부 균열 지적이 상존하는 만큼 지수의 표면적 급등 뒤에 가려진 체감 온도의 격차를 간과하기 어렵습니다.\n\n글로벌 기술주의 AI 모멘텀이 유지된다면 국내 증시도 추가 상승 동력을 확보할 수 있겠으나, 대형주 쏠림에 따른 균열이 확대된다면 지수 전반이 재차 하방 압력에 직면할 가능성이 있습니다.",
     "todays_watch": [
-      "S&P 500 구성 종목 중 20% 이상 하락한 60% 비중의 개선 여부",
-      "원/달러 환율 하락 안정 이후의 원화 강세 지속성",
-      "미국 국채 금리 및 국제유가 하락세 유지 여부"
+      "메타 AI 뮤즈 흥행에 따른 글로벌 기술주 추가 강세 여부",
+      "WTI 91.81달러선 기록 등 국제 유가 하락세 지속 추이",
+      "미 국채 금리 하락에 따른 글로벌 금리 안정화 흐름"
     ],
-    "todays_watch_oneliner": "AI 랠리와 국채 금리 안정 속에 지수 착시와 수면 아래 약세 흐름을 함께 살펴야 하는 국면입니다.",
+    "todays_watch_oneliner": "기술주 모멘텀과 유가·금리 안정세가 국내 증시의 차별화된 흐름에 미치는 영향을 점검할 필요가 있습니다.",
     "content_status": "GENERATED_REPAIRED"
   },
-  "moo_q": null,
-  "moo_check": [
-    {
-      "previous_claim": "엔비디아 경영진이 내년에 칩 판매량이 두 배로 늘어날 것이라는 전망을 내놓았습니다. — 나스닥이 코스피 대비 강세를 이어갈까요?",
-      "claim_date": "2026-09-18",
-      "evaluation_date": null,
-      "observed_result": null,
-      "verdict": "PENDING",
-      "evidence": null,
-      "source": null
-    }
-  ],
-  "moo_word": {
-    "id": "open_특별급여",
-    "term": "특별급여",
-    "definition": "특별급여는 정기적인 기본급 외에 회사의 실적이나 특별한 기여도에 따라 일시적으로 지급되는 금전적 보상을 가리키는 것으로 보입니다. 성과에 따른 차등 지급이나 보상 강화를 위해 활용되는 경향이 관찰됩니다.",
-    "why_today": "반도체 호황이 직장인의 실질 소득 증가와 성과급 분배로 이어지는 선순환 구조를 보여주는 대목입니다.",
-    "memory_hook": null,
-    "source_label": "파이낸셜뉴스",
-    "article_id": "news_5",
-    "article_url": "https://www.fnnews.com/news/202609220624157409",
-    "article_publisher": "파이낸셜뉴스",
-    "evidence_snippets": [
-      "\"특별급여만 426만원\" 반도체 호황이 바꾼 직장인 월급."
-    ],
-    "definition_source_name": null,
-    "definition_source_url": null,
-    "definition_priority": "P2_SOURCES_PARTIAL",
-    "origin": "llm_proposed",
-    "grounded_in_article": true,
-    "definition_evidence_verified": true,
-    "status": "ELIGIBLE_FOR_PUBLICATION",
-    "eligible_for_publication": true
+  "moo_q": {
+    "claim_id": "2026-09-22-c1",
+    "claim_text": "메타의 AI 에이전트 뮤즈 인기로 관련 기술주가 강세를 보이며 나스닥이 사상 최고치를 기록했습니다. — 나스닥이 코스피 대비 약세를 이어갈까요?",
+    "topic": "나스닥 vs 코스피 상대성과(LLM 후보, 5거래일)",
+    "resolution_at": "2026-09-28",
+    "status": "unresolved"
   },
+  "moo_check": [],
+  "moo_word": null,
   "sources": [
     {
-      "source_name": "파이낸셜뉴스",
-      "source_url": "https://www.fnnews.com/news/202609220624157409",
+      "source_name": "매일경제",
+      "source_url": "https://www.mk.co.kr/news/economy/12158816",
       "published_at": "2026-09-22",
-      "source_headline": "\"특별급여만 426만원\" 반도체 호황이 바꾼 직장인 월급"
-    },
-    {
-      "source_name": "머니투데이",
-      "source_url": "https://www.mt.co.kr/finance/2026/09/22/2026092122315733323",
-      "published_at": "2026-09-22",
-      "source_headline": "\"돈 빌려줄 곳 찾아라\"…좋은 기업 쟁탈전 은행, 좋아질 기업 발굴전으로"
+      "source_headline": "“장례비 내야하는데 보험금 함흥차사”…보험사가 미리 알려드려요"
     },
     {
       "source_name": "매일경제",
@@ -202,10 +184,76 @@
       "source_headline": "“미·일 금리 더 간다 … 포트폴리오 재구성할 때”"
     },
     {
+      "source_name": "연합뉴스마켓",
+      "source_url": "https://www.yna.co.kr/view/AKR20260922010900009",
+      "published_at": "2026-09-22",
+      "source_headline": "메타 AI에이전트 뮤즈 돌풍에 AMD 시총 1조달러 돌파"
+    },
+    {
+      "source_name": "한국경제",
+      "source_url": "https://www.hankyung.com/article/2026092184606",
+      "published_at": "2026-09-22",
+      "source_headline": "\"주가 곤두박칠 쳤었는데\"…이 종목 담은 개미들 '희소식' [종목+]"
+    },
+    {
+      "source_name": "파이낸셜뉴스",
+      "source_url": "https://www.fnnews.com/news/202609220624157409",
+      "published_at": "2026-09-22",
+      "source_headline": "\"특별급여만 426만원\" 반도체 호황이 바꾼 직장인 월급"
+    },
+    {
+      "source_name": "연합뉴스마켓",
+      "source_url": "https://www.yna.co.kr/view/AKR20260922006551075",
+      "published_at": "2026-09-22",
+      "source_headline": "뉴욕증시, 'AI낙관론'에 메타·인텔 급등…나스닥 사상 최고치(종합)"
+    },
+    {
+      "source_name": "한국경제",
+      "source_url": "https://www.hankyung.com/article/2026092294467",
+      "published_at": "2026-09-22",
+      "source_headline": "\"대출 풀린 지 한 달도 안 됐는데\"…5대 은행 '한도 바닥'"
+    },
+    {
+      "source_name": "연합뉴스",
+      "source_url": "https://www.yna.co.kr/view/AKR20260921150500030",
+      "published_at": "2026-09-22",
+      "source_headline": "최근 5년 펫푸드 무역적자 1조3천억원…수입이 수출의 2배 넘어"
+    },
+    {
       "source_name": "MarketWatch",
       "source_url": "https://www.marketwatch.com/story/metas-stock-is-enjoying-its-best-month-in-more-than-two-years-thanks-to-the-companys-hot-new-ai-assistant-bf106291?mod=mw_rss_topstories",
       "published_at": "2026-09-21",
       "source_headline": "Meta’s stock is enjoying its best month in 13 years thanks to the company’s hot new AI assistant"
+    },
+    {
+      "source_name": "MarketWatch",
+      "source_url": "https://www.marketwatch.com/story/at-ts-stock-looks-like-the-smartest-bet-in-the-wireless-sector-analyst-says-6e773d63?mod=mw_rss_topstories",
+      "published_at": "2026-09-21",
+      "source_headline": "AT&T’s stock looks like the smartest bet in the wireless sector, analyst says"
+    },
+    {
+      "source_name": "Investing",
+      "source_url": "https://www.investing.com/news/economy-news/nvidia-qiabacked-iambic-therapeutics-files-for-us-ipo-as-biotech-boom-rolls-on-4909708",
+      "published_at": "2026-09-21",
+      "source_headline": "Nvidia, QIA-backed Iambic Therapeutics files for US IPO as biotech boom rolls on"
+    },
+    {
+      "source_name": "CNBC",
+      "source_url": "https://www.cnbc.com/2026/09/21/stock-gains-fuel-retirements-among-older-workers-economists.html",
+      "published_at": "2026-09-21",
+      "source_headline": "Stock boom is fueling a ‘retirement party,’ economists say — what it means for workers"
+    },
+    {
+      "source_name": "CNBC",
+      "source_url": "https://www.cnbc.com/2026/09/21/stocks-had-a-great-day-on-the-surface-but-something-alarming-occurred-not-seen-since-1999.html",
+      "published_at": "2026-09-21",
+      "source_headline": "Stocks had a great day on the surface. But something alarming occurred not seen since 1999"
+    },
+    {
+      "source_name": "MarketWatch",
+      "source_url": "https://www.marketwatch.com/story/as-the-s-p-500-nears-a-new-record-high-there-are-cracks-below-the-surface-6df3e90d?mod=mw_rss_topstories",
+      "published_at": "2026-09-21",
+      "source_headline": "As the S&P 500 nears a new record high, there are signs of weakness below the surface"
     },
     {
       "source_name": "CNBC",
@@ -217,11 +265,11 @@
   "public_url": "https://mooconomy.co.kr/latest-email.html",
   "validation_status": {
     "main_story_status": "SELECTED",
-    "content_provenance": "VALIDATED_GEMINI_35",
-    "moo_word_present": true,
-    "sources_count": 5,
-    "is_approximate": false
+    "content_provenance": "VALIDATED_GEMINI_36",
+    "moo_word_present": false,
+    "sources_count": 15,
+    "is_approximate": true
   },
-  "content_hash": "2511f06e3ba0c9291a1472b3e3574b6c909dc0242ae2b5ef93a9fda2f088a468",
-  "archived_at": "2026-09-21T22:08:02.084877+00:00"
+  "content_hash": "e8d2f863c34d2c93255fe43d7fc5c3b622d425ec9d1ca1bc0e41be28bfd7d014",
+  "archived_at": "2026-09-23T01:05:54.566040+00:00"
 }
