@@ -164,6 +164,16 @@ class WeeklyCardNoPlaceholderTests(unittest.TestCase):
                     hits.append(os.path.relpath(path, ROOT))
         self.assertEqual(hits, [], f"placeholder string leaked back into: {hits}")
 
+    def test_weekly_card_renders_no_summary_line(self):
+        # (2026-09-23 CEO 지시) 주간 카드는 "데일리 N건 집계 · 코스피 +X%…" 요약
+        # 줄을 렌더 코드에서 아예 만들지 않는다(CSS 숨김 아님).
+        with open(os.path.join(ROOT, "home-data.js"), encoding="utf-8") as f:
+            js = f.read()
+        body = js[js.index("async function renderWeeklyRecent"):]
+        body = body[:body.index("\n  }\n")]
+        self.assertNotIn("source_edition_count", body)
+        self.assertNotIn("headline_metrics", body)
+
     def test_weekly_card_uses_real_headline_metrics_when_present(self):
         with open(os.path.join(ROOT, "data", "weekly", "index.json"), encoding="utf-8") as f:
             idx = json.load(f)

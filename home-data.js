@@ -438,11 +438,6 @@
     }
   }
 
-  // (TASK_ID=WEEKLY_CARD_REAL_DATA, 2026-09-21, CEO 지시) 지표 라벨 -- 새
-  // 지표를 추가할 근거가 없어 publish_weekly_archive.py의 _HEADLINE_METRIC_IDS
-  // (코스피/나스닥 고정 2개)와 정확히 1:1로만 맞춘다.
-  var WEEKLY_HEADLINE_METRIC_LABELS = { kospi: '코스피', nasdaq: '나스닥' };
-
   async function renderWeeklyRecent() {
     var ul = $('weeklyRecent');
     var idx = await fetchJSON('data/weekly/index.json');
@@ -454,22 +449,11 @@
     if (!weeks.length) { ul.innerHTML = '<li class="rc-empty">발행된 주간 리포트가 없습니다.</li>'; return; }
     var recent = weeks.slice(0, 3);
     ul.innerHTML = recent.map(function (w) {
-      // (2026-09-21) weekly_thesis(데일리 헤드라인 원문 인용)는 CH·I 헤드라인과
-      // 중복이라 카드에 쓰지 않는다 -- 대신 그 주 실제로 집계된 값(publish_
-      // weekly_archive.py가 재계산 없이 그대로 옮긴 것)만, 있는 것만 보여준다.
-      var metricsText = (w.headline_metrics || []).map(function (m) {
-        var label = WEEKLY_HEADLINE_METRIC_LABELS[m.metric_id];
-        if (!label || m.weekly_change_percent == null) return null;
-        var pct = m.weekly_change_percent;
-        var sign = pct > 0 ? '+' : '';
-        return label + ' ' + sign + pct.toFixed(2) + '%';
-      }).filter(Boolean).join(' ');
-      var parts = [esc(w.period_start_kst) + ' – ' + esc(w.period_end_kst)];
-      if (w.source_edition_count) parts.push('데일리 ' + w.source_edition_count + '건 집계');
-      if (metricsText) parts.push(esc(metricsText));
+      // (2026-09-23 CEO 지시) "데일리 N건 집계 · 코스피 +X%…" 요약 줄은 만들지
+      // 않는다 -- 카드에는 주차와 기간만 남긴다.
       return '<li><a href="/weekly/' + encodeURIComponent(w.week_id) + '.html">'
         + '<span class="date">' + esc(w.week_id) + '</span>'
-        + '<span class="title">' + parts.join(' · ') + '</span></a></li>';
+        + '<span class="title">' + esc(w.period_start_kst) + ' – ' + esc(w.period_end_kst) + '</span></a></li>';
     }).join('');
     $('weeklyMeta').textContent = '누적 ' + weeks.length + '건 발행';
   }

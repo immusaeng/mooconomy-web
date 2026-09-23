@@ -111,7 +111,7 @@ h1, h2, h3, h4 { margin: 0; }
 }
 .wordmark {
   font-family: var(--serif);
-  font-size: clamp(52px, 8vw, 92px);
+  font-size: clamp(44px, 6.5vw, 72px);
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1;
@@ -130,7 +130,7 @@ h1, h2, h3, h4 { margin: 0; }
 .mast-hook {
   font-family: var(--serif-kr);
   font-weight: 700;
-  font-size: 30px;
+  font-size: 24px;
   line-height: 1.35;
   letter-spacing: -0.01em;
   color: var(--ink);
@@ -1598,7 +1598,7 @@ h1, h2, h3, h4 { margin: 0; }
   .editor-links { height: auto; }
   .el-card { flex: 0 0 auto; }
   .metrics-grid { grid-template-columns: repeat(3, 1fr); }
-  .mast-hook { font-size: 25px; }
+  .mast-hook { font-size: 21px; }
 }
 
 @media (max-width: 720px) {
@@ -1613,7 +1613,7 @@ h1, h2, h3, h4 { margin: 0; }
   .mast-kicker { font-size: 10px; letter-spacing: 0.16em; margin-top: 12px; margin-bottom: 0; }
   .mast-hook {
     max-width: 340px; margin: 22px auto 0;
-    font-size: clamp(23px, 6.6vw, 27px); line-height: 1.38; letter-spacing: -0.035em;
+    font-size: 21px; line-height: 1.38; letter-spacing: -0.035em;
     text-wrap: balance; word-break: keep-all;
   }
   .mast-tagline { max-width: 330px; margin: 14px auto 0; font-size: 13.5px; line-height: 1.65; }

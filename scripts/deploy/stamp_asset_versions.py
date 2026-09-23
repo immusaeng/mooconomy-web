@@ -12,6 +12,7 @@ canonical/OG URL은 절대 건드리지 않는다(그쪽은 캐시 버스팅 쿼
 
 실행: python scripts/deploy/stamp_asset_versions.py
 """
+import glob
 import os
 import re
 import subprocess
@@ -25,7 +26,12 @@ _ASSET_NAMES = [
     "app.js", "home-data.js", "calendar-data.js",
 ]
 
-_TARGET_HTML_FILES = ["index.html", os.path.join("calendar", "index.html")]
+# 이미 ?v= 토큰을 쓰는 모든 페이지 — 예전엔 index.html/calendar만 갱신해
+# about/markets/methodology/questions/weekly.html이 옛 토큰에 고정돼 있었다.
+_TARGET_HTML_FILES = sorted(
+    os.path.relpath(p, ROOT) for p in glob.glob(os.path.join(ROOT, "**", "*.html"), recursive=True)
+    if "_build_tmp" not in p and "?v=" in open(p, encoding="utf-8", errors="ignore").read()
+)
 
 
 def get_short_sha():
