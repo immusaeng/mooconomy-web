@@ -392,6 +392,17 @@ def _nav_block(meta):
     )
 
 
+_NAV_BLOCK_RE = re.compile(
+    r'<div class="fx-issue-nav">.*?</div><div class="fx-archive-link">.*?</div>', re.S)
+
+
+def refresh_nav_block(html, meta):
+    """보존된 rich 페이지의 prev/next를 현재 manifest 기준으로 다시 쓴다 —
+    보존 경로는 페이지를 다시 렌더하지 않아 다음 호가 생겨도 '다음' 링크가
+    영영 비어 있었다(2026-09-23 실측: 09-18 페이지에 09-23 링크 없음)."""
+    return _NAV_BLOCK_RE.sub(lambda _m: _nav_block(meta), html, count=1)
+
+
 def _force_index_follow_robots(html):
     """발송 이메일 원문은 이메일이라 noindex를 갖고 있다 — 날짜별
     웹페이지로 쓸 때는 무조건 index,follow로 덮어쓴다(latest.html 전용

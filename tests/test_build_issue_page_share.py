@@ -114,3 +114,20 @@ class RenderedPageShareWidgetTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class PreservedPageNavRefreshTests(unittest.TestCase):
+    """2026-09-23: 보존된 rich 페이지는 재렌더되지 않아 '다음' 링크가 영영
+    비어 있었다 — refresh_nav_block()이 현재 manifest 기준으로 갱신한다."""
+
+    def test_next_link_added_to_preserved_page(self):
+        old = ('<div class="inner"><div class="fx-issue-nav"><a href="/issues/2026-09-17.html">'
+               '← 2026-09-17</a><span></span></div><div class="fx-archive-link">'
+               '<a href="/archive/">전체 발행 목록 보기</a></div>\n<script></script>')
+        meta = {"prev_path": "/issues/2026-09-17.html", "prev_date": "2026-09-17",
+                "next_path": "/issues/2026-09-22.html", "next_date": "2026-09-22"}
+        out = bip.refresh_nav_block(old, meta)
+        self.assertIn('<a href="/issues/2026-09-22.html">2026-09-22 →</a>', out)
+        self.assertIn('← 2026-09-17', out)
+        self.assertEqual(out.count('fx-issue-nav'), 1)
+        self.assertTrue(out.endswith('\n<script></script>'))
