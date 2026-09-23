@@ -1,0 +1,242 @@
+{
+  "schema_version": "normalized-daily-issue/v1",
+  "edition_id": "2026-09-24",
+  "edition_date_kst": "2026-09-24",
+  "canonical_status": "production",
+  "production_status": "SEND_CONFIRMED",
+  "source_commit_sha": "5442952d6c66f2aef491aba71ad5499b0222b669",
+  "subject": "미국채 금리 5% 급등, 뉴욕증시와 국내 자영업에 미친 영향은?",
+  "preheader": "미 국채 10년물 금리가 상승하고 나스닥이 하락한 흐름 속에서, 국내 증시는 상승 마감했으나 외국인 순매도와 원화 약세가 동시에 관찰되었습니다. 이는 대외 금리…",
+  "thesis": {
+    "headline": "미국채 금리 5% 급등, 뉴욕증시와 국내 자영업에 미친 영향은?",
+    "three_signals": [
+      "미국 국채 금리가 급등하며 간밤 뉴욕증시 나스닥 지수가 1.13% 하락했습니다.",
+      "지난 거래일 코스피는 0.90%, 코스닥은 1.21% 상승하며 반등했습니다.",
+      "오늘은 미 국채 금리 추가 상승 여부와 외국인 수급 방향을 관찰할 시점입니다."
+    ]
+  },
+  "main_story": {
+    "headline": "미국채 10년물 금리 급등",
+    "verified_fact": "미국 10년 만기 국채 금리가 전일 대비 0.14%p 오른 5.11%를 기록하며 인플레이션 우려와 고금리 경계감을 높였습니다.",
+    "why_it_matters": null,
+    "sources": []
+  },
+  "entities": [
+    {
+      "name": "나스닥",
+      "type": "index"
+    },
+    {
+      "name": "금",
+      "type": "commodity"
+    }
+  ],
+  "metrics": [
+    {
+      "id": "kospi",
+      "value": 7080.92,
+      "change": 0.8978,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "kosdaq",
+      "value": 844.48,
+      "change": 1.2105,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "nasdaq",
+      "value": 26936.04,
+      "change": -1.1314,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "sp500",
+      "value": 7706.03,
+      "change": -0.7548,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1365.89,
+      "change": 11.23,
+      "displayMode": "delta",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "us10y",
+      "value": 5.11,
+      "change": 0.14,
+      "displayMode": "delta",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "wti",
+      "value": 92.71,
+      "change": null,
+      "displayMode": "pct",
+      "direction": null,
+      "status": "stale"
+    },
+    {
+      "id": "vix",
+      "value": 15.18,
+      "change": 6.8262,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    }
+  ],
+  "market_changes": [
+    {
+      "id": "kospi",
+      "change": 0.8978,
+      "changeUnit": "%",
+      "direction": "up"
+    },
+    {
+      "id": "kosdaq",
+      "change": 1.2105,
+      "changeUnit": "%",
+      "direction": "up"
+    },
+    {
+      "id": "nasdaq",
+      "change": -1.1314,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "sp500",
+      "change": -0.7548,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "usdkrw",
+      "change": 11.23,
+      "changeUnit": "원",
+      "direction": "up"
+    },
+    {
+      "id": "us10y",
+      "change": 0.14,
+      "changeUnit": "%p",
+      "direction": "up"
+    },
+    {
+      "id": "wti",
+      "change": null,
+      "changeUnit": "%",
+      "direction": null
+    },
+    {
+      "id": "vix",
+      "change": 6.8262,
+      "changeUnit": "%",
+      "direction": "up"
+    }
+  ],
+  "narratives": {
+    "moo_view": "미국 10년 만기 국채 금리의 5.11% 급등세가 인플레이션 우려와 고금리 경계감을 자극하며 뉴욕증시 하락 및 원/달러 환율 상승(1365.89원)을 촉발했습니다.\n\n대외 악재 속에서도 국내 유가증권시장은 기관의 3,189 순매수에 힘입어 코스피가 0.90% 반등하는 차별화 양상을 기록했습니다. 다만 이는 외국인과 개인의 동반 매도세를 감안할 때 추세적 회복이 아닌 일시적 방어 성격에 그칠 수 있습니다.\n\n만약 국채 금리 상승세가 둔화되고 환율이 안정세를 찾는다면 외국인 수급 개선이 이어지겠으나, 고금리 부담이 누적되어 저소득 자영업 연체율 상승 등 내수 둔화 신호가 심화된다면 국내 증시의 하방 압력이 다시 커질 가능성이 높습니다.",
+    "todays_watch": [
+      "미국 10년 만기 국채 금리의 5.11% 돌파 이후 추가 등락 여부",
+      "1365.89원까지 상승한 원/달러 환율의 변동성 및 외국인 수급 전환 추이",
+      "미·중 정상회담을 앞두고 전개되는 통상 관련 긴장 기류"
+    ],
+    "todays_watch_oneliner": "미 국채 금리 급등발 고금리 경계감과 원화 약세 속에서 국내 수급 주체들의 차별화된 대응 추이에 주목할 필요가 있습니다.",
+    "content_status": "GENERATED_PASS2"
+  },
+  "moo_q": {
+    "claim_id": "2026-09-24-c1",
+    "claim_text": "미국 10년 만기 국채 금리가 전일 대비 +0.14%p 오른 5.11%를 기록하며 기술주 전반에 부담을 주었습니다. — 나스닥이 S&P500 대비 약세를 이어갈까요?",
+    "topic": "나스닥 vs S&P500 상대성과(LLM 후보, 1거래일)",
+    "resolution_at": "2026-09-25",
+    "status": "unresolved"
+  },
+  "moo_check": [
+    {
+      "previous_claim": "메타의 AI 에이전트 뮤즈 인기로 관련 기술주가 강세를 보이며 나스닥이 사상 최고치를 기록했습니다. — 나스닥이 코스피 대비 약세를 이어갈까요?",
+      "claim_date": "2026-09-22",
+      "evaluation_date": null,
+      "observed_result": null,
+      "verdict": "PENDING",
+      "evidence": null,
+      "source": null
+    }
+  ],
+  "moo_word": {
+    "id": "open_국채금리",
+    "term": "국채금리",
+    "definition": "국채금리는 국가가 발행하는 채권의 유통 수익률로, 시중의 자금 흐름과 경기 기대를 반영하는 중요한 지표로 관찰됩니다. 이는 대출금리나 회사채 금리 등 다양한 시장 금리의 기준점이 되는 경향이 있습니다.",
+    "why_today": "미 국채 금리 급등이 간밤 증시 하락의 핵심 원인으로 작용했기 때문입니다.",
+    "memory_hook": null,
+    "source_label": "한국경제",
+    "article_id": "news_3",
+    "article_url": "https://www.hankyung.com/article/202609244563i",
+    "article_publisher": "한국경제",
+    "evidence_snippets": [
+      "금리 더 오른다…美 국채금리 급등에 나스닥 1% 하락[뉴욕증시 브리핑]."
+    ],
+    "definition_source_name": null,
+    "definition_source_url": null,
+    "definition_priority": "P2_SOURCES_PARTIAL",
+    "origin": "llm_proposed",
+    "grounded_in_article": true,
+    "definition_evidence_verified": true,
+    "status": "ELIGIBLE_FOR_PUBLICATION",
+    "eligible_for_publication": true
+  },
+  "sources": [
+    {
+      "source_name": "매일경제",
+      "source_url": "https://www.mk.co.kr/news/economy/12159633",
+      "published_at": "2026-09-24",
+      "source_headline": "갭투자 꿈도 못꿨는데 … 토허제 지역인데 가능하다고?"
+    },
+    {
+      "source_name": "연합뉴스",
+      "source_url": "https://www.yna.co.kr/view/AKR20260923177100002",
+      "published_at": "2026-09-24",
+      "source_headline": "저소득 자영업자 연체율 10년 6개월 만에 최고"
+    },
+    {
+      "source_name": "파이낸셜뉴스",
+      "source_url": "https://www.fnnews.com/news/202609231513163347",
+      "published_at": "2026-09-24",
+      "source_headline": "\"출발 전 기름 가득 채우지 마세요\"...추석 고속도로 주유소 L당 100원 깎아준다"
+    },
+    {
+      "source_name": "Investing",
+      "source_url": "https://www.investing.com/news/economy-news/trading-day-us-yields-cross-5-threshold-4914027",
+      "published_at": "2026-09-23",
+      "source_headline": "Trading Day: US yields cross 5% threshold​"
+    },
+    {
+      "source_name": "CNBC",
+      "source_url": "https://www.cnbc.com/2026/09/23/trump-xi-meeting-why-chinas-self-sufficiency-changes-the-calculus.html",
+      "published_at": "2026-09-23",
+      "source_headline": "Trump-Xi meeting: Why China's self-sufficiency changes the calculus"
+    }
+  ],
+  "public_url": "https://mooconomy.co.kr/latest-email.html",
+  "validation_status": {
+    "main_story_status": "SELECTED",
+    "content_provenance": "VALIDATED_GEMINI_36",
+    "moo_word_present": true,
+    "sources_count": 5,
+    "is_approximate": false
+  },
+  "content_hash": "b7e09f01ff6e58b56d3f767069b2960c5ab982c59bb8f39a9fe77d8217129177",
+  "archived_at": "2026-09-23T21:43:59.728937+00:00"
+}
