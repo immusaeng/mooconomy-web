@@ -193,7 +193,7 @@ def run(dry_run_report_only=False, today=None):
         elif os.path.exists(existing_path) and lib.is_rich_email_render(
             open(existing_path, encoding="utf-8").read()
         ):
-            page_html = open(existing_path, encoding="utf-8").read()
+            page_html = bip.refresh_nav_block(open(existing_path, encoding="utf-8").read(), meta)
             preserved_rich_pages.append(date)
         else:
             page_html = bip.render_from_json_record(by_date[date], meta)
