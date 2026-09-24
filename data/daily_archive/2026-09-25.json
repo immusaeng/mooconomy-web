@@ -1,0 +1,256 @@
+{
+  "schema_version": "normalized-daily-issue/v1",
+  "edition_id": "2026-09-25",
+  "edition_date_kst": "2026-09-25",
+  "canonical_status": "production",
+  "production_status": "SEND_CONFIRMED",
+  "source_commit_sha": "8c570f5b00077235a463c588dde23a477d4a954a",
+  "subject": "미 국채 금리와 유가 상승, 국내외 증시를 압박하다",
+  "preheader": "미 국채 금리와 유가 상승이 겹치며 고금리·고유가 압력이 심화된 점이 증시 상단을 제약하는 요인 중 하나로 해석될 수 있습니다. 다만 업종별 수급과 대외 뉴스 등…",
+  "thesis": {
+    "headline": "미 국채 금리와 유가 상승, 국내외 증시를 압박하다",
+    "three_signals": [
+      "미 국채 금리 급등과 유가 상승으로 간밤 뉴욕증시가 혼조세로 마감했습니다.",
+      "국내 증시는 휴장이며 지난 거래일(2026-09-23) 코스피는 7,080.92pt를 기록했습니다.",
+      "오늘은 미 국채 금리 변동성과 원/달러 환율 추이를 구체적으로 관찰할 필요가 있습니다."
+    ]
+  },
+  "main_story": {
+    "headline": "미 국채 금리 급등에 증시 압박 지속",
+    "verified_fact": "미국 국채 10년물 금리가 5.16%를 기록하고 30년물 금리가 상승하면서 뉴욕증시가 혼조세로 마감했습니다.",
+    "why_it_matters": null,
+    "sources": []
+  },
+  "entities": [
+    {
+      "name": "금",
+      "type": "commodity"
+    }
+  ],
+  "metrics": [
+    {
+      "id": "kospi",
+      "value": 7080.92,
+      "change": 0.0,
+      "displayMode": "pct",
+      "direction": "flat",
+      "status": "ok"
+    },
+    {
+      "id": "kosdaq",
+      "value": 844.48,
+      "change": 0.0,
+      "displayMode": "pct",
+      "direction": "flat",
+      "status": "ok"
+    },
+    {
+      "id": "nasdaq",
+      "value": 26939.37,
+      "change": 0.0124,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "sp500",
+      "value": 7704.13,
+      "change": -0.0247,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1365.2,
+      "change": -0.69,
+      "displayMode": "delta",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "us10y",
+      "value": 5.16,
+      "change": 0.05,
+      "displayMode": "delta",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "wti",
+      "value": 94.37,
+      "change": 1.7905,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "vix",
+      "value": 15.67,
+      "change": 3.2279,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    }
+  ],
+  "market_changes": [
+    {
+      "id": "kospi",
+      "change": 0.0,
+      "changeUnit": "%",
+      "direction": "flat"
+    },
+    {
+      "id": "kosdaq",
+      "change": 0.0,
+      "changeUnit": "%",
+      "direction": "flat"
+    },
+    {
+      "id": "nasdaq",
+      "change": 0.0124,
+      "changeUnit": "%",
+      "direction": "up"
+    },
+    {
+      "id": "sp500",
+      "change": -0.0247,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "usdkrw",
+      "change": -0.69,
+      "changeUnit": "원",
+      "direction": "down"
+    },
+    {
+      "id": "us10y",
+      "change": 0.05,
+      "changeUnit": "%p",
+      "direction": "up"
+    },
+    {
+      "id": "wti",
+      "change": 1.7905,
+      "changeUnit": "%",
+      "direction": "up"
+    },
+    {
+      "id": "vix",
+      "change": 3.2279,
+      "changeUnit": "%",
+      "direction": "up"
+    }
+  ],
+  "narratives": {
+    "moo_view": "미국 국채 10년물 금리가 5.16%를 기록하며 고금리 기조가 이어지는 가운데, 유가 상승 압력이 더해져 글로벌 자산시장의 비용 부담을 자극하는 흐름입니다.\n\n국내 증시는 코스피와 코스닥 지수가 보합권에 머물렀으나, 업종별로는 브렌트유 급등 영향으로 석유와가스 업종이 강세를 보인 반면 건설과 철강 업종은 하락 압력을 받았습니다. 반면 원달러 환율이 1365.2원으로 소폭 진정세를 유지한 점은 대외 불안 속에서도 일부 완충 요인으로 작용할 여지가 있습니다.\n\n국제 유가와 금리 변동성이 진정된다면 원가 부담이 완화될 수 있으나, 고금리 지속에 따른 가계대출 원리금 상환 부담이 이어진다면 증시 하방 압력이 심화될 가능성이 있습니다.",
+    "todays_watch": [
+      "미국 국채 10년물 금리 5.16% 기록 이후 글로벌 금리 흐름",
+      "브렌트유 106.45달러 선에서의 국제 유가 변동성",
+      "국내 가계대출 차주의 원리금 상환 부담 추이"
+    ],
+    "todays_watch_oneliner": "고금리와 에너지 가격 부담 속에서 업종별 차별화와 가계 상환 부담 추이에 주목할 필요가 있습니다.",
+    "content_status": "GENERATED_REPAIRED"
+  },
+  "moo_q": {
+    "claim_id": "2026-09-25-c1",
+    "claim_text": "외국인 매도 흐름이 이어지는 가운데 원/달러가 내릴까요?",
+    "topic": "원/달러 다음 거래일 방향(flow_fx)",
+    "resolution_at": "2026-09-26",
+    "status": "unresolved"
+  },
+  "moo_check": [
+    {
+      "previous_claim": "미국 10년 만기 국채 금리가 전일 대비 +0.14%p 오른 5.11%를 기록하며 기술주 전반에 부담을 주었습니다. — 나스닥이 S&P500 대비 약세를 이어갈까요?",
+      "claim_date": "2026-09-24",
+      "evaluation_date": "2026-09-25T06:43:59+09:00",
+      "observed_result": "변화폭이 중립 구간(±0.3%) 이내에 머물러 뚜렷한 방향이 나타나지 않았습니다.",
+      "verdict": "PARTIAL",
+      "evidence": "26936.04 → 26939.37 (+0.04%)",
+      "source": "FinanceDataReader"
+    }
+  ],
+  "moo_word": {
+    "id": "open_의무공개매수",
+    "term": "의무공개매수",
+    "definition": "의무공개매수는 기업의 경영권을 인수할 때 일정 지분 이상을 의무적으로 공개적으로 매수하도록 하는 제도로 보입니다. 일반 주주의 권익을 보호하고 경영권 인수 과정의 투명성을 높이기 위한 장치로 관찰됩니다.",
+    "why_today": "주식시장 제도 변화 및 주주 보호 정책 도입 가능성을 설명하는 주요 개념입니다.",
+    "memory_hook": null,
+    "source_label": "머니투데이",
+    "article_id": "news_2",
+    "article_url": "https://www.mt.co.kr/stock/2026/09/25/2026092317303665557",
+    "article_publisher": "머니투데이",
+    "evidence_snippets": [
+      "\"개미도 경영권 프리미엄 받는다\"…의무공개매수 도입 속도."
+    ],
+    "definition_source_name": null,
+    "definition_source_url": null,
+    "definition_priority": "P2_SOURCES_PARTIAL",
+    "origin": "llm_proposed",
+    "grounded_in_article": true,
+    "definition_evidence_verified": true,
+    "status": "ELIGIBLE_FOR_PUBLICATION",
+    "eligible_for_publication": true
+  },
+  "sources": [
+    {
+      "source_name": "머니투데이",
+      "source_url": "https://www.mt.co.kr/stock/2026/09/25/2026092317303665557",
+      "published_at": "2026-09-25",
+      "source_headline": "\"개미도 경영권 프리미엄 받는다\"…의무공개매수 도입 속도"
+    },
+    {
+      "source_name": "연합뉴스마켓",
+      "source_url": "https://www.yna.co.kr/view/AKR20260923161200008",
+      "published_at": "2026-09-25",
+      "source_headline": "'다시 미장으로?' 서학개미 미국 주식 보유액 2천억달러 재육박"
+    },
+    {
+      "source_name": "연합뉴스",
+      "source_url": "https://www.yna.co.kr/view/AKR20260923199400002",
+      "published_at": "2026-09-25",
+      "source_headline": "소득 다 털어도 빚 갚기 빠듯한 차주 3년 반 만에 반등"
+    },
+    {
+      "source_name": "파이낸셜뉴스",
+      "source_url": "https://www.fnnews.com/news/202609241710470327",
+      "published_at": "2026-09-24",
+      "source_headline": "\"3곳 이상에서 빚졌다\" 다중채무자 비중 10년 만에 최고"
+    },
+    {
+      "source_name": "CNBC",
+      "source_url": "https://www.cnbc.com/2026/09/24/30-year-fixed-mortgage-rate-spikes-thursday-to-7point45percent.html",
+      "published_at": "2026-09-24",
+      "source_headline": "30-year fixed mortgage rate jumps sharply Thursday to 7.45%"
+    },
+    {
+      "source_name": "MarketWatch",
+      "source_url": "https://www.marketwatch.com/story/8-mortgage-rates-are-not-an-impossibility-as-the-30-year-fixed-rate-surges-aa202464?mod=mw_rss_topstories",
+      "published_at": "2026-09-24",
+      "source_headline": "8% mortgage rates are ‘not an impossibility’ as the 30-year fixed rate surges"
+    },
+    {
+      "source_name": "CNBC",
+      "source_url": "https://www.cnbc.com/2026/09/24/trump-xi-meeting-china-washington.html",
+      "published_at": "2026-09-24",
+      "source_headline": "Trump, Xi to attend state dinner after White House meeting"
+    },
+    {
+      "source_name": "Investing",
+      "source_url": "https://www.investing.com/news/economy-news/bond-market-selloff-rumbles-on-ahead-of-trump-and-xi-talks-4915616",
+      "published_at": "2026-09-24",
+      "source_headline": "Oil jump sends 30-year yields to two-decade high"
+    }
+  ],
+  "public_url": "https://mooconomy.co.kr/latest-email.html",
+  "validation_status": {
+    "main_story_status": "SELECTED",
+    "content_provenance": "VALIDATED_GEMINI_36",
+    "moo_word_present": true,
+    "sources_count": 8,
+    "is_approximate": false
+  },
+  "content_hash": "2b1ee35812f77e113aa8b45a9357dfda080dd774eac3aa497feae444171b0059",
+  "archived_at": "2026-09-24T22:52:32.183471+00:00"
+}

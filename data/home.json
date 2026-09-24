@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-25T07:31:24+09:00",
+  "generatedAt": "2026-09-25T07:50:53+09:00",
   "publishDate": "2026-09-25",
   "marketDateKr": "2026-09-23",
   "marketDateUs": "2026-09-24",
@@ -9,7 +9,7 @@
   "marketTemperature": {
     "label": "neutral",
     "displayLabel": "중립",
-    "summary": "중립 국면입니다. 외국인 코스피 순매도 4,942억원.",
+    "summary": "외국인 코스피 순매도가 이어지는 가운데, 시장 온도는 중립 수준으로 관찰됩니다.",
     "reasons": [
       "외국인 코스피 순매도 4,942억원"
     ],
@@ -22,28 +22,49 @@
     {
       "id": "overnight-global",
       "title": "간밤 글로벌 시장",
-      "text": "나스닥 +0.01%, S&P500 -0.02%, 다우 -0.31%, VIX 15.67, 미국채10년 5.16%.",
+      "text": "나스닥은 소폭 상승하고 S&P500과 다우는 내림세를 보였으며, 미 국채 10년물 금리는 5.16%를 기록했습니다.",
       "status": "ok"
     },
     {
       "id": "today-domestic",
       "title": "전일 국내 시장",
-      "text": "코스피 +0.00%, 코스닥 +0.00%, 외국인 코스피 순매도 4,942억원, 원/달러 -0.05%.",
+      "text": "코스피와 코스닥은 보합세를 보인 한편, 외국인은 코스피 시장에서 4,942억 원 순매도를 나타냈고 원/달러 환율은 소폭 내렸습니다.",
       "status": "ok"
     },
     {
       "id": "today-checkpoint",
       "title": "오늘의 체크포인트",
-      "text": "미국 증시 혼조와 전일 외국인 매도가 겹친 만큼, 오늘은 외국인 수급 여부가 시장 방향을 가늠할 핵심 조건입니다.",
+      "text": "간밤의 대외 지표 압력과 국내 수급 경계감이 맞물리며, 시장은 뚜렷한 방향성보다 관망 흐름을 보이고 있는 것으로 보입니다.",
       "status": "ok"
     }
   ],
   "connection": {
-    "nodes": [],
-    "topologyId": null,
-    "summary": null,
-    "counterScenario": null,
-    "status": "missing"
+    "nodes": [
+      {
+        "label": "국내 증시(코스피)",
+        "detail": "7,080.92 · +0.00% 보합",
+        "timeAxis": "KR_T_MINUS_1"
+      },
+      {
+        "label": "미국채10년 금리",
+        "detail": "5.16% · +5bp 상승",
+        "timeAxis": "US_OVERNIGHT_T_MINUS_1"
+      },
+      {
+        "label": "지난밤 확인된 사건",
+        "detail": "미 국채 10년물 금리가 5.16%로 오르고 유가가 94.37달러로 상승하며 고금리·고유가 압력이 심화되었습니다.",
+        "timeAxis": "US_OVERNIGHT_T_MINUS_1"
+      },
+      {
+        "label": "오늘 확인할 지점",
+        "detail": "미 국채 금리와 유가 상승이 지속되며 증시 관망세가 이어지면 주장이 확인됩니다.",
+        "timeAxis": "FORWARD_T"
+      }
+    ],
+    "topologyId": "금리>달러>유가>인플레이션",
+    "summary": "미 국채 금리와 유가 상승이 겹치며 고금리·고유가 압력이 심화된 점이 증시 상단을 제약하는 요인 중 하나로 해석될 수 있습니다. 다만 업종별 수급과 대외 뉴스 등 다른 요인들이 함께 작용했을 가능성이 있습니다.",
+    "counterScenario": "미 국채 금리와 유가의 변동성이 진정될 경우, 증시 관망세가 완화될 가능성이 있습니다.",
+    "status": "ok"
   },
   "koreaWatch": {
     "items": [
@@ -74,7 +95,7 @@
       {
         "id": "usdkrw",
         "label": "원/달러",
-        "value": 1365.25,
+        "value": 1365.2,
         "displayValue": "1,365.2원",
         "direction": "down",
         "status": "ok"
@@ -88,7 +109,7 @@
         "status": "ok"
       }
     ],
-    "summary": "외국인 수급 -4,942억원, 기관 수급 +3,189억원, 개인 수급 -14,649억원, 원/달러 1,365.2원, 주도 업종 석유와가스 +3.13%.",
+    "summary": "외국인과 개인의 순매도 속에서 기관이 순매수를 보였고, 석유와가스 업종이 강세를 나타냈습니다.",
     "status": "ok"
   },
   "risks": [],
@@ -131,11 +152,29 @@
         "status": "ok"
       },
       {
-        "id": "news-매일경제-주가상승 13%에 배당 10% … 파이어족 갈아타는 ‘혜자 GPIQ’ 뭐길래",
+        "id": "news-머니투데이-\"개미도 경영권 프리미엄 받는다\"…의무공개매수 도입 속도",
         "category": "news",
-        "source": "매일경제",
-        "title": "주가상승 13%에 배당 10% … 파이어족 갈아타는 ‘혜자 GPIQ’ 뭐길래",
-        "url": "https://www.mk.co.kr/news/economy/12159601",
+        "source": "머니투데이",
+        "title": "\"개미도 경영권 프리미엄 받는다\"…의무공개매수 도입 속도",
+        "url": "https://www.mt.co.kr/stock/2026/09/25/2026092317303665557",
+        "publishedAt": "2026-09-25",
+        "status": "ok"
+      },
+      {
+        "id": "news-연합뉴스마켓-'다시 미장으로?' 서학개미 미국 주식 보유액 2천억달러 재육박",
+        "category": "news",
+        "source": "연합뉴스마켓",
+        "title": "'다시 미장으로?' 서학개미 미국 주식 보유액 2천억달러 재육박",
+        "url": "https://www.yna.co.kr/view/AKR20260923161200008",
+        "publishedAt": "2026-09-25",
+        "status": "ok"
+      },
+      {
+        "id": "news-머니투데이-내년부터 해외 개미도 직접 '한국 ETF' 투자…'역직구' 시장 커지나",
+        "category": "news",
+        "source": "머니투데이",
+        "title": "내년부터 해외 개미도 직접 '한국 ETF' 투자…'역직구' 시장 커지나",
+        "url": "https://www.mt.co.kr/stock/2026/09/25/2026092316015875472",
         "publishedAt": "2026-09-25",
         "status": "ok"
       },
@@ -167,22 +206,22 @@
         "status": "ok"
       },
       {
-        "id": "news-연합뉴스-소득 다 털어도 빚 갚기 빠듯한 차주 3년 반 만에 반등",
+        "id": "news-CNBC-30-year fixed mortgage rate jumps sharply Thursday to 7.45%",
         "category": "news",
-        "source": "연합뉴스",
-        "title": "소득 다 털어도 빚 갚기 빠듯한 차주 3년 반 만에 반등",
-        "url": "https://www.yna.co.kr/view/AKR20260923199400002",
-        "publishedAt": "2026-09-25",
-        "status": "ok"
-      },
-      {
-        "id": "news-파이낸셜뉴스-1300원대 안착한 환율... 단기 상승 후 다시 하락 전망",
-        "category": "news",
-        "source": "파이낸셜뉴스",
-        "title": "1300원대 안착한 환율... 단기 상승 후 다시 하락 전망",
-        "url": "https://www.fnnews.com/news/202609242205411112",
-        "publishedAt": "2026-09-25",
-        "status": "ok"
+        "source": "CNBC",
+        "title": "30-year fixed mortgage rate jumps sharply Thursday to 7.45%",
+        "url": "https://www.cnbc.com/2026/09/24/30-year-fixed-mortgage-rate-spikes-thursday-to-7point45percent.html",
+        "publishedAt": "2026-09-24",
+        "status": "ok",
+        "related": [
+          {
+            "source": "MarketWatch",
+            "title": "8% mortgage rates are ‘not an impossibility’ as the 30-year fixed rate surges",
+            "url": "https://www.marketwatch.com/story/8-mortgage-rates-are-not-an-impossibility-as-the-30-year-fixed-rate-surges-aa202464?mod=mw_rss_topstories",
+            "publishedAt": "2026-09-24",
+            "id": "news-MarketWatch-8% mortgage rates are ‘not an impossibility’ as the 30-year fix"
+          }
+        ]
       },
       {
         "id": "news-CNBC-Trump, Xi to attend state dinner after White House meeting",
@@ -190,15 +229,6 @@
         "source": "CNBC",
         "title": "Trump, Xi to attend state dinner after White House meeting",
         "url": "https://www.cnbc.com/2026/09/24/trump-xi-meeting-china-washington.html",
-        "publishedAt": "2026-09-24",
-        "status": "ok"
-      },
-      {
-        "id": "news-MarketWatch-8% mortgage rates are ‘not an impossibility’ as the 30-year fix",
-        "category": "news",
-        "source": "MarketWatch",
-        "title": "8% mortgage rates are ‘not an impossibility’ as the 30-year fixed rate surges",
-        "url": "https://www.marketwatch.com/story/8-mortgage-rates-are-not-an-impossibility-as-the-30-year-fixed-rate-surges-aa202464?mod=mw_rss_topstories",
         "publishedAt": "2026-09-24",
         "status": "ok"
       },
@@ -221,15 +251,6 @@
         "status": "ok"
       },
       {
-        "id": "news-CNBC-Meta gets to consumer AI device market before OpenAI, but Zuckerberg's",
-        "category": "news",
-        "source": "CNBC",
-        "title": "Meta gets to consumer AI device market before OpenAI, but Zuckerberg's strategy remains unproven",
-        "url": "https://www.cnbc.com/2026/09/24/meta-mark-zuckerberg-muse-charm-openai-agent.html",
-        "publishedAt": "2026-09-24",
-        "status": "ok"
-      },
-      {
         "id": "news-Investing-Factbox-Inside Reuters’ calculation of Australia’s housing market",
         "category": "news",
         "source": "Investing",
@@ -248,8 +269,21 @@
         "status": "ok"
       }
     ],
-    "clusters": [],
-    "summary": "오늘 국내외 주요 경제 뉴스를 모았습니다.",
+    "clusters": [
+      {
+        "id": "cluster-news-CNBC-30-year fixed mortgage rate jumps sharply Thursday to 7.45%",
+        "title": "30-year fixed mortgage rate jumps sharply Thursday to 7.45%",
+        "summary": "2개 매체가 이 소식을 함께 보도했습니다.",
+        "leadItemId": "news-CNBC-30-year fixed mortgage rate jumps sharply Thursday to 7.45%",
+        "relatedItemIds": [
+          "news-MarketWatch-8% mortgage rates are ‘not an impossibility’ as the 30-year fix"
+        ],
+        "sourceCount": 2,
+        "topic": "30-year fixed mortgage rate jumps sharply Thursday to 7.45%",
+        "status": "ok"
+      }
+    ],
+    "summary": "전세대출 대위변제 금액이 3년 새 138.6% 급증하며 가계 부실 우려가 커지는 모습이 관찰됩니다.",
     "status": "ok"
   },
   "latestBriefing": null,
@@ -325,9 +359,9 @@
     {
       "id": "usdkrw",
       "name": "원/달러",
-      "value": 1365.25,
+      "value": 1365.2,
       "displayValue": "1,365.2",
-      "change": -0.64,
+      "change": -0.69,
       "changeUnit": "원",
       "displayMode": "delta",
       "direction": "down",
@@ -359,9 +393,9 @@
     {
       "id": "wti",
       "name": "WTI",
-      "value": 94.34,
-      "displayValue": "$94.34",
-      "change": 1.7582,
+      "value": 94.37,
+      "displayValue": "$94.37",
+      "change": 1.7905,
       "changeUnit": "%",
       "displayMode": "pct",
       "direction": "up",
