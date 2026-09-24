@@ -174,6 +174,19 @@ class WeeklyCardNoPlaceholderTests(unittest.TestCase):
         self.assertNotIn("source_edition_count", body)
         self.assertNotIn("headline_metrics", body)
 
+    def test_headline_metrics_equal_weekly_level_diff(self):
+        # (2026-09-24) 주간 등락률 단일 정의 -- index.json headline_metrics는
+        # 각 주 JSON의 weekly_scorecard_level_diff 값 그대로여야 한다.
+        with open(os.path.join(ROOT, "data", "weekly", "index.json"), encoding="utf-8") as f:
+            idx = json.load(f)
+        for w in idx["weeks"]:
+            with open(os.path.join(ROOT, "data", "weekly", w["week_id"] + ".json"), encoding="utf-8") as f:
+                rec = json.load(f)
+            ld = {m["metric_id"]: m["weekly_change_percent"]
+                  for m in rec["weekly_scorecard_level_diff"]["metrics"]}
+            for m in w["headline_metrics"]:
+                self.assertEqual(m["weekly_change_percent"], ld[m["metric_id"]], w["week_id"])
+
     def test_weekly_card_uses_real_headline_metrics_when_present(self):
         with open(os.path.join(ROOT, "data", "weekly", "index.json"), encoding="utf-8") as f:
             idx = json.load(f)
