@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-24T06:42:57+09:00",
+  "updatedAt": "2026-09-25T06:44:06+09:00",
   "claims": {
     "2026-07-19-c1": {
       "schemaVersion": 1,
@@ -2796,7 +2796,7 @@
       },
       "thresholdRuleId": "pct_030",
       "confidence": null,
-      "status": "unresolved",
+      "status": "miss",
       "revision": {
         "version": 1,
         "contentHash": "3c3da0d54d802faa3838d1cae54fb3e7853a84684c24c537b4bec40ad0a3adb7",
@@ -2808,7 +2808,28 @@
         "benchmarkValue": 6724.34,
         "benchmarkAsOf": "2026-09-17"
       },
-      "resolution": null
+      "resolution": {
+        "resolutionId": "2026-09-18-c1-res",
+        "claimId": "2026-09-18-c1",
+        "resolvedAt": "2026-09-25T06:43:59+09:00",
+        "verdict": "miss",
+        "metricId": "nasdaq",
+        "comparisonType": "excess_return",
+        "startValue": 26418.3,
+        "endValue": 26939.37,
+        "changeValue": -3.330442478568771,
+        "changeUnit": "%",
+        "benchmarkMetricId": "kospi",
+        "benchmarkStartValue": 6724.34,
+        "benchmarkEndValue": 7080.92,
+        "neutralLower": -0.3,
+        "neutralUpper": 0.3,
+        "neutralBand": 0.3,
+        "dataProvider": "FinanceDataReader",
+        "sourceUrl": "",
+        "observedAt": "2026-09-24",
+        "explanation": "실제 변화가 예상한 상승 방향과 다르게 움직였습니다."
+      }
     },
     "2026-09-22-c1": {
       "schemaVersion": 1,
@@ -2822,7 +2843,7 @@
       "topic": "나스닥 vs 코스피 상대성과(LLM 후보, 5거래일)",
       "sourceNewsIds": [],
       "observationText": "나스닥은 전일 대비 +2.26%, 코스피는 +4.21% — 상대 괴리 -1.95%p.",
-      "interpretationText": "나스닥이 코스피 대비 상대적으로 강세를 보이는지 검증합니다.",
+      "interpretationText": "나스닥이 코스피 대비 상대적으로 약세를 보이는지 검증합니다.",
       "claimText": "메타의 AI 에이전트 뮤즈 인기로 관련 기술주가 강세를 보이며 나스닥이 사상 최고치를 기록했습니다. — 나스닥이 코스피 대비 약세를 이어갈까요?",
       "metricId": "nasdaq",
       "benchmarkMetricId": "kospi",
@@ -2875,7 +2896,7 @@
       },
       "thresholdRuleId": "pct_030",
       "confidence": null,
-      "status": "unresolved",
+      "status": "neutral",
       "revision": {
         "version": 1,
         "contentHash": "ff364445eba7608d7e8c4e323af9cbc5509c532cc2b45ff0797280a419d0611d",
@@ -2886,6 +2907,66 @@
         "asOf": "2026-09-23",
         "benchmarkValue": 7706.03,
         "benchmarkAsOf": "2026-09-23"
+      },
+      "resolution": {
+        "resolutionId": "2026-09-24-c1-res",
+        "claimId": "2026-09-24-c1",
+        "resolvedAt": "2026-09-25T06:43:59+09:00",
+        "verdict": "neutral",
+        "metricId": "nasdaq",
+        "comparisonType": "excess_return",
+        "startValue": 26936.04,
+        "endValue": 26939.37,
+        "changeValue": 0.037018635136938705,
+        "changeUnit": "%",
+        "benchmarkMetricId": "sp500",
+        "benchmarkStartValue": 7706.03,
+        "benchmarkEndValue": 7704.13,
+        "neutralLower": -0.3,
+        "neutralUpper": 0.3,
+        "neutralBand": 0.3,
+        "dataProvider": "FinanceDataReader",
+        "sourceUrl": "",
+        "observedAt": "2026-09-24",
+        "explanation": "변화폭이 중립 구간(±0.3%) 이내에 머물러 뚜렷한 방향이 나타나지 않았습니다."
+      }
+    },
+    "2026-09-25-c1": {
+      "schemaVersion": 1,
+      "claimId": "2026-09-25-c1",
+      "publicationId": "2026-09-25",
+      "issuedAt": "2026-09-25T06:44:06+09:00",
+      "dataCutoffAt": "2026-09-25T06:44:06+09:00",
+      "lockedAt": "2026-09-25T06:44:06+09:00",
+      "claimMode": "auto",
+      "verificationType": "proxy",
+      "topic": "원/달러 다음 거래일 방향(flow_fx)",
+      "sourceNewsIds": [],
+      "observationText": "원/달러는 1,365.5원으로 전일 대비 0.03% 하락했습니다.",
+      "interpretationText": "외국인 매도 흐름이 이어지는 가운데 하락 흐름이 다음 거래일까지 이어지는지가 확인 대상입니다.",
+      "claimText": "외국인 매도 흐름이 이어지는 가운데 원/달러가 내릴까요?",
+      "metricId": "usdkrw",
+      "benchmarkMetricId": null,
+      "comparisonType": "absolute_return",
+      "expectedDirection": "down",
+      "horizon": {
+        "type": "next_close",
+        "market": "US",
+        "resolutionAt": "2026-09-26"
+      },
+      "thresholdRuleId": "pct_020",
+      "confidence": null,
+      "status": "unresolved",
+      "revision": {
+        "version": 1,
+        "contentHash": "c9ee82cc6623470d07c7241b4094bc766b23f8ab2fe4969f835ad21ad44a62d6",
+        "correctedFrom": null
+      },
+      "baseline": {
+        "value": 1365.54,
+        "asOf": "2026-09-24",
+        "benchmarkValue": null,
+        "benchmarkAsOf": null
       },
       "resolution": null
     }
