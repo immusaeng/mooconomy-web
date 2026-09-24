@@ -77,13 +77,13 @@ def _load_index_entries():
             with open(path, encoding="utf-8") as f:
                 rec = json.load(f)
             week_id = rec["week_id"]
-            # (TASK_ID=WEEKLY_CARD_REAL_DATA, 2026-09-21) rec["first_last_metrics"]
-            # 는 weekly_report.py가 이미 계산해 둔 값이다 -- 재계산하지 않고
-            # 그대로 옮긴다. 코스피 먼저·나스닥 다음 고정 순서로 뽑는다(원본
-            # 배열 순서를 신뢰하지 않음 -- 카드 표기 순서가 항상 "코스피 X%
-            # 나스닥 Y%"여야 하므로), 값이 없는 지표는 조용히 뺀다(추정 금지).
+            # (2026-09-24 Track B) 주간 등락률의 단일 정의(전주 마지막 거래일
+            # 종가 -> 이번 주 마지막 거래일 종가)인 weekly_scorecard_level_diff를
+            # 재계산 없이 그대로 옮긴다 -- 이메일·주간 페이지와 같은 값. 코스피
+            # 먼저·나스닥 다음 고정 순서, 값이 없는 지표는 뺀다(추정 금지).
             metrics_by_id = {
-                m.get("metric_id"): m for m in (rec.get("first_last_metrics") or [])
+                m.get("metric_id"): m
+                for m in ((rec.get("weekly_scorecard_level_diff") or {}).get("metrics") or [])
             }
             headline_metrics = []
             for mid in _HEADLINE_METRIC_IDS:
