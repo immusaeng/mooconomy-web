@@ -15,20 +15,20 @@
       "metric_id": "kosdaq",
       "first_value": 806.79,
       "first_date_kst": "2026-09-15",
-      "last_value": 821.67,
+      "last_value": 822.18,
       "last_date_kst": "2026-09-18",
       "unit": "pct",
-      "weekly_change_percent": 1.8443461123712535,
+      "weekly_change_percent": 1.9075595879968654,
       "data_points": 4
     },
     {
       "metric_id": "kospi",
       "first_value": 6684.37,
       "first_date_kst": "2026-09-15",
-      "last_value": 6724.34,
+      "last_value": 6715.41,
       "last_date_kst": "2026-09-18",
       "unit": "pct",
-      "weekly_change_percent": 0.5979621116126266,
+      "weekly_change_percent": 0.4643668737667195,
       "data_points": 4
     },
     {
@@ -348,8 +348,8 @@
       {
         "metric_id": "kospi",
         "metric_label_kr": "코스피",
-        "value": 6724.34,
-        "value_fmt": "6,724.34",
+        "value": 6715.41,
+        "value_fmt": "6,715.41",
         "prior_value": 6909.91,
         "prior_value_fmt": "6,909.91",
         "unit": null,
@@ -357,7 +357,7 @@
         "change_unit_label": null,
         "weekly_change_value": null,
         "weekly_change_bp": null,
-        "weekly_change_percent": -2.6855631983629267,
+        "weekly_change_percent": -2.8147978772516575,
         "as_of_date_kst": "2026-09-17",
         "prior_as_of_date_kst": "2026-09-11",
         "source": "Daily 아카이브 지표 스냅샷(data/daily_archive)"
@@ -365,8 +365,8 @@
       {
         "metric_id": "kosdaq",
         "metric_label_kr": "코스닥",
-        "value": 821.67,
-        "value_fmt": "821.67",
+        "value": 822.18,
+        "value_fmt": "822.18",
         "prior_value": 820.64,
         "prior_value_fmt": "820.64",
         "unit": null,
@@ -374,7 +374,7 @@
         "change_unit_label": null,
         "weekly_change_value": null,
         "weekly_change_bp": null,
-        "weekly_change_percent": 0.12551179567166756,
+        "weekly_change_percent": 0.18765841294598892,
         "as_of_date_kst": "2026-09-17",
         "prior_as_of_date_kst": "2026-09-11",
         "source": "Daily 아카이브 지표 스냅샷(data/daily_archive)"
@@ -611,9 +611,9 @@
     },
     {
       "metric_id": "kosdaq",
-      "value": 821.67,
+      "value": 822.18,
       "unit": null,
-      "weekly_change_percent": 1.8443461123712535,
+      "weekly_change_percent": 1.9075595879968654,
       "as_of_date_kst": "2026-09-18",
       "source": "Daily 아카이브 지표 스냅샷(data/daily_archive)",
       "data_points": 4
@@ -638,9 +638,9 @@
     },
     {
       "metric_id": "kospi",
-      "value": 6724.34,
+      "value": 6715.41,
       "unit": null,
-      "weekly_change_percent": 0.5979621116126266,
+      "weekly_change_percent": 0.4643668737667195,
       "as_of_date_kst": "2026-09-18",
       "source": "Daily 아카이브 지표 스냅샷(data/daily_archive)",
       "data_points": 4
@@ -809,5 +809,25 @@
   ],
   "calendar_has_events": false,
   "data_completeness_status": "PARTIAL_DATA",
-  "payload_sha256": "ce40610943f3f41b7826e193b13556e8f54bc938d1ad518ef9036a0816b23898"
+  "payload_sha256": "76df795d5f55b294d7ce2943d417784e7dba97673f50784b1bdd6fe348b11b28",
+  "corrections": [
+    {
+      "corrected_at": "2026-09-24T10:55:30+00:00",
+      "note": "정정 2026-09-23: 네이버 종가 기준으로 수치 수정",
+      "metric_id": "kospi",
+      "source_record": "daily_archive/2026-09-18.json",
+      "last_value_before_correction": 6724.34,
+      "weekly_change_percent_before_correction": 0.5979621116126266,
+      "level_diff_weekly_change_percent_before_correction": -2.6855631983629267
+    },
+    {
+      "corrected_at": "2026-09-24T10:55:30+00:00",
+      "note": "정정 2026-09-23: 네이버 종가 기준으로 수치 수정",
+      "metric_id": "kosdaq",
+      "source_record": "daily_archive/2026-09-18.json",
+      "last_value_before_correction": 821.67,
+      "weekly_change_percent_before_correction": 1.8443461123712535,
+      "level_diff_weekly_change_percent_before_correction": 0.12551179567166756
+    }
+  ]
 }
