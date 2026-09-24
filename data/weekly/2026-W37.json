@@ -13,84 +13,74 @@
   "weekly_thesis": "미국 물가 경계와 국내 금리 인하, 교차하는 금융 환경",
   "first_last_metrics": [
     {
-      "metric_id": "kosdaq",
-      "first_value": 822.19,
-      "first_date_kst": "2026-09-08",
-      "last_value": 820.64,
-      "last_date_kst": "2026-09-12",
-      "unit": "pct",
-      "weekly_change_percent": -0.18852090149479306,
-      "data_points": 5
+      "metric_id": "kospi",
+      "first_value": 6687.21,
+      "first_date_kst": "2026-09-04",
+      "last_value": 6909.91,
+      "last_date_kst": "2026-09-11",
+      "unit": null,
+      "weekly_change_percent": 3.3302378719974373,
+      "data_points": 2
     },
     {
-      "metric_id": "kospi",
-      "first_value": 6995.39,
-      "first_date_kst": "2026-09-08",
-      "last_value": 6909.91,
-      "last_date_kst": "2026-09-12",
-      "unit": "pct",
-      "weekly_change_percent": -1.2219475969174054,
-      "data_points": 5
+      "metric_id": "kosdaq",
+      "first_value": 813.5,
+      "first_date_kst": "2026-09-04",
+      "last_value": 820.64,
+      "last_date_kst": "2026-09-11",
+      "unit": null,
+      "weekly_change_percent": 0.8776889981561139,
+      "data_points": 2
     },
     {
       "metric_id": "nasdaq",
       "first_value": 26506.99,
-      "first_date_kst": "2026-09-08",
+      "first_date_kst": "2026-09-04",
       "last_value": 26333.04,
-      "last_date_kst": "2026-09-12",
-      "unit": "pct",
-      "weekly_change_percent": -0.6562419950360332,
-      "data_points": 5
+      "last_date_kst": "2026-09-11",
+      "unit": null,
+      "weekly_change_percent": -0.656241995036029,
+      "data_points": 2
     },
     {
       "metric_id": "sp500",
       "first_value": 7718.6,
-      "first_date_kst": "2026-09-08",
+      "first_date_kst": "2026-09-04",
       "last_value": 7656.98,
-      "last_date_kst": "2026-09-12",
-      "unit": "pct",
-      "weekly_change_percent": -0.7983313036042938,
-      "data_points": 5
+      "last_date_kst": "2026-09-11",
+      "unit": null,
+      "weekly_change_percent": -0.7983313036042908,
+      "data_points": 2
+    },
+    {
+      "metric_id": "usdkrw",
+      "first_value": 1345.99,
+      "first_date_kst": "2026-09-04",
+      "last_value": 1341.05,
+      "last_date_kst": "2026-09-11",
+      "unit": null,
+      "weekly_change_percent": -0.36701609967385007,
+      "data_points": 2
     },
     {
       "metric_id": "us10y",
       "first_value": 4.78,
-      "first_date_kst": "2026-09-08",
+      "first_date_kst": "2026-09-04",
       "last_value": 4.97,
-      "last_date_kst": "2026-09-12",
-      "unit": "delta",
-      "weekly_change_percent": 3.9748953974895196,
-      "data_points": 5
-    },
-    {
-      "metric_id": "usdkrw",
-      "first_value": 1345.06,
-      "first_date_kst": "2026-09-08",
-      "last_value": 1341.05,
-      "last_date_kst": "2026-09-12",
-      "unit": "delta",
-      "weekly_change_percent": -0.29812796455176427,
-      "data_points": 5
-    },
-    {
-      "metric_id": "vix",
-      "first_value": 15.3,
-      "first_date_kst": "2026-09-08",
-      "last_value": 15.84,
-      "last_date_kst": "2026-09-12",
-      "unit": "pct",
-      "weekly_change_percent": 3.52941176470587,
-      "data_points": 5
+      "last_date_kst": "2026-09-11",
+      "unit": null,
+      "weekly_change_percent": 3.9748953974895294,
+      "data_points": 2
     },
     {
       "metric_id": "wti",
-      "first_value": 91.48,
-      "first_date_kst": "2026-09-08",
+      "first_value": 91.22,
+      "first_date_kst": "2026-09-04",
       "last_value": 99.99,
-      "last_date_kst": "2026-09-12",
-      "unit": "pct",
-      "weekly_change_percent": 9.302579798863132,
-      "data_points": 5
+      "last_date_kst": "2026-09-11",
+      "unit": null,
+      "weekly_change_percent": 9.61411971058978,
+      "data_points": 2
     }
   ],
   "top_three_drivers": [],
@@ -389,7 +379,7 @@
     "is_approximate": false
   },
   "generated_at": "2026-09-13T21:41:41.957704+00:00",
-  "market_data_aggregation_note": "집계 구간 2026-09-08~2026-09-12 (5개 지점). 월요일은 위클리 발행일로 데일리 기록이 없습니다.",
+  "market_data_aggregation_note": "주간 등락률 기준: 전주 마지막 거래일 → 이번 주 마지막 거래일 (2026-09-04 종가 → 2026-09-11 종가)",
   "weekly_scorecard_level_diff": {
     "metrics": [
       {
@@ -405,9 +395,10 @@
         "weekly_change_value": null,
         "weekly_change_bp": null,
         "weekly_change_percent": 3.3302378719974373,
+        "raw_change_percent": 3.3302378719974373,
         "as_of_date_kst": "2026-09-11",
         "prior_as_of_date_kst": "2026-09-04",
-        "source": "Daily 아카이브 지표 스냅샷(data/daily_archive)"
+        "source": "네이버 일별 종가(localTradedAt)"
       },
       {
         "metric_id": "kosdaq",
@@ -422,9 +413,10 @@
         "weekly_change_value": null,
         "weekly_change_bp": null,
         "weekly_change_percent": 0.8776889981561139,
+        "raw_change_percent": 0.8776889981561139,
         "as_of_date_kst": "2026-09-11",
         "prior_as_of_date_kst": "2026-09-04",
-        "source": "Daily 아카이브 지표 스냅샷(data/daily_archive)"
+        "source": "네이버 일별 종가(localTradedAt)"
       },
       {
         "metric_id": "nasdaq",
@@ -439,6 +431,7 @@
         "weekly_change_value": null,
         "weekly_change_bp": null,
         "weekly_change_percent": -0.656241995036029,
+        "raw_change_percent": -0.656241995036029,
         "as_of_date_kst": "2026-09-11",
         "prior_as_of_date_kst": "2026-09-04",
         "source": "Daily 아카이브 지표 스냅샷(data/daily_archive)"
@@ -456,6 +449,7 @@
         "weekly_change_value": null,
         "weekly_change_bp": null,
         "weekly_change_percent": -0.7983313036042908,
+        "raw_change_percent": -0.7983313036042908,
         "as_of_date_kst": "2026-09-11",
         "prior_as_of_date_kst": "2026-09-04",
         "source": "Daily 아카이브 지표 스냅샷(data/daily_archive)"
@@ -473,6 +467,7 @@
         "weekly_change_value": -4.940000000000055,
         "weekly_change_bp": null,
         "weekly_change_percent": -0.36701609967385007,
+        "raw_change_percent": -0.36701609967385007,
         "as_of_date_kst": "2026-09-11",
         "prior_as_of_date_kst": "2026-09-04",
         "source": "Daily 아카이브 지표 스냅샷(data/daily_archive)"
@@ -490,6 +485,7 @@
         "weekly_change_value": null,
         "weekly_change_bp": 19.0,
         "weekly_change_percent": null,
+        "raw_change_percent": 3.9748953974895294,
         "as_of_date_kst": "2026-09-11",
         "prior_as_of_date_kst": "2026-09-04",
         "source": "Daily 아카이브 지표 스냅샷(data/daily_archive)"
@@ -507,6 +503,7 @@
         "weekly_change_value": null,
         "weekly_change_bp": null,
         "weekly_change_percent": 9.61411971058978,
+        "raw_change_percent": 9.61411971058978,
         "as_of_date_kst": "2026-09-11",
         "prior_as_of_date_kst": "2026-09-04",
         "source": "Daily 아카이브 지표 스냅샷(data/daily_archive)"
@@ -671,64 +668,64 @@
       "metric_id": "wti",
       "value": 99.99,
       "unit": null,
-      "weekly_change_percent": 9.302579798863132,
-      "as_of_date_kst": "2026-09-12",
+      "weekly_change_percent": 9.61411971058978,
+      "as_of_date_kst": "2026-09-11",
       "source": "Daily 아카이브 지표 스냅샷(data/daily_archive)",
-      "data_points": 5
+      "data_points": 2
     },
     {
       "metric_id": "us10y",
       "value": 4.97,
       "unit": null,
-      "weekly_change_percent": 3.9748953974895196,
-      "as_of_date_kst": "2026-09-12",
+      "weekly_change_percent": 3.9748953974895294,
+      "as_of_date_kst": "2026-09-11",
       "source": "Daily 아카이브 지표 스냅샷(data/daily_archive)",
-      "data_points": 5
+      "data_points": 2
     },
     {
       "metric_id": "kospi",
       "value": 6909.91,
       "unit": null,
-      "weekly_change_percent": -1.2219475969174054,
-      "as_of_date_kst": "2026-09-12",
+      "weekly_change_percent": 3.3302378719974373,
+      "as_of_date_kst": "2026-09-11",
       "source": "Daily 아카이브 지표 스냅샷(data/daily_archive)",
-      "data_points": 5
+      "data_points": 2
+    },
+    {
+      "metric_id": "kosdaq",
+      "value": 820.64,
+      "unit": null,
+      "weekly_change_percent": 0.8776889981561139,
+      "as_of_date_kst": "2026-09-11",
+      "source": "Daily 아카이브 지표 스냅샷(data/daily_archive)",
+      "data_points": 2
     },
     {
       "metric_id": "sp500",
       "value": 7656.98,
       "unit": null,
-      "weekly_change_percent": -0.7983313036042938,
-      "as_of_date_kst": "2026-09-12",
+      "weekly_change_percent": -0.7983313036042908,
+      "as_of_date_kst": "2026-09-11",
       "source": "Daily 아카이브 지표 스냅샷(data/daily_archive)",
-      "data_points": 5
+      "data_points": 2
     },
     {
       "metric_id": "nasdaq",
       "value": 26333.04,
       "unit": null,
-      "weekly_change_percent": -0.6562419950360332,
-      "as_of_date_kst": "2026-09-12",
+      "weekly_change_percent": -0.656241995036029,
+      "as_of_date_kst": "2026-09-11",
       "source": "Daily 아카이브 지표 스냅샷(data/daily_archive)",
-      "data_points": 5
-    },
-    {
-      "metric_id": "usdkrw",
-      "value": 1341.05,
-      "unit": null,
-      "weekly_change_percent": -0.29812796455176427,
-      "as_of_date_kst": "2026-09-12",
-      "source": "Daily 아카이브 지표 스냅샷(data/daily_archive)",
-      "data_points": 5
+      "data_points": 2
     }
   ],
   "evidence_and_cracks": {
     "supporting": [
-      "코스피는 주간 하락 방향으로 함께 관찰됐다(수치는 WEEKLY SCORECARD 참조).",
-      "S&P 500은 주간 하락 방향으로 함께 관찰됐다(수치는 WEEKLY SCORECARD 참조).",
-      "나스닥은 주간 하락 방향으로 함께 관찰됐다(수치는 WEEKLY SCORECARD 참조)."
+      "WTI는 주간 상승 방향으로 함께 관찰됐다(수치는 WEEKLY SCORECARD 참조).",
+      "미 국채 10년은 주간 상승 방향으로 함께 관찰됐다(수치는 WEEKLY SCORECARD 참조).",
+      "코스피는 주간 상승 방향으로 함께 관찰됐다(수치는 WEEKLY SCORECARD 참조)."
     ],
-    "counter": "다만 WTI는 반대 방향으로 움직여, 같은 요인만으로 설명되지 않을 영향 가능성이 있다.",
+    "counter": "다만 S&P 500은 반대 방향으로 움직여, 같은 요인만으로 설명되지 않을 영향 가능성이 있다.",
     "status": "OK"
   },
   "moo_check_weekly": {
@@ -876,5 +873,32 @@
   ],
   "calendar_has_events": false,
   "data_completeness_status": "PARTIAL_DATA",
-  "payload_sha256": "a120aaebcf78f3c47c7c9142a7b3aba0cae78a637545fc668b59dd18cefa4395"
+  "payload_sha256": "5e251fb4a4b55635ac6b0a8dd48c88cd64e3dac1731c6eaa48f185ecb9ee86e8",
+  "corrections": [
+    {
+      "corrected_at": "2026-09-24T11:19:38+00:00",
+      "note": "정정 2026-09-24: 주간 등락률을 전주 마지막 거래일 종가 → 이번 주 마지막 거래일 종가 기준으로 수정",
+      "reason": "WEEKLY_CHANGE_DEFINITION_UNIFIED",
+      "before": {
+        "kospi": {
+          "first_last_weekly_change_percent": -1.2219475969174054,
+          "level_diff_weekly_change_percent": 3.3302378719974373,
+          "level_diff_prior_as_of": "2026-09-04",
+          "level_diff_as_of": "2026-09-11"
+        },
+        "kosdaq": {
+          "first_last_weekly_change_percent": -0.18852090149479306,
+          "level_diff_weekly_change_percent": 0.8776889981561139,
+          "level_diff_prior_as_of": "2026-09-04",
+          "level_diff_as_of": "2026-09-11"
+        },
+        "nasdaq": {
+          "first_last_weekly_change_percent": -0.6562419950360332,
+          "level_diff_weekly_change_percent": -0.656241995036029,
+          "level_diff_prior_as_of": "2026-09-04",
+          "level_diff_as_of": "2026-09-11"
+        }
+      }
+    }
+  ]
 }
