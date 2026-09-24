@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-25T06:58:43+09:00",
+  "generatedAt": "2026-09-25T07:31:24+09:00",
   "publishDate": "2026-09-25",
   "marketDateKr": "2026-09-23",
   "marketDateUs": "2026-09-24",
@@ -9,7 +9,7 @@
   "marketTemperature": {
     "label": "neutral",
     "displayLabel": "중립",
-    "summary": "외국인의 코스피 순매도 규모가 4,942억원으로 집계된 가운데, 시장 온도는 중립 레이블로 나타납니다. 뚜렷한 방향성보다는 관망세가 우세한 모습으로 보입니다.",
+    "summary": "중립 국면입니다. 외국인 코스피 순매도 4,942억원.",
     "reasons": [
       "외국인 코스피 순매도 4,942억원"
     ],
@@ -22,19 +22,19 @@
     {
       "id": "overnight-global",
       "title": "간밤 글로벌 시장",
-      "text": "간밤 뉴욕증시는 나스닥 +0.01%, S&P500 -0.02%, 다우 -0.31%로 혼조세를 보였으며, VIX는 15.67, 미국채 10년물은 5.16%를 기록했습니다.",
+      "text": "나스닥 +0.01%, S&P500 -0.02%, 다우 -0.31%, VIX 15.67, 미국채10년 5.16%.",
       "status": "ok"
     },
     {
       "id": "today-domestic",
       "title": "전일 국내 시장",
-      "text": "전일 국내 시장은 코스피와 코스닥이 각각 +0.00%로 보합세를 보인 가운데, 외국인이 코스피에서 4,942억원을 순매도하고 원/달러 환율은 -0.05% 변동했습니다.",
+      "text": "코스피 +0.00%, 코스닥 +0.00%, 외국인 코스피 순매도 4,942억원, 원/달러 -0.05%.",
       "status": "ok"
     },
     {
       "id": "today-checkpoint",
       "title": "오늘의 체크포인트",
-      "text": "간밤의 글로벌 시장 혼조세와 국채금리 상승 흐름이 국내로 이어지며, 시장은 뚜렷한 방향성보다 외국인 수급을 주시하며 신중한 방어 태세를 취하는 분위기입니다.",
+      "text": "미국 증시 혼조와 전일 외국인 매도가 겹친 만큼, 오늘은 외국인 수급 여부가 시장 방향을 가늠할 핵심 조건입니다.",
       "status": "ok"
     }
   ],
@@ -131,20 +131,29 @@
         "status": "ok"
       },
       {
-        "id": "news-머니투데이-도프, 내년 코스닥 상장 계획…기업가치 2000억 전망",
+        "id": "news-매일경제-주가상승 13%에 배당 10% … 파이어족 갈아타는 ‘혜자 GPIQ’ 뭐길래",
         "category": "news",
-        "source": "머니투데이",
-        "title": "도프, 내년 코스닥 상장 계획…기업가치 2000억 전망",
-        "url": "https://www.mt.co.kr/stock/2026/09/25/2026092315113090912",
+        "source": "매일경제",
+        "title": "주가상승 13%에 배당 10% … 파이어족 갈아타는 ‘혜자 GPIQ’ 뭐길래",
+        "url": "https://www.mk.co.kr/news/economy/12159601",
         "publishedAt": "2026-09-25",
         "status": "ok"
       },
       {
-        "id": "news-머니투데이-\"미·중 정상, 한반도 현안 의견 교환\"…트럼프·김정은 회담 논의했나",
+        "id": "news-연합뉴스-코스맥스, 10년간 매출 4.5배·수출 3배…R&D 투자 12배 확대",
         "category": "news",
-        "source": "머니투데이",
-        "title": "\"미·중 정상, 한반도 현안 의견 교환\"…트럼프·김정은 회담 논의했나",
-        "url": "https://www.mt.co.kr/world/2026/09/25/2026092506241117876",
+        "source": "연합뉴스",
+        "title": "코스맥스, 10년간 매출 4.5배·수출 3배…R&D 투자 12배 확대",
+        "url": "https://www.yna.co.kr/view/AKR20260924031700030",
+        "publishedAt": "2026-09-25",
+        "status": "ok"
+      },
+      {
+        "id": "news-한국경제-10년물 5.2% 돌파…美증시 덮친 '고금리 장기화' [뉴욕증시 브리핑]",
+        "category": "news",
+        "source": "한국경제",
+        "title": "10년물 5.2% 돌파…美증시 덮친 '고금리 장기화' [뉴욕증시 브리핑]",
+        "url": "https://www.hankyung.com/article/202609255458i",
         "publishedAt": "2026-09-25",
         "status": "ok"
       },
@@ -176,12 +185,21 @@
         "status": "ok"
       },
       {
-        "id": "news-연합뉴스-주금공 대위변제 3년새 138%↑…\"전세대출 못 갚는 서민 늘어\"",
+        "id": "news-CNBC-Trump, Xi to attend state dinner after White House meeting",
         "category": "news",
-        "source": "연합뉴스",
-        "title": "주금공 대위변제 3년새 138%↑…\"전세대출 못 갚는 서민 늘어\"",
-        "url": "https://www.yna.co.kr/view/AKR20260924044300001",
-        "publishedAt": "2026-09-25",
+        "source": "CNBC",
+        "title": "Trump, Xi to attend state dinner after White House meeting",
+        "url": "https://www.cnbc.com/2026/09/24/trump-xi-meeting-china-washington.html",
+        "publishedAt": "2026-09-24",
+        "status": "ok"
+      },
+      {
+        "id": "news-MarketWatch-8% mortgage rates are ‘not an impossibility’ as the 30-year fix",
+        "category": "news",
+        "source": "MarketWatch",
+        "title": "8% mortgage rates are ‘not an impossibility’ as the 30-year fixed rate surges",
+        "url": "https://www.marketwatch.com/story/8-mortgage-rates-are-not-an-impossibility-as-the-30-year-fixed-rate-surges-aa202464?mod=mw_rss_topstories",
+        "publishedAt": "2026-09-24",
         "status": "ok"
       },
       {
@@ -228,28 +246,10 @@
         "url": "https://www.investing.com/news/economy-news/bond-market-selloff-rumbles-on-ahead-of-trump-and-xi-talks-4915616",
         "publishedAt": "2026-09-24",
         "status": "ok"
-      },
-      {
-        "id": "news-CNBC-History shows financial calamities occur when rates rise rapidly like ",
-        "category": "news",
-        "source": "CNBC",
-        "title": "History shows financial calamities occur when rates rise rapidly like this: 'Something always breaks'",
-        "url": "https://www.cnbc.com/2026/09/24/history-shows-financial-calamities-occur-when-rates-rise-rapidly-like-this-something-always-breaks.html",
-        "publishedAt": "2026-09-24",
-        "status": "ok"
-      },
-      {
-        "id": "news-MarketWatch-Costco earnings beat expectations, thanks to tariff refunds",
-        "category": "news",
-        "source": "MarketWatch",
-        "title": "Costco earnings beat expectations, thanks to tariff refunds",
-        "url": "https://www.marketwatch.com/story/costco-earnings-beat-expectations-thanks-to-tariff-refunds-e7270cfa?mod=mw_rss_topstories",
-        "publishedAt": "2026-09-24",
-        "status": "ok"
       }
     ],
     "clusters": [],
-    "summary": "전세대출 대위변제 금액이 3년 새 138.6% 급증하고 빚 갚기 빠듯한 차주가 반등하는 등 취약차주의 자금 경색 부담이 커지는 모습이 관찰됩니다.",
+    "summary": "오늘 국내외 주요 경제 뉴스를 모았습니다.",
     "status": "ok"
   },
   "latestBriefing": null,
@@ -359,9 +359,9 @@
     {
       "id": "wti",
       "name": "WTI",
-      "value": 94.76,
-      "displayValue": "$94.76",
-      "change": 2.2112,
+      "value": 94.34,
+      "displayValue": "$94.34",
+      "change": 1.7582,
       "changeUnit": "%",
       "displayMode": "pct",
       "direction": "up",
@@ -400,6 +400,16 @@
       "valueLabel": "+0.26%p",
       "insight": "장단기 금리차가 정상 범위에 있어 침체 신호는 뚜렷하지 않습니다.",
       "sourceLabel": "장단기 금리차 (미국채 10Y-2Y)",
+      "asOf": "2026-09-25"
+    },
+    {
+      "id": "rate-gap",
+      "name": "한미 기준금리차",
+      "color": "green",
+      "value": 1.0,
+      "valueLabel": "+1.00%p",
+      "insight": "한미 금리차가 관리 가능한 수준이라 자본유출 압력은 크지 않습니다.",
+      "sourceLabel": "한미 기준금리차 (Fed-한은)",
       "asOf": "2026-09-25"
     },
     {
