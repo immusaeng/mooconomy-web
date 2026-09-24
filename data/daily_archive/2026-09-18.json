@@ -25,19 +25,25 @@
   "metrics": [
     {
       "id": "kospi",
-      "value": 6724.34,
-      "change": 0.0948,
+      "value": 6715.41,
+      "change": -0.0381,
       "displayMode": "pct",
-      "direction": "up",
-      "status": "ok"
+      "direction": "down",
+      "status": "ok",
+      "value_before_correction": 6724.34,
+      "change_before_correction": 0.0948,
+      "corrected_at": "2026-09-24T10:55:30+00:00"
     },
     {
       "id": "kosdaq",
-      "value": 821.67,
-      "change": 0.6973,
+      "value": 822.18,
+      "change": 0.7598,
       "displayMode": "pct",
       "direction": "up",
-      "status": "ok"
+      "status": "ok",
+      "value_before_correction": 821.67,
+      "change_before_correction": 0.6973,
+      "corrected_at": "2026-09-24T10:55:30+00:00"
     },
     {
       "id": "nasdaq",
@@ -91,15 +97,19 @@
   "market_changes": [
     {
       "id": "kospi",
-      "change": 0.0948,
+      "change": -0.0381,
       "changeUnit": "%",
-      "direction": "up"
+      "direction": "down",
+      "change_before_correction": 0.0948,
+      "corrected_at": "2026-09-24T10:55:30+00:00"
     },
     {
       "id": "kosdaq",
-      "change": 0.6973,
+      "change": 0.7598,
       "changeUnit": "%",
-      "direction": "up"
+      "direction": "up",
+      "change_before_correction": 0.6973,
+      "corrected_at": "2026-09-24T10:55:30+00:00"
     },
     {
       "id": "nasdaq",
@@ -228,6 +238,6 @@
     "sources_count": 5,
     "is_approximate": false
   },
-  "content_hash": "01777f22d252bf8ba0cf2341d02e846965d3962bd2019068d3ce2f833add1dd9",
+  "content_hash": "b8bfb11db5f1964cd3e53a15db6f7e8485613fc0f501b4b5f1d4194a619b6a78",
   "archived_at": "2026-09-17T21:47:19.047112+00:00"
 }
