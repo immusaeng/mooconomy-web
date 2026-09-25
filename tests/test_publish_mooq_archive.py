@@ -208,5 +208,48 @@ class CrossFileConsistencyTests(PublishMooqArchiveTestBase):
         )
 
 
+class InvalidatedErrorStatusTests(PublishMooqArchiveTestBase):
+    """2026-09-25 실측 재현: 실제 daily-mooconomy run(36063016817 등,
+    2026-09-24)이 claims_store.json에 status="invalidated"(claims.py의
+    SP-5 규칙, 2026-07-19부터 정상적으로 존재하는 값 — claims.py:571
+    _RESOLUTION_VERDICTS)인 claim(2026-09-12-c1)을 만들자, 이 스키마의
+    status enum이 ["hit","miss","neutral","unresolved"]만 허용해
+    publish_mooq_archive.py 전체가 abort됐다(questions/index.html·
+    home.json.claims 갱신 스킵, 발행에는 영향 없음). schemas/question-
+    record.schema.json의 status enum에 invalidated/error를 추가해 고쳤다
+    — verdict enum은 그대로 둔다(export._VERDICT_MAP이 이미 invalidated/
+    error를 verdict="unresolved"로 의도적으로 좁히므로 그쪽은 애초에
+    깨진 적이 없음, verdict_labels.py도 이미 둘 다 "판정 대기"로
+    처리하도록 준비돼 있었다 — tests/test_verdict_label_consistency.py
+    참고)."""
+
+    def test_invalidated_status_does_not_abort_publish(self):
+        self._write_store({
+            "2026-01-01-c1": _claim("2026-01-01-c1", "kospi", "hit"),
+            "2026-01-02-c1": _claim("2026-01-02-c1", "usdkrw", "invalidated"),
+        })
+        self._write_home()
+        report = self._run()
+        self.assertFalse(report["aborted"], report.get("abort_reason"))
+        self.assertEqual(report["question_record_count"], 2)
+
+    def test_error_status_does_not_abort_publish(self):
+        self._write_store({
+            "2026-01-01-c1": _claim("2026-01-01-c1", "kospi", "hit"),
+            "2026-01-02-c1": _claim("2026-01-02-c1", "usdkrw", "error"),
+        })
+        self._write_home()
+        report = self._run()
+        self.assertFalse(report["aborted"], report.get("abort_reason"))
+
+    def test_invalidated_claim_renders_as_pending_verdict(self):
+        self._write_store({"2026-01-01-c1": _claim("2026-01-01-c1", "usdkrw", "invalidated")})
+        self._write_home()
+        report = self._run()
+        self.assertFalse(report["aborted"], report.get("abort_reason"))
+        html = open(self.questions_path, encoding="utf-8").read()
+        self.assertIn("판정 대기", html)
+
+
 if __name__ == "__main__":
     unittest.main()
