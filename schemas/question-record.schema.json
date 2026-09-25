@@ -18,7 +18,7 @@
     "actual_direction": { "type": ["string", "null"], "enum": ["up", "down", "flat", null] },
     "verdict": { "type": "string", "enum": ["hit", "miss", "neutral", "unresolved"] },
     "evidence": { "type": ["string", "null"] },
-    "status": { "type": "string", "enum": ["hit", "miss", "neutral", "unresolved"] },
+    "status": { "type": "string", "enum": ["hit", "miss", "neutral", "unresolved", "invalidated", "error"] },
     "method_version": { "type": "string", "description": "verificationType+thresholdRuleId 조합, 예: 'proxy-pct_020'" },
     "locked_at": { "type": "string", "format": "date-time" },
     "corrected_at": { "type": ["string", "null"], "format": "date-time" },
