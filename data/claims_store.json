@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-25T07:51:04+09:00",
+  "updatedAt": "2026-09-26T06:43:39+09:00",
   "claims": {
     "2026-07-19-c1": {
       "schemaVersion": 1,
@@ -2956,7 +2956,7 @@
       },
       "thresholdRuleId": "pct_020",
       "confidence": null,
-      "status": "unresolved",
+      "status": "hit",
       "revision": {
         "version": 1,
         "contentHash": "c9ee82cc6623470d07c7241b4094bc766b23f8ab2fe4969f835ad21ad44a62d6",
@@ -2968,7 +2968,28 @@
         "benchmarkValue": null,
         "benchmarkAsOf": null
       },
-      "resolution": null
+      "resolution": {
+        "resolutionId": "2026-09-25-c1-res",
+        "claimId": "2026-09-25-c1",
+        "resolvedAt": "2026-09-26T06:43:32+09:00",
+        "verdict": "hit",
+        "metricId": "usdkrw",
+        "comparisonType": "absolute_return",
+        "startValue": 1365.54,
+        "endValue": 1355.28,
+        "changeValue": -0.7513511138450717,
+        "changeUnit": "%",
+        "benchmarkMetricId": null,
+        "benchmarkStartValue": null,
+        "benchmarkEndValue": null,
+        "neutralLower": -0.2,
+        "neutralUpper": 0.2,
+        "neutralBand": 0.2,
+        "dataProvider": "FinanceDataReader",
+        "sourceUrl": "",
+        "observedAt": "2026-09-25",
+        "explanation": "실제 변화가 예상한 하락 방향과 일치했습니다."
+      }
     }
   }
 }

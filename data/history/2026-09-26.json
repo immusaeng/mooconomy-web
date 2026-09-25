@@ -1,0 +1,183 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-26",
+  "generatedAt": "2026-09-26T06:43:39+09:00",
+  "indicators": [
+    {
+      "id": "kospi",
+      "value": 7080.92,
+      "change": null,
+      "displayMode": "pct",
+      "direction": null,
+      "status": "stale"
+    },
+    {
+      "id": "kosdaq",
+      "value": 844.48,
+      "change": null,
+      "displayMode": "pct",
+      "direction": null,
+      "status": "stale"
+    },
+    {
+      "id": "nasdaq",
+      "value": 27068.72,
+      "change": 0.4802,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "sp500",
+      "value": 7743.41,
+      "change": 0.5099,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1355.28,
+      "change": -9.92,
+      "displayMode": "delta",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "us10y",
+      "value": 5.18,
+      "change": 0.02,
+      "displayMode": "delta",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "wti",
+      "value": 92.44,
+      "change": -2.0451,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "vix",
+      "value": 14.87,
+      "change": -5.1053,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    }
+  ],
+  "auditIndicators": [
+    {
+      "id": "kospi",
+      "value": 7080.92,
+      "displayMode": "pct"
+    },
+    {
+      "id": "kosdaq",
+      "value": 844.48,
+      "displayMode": "pct"
+    },
+    {
+      "id": "nasdaq",
+      "value": 27068.72,
+      "displayMode": "pct"
+    },
+    {
+      "id": "sp500",
+      "value": 7743.41,
+      "displayMode": "pct"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1355.28,
+      "displayMode": "dual"
+    },
+    {
+      "id": "us10y",
+      "value": 5.18,
+      "displayMode": "delta"
+    },
+    {
+      "id": "wti",
+      "value": 92.44,
+      "displayMode": "pct"
+    },
+    {
+      "id": "vix",
+      "value": 14.87,
+      "displayMode": "pct"
+    },
+    {
+      "id": "gold",
+      "value": 4320.5,
+      "displayMode": "pct"
+    },
+    {
+      "id": "dollarindex",
+      "value": 101.04,
+      "displayMode": "pct"
+    },
+    {
+      "id": "brent",
+      "value": 97.47,
+      "displayMode": "pct"
+    },
+    {
+      "id": "dow",
+      "value": 51828.62,
+      "displayMode": "pct"
+    },
+    {
+      "id": "nikkei",
+      "value": 65513.99,
+      "displayMode": "pct"
+    },
+    {
+      "id": "shanghai",
+      "value": 3888.37,
+      "displayMode": "pct"
+    }
+  ],
+  "signals": [
+    {
+      "id": "recession",
+      "color": "green",
+      "value": 0.31
+    },
+    {
+      "id": "rate-gap",
+      "color": "green",
+      "value": 1.0
+    },
+    {
+      "id": "liquidity-stress",
+      "color": "green",
+      "value": 2.8
+    }
+  ],
+  "calendarSnapshot": [
+    {
+      "id": "us-2026-09-30-미국 개인소득·지출(PCE)",
+      "time": "2026-09-30",
+      "country": "US",
+      "title": "미국 개인소득·지출(PCE)",
+      "importance": "high"
+    },
+    {
+      "id": "us-2026-10-02-미국 고용보고서(비농업고용·실업률)",
+      "time": "2026-10-02",
+      "country": "US",
+      "title": "미국 고용보고서(비농업고용·실업률)",
+      "importance": "high"
+    }
+  ],
+  "marketTemperature": {
+    "label": "neutral",
+    "displayLabel": "중립",
+    "status": "ok"
+  },
+  "connectionTopology": "DELTA_MODEL_V1",
+  "driverClaims": []
+}

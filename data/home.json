@@ -1,16 +1,18 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-25T07:50:53+09:00",
-  "publishDate": "2026-09-25",
+  "generatedAt": "2026-09-26T06:43:31+09:00",
+  "publishDate": "2026-09-26",
   "marketDateKr": "2026-09-23",
-  "marketDateUs": "2026-09-24",
+  "marketDateUs": "2026-09-25",
   "isDelayed": true,
   "status": "ok",
   "marketTemperature": {
     "label": "neutral",
     "displayLabel": "중립",
-    "summary": "외국인 코스피 순매도가 이어지는 가운데, 시장 온도는 중립 수준으로 관찰됩니다.",
+    "summary": "간밤 미국 증시가 평균 +0.64% 상승했으나, 원/달러 환율이 -0.73% 하락하고 외국인이 코스피 시장에서 4,942억원 순매도를 기록하면서 오늘의 시장 온도는 중립으로 관찰됩니다.",
     "reasons": [
+      "간밤 미국 증시 평균 +0.64% 상승",
+      "원/달러 -0.73%(원화 강세)",
       "외국인 코스피 순매도 4,942억원"
     ],
     "watchItems": [
@@ -22,48 +24,43 @@
     {
       "id": "overnight-global",
       "title": "간밤 글로벌 시장",
-      "text": "나스닥은 소폭 상승하고 S&P500과 다우는 내림세를 보였으며, 미 국채 10년물 금리는 5.16%를 기록했습니다.",
+      "text": "간밤 글로벌 시장에서는 나스닥이 +0.48%, S&P500이 +0.51%, 다우가 +0.93% 상승한 반면, VIX는 14.87, 미국채 10년물 금리는 5.18%로 나타났습니다.",
       "status": "ok"
     },
     {
       "id": "today-domestic",
       "title": "전일 국내 시장",
-      "text": "코스피와 코스닥은 보합세를 보인 한편, 외국인은 코스피 시장에서 4,942억 원 순매도를 나타냈고 원/달러 환율은 소폭 내렸습니다.",
+      "text": "전일 국내 시장에서는 외국인이 코스피 시장에서 4,942억원을 순매도했고, 원/달러 환율은 -0.73% 변동하는 흐름이 관찰되었습니다.",
       "status": "ok"
     },
     {
       "id": "today-checkpoint",
       "title": "오늘의 체크포인트",
-      "text": "간밤의 대외 지표 압력과 국내 수급 경계감이 맞물리며, 시장은 뚜렷한 방향성보다 관망 흐름을 보이고 있는 것으로 보입니다.",
+      "text": "간밤 글로벌 증시의 완만한 상승세와 미국채 금리 환경 속에서, 국내 시장은 외국인 수급을 주시하며 신중한 흐름을 이어갈 가능성이 있습니다.",
       "status": "ok"
     }
   ],
   "connection": {
     "nodes": [
       {
-        "label": "국내 증시(코스피)",
-        "detail": "7,080.92 · +0.00% 보합",
-        "timeAxis": "KR_T_MINUS_1"
+        "role": "국내 휴장",
+        "label": "코스피·코스닥",
+        "detail": "오늘은 국내 증시 휴장일입니다 — 해외 지표 델타만 집계합니다."
       },
       {
-        "label": "미국채10년 금리",
-        "detail": "5.16% · +5bp 상승",
-        "timeAxis": "US_OVERNIGHT_T_MINUS_1"
+        "role": "방향 전환",
+        "label": "S&P500",
+        "detail": "S&P500이 전일 하락 흐름에서 오늘 상승으로 전환됐습니다(7,743.41)."
       },
       {
-        "label": "지난밤 확인된 사건",
-        "detail": "미 국채 10년물 금리가 5.16%로 오르고 유가가 94.37달러로 상승하며 고금리·고유가 압력이 심화되었습니다.",
-        "timeAxis": "US_OVERNIGHT_T_MINUS_1"
-      },
-      {
-        "label": "오늘 확인할 지점",
-        "detail": "미 국채 금리와 유가 상승이 지속되며 증시 관망세가 이어지면 주장이 확인됩니다.",
-        "timeAxis": "FORWARD_T"
+        "role": "변화폭 1위",
+        "label": "원/달러",
+        "detail": "오늘 변화 폭이 가장 큰 지표는 원/달러입니다(-9.92원)."
       }
     ],
-    "topologyId": "금리>달러>유가>인플레이션",
-    "summary": "미 국채 금리와 유가 상승이 겹치며 고금리·고유가 압력이 심화된 점이 증시 상단을 제약하는 요인 중 하나로 해석될 수 있습니다. 다만 업종별 수급과 대외 뉴스 등 다른 요인들이 함께 작용했을 가능성이 있습니다.",
-    "counterScenario": "미 국채 금리와 유가의 변동성이 진정될 경우, 증시 관망세가 완화될 가능성이 있습니다.",
+    "topologyId": "DELTA_MODEL_V1",
+    "summary": "오늘 CHAIN은 전일·전주 대비 델타 3건을 관측했습니다.",
+    "counterScenario": "위 변화는 관측된 사실이며, 내일도 같은 방향이 이어진다고 단정하지 않습니다.",
     "status": "ok"
   },
   "koreaWatch": {
@@ -95,8 +92,8 @@
       {
         "id": "usdkrw",
         "label": "원/달러",
-        "value": 1365.2,
-        "displayValue": "1,365.2원",
+        "value": 1355.28,
+        "displayValue": "1,355.3원",
         "direction": "down",
         "status": "ok"
       },
@@ -109,7 +106,7 @@
         "status": "ok"
       }
     ],
-    "summary": "외국인과 개인의 순매도 속에서 기관이 순매수를 보였고, 석유와가스 업종이 강세를 나타냈습니다.",
+    "summary": "외국인 수급 -4,942억원, 기관 수급 +3,189억원, 개인 수급 -14,649억원, 원/달러 1,355.3원, 주도 업종 석유와가스 +3.13%.",
     "status": "ok"
   },
   "risks": [],
@@ -134,156 +131,143 @@
   "news": {
     "items": [
       {
-        "id": "news-매일경제-전세대출 대신 갚아준 돈 7283억…3년 새 138.6% 급증",
-        "category": "news",
-        "source": "매일경제",
-        "title": "전세대출 대신 갚아준 돈 7283억…3년 새 138.6% 급증",
-        "url": "https://www.mk.co.kr/news/economy/12161229",
-        "publishedAt": "2026-09-25",
-        "status": "ok"
-      },
-      {
-        "id": "news-매일경제-“이자 19% 적금, 안들면 바보 아니에요?”…청년층, 76% 더 부었다",
-        "category": "news",
-        "source": "매일경제",
-        "title": "“이자 19% 적금, 안들면 바보 아니에요?”…청년층, 76% 더 부었다",
-        "url": "https://www.mk.co.kr/news/economy/12161214",
-        "publishedAt": "2026-09-25",
-        "status": "ok"
-      },
-      {
-        "id": "news-머니투데이-\"개미도 경영권 프리미엄 받는다\"…의무공개매수 도입 속도",
-        "category": "news",
-        "source": "머니투데이",
-        "title": "\"개미도 경영권 프리미엄 받는다\"…의무공개매수 도입 속도",
-        "url": "https://www.mt.co.kr/stock/2026/09/25/2026092317303665557",
-        "publishedAt": "2026-09-25",
-        "status": "ok"
-      },
-      {
-        "id": "news-연합뉴스마켓-'다시 미장으로?' 서학개미 미국 주식 보유액 2천억달러 재육박",
-        "category": "news",
-        "source": "연합뉴스마켓",
-        "title": "'다시 미장으로?' 서학개미 미국 주식 보유액 2천억달러 재육박",
-        "url": "https://www.yna.co.kr/view/AKR20260923161200008",
-        "publishedAt": "2026-09-25",
-        "status": "ok"
-      },
-      {
-        "id": "news-머니투데이-내년부터 해외 개미도 직접 '한국 ETF' 투자…'역직구' 시장 커지나",
-        "category": "news",
-        "source": "머니투데이",
-        "title": "내년부터 해외 개미도 직접 '한국 ETF' 투자…'역직구' 시장 커지나",
-        "url": "https://www.mt.co.kr/stock/2026/09/25/2026092316015875472",
-        "publishedAt": "2026-09-25",
-        "status": "ok"
-      },
-      {
-        "id": "news-연합뉴스-코스맥스, 10년간 매출 4.5배·수출 3배…R&D 투자 12배 확대",
+        "id": "news-연합뉴스-중기부, 보조금 부정수급 6년간 26억원 적발…바우처 사업 최다",
         "category": "news",
         "source": "연합뉴스",
-        "title": "코스맥스, 10년간 매출 4.5배·수출 3배…R&D 투자 12배 확대",
-        "url": "https://www.yna.co.kr/view/AKR20260924031700030",
-        "publishedAt": "2026-09-25",
+        "title": "중기부, 보조금 부정수급 6년간 26억원 적발…바우처 사업 최다",
+        "url": "https://www.yna.co.kr/view/AKR20260924032300030",
+        "publishedAt": "2026-09-26",
         "status": "ok"
       },
       {
-        "id": "news-한국경제-10년물 5.2% 돌파…美증시 덮친 '고금리 장기화' [뉴욕증시 브리핑]",
+        "id": "news-연합뉴스-[부동산캘린더] 내주 광명시티프라디움에듀하임 등 전국서 3천641가구 분양",
+        "category": "news",
+        "source": "연합뉴스",
+        "title": "[부동산캘린더] 내주 광명시티프라디움에듀하임 등 전국서 3천641가구 분양",
+        "url": "https://www.yna.co.kr/view/AKR20260922190400003",
+        "publishedAt": "2026-09-26",
+        "status": "ok"
+      },
+      {
+        "id": "news-연합뉴스-\"4년새 저축은행 자영업자 대출잔액 절반 되고 연체율은 3.6배\"",
+        "category": "news",
+        "source": "연합뉴스",
+        "title": "\"4년새 저축은행 자영업자 대출잔액 절반 되고 연체율은 3.6배\"",
+        "url": "https://www.yna.co.kr/view/AKR20260922164700001",
+        "publishedAt": "2026-09-26",
+        "status": "ok"
+      },
+      {
+        "id": "news-한국경제-10년물 금리 2007년 이후 최고…美증시는 버텼다[뉴욕증시 브리핑]",
         "category": "news",
         "source": "한국경제",
-        "title": "10년물 5.2% 돌파…美증시 덮친 '고금리 장기화' [뉴욕증시 브리핑]",
-        "url": "https://www.hankyung.com/article/202609255458i",
-        "publishedAt": "2026-09-25",
+        "title": "10년물 금리 2007년 이후 최고…美증시는 버텼다[뉴욕증시 브리핑]",
+        "url": "https://www.hankyung.com/article/202609266166i",
+        "publishedAt": "2026-09-26",
         "status": "ok"
       },
       {
-        "id": "news-연합뉴스마켓-뉴욕증시, 美 국채금리 급등 속 혼조 마감(종합)",
+        "id": "news-연합뉴스마켓-\"SK하이닉스 손자회사 솔리다임, 이르면 내년 美상장 검토\"",
         "category": "news",
         "source": "연합뉴스마켓",
-        "title": "뉴욕증시, 美 국채금리 급등 속 혼조 마감(종합)",
-        "url": "https://www.yna.co.kr/view/AKR20260925007951072",
+        "title": "\"SK하이닉스 손자회사 솔리다임, 이르면 내년 美상장 검토\"",
+        "url": "https://www.yna.co.kr/view/AKR20260926006300075",
+        "publishedAt": "2026-09-26",
+        "status": "ok"
+      },
+      {
+        "id": "news-한국경제-국채 고금리? \"정상화 과정\"…AI 채권은 \"비중 축소\" [박신영의 개장전 요것만]",
+        "category": "news",
+        "source": "한국경제",
+        "title": "국채 고금리? \"정상화 과정\"…AI 채권은 \"비중 축소\" [박신영의 개장전 요것만]",
+        "url": "https://www.hankyung.com/article/202609266127i",
+        "publishedAt": "2026-09-26",
+        "status": "ok"
+      },
+      {
+        "id": "news-매일경제-“은행 간 어머니가 돌아오질 않아요”...평균거리 18km, 국토 절반이 ‘은행사막’",
+        "category": "news",
+        "source": "매일경제",
+        "title": "“은행 간 어머니가 돌아오질 않아요”...평균거리 18km, 국토 절반이 ‘은행사막’",
+        "url": "https://www.mk.co.kr/news/economy/12161443",
         "publishedAt": "2026-09-25",
         "status": "ok"
       },
       {
-        "id": "news-CNBC-30-year fixed mortgage rate jumps sharply Thursday to 7.45%",
+        "id": "news-매일경제-부모님 추석선물 현금 대신 '노후통장' 어때요",
         "category": "news",
-        "source": "CNBC",
-        "title": "30-year fixed mortgage rate jumps sharply Thursday to 7.45%",
-        "url": "https://www.cnbc.com/2026/09/24/30-year-fixed-mortgage-rate-spikes-thursday-to-7point45percent.html",
-        "publishedAt": "2026-09-24",
-        "status": "ok",
-        "related": [
-          {
-            "source": "MarketWatch",
-            "title": "8% mortgage rates are ‘not an impossibility’ as the 30-year fixed rate surges",
-            "url": "https://www.marketwatch.com/story/8-mortgage-rates-are-not-an-impossibility-as-the-30-year-fixed-rate-surges-aa202464?mod=mw_rss_topstories",
-            "publishedAt": "2026-09-24",
-            "id": "news-MarketWatch-8% mortgage rates are ‘not an impossibility’ as the 30-year fix"
-          }
-        ]
-      },
-      {
-        "id": "news-CNBC-Trump, Xi to attend state dinner after White House meeting",
-        "category": "news",
-        "source": "CNBC",
-        "title": "Trump, Xi to attend state dinner after White House meeting",
-        "url": "https://www.cnbc.com/2026/09/24/trump-xi-meeting-china-washington.html",
-        "publishedAt": "2026-09-24",
+        "source": "매일경제",
+        "title": "부모님 추석선물 현금 대신 '노후통장' 어때요",
+        "url": "https://www.mk.co.kr/news/economy/12161400",
+        "publishedAt": "2026-09-25",
         "status": "ok"
       },
       {
-        "id": "news-CNBC-Surging Treasury yields pose a brand new problem for Kevin Warsh and t",
+        "id": "news-Investing-Fed’s Hammack worried inflation expectations could deteriorate",
         "category": "news",
-        "source": "CNBC",
-        "title": "Surging Treasury yields pose a brand new problem for Kevin Warsh and the Fed",
-        "url": "https://www.cnbc.com/2026/09/24/surging-treasury-yields-are-posing-a-brand-new-problem-for-kevin-warsh-and-the-fed.html",
-        "publishedAt": "2026-09-24",
+        "source": "Investing",
+        "title": "Fed’s Hammack worried inflation expectations could deteriorate",
+        "url": "https://www.investing.com/news/economy-news/feds-hammack-worried-inflation-expectations-could-deteriorate-4918170",
+        "publishedAt": "2026-09-25",
         "status": "ok"
       },
       {
-        "id": "news-MarketWatch-Why investors aren’t buying yet another attempt by the Treasury",
+        "id": "news-MarketWatch-Microsoft’s stock has roared back to life, closing at its highe",
         "category": "news",
         "source": "MarketWatch",
-        "title": "Why investors aren’t buying yet another attempt by the Treasury to calm the rattled bond market",
-        "url": "https://www.marketwatch.com/story/why-investors-arent-buying-yet-another-attempt-by-the-treasury-to-calm-the-rattled-bond-market-b168cac3?mod=mw_rss_topstories",
-        "publishedAt": "2026-09-24",
+        "title": "Microsoft’s stock has roared back to life, closing at its highest level of the year",
+        "url": "https://www.marketwatch.com/story/microsofts-stock-has-roared-back-to-life-and-is-now-headed-for-its-highest-close-of-the-year-89e4d596?mod=mw_rss_topstories",
+        "publishedAt": "2026-09-25",
         "status": "ok"
       },
       {
-        "id": "news-Investing-Factbox-Inside Reuters’ calculation of Australia’s housing market",
+        "id": "news-Investing-Corporate debt maturities set to test US borrowers as rates rise",
         "category": "news",
         "source": "Investing",
-        "title": "Factbox-Inside Reuters’ calculation of Australia’s housing market ripple effects",
-        "url": "https://www.investing.com/news/economy-news/factboxinside-reuters-calculation-of-australias-housing-market-ripple-effects-4916270",
-        "publishedAt": "2026-09-24",
+        "title": "Corporate debt maturities set to test US borrowers as rates rise",
+        "url": "https://www.investing.com/news/economy-news/corporate-debt-maturities-set-to-test-us-borrowers-as-rates-rise-4917933",
+        "publishedAt": "2026-09-25",
         "status": "ok"
       },
       {
-        "id": "news-Investing-Oil jump sends 30-year yields to two-decade high",
+        "id": "news-CNBC-How recent grads and college students should be thinking about AI, the",
         "category": "news",
-        "source": "Investing",
-        "title": "Oil jump sends 30-year yields to two-decade high",
-        "url": "https://www.investing.com/news/economy-news/bond-market-selloff-rumbles-on-ahead-of-trump-and-xi-talks-4915616",
-        "publishedAt": "2026-09-24",
+        "source": "CNBC",
+        "title": "How recent grads and college students should be thinking about AI, the CV, and the job market",
+        "url": "https://www.cnbc.com/2026/09/25/ai-jobs-recent-graduates-college-degrees.html",
+        "publishedAt": "2026-09-25",
         "status": "ok"
-      }
-    ],
-    "clusters": [
+      },
       {
-        "id": "cluster-news-CNBC-30-year fixed mortgage rate jumps sharply Thursday to 7.45%",
-        "title": "30-year fixed mortgage rate jumps sharply Thursday to 7.45%",
-        "summary": "2개 매체가 이 소식을 함께 보도했습니다.",
-        "leadItemId": "news-CNBC-30-year fixed mortgage rate jumps sharply Thursday to 7.45%",
-        "relatedItemIds": [
-          "news-MarketWatch-8% mortgage rates are ‘not an impossibility’ as the 30-year fix"
-        ],
-        "sourceCount": 2,
-        "topic": "30-year fixed mortgage rate jumps sharply Thursday to 7.45%",
+        "id": "news-MarketWatch-Micron investors should get ready for a seesaw ride, analyst sa",
+        "category": "news",
+        "source": "MarketWatch",
+        "title": "Micron investors should get ready for a seesaw ride, analyst says",
+        "url": "https://www.marketwatch.com/story/micron-investors-should-get-ready-for-a-seesaw-ride-analyst-says-1c0cc651?mod=mw_rss_topstories",
+        "publishedAt": "2026-09-25",
+        "status": "ok"
+      },
+      {
+        "id": "news-MarketWatch-Tesla’s stock falls as launch of Semi truck fails to excite inv",
+        "category": "news",
+        "source": "MarketWatch",
+        "title": "Tesla’s stock falls as launch of Semi truck fails to excite investors",
+        "url": "https://www.marketwatch.com/story/teslas-stock-falls-as-semi-launch-fails-to-excite-investors-5b216e59?mod=mw_rss_topstories",
+        "publishedAt": "2026-09-25",
+        "status": "ok"
+      },
+      {
+        "id": "news-CNBC-10-year Treasury yield is little changed to end a volatile week",
+        "category": "news",
+        "source": "CNBC",
+        "title": "10-year Treasury yield is little changed to end a volatile week",
+        "url": "https://www.cnbc.com/2026/09/25/treasury-yields-bonds-debt.html",
+        "publishedAt": "2026-09-25",
         "status": "ok"
       }
     ],
-    "summary": "전세대출 대위변제 금액이 3년 새 138.6% 급증하며 가계 부실 우려가 커지는 모습이 관찰됩니다.",
+    "clusters": [],
+    "summary": "중기부의 보조금 부정수급 적발 소식과 함께 SK하이닉스 손자회사 솔리다임의 미국 상장 검토 소식이 전해지고 있습니다.",
     "status": "ok"
   },
   "latestBriefing": null,
@@ -293,62 +277,96 @@
       "name": "코스피",
       "value": 7080.92,
       "displayValue": "7,080.92",
-      "change": 0.0,
+      "change": null,
       "changeUnit": "%",
       "displayMode": "pct",
-      "direction": "flat",
+      "direction": null,
       "asOf": "2026-09-23",
       "source": "KRX",
       "sourceUrl": "",
       "frequency": "daily",
       "isDelayed": true,
-      "status": "ok",
-      "insight": "보합권"
+      "status": "stale",
+      "insight": null
     },
     {
       "id": "kosdaq",
       "name": "코스닥",
       "value": 844.48,
       "displayValue": "844.48",
-      "change": 0.0,
+      "change": null,
       "changeUnit": "%",
       "displayMode": "pct",
-      "direction": "flat",
+      "direction": null,
       "asOf": "2026-09-23",
       "source": "KRX",
       "sourceUrl": "",
       "frequency": "daily",
       "isDelayed": true,
-      "status": "ok",
-      "insight": "보합권"
+      "status": "stale",
+      "insight": null
     },
     {
       "id": "nasdaq",
       "name": "나스닥",
-      "value": 26939.37,
-      "displayValue": "26,939.37",
-      "change": 0.0124,
+      "value": 27068.72,
+      "displayValue": "27,068.72",
+      "change": 0.4802,
       "changeUnit": "%",
       "displayMode": "pct",
       "direction": "up",
-      "asOf": "2026-09-24",
+      "asOf": "2026-09-25",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
       "isDelayed": true,
       "status": "ok",
-      "insight": "보합권"
+      "insight": "전일 대비 상승"
     },
     {
       "id": "sp500",
       "name": "S&P500",
-      "value": 7704.13,
-      "displayValue": "7,704.13",
-      "change": -0.0247,
+      "value": 7743.41,
+      "displayValue": "7,743.41",
+      "change": 0.5099,
       "changeUnit": "%",
       "displayMode": "pct",
+      "direction": "up",
+      "asOf": "2026-09-25",
+      "source": "FinanceDataReader",
+      "sourceUrl": "",
+      "frequency": "daily",
+      "isDelayed": true,
+      "status": "ok",
+      "insight": "전일 대비 상승"
+    },
+    {
+      "id": "usdkrw",
+      "name": "원/달러",
+      "value": 1355.28,
+      "displayValue": "1,355.3",
+      "change": -9.92,
+      "changeUnit": "원",
+      "displayMode": "delta",
       "direction": "down",
-      "asOf": "2026-09-24",
+      "asOf": "2026-09-25",
+      "source": "FinanceDataReader",
+      "sourceUrl": "",
+      "frequency": "daily",
+      "isDelayed": true,
+      "status": "ok",
+      "insight": "전일 대비 큰 폭 하락"
+    },
+    {
+      "id": "us10y",
+      "name": "미국채10년",
+      "value": 5.18,
+      "displayValue": "5.18%",
+      "change": 0.02,
+      "changeUnit": "%p",
+      "displayMode": "delta",
+      "direction": "up",
+      "asOf": "2026-09-25",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
@@ -357,72 +375,38 @@
       "insight": "보합권"
     },
     {
-      "id": "usdkrw",
-      "name": "원/달러",
-      "value": 1365.2,
-      "displayValue": "1,365.2",
-      "change": -0.69,
-      "changeUnit": "원",
-      "displayMode": "delta",
-      "direction": "down",
-      "asOf": "2026-09-24",
-      "source": "FinanceDataReader",
-      "sourceUrl": "",
-      "frequency": "daily",
-      "isDelayed": true,
-      "status": "ok",
-      "insight": "전일 대비 하락"
-    },
-    {
-      "id": "us10y",
-      "name": "미국채10년",
-      "value": 5.16,
-      "displayValue": "5.16%",
-      "change": 0.05,
-      "changeUnit": "%p",
-      "displayMode": "delta",
-      "direction": "up",
-      "asOf": "2026-09-24",
-      "source": "FinanceDataReader",
-      "sourceUrl": "",
-      "frequency": "daily",
-      "isDelayed": true,
-      "status": "ok",
-      "insight": "전일 대비 소폭 상승"
-    },
-    {
       "id": "wti",
       "name": "WTI",
-      "value": 94.37,
-      "displayValue": "$94.37",
-      "change": 1.7905,
+      "value": 92.44,
+      "displayValue": "$92.44",
+      "change": -2.0451,
       "changeUnit": "%",
       "displayMode": "pct",
-      "direction": "up",
-      "asOf": "2026-09-24",
+      "direction": "down",
+      "asOf": "2026-09-25",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
       "isDelayed": true,
       "status": "ok",
-      "insight": "전일 대비 큰 폭 상승"
+      "insight": "전일 대비 큰 폭 하락"
     },
     {
       "id": "vix",
       "name": "VIX",
-      "value": 15.67,
-      "displayValue": "15.67",
-      "change": 3.2279,
+      "value": 14.87,
+      "displayValue": "14.87",
+      "change": -5.1053,
       "changeUnit": "%",
       "displayMode": "pct",
-      "direction": "up",
-      "asOf": "2026-09-24",
+      "direction": "down",
+      "asOf": "2026-09-25",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
       "isDelayed": true,
       "status": "ok",
-      "insight": "전일 대비 큰 폭 상승"
+      "insight": "전일 대비 큰 폭 하락"
     }
   ],
   "signals": [
@@ -430,11 +414,11 @@
       "id": "recession",
       "name": "경기침체 경보등",
       "color": "green",
-      "value": 0.26,
-      "valueLabel": "+0.26%p",
+      "value": 0.31,
+      "valueLabel": "+0.31%p",
       "insight": "장단기 금리차가 정상 범위에 있어 침체 신호는 뚜렷하지 않습니다.",
       "sourceLabel": "장단기 금리차 (미국채 10Y-2Y)",
-      "asOf": "2026-09-25"
+      "asOf": "2026-09-26"
     },
     {
       "id": "rate-gap",
@@ -444,141 +428,527 @@
       "valueLabel": "+1.00%p",
       "insight": "한미 금리차가 관리 가능한 수준이라 자본유출 압력은 크지 않습니다.",
       "sourceLabel": "한미 기준금리차 (Fed-한은)",
-      "asOf": "2026-09-25"
+      "asOf": "2026-09-26"
     },
     {
       "id": "liquidity-stress",
       "name": "유동성 스트레스",
       "color": "green",
-      "value": 2.73,
-      "valueLabel": "2.73%p",
+      "value": 2.8,
+      "valueLabel": "2.80%p",
       "insight": "신용시장 스프레드가 평상 수준이라 유동성 경색 신호는 없습니다.",
       "sourceLabel": "하이일드 스프레드 (BAMLH0A0HYM2)",
-      "asOf": "2026-09-25"
+      "asOf": "2026-09-26"
     }
   ],
   "claims": {
-    "status": "ok",
-    "todayClaims": [
-      {
-        "schemaVersion": 1,
-        "claimId": "2026-09-25-c1",
-        "publicationId": "2026-09-25",
-        "issuedAt": "2026-09-25T06:44:06+09:00",
-        "dataCutoffAt": "2026-09-25T06:44:06+09:00",
-        "lockedAt": "2026-09-25T06:44:06+09:00",
-        "claimMode": "auto",
-        "verificationType": "proxy",
-        "topic": "원/달러 다음 거래일 방향(flow_fx)",
-        "sourceNewsIds": [],
-        "observationText": "원/달러는 1,365.5원으로 전일 대비 0.03% 하락했습니다.",
-        "interpretationText": "외국인 매도 흐름이 이어지는 가운데 하락 흐름이 다음 거래일까지 이어지는지가 확인 대상입니다.",
-        "claimText": "외국인 매도 흐름이 이어지는 가운데 원/달러가 내릴까요?",
-        "metricId": "usdkrw",
-        "benchmarkMetricId": null,
-        "comparisonType": "absolute_return",
-        "expectedDirection": "down",
-        "horizon": {
-          "type": "next_close",
-          "market": "US",
-          "resolutionAt": "2026-09-26"
-        },
-        "thresholdRuleId": "pct_020",
-        "confidence": null,
-        "status": "unresolved",
-        "revision": {
-          "version": 1,
-          "contentHash": "c9ee82cc6623470d07c7241b4094bc766b23f8ab2fe4969f835ad21ad44a62d6",
-          "correctedFrom": null
-        },
-        "baseline": {
-          "value": 1365.54,
-          "asOf": "2026-09-24",
-          "benchmarkValue": null,
-          "benchmarkAsOf": null
-        },
-        "resolution": null
-      }
-    ],
     "previousClaims": [
       {
-        "schemaVersion": 1,
-        "claimId": "2026-09-24-c1",
-        "publicationId": "2026-09-24",
-        "issuedAt": "2026-09-24T06:42:57+09:00",
-        "dataCutoffAt": "2026-09-24T06:42:57+09:00",
-        "lockedAt": "2026-09-24T06:42:57+09:00",
-        "claimMode": "auto",
-        "verificationType": "proxy",
-        "topic": "나스닥 vs S&P500 상대성과(LLM 후보, 1거래일)",
-        "sourceNewsIds": [],
-        "observationText": "나스닥은 전일 대비 -1.13%, S&P500는 -0.75% — 상대 괴리 -0.38%p.",
-        "interpretationText": "나스닥이 S&P500 대비 상대적으로 강세 또는 약세를 보이는지 검증합니다.",
-        "claimText": "미국 10년 만기 국채 금리가 전일 대비 +0.14%p 오른 5.11%를 기록하며 기술주 전반에 부담을 주었습니다. — 나스닥이 S&P500 대비 약세를 이어갈까요?",
-        "metricId": "nasdaq",
-        "benchmarkMetricId": "sp500",
-        "comparisonType": "excess_return",
-        "expectedDirection": "down",
-        "horizon": {
-          "type": "next_close",
-          "market": "US",
-          "resolutionAt": "2026-09-25"
-        },
-        "thresholdRuleId": "pct_030",
-        "confidence": null,
-        "status": "neutral",
-        "revision": {
-          "version": 1,
-          "contentHash": "ff364445eba7608d7e8c4e323af9cbc5509c532cc2b45ff0797280a419d0611d",
-          "correctedFrom": null
-        },
-        "baseline": {
-          "value": 26936.04,
-          "asOf": "2026-09-23",
-          "benchmarkValue": 7706.03,
-          "benchmarkAsOf": "2026-09-23"
-        },
+        "claimText": "외국인 매도 흐름이 이어지는 가운데 원/달러가 내릴까요?",
+        "status": "hit",
         "resolution": {
-          "resolutionId": "2026-09-24-c1-res",
-          "claimId": "2026-09-24-c1",
-          "resolvedAt": "2026-09-25T06:43:59+09:00",
+          "verdict": "hit",
+          "startValue": 1365.54,
+          "endValue": 1355.28,
+          "metricId": "usdkrw"
+        }
+      },
+      {
+        "claimText": "미국 10년 만기 국채 금리가 전일 대비 +0.14%p 오른 5.11%를 기록하며 기술주 전반에 부담을 주었습니다. — 나스닥이 S&P500 대비 약세를 이어갈까요?",
+        "status": "neutral",
+        "resolution": {
           "verdict": "neutral",
-          "metricId": "nasdaq",
-          "comparisonType": "excess_return",
           "startValue": 26936.04,
           "endValue": 26939.37,
-          "changeValue": 0.037018635136938705,
-          "changeUnit": "%",
-          "benchmarkMetricId": "sp500",
-          "benchmarkStartValue": 7706.03,
-          "benchmarkEndValue": 7704.13,
-          "neutralLower": -0.3,
-          "neutralUpper": 0.3,
-          "neutralBand": 0.3,
-          "dataProvider": "FinanceDataReader",
-          "sourceUrl": "",
-          "observedAt": "2026-09-24",
-          "explanation": "변화폭이 중립 구간(±0.3%) 이내에 머물러 뚜렷한 방향이 나타나지 않았습니다."
+          "metricId": "nasdaq"
+        }
+      },
+      {
+        "claimText": "엔비디아 경영진이 내년에 칩 판매량이 두 배로 늘어날 것이라는 전망을 내놓았습니다. — 나스닥이 코스피 대비 강세를 이어갈까요?",
+        "status": "miss",
+        "resolution": {
+          "verdict": "miss",
+          "startValue": 26418.3,
+          "endValue": 26939.37,
+          "metricId": "nasdaq"
+        }
+      },
+      {
+        "claimText": "미국 연방준비제도가 유가 급등에 따른 인플레이션 확산을 막고자 기준금리를 연 3.75%~4.00%로 0.25%p 인상했습니다. — 나스닥이 S&P500 대비 강세를 이어갈까요?",
+        "status": "hit",
+        "resolution": {
+          "verdict": "hit",
+          "startValue": 25978.42,
+          "endValue": 26936.04,
+          "metricId": "nasdaq"
+        }
+      },
+      {
+        "claimText": "사우디아라비아의 핵심 송유관이 폐쇄되면서 14일 국제유가가 상승했다. — WTI가 나스닥 대비 강세를 이어갈까요?",
+        "status": "miss",
+        "resolution": {
+          "verdict": "miss",
+          "startValue": 101.89,
+          "endValue": 91.97,
+          "metricId": "wti"
+        }
+      },
+      {
+        "claimText": "NH농협은행이 시장금리 상승세 속에서 주택담보대출 금리를 최대 0.45%포인트 낮추기로 결정했습니다. — 코스피가 나스닥 대비 약세를 이어갈까요?",
+        "status": "invalidated"
+      },
+      {
+        "claimText": "유가와 원자재 가격 상승 여파로 인플레이션 우려가 다시 자극받으며 미국 국채금리가 급등했습니다. — 나스닥가 S&P500 대비 약세를 이어갈까요?",
+        "status": "miss",
+        "resolution": {
+          "verdict": "miss",
+          "startValue": 26081.72,
+          "endValue": 26418.3,
+          "metricId": "nasdaq"
+        }
+      },
+      {
+        "claimText": "2분기 기업 영업이익률 역대 최고 — 코스닥가 나스닥 대비 강세를 이어갈까요?",
+        "status": "miss",
+        "resolution": {
+          "verdict": "miss",
+          "startValue": 830.37,
+          "endValue": 815.98,
+          "metricId": "kosdaq"
+        }
+      },
+      {
+        "claimText": "유가 급등과 무역 긴장의 영향으로 뉴욕증시가 하락했습니다. 다만 기술주 중심으로 반도체 종목은 반등세를 나타냈습니다. — 나스닥가 S&P500 대비 강세를 이어갈까요?",
+        "status": "miss",
+        "resolution": {
+          "verdict": "miss",
+          "startValue": 26421.41,
+          "endValue": 25981.57,
+          "metricId": "nasdaq"
+        }
+      },
+      {
+        "claimText": "원/달러 환율이 한미 금리차 축소와 경상수지 흑자 행진 속에 1년 11개월 만에 장중 1330원대까지 내려앉았습니다. — 코스피가 나스닥 대비 강세를 이어갈까요?",
+        "status": "miss",
+        "resolution": {
+          "verdict": "miss",
+          "startValue": 6995.39,
+          "endValue": 6684.37,
+          "metricId": "kospi"
+        }
+      },
+      {
+        "claimText": "정부의 대규모 지원책 발표에 힘입어 로봇 관련 주가가 20% 이상 큰 폭으로 상승했습니다. — 코스닥가 코스피 대비 강세를 이어갈까요?",
+        "status": "miss",
+        "resolution": {
+          "verdict": "miss",
+          "startValue": 813.5,
+          "endValue": 820.64,
+          "metricId": "kosdaq"
+        }
+      },
+      {
+        "claimText": "외국인 매도 흐름이 이어지는 가운데 원/달러가 내릴까요?",
+        "status": "hit",
+        "resolution": {
+          "verdict": "hit",
+          "startValue": 1358.25,
+          "endValue": 1345.99,
+          "metricId": "usdkrw"
+        }
+      },
+      {
+        "claimText": "고용 발표를 앞두고 나스닥이 하락세를 이어갈까요?",
+        "status": "miss",
+        "resolution": {
+          "verdict": "miss",
+          "startValue": 26099.77,
+          "endValue": 26217.83,
+          "metricId": "nasdaq"
+        }
+      },
+      {
+        "claimText": "외국인 순매도 흐름 속에서 코스닥이 하락세를 이어갈까요?",
+        "status": "hit",
+        "resolution": {
+          "verdict": "hit",
+          "startValue": 834.29,
+          "endValue": 821.25,
+          "metricId": "kosdaq"
+        }
+      },
+      {
+        "claimText": "외국인 순매도 흐름 속에서 코스피가 하락세를 이어갈까요?",
+        "status": "miss",
+        "resolution": {
+          "verdict": "miss",
+          "startValue": 6788.88,
+          "endValue": 6820.02,
+          "metricId": "kospi"
+        }
+      },
+      {
+        "claimText": "외국인 순매수 흐름 속에서 코스닥이 반등할까요?",
+        "status": "neutral",
+        "resolution": {
+          "verdict": "neutral",
+          "startValue": 837.65,
+          "endValue": 838.41,
+          "metricId": "kosdaq"
+        }
+      },
+      {
+        "claimText": "코스피는 다음 거래일에도 완만한 반등 흐름을 이어갈까?",
+        "status": "hit",
+        "resolution": {
+          "verdict": "hit",
+          "startValue": 6808.21,
+          "endValue": 6912.37,
+          "metricId": "kospi"
+        }
+      },
+      {
+        "claimText": "PCE 발표 뒤 S&P500가 상승 흐름을 이어갈까요?",
+        "status": "neutral",
+        "resolution": {
+          "verdict": "neutral",
+          "startValue": 7677.28,
+          "endValue": 7675.7,
+          "metricId": "sp500"
+        }
+      },
+      {
+        "claimText": "외국인 매도 흐름이 이어지는 가운데 원/달러가 내릴까요?",
+        "status": "neutral",
+        "resolution": {
+          "verdict": "neutral",
+          "startValue": 1382.07,
+          "endValue": 1381.6,
+          "metricId": "usdkrw"
+        }
+      },
+      {
+        "claimText": "공급 불안이 이어지는 가운데 WTI가 오를까요?",
+        "status": "miss",
+        "resolution": {
+          "verdict": "miss",
+          "startValue": 87.06,
+          "endValue": 84.98,
+          "metricId": "wti"
+        }
+      },
+      {
+        "claimText": "나스닥은 다음 거래일까지 상승세를 이어갈까?",
+        "status": "miss",
+        "resolution": {
+          "verdict": "miss",
+          "startValue": 26180.46,
+          "endValue": 25980.19,
+          "metricId": "nasdaq"
+        }
+      },
+      {
+        "claimText": "외국인 순매도 흐름 속에서 코스닥이 반등할까요?",
+        "status": "miss",
+        "resolution": {
+          "verdict": "miss",
+          "startValue": 840.89,
+          "endValue": 801.94,
+          "metricId": "kosdaq"
+        }
+      },
+      {
+        "claimText": "코스피는 다음 거래일까지 하락세를 이어갈까?",
+        "status": "miss",
+        "resolution": {
+          "verdict": "miss",
+          "startValue": 6471.17,
+          "endValue": 6852.58,
+          "metricId": "kospi"
+        }
+      },
+      {
+        "claimText": "외국인 순매수 흐름 속에서 코스닥이 하락세를 이어갈까요?",
+        "status": "hit",
+        "resolution": {
+          "verdict": "hit",
+          "startValue": 834.2,
+          "endValue": 824.46,
+          "metricId": "kosdaq"
+        }
+      },
+      {
+        "claimText": "외국인 순매수 흐름 속에서 코스피가 반등할까요?",
+        "status": "miss",
+        "resolution": {
+          "verdict": "miss",
+          "startValue": 6977.94,
+          "endValue": 6869.83,
+          "metricId": "kospi"
+        }
+      },
+      {
+        "claimText": "외국인 매수 흐름이 이어지는 가운데 원/달러가 내릴까요?",
+        "status": "neutral",
+        "resolution": {
+          "verdict": "neutral",
+          "startValue": 1416.48,
+          "endValue": 1415.13,
+          "metricId": "usdkrw"
+        }
+      },
+      {
+        "claimText": "공급 불안이 이어지는 가운데 WTI가 오를까요?",
+        "status": "hit",
+        "resolution": {
+          "verdict": "hit",
+          "startValue": 82.4,
+          "endValue": 84.95,
+          "metricId": "wti"
+        }
+      },
+      {
+        "claimText": "외국인 순매도 흐름 속에서 코스닥이 반등할까요?",
+        "status": "hit",
+        "resolution": {
+          "verdict": "hit",
+          "startValue": 861.37,
+          "endValue": 864.65,
+          "metricId": "kosdaq"
+        }
+      },
+      {
+        "claimText": "CPI 발표 뒤 S&P500가 하락세를 이어갈까요?",
+        "status": "miss",
+        "resolution": {
+          "verdict": "miss",
+          "startValue": 7728.2,
+          "endValue": 7798.99,
+          "metricId": "sp500"
+        }
+      },
+      {
+        "claimText": "외국인 순매도 흐름 속에서 코스피가 반등할까요?",
+        "status": "hit",
+        "resolution": {
+          "verdict": "hit",
+          "startValue": 6299.66,
+          "endValue": 6345.53,
+          "metricId": "kospi"
+        }
+      },
+      {
+        "claimText": "나스닥은 다음 거래일까지 상승세를 이어갈까?",
+        "status": "miss",
+        "resolution": {
+          "verdict": "miss",
+          "startValue": 26690.62,
+          "endValue": 26605.36,
+          "metricId": "nasdaq"
+        }
+      },
+      {
+        "claimText": "코스닥은 다음 거래일까지 하락세를 이어갈까?",
+        "status": "miss",
+        "resolution": {
+          "verdict": "miss",
+          "startValue": 798.81,
+          "endValue": 854.47,
+          "metricId": "kosdaq"
+        }
+      },
+      {
+        "claimText": "나스닥은 다음 거래일까지 하락세를 이어갈까?",
+        "status": "miss",
+        "resolution": {
+          "verdict": "miss",
+          "startValue": 26348.35,
+          "endValue": 26690.62,
+          "metricId": "nasdaq"
+        }
+      },
+      {
+        "claimText": "원/달러 환율은 다음 거래일까지 상승세를 이어갈까요?",
+        "status": "miss",
+        "resolution": {
+          "verdict": "miss",
+          "startValue": 1429.35,
+          "endValue": 1422.69,
+          "metricId": "usdkrw"
+        }
+      },
+      {
+        "claimText": "코스피는 다음 거래일까지 하락세를 이어갈까?",
+        "status": "miss",
+        "resolution": {
+          "verdict": "miss",
+          "startValue": 6257.45,
+          "endValue": 6358.95,
+          "metricId": "kospi"
+        }
+      },
+      {
+        "claimText": "코스닥은 다음 거래일까지 상승세를 이어갈까?",
+        "status": "hit",
+        "resolution": {
+          "verdict": "hit",
+          "startValue": 719.76,
+          "endValue": 737.35,
+          "metricId": "kosdaq"
+        }
+      },
+      {
+        "claimText": "코스피는 다음 거래일까지 상승세를 이어갈까?",
+        "status": "miss",
+        "resolution": {
+          "verdict": "miss",
+          "startValue": 6595.45,
+          "endValue": 6257.45,
+          "metricId": "kospi"
+        }
+      },
+      {
+        "claimText": "코스닥은 다음 거래일까지 하락세를 이어갈까?",
+        "status": "miss",
+        "resolution": {
+          "verdict": "miss",
+          "startValue": 644.78,
+          "endValue": 719.76,
+          "metricId": "kosdaq"
+        }
+      },
+      {
+        "claimText": "미국채 10년물 금리는 다음 거래일까지 상승세를 이어갈까?",
+        "status": "hit",
+        "resolution": {
+          "verdict": "hit",
+          "startValue": 4.62,
+          "endValue": 4.66,
+          "metricId": "us10y"
+        }
+      },
+      {
+        "claimText": "원/달러 환율은 다음 거래일까지 원화 강세 흐름을 이어갈까?",
+        "status": "hit",
+        "resolution": {
+          "verdict": "hit",
+          "startValue": 1453.87,
+          "endValue": 1443.8,
+          "metricId": "usdkrw"
+        }
+      },
+      {
+        "claimText": "원/달러 환율은 다음 거래일까지 상승세를 이어갈까요?",
+        "status": "miss",
+        "resolution": {
+          "verdict": "miss",
+          "startValue": 1465.79,
+          "endValue": 1453.87,
+          "metricId": "usdkrw"
+        }
+      },
+      {
+        "claimText": "코스피 지수는 다음 거래일까지 하락세를 이어갈까?",
+        "status": "miss",
+        "resolution": {
+          "verdict": "miss",
+          "startValue": 6690.62,
+          "endValue": 6755.75,
+          "metricId": "kospi"
+        }
+      },
+      {
+        "claimText": "원/달러 환율은 다음 거래일에도 하락세를 이어갈까?",
+        "status": "neutral",
+        "resolution": {
+          "verdict": "neutral",
+          "startValue": 1459.42,
+          "endValue": 1459.42,
+          "metricId": "usdkrw"
+        }
+      },
+      {
+        "claimText": "원/달러 환율은 다음 거래일까지 하락세를 이어갈까요?",
+        "status": "hit",
+        "resolution": {
+          "verdict": "hit",
+          "startValue": 1474.12,
+          "endValue": 1459.42,
+          "metricId": "usdkrw"
+        }
+      },
+      {
+        "claimText": "원/달러 환율은 다음 거래일까지 하락세를 이어갈까?",
+        "status": "neutral",
+        "resolution": {
+          "verdict": "neutral",
+          "startValue": 1476.62,
+          "endValue": 1474.12,
+          "metricId": "usdkrw"
+        }
+      },
+      {
+        "claimText": "원/달러 환율은 다음 거래일까지 상승세를 이어갈까?",
+        "status": "neutral",
+        "resolution": {
+          "verdict": "neutral",
+          "startValue": 1479.78,
+          "endValue": 1479.18,
+          "metricId": "usdkrw"
+        }
+      },
+      {
+        "claimText": "다음 거래일까지 원/달러 환율이 상승세를 이어갈 가능성이 있습니다.",
+        "status": "miss",
+        "resolution": {
+          "verdict": "miss",
+          "startValue": 1486.53,
+          "endValue": 1481.21,
+          "metricId": "usdkrw"
+        }
+      },
+      {
+        "claimText": "다음 거래일까지 코스피 지수가 하락 흐름을 지속하거나 변동성이 높게 유지될 가능성이 있습니다.",
+        "status": "hit",
+        "resolution": {
+          "verdict": "hit",
+          "startValue": 6820.6,
+          "endValue": 6516.27,
+          "metricId": "kospi"
+        }
+      },
+      {
+        "claimText": "원/달러 환율이 다음 거래일까지 추가 상승할지 관찰이 필요합니다.",
+        "status": "miss",
+        "resolution": {
+          "verdict": "miss",
+          "startValue": 1487.46,
+          "endValue": 1481.21,
+          "metricId": "usdkrw"
         }
       }
     ],
-    "previousPublicationId": "2026-09-24",
+    "todayClaims": [
+      {
+        "claimText": "메타의 AI 에이전트 뮤즈 인기로 관련 기술주가 강세를 보이며 나스닥이 사상 최고치를 기록했습니다. — 나스닥이 코스피 대비 약세를 이어갈까요?",
+        "status": "unresolved"
+      }
+    ],
     "totals": {
-      "hit": 13,
+      "hit": 14,
       "miss": 26,
       "neutral": 8,
-      "unresolved": 2,
-      "invalidated": 1,
-      "error": 0
+      "unresolved": 1,
+      "invalidated": 1
     }
   },
   "newsletterClaimsTeaser": {
-    "publicationId": "2026-09-24",
+    "publicationId": "2026-09-25",
     "resolvedCount": 1,
-    "hitCount": 0,
+    "hitCount": 1,
     "missCount": 0,
-    "neutralCount": 1,
+    "neutralCount": 0,
     "unresolvedCount": 0,
-    "highlightText": "미국 10년 만기 국채 금리가 전일 대비 +0.14%p 오른 5.11%를 기록하며 기술주 전반에 부담을 주었습니다. — 나스닥이 S&P500 대비 약세를 이어갈까요?"
+    "highlightText": "외국인 매도 흐름이 이어지는 가운데 원/달러가 내릴까요?"
   }
 }
