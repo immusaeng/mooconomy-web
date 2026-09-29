@@ -1,0 +1,232 @@
+{
+  "schema_version": "normalized-daily-issue/v1",
+  "edition_id": "2026-09-30",
+  "edition_date_kst": "2026-09-30",
+  "canonical_status": "production",
+  "production_status": "SEND_CONFIRMED",
+  "source_commit_sha": "63914e430c6cea2d9ee60c3dd9535bba4d67c31c",
+  "subject": "미국 장기 국채금리가 오름세를 이어가며 뉴욕 증시 주요 지수가 하방 압력을 받았다",
+  "preheader": "오늘 CHAIN은 전일·전주 대비 델타 3건을 관측했습니다.",
+  "thesis": {
+    "headline": "미국 장기 국채금리가 오름세를 이어가며 뉴욕 증시 주요 지수가 하방 압력을 받았다",
+    "three_signals": [
+      "미국 국채 금리 상승세 지속으로 간밤 뉴욕증시가 약보합세로 마감했습니다.",
+      "지난 거래일 코스피는 외국인 매도세 속에 -0.27% 내린 6870.81pt를 기록했습니다.",
+      "오늘은 미국 개인소비지출 물가지수 발표와 외국인 수급 방향이 관건입니다."
+    ]
+  },
+  "main_story": {
+    "headline": "미국 장기 국채금리 상승",
+    "verified_fact": "미국 장기물 국채 금리가 오름세를 유지하면서 뉴욕 증시 주요 지수가 약보합권에서 거래를 마쳤습니다.",
+    "why_it_matters": null,
+    "sources": []
+  },
+  "entities": [
+    {
+      "name": "금",
+      "type": "commodity"
+    }
+  ],
+  "metrics": [
+    {
+      "id": "kospi",
+      "value": 6870.81,
+      "change": -0.2748,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "kosdaq",
+      "value": 849.8,
+      "change": 0.3804,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "nasdaq",
+      "value": 26797.54,
+      "change": -0.0852,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "sp500",
+      "value": 7670.84,
+      "change": -0.1672,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1352.37,
+      "change": -7.44,
+      "displayMode": "delta",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "us10y",
+      "value": 5.26,
+      "change": 0.02,
+      "displayMode": "delta",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "wti",
+      "value": 88.94,
+      "change": null,
+      "displayMode": "pct",
+      "direction": null,
+      "status": "stale"
+    },
+    {
+      "id": "vix",
+      "value": 16.04,
+      "change": -0.1867,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    }
+  ],
+  "market_changes": [
+    {
+      "id": "kospi",
+      "change": -0.2748,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "kosdaq",
+      "change": 0.3804,
+      "changeUnit": "%",
+      "direction": "up"
+    },
+    {
+      "id": "nasdaq",
+      "change": -0.0852,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "sp500",
+      "change": -0.1672,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "usdkrw",
+      "change": -7.44,
+      "changeUnit": "원",
+      "direction": "down"
+    },
+    {
+      "id": "us10y",
+      "change": 0.02,
+      "changeUnit": "%p",
+      "direction": "up"
+    },
+    {
+      "id": "wti",
+      "change": null,
+      "changeUnit": "%",
+      "direction": null
+    },
+    {
+      "id": "vix",
+      "change": -0.1867,
+      "changeUnit": "%",
+      "direction": "down"
+    }
+  ],
+  "narratives": {
+    "moo_view": "예상과 달리 코스피는 외국인의 대규모 매도세가 집중되며 약보합권에서 마감했습니다. 미국 장기물 국채 금리가 높은 수준을 유지하면서 주식 시장의 진입 매력도를 낮췄고, 이것이 글로벌 투자 자금의 위험 자산 기피 심리를 자극하여 국내 증시의 수급 부담으로 이어지는 경로를 보였습니다.\n\n코스피와 코스닥 지수는 서로 방향을 달리하며 차별화된 흐름을 형성했습니다. 코스닥 시장에서는 개인과 기관의 동반 순매수에 힘입어 전자장비와기기, 반도체와반도체장비 업종을 중심으로 상승세를 유지했습니다.\n\n원/달러 환율 하락으로 원화 강세 여건이 형성되었음에도 증시 유입으로 연결되지 않은 점은 수급 부담이 환율 외적 요인에 더 크게 반응하고 있음을 보여줍니다. 미 국채금리 상승 여파가 수급에 미치는 영향력이 환율 안정 효과보다 우위에 있었던 것으로 평가할 수 있습니다.\n\n미국 PCE 데이터 등 주요 물가 지표 발표 이후 국채금리가 안정화된다면 투자 심리 회복이 가능하겠으나, 고금리 장기화 우려 속에 관망세가 지속된다면 추가 하방 압력이 확대될 수 있습니다.",
+    "todays_watch": [
+      "연준 통화정책 향방을 결정할 미국 PCE 데이터 공개 및 물가 상승 압력 추이",
+      "원/달러 환율 강세 속 외국인 수급의 전환 여부",
+      "미국 장기 국채금리 추이와 증시 대기 자금의 이동 흐름"
+    ],
+    "todays_watch_oneliner": "장기 국채금리 부담 속 물가 지표 대기 심리와 외국인 수급 향방에 주목할 필요가 있습니다.",
+    "content_status": "GENERATED_REPAIRED"
+  },
+  "moo_q": null,
+  "moo_check": [
+    {
+      "previous_claim": "PCE 발표를 앞두고 코스피가 코스닥 대비 약세를 이어갈까요?",
+      "claim_date": "2026-09-29",
+      "evaluation_date": "2026-09-30T06:53:17+09:00",
+      "observed_result": "실제 변화가 예상한 하락 방향과 일치했습니다.",
+      "verdict": "MATCH",
+      "evidence": "6889.74 → 6870.81 (-0.66%)",
+      "source": "KRX"
+    }
+  ],
+  "moo_word": {
+    "id": "base_rate",
+    "term": "기준금리",
+    "definition": "중앙은행이 시중 금리의 기준으로 정하는 정책금리입니다.",
+    "why_today": null,
+    "memory_hook": "오르면 대출이자↑·소비둔화, 내리면 반대로 움직입니다.",
+    "source_label": "매일경제",
+    "article_id": "news_8",
+    "article_url": "https://www.mk.co.kr/news/economy/12164121",
+    "article_publisher": "매일경제",
+    "evidence_snippets": [
+      "장기 기준금리 역할을 하는 10년물 .."
+    ],
+    "definition_source_name": "한국은행",
+    "definition_source_url": "https://ecos.bok.or.kr/",
+    "definition_priority": "P1_GLOSSARY_OFFICIAL_SOURCE",
+    "origin": "glossary",
+    "grounded_in_article": true,
+    "definition_evidence_verified": true,
+    "status": "ELIGIBLE_FOR_PUBLICATION",
+    "eligible_for_publication": true
+  },
+  "sources": [
+    {
+      "source_name": "매일경제",
+      "source_url": "https://www.mk.co.kr/news/economy/12164313",
+      "published_at": "2026-09-30",
+      "source_headline": "“증시 반등 기다리다 특판 12%짜리 넣었어요”…여윳돈, 예금서 적금으로"
+    },
+    {
+      "source_name": "연합뉴스",
+      "source_url": "https://www.yna.co.kr/view/AKR20260929161900017",
+      "published_at": "2026-09-30",
+      "source_headline": "[AI프리즘] AI데이터센터 경제효과 따져보니…최대 3.5조"
+    },
+    {
+      "source_name": "파이낸셜뉴스",
+      "source_url": "https://www.fnnews.com/news/202609291827520108",
+      "published_at": "2026-09-29",
+      "source_headline": "조정지역 일시 2주택 특례 '3년→2년'"
+    },
+    {
+      "source_name": "MarketWatch",
+      "source_url": "https://www.marketwatch.com/story/nvidias-historic-buyback-announcement-underscores-a-sharp-divide-in-big-tech-ac04a001?mod=mw_rss_topstories",
+      "published_at": "2026-09-29",
+      "source_headline": "Nvidia’s historic buyback announcement underscores a sharp divide in Big Tech"
+    },
+    {
+      "source_name": "CNBC",
+      "source_url": "https://www.cnbc.com/2026/09/29/the-feds-main-inflation-measure-will-be-released-wednesday-heres-what-to-expect.html",
+      "published_at": "2026-09-29",
+      "source_headline": "The Fed's main inflation measure will be released Wednesday. Here's what to expect"
+    }
+  ],
+  "public_url": "https://mooconomy.co.kr/latest-email.html",
+  "validation_status": {
+    "main_story_status": "SELECTED",
+    "content_provenance": "VALIDATED_GEMINI_36",
+    "moo_word_present": true,
+    "sources_count": 5,
+    "is_approximate": false
+  },
+  "content_hash": "41ed2a98f8cac8de1427d91abc3f57c1371b18399060787428cf07ee4938cd88",
+  "archived_at": "2026-09-29T21:54:20.241209+00:00"
+}

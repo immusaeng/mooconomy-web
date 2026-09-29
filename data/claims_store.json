@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-29T06:45:10+09:00",
+  "updatedAt": "2026-09-30T06:53:17+09:00",
   "claims": {
     "2026-07-19-c1": {
       "schemaVersion": 1,
@@ -3039,7 +3039,7 @@
       },
       "thresholdRuleId": "pct_030",
       "confidence": null,
-      "status": "unresolved",
+      "status": "hit",
       "revision": {
         "version": 1,
         "contentHash": "0866d8562c76f0e7c1256e7f557664cd36e75acb418626ed981a55f24fd98387",
@@ -3051,7 +3051,28 @@
         "benchmarkValue": 846.58,
         "benchmarkAsOf": "2026-09-28"
       },
-      "resolution": null
+      "resolution": {
+        "resolutionId": "2026-09-29-c1-res",
+        "claimId": "2026-09-29-c1",
+        "resolvedAt": "2026-09-30T06:53:17+09:00",
+        "verdict": "hit",
+        "metricId": "kospi",
+        "comparisonType": "excess_return",
+        "startValue": 6889.74,
+        "endValue": 6870.81,
+        "changeValue": -0.6551102713665558,
+        "changeUnit": "%",
+        "benchmarkMetricId": "kosdaq",
+        "benchmarkStartValue": 846.58,
+        "benchmarkEndValue": 849.8,
+        "neutralLower": -0.3,
+        "neutralUpper": 0.3,
+        "neutralBand": 0.3,
+        "dataProvider": "KRX",
+        "sourceUrl": "",
+        "observedAt": "2026-09-29",
+        "explanation": "실제 변화가 예상한 하락 방향과 일치했습니다."
+      }
     }
   }
 }
