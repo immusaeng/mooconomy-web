@@ -1,0 +1,180 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-01",
+  "generatedAt": "2026-10-01T06:52:01+09:00",
+  "indicators": [
+    {
+      "id": "kospi",
+      "value": 6838.04,
+      "change": -0.4769,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "kosdaq",
+      "value": 855.91,
+      "change": 0.719,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "nasdaq",
+      "value": 26861.06,
+      "change": 0.237,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "sp500",
+      "value": 7651.54,
+      "change": -0.2516,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1356.53,
+      "change": 4.16,
+      "displayMode": "delta",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "us10y",
+      "value": 5.29,
+      "change": 0.03,
+      "displayMode": "delta",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "wti",
+      "value": 90.34,
+      "change": null,
+      "displayMode": "pct",
+      "direction": null,
+      "status": "stale"
+    },
+    {
+      "id": "vix",
+      "value": 16.34,
+      "change": 1.8703,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    }
+  ],
+  "auditIndicators": [
+    {
+      "id": "kospi",
+      "value": 6838.04,
+      "displayMode": "pct"
+    },
+    {
+      "id": "kosdaq",
+      "value": 855.91,
+      "displayMode": "pct"
+    },
+    {
+      "id": "nasdaq",
+      "value": 26861.06,
+      "displayMode": "pct"
+    },
+    {
+      "id": "sp500",
+      "value": 7651.54,
+      "displayMode": "pct"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1356.53,
+      "displayMode": "dual"
+    },
+    {
+      "id": "us10y",
+      "value": 5.29,
+      "displayMode": "delta"
+    },
+    {
+      "id": "wti",
+      "value": 90.34,
+      "displayMode": "pct"
+    },
+    {
+      "id": "vix",
+      "value": 16.34,
+      "displayMode": "pct"
+    },
+    {
+      "id": "gold",
+      "value": 4189.1,
+      "displayMode": "pct"
+    },
+    {
+      "id": "dollarindex",
+      "value": 101.45,
+      "displayMode": "pct"
+    },
+    {
+      "id": "brent",
+      "value": 97.92,
+      "displayMode": "pct"
+    },
+    {
+      "id": "dow",
+      "value": 50906.05,
+      "displayMode": "pct"
+    },
+    {
+      "id": "nikkei",
+      "value": 65481.27,
+      "displayMode": "pct"
+    },
+    {
+      "id": "shanghai",
+      "value": 3830.45,
+      "displayMode": "pct"
+    }
+  ],
+  "signals": [
+    {
+      "id": "recession",
+      "color": "green",
+      "value": 0.37
+    },
+    {
+      "id": "rate-gap",
+      "color": "green",
+      "value": 1.0
+    },
+    {
+      "id": "liquidity-stress",
+      "color": "green",
+      "value": 3.08
+    }
+  ],
+  "calendarSnapshot": [
+    {
+      "id": "us-2026-10-02-미국 고용보고서(비농업고용·실업률)",
+      "time": "2026-10-02",
+      "country": "US",
+      "title": "미국 고용보고서(비농업고용·실업률)",
+      "importance": "high"
+    }
+  ],
+  "marketTemperature": {
+    "label": "neutral",
+    "displayLabel": "중립",
+    "status": "ok"
+  },
+  "connectionTopology": "DELTA_MODEL_V1",
+  "driverClaims": [
+    "미국채 금리 상승이 주가 상단을 제한",
+    "외국인 대규모 매도세가 코스피 하락 주도"
+  ],
+  "krMarketClosed": false
+}
