@@ -1,0 +1,180 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-02",
+  "generatedAt": "2026-10-02T06:44:14+09:00",
+  "indicators": [
+    {
+      "id": "kospi",
+      "value": 6971.35,
+      "change": 1.9495,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "kosdaq",
+      "value": 894.29,
+      "change": 4.4841,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "nasdaq",
+      "value": 26871.6,
+      "change": 0.0392,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "sp500",
+      "value": 7666.45,
+      "change": 0.1949,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1359.41,
+      "change": 2.88,
+      "displayMode": "delta",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "us10y",
+      "value": 5.24,
+      "change": -0.05,
+      "displayMode": "delta",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "wti",
+      "value": 92.91,
+      "change": 2.8448,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "vix",
+      "value": 16.39,
+      "change": 0.306,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    }
+  ],
+  "auditIndicators": [
+    {
+      "id": "kospi",
+      "value": 6971.35,
+      "displayMode": "pct"
+    },
+    {
+      "id": "kosdaq",
+      "value": 894.29,
+      "displayMode": "pct"
+    },
+    {
+      "id": "nasdaq",
+      "value": 26871.6,
+      "displayMode": "pct"
+    },
+    {
+      "id": "sp500",
+      "value": 7666.45,
+      "displayMode": "pct"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1359.41,
+      "displayMode": "dual"
+    },
+    {
+      "id": "us10y",
+      "value": 5.24,
+      "displayMode": "delta"
+    },
+    {
+      "id": "wti",
+      "value": 92.91,
+      "displayMode": "pct"
+    },
+    {
+      "id": "vix",
+      "value": 16.39,
+      "displayMode": "pct"
+    },
+    {
+      "id": "gold",
+      "value": 4207.8,
+      "displayMode": "pct"
+    },
+    {
+      "id": "dollarindex",
+      "value": 102.0,
+      "displayMode": "pct"
+    },
+    {
+      "id": "brent",
+      "value": 102.21,
+      "displayMode": "pct"
+    },
+    {
+      "id": "dow",
+      "value": 50926.56,
+      "displayMode": "pct"
+    },
+    {
+      "id": "nikkei",
+      "value": 66753.72,
+      "displayMode": "pct"
+    },
+    {
+      "id": "shanghai",
+      "value": 3842.2,
+      "displayMode": "pct"
+    }
+  ],
+  "signals": [
+    {
+      "id": "recession",
+      "color": "green",
+      "value": 0.41
+    },
+    {
+      "id": "rate-gap",
+      "color": "green",
+      "value": 1.0
+    },
+    {
+      "id": "liquidity-stress",
+      "color": "green",
+      "value": 3.12
+    }
+  ],
+  "calendarSnapshot": [
+    {
+      "id": "us-2026-10-02-미국 고용보고서(비농업고용·실업률)",
+      "time": "2026-10-02",
+      "country": "US",
+      "title": "미국 고용보고서(비농업고용·실업률)",
+      "importance": "high"
+    }
+  ],
+  "marketTemperature": {
+    "label": "neutral",
+    "displayLabel": "중립",
+    "status": "ok"
+  },
+  "connectionTopology": "DELTA_MODEL_V1",
+  "driverClaims": [
+    "미 국채 10년물 금리 하락세 전환으로 인한 기술주 투자심리 회복",
+    "국내 반도체 중심의 수출 지표 역대 최대치 경신 호재"
+  ],
+  "krMarketClosed": false
+}
