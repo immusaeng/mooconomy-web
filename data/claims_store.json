@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-02T06:44:14+09:00",
+  "updatedAt": "2026-10-03T06:44:19+09:00",
   "claims": {
     "2026-07-19-c1": {
       "schemaVersion": 1,
@@ -3099,7 +3099,7 @@
       },
       "thresholdRuleId": "pct_100",
       "confidence": null,
-      "status": "unresolved",
+      "status": "neutral",
       "revision": {
         "version": 1,
         "contentHash": "38d2b83b0382cbacf15b5643afca26a70cd3e6cb1a9007c9e9e5f62f9cb1d651",
@@ -3110,6 +3110,66 @@
         "asOf": "2026-10-01",
         "benchmarkValue": 202000.0,
         "benchmarkAsOf": "2026-10-01"
+      },
+      "resolution": {
+        "resolutionId": "2026-10-02-c1-res",
+        "claimId": "2026-10-02-c1",
+        "resolvedAt": "2026-10-03T06:44:12+09:00",
+        "verdict": "neutral",
+        "metricId": "samsung_common",
+        "comparisonType": "excess_return",
+        "startValue": 274500.0,
+        "endValue": 276000.0,
+        "changeValue": 0.7939728399069416,
+        "changeUnit": "%",
+        "benchmarkMetricId": "samsung_preferred",
+        "benchmarkStartValue": 202000.0,
+        "benchmarkEndValue": 201500.0,
+        "neutralLower": -1.0,
+        "neutralUpper": 1.0,
+        "neutralBand": 1.0,
+        "dataProvider": "Naver",
+        "sourceUrl": "",
+        "observedAt": "2026-10-02",
+        "explanation": "변화폭이 중립 구간(±1.0%) 이내에 머물러 뚜렷한 방향이 나타나지 않았습니다."
+      }
+    },
+    "2026-10-03-c1": {
+      "schemaVersion": 1,
+      "claimId": "2026-10-03-c1",
+      "publicationId": "2026-10-03",
+      "issuedAt": "2026-10-03T06:44:19+09:00",
+      "dataCutoffAt": "2026-10-03T06:44:19+09:00",
+      "lockedAt": "2026-10-03T06:44:19+09:00",
+      "claimMode": "auto",
+      "verificationType": "proxy",
+      "topic": "삼성전자보통주 vs 삼성전자우선주 상대성과",
+      "sourceNewsIds": [],
+      "observationText": "삼성전자보통주는 전일 대비 +0.55%, 삼성전자우선주는 -0.25% — 상대 괴리 +0.80%p.",
+      "interpretationText": "두 종목의 상대적 괴리가 다음 거래일까지 이어지는지가 확인 대상입니다.",
+      "claimText": "삼성전자보통주가 삼성전자우선주 대비 강세를 이어갈까요?",
+      "metricId": "samsung_common",
+      "benchmarkMetricId": "samsung_preferred",
+      "comparisonType": "excess_return",
+      "expectedDirection": "up",
+      "horizon": {
+        "type": "next_close",
+        "market": "KR",
+        "resolutionAt": "2026-10-07"
+      },
+      "thresholdRuleId": "pct_100",
+      "confidence": null,
+      "status": "unresolved",
+      "revision": {
+        "version": 1,
+        "contentHash": "c43e4969bb5f90536c45ee2e904483d71605093f3bdb0704b9315c2dda0b75d2",
+        "correctedFrom": null
+      },
+      "baseline": {
+        "value": 276000.0,
+        "asOf": "2026-10-02",
+        "benchmarkValue": 201500.0,
+        "benchmarkAsOf": "2026-10-02"
       },
       "resolution": null
     }
