@@ -1,14 +1,14 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-01T23:59:26.844553+00:00",
+  "generatedAt": "2026-10-02T23:53:05.620789+00:00",
   "timezone": "Asia/Seoul",
   "range": {
-    "from": "2026-10-01",
-    "to": "2026-10-03"
+    "from": "2026-10-02",
+    "to": "2026-10-04"
   },
   "freshness": {
     "status": "partial",
-    "lastSuccessfulAt": "2026-10-01T23:59:26.844564+00:00",
+    "lastSuccessfulAt": "2026-10-02T23:53:05.620797+00:00",
     "failedSources": [
       "fmp",
       "finnhub"
@@ -36,48 +36,12 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=378",
       "sourceEventId": "378",
-      "updatedAt": "2026-10-01T23:59:26.822281+00:00",
+      "updatedAt": "2026-10-02T23:53:05.597676+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
           "sourceName": "FRED",
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=378",
-          "sourceTier": "official_aggregator"
-        }
-      ]
-    },
-    {
-      "id": "fred-fomc-press-release-2026-10-02-c1e4d7c89d6e",
-      "title": "FOMC Press Release",
-      "originalTitle": "FOMC Press Release",
-      "titleKo": "FOMC 보도자료",
-      "country": "US",
-      "category": "macro",
-      "importance": "high",
-      "scheduledDate": "2026-10-02",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "FRED",
-      "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-      "sourceEventId": "101",
-      "updatedAt": "2026-10-01T23:59:26.822283+00:00",
-      "confidence": "cross_checked",
-      "sourceRefs": [
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
-          "sourceTier": "official_aggregator"
-        },
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
           "sourceTier": "official_aggregator"
         }
       ]
@@ -103,7 +67,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=4",
       "sourceEventId": "4",
-      "updatedAt": "2026-10-01T23:59:26.822312+00:00",
+      "updatedAt": "2026-10-02T23:53:05.597700+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -134,7 +98,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=739",
       "sourceEventId": "739",
-      "updatedAt": "2026-10-01T23:59:26.822315+00:00",
+      "updatedAt": "2026-10-02T23:53:05.597703+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -145,14 +109,14 @@
       ]
     },
     {
-      "id": "fred-housing-inventory-core-metrics-2026-10-01-8c0b949d477b",
-      "title": "Housing Inventory Core Metrics",
-      "originalTitle": "Housing Inventory Core Metrics",
-      "titleKo": "주택재고 핵심지표",
+      "id": "fred-fomc-press-release-2026-10-03-49a492f7fd2f",
+      "title": "FOMC Press Release",
+      "originalTitle": "FOMC Press Release",
+      "titleKo": "FOMC 보도자료",
       "country": "US",
       "category": "macro",
-      "importance": "medium",
-      "scheduledDate": "2026-10-01",
+      "importance": "high",
+      "scheduledDate": "2026-10-03",
       "scheduledAt": null,
       "timezone": null,
       "timePrecision": "date",
@@ -163,14 +127,19 @@
       "unit": null,
       "sourceName": "FRED",
       "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=462",
-      "sourceEventId": "462",
-      "updatedAt": "2026-10-01T23:59:26.822237+00:00",
-      "confidence": "single_source",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+      "sourceEventId": "101",
+      "updatedAt": "2026-10-02T23:53:05.597791+00:00",
+      "confidence": "cross_checked",
       "sourceRefs": [
         {
           "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=462",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
+          "sourceTier": "official_aggregator"
+        },
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=101",
           "sourceTier": "official_aggregator"
         }
       ]
