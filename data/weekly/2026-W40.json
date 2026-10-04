@@ -1,0 +1,925 @@
+{
+  "schema_version": "weekly-report/v1",
+  "week_id": "2026-W40",
+  "period_start_kst": "2026-09-28",
+  "period_end_kst": "2026-10-04",
+  "source_edition_ids": [
+    "2026-09-29",
+    "2026-09-30",
+    "2026-10-01",
+    "2026-10-02",
+    "2026-10-03"
+  ],
+  "weekly_thesis": "미국 고용 둔화에 연준 금리 인상 우려 완화, 나스닥 상승세",
+  "first_last_metrics": [
+    {
+      "metric_id": "kospi",
+      "first_value": 7080.92,
+      "first_date_kst": "2026-09-23",
+      "last_value": 7003.74,
+      "last_date_kst": "2026-10-02",
+      "unit": null,
+      "weekly_change_percent": -1.0899713596538343,
+      "data_points": 2
+    },
+    {
+      "metric_id": "kosdaq",
+      "first_value": 844.48,
+      "first_date_kst": "2026-09-23",
+      "last_value": 893.29,
+      "last_date_kst": "2026-10-02",
+      "unit": null,
+      "weekly_change_percent": 5.7798882152330355,
+      "data_points": 2
+    },
+    {
+      "metric_id": "nasdaq",
+      "first_value": 26939.37,
+      "first_date_kst": "2026-09-24",
+      "last_value": 27190.86,
+      "last_date_kst": "2026-10-02",
+      "unit": null,
+      "weekly_change_percent": 0.9335407620890971,
+      "data_points": 2
+    },
+    {
+      "metric_id": "sp500",
+      "first_value": 7704.13,
+      "first_date_kst": "2026-09-24",
+      "last_value": 7722.72,
+      "last_date_kst": "2026-10-02",
+      "unit": null,
+      "weekly_change_percent": 0.24129914734045435,
+      "data_points": 2
+    },
+    {
+      "metric_id": "usdkrw",
+      "first_value": 1365.2,
+      "first_date_kst": "2026-09-24",
+      "last_value": 1342.51,
+      "last_date_kst": "2026-10-02",
+      "unit": null,
+      "weekly_change_percent": -1.6620275417521282,
+      "data_points": 2
+    },
+    {
+      "metric_id": "us10y",
+      "first_value": 5.16,
+      "first_date_kst": "2026-09-24",
+      "last_value": 5.28,
+      "last_date_kst": "2026-10-02",
+      "unit": null,
+      "weekly_change_percent": 2.325581395348839,
+      "data_points": 2
+    },
+    {
+      "metric_id": "wti",
+      "first_value": 94.37,
+      "first_date_kst": "2026-09-24",
+      "last_value": 91.26,
+      "last_date_kst": "2026-10-02",
+      "unit": null,
+      "weekly_change_percent": -3.295538836494648,
+      "data_points": 2
+    }
+  ],
+  "top_three_drivers": [],
+  "signal_chain": null,
+  "main_story_summary": null,
+  "moo_q_scorecard": [
+    {
+      "edition_date_kst": "2026-09-29",
+      "claim_text": "PCE 발표를 앞두고 코스피가 코스닥 대비 약세를 이어갈까요?",
+      "status": "unresolved"
+    },
+    {
+      "edition_date_kst": "2026-10-02",
+      "claim_text": "삼성전자보통주가 삼성전자우선주 대비 약세를 이어갈까요?",
+      "status": "unresolved"
+    },
+    {
+      "edition_date_kst": "2026-10-03",
+      "claim_text": "삼성전자보통주가 삼성전자우선주 대비 강세를 이어갈까요?",
+      "status": "unresolved"
+    }
+  ],
+  "weekly_words": [
+    {
+      "id": "treasury_yield",
+      "term": "국채금리",
+      "normalized_term": "국채금리",
+      "short_definition": "정부가 발행한 채권에 투자할 때 받는 이자율입니다.",
+      "definition_source_name": "머니투데이",
+      "definition_source_url": "https://home.treasury.gov/",
+      "article_sources": [
+        "머니투데이"
+      ],
+      "daily_edition_ids": [
+        "2026-10-01"
+      ],
+      "first_published_date_kst": "2026-10-01",
+      "published_count": 1,
+      "is_official_p1": true,
+      "definition": "정부가 발행한 채권에 투자할 때 받는 이자율입니다.",
+      "official_source": "머니투데이",
+      "selection_score": 3.5,
+      "is_representative": true
+    },
+    {
+      "id": "base_rate",
+      "term": "기준금리",
+      "normalized_term": "기준금리",
+      "short_definition": "중앙은행이 시중 금리의 기준으로 정하는 정책금리입니다.",
+      "definition_source_name": "매일경제",
+      "definition_source_url": "https://ecos.bok.or.kr/",
+      "article_sources": [
+        "매일경제"
+      ],
+      "daily_edition_ids": [
+        "2026-09-30"
+      ],
+      "first_published_date_kst": "2026-09-30",
+      "published_count": 1,
+      "is_official_p1": true,
+      "definition": "중앙은행이 시중 금리의 기준으로 정하는 정책금리입니다.",
+      "official_source": "매일경제",
+      "selection_score": 3.5,
+      "is_representative": false
+    },
+    {
+      "id": "open_비농업고용지표",
+      "term": "비농업 고용지표",
+      "normalized_term": "비농업 고용지표",
+      "short_definition": "비농업 고용지표는 농업 부문을 제외한 미국 기업들의 고용 증가와 실업률 변화를 보여주는 핵심 경제 지표이다.",
+      "definition_source_name": "연합뉴스마켓",
+      "definition_source_url": null,
+      "article_sources": [
+        "연합뉴스마켓"
+      ],
+      "daily_edition_ids": [
+        "2026-10-03"
+      ],
+      "first_published_date_kst": "2026-10-03",
+      "published_count": 1,
+      "is_official_p1": false,
+      "definition": "비농업 고용지표는 농업 부문을 제외한 미국 기업들의 고용 증가와 실업률 변화를 보여주는 핵심 경제 지표이다.",
+      "official_source": "연합뉴스마켓",
+      "selection_score": 2.5,
+      "is_representative": false
+    },
+    {
+      "id": "open_인플레이션",
+      "term": "인플레이션",
+      "normalized_term": "인플레이션",
+      "short_definition": "시장에서 거래되는 개별 상품의 가격변화는 우리가 직접 관찰할 수 있지만 “물가”는 추상적인 개념으로 직접 관찰할 수 없다.",
+      "definition_source_name": "매일경제",
+      "definition_source_url": "https://ecos.bok.or.kr/",
+      "article_sources": [
+        "매일경제"
+      ],
+      "daily_edition_ids": [
+        "2026-09-29"
+      ],
+      "first_published_date_kst": "2026-09-29",
+      "published_count": 1,
+      "is_official_p1": false,
+      "definition": "시장에서 거래되는 개별 상품의 가격변화는 우리가 직접 관찰할 수 있지만 “물가”는 추상적인 개념으로 직접 관찰할 수 없다.",
+      "official_source": "매일경제",
+      "selection_score": 2.5,
+      "is_representative": false
+    },
+    {
+      "id": "open_파생결합증권",
+      "term": "파생결합증권",
+      "normalized_term": "파생결합증권",
+      "short_definition": "파생결합증권은 주가나 이자율 같은 기초자산의 가격 변동에 연계되어 투자 수익이 결정되는 금융투자상품이다.",
+      "definition_source_name": "연합뉴스",
+      "definition_source_url": null,
+      "article_sources": [
+        "연합뉴스"
+      ],
+      "daily_edition_ids": [
+        "2026-10-02"
+      ],
+      "first_published_date_kst": "2026-10-02",
+      "published_count": 1,
+      "is_official_p1": false,
+      "definition": "파생결합증권은 주가나 이자율 같은 기초자산의 가격 변동에 연계되어 투자 수익이 결정되는 금융투자상품이다.",
+      "official_source": "연합뉴스",
+      "selection_score": 2.5,
+      "is_representative": false
+    }
+  ],
+  "next_week_watch": [],
+  "risk_notes": [],
+  "source_manifest": [
+    {
+      "edition_date_kst": "2026-09-29",
+      "source_name": "파이낸셜뉴스",
+      "source_url": "https://www.fnnews.com/news/202609281658302365",
+      "published_at": "2026-09-29"
+    },
+    {
+      "edition_date_kst": "2026-09-29",
+      "source_name": "연합뉴스마켓",
+      "source_url": "https://www.yna.co.kr/view/AKR20260929006451072",
+      "published_at": "2026-09-29"
+    },
+    {
+      "edition_date_kst": "2026-09-29",
+      "source_name": "CNBC",
+      "source_url": "https://www.cnbc.com/2026/09/28/amd-fei-fei-li-world-labs.html",
+      "published_at": "2026-09-28"
+    },
+    {
+      "edition_date_kst": "2026-09-29",
+      "source_name": "MarketWatch",
+      "source_url": "https://www.marketwatch.com/story/nvidia-makes-a-statement-with-historic-150-billion-buyback-announcement-bfab5a22?mod=mw_rss_topstories",
+      "published_at": "2026-09-28"
+    },
+    {
+      "edition_date_kst": "2026-09-29",
+      "source_name": "CNBC",
+      "source_url": "https://www.cnbc.com/2026/09/28/trump-steel-plant-iowa.html",
+      "published_at": "2026-09-28"
+    },
+    {
+      "edition_date_kst": "2026-09-30",
+      "source_name": "매일경제",
+      "source_url": "https://www.mk.co.kr/news/economy/12164313",
+      "published_at": "2026-09-30"
+    },
+    {
+      "edition_date_kst": "2026-09-30",
+      "source_name": "연합뉴스",
+      "source_url": "https://www.yna.co.kr/view/AKR20260929161900017",
+      "published_at": "2026-09-30"
+    },
+    {
+      "edition_date_kst": "2026-09-30",
+      "source_name": "파이낸셜뉴스",
+      "source_url": "https://www.fnnews.com/news/202609291827520108",
+      "published_at": "2026-09-29"
+    },
+    {
+      "edition_date_kst": "2026-09-30",
+      "source_name": "MarketWatch",
+      "source_url": "https://www.marketwatch.com/story/nvidias-historic-buyback-announcement-underscores-a-sharp-divide-in-big-tech-ac04a001?mod=mw_rss_topstories",
+      "published_at": "2026-09-29"
+    },
+    {
+      "edition_date_kst": "2026-09-30",
+      "source_name": "CNBC",
+      "source_url": "https://www.cnbc.com/2026/09/29/the-feds-main-inflation-measure-will-be-released-wednesday-heres-what-to-expect.html",
+      "published_at": "2026-09-29"
+    },
+    {
+      "edition_date_kst": "2026-10-01",
+      "source_name": "매일경제",
+      "source_url": "https://www.mk.co.kr/news/economy/12165507",
+      "published_at": "2026-10-01"
+    },
+    {
+      "edition_date_kst": "2026-10-01",
+      "source_name": "연합뉴스",
+      "source_url": "https://www.yna.co.kr/view/AKR20260923159400003",
+      "published_at": "2026-10-01"
+    },
+    {
+      "edition_date_kst": "2026-10-01",
+      "source_name": "머니투데이",
+      "source_url": "https://www.mt.co.kr/world/2026/10/01/2026100106223973363",
+      "published_at": "2026-10-01"
+    },
+    {
+      "edition_date_kst": "2026-10-01",
+      "source_name": "파이낸셜뉴스",
+      "source_url": "https://www.fnnews.com/news/202609222245465642",
+      "published_at": "2026-10-01"
+    },
+    {
+      "edition_date_kst": "2026-10-01",
+      "source_name": "매일경제",
+      "source_url": "https://www.mk.co.kr/news/economy/12165495",
+      "published_at": "2026-10-01"
+    },
+    {
+      "edition_date_kst": "2026-10-01",
+      "source_name": "CNBC",
+      "source_url": "https://www.cnbc.com/2026/09/30/micron-mu-q4-earnings-report-2026.html",
+      "published_at": "2026-09-30"
+    },
+    {
+      "edition_date_kst": "2026-10-01",
+      "source_name": "MarketWatch",
+      "source_url": "https://www.marketwatch.com/story/a-brutal-september-for-bonds-points-to-an-even-darker-october-239d0fb5?mod=mw_rss_topstories",
+      "published_at": "2026-09-30"
+    },
+    {
+      "edition_date_kst": "2026-10-02",
+      "source_name": "연합뉴스",
+      "source_url": "https://www.yna.co.kr/view/AKR20261001193100002",
+      "published_at": "2026-10-02"
+    },
+    {
+      "edition_date_kst": "2026-10-02",
+      "source_name": "머니투데이",
+      "source_url": "https://www.mt.co.kr/world/2026/10/02/2026100205321884168",
+      "published_at": "2026-10-02"
+    },
+    {
+      "edition_date_kst": "2026-10-02",
+      "source_name": "CNBC",
+      "source_url": "https://www.cnbc.com/2026/10/01/accenture-rallies-more-than-20percent-after-earnings-beat-heads-for-best-day-ever.html",
+      "published_at": "2026-10-01"
+    },
+    {
+      "edition_date_kst": "2026-10-02",
+      "source_name": "CNBC",
+      "source_url": "https://www.cnbc.com/2026/10/01/nike-nke-q1-2027-earnings.html",
+      "published_at": "2026-10-01"
+    },
+    {
+      "edition_date_kst": "2026-10-02",
+      "source_name": "Investing",
+      "source_url": "https://www.investing.com/news/economy-news/asian-stocks-dip-bonds-in-focus-after-torrid-september-4926176",
+      "published_at": "2026-10-01"
+    },
+    {
+      "edition_date_kst": "2026-10-03",
+      "source_name": "매일경제",
+      "source_url": "https://www.mk.co.kr/news/economy/12167675",
+      "published_at": "2026-10-03"
+    },
+    {
+      "edition_date_kst": "2026-10-03",
+      "source_name": "매일경제",
+      "source_url": "https://www.mk.co.kr/news/economy/12167528",
+      "published_at": "2026-10-02"
+    },
+    {
+      "edition_date_kst": "2026-10-03",
+      "source_name": "연합뉴스",
+      "source_url": "https://www.yna.co.kr/view/AKR20261002183500017",
+      "published_at": "2026-10-03"
+    },
+    {
+      "edition_date_kst": "2026-10-03",
+      "source_name": "파이낸셜뉴스",
+      "source_url": "https://www.fnnews.com/news/202610021018098510",
+      "published_at": "2026-10-02"
+    },
+    {
+      "edition_date_kst": "2026-10-03",
+      "source_name": "Investing",
+      "source_url": "https://www.investing.com/news/economy-news/trump-pushes-south-korea-on-54b-alaska-lng-venture-warns-of-tariff-hikes-4930422",
+      "published_at": "2026-10-02"
+    },
+    {
+      "edition_date_kst": "2026-10-03",
+      "source_name": "머니투데이",
+      "source_url": "https://www.mt.co.kr/world/2026/10/03/2026100306094814060",
+      "published_at": "2026-10-03"
+    },
+    {
+      "edition_date_kst": "2026-10-03",
+      "source_name": "MarketWatch",
+      "source_url": "https://www.marketwatch.com/story/europes-leaders-rush-to-release-diesel-from-stockpiles-as-fuel-shock-hangs-over-u-s-midterms-80bf0f38?mod=mw_rss_topstories",
+      "published_at": "2026-10-02"
+    },
+    {
+      "edition_date_kst": "2026-10-03",
+      "source_name": "CNBC",
+      "source_url": "https://www.cnbc.com/2026/10/02/oil-wti-brent-diesel-stock-release-europe.html",
+      "published_at": "2026-10-02"
+    }
+  ],
+  "validation_status": {
+    "total_daily_count": 10,
+    "eligible_daily_count": 5,
+    "excluded_non_production_count": 5,
+    "narrative_fields_available": true,
+    "is_approximate": false
+  },
+  "generated_at": "2026-10-04T21:41:40.639908+00:00",
+  "weekly_scorecard_level_diff": {
+    "metrics": [
+      {
+        "metric_id": "kospi",
+        "metric_label_kr": "코스피",
+        "value": 7003.74,
+        "value_fmt": "7,003.74",
+        "prior_value": 7080.92,
+        "prior_value_fmt": "7,080.92",
+        "unit": null,
+        "change_category": "pct_only",
+        "change_unit_label": null,
+        "weekly_change_value": null,
+        "weekly_change_bp": null,
+        "weekly_change_percent": -1.0899713596538343,
+        "raw_change_percent": -1.0899713596538343,
+        "as_of_date_kst": "2026-10-02",
+        "prior_as_of_date_kst": "2026-09-23",
+        "source": "네이버 일별 종가(localTradedAt)"
+      },
+      {
+        "metric_id": "kosdaq",
+        "metric_label_kr": "코스닥",
+        "value": 893.29,
+        "value_fmt": "893.29",
+        "prior_value": 844.48,
+        "prior_value_fmt": "844.48",
+        "unit": null,
+        "change_category": "pct_only",
+        "change_unit_label": null,
+        "weekly_change_value": null,
+        "weekly_change_bp": null,
+        "weekly_change_percent": 5.7798882152330355,
+        "raw_change_percent": 5.7798882152330355,
+        "as_of_date_kst": "2026-10-02",
+        "prior_as_of_date_kst": "2026-09-23",
+        "source": "네이버 일별 종가(localTradedAt)"
+      },
+      {
+        "metric_id": "nasdaq",
+        "metric_label_kr": "나스닥",
+        "value": 27190.86,
+        "value_fmt": "27,190.86",
+        "prior_value": 26939.37,
+        "prior_value_fmt": "26,939.37",
+        "unit": null,
+        "change_category": "pct_only",
+        "change_unit_label": null,
+        "weekly_change_value": null,
+        "weekly_change_bp": null,
+        "weekly_change_percent": 0.9335407620890971,
+        "raw_change_percent": 0.9335407620890971,
+        "as_of_date_kst": "2026-10-02",
+        "prior_as_of_date_kst": "2026-09-24",
+        "source": "Daily 아카이브 지표 스냅샷(data/daily_archive)"
+      },
+      {
+        "metric_id": "sp500",
+        "metric_label_kr": "S&P 500",
+        "value": 7722.72,
+        "value_fmt": "7,722.72",
+        "prior_value": 7704.13,
+        "prior_value_fmt": "7,704.13",
+        "unit": null,
+        "change_category": "pct_only",
+        "change_unit_label": null,
+        "weekly_change_value": null,
+        "weekly_change_bp": null,
+        "weekly_change_percent": 0.24129914734045435,
+        "raw_change_percent": 0.24129914734045435,
+        "as_of_date_kst": "2026-10-02",
+        "prior_as_of_date_kst": "2026-09-24",
+        "source": "Daily 아카이브 지표 스냅샷(data/daily_archive)"
+      },
+      {
+        "metric_id": "usdkrw",
+        "metric_label_kr": "원/달러",
+        "value": 1342.51,
+        "value_fmt": "1,342.51",
+        "prior_value": 1365.2,
+        "prior_value_fmt": "1,365.20",
+        "unit": null,
+        "change_category": "dual",
+        "change_unit_label": "원",
+        "weekly_change_value": -22.690000000000055,
+        "weekly_change_bp": null,
+        "weekly_change_percent": -1.6620275417521282,
+        "raw_change_percent": -1.6620275417521282,
+        "as_of_date_kst": "2026-10-02",
+        "prior_as_of_date_kst": "2026-09-24",
+        "source": "Daily 아카이브 지표 스냅샷(data/daily_archive)"
+      },
+      {
+        "metric_id": "us10y",
+        "metric_label_kr": "미 국채 10년",
+        "value": 5.28,
+        "value_fmt": "5.28",
+        "prior_value": 5.16,
+        "prior_value_fmt": "5.16",
+        "unit": null,
+        "change_category": "bp",
+        "change_unit_label": null,
+        "weekly_change_value": null,
+        "weekly_change_bp": 12.0,
+        "weekly_change_percent": null,
+        "raw_change_percent": 2.325581395348839,
+        "as_of_date_kst": "2026-10-02",
+        "prior_as_of_date_kst": "2026-09-24",
+        "source": "Daily 아카이브 지표 스냅샷(data/daily_archive)"
+      },
+      {
+        "metric_id": "wti",
+        "metric_label_kr": "WTI",
+        "value": 91.26,
+        "value_fmt": "91.26",
+        "prior_value": 94.37,
+        "prior_value_fmt": "94.37",
+        "unit": null,
+        "change_category": "pct_only",
+        "change_unit_label": null,
+        "weekly_change_value": null,
+        "weekly_change_bp": null,
+        "weekly_change_percent": -3.295538836494648,
+        "raw_change_percent": -3.295538836494648,
+        "as_of_date_kst": "2026-10-02",
+        "prior_as_of_date_kst": "2026-09-24",
+        "source": "Daily 아카이브 지표 스냅샷(data/daily_archive)"
+      }
+    ],
+    "gaps": [
+      {
+        "metric_id": "gold",
+        "metric_label_kr": "금",
+        "josa_eun_neun": "은",
+        "reason": "NOT_TRACKED_IN_DAILY_ARCHIVE"
+      }
+    ],
+    "status": "OK"
+  },
+  "market_data_aggregation_note": "주간 등락률 기준: 전주 마지막 거래일 → 이번 주 마지막 거래일 (2026-09-23 종가 → 2026-10-02 종가; 2026-09-24 종가 → 2026-10-02 종가)",
+  "moo_q_weekly_issued": {
+    "issued": [
+      {
+        "edition_date_kst": "2026-09-29",
+        "claim_text": "PCE 발표를 앞두고 코스피가 코스닥 대비 약세를 이어갈까요?",
+        "topic": "코스피 vs 코스닥 상대성과(이벤트연동: PCE)",
+        "resolution_at": "2026-09-30",
+        "resolution_is_sunday": false
+      },
+      {
+        "edition_date_kst": "2026-10-02",
+        "claim_text": "삼성전자보통주가 삼성전자우선주 대비 약세를 이어갈까요?",
+        "topic": "삼성전자보통주 vs 삼성전자우선주 상대성과",
+        "resolution_at": "2026-10-05",
+        "resolution_is_sunday": false
+      },
+      {
+        "edition_date_kst": "2026-10-03",
+        "claim_text": "삼성전자보통주가 삼성전자우선주 대비 강세를 이어갈까요?",
+        "topic": "삼성전자보통주 vs 삼성전자우선주 상대성과",
+        "resolution_at": "2026-10-07",
+        "resolution_is_sunday": false
+      }
+    ],
+    "issued_count": 3,
+    "bucket_count": 2,
+    "buckets": [
+      "삼성전자보통주 vs 삼성전자우선주 상대성과",
+      "코스피 vs 코스닥 상대성과(이벤트연동: PCE)"
+    ],
+    "duplicate_ratio": 0.3333,
+    "observation_period_distribution": {
+      "D+1": 1,
+      "D+3": 1,
+      "D+4": 1
+    },
+    "status": "OK"
+  },
+  "moo_q_weekly_matured": {
+    "matured": [
+      {
+        "evaluated_on_edition_date_kst": "2026-09-29",
+        "claim_date_kst": "2026-09-25",
+        "origin_week": "earlier",
+        "previous_claim": "외국인 매도 흐름이 이어지는 가운데 원/달러가 내릴까요?",
+        "verdict": "MATCH",
+        "evidence": "1365.54 → 1355.28 (-0.75%)"
+      },
+      {
+        "evaluated_on_edition_date_kst": "2026-09-30",
+        "claim_date_kst": "2026-09-29",
+        "origin_week": "this_week",
+        "previous_claim": "PCE 발표를 앞두고 코스피가 코스닥 대비 약세를 이어갈까요?",
+        "verdict": "MATCH",
+        "evidence": "6889.74 → 6870.81 (-0.66%)"
+      },
+      {
+        "evaluated_on_edition_date_kst": "2026-10-01",
+        "claim_date_kst": "2026-09-29",
+        "origin_week": "this_week",
+        "previous_claim": "PCE 발표를 앞두고 코스피가 코스닥 대비 약세를 이어갈까요?",
+        "verdict": "MATCH",
+        "evidence": "6889.74 → 6870.81 (-0.66%)"
+      },
+      {
+        "evaluated_on_edition_date_kst": "2026-10-02",
+        "claim_date_kst": "2026-09-29",
+        "origin_week": "this_week",
+        "previous_claim": "PCE 발표를 앞두고 코스피가 코스닥 대비 약세를 이어갈까요?",
+        "verdict": "MATCH",
+        "evidence": "코스피 6889.74→6870.81 (-0.27%) · 코스닥 846.58→849.80 (+0.38%) · 상대 -0.66%p"
+      },
+      {
+        "evaluated_on_edition_date_kst": "2026-10-03",
+        "claim_date_kst": "2026-10-02",
+        "origin_week": "this_week",
+        "previous_claim": "삼성전자보통주가 삼성전자우선주 대비 약세를 이어갈까요?",
+        "verdict": "PARTIAL",
+        "evidence": "삼성전자보통주 274500.00→276000.00 (+0.55%) · 삼성전자우선주 202000.00→201500.00 (-0.25%) · 상대 +0.79%p"
+      }
+    ],
+    "matured_count": 5,
+    "matured_this_week_count": 4,
+    "matured_earlier_count": 1,
+    "status": "OK"
+  },
+  "week_label_kr": "40주차",
+  "archived_days_count": 5,
+  "missing_archive_days": [],
+  "trading_days_count": 5,
+  "edition_type": "WEEKLY",
+  "edition_date": "2026-10-05",
+  "recap_period_start": "2026-09-28",
+  "recap_period_end": "2026-10-04",
+  "market_data_cutoff": "2026-10-02",
+  "market_data_cutoff_corrected": "2026-10-02",
+  "calendar_period_start": "2026-10-05",
+  "calendar_period_end": "2026-10-11",
+  "issue_id": "weekly-2026-10-05",
+  "slug": "2026-10-05-weekly-report",
+  "source_count": 6,
+  "archive_record_count": 10,
+  "weekly_thesis_meta": {
+    "source_edition_date_kst": "2026-10-03",
+    "status": "OK"
+  },
+  "market_temperature_trajectory": [
+    {
+      "date": "2026-09-25",
+      "label": "neutral",
+      "displayLabel": "중립",
+      "position": 3,
+      "closed": true
+    },
+    {
+      "date": "2026-09-29",
+      "label": "cautious",
+      "displayLabel": "경계",
+      "position": 2,
+      "closed": false
+    },
+    {
+      "date": "2026-09-30",
+      "label": "neutral",
+      "displayLabel": "중립",
+      "position": 3,
+      "closed": false
+    },
+    {
+      "date": "2026-10-01",
+      "label": "neutral",
+      "displayLabel": "중립",
+      "position": 3,
+      "closed": false
+    },
+    {
+      "date": "2026-10-02",
+      "label": "neutral",
+      "displayLabel": "중립",
+      "position": 3,
+      "closed": false
+    }
+  ],
+  "weekly_events": [
+    {
+      "edition_date_kst": "2026-10-03",
+      "category": "고용",
+      "title": "미국 고용 둔화에 나스닥 상승",
+      "fact": "미국의 9월 비농업 고용지표가 예상보다 부진하게 발표되면서 연준의 추가 금리 인상 우려가 완화되었고, 그 영향으로 기술주 중심의 매수세가 유입되며 나스닥 지수가 상승했다.",
+      "market_reaction": "원/달러 -16.9원",
+      "moo_interpretation": null
+    },
+    {
+      "edition_date_kst": "2026-10-02",
+      "category": "기업",
+      "title": "사상 첫 수출 1조달러 돌파 가시화",
+      "fact": "9월 수출이 사상 처음으로 1200억달러를 넘어서며 역대 최대치를 경신했고 1~9월 누적 수출이 이미 지난해 연간 실적을 넘어섰습니다.",
+      "market_reaction": "코스닥 +4.4841%",
+      "moo_interpretation": null
+    },
+    {
+      "edition_date_kst": "2026-10-01",
+      "category": "물가",
+      "title": "미국 PCE 물가 둔화에도 국채금리 상승",
+      "fact": "미국 8월 개인소비지출 물가 지표가 예상치를 하회하며 둔화세를 보였으나 뉴욕증시 주요 지수는 혼조세로 마감했다.",
+      "market_reaction": "원/달러 +4.16원",
+      "moo_interpretation": null
+    }
+  ],
+  "weekly_scorecard": [
+    {
+      "metric_id": "kosdaq",
+      "value": 893.29,
+      "unit": null,
+      "weekly_change_percent": 5.7798882152330355,
+      "as_of_date_kst": "2026-10-02",
+      "source": "Daily 아카이브 지표 스냅샷(data/daily_archive)",
+      "data_points": 2
+    },
+    {
+      "metric_id": "wti",
+      "value": 91.26,
+      "unit": null,
+      "weekly_change_percent": -3.295538836494648,
+      "as_of_date_kst": "2026-10-02",
+      "source": "Daily 아카이브 지표 스냅샷(data/daily_archive)",
+      "data_points": 2
+    },
+    {
+      "metric_id": "us10y",
+      "value": 5.28,
+      "unit": null,
+      "weekly_change_percent": 2.325581395348839,
+      "as_of_date_kst": "2026-10-02",
+      "source": "Daily 아카이브 지표 스냅샷(data/daily_archive)",
+      "data_points": 2
+    },
+    {
+      "metric_id": "usdkrw",
+      "value": 1342.51,
+      "unit": null,
+      "weekly_change_percent": -1.6620275417521282,
+      "as_of_date_kst": "2026-10-02",
+      "source": "Daily 아카이브 지표 스냅샷(data/daily_archive)",
+      "data_points": 2
+    },
+    {
+      "metric_id": "kospi",
+      "value": 7003.74,
+      "unit": null,
+      "weekly_change_percent": -1.0899713596538343,
+      "as_of_date_kst": "2026-10-02",
+      "source": "Daily 아카이브 지표 스냅샷(data/daily_archive)",
+      "data_points": 2
+    },
+    {
+      "metric_id": "nasdaq",
+      "value": 27190.86,
+      "unit": null,
+      "weekly_change_percent": 0.9335407620890971,
+      "as_of_date_kst": "2026-10-02",
+      "source": "Daily 아카이브 지표 스냅샷(data/daily_archive)",
+      "data_points": 2
+    }
+  ],
+  "evidence_and_cracks": {
+    "supporting": [
+      "코스닥은 주간 상승 방향으로 함께 관찰됐다(수치는 WEEKLY SCORECARD 참조).",
+      "미 국채 10년은 주간 상승 방향으로 함께 관찰됐다(수치는 WEEKLY SCORECARD 참조).",
+      "나스닥은 주간 상승 방향으로 함께 관찰됐다(수치는 WEEKLY SCORECARD 참조)."
+    ],
+    "counter": "다만 WTI는 반대 방향으로 움직여, 같은 요인만으로 설명되지 않을 영향 가능성이 있다.",
+    "status": "OK"
+  },
+  "moo_check_weekly": {
+    "match_count": 4,
+    "partial_count": 1,
+    "miss_count": 0,
+    "other_count": 0,
+    "judged_count": 5,
+    "match_ratio": 0.8,
+    "status": "OK"
+  },
+  "moo_word_weekly": {
+    "word_of_the_week": "국채금리",
+    "status": "OK",
+    "term_count": 5,
+    "excluded_candidate_count": 0,
+    "representative_term": {
+      "id": "treasury_yield",
+      "term": "국채금리",
+      "normalized_term": "국채금리",
+      "short_definition": "정부가 발행한 채권에 투자할 때 받는 이자율입니다.",
+      "definition_source_name": "머니투데이",
+      "definition_source_url": "https://home.treasury.gov/",
+      "article_sources": [
+        "머니투데이"
+      ],
+      "daily_edition_ids": [
+        "2026-10-01"
+      ],
+      "first_published_date_kst": "2026-10-01",
+      "published_count": 1,
+      "is_official_p1": true,
+      "definition": "정부가 발행한 채권에 투자할 때 받는 이자율입니다.",
+      "official_source": "머니투데이",
+      "selection_score": 3.5,
+      "is_representative": true
+    }
+  },
+  "weekly_calendar": [
+    {
+      "date_kst": "2026-10-05",
+      "weekday_kr": "월",
+      "events": [],
+      "empty_label": "일정 데이터 미수집"
+    },
+    {
+      "date_kst": "2026-10-06",
+      "weekday_kr": "화",
+      "events": [],
+      "empty_label": "일정 데이터 미수집"
+    },
+    {
+      "date_kst": "2026-10-07",
+      "weekday_kr": "수",
+      "events": [],
+      "empty_label": "일정 데이터 미수집"
+    },
+    {
+      "date_kst": "2026-10-08",
+      "weekday_kr": "목",
+      "events": [],
+      "empty_label": "일정 데이터 미수집"
+    },
+    {
+      "date_kst": "2026-10-09",
+      "weekday_kr": "금",
+      "events": [],
+      "empty_label": "일정 데이터 미수집"
+    },
+    {
+      "date_kst": "2026-10-10",
+      "weekday_kr": "토",
+      "events": [],
+      "empty_label": "일정 데이터 미수집"
+    },
+    {
+      "date_kst": "2026-10-11",
+      "weekday_kr": "일",
+      "events": [],
+      "empty_label": "일정 데이터 미수집"
+    }
+  ],
+  "next_week_view": {
+    "base_scenario": "예상과 달리 코스피는 외국인의 순매도가 이어졌음에도 기관의 매수세가 유입되면서 7003.74로 상승 마감했습니다.",
+    "confirming_condition": "확인 조건: 삼성전자보통주가 삼성전자우선주 대비 강세를 이어갈까요? (판정 예정 2026-10-07)",
+    "invalidating_condition": null,
+    "source_edition_date_kst": "2026-10-03",
+    "status": "OK"
+  },
+  "weekly_news": [
+    {
+      "news_id": null,
+      "source_name": "파이낸셜뉴스",
+      "source_headline": "9월 제조업 체감경기 급락..4년 만에 최대폭",
+      "source_url": "https://www.fnnews.com/news/202609281658302365",
+      "published_at": "2026-09-29",
+      "edition_date_kst": "2026-09-29"
+    },
+    {
+      "news_id": null,
+      "source_name": "연합뉴스마켓",
+      "source_headline": "미·이란 대치 속 美국채금리 또 상승…뉴욕증시 하락(종합)",
+      "source_url": "https://www.yna.co.kr/view/AKR20260929006451072",
+      "published_at": "2026-09-29",
+      "edition_date_kst": "2026-09-29"
+    },
+    {
+      "news_id": null,
+      "source_name": "CNBC",
+      "source_headline": "AMD acquiring Fei-Fei Li's World Labs AI firm in deal worth $8.2 billion",
+      "source_url": "https://www.cnbc.com/2026/09/28/amd-fei-fei-li-world-labs.html",
+      "published_at": "2026-09-28",
+      "edition_date_kst": "2026-09-29"
+    },
+    {
+      "news_id": null,
+      "source_name": "MarketWatch",
+      "source_headline": "Nvidia makes a statement with historic $150 billion buyback announcement",
+      "source_url": "https://www.marketwatch.com/story/nvidia-makes-a-statement-with-historic-150-billion-buyback-announcement-bfab5a22?mod=mw_rss_topstories",
+      "published_at": "2026-09-28",
+      "edition_date_kst": "2026-09-29"
+    },
+    {
+      "news_id": null,
+      "source_name": "CNBC",
+      "source_headline": "Trump announces plan for $15 billion steel plant, would be largest in U.S. history",
+      "source_url": "https://www.cnbc.com/2026/09/28/trump-steel-plant-iowa.html",
+      "published_at": "2026-09-28",
+      "edition_date_kst": "2026-09-29"
+    },
+    {
+      "news_id": null,
+      "source_name": "매일경제",
+      "source_headline": "“증시 반등 기다리다 특판 12%짜리 넣었어요”…여윳돈, 예금서 적금으로",
+      "source_url": "https://www.mk.co.kr/news/economy/12164313",
+      "published_at": "2026-09-30",
+      "edition_date_kst": "2026-09-30"
+    }
+  ],
+  "methodology": [
+    "이 리포트는 이미 발행된 Daily 아카이브(NormalizedDailyIssue)와 로컬 지표 스냅샷을 결정론적으로 집계한 것을 바탕으로 한다.",
+    "주간 변화율 = ((구간 마지막 유효 종가 / 구간 첫 유효 종가) - 1) × 100. 휴장·결측일은 보간하지 않고 그 날짜를 계산에서 제외한다.",
+    "시장 데이터 기준시점은 직전 금요일 종가이며, 금요일 데이터가 없으면 그 주에 실제 데이터가 남아 있는 가장 최근 거래일을 그대로 쓴다.",
+    "원본 Daily에 없는 항목(예: 무효화 조건)은 지어내지 않고 '데이터 부족'으로 표시한다."
+  ],
+  "calendar_has_events": false,
+  "data_completeness_status": "PARTIAL_DATA",
+  "payload_sha256": "ad0ce12f2fc581e167de192405aa18181ffc4c3436947d384cde64fad54d5a62"
+}
