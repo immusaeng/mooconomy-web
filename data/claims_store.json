@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-03T06:44:19+09:00",
+  "updatedAt": "2026-10-06T06:43:20+09:00",
   "claims": {
     "2026-07-19-c1": {
       "schemaVersion": 1,
@@ -3170,6 +3170,46 @@
         "asOf": "2026-10-02",
         "benchmarkValue": 201500.0,
         "benchmarkAsOf": "2026-10-02"
+      },
+      "resolution": null
+    },
+    "2026-10-06-c1": {
+      "schemaVersion": 1,
+      "claimId": "2026-10-06-c1",
+      "publicationId": "2026-10-06",
+      "issuedAt": "2026-10-06T06:43:20+09:00",
+      "dataCutoffAt": "2026-10-06T06:43:20+09:00",
+      "lockedAt": "2026-10-06T06:43:20+09:00",
+      "claimMode": "auto",
+      "verificationType": "proxy",
+      "topic": "나스닥 vs S&P500 상대성과(LLM 후보, 5거래일)",
+      "sourceNewsIds": [],
+      "observationText": "나스닥은 전일 대비 +1.05%, S&P500는 +0.66% — 상대 괴리 +0.39%p.",
+      "interpretationText": "나스닥이 S&P500 대비 상대적으로 강세를 유지하는지가 확인 대상입니다.",
+      "claimText": "나스닥이 S&P500 대비 강세를 이어갈까요?",
+      "metricId": "nasdaq",
+      "benchmarkMetricId": "sp500",
+      "comparisonType": "excess_return",
+      "expectedDirection": "up",
+      "horizon": {
+        "type": "multi_session",
+        "market": "US",
+        "sessions": 5,
+        "resolutionAt": "2026-10-12"
+      },
+      "thresholdRuleId": "pct_030",
+      "confidence": null,
+      "status": "unresolved",
+      "revision": {
+        "version": 1,
+        "contentHash": "4303ff674760cca2c2ba0184b7edaebd2539ae8abed828eeff0cd28a13672795",
+        "correctedFrom": null
+      },
+      "baseline": {
+        "value": 27477.31,
+        "asOf": "2026-10-05",
+        "benchmarkValue": 7773.95,
+        "benchmarkAsOf": "2026-10-05"
       },
       "resolution": null
     }
