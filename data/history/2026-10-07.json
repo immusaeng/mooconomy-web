@@ -1,0 +1,180 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-07",
+  "generatedAt": "2026-10-07T06:43:33+09:00",
+  "indicators": [
+    {
+      "id": "kospi",
+      "value": 6941.39,
+      "change": -0.8902,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "kosdaq",
+      "value": 919.92,
+      "change": 2.9811,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "nasdaq",
+      "value": 27599.79,
+      "change": 0.4457,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "sp500",
+      "value": 7818.93,
+      "change": 0.5786,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1336.89,
+      "change": -3.71,
+      "displayMode": "delta",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "us10y",
+      "value": 5.27,
+      "change": -0.04,
+      "displayMode": "delta",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "wti",
+      "value": 89.91,
+      "change": 0.6831,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "vix",
+      "value": 15.01,
+      "change": -3.2861,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    }
+  ],
+  "auditIndicators": [
+    {
+      "id": "kospi",
+      "value": 6941.39,
+      "displayMode": "pct"
+    },
+    {
+      "id": "kosdaq",
+      "value": 919.92,
+      "displayMode": "pct"
+    },
+    {
+      "id": "nasdaq",
+      "value": 27599.79,
+      "displayMode": "pct"
+    },
+    {
+      "id": "sp500",
+      "value": 7818.93,
+      "displayMode": "pct"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1336.89,
+      "displayMode": "dual"
+    },
+    {
+      "id": "us10y",
+      "value": 5.27,
+      "displayMode": "delta"
+    },
+    {
+      "id": "wti",
+      "value": 89.91,
+      "displayMode": "pct"
+    },
+    {
+      "id": "vix",
+      "value": 15.01,
+      "displayMode": "pct"
+    },
+    {
+      "id": "gold",
+      "value": 4192.7,
+      "displayMode": "pct"
+    },
+    {
+      "id": "dollarindex",
+      "value": 101.86,
+      "displayMode": "pct"
+    },
+    {
+      "id": "brent",
+      "value": 101.15,
+      "displayMode": "pct"
+    },
+    {
+      "id": "dow",
+      "value": 51521.28,
+      "displayMode": "pct"
+    },
+    {
+      "id": "nikkei",
+      "value": 69946.86,
+      "displayMode": "pct"
+    },
+    {
+      "id": "shanghai",
+      "value": 3842.2,
+      "displayMode": "pct"
+    }
+  ],
+  "signals": [
+    {
+      "id": "recession",
+      "color": "green",
+      "value": 0.47
+    },
+    {
+      "id": "rate-gap",
+      "color": "green",
+      "value": 1.0
+    },
+    {
+      "id": "liquidity-stress",
+      "color": "green",
+      "value": 3.12
+    }
+  ],
+  "calendarSnapshot": [
+    {
+      "id": "us-2026-10-14-미국 소비자물가(CPI)",
+      "time": "2026-10-14",
+      "country": "US",
+      "title": "미국 소비자물가(CPI)",
+      "importance": "high"
+    }
+  ],
+  "marketTemperature": {
+    "label": "neutral",
+    "displayLabel": "중립",
+    "status": "ok"
+  },
+  "connectionTopology": "DELTA_MODEL_V1",
+  "driverClaims": [
+    "미 국채 금리 하락 및 유가 안정에 따른 글로벌 위험선호 개선",
+    "코스피 외국인 대규모 매도로 인한 지수 상방 제약"
+  ],
+  "krMarketClosed": false
+}

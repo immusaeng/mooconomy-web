@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-06T06:43:20+09:00",
+  "updatedAt": "2026-10-07T06:43:33+09:00",
   "claims": {
     "2026-07-19-c1": {
       "schemaVersion": 1,
@@ -3159,7 +3159,7 @@
       },
       "thresholdRuleId": "pct_100",
       "confidence": null,
-      "status": "unresolved",
+      "status": "neutral",
       "revision": {
         "version": 1,
         "contentHash": "c43e4969bb5f90536c45ee2e904483d71605093f3bdb0704b9315c2dda0b75d2",
@@ -3171,7 +3171,28 @@
         "benchmarkValue": 201500.0,
         "benchmarkAsOf": "2026-10-02"
       },
-      "resolution": null
+      "resolution": {
+        "resolutionId": "2026-10-03-c1-res",
+        "claimId": "2026-10-03-c1",
+        "resolvedAt": "2026-10-07T06:43:25+09:00",
+        "verdict": "neutral",
+        "metricId": "samsung_common",
+        "comparisonType": "excess_return",
+        "startValue": 276000.0,
+        "endValue": 273000.0,
+        "changeValue": 0.25299385046930634,
+        "changeUnit": "%",
+        "benchmarkMetricId": "samsung_preferred",
+        "benchmarkStartValue": 201500.0,
+        "benchmarkEndValue": 198800.0,
+        "neutralLower": -1.0,
+        "neutralUpper": 1.0,
+        "neutralBand": 1.0,
+        "dataProvider": "Naver",
+        "sourceUrl": "",
+        "observedAt": "2026-10-06",
+        "explanation": "변화폭이 중립 구간(±1.0%) 이내에 머물러 뚜렷한 방향이 나타나지 않았습니다."
+      }
     },
     "2026-10-06-c1": {
       "schemaVersion": 1,
@@ -3210,6 +3231,47 @@
         "asOf": "2026-10-05",
         "benchmarkValue": 7773.95,
         "benchmarkAsOf": "2026-10-05"
+      },
+      "resolution": null
+    },
+    "2026-10-07-c1": {
+      "schemaVersion": 1,
+      "claimId": "2026-10-07-c1",
+      "publicationId": "2026-10-07",
+      "issuedAt": "2026-10-07T06:43:33+09:00",
+      "dataCutoffAt": "2026-10-07T06:43:33+09:00",
+      "lockedAt": "2026-10-07T06:43:33+09:00",
+      "claimMode": "auto",
+      "verificationType": "proxy",
+      "topic": "코스피 vs 코스닥 상대성과(이벤트연동: CPI)",
+      "sourceNewsIds": [],
+      "observationText": "코스피는 전일 대비 -0.89%, 코스닥은 +2.98% — 상대 괴리 -3.87%p.",
+      "interpretationText": "CPI 발표 이후에도 이 상대적 괴리가 유지되는지가 확인 대상입니다.",
+      "claimText": "CPI 발표를 앞두고 코스피가 코스닥 대비 약세를 이어갈까요?",
+      "metricId": "kospi",
+      "benchmarkMetricId": "kosdaq",
+      "comparisonType": "excess_return",
+      "expectedDirection": "down",
+      "horizon": {
+        "type": "event_linked",
+        "market": "KR",
+        "eventId": "CPI",
+        "deadline": "2026-10-14",
+        "resolutionAt": "2026-10-14"
+      },
+      "thresholdRuleId": "pct_030",
+      "confidence": null,
+      "status": "unresolved",
+      "revision": {
+        "version": 1,
+        "contentHash": "2f6befae98dbf663775f5d67021a22235961c669fad64c0a951ec539855a5ef5",
+        "correctedFrom": null
+      },
+      "baseline": {
+        "value": 6941.39,
+        "asOf": "2026-10-06",
+        "benchmarkValue": 919.92,
+        "benchmarkAsOf": "2026-10-06"
       },
       "resolution": null
     }
