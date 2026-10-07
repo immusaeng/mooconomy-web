@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-07T06:43:33+09:00",
+  "updatedAt": "2026-10-08T06:43:47+09:00",
   "claims": {
     "2026-07-19-c1": {
       "schemaVersion": 1,
@@ -3272,6 +3272,47 @@
         "asOf": "2026-10-06",
         "benchmarkValue": 919.92,
         "benchmarkAsOf": "2026-10-06"
+      },
+      "resolution": null
+    },
+    "2026-10-08-c1": {
+      "schemaVersion": 1,
+      "claimId": "2026-10-08-c1",
+      "publicationId": "2026-10-08",
+      "issuedAt": "2026-10-08T06:43:47+09:00",
+      "dataCutoffAt": "2026-10-08T06:43:47+09:00",
+      "lockedAt": "2026-10-08T06:43:47+09:00",
+      "claimMode": "auto",
+      "verificationType": "proxy",
+      "topic": "코스피 vs 코스닥 상대성과(이벤트연동: CPI)",
+      "sourceNewsIds": [],
+      "observationText": "코스피는 전일 대비 -1.98%, 코스닥은 -2.34% — 상대 괴리 +0.36%p.",
+      "interpretationText": "CPI 발표 이후에도 이 상대적 괴리가 유지되는지가 확인 대상입니다.",
+      "claimText": "CPI 발표를 앞두고 코스피가 코스닥 대비 강세를 이어갈까요?",
+      "metricId": "kospi",
+      "benchmarkMetricId": "kosdaq",
+      "comparisonType": "excess_return",
+      "expectedDirection": "up",
+      "horizon": {
+        "type": "event_linked",
+        "market": "KR",
+        "eventId": "CPI",
+        "deadline": "2026-10-14",
+        "resolutionAt": "2026-10-14"
+      },
+      "thresholdRuleId": "pct_030",
+      "confidence": null,
+      "status": "unresolved",
+      "revision": {
+        "version": 1,
+        "contentHash": "cf5708b0375ec0f636ec7cda14ad3ac06b5bc61cfe2ae4874e2c5e04438c1200",
+        "correctedFrom": null
+      },
+      "baseline": {
+        "value": 6803.9,
+        "asOf": "2026-10-07",
+        "benchmarkValue": 898.43,
+        "benchmarkAsOf": "2026-10-07"
       },
       "resolution": null
     }

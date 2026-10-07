@@ -1,0 +1,187 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-08",
+  "generatedAt": "2026-10-08T06:43:47+09:00",
+  "indicators": [
+    {
+      "id": "kospi",
+      "value": 6803.9,
+      "change": -1.9807,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "kosdaq",
+      "value": 898.43,
+      "change": -2.3361,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "nasdaq",
+      "value": 27538.69,
+      "change": -0.2214,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "sp500",
+      "value": 7801.77,
+      "change": -0.2195,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1339.21,
+      "change": 2.32,
+      "displayMode": "delta",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "us10y",
+      "value": 5.28,
+      "change": 0.01,
+      "displayMode": "delta",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "wti",
+      "value": 88.94,
+      "change": null,
+      "displayMode": "pct",
+      "direction": null,
+      "status": "stale"
+    },
+    {
+      "id": "vix",
+      "value": 15.08,
+      "change": 0.4664,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    }
+  ],
+  "auditIndicators": [
+    {
+      "id": "kospi",
+      "value": 6803.9,
+      "displayMode": "pct"
+    },
+    {
+      "id": "kosdaq",
+      "value": 898.43,
+      "displayMode": "pct"
+    },
+    {
+      "id": "nasdaq",
+      "value": 27538.69,
+      "displayMode": "pct"
+    },
+    {
+      "id": "sp500",
+      "value": 7801.77,
+      "displayMode": "pct"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1339.21,
+      "displayMode": "dual"
+    },
+    {
+      "id": "us10y",
+      "value": 5.28,
+      "displayMode": "delta"
+    },
+    {
+      "id": "wti",
+      "value": 88.94,
+      "displayMode": "pct"
+    },
+    {
+      "id": "vix",
+      "value": 15.08,
+      "displayMode": "pct"
+    },
+    {
+      "id": "gold",
+      "value": 4136.7,
+      "displayMode": "pct"
+    },
+    {
+      "id": "dollarindex",
+      "value": 102.29,
+      "displayMode": "pct"
+    },
+    {
+      "id": "brent",
+      "value": 100.95,
+      "displayMode": "pct"
+    },
+    {
+      "id": "dow",
+      "value": 51179.87,
+      "displayMode": "pct"
+    },
+    {
+      "id": "nikkei",
+      "value": 70683.98,
+      "displayMode": "pct"
+    },
+    {
+      "id": "shanghai",
+      "value": 3842.2,
+      "displayMode": "pct"
+    }
+  ],
+  "signals": [
+    {
+      "id": "recession",
+      "color": "green",
+      "value": 0.48
+    },
+    {
+      "id": "rate-gap",
+      "color": "green",
+      "value": 1.0
+    },
+    {
+      "id": "liquidity-stress",
+      "color": "green",
+      "value": 3.03
+    }
+  ],
+  "calendarSnapshot": [
+    {
+      "id": "us-2026-10-14-미국 소비자물가(CPI)",
+      "time": "2026-10-14",
+      "country": "US",
+      "title": "미국 소비자물가(CPI)",
+      "importance": "high"
+    },
+    {
+      "id": "us-2026-10-15-미국 생산자물가(PPI)",
+      "time": "2026-10-15",
+      "country": "US",
+      "title": "미국 생산자물가(PPI)",
+      "importance": "medium"
+    }
+  ],
+  "marketTemperature": {
+    "label": "cautious",
+    "displayLabel": "경계",
+    "status": "ok"
+  },
+  "connectionTopology": "DELTA_MODEL_V1",
+  "driverClaims": [
+    "미국 국채 10년물 금리 급등",
+    "원/달러 환율 상승에 따른 외국인 자금 이탈"
+  ],
+  "krMarketClosed": false
+}

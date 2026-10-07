@@ -1,0 +1,255 @@
+{
+  "schema_version": "normalized-daily-issue/v1",
+  "edition_id": "2026-10-08",
+  "edition_date_kst": "2026-10-08",
+  "canonical_status": "production",
+  "production_status": "SEND_CONFIRMED",
+  "source_commit_sha": "d377975ac34860dc42c3be06e0c7edeaf3614d13",
+  "subject": "미국 국채금리 급등에 뉴욕증시 하락 마감, 국내 금융시장 압박 커지나",
+  "preheader": "오늘 CHAIN은 전일·전주 대비 델타 3건을 관측했습니다.",
+  "thesis": {
+    "headline": "미국 국채금리 급등에 뉴욕증시 하락 마감, 국내 금융시장 압박 커지나",
+    "three_signals": [
+      "간밤 뉴욕증시는 국채금리 급등 부담에 일제히 하락 마감했습니다.",
+      "전일 국내 증시는 외국인의 대규모 매도세에 코스피와 코스닥 모두 급락했습니다."
+    ]
+  },
+  "main_story": {
+    "headline": "뉴욕증시 국채금리 부담에 하락",
+    "verified_fact": "뉴욕증시 3대 지수가 국채금리 급등 부담에 일제히 하락 마감하며 S&P 500지수와 나스닥종합지수가 전일 대비 각각 0.22% 내렸다.",
+    "why_it_matters": null,
+    "sources": []
+  },
+  "entities": [
+    {
+      "name": "나스닥",
+      "type": "index"
+    },
+    {
+      "name": "금",
+      "type": "commodity"
+    }
+  ],
+  "metrics": [
+    {
+      "id": "kospi",
+      "value": 6803.9,
+      "change": -1.9807,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "kosdaq",
+      "value": 898.43,
+      "change": -2.3361,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "nasdaq",
+      "value": 27538.69,
+      "change": -0.2214,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "sp500",
+      "value": 7801.77,
+      "change": -0.2195,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1339.21,
+      "change": 2.32,
+      "displayMode": "delta",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "us10y",
+      "value": 5.28,
+      "change": 0.01,
+      "displayMode": "delta",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "wti",
+      "value": 88.94,
+      "change": null,
+      "displayMode": "pct",
+      "direction": null,
+      "status": "stale"
+    },
+    {
+      "id": "vix",
+      "value": 15.08,
+      "change": 0.4664,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    }
+  ],
+  "market_changes": [
+    {
+      "id": "kospi",
+      "change": -1.9807,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "kosdaq",
+      "change": -2.3361,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "nasdaq",
+      "change": -0.2214,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "sp500",
+      "change": -0.2195,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "usdkrw",
+      "change": 2.32,
+      "changeUnit": "원",
+      "direction": "up"
+    },
+    {
+      "id": "us10y",
+      "change": 0.01,
+      "changeUnit": "%p",
+      "direction": "up"
+    },
+    {
+      "id": "wti",
+      "change": null,
+      "changeUnit": "%",
+      "direction": null
+    },
+    {
+      "id": "vix",
+      "change": 0.4664,
+      "changeUnit": "%",
+      "direction": "up"
+    }
+  ],
+  "narratives": {
+    "moo_view": "뉴욕증시 하락 마감의 배경은 무엇입니까?\n\n뉴욕증시는 국채금리 급등 부담에 일제히 하락 마감했습니다.\n\n미국 국채금리 동향을 살펴봅니다.",
+    "todays_watch": [],
+    "todays_watch_oneliner": null,
+    "content_status": "DETERMINISTIC_FALLBACK_VALIDATION_FAILURE"
+  },
+  "moo_q": {
+    "claim_id": "2026-10-08-c1",
+    "claim_text": "CPI 발표를 앞두고 코스피가 코스닥 대비 강세를 이어갈까요?",
+    "topic": "코스피 vs 코스닥 상대성과(이벤트연동: CPI)",
+    "resolution_at": "2026-10-14",
+    "status": "unresolved"
+  },
+  "moo_check": [
+    {
+      "previous_claim": "CPI 발표를 앞두고 코스피가 코스닥 대비 약세를 이어갈까요?",
+      "claim_date": "2026-10-07",
+      "evaluation_date": null,
+      "observed_result": null,
+      "verdict": "PENDING",
+      "evidence": null,
+      "source": null
+    }
+  ],
+  "moo_word": {
+    "id": "open_레버리지",
+    "term": "레버리지",
+    "definition": "레버리지는 적은 자기자본으로 타인 자본이나 대출금을 지렛대 삼아 자산 가격 변동에 연동하여 이익과 손실의 폭을 동시에 키우는 금융 기법이다.",
+    "why_today": null,
+    "memory_hook": null,
+    "source_label": "연합뉴스",
+    "article_id": "news_3",
+    "article_url": "https://www.yna.co.kr/view/AKR20261007194200001",
+    "article_publisher": "연합뉴스",
+    "evidence_snippets": [
+      "\"증권사, 레버리지ETF 판매前 '고객에 권유 불가' 등 자체 조치\"."
+    ],
+    "definition_source_name": null,
+    "definition_source_url": null,
+    "definition_priority": "P2_SOURCES_PARTIAL",
+    "origin": "llm_proposed",
+    "grounded_in_article": true,
+    "definition_evidence_verified": true,
+    "status": "ELIGIBLE_FOR_PUBLICATION",
+    "eligible_for_publication": true
+  },
+  "sources": [
+    {
+      "source_name": "파이낸셜뉴스",
+      "source_url": "https://www.fnnews.com/news/202610071815079918",
+      "published_at": "2026-10-07",
+      "source_headline": "에너지·이동수단·주거 '녹색미래'로… 220조 기업투자 연결 [한국형 녹색대전환 추진]"
+    },
+    {
+      "source_name": "파이낸셜뉴스",
+      "source_url": "https://www.fnnews.com/news/202610071815152964",
+      "published_at": "2026-10-07",
+      "source_headline": "기후위기 극복에 산업 경쟁력 달렸다.. 유럽·中·日 등 이미 국가전략 된'GX' [한국형 녹색대전환 추진]"
+    },
+    {
+      "source_name": "연합뉴스",
+      "source_url": "https://www.yna.co.kr/view/AKR20261007194200001",
+      "published_at": "2026-10-08",
+      "source_headline": "\"증권사, 레버리지ETF 판매前 '고객에 권유 불가' 등 자체 조치\""
+    },
+    {
+      "source_name": "매일경제",
+      "source_url": "https://www.mk.co.kr/news/economy/12171045",
+      "published_at": "2026-10-08",
+      "source_headline": "서민금융, 돈이 됩니까…은행 점포 줄이더니 PB센터는 50% 늘렸다"
+    },
+    {
+      "source_name": "CNBC",
+      "source_url": "https://www.cnbc.com/2026/10/07/supertanker-from-us-to-china-chartered-for-76-million-source.html",
+      "published_at": "2026-10-07",
+      "source_headline": "Supertanker chartered from Gulf Coast to China for $76 million, 10 times higher than pre-war level"
+    },
+    {
+      "source_name": "Investing",
+      "source_url": "https://www.investing.com/news/economy-news/asia-shares-weaker-oil-up-investors-weigh-saudihouthi-escalation-4935555",
+      "published_at": "2026-10-07",
+      "source_headline": "World shares, euro slide as high oil prices, fiscal worries linger"
+    },
+    {
+      "source_name": "MarketWatch",
+      "source_url": "https://www.marketwatch.com/story/fed-minutes-show-no-appetite-for-a-series-of-interest-rate-hikes-8b1c6436?mod=mw_rss_topstories",
+      "published_at": "2026-10-07",
+      "source_headline": "Fed’s minutes show no appetite for a series of interest-rate hikes"
+    },
+    {
+      "source_name": "MarketWatch",
+      "source_url": "https://www.marketwatch.com/story/options-traders-are-betting-on-a-dramatic-drop-in-interest-rates-141066fb?mod=mw_rss_topstories",
+      "published_at": "2026-10-07",
+      "source_headline": "Options traders are betting on a dramatic drop in interest rates"
+    }
+  ],
+  "public_url": "https://mooconomy.co.kr/latest-email.html",
+  "validation_status": {
+    "main_story_status": "SELECTED",
+    "content_provenance": "VALIDATED_GEMINI_35",
+    "moo_word_present": true,
+    "sources_count": 8,
+    "is_approximate": false
+  },
+  "content_hash": "0d3f65cae4f0f14d53cf02d4fec7cc9903ddd54b2a8c7e7a046c28adedb03bf2",
+  "archived_at": "2026-10-07T21:46:52.274669+00:00"
+}

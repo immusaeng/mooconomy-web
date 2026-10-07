@@ -1,19 +1,18 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-07T06:43:23+09:00",
-  "publishDate": "2026-10-07",
-  "marketDateKr": "2026-10-06",
-  "marketDateUs": "2026-10-06",
+  "generatedAt": "2026-10-08T06:43:38+09:00",
+  "publishDate": "2026-10-08",
+  "marketDateKr": "2026-10-07",
+  "marketDateUs": "2026-10-07",
   "isDelayed": true,
   "status": "ok",
   "marketTemperature": {
-    "label": "neutral",
-    "displayLabel": "중립",
-    "summary": "미 증시가 상승 마감한 것과 달리 국내 증시는 외국인의 순매도 속에 양극화 양상을 보인 것으로 관찰됩니다. 전체적인 시장 온도는 중립 수준으로 평가될 수 있습니다.",
+    "label": "cautious",
+    "displayLabel": "경계",
+    "summary": "국내 증시가 -1.98% 하락세를 보인 가운데, 외국인의 26,188억원 순매도가 집중되며 경계감이 고조되는 모습입니다. 미 국채 10년물 금리의 5.3%선 상회와 원/달러 환율 상승 압력이 복합적으로 작용한 것으로 관찰됩니다.",
     "reasons": [
-      "간밤 미국 증시 평균 +0.51% 상승",
-      "국내 증시 -0.89% 하락",
-      "외국인 코스피 순매도 17,575억원"
+      "국내 증시 -1.98% 하락",
+      "외국인 코스피 순매도 26,188억원"
     ],
     "watchItems": [
       "외국인 수급"
@@ -24,19 +23,19 @@
     {
       "id": "overnight-global",
       "title": "간밤 글로벌 시장",
-      "text": "간밤 글로벌 시장에서는 나스닥이 +0.45%, S&P500이 +0.58%, 다우가 +0.49% 상승하며 실적 기대에 힘입어 뉴욕증시가 최고치를 기록했습니다. VIX는 15.01, 미국채 10년물 금리는 5.27%로 나타났습니다.",
+      "text": "나스닥과 S&P500이 각각 -0.22%, 다우가 -0.66% 하락하며 뉴욕증시가 사상 최고치 하루 만에 후퇴했습니다. VIX는 15.08, 미국채 10년물 금리는 5.28%를 기록했습니다.",
       "status": "ok"
     },
     {
       "id": "today-domestic",
       "title": "전일 국내 시장",
-      "text": "전일 국내 시장에서는 코스피가 -0.89% 하락한 반면 코스닥은 +2.98% 상승하여 엇갈린 흐름을 보였습니다. 외국인은 코스피에서 17,575억원을 순매도했고 원/달러 환율은 -0.28% 변동했습니다.",
+      "text": "전일 국내 시장은 코스피가 -1.98%, 코스닥이 -2.34% 하락 마감했습니다. 외국인이 코스피에서 26,188억원을 순매도했고, 원/달러 환율은 +0.17% 상승했습니다.",
       "status": "ok"
     },
     {
       "id": "today-checkpoint",
       "title": "오늘의 체크포인트",
-      "text": "미 증시의 신고가 경신과 글로벌 지표 흐름에도 불구하고, 국내 시장은 외국인 수급 이탈과 양극화 장세 속에서 경계 심리가 교차하는 분위기입니다.",
+      "text": "간밤의 글로벌 금리 발작과 뉴욕증시 후퇴 여파가 국내로 이어지며, 시장은 뚜렷한 반등보다는 방어와 관망에 무게를 두는 분위기입니다.",
       "status": "ok"
     }
   ],
@@ -44,18 +43,18 @@
     "nodes": [
       {
         "role": "방향 전환",
-        "label": "코스피",
-        "detail": "코스피가 전일 상승 흐름에서 2026-10-06 기준 하락으로 전환됐습니다(6,941.39)."
+        "label": "코스닥",
+        "detail": "코스닥이 전일 상승 흐름에서 2026-10-07 기준 하락으로 전환됐습니다(898.43)."
       },
       {
         "role": "새 동인",
         "label": "동인 변화",
-        "detail": "새로 등장한 동인이 관측됩니다: 미 국채 금리 하락 및 유가 안정에 따른 글로벌 위험선호 개선"
+        "detail": "새로 등장한 동인이 관측됩니다: 미국 국채 10년물 금리 급등"
       },
       {
         "role": "변화폭 1위",
         "label": "원/달러",
-        "detail": "오늘 변화 폭이 가장 큰 지표는 원/달러입니다(-3.71원)."
+        "detail": "오늘 변화 폭이 가장 큰 지표는 원/달러입니다(+2.32원)."
       }
     ],
     "topologyId": "DELTA_MODEL_V1",
@@ -68,52 +67,52 @@
       {
         "id": "foreign",
         "label": "외국인 수급",
-        "value": -17575,
-        "displayValue": "-17,575억원",
+        "value": -26188,
+        "displayValue": "-26,188억원",
         "direction": "down",
         "status": "ok"
       },
       {
         "id": "institution",
         "label": "기관 수급",
-        "value": -39,
-        "displayValue": "-39억원",
+        "value": -7101,
+        "displayValue": "-7,101억원",
         "direction": "down",
         "status": "ok"
       },
       {
         "id": "individual",
         "label": "개인 수급",
-        "value": 7441,
-        "displayValue": "+7,441억원",
+        "value": 26183,
+        "displayValue": "+26,183억원",
         "direction": "up",
         "status": "ok"
       },
       {
         "id": "usdkrw",
         "label": "원/달러",
-        "value": 1336.89,
-        "displayValue": "1,336.9원",
-        "direction": "down",
+        "value": 1339.21,
+        "displayValue": "1,339.2원",
+        "direction": "up",
         "status": "ok"
       },
       {
         "id": "leading-sector",
         "label": "주도 업종",
-        "value": 7.84,
-        "displayValue": "전자제품 +7.84%",
+        "value": 3.86,
+        "displayValue": "화장품 +3.86%",
         "direction": "up",
         "status": "ok"
       }
     ],
-    "summary": "외국인 수급 -17,575억원, 기관 수급 -39억원, 개인 수급 +7,441억원, 원/달러 1,336.9원, 주도 업종 전자제품 +7.84%.",
+    "summary": "외국인 수급 -26,188억원, 기관 수급 -7,101억원, 개인 수급 +26,183억원, 원/달러 1,339.2원, 주도 업종 화장품 +3.86%.",
     "status": "ok"
   },
   "risks": [
     {
       "id": "foreign-outflow",
       "title": "외국인 수급 이탈",
-      "detail": "외국인이 코스피 시장에서 17,575억원을 순매도하며 수급 이탈 흐름이 관찰되는 점이 부담으로 작용할 가능성이 있습니다.",
+      "detail": "외국인의 대규모 코스피 순매도 26,188억원이 출회되며 수급 이탈 압력이 지속되는 점이 관찰됩니다.",
       "level": "주의",
       "status": "ok"
     }
@@ -126,148 +125,156 @@
       "title": "미국 소비자물가(CPI)",
       "importance": "high",
       "status": "ok"
+    },
+    {
+      "id": "us-2026-10-15-미국 생산자물가(PPI)",
+      "time": "2026-10-15",
+      "country": "US",
+      "title": "미국 생산자물가(PPI)",
+      "importance": "medium",
+      "status": "ok"
     }
   ],
   "news": {
     "items": [
       {
-        "id": "news-머니투데이-[여의도 클라쓰] '와이제이링크, LG이노텍, 필옵틱스' 클라쓰 올릴 종목은?",
-        "category": "news",
-        "source": "머니투데이",
-        "title": "[여의도 클라쓰] '와이제이링크, LG이노텍, 필옵틱스' 클라쓰 올릴 종목은?",
-        "url": "https://www.mt.co.kr/stock/2026/10/07/2026100623487038962",
-        "publishedAt": "2026-10-07",
-        "status": "ok"
-      },
-      {
-        "id": "news-머니투데이-[고래사냥] '제이앤티씨·에스투더블유·엠플러스! 내일장 고래 종목은?!",
-        "category": "news",
-        "source": "머니투데이",
-        "title": "[고래사냥] '제이앤티씨·에스투더블유·엠플러스! 내일장 고래 종목은?!",
-        "url": "https://www.mt.co.kr/stock/2026/10/07/2026100623487018963",
-        "publishedAt": "2026-10-07",
-        "status": "ok"
-      },
-      {
-        "id": "news-연합뉴스마켓-실적 기대에 힘받은 뉴욕증시…S&P500·나스닥 또 최고치(종합)",
-        "category": "news",
-        "source": "연합뉴스마켓",
-        "title": "실적 기대에 힘받은 뉴욕증시…S&P500·나스닥 또 최고치(종합)",
-        "url": "https://www.yna.co.kr/view/AKR20261007005851072",
-        "publishedAt": "2026-10-07",
-        "status": "ok"
-      },
-      {
-        "id": "news-연합뉴스마켓-[코스피·코스닥 전 거래일(6일) 주요공시]",
-        "category": "news",
-        "source": "연합뉴스마켓",
-        "title": "[코스피·코스닥 전 거래일(6일) 주요공시]",
-        "url": "https://www.yna.co.kr/view/AKR20261006186300008",
-        "publishedAt": "2026-10-07",
-        "status": "ok"
-      },
-      {
-        "id": "news-연합뉴스-원전수출 시대 본격 추진…산·학·연·관 '리더스포럼' 출범",
-        "category": "news",
-        "source": "연합뉴스",
-        "title": "원전수출 시대 본격 추진…산·학·연·관 '리더스포럼' 출범",
-        "url": "https://www.yna.co.kr/view/AKR20261006182500003",
-        "publishedAt": "2026-10-07",
-        "status": "ok"
-      },
-      {
-        "id": "news-연합뉴스-실손24 EMR업체에 지원금 72억원…청구 실적 없어도 유지비 준다",
-        "category": "news",
-        "source": "연합뉴스",
-        "title": "실손24 EMR업체에 지원금 72억원…청구 실적 없어도 유지비 준다",
-        "url": "https://www.yna.co.kr/view/AKR20261006188200002",
-        "publishedAt": "2026-10-07",
-        "status": "ok"
-      },
-      {
-        "id": "news-매일경제-“화이트칼라 초과근무 없인 나라 미래 없어”…전 한은총재의 경고",
+        "id": "news-매일경제-서민금융, 돈이 됩니까…은행 점포 줄이더니 PB센터는 50% 늘렸다",
         "category": "news",
         "source": "매일경제",
-        "title": "“화이트칼라 초과근무 없인 나라 미래 없어”…전 한은총재의 경고",
-        "url": "https://www.mk.co.kr/news/economy/12169834",
-        "publishedAt": "2026-10-06",
+        "title": "서민금융, 돈이 됩니까…은행 점포 줄이더니 PB센터는 50% 늘렸다",
+        "url": "https://www.mk.co.kr/news/economy/12171045",
+        "publishedAt": "2026-10-08",
         "status": "ok"
       },
       {
-        "id": "news-매일경제-금리 올렸는데도 집값 올랐다…참여정부 7차례 인상기에 깨진 상식 그 이유는 [부동산 손자병법]",
+        "id": "news-머니투데이-S&P 사상 최고 하루만에 후퇴…24년만의 금리 발작[뉴욕마감]",
+        "category": "news",
+        "source": "머니투데이",
+        "title": "S&P 사상 최고 하루만에 후퇴…24년만의 금리 발작[뉴욕마감]",
+        "url": "https://www.mt.co.kr/world/2026/10/08/2026100806382488315",
+        "publishedAt": "2026-10-08",
+        "status": "ok"
+      },
+      {
+        "id": "news-머니투데이-\"혐오스럽게 생겨도 남자 '이것' 많으면 재혼 가능\" 돌싱들 생각은?",
+        "category": "news",
+        "source": "머니투데이",
+        "title": "\"혐오스럽게 생겨도 남자 '이것' 많으면 재혼 가능\" 돌싱들 생각은?",
+        "url": "https://www.mt.co.kr/society/2026/10/08/2026100806042354352",
+        "publishedAt": "2026-10-08",
+        "status": "ok"
+      },
+      {
+        "id": "news-연합뉴스-\"증권사, 레버리지ETF 판매前 '고객에 권유 불가' 등 자체 조치\"",
+        "category": "news",
+        "source": "연합뉴스",
+        "title": "\"증권사, 레버리지ETF 판매前 '고객에 권유 불가' 등 자체 조치\"",
+        "url": "https://www.yna.co.kr/view/AKR20261007194200001",
+        "publishedAt": "2026-10-08",
+        "status": "ok"
+      },
+      {
+        "id": "news-연합뉴스마켓-[코스피·코스닥 전 거래일(7일) 주요공시]",
+        "category": "news",
+        "source": "연합뉴스마켓",
+        "title": "[코스피·코스닥 전 거래일(7일) 주요공시]",
+        "url": "https://www.yna.co.kr/view/AKR20261007192100008",
+        "publishedAt": "2026-10-08",
+        "status": "ok"
+      },
+      {
+        "id": "news-연합뉴스-수조원대 다단계 사기 혐의 '콕 코인'…법적 판단 '감감'",
+        "category": "news",
+        "source": "연합뉴스",
+        "title": "수조원대 다단계 사기 혐의 '콕 코인'…법적 판단 '감감'",
+        "url": "https://www.yna.co.kr/view/AKR20261006187900002",
+        "publishedAt": "2026-10-08",
+        "status": "ok"
+      },
+      {
+        "id": "news-한국경제-5.35% 찍은 美 국채 10년물…390억달러 입찰 흥행에 상승폭 축소",
+        "category": "news",
+        "source": "한국경제",
+        "title": "5.35% 찍은 美 국채 10년물…390억달러 입찰 흥행에 상승폭 축소",
+        "url": "https://www.hankyung.com/article/202610089597i",
+        "publishedAt": "2026-10-08",
+        "status": "ok"
+      },
+      {
+        "id": "news-매일경제-정은경 “내년 노인 하위 45%, 기초연금 물가인상분 소급 지급”",
         "category": "news",
         "source": "매일경제",
-        "title": "금리 올렸는데도 집값 올랐다…참여정부 7차례 인상기에 깨진 상식 그 이유는 [부동산 손자병법]",
-        "url": "https://www.mk.co.kr/news/economy/12169729",
-        "publishedAt": "2026-10-06",
+        "title": "정은경 “내년 노인 하위 45%, 기초연금 물가인상분 소급 지급”",
+        "url": "https://www.mk.co.kr/news/economy/12170902",
+        "publishedAt": "2026-10-07",
         "status": "ok"
       },
       {
-        "id": "news-CNBC-Chart: A look at the S&P 500's remarkable and defiant trip to a new re",
+        "id": "news-CNBC-Levi Strauss hikes profit guidance after tariff refunds, but its sales",
         "category": "news",
         "source": "CNBC",
-        "title": "Chart: A look at the S&P 500's remarkable and defiant trip to a new record",
-        "url": "https://www.cnbc.com/2026/10/06/chart-a-look-at-the-sp-500s-remarkable-and-defiant-trip-a-new-record.html",
-        "publishedAt": "2026-10-06",
+        "title": "Levi Strauss hikes profit guidance after tariff refunds, but its sales outlook is less optimistic",
+        "url": "https://www.cnbc.com/2026/10/07/levi-strauss-levi-q3-2026-earnings.html",
+        "publishedAt": "2026-10-07",
         "status": "ok"
       },
       {
-        "id": "news-Investing-Canada trade surplus widens as exporters race to beat U.S. tariff",
+        "id": "news-Investing-Medical device maker Centinel Spine discloses revenue rise in US ",
         "category": "news",
         "source": "Investing",
-        "title": "Canada trade surplus widens as exporters race to beat U.S. tariffs",
-        "url": "https://www.investing.com/news/economy-news/canada-trade-surplus-widens-as-exporters-race-to-beat-us-tariffs-4935258",
-        "publishedAt": "2026-10-06",
+        "title": "Medical device maker Centinel Spine discloses revenue rise in US IPO filing",
+        "url": "https://www.investing.com/news/economy-news/medical-device-maker-centinel-spine-discloses-revenue-rise-in-us-ipo-filing-4937575",
+        "publishedAt": "2026-10-07",
         "status": "ok"
       },
       {
-        "id": "news-Investing-IMF says hedge funds’ market footprint growing, merits closer scr",
-        "category": "news",
-        "source": "Investing",
-        "title": "IMF says hedge funds’ market footprint growing, merits closer scrutiny",
-        "url": "https://www.investing.com/news/economy-news/imf-says-hedge-funds-market-footprint-growing-merits-closer-scrutiny-4934859",
-        "publishedAt": "2026-10-06",
-        "status": "ok"
-      },
-      {
-        "id": "news-MarketWatch-Oct. 9 has loomed large in stock-market history. Why investors ",
-        "category": "news",
-        "source": "MarketWatch",
-        "title": "Oct. 9 has loomed large in stock-market history. Why investors still shouldn’t buy into an October jinx.",
-        "url": "https://www.marketwatch.com/story/oct-9-has-loomed-large-in-stock-market-history-why-investors-still-shouldnt-buy-into-an-october-jinx-81d7149b?mod=mw_rss_topstories",
-        "publishedAt": "2026-10-06",
-        "status": "ok"
-      },
-      {
-        "id": "news-MarketWatch-Google makes a fresh bet on nuclear power as the AI energy crun",
-        "category": "news",
-        "source": "MarketWatch",
-        "title": "Google makes a fresh bet on nuclear power as the AI energy crunch intensifies",
-        "url": "https://www.marketwatch.com/story/google-makes-a-fresh-bet-on-nuclear-power-as-the-ai-energy-crunch-intensifies-a757c296?mod=mw_rss_topstories",
-        "publishedAt": "2026-10-06",
-        "status": "ok"
-      },
-      {
-        "id": "news-MarketWatch-Marvell just impressed Wall Street with ‘good numbers plus a be",
-        "category": "news",
-        "source": "MarketWatch",
-        "title": "Marvell just impressed Wall Street with ‘good numbers plus a better story’",
-        "url": "https://www.marketwatch.com/story/marvell-just-impressed-wall-street-with-good-numbers-plus-a-better-story-57fbbf23?mod=mw_rss_topstories",
-        "publishedAt": "2026-10-06",
-        "status": "ok"
-      },
-      {
-        "id": "news-CNBC-Boomers' dividend stocks take beating from bond yields, with retiremen",
+        "id": "news-CNBC-Apollo, banks in talks to finance SpaceX's $40 billion Nvidia GPU purc",
         "category": "news",
         "source": "CNBC",
-        "title": "Boomers' dividend stocks take beating from bond yields, with retirement income on the line",
-        "url": "https://www.cnbc.com/2026/10/06/dividend-stocks-bond-yields-retirement-income.html",
-        "publishedAt": "2026-10-06",
+        "title": "Apollo, banks in talks to finance SpaceX's $40 billion Nvidia GPU purchase",
+        "url": "https://www.cnbc.com/2026/10/07/spacex-nvidia-chips-apollo-financing.html",
+        "publishedAt": "2026-10-07",
+        "status": "ok"
+      },
+      {
+        "id": "news-Investing-Trading Day: Stocks, bonds in delicate dance",
+        "category": "news",
+        "source": "Investing",
+        "title": "Trading Day: Stocks, bonds in delicate dance",
+        "url": "https://www.investing.com/news/economy-news/trading-day-stocks-bonds-in-delicate-dance-4937564",
+        "publishedAt": "2026-10-07",
+        "status": "ok"
+      },
+      {
+        "id": "news-MarketWatch-Higher yields are taking their toll on all areas of the stock m",
+        "category": "news",
+        "source": "MarketWatch",
+        "title": "Higher yields are taking their toll on all areas of the stock market, except the one that matters",
+        "url": "https://www.marketwatch.com/story/higher-yields-are-taking-their-toll-on-all-areas-of-the-stock-market-except-the-one-that-matters-69a90322?mod=mw_rss_topstories",
+        "publishedAt": "2026-10-07",
+        "status": "ok"
+      },
+      {
+        "id": "news-Investing-World shares, euro slide as high oil prices, fiscal worries linge",
+        "category": "news",
+        "source": "Investing",
+        "title": "World shares, euro slide as high oil prices, fiscal worries linger",
+        "url": "https://www.investing.com/news/economy-news/asia-shares-weaker-oil-up-investors-weigh-saudihouthi-escalation-4935555",
+        "publishedAt": "2026-10-07",
+        "status": "ok"
+      },
+      {
+        "id": "news-MarketWatch-Options traders are betting on a dramatic drop in interest rate",
+        "category": "news",
+        "source": "MarketWatch",
+        "title": "Options traders are betting on a dramatic drop in interest rates",
+        "url": "https://www.marketwatch.com/story/options-traders-are-betting-on-a-dramatic-drop-in-interest-rates-141066fb?mod=mw_rss_topstories",
+        "publishedAt": "2026-10-07",
         "status": "ok"
       }
     ],
     "clusters": [],
-    "summary": "뉴욕증시의 실적 기대감에 따른 최고가 경신 소식과 함께 국내 증시의 주요 공시 및 종목 관련 분석들이 주목받는 것으로 보입니다.",
+    "summary": "S&P 사상 최고치 하루 만의 후퇴와 24년 만의 금리 발작 소식이 전해지며 글로벌 금융시장의 불확실성이 주목받고 있습니다.",
     "status": "ok"
   },
   "latestBriefing": null,
@@ -275,82 +282,14 @@
     {
       "id": "kospi",
       "name": "코스피",
-      "value": 6941.39,
-      "displayValue": "6,941.39",
-      "change": -0.8902,
+      "value": 6803.9,
+      "displayValue": "6,803.90",
+      "change": -1.9807,
       "changeUnit": "%",
       "displayMode": "pct",
       "direction": "down",
-      "asOf": "2026-10-06",
+      "asOf": "2026-10-07",
       "source": "KRX",
-      "sourceUrl": "",
-      "frequency": "daily",
-      "isDelayed": true,
-      "status": "ok",
-      "insight": "전일 대비 하락"
-    },
-    {
-      "id": "kosdaq",
-      "name": "코스닥",
-      "value": 919.92,
-      "displayValue": "919.92",
-      "change": 2.9811,
-      "changeUnit": "%",
-      "displayMode": "pct",
-      "direction": "up",
-      "asOf": "2026-10-06",
-      "source": "KRX",
-      "sourceUrl": "",
-      "frequency": "daily",
-      "isDelayed": true,
-      "status": "ok",
-      "insight": "전일 대비 큰 폭 상승"
-    },
-    {
-      "id": "nasdaq",
-      "name": "나스닥",
-      "value": 27599.79,
-      "displayValue": "27,599.79",
-      "change": 0.4457,
-      "changeUnit": "%",
-      "displayMode": "pct",
-      "direction": "up",
-      "asOf": "2026-10-06",
-      "source": "FinanceDataReader",
-      "sourceUrl": "",
-      "frequency": "daily",
-      "isDelayed": true,
-      "status": "ok",
-      "insight": "전일 대비 상승"
-    },
-    {
-      "id": "sp500",
-      "name": "S&P500",
-      "value": 7818.93,
-      "displayValue": "7,818.93",
-      "change": 0.5786,
-      "changeUnit": "%",
-      "displayMode": "pct",
-      "direction": "up",
-      "asOf": "2026-10-06",
-      "source": "FinanceDataReader",
-      "sourceUrl": "",
-      "frequency": "daily",
-      "isDelayed": true,
-      "status": "ok",
-      "insight": "전일 대비 상승"
-    },
-    {
-      "id": "usdkrw",
-      "name": "원/달러",
-      "value": 1336.89,
-      "displayValue": "1,336.9",
-      "change": -3.71,
-      "changeUnit": "원",
-      "displayMode": "delta",
-      "direction": "down",
-      "asOf": "2026-10-06",
-      "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
       "isDelayed": true,
@@ -358,15 +297,83 @@
       "insight": "전일 대비 큰 폭 하락"
     },
     {
+      "id": "kosdaq",
+      "name": "코스닥",
+      "value": 898.43,
+      "displayValue": "898.43",
+      "change": -2.3361,
+      "changeUnit": "%",
+      "displayMode": "pct",
+      "direction": "down",
+      "asOf": "2026-10-07",
+      "source": "KRX",
+      "sourceUrl": "",
+      "frequency": "daily",
+      "isDelayed": true,
+      "status": "ok",
+      "insight": "전일 대비 큰 폭 하락"
+    },
+    {
+      "id": "nasdaq",
+      "name": "나스닥",
+      "value": 27538.69,
+      "displayValue": "27,538.69",
+      "change": -0.2214,
+      "changeUnit": "%",
+      "displayMode": "pct",
+      "direction": "down",
+      "asOf": "2026-10-07",
+      "source": "FinanceDataReader",
+      "sourceUrl": "",
+      "frequency": "daily",
+      "isDelayed": true,
+      "status": "ok",
+      "insight": "전일 대비 소폭 하락"
+    },
+    {
+      "id": "sp500",
+      "name": "S&P500",
+      "value": 7801.77,
+      "displayValue": "7,801.77",
+      "change": -0.2195,
+      "changeUnit": "%",
+      "displayMode": "pct",
+      "direction": "down",
+      "asOf": "2026-10-07",
+      "source": "FinanceDataReader",
+      "sourceUrl": "",
+      "frequency": "daily",
+      "isDelayed": true,
+      "status": "ok",
+      "insight": "전일 대비 소폭 하락"
+    },
+    {
+      "id": "usdkrw",
+      "name": "원/달러",
+      "value": 1339.21,
+      "displayValue": "1,339.2",
+      "change": 2.32,
+      "changeUnit": "원",
+      "displayMode": "delta",
+      "direction": "up",
+      "asOf": "2026-10-07",
+      "source": "FinanceDataReader",
+      "sourceUrl": "",
+      "frequency": "daily",
+      "isDelayed": true,
+      "status": "ok",
+      "insight": "전일 대비 큰 폭 상승"
+    },
+    {
       "id": "us10y",
       "name": "미국채10년",
-      "value": 5.27,
-      "displayValue": "5.27%",
-      "change": -0.04,
+      "value": 5.28,
+      "displayValue": "5.28%",
+      "change": 0.01,
       "changeUnit": "%p",
       "displayMode": "delta",
-      "direction": "down",
-      "asOf": "2026-10-06",
+      "direction": "up",
+      "asOf": "2026-10-07",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
@@ -377,36 +384,36 @@
     {
       "id": "wti",
       "name": "WTI",
-      "value": 89.91,
-      "displayValue": "$89.91",
-      "change": 0.6831,
+      "value": 88.94,
+      "displayValue": "$88.94",
+      "change": null,
+      "changeUnit": "%",
+      "displayMode": "pct",
+      "direction": null,
+      "asOf": "2026-10-07",
+      "source": "FinanceDataReader",
+      "sourceUrl": "",
+      "frequency": "daily",
+      "isDelayed": true,
+      "status": "stale",
+      "insight": null
+    },
+    {
+      "id": "vix",
+      "name": "VIX",
+      "value": 15.08,
+      "displayValue": "15.08",
+      "change": 0.4664,
       "changeUnit": "%",
       "displayMode": "pct",
       "direction": "up",
-      "asOf": "2026-10-06",
+      "asOf": "2026-10-07",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
       "isDelayed": true,
       "status": "ok",
       "insight": "전일 대비 상승"
-    },
-    {
-      "id": "vix",
-      "name": "VIX",
-      "value": 15.01,
-      "displayValue": "15.01",
-      "change": -3.2861,
-      "changeUnit": "%",
-      "displayMode": "pct",
-      "direction": "down",
-      "asOf": "2026-10-06",
-      "source": "FinanceDataReader",
-      "sourceUrl": "",
-      "frequency": "daily",
-      "isDelayed": true,
-      "status": "ok",
-      "insight": "전일 대비 큰 폭 하락"
     }
   ],
   "signals": [
@@ -414,11 +421,11 @@
       "id": "recession",
       "name": "경기침체 경보등",
       "color": "green",
-      "value": 0.47,
-      "valueLabel": "+0.47%p",
+      "value": 0.48,
+      "valueLabel": "+0.48%p",
       "insight": "장단기 금리차가 정상 범위에 있어 침체 신호는 뚜렷하지 않습니다.",
       "sourceLabel": "장단기 금리차 (미국채 10Y-2Y)",
-      "asOf": "2026-10-07"
+      "asOf": "2026-10-08"
     },
     {
       "id": "rate-gap",
@@ -428,17 +435,17 @@
       "valueLabel": "+1.00%p",
       "insight": "한미 금리차가 관리 가능한 수준이라 자본유출 압력은 크지 않습니다.",
       "sourceLabel": "한미 기준금리차 (Fed-한은)",
-      "asOf": "2026-10-07"
+      "asOf": "2026-10-08"
     },
     {
       "id": "liquidity-stress",
       "name": "유동성 스트레스",
       "color": "green",
-      "value": 3.12,
-      "valueLabel": "3.12%p",
+      "value": 3.03,
+      "valueLabel": "3.03%p",
       "insight": "신용시장 스프레드가 평상 수준이라 유동성 경색 신호는 없습니다.",
       "sourceLabel": "하이일드 스프레드 (BAMLH0A0HYM2)",
-      "asOf": "2026-10-07"
+      "asOf": "2026-10-08"
     }
   ],
   "claims": {
@@ -970,6 +977,10 @@
     ],
     "todayClaims": [
       {
+        "claimText": "CPI 발표를 앞두고 코스피가 코스닥 대비 강세를 이어갈까요?",
+        "status": "unresolved"
+      },
+      {
         "claimText": "CPI 발표를 앞두고 코스피가 코스닥 대비 약세를 이어갈까요?",
         "status": "unresolved"
       },
@@ -982,12 +993,12 @@
       "hit": 15,
       "miss": 27,
       "neutral": 10,
-      "unresolved": 2,
+      "unresolved": 3,
       "invalidated": 1
     }
   },
   "newsletterClaimsTeaser": {
-    "publicationId": "2026-10-06",
+    "publicationId": "2026-10-07",
     "resolvedCount": 0,
     "hitCount": 0,
     "missCount": 0,
