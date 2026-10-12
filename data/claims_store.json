@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-10T06:52:23+09:00",
+  "updatedAt": "2026-10-13T06:46:02+09:00",
   "claims": {
     "2026-07-19-c1": {
       "schemaVersion": 1,
@@ -3220,7 +3220,7 @@
       },
       "thresholdRuleId": "pct_030",
       "confidence": null,
-      "status": "unresolved",
+      "status": "miss",
       "revision": {
         "version": 1,
         "contentHash": "4303ff674760cca2c2ba0184b7edaebd2539ae8abed828eeff0cd28a13672795",
@@ -3232,7 +3232,28 @@
         "benchmarkValue": 7773.95,
         "benchmarkAsOf": "2026-10-05"
       },
-      "resolution": null
+      "resolution": {
+        "resolutionId": "2026-10-06-c1-res",
+        "claimId": "2026-10-06-c1",
+        "resolvedAt": "2026-10-13T06:45:56+09:00",
+        "verdict": "miss",
+        "metricId": "nasdaq",
+        "comparisonType": "excess_return",
+        "startValue": 27477.31,
+        "endValue": 27245.9,
+        "changeValue": -1.2704108225349435,
+        "changeUnit": "%",
+        "benchmarkMetricId": "sp500",
+        "benchmarkStartValue": 7773.95,
+        "benchmarkEndValue": 7807.24,
+        "neutralLower": -0.3,
+        "neutralUpper": 0.3,
+        "neutralBand": 0.3,
+        "dataProvider": "FinanceDataReader",
+        "sourceUrl": "",
+        "observedAt": "2026-10-12",
+        "explanation": "실제 변화가 예상한 상승 방향과 다르게 움직였습니다."
+      }
     },
     "2026-10-07-c1": {
       "schemaVersion": 1,
@@ -3382,7 +3403,7 @@
       },
       "thresholdRuleId": "pct_030",
       "confidence": null,
-      "status": "unresolved",
+      "status": "miss",
       "revision": {
         "version": 1,
         "contentHash": "83fa80293f732437b79251742da0bf8ca670d5744aa242d6b694db9ceb8dbd5f",
@@ -3393,6 +3414,68 @@
         "asOf": "2026-10-09",
         "benchmarkValue": 7811.54,
         "benchmarkAsOf": "2026-10-09"
+      },
+      "resolution": {
+        "resolutionId": "2026-10-10-c1-res",
+        "claimId": "2026-10-10-c1",
+        "resolvedAt": "2026-10-13T06:45:56+09:00",
+        "verdict": "miss",
+        "metricId": "nasdaq",
+        "comparisonType": "excess_return",
+        "startValue": 27366.17,
+        "endValue": 27245.9,
+        "changeValue": -0.38443746035414983,
+        "changeUnit": "%",
+        "benchmarkMetricId": "sp500",
+        "benchmarkStartValue": 7811.54,
+        "benchmarkEndValue": 7807.24,
+        "neutralLower": -0.3,
+        "neutralUpper": 0.3,
+        "neutralBand": 0.3,
+        "dataProvider": "FinanceDataReader",
+        "sourceUrl": "",
+        "observedAt": "2026-10-12",
+        "explanation": "실제 변화가 예상한 상승 방향과 다르게 움직였습니다."
+      }
+    },
+    "2026-10-13-c1": {
+      "schemaVersion": 1,
+      "claimId": "2026-10-13-c1",
+      "publicationId": "2026-10-13",
+      "issuedAt": "2026-10-13T06:46:02+09:00",
+      "dataCutoffAt": "2026-10-13T06:46:02+09:00",
+      "lockedAt": "2026-10-13T06:46:02+09:00",
+      "claimMode": "auto",
+      "verificationType": "proxy",
+      "topic": "코스닥 vs 코스피 상대성과(이벤트연동: CPI)",
+      "sourceNewsIds": [],
+      "observationText": "코스닥은 전일 대비 -4.83%, 코스피는 -3.65% — 상대 괴리 -1.18%p.",
+      "interpretationText": "CPI 발표 이후에도 이 상대적 괴리가 유지되는지가 확인 대상입니다.",
+      "claimText": "CPI 발표를 앞두고 코스닥이 코스피 대비 약세를 이어갈까요?",
+      "metricId": "kosdaq",
+      "benchmarkMetricId": "kospi",
+      "comparisonType": "excess_return",
+      "expectedDirection": "down",
+      "horizon": {
+        "type": "event_linked",
+        "market": "KR",
+        "eventId": "CPI",
+        "deadline": "2026-10-14",
+        "resolutionAt": "2026-10-14"
+      },
+      "thresholdRuleId": "pct_030",
+      "confidence": null,
+      "status": "unresolved",
+      "revision": {
+        "version": 1,
+        "contentHash": "62903be92a08fe4657a1c5c36fc3e8e534a27237b1bc45251ec42e400eb5e279",
+        "correctedFrom": null
+      },
+      "baseline": {
+        "value": 849.19,
+        "asOf": "2026-10-12",
+        "benchmarkValue": 6384.24,
+        "benchmarkAsOf": "2026-10-12"
       },
       "resolution": null
     }
