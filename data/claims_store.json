@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-14T06:52:31+09:00",
+  "updatedAt": "2026-10-15T06:52:53+09:00",
   "claims": {
     "2026-07-19-c1": {
       "schemaVersion": 1,
@@ -3588,7 +3588,7 @@
       },
       "thresholdRuleId": "pct_100",
       "confidence": null,
-      "status": "unresolved",
+      "status": "neutral",
       "revision": {
         "version": 1,
         "contentHash": "8975f97165410ef1355c1ff2520dd18c19b09228d2f7d0981c17602dd302be13",
@@ -3599,6 +3599,67 @@
         "asOf": "2026-10-13",
         "benchmarkValue": 175800.0,
         "benchmarkAsOf": "2026-10-13"
+      },
+      "resolution": {
+        "resolutionId": "2026-10-14-c1-res",
+        "claimId": "2026-10-14-c1",
+        "resolvedAt": "2026-10-15T06:52:46+09:00",
+        "verdict": "neutral",
+        "metricId": "samsung_common",
+        "comparisonType": "excess_return",
+        "startValue": 234000.0,
+        "endValue": 234500.0,
+        "changeValue": 0.839386248942563,
+        "changeUnit": "%",
+        "benchmarkMetricId": "samsung_preferred",
+        "benchmarkStartValue": 175800.0,
+        "benchmarkEndValue": 174700.0,
+        "neutralLower": -1.0,
+        "neutralUpper": 1.0,
+        "neutralBand": 1.0,
+        "dataProvider": "Naver",
+        "sourceUrl": "",
+        "observedAt": "2026-10-14",
+        "explanation": "변화폭이 중립 구간(±1.0%) 이내에 머물러 뚜렷한 방향이 나타나지 않았습니다."
+      }
+    },
+    "2026-10-15-c1": {
+      "schemaVersion": 1,
+      "claimId": "2026-10-15-c1",
+      "publicationId": "2026-10-15",
+      "issuedAt": "2026-10-15T06:52:53+09:00",
+      "dataCutoffAt": "2026-10-15T06:52:53+09:00",
+      "lockedAt": "2026-10-15T06:52:53+09:00",
+      "claimMode": "auto",
+      "verificationType": "proxy",
+      "topic": "나스닥 vs S&P500 상대성과(LLM 후보, 5거래일)",
+      "sourceNewsIds": [],
+      "observationText": "나스닥은 전일 대비 -1.88%, S&P500는 -1.11% — 상대 괴리 -0.77%p.",
+      "interpretationText": "나스닥이 S&P500 대비 상대적으로 약세를 유지하는지가 확인 대상입니다.",
+      "claimText": "미국 뉴욕 증시는 예상을 웃돈 9월 소비자물가지수(CPI) 상승률 여파로 인플레이션 우려가 고조되면서 일제히 하락했다. 특히 기술주 중심의 나스닥 지수가 큰 폭으로 내렸다. — 나스닥이 S&P500 대비 약세를 이어갈까요?",
+      "metricId": "nasdaq",
+      "benchmarkMetricId": "sp500",
+      "comparisonType": "excess_return",
+      "expectedDirection": "down",
+      "horizon": {
+        "type": "multi_session",
+        "market": "US",
+        "sessions": 5,
+        "resolutionAt": "2026-10-21"
+      },
+      "thresholdRuleId": "pct_030",
+      "confidence": null,
+      "status": "unresolved",
+      "revision": {
+        "version": 1,
+        "contentHash": "7b4a4956bdb6e9978f82a95099c8ff45ab2230d87777c1faa821cb20c141ec51",
+        "correctedFrom": null
+      },
+      "baseline": {
+        "value": 26692.87,
+        "asOf": "2026-10-14",
+        "benchmarkValue": 7718.94,
+        "benchmarkAsOf": "2026-10-14"
       },
       "resolution": null
     }

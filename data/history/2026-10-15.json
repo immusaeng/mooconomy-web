@@ -1,0 +1,194 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-15",
+  "generatedAt": "2026-10-15T06:52:53+09:00",
+  "indicators": [
+    {
+      "id": "kospi",
+      "value": 6008.81,
+      "change": -0.4397,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "kosdaq",
+      "value": 823.88,
+      "change": -1.571,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "nasdaq",
+      "value": 26692.87,
+      "change": -1.8802,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "sp500",
+      "value": 7718.94,
+      "change": -1.1083,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1341.14,
+      "change": 1.01,
+      "displayMode": "delta",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "us10y",
+      "value": 5.19,
+      "change": -0.03,
+      "displayMode": "delta",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "wti",
+      "value": 95.17,
+      "change": null,
+      "displayMode": "pct",
+      "direction": null,
+      "status": "stale"
+    },
+    {
+      "id": "vix",
+      "value": 16.87,
+      "change": 10.4781,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    }
+  ],
+  "auditIndicators": [
+    {
+      "id": "kospi",
+      "value": 6008.81,
+      "displayMode": "pct"
+    },
+    {
+      "id": "kosdaq",
+      "value": 823.88,
+      "displayMode": "pct"
+    },
+    {
+      "id": "nasdaq",
+      "value": 26692.87,
+      "displayMode": "pct"
+    },
+    {
+      "id": "sp500",
+      "value": 7718.94,
+      "displayMode": "pct"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1341.14,
+      "displayMode": "dual"
+    },
+    {
+      "id": "us10y",
+      "value": 5.19,
+      "displayMode": "delta"
+    },
+    {
+      "id": "wti",
+      "value": 95.17,
+      "displayMode": "pct"
+    },
+    {
+      "id": "vix",
+      "value": 16.87,
+      "displayMode": "pct"
+    },
+    {
+      "id": "gold",
+      "value": 4127.3,
+      "displayMode": "pct"
+    },
+    {
+      "id": "dollarindex",
+      "value": 102.55,
+      "displayMode": "pct"
+    },
+    {
+      "id": "brent",
+      "value": 106.06,
+      "displayMode": "pct"
+    },
+    {
+      "id": "dow",
+      "value": 51621.48,
+      "displayMode": "pct"
+    },
+    {
+      "id": "nikkei",
+      "value": 67777.52,
+      "displayMode": "pct"
+    },
+    {
+      "id": "shanghai",
+      "value": 3800.86,
+      "displayMode": "pct"
+    }
+  ],
+  "signals": [
+    {
+      "id": "recession",
+      "color": "green",
+      "value": 0.42
+    },
+    {
+      "id": "rate-gap",
+      "color": "green",
+      "value": 1.0
+    },
+    {
+      "id": "liquidity-stress",
+      "color": "green",
+      "value": 3.16
+    }
+  ],
+  "calendarSnapshot": [
+    {
+      "id": "us-2026-10-15-미국 생산자물가(PPI)",
+      "time": "2026-10-15",
+      "country": "US",
+      "title": "미국 생산자물가(PPI)",
+      "importance": "medium"
+    },
+    {
+      "id": "us-earn-2026-10-20-테슬라",
+      "time": "2026-10-20",
+      "country": "US",
+      "title": "테슬라 실적발표",
+      "importance": "medium"
+    },
+    {
+      "id": "us-earn-2026-10-21-메타",
+      "time": "2026-10-21",
+      "country": "US",
+      "title": "메타 실적발표",
+      "importance": "medium"
+    }
+  ],
+  "marketTemperature": {
+    "label": "cautious",
+    "displayLabel": "경계",
+    "status": "ok"
+  },
+  "connectionTopology": "DELTA_MODEL_V1",
+  "driverClaims": [
+    "예상을 웃돈 미국 9월 소비자물가 상승률",
+    "외국인 투자자의 코스피 대규모 순매도"
+  ],
+  "krMarketClosed": false
+}
