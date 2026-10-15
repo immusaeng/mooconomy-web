@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-15T06:52:53+09:00",
+  "updatedAt": "2026-10-16T06:46:05+09:00",
   "claims": {
     "2026-07-19-c1": {
       "schemaVersion": 1,
@@ -3660,6 +3660,45 @@
         "asOf": "2026-10-14",
         "benchmarkValue": 7718.94,
         "benchmarkAsOf": "2026-10-14"
+      },
+      "resolution": null
+    },
+    "2026-10-16-c1": {
+      "schemaVersion": 1,
+      "claimId": "2026-10-16-c1",
+      "publicationId": "2026-10-16",
+      "issuedAt": "2026-10-16T06:46:05+09:00",
+      "dataCutoffAt": "2026-10-16T06:46:05+09:00",
+      "lockedAt": "2026-10-16T06:46:05+09:00",
+      "claimMode": "auto",
+      "verificationType": "proxy",
+      "topic": "원/달러 다음 거래일 방향(flow_fx)",
+      "sourceNewsIds": [],
+      "observationText": "원/달러는 1,341.3원으로 전일 대비 0.01% 상승했습니다.",
+      "interpretationText": "외국인 매도 흐름이 이어지는 가운데 상승 흐름이 다음 거래일까지 이어지는지가 확인 대상입니다.",
+      "claimText": "외국인 매도 흐름이 이어지는 가운데 원/달러가 오를까요?",
+      "metricId": "usdkrw",
+      "benchmarkMetricId": null,
+      "comparisonType": "absolute_return",
+      "expectedDirection": "up",
+      "horizon": {
+        "type": "next_close",
+        "market": "US",
+        "resolutionAt": "2026-10-19"
+      },
+      "thresholdRuleId": "pct_020",
+      "confidence": null,
+      "status": "unresolved",
+      "revision": {
+        "version": 1,
+        "contentHash": "ef48dbb5fdbba810894477aee9c871a13231ee4bc359960da9255ae478f70316",
+        "correctedFrom": null
+      },
+      "baseline": {
+        "value": 1341.33,
+        "asOf": "2026-10-15",
+        "benchmarkValue": null,
+        "benchmarkAsOf": null
       },
       "resolution": null
     }
