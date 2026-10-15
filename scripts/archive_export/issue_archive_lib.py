@@ -17,6 +17,7 @@ import html.parser as _htmlparser
 import json
 import os
 import re
+import sys
 
 REQUIRED_CONTENT_FIELDS = ("subject", "thesis", "main_story", "narratives")
 
@@ -34,14 +35,22 @@ _HREF_ATTR_RE = re.compile(r'href="([^"]*)"')
 _MERGE_TAG_RE = re.compile(r"\{\{\{[A-Z_]+\}\}\}")
 
 
+# 날짜 본 레코드 파일만 허용(허용 패턴). {date}.moo_view_manifest.json 등
+# 부속 파일은 같은 날짜의 두 번째 레코드로 읽혀 by_date를 덮어쓰므로 제외한다.
+_RECORD_FILE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}\.json$")
+
+
 def load_all_records(archive_dir):
-    """data/daily_archive/*.json(index.json 제외)을 전부 읽어
-    (date, record_dict) 리스트로 반환한다(날짜순 정렬). 개별 파일이
-    깨져 있으면 건너뛰고 오류를 반환값에 포함한다(전체 실패시키지 않음)."""
-    records, errors = [], []
+    """data/daily_archive/{YYYY-MM-DD}.json(허용 패턴, 이 외 파일은 무시)을
+    읽어 (date, record_dict) 리스트로 반환한다(날짜순 정렬). 개별 파일이
+    깨져 있으면 건너뛰고 오류를 반환값에 포함한다(전체 실패시키지 않음).
+
+    같은 date(edition_date_kst 기준)가 2건 이상이면 WARN을 남기고, 파일명
+    stem이 date와 같은 레코드를 쓴다(없으면 파일명 정렬상 먼저인 것). 덮어쓰지 않는다."""
+    found, errors = {}, []
     for fp in sorted(glob.glob(os.path.join(archive_dir, "*.json"))):
         name = os.path.basename(fp)
-        if name == "index.json":
+        if not _RECORD_FILE_RE.match(name):
             continue
         try:
             with open(fp, encoding="utf-8") as f:
@@ -49,8 +58,16 @@ def load_all_records(archive_dir):
         except (OSError, json.JSONDecodeError) as e:
             errors.append({"file": name, "error": str(e)})
             continue
-        date = d.get("edition_date_kst") or os.path.splitext(name)[0]
-        records.append((date, d))
+        stem = os.path.splitext(name)[0]
+        date = d.get("edition_date_kst") or stem
+        found.setdefault(date, []).append((stem == date, name, d))
+    records = []
+    for date, cands in found.items():
+        # 정렬은 안정적이므로 stem==date 우선, 동률이면 파일명 순 첫 번째
+        cands.sort(key=lambda c: not c[0])
+        if len(cands) > 1:
+            print(f"WARN: {date} 레코드 {len(cands)}건 {[c[1] for c in cands]} — {cands[0][1]} 사용", file=sys.stderr)
+        records.append((date, cands[0][2]))
     records.sort(key=lambda t: t[0])
     return records, errors
 
