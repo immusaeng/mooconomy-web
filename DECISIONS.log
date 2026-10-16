@@ -1,0 +1,32 @@
+# DECISIONS.log — append-only
+# 과거 항목을 수정하지 않는다. 뒤집으려면 새 항목을 추가한다.
+# 형식: [YYYY-MM-DD] [상태] 결정 — 이유 (기각한 대안: ...)
+# 상태: DECIDED / PENDING / REVERSED
+#
+# 이 파일이 존재하는 이유: 코드에서 도출할 수 없는 유일한 층은 '왜'이다.
+# LLM의 컨텍스트가 압축되면 서사는 남고 이유는 사라진다. 그래서 여기 쌓는다.
+
+[2026-10-17] DECIDED merge는 CEO가 PowerShell에서 직접 실행한다 — 이력 사고 방지 (기각: 트랙/LLM이 merge)
+[2026-10-17] DECIDED mooconomy-web을 공개로 유지한다 — 디렉터 기억 오염에 대항하는 검증 수단이다 (기각: 비공개 전환)
+[2026-10-17] DECIDED SNS 배포 자동화에 LLM을 쓰지 않는다 — Gemini RPD 20/500 소진, 결정론으로만 만든다 (기각: LLM 문구 생성)
+[2026-10-17] DECIDED 손으로 쓰는 문서에 사실을 적지 않는다 — 사실은 도출한다. 그래야 문서가 낡지 않는다
+[2026-10-17] DECIDED 새 섹션은 플래그 기본값 0으로 머지하고, 켜기는 별도 PR로 한다 — CEO 위험 부담 0
+[2026-10-17] DECIDED 핸드오프에 기각된 안 목록을 유지한다 — 압축이 이유를 버리기 때문에 유일한 방어다
+
+[2026-10-17] PENDING source_commit_sha 를 저장소에 유지할지 제거할지 — 불변 앵커(검증력) vs 경쟁자 정보 노출
+[2026-10-17] PENDING published_at_is_approximate 를 유지할지 제거할지
+[2026-10-17] PENDING 검증면·운영면 분리를 지금 할지, Track G1 이후로 미룰지
+[2026-10-17] PENDING 3.8 timeout 을 재시도하지 않는 현재 동작을 유지할지
+[2026-10-17] PENDING 3.8의 20초 timeout 을 늘릴지
+[2026-10-17] PENDING Gold "검증 보류"(SNAPSHOT_MISMATCH_GUARD_MODE) 처리를 어떻게 할지
+[2026-10-17] PENDING FMP·Finnhub 유료 전환 여부
+[2026-10-17] DECIDED 디렉터를 Genspark Super Agent로 이관한다 — 기존 LLM은 3개월간 7회 재시작(창 교체)으로 연속성이 실측 0에 가까웠고, 산출물이 창과 함께 소멸했다. Genspark 산출물은 저장소/프로젝트에 파일로 남는다 (기각: 전면 병행 유지)
+[2026-10-17] DECIDED 검증은 차원으로 배분한다 — 웹·공개면 사실은 Genspark이 실측 검증(클론+게이트), 기각 이력·논리는 기존 LLM이 검증 (기각: 단일 검수자)
+[2026-10-17] DECIDED 부트스트랩은 명령 1개로 출력 1블록이다 — `python3 tools/start_session.py --repo . --live > TODAY.md` (기각: 문서 3종 수동 조합)
+[2026-10-17] PENDING GitHub 커넥터 연결 여부 — 연결하면 디렉터가 daily-mooconomy(비공개)를 직접 읽을 수 있어 최대 약점이 해소된다. 미연결 시 CEO 붙여넣기로만 커버
+
+# ── 2026-10-17 판정: AI Chat(무료) vs Super Agent 티어 격차
+[2026-10-17] REVERSED "기존 LLM이 연속성을 갖고 있으니 메인을 유지해야 한다"는 내 반대 논거 — Genspark 공식 문서상 AI Chat은 "대화 간 기억 없음(no memory system)"이다. 전제가 거짓이므로 철회한다
+[2026-10-17] DECIDED 디렉터를 Super Agent로 이관한다 — 병목은 모델이 아니라 티어였다. AI Chat은 공식 문서상 "텍스트만 생성"이므로 산출물이 존재할 수 없다. 3개월 7회 재시작은 모델 실패가 아니라 사용한 티어의 문서화된 결과다 (기각: AI Chat에서 모델만 교체 반복)
+[2026-10-17] DECIDED AI Chat은 검수자로 병행한다 — 부트스트랩 블록을 붙이면 ground truth가 주입되므로 검수자가 성립한다. 모델 선택은 유지 (기각: 검수 제거)
+[2026-10-17] DECIDED 판정 근거를 추정으로 쓰지 않는다 — 티어 차이는 Genspark 헬프센터 원문으로 인용한다
