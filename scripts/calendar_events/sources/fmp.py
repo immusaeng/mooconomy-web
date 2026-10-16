@@ -15,6 +15,7 @@ from datetime import date, timedelta
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 from models import make_event  # noqa: E402
 from normalize import build_event_id  # noqa: E402
+from sources.base import raise_for_status_with_body  # noqa: E402
 
 BASE_URL = "https://financialmodelingprep.com/api/v3/economic_calendar"
 
@@ -90,5 +91,5 @@ def fetch(config):
         "apikey": api_key,
     }
     resp = requests.get(BASE_URL, params=params, timeout=15)
-    resp.raise_for_status()
+    raise_for_status_with_body(resp, config)
     return parse(resp.json())
