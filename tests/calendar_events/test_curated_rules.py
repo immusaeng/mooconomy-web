@@ -52,6 +52,8 @@ class TestRules(unittest.TestCase):
     def test_trade_release_first_of_month_incl_weekend(self):
         ev = [e["scheduledDate"] for e in rule_events(date(2026, 8, 1), date(2026, 10, 31), HOL) if e["category"] == "trade"]
         self.assertEqual(ev, ["2026-08-01", "2026-09-01", "2026-10-01"])  # 08-01은 토요일
+        # 2026-11-01은 일요일 — 2024-12-01·2025-06-01·2026-02-01(모두 일요일)에 1일 발표 확인
+        self.assertEqual([e["scheduledDate"] for e in rule_events(date(2026, 11, 1), date(2026, 11, 1), HOL) if e["category"] == "trade"], ["2026-11-01"])
         self.assertEqual([e for e in rule_events(date(2026, 5, 1), date(2026, 5, 1), HOL) if e["category"] == "trade"], [])
 
 
