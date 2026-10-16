@@ -1,0 +1,246 @@
+{
+  "schema_version": "normalized-daily-issue/v1",
+  "edition_id": "2026-10-17",
+  "edition_date_kst": "2026-10-17",
+  "canonical_status": "production",
+  "production_status": "SEND_CONFIRMED",
+  "source_commit_sha": "312fdf0949d39b0e7e15a29f285d93c8645da326",
+  "subject": "코스피 +2.05% 상승·코스닥 +4.46% 급등, 코스피 5,668.05 마감",
+  "preheader": "오늘 CHAIN은 전일·전주 대비 델타 3건을 관측했습니다.",
+  "thesis": {
+    "headline": "코스피 +2.05% 상승·코스닥 +4.46% 급등, 코스피 5,668.05 마감",
+    "three_signals": [
+      "간밤 뉴욕증시는 AI 고점 경고와 중동 지정학적 리스크 속에서 나스닥이 하락했습니다.",
+      "전일 국내 증시는 코스피가 상승 마감했으나 외국인의 대규모 반도체 매도가 이어졌습니다.",
+      "원/달러 환율은 1334.2원으로 하락하며 원화 강세 흐름을 나타냈습니다."
+    ]
+  },
+  "main_story": {
+    "headline": "나스닥 2.2% 하락",
+    "verified_fact": "미국 뉴욕 증시의 주요 지수가 인공지능 관련 경고등과 유가 급등 여파로 일제히 하락했습니다.",
+    "why_it_matters": null,
+    "sources": []
+  },
+  "entities": [
+    {
+      "name": "코스피",
+      "type": "index"
+    },
+    {
+      "name": "코스닥",
+      "type": "index"
+    },
+    {
+      "name": "나스닥",
+      "type": "index"
+    }
+  ],
+  "metrics": [
+    {
+      "id": "kospi",
+      "value": 5668.05,
+      "change": 2.0494,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "kosdaq",
+      "value": 794.78,
+      "change": 4.4636,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "nasdaq",
+      "value": 26140.03,
+      "change": -2.145,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "sp500",
+      "value": 7659.44,
+      "change": -1.0927,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1334.2,
+      "change": -7.13,
+      "displayMode": "delta",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "us10y",
+      "value": 5.1,
+      "change": 0.01,
+      "displayMode": "delta",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "wti",
+      "value": 99.04,
+      "change": null,
+      "displayMode": "pct",
+      "direction": null,
+      "status": "stale"
+    },
+    {
+      "id": "vix",
+      "value": 19.99,
+      "change": 21.4459,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    }
+  ],
+  "market_changes": [
+    {
+      "id": "kospi",
+      "change": 2.0494,
+      "changeUnit": "%",
+      "direction": "up"
+    },
+    {
+      "id": "kosdaq",
+      "change": 4.4636,
+      "changeUnit": "%",
+      "direction": "up"
+    },
+    {
+      "id": "nasdaq",
+      "change": -2.145,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "sp500",
+      "change": -1.0927,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "usdkrw",
+      "change": -7.13,
+      "changeUnit": "원",
+      "direction": "down"
+    },
+    {
+      "id": "us10y",
+      "change": 0.01,
+      "changeUnit": "%p",
+      "direction": "up"
+    },
+    {
+      "id": "wti",
+      "change": null,
+      "changeUnit": "%",
+      "direction": null
+    },
+    {
+      "id": "vix",
+      "change": 21.4459,
+      "changeUnit": "%",
+      "direction": "up"
+    }
+  ],
+  "narratives": {
+    "moo_view": "간밤 미 증시는 인공지능 경고등과 국제유가 급등 여파로 하락세를 보였으나, 국내 시장은 원화 강세와 외국인 수급 속에 상승으로 응답한 것으로 보입니다. 브렌트유가 상승하고 VIX가 19.99로 급등하며 글로벌 변동성이 확대되는 경로가 확인되는 상황입니다.\n\n코스피에서는 외국인이 순매수하며 시장을 방어한 반면 개인과 기관은 매도를 주도했고, 코스닥에서는 기관의 순매수가 지수를 지지하는 흐름이 관찰됐습니다. 업종별로는 건강관리기술 등이 상승한 반면, 유가 상승 압력 속에 항공사 업종은 하락세를 기록하는 차별화가 나타났습니다.\n\n국제유가 급등세와 변동성이 진정된다면 수급 개선이 이어질 수 있고, 진정이 지연된다면 증시 하방 압력이 지속될 가능성이 있습니다. 한편 지정학적 리스크 심화에도 불구하고 원화 강세 기조가 지속된다면 외국인 자금 유입이 추가로 확장될 수도 있습니다.\n\n다음 거래일에는 수급 기조의 지속성 여부와 원자재 가격 안정화 추이를 지속적으로 살펴볼 필요가 있을 것으로 판단됩니다.",
+    "todays_watch": [
+      "브렌트유 등 원자재 가격 안정화 여부",
+      "VIX 22 상회 이후 시장 변동성 지표 추이",
+      "외국인의 코스피 수급 기조 유지 여부"
+    ],
+    "todays_watch_oneliner": "글로벌 변동성과 유가 상승 속 국내 수급 주체의 대응을 관찰할 시점입니다.",
+    "content_status": "GENERATED_REPAIRED"
+  },
+  "moo_q": {
+    "claim_id": "2026-10-17-c1",
+    "claim_text": "외국인 매수 흐름이 이어지는 가운데 원/달러가 내릴까요?",
+    "topic": "원/달러 다음 거래일 방향(flow_fx)",
+    "resolution_at": "2026-10-19",
+    "status": "unresolved"
+  },
+  "moo_check": [
+    {
+      "previous_claim": "외국인 매도 흐름이 이어지는 가운데 원/달러가 오를까요?",
+      "claim_date": "2026-10-16",
+      "evaluation_date": "2026-10-17T06:52:38+09:00",
+      "observed_result": "실제 변화가 예상한 상승 방향과 다르게 움직였습니다.",
+      "verdict": "MISS",
+      "evidence": "1341.33 → 1334.20 (-0.53%)",
+      "source": "FinanceDataReader"
+    }
+  ],
+  "moo_word": {
+    "id": "open_지정학적리스크",
+    "term": "지정학적 리스크",
+    "definition": "지정학적 리스크는 정치적 갈등과 전쟁 등 지리적 불안정이 글로벌 경제에 미치는 부정적 위험으로, 공급망 차질과 원자재 가격 상승을 유발하여 경제 불확실성을 높일 때 손실이 발생하고 안정화될 때 이익이 된다.",
+    "why_today": "중동 지역과 우크라이나 등에서 지정학적 리스크가 동시다발적으로 고조되면서 브렌트유가 109달러대를 기록하며 5개월 만에 최고치로 급등했다.",
+    "memory_hook": null,
+    "source_label": "연합뉴스",
+    "article_id": "news_3",
+    "article_url": "https://www.yna.co.kr/view/AKR20261017004900072",
+    "article_publisher": "연합뉴스",
+    "evidence_snippets": [
+      "(뉴욕=연합뉴스) 김연숙 특파원 = 16일(현지시간) 중동 지역과 우크라이나 등에서 지정학적 리스크가 동시다발적으로 고조되며 국제유가가 급등했다..."
+    ],
+    "definition_source_name": null,
+    "definition_source_url": null,
+    "definition_priority": "P2_SOURCES_PARTIAL",
+    "origin": "llm_proposed",
+    "grounded_in_article": true,
+    "definition_evidence_verified": true,
+    "status": "ELIGIBLE_FOR_PUBLICATION",
+    "eligible_for_publication": true
+  },
+  "sources": [
+    {
+      "source_name": "파이낸셜뉴스",
+      "source_url": "https://www.fnnews.com/news/202610161723353773",
+      "published_at": "2026-10-17",
+      "source_headline": "삼전·하이닉스 14조 던진 외인…폭락장서 몰래 쓸어 담은 종목은?"
+    },
+    {
+      "source_name": "매일경제",
+      "source_url": "https://www.mk.co.kr/news/economy/12178167",
+      "published_at": "2026-10-16",
+      "source_headline": "“여보, 애들 학원 좀 줄이자”…주담대 변동금리 줄줄이 6% 돌파"
+    },
+    {
+      "source_name": "매일경제",
+      "source_url": "https://www.mk.co.kr/news/economy/12178138",
+      "published_at": "2026-10-16",
+      "source_headline": "한미 재무·통화당국 사상 첫 2+2 면담…“금융충격 시 긴밀한 공조”"
+    },
+    {
+      "source_name": "연합뉴스",
+      "source_url": "https://www.yna.co.kr/view/AKR20261017004900072",
+      "published_at": "2026-10-17",
+      "source_headline": "중동도 우크라도 불안…브렌트유 109달러대, 5개월만에 최고"
+    },
+    {
+      "source_name": "CNBC",
+      "source_url": "https://www.cnbc.com/2026/10/16/wall-streets-fear-gauge-is-ripping-traders-see-it-going-even-higher.html",
+      "published_at": "2026-10-16",
+      "source_headline": "Wall Street's fear gauge is ripping. Traders see it going even higher"
+    }
+  ],
+  "public_url": "https://mooconomy.co.kr/latest-email.html",
+  "validation_status": {
+    "main_story_status": "SELECTED",
+    "content_provenance": "VALIDATED_GEMINI_35_LITE",
+    "moo_word_present": true,
+    "sources_count": 5,
+    "is_approximate": false
+  },
+  "content_hash": "498bf89647a9fa3f8fbcde5accc6c8fe111fa6fb5338d8b2978670cd41869da9",
+  "archived_at": "2026-10-16T21:55:35.696488+00:00"
+}

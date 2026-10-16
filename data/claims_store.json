@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-16T06:46:05+09:00",
+  "updatedAt": "2026-10-17T06:52:43+09:00",
   "claims": {
     "2026-07-19-c1": {
       "schemaVersion": 1,
@@ -3688,7 +3688,7 @@
       },
       "thresholdRuleId": "pct_020",
       "confidence": null,
-      "status": "unresolved",
+      "status": "miss",
       "revision": {
         "version": 1,
         "contentHash": "ef48dbb5fdbba810894477aee9c871a13231ee4bc359960da9255ae478f70316",
@@ -3697,6 +3697,66 @@
       "baseline": {
         "value": 1341.33,
         "asOf": "2026-10-15",
+        "benchmarkValue": null,
+        "benchmarkAsOf": null
+      },
+      "resolution": {
+        "resolutionId": "2026-10-16-c1-res",
+        "claimId": "2026-10-16-c1",
+        "resolvedAt": "2026-10-17T06:52:38+09:00",
+        "verdict": "miss",
+        "metricId": "usdkrw",
+        "comparisonType": "absolute_return",
+        "startValue": 1341.33,
+        "endValue": 1334.2,
+        "changeValue": -0.5315619571619126,
+        "changeUnit": "%",
+        "benchmarkMetricId": null,
+        "benchmarkStartValue": null,
+        "benchmarkEndValue": null,
+        "neutralLower": -0.2,
+        "neutralUpper": 0.2,
+        "neutralBand": 0.2,
+        "dataProvider": "FinanceDataReader",
+        "sourceUrl": "",
+        "observedAt": "2026-10-16",
+        "explanation": "실제 변화가 예상한 상승 방향과 다르게 움직였습니다."
+      }
+    },
+    "2026-10-17-c1": {
+      "schemaVersion": 1,
+      "claimId": "2026-10-17-c1",
+      "publicationId": "2026-10-17",
+      "issuedAt": "2026-10-17T06:52:43+09:00",
+      "dataCutoffAt": "2026-10-17T06:52:43+09:00",
+      "lockedAt": "2026-10-17T06:52:43+09:00",
+      "claimMode": "auto",
+      "verificationType": "proxy",
+      "topic": "원/달러 다음 거래일 방향(flow_fx)",
+      "sourceNewsIds": [],
+      "observationText": "원/달러는 1,334.2원으로 전일 대비 0.53% 하락했습니다.",
+      "interpretationText": "외국인 매수 흐름이 이어지는 가운데 하락 흐름이 다음 거래일까지 이어지는지가 확인 대상입니다.",
+      "claimText": "외국인 매수 흐름이 이어지는 가운데 원/달러가 내릴까요?",
+      "metricId": "usdkrw",
+      "benchmarkMetricId": null,
+      "comparisonType": "absolute_return",
+      "expectedDirection": "down",
+      "horizon": {
+        "type": "next_close",
+        "market": "US",
+        "resolutionAt": "2026-10-19"
+      },
+      "thresholdRuleId": "pct_020",
+      "confidence": null,
+      "status": "unresolved",
+      "revision": {
+        "version": 1,
+        "contentHash": "a761fa4229320f6e040ceddd0e8658801cbfc6324137cbfc5c62624e17eaf7f1",
+        "correctedFrom": null
+      },
+      "baseline": {
+        "value": 1334.2,
+        "asOf": "2026-10-16",
         "benchmarkValue": null,
         "benchmarkAsOf": null
       },
