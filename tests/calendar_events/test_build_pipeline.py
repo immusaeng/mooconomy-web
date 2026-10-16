@@ -4,6 +4,7 @@
 import os
 import sys
 import unittest
+from datetime import date, timedelta
 
 _CAL = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "scripts", "calendar_events"))
 sys.path.insert(0, _CAL)
@@ -15,10 +16,24 @@ import build_calendar  # noqa: E402
 class TestBuildFreshness(unittest.TestCase):
     def test_all_sources_via_fixtures_is_fresh(self):
         config = CalendarConfig(env={})
-        dataset, summaries = build_calendar.build(config, use_fixtures=True)
+        # 픽스처 이벤트 날짜를 '오늘+3일'로 옮겨 실행 날짜와 무관하게 조회 기간 안에 둔다.
+        real_load = build_calendar._load_fixture
+        target = (date.today() + timedelta(days=3)).isoformat()
+
+        def shifted(name):
+            evs = real_load(name)
+            for e in evs:
+                e["scheduledDate"], e["scheduledAt"] = target, None
+            return evs
+
+        build_calendar._load_fixture = shifted
+        try:
+            dataset, summaries = build_calendar.build(config, use_fixtures=True)
+        finally:
+            build_calendar._load_fixture = real_load
         self.assertEqual(dataset["freshness"]["status"], "fresh")
         self.assertEqual(dataset["freshness"]["failedSources"], [])
-        self.assertGreater(len(dataset["events"]), 0)
+        self.assertTrue(any(e["sourceName"] == "FRED" and e["scheduledDate"] == target for e in dataset["events"]))
 
     def test_partial_when_some_sources_fail(self):
         config = CalendarConfig(env={})

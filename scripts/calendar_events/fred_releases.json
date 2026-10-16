@@ -1,13 +1,13 @@
 {
-  "_comment": "FRED release_id allowlist. IDs confirmed on https://fred.stlouisfed.org/releases (2026-10-16). Only these releases are kept by sources/fred.py.",
+  "_comment": "FRED release_id allowlist. IDs confirmed on https://fred.stlouisfed.org/releases (2026-10-16). Only these releases are kept by sources/fred.py. etTime = 발표 시각(ET), BLS schedule(bls.gov/schedule/news_release)·BEA(bea.gov/news/schedule, 릴리스 'EDT' 표기)·Census(census.gov/economic-indicators/calendar-listview.html + marts_current.pdf 'EDT') 확인 (2026-10-16). importance는 운영 판단값.",
   "releases": {
-    "10": "Consumer Price Index",
-    "46": "Producer Price Index",
-    "50": "Employment Situation",
-    "53": "Gross Domestic Product",
-    "54": "Personal Income and Outlays",
-    "9": "Advance Monthly Sales for Retail and Food Services",
-    "192": "Job Openings and Labor Turnover Survey",
-    "188": "U.S. Import and Export Price Indexes"
+    "10": {"name": "Consumer Price Index", "importance": "high", "etTime": "08:30"},
+    "46": {"name": "Producer Price Index", "importance": "medium", "etTime": "08:30"},
+    "50": {"name": "Employment Situation", "importance": "high", "etTime": "08:30"},
+    "53": {"name": "Gross Domestic Product", "importance": "high", "etTime": "08:30"},
+    "54": {"name": "Personal Income and Outlays", "importance": "high", "etTime": "08:30"},
+    "9": {"name": "Advance Monthly Sales for Retail and Food Services", "importance": "high", "etTime": "08:30"},
+    "192": {"name": "Job Openings and Labor Turnover Survey", "importance": "medium", "etTime": "10:00"},
+    "188": {"name": "U.S. Import and Export Price Indexes", "importance": "low", "etTime": "08:30"}
   }
 }
