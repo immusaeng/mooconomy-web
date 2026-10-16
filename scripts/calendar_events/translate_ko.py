@@ -58,6 +58,9 @@ def apply_ko_titles(events, glossary=None):
     translated = 0
     untranslated_titles = set()
     for ev in events:
+        if ev.get("titleKo"):  # curated 등 이미 사람이 채운 값은 덮어쓰지 않는다
+            translated += 1
+            continue
         original = ev.get("originalTitle") or ev.get("title")
         titleKo, ok = translate_title(original, ev.get("sourceName"), glossary)
         ev["titleKo"] = titleKo

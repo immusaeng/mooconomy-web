@@ -41,6 +41,7 @@ from security import mask_secret  # noqa: E402
 from sources.base import fetch_safe  # noqa: E402
 from sources import fred, fmp, finnhub, bok, ecos, kosis, eia, dart  # noqa: E402
 from translate_ko import apply_ko_titles  # noqa: E402
+from rules import load_curated, rule_events  # noqa: E402
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 CANONICAL_PATH = os.path.join(ROOT, "data", "calendar_events.json")
@@ -122,11 +123,23 @@ def build(config, use_fixtures, only_sources=None):
     from datetime import timedelta
 
     raw_events, summaries = run_sources(config, use_fixtures, only_sources)
-    pre_filter_count = len(raw_events)
 
     today = date.today()
     range_from = today - timedelta(days=config.lookback_days)
     range_to = today + timedelta(days=config.lookahead_days)
+
+    # 공식 페이지 확인값(curated) + 규칙 기반 일정 — 로컬 파일/계산이라 네트워크 없음.
+    # 같은 id는 한 번만(먼저 온 것 우선).
+    curated = load_curated()
+    holidays = {e["scheduledDate"] for e in curated if e["sourceName"] == "KRX"}
+    rules = rule_events(range_from, range_to, holidays)
+    summaries["curated"] = {"ok": True, "count": len(curated), "error": None, "mode": "local"}
+    summaries["rules"] = {"ok": True, "count": len(rules), "error": None, "mode": "local"}
+    by_id = {}
+    for e in raw_events + curated + rules:
+        by_id.setdefault(e["id"], e)
+    raw_events = list(by_id.values())
+    pre_filter_count = len(raw_events)
 
     # 일부 소스(FRED release/dates 등)는 realtime 창을 우리 예상과 다르게
     # 해석해 훨씬 넓은 기간의 이벤트를 돌려줄 수 있다 — 어떤 소스가 몇

@@ -26,6 +26,16 @@ def utc_iso_to_kst_date(iso_str):
     return dt.astimezone(KST).date().isoformat()
 
 
+ET = ZoneInfo("America/New_York")
+
+
+def et_to_kst_iso(date_str, hhmm):
+    """미국 동부시간(서머타임 자동 반영) 날짜+HH:MM -> KST ISO-8601('+09:00')."""
+    h, m = map(int, hhmm.split(":"))
+    d = datetime.fromisoformat(date_str).replace(hour=h, minute=m, tzinfo=ET)
+    return d.astimezone(KST).isoformat()
+
+
 def now_utc_iso():
     return datetime.now(_tz.utc).isoformat()
 
