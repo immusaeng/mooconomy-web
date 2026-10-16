@@ -30,7 +30,7 @@ for _stream in (sys.stdout, sys.stderr):
             pass
 
 sys.path.insert(0, os.path.dirname(__file__))
-from config import CalendarConfig, ALL_SOURCE_NAMES  # noqa: E402
+from config import CalendarConfig, DISABLED_PLAN_403, NOT_IMPLEMENTED, ALL_SOURCE_NAMES  # noqa: E402
 from models import make_canonical_dataset  # noqa: E402
 from normalize import now_utc_iso  # noqa: E402
 from merge import merge_events  # noqa: E402
@@ -94,6 +94,9 @@ def run_sources(config, use_fixtures, only_sources=None):
         if name not in ALL_SOURCE_NAMES:
             summaries[name] = {"ok": False, "count": 0, "error": "unknown_source"}
             continue
+        if name in NOT_IMPLEMENTED:
+            summaries[name] = {"ok": True, "count": 0, "error": None, "status": "not_implemented"}
+            continue
         if use_fixtures:
             events = _load_fixture(name)
             summaries[name] = {"ok": True, "count": len(events), "error": None, "mode": "fixture"}
@@ -108,6 +111,10 @@ def run_sources(config, use_fixtures, only_sources=None):
             "mode": "live", "had_key": has_key,
         }
         all_events.extend(result.events)
+    if only_sources is None:
+        for name in DISABLED_PLAN_403:
+            if name not in config.sources:
+                summaries[name] = {"ok": True, "count": 0, "error": None, "status": "disabled_plan_403"}
     return all_events, summaries
 
 
@@ -167,6 +174,7 @@ def build(config, use_fixtures, only_sources=None):
             "status": status,
             "lastSuccessfulAt": now_utc_iso() if succeeded else None,
             "failedSources": failed,
+            "sources": {n: s.get("status") or ("ok" if s["ok"] else "failed") for n, s in summaries.items()},
         },
         sources=[{"name": n, **{k: v for k, v in s.items() if k != "error" or v}} for n, s in summaries.items()],
         events=merged,

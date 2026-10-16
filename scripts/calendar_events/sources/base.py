@@ -11,6 +11,7 @@ import sys
 import traceback
 
 sys.path.insert(0, __file__.rsplit("sources", 1)[0])
+from config import ALL_SOURCE_NAMES  # noqa: E402
 from security import strip_query_secrets  # noqa: E402
 
 
@@ -24,6 +25,20 @@ class SourceResult:
     @property
     def ok(self):
         return self.error is None
+
+
+def raise_for_status_with_body(resp, config):
+    """실패 응답이면 본문 앞 200자를 담아 예외를 던진다(403 원인 진단용).
+    키·토큰은 값 그대로, 그리고 쿼리 형태 모두 마스킹한 뒤 자른다."""
+    if resp.ok:
+        return
+    body = resp.text or ""
+    for name in ALL_SOURCE_NAMES:
+        key = config.get_api_key(name)
+        if key:
+            body = body.replace(key, "***")
+    body = strip_query_secrets(body)[:200]
+    raise RuntimeError(f"HTTP {resp.status_code} {strip_query_secrets(resp.url)} body={body!r}")
 
 
 def fetch_safe(source_name, fetch_fn, config):

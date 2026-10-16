@@ -14,8 +14,11 @@ from datetime import date, timedelta
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 from models import make_event  # noqa: E402
 from normalize import build_event_id  # noqa: E402
+from sources.base import raise_for_status_with_body  # noqa: E402
 
 BASE_URL = "https://api.stlouisfed.org/fred/releases/dates"
+PAGE_LIMIT = 1000
+MAX_PAGES = 20  # 안전장치: 무한 루프 방지(2만 건이면 이미 이상 상황)
 
 
 def parse(payload):
@@ -61,7 +64,19 @@ def fetch(config):
         "realtime_end": (today + timedelta(days=config.lookahead_days)).isoformat(),
         "include_release_dates_with_no_data": "true",
         "sort_order": "asc",
+        "limit": PAGE_LIMIT,
     }
-    resp = requests.get(BASE_URL, params=params, timeout=15)
-    resp.raise_for_status()
-    return parse(resp.json())
+    rows = []
+    for page in range(MAX_PAGES):
+        params["offset"] = page * PAGE_LIMIT
+        resp = requests.get(BASE_URL, params=params, timeout=15)
+        raise_for_status_with_body(resp, config)
+        batch = resp.json().get("release_dates", [])
+        rows.extend(batch)
+        if len(batch) < PAGE_LIMIT:
+            break
+    else:
+        raise RuntimeError(f"fred pagination exceeded MAX_PAGES={MAX_PAGES}")
+    if config.fred_allowlist_enabled:
+        rows = [r for r in rows if str(r.get("release_id")) in config.fred_release_ids]
+    return parse({"release_dates": rows})
