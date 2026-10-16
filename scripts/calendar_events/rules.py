@@ -9,6 +9,7 @@
 "순차적으로 앞당김"(직전 거래일로 소급). 선물 결제월은 3·6·9·12월이라
 그 달은 선물·옵션 동시만기.
 """
+import json
 import os
 import sys
 from datetime import date, timedelta
@@ -59,7 +60,7 @@ def rule_events(range_from, range_to, holidays):
     out = []
     for y, m in _months(range_from, range_to):
         first = date(y, m, 1)
-        if first.isoformat() not in holidays and not (m == 1):
+        if first.isoformat() not in holidays and m != 1:
             out.append(_ev("Korea Exports and Imports", "Korea Exports and Imports (Monthly)",
                            "수출입 동향", "trade", "medium", first, TRADE_URL,
                            "산업통상부 보도자료(발표 관행)"))
@@ -79,7 +80,6 @@ CURATED_PATH = os.path.join(os.path.dirname(__file__), "curated_events.json")
 
 def load_curated(path=CURATED_PATH):
     """공식 페이지에서 확인한 날짜만 담은 curated_events.json -> canonical 이벤트."""
-    import json
     with open(path, encoding="utf-8") as f:
         rows = json.load(f)["events"]
     return [make_event(sourceTier="official", confidence="confirmed",
