@@ -1,0 +1,187 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-18",
+  "generatedAt": "2026-10-18T15:07:26+09:00",
+  "indicators": [
+    {
+      "id": "kospi",
+      "value": 5668.05,
+      "change": 2.05,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "kosdaq",
+      "value": 794.78,
+      "change": 4.46,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "nasdaq",
+      "value": 26140.03,
+      "change": -2.15,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "sp500",
+      "value": 7659.44,
+      "change": -1.09,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1329.6,
+      "change": -4.6,
+      "displayMode": "delta",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "us10y",
+      "value": 5.1,
+      "change": 0.01,
+      "displayMode": "delta",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "wti",
+      "value": 99.02,
+      "change": null,
+      "displayMode": "pct",
+      "direction": null,
+      "status": "stale"
+    },
+    {
+      "id": "vix",
+      "value": 19.99,
+      "change": 21.45,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    }
+  ],
+  "auditIndicators": [
+    {
+      "id": "kospi",
+      "value": 5668.05,
+      "displayMode": "pct"
+    },
+    {
+      "id": "kosdaq",
+      "value": 794.78,
+      "displayMode": "pct"
+    },
+    {
+      "id": "nasdaq",
+      "value": 26140.03,
+      "displayMode": "pct"
+    },
+    {
+      "id": "sp500",
+      "value": 7659.44,
+      "displayMode": "pct"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1329.6,
+      "displayMode": "dual"
+    },
+    {
+      "id": "us10y",
+      "value": 5.1,
+      "displayMode": "delta"
+    },
+    {
+      "id": "wti",
+      "value": 99.02,
+      "displayMode": "pct"
+    },
+    {
+      "id": "vix",
+      "value": 19.99,
+      "displayMode": "pct"
+    },
+    {
+      "id": "gold",
+      "value": 4181.1,
+      "displayMode": "pct"
+    },
+    {
+      "id": "dollarindex",
+      "value": 101.84,
+      "displayMode": "pct"
+    },
+    {
+      "id": "brent",
+      "value": 109.86,
+      "displayMode": "pct"
+    },
+    {
+      "id": "dow",
+      "value": 52002.41,
+      "displayMode": "pct"
+    },
+    {
+      "id": "nikkei",
+      "value": 65324.29,
+      "displayMode": "pct"
+    },
+    {
+      "id": "shanghai",
+      "value": 3716.28,
+      "displayMode": "pct"
+    }
+  ],
+  "signals": [
+    {
+      "id": "recession",
+      "color": "green",
+      "value": 0.33
+    },
+    {
+      "id": "rate-gap",
+      "color": "green",
+      "value": 1.0
+    },
+    {
+      "id": "liquidity-stress",
+      "color": "green",
+      "value": 3.23
+    }
+  ],
+  "calendarSnapshot": [
+    {
+      "id": "us-earn-2026-10-21-메타",
+      "time": "2026-10-21",
+      "country": "US",
+      "title": "메타 실적발표",
+      "importance": "medium"
+    },
+    {
+      "id": "us-earn-2026-10-21-테슬라",
+      "time": "2026-10-21",
+      "country": "US",
+      "title": "테슬라 실적발표",
+      "importance": "medium"
+    }
+  ],
+  "marketTemperature": {
+    "label": "neutral",
+    "displayLabel": "중립",
+    "status": "ok"
+  },
+  "connectionTopology": "DELTA_MODEL_V1",
+  "driverClaims": [
+    "반도체 호황 전망과 달러 공급 확대가 국내 지수 반등을 견인했습니다.",
+    "미국 AI 주가 차익실현 물량 출회로 글로벌 기술주가 하락했습니다."
+  ],
+  "krMarketClosed": false
+}
