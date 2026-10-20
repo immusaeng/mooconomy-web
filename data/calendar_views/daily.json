@@ -1,19 +1,17 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-19T23:49:58.928865+00:00",
+  "generatedAt": "2026-10-20T23:15:21.761079+00:00",
   "timezone": "Asia/Seoul",
   "range": {
-    "from": "2026-10-19",
-    "to": "2026-10-21"
+    "from": "2026-10-20",
+    "to": "2026-10-22"
   },
   "freshness": {
-    "status": "partial",
-    "lastSuccessfulAt": "2026-10-19T23:49:58.928878+00:00",
-    "failedSources": [
-      "fred"
-    ],
+    "status": "fresh",
+    "lastSuccessfulAt": "2026-10-20T23:15:21.761082+00:00",
+    "failedSources": [],
     "sources": {
-      "fred": "failed",
+      "fred": "ok",
       "bok": "ok",
       "ecos": "not_implemented",
       "kosis": "not_implemented",
@@ -25,5 +23,37 @@
       "rules": "ok"
     }
   },
-  "events": []
+  "events": [
+    {
+      "id": "bok-mpb-2026-10-22",
+      "title": "BOK Monetary Policy Board Meeting (Base Rate Decision)",
+      "originalTitle": "BOK Monetary Policy Board Meeting (Base Rate Decision)",
+      "titleKo": "금융통화위원회 통화정책방향 결정회의",
+      "country": "KR",
+      "category": "monetary_policy",
+      "importance": "high",
+      "scheduledDate": "2026-10-22",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "scheduled",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "BOK",
+      "sourceTier": "official",
+      "sourceUrl": "https://www.bok.or.kr/portal/singl/crncyPolicyDrcMtg/listYear.do?menuNo=200755&mtgSe=A",
+      "sourceEventId": null,
+      "updatedAt": "2026-10-20T23:15:21.760340+00:00",
+      "confidence": "confirmed",
+      "sourceRefs": [
+        {
+          "sourceName": "BOK",
+          "sourceUrl": "https://www.bok.or.kr/portal/singl/crncyPolicyDrcMtg/listYear.do?menuNo=200755&mtgSe=A",
+          "sourceTier": "official"
+        }
+      ]
+    }
+  ]
 }
