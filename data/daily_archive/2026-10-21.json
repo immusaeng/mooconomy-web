@@ -1,0 +1,232 @@
+{
+  "schema_version": "normalized-daily-issue/v1",
+  "edition_id": "2026-10-21",
+  "edition_date_kst": "2026-10-21",
+  "canonical_status": "production",
+  "production_status": "SEND_CONFIRMED",
+  "source_commit_sha": "973825b84d72bf6ffaa6de0a92a77b97c1ab5be5",
+  "subject": "코스피 외국인 대량 매도에 5,552.74pt로 -3.73% 급락",
+  "preheader": "오늘 CHAIN은 전일·전주 대비 델타 3건을 관측했습니다.",
+  "thesis": {
+    "headline": "코스피 외국인 대량 매도에 5,552.74pt로 -3.73% 급락",
+    "three_signals": [
+      "간밤 미국 증시는 S&P500이 0.28% 상승하는 등 혼조세를 보였습니다.",
+      "지난 거래일(10-20) 코스피는 외국인과 기관의 동반 매도로 3.73% 급락했습니다.",
+      "개인투자자 반대매매 규모가 5거래일 연속 500억 원을 넘어서며 신용 리스크가 고조되었습니다."
+    ]
+  },
+  "main_story": {
+    "headline": "증시 조정 깊어지며 반대매매 위험 고조",
+    "verified_fact": "국내 증시 조정으로 빚을 내 주식을 산 개인투자자의 반대매매 규모가 5거래일 연속 500억 원을 넘어섰습니다.",
+    "why_it_matters": null,
+    "sources": []
+  },
+  "entities": [
+    {
+      "name": "코스피",
+      "type": "index"
+    }
+  ],
+  "metrics": [
+    {
+      "id": "kospi",
+      "value": 5552.74,
+      "change": -3.7321,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "kosdaq",
+      "value": 781.97,
+      "change": -3.328,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "nasdaq",
+      "value": 26424.82,
+      "change": -0.023,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "sp500",
+      "value": 7712.57,
+      "change": 0.284,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1326.24,
+      "change": -6.4,
+      "displayMode": "delta",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "us10y",
+      "value": 5.12,
+      "change": -0.02,
+      "displayMode": "delta",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "wti",
+      "value": 98.18,
+      "change": null,
+      "displayMode": "pct",
+      "direction": null,
+      "status": "stale"
+    },
+    {
+      "id": "vix",
+      "value": 17.31,
+      "change": -6.128,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    }
+  ],
+  "market_changes": [
+    {
+      "id": "kospi",
+      "change": -3.7321,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "kosdaq",
+      "change": -3.328,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "nasdaq",
+      "change": -0.023,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "sp500",
+      "change": 0.284,
+      "changeUnit": "%",
+      "direction": "up"
+    },
+    {
+      "id": "usdkrw",
+      "change": -6.4,
+      "changeUnit": "원",
+      "direction": "down"
+    },
+    {
+      "id": "us10y",
+      "change": -0.02,
+      "changeUnit": "%p",
+      "direction": "down"
+    },
+    {
+      "id": "wti",
+      "change": null,
+      "changeUnit": "%",
+      "direction": null
+    },
+    {
+      "id": "vix",
+      "change": -6.128,
+      "changeUnit": "%",
+      "direction": "down"
+    }
+  ],
+  "narratives": {
+    "moo_view": "예상과 달리 오늘 양대 지수는 외국인과 기관의 동반 매도 압력 속에 3% 넘게 급락하며 하락세로 돌아섰습니다. 빚을 내 주식을 산 개인투자자의 반대매매 규모가 5거래일 연속 500억 원을 넘어서면서 누적된 신용 리스크가 강제 청산 매물로 이어져 시장 하방 압력을 가중시키는 경로를 형성했습니다.\n\n수급 측면에서는 코스피와 코스닥 양대 시장 모두에서 외국인과 기관이 동반 순매도를 기록한 반면, 개인 홀로 대규모 매수를 이어갔으나 지수 하방을 방어하기에는 역부족이었습니다. 업종별로는 우주항공과국방 및 에너지장비 업종이 가파른 하락세를 보인 반면 담배와 다각화된통신서비스 업종은 소폭 상승해 방어적 성격을 띠었습니다.\n\n단기 낙폭 과대에 따른 기술적 반발 매수세가 유입될 가능성을 배제할 수 없다는 시각도 상존합니다. 다만 강제 청산 매물이 추가로 출회되는 악순환이 이어질 수 있다는 경계 역시 만만치 않습니다.\n\n향후 반대매매 부담과 외국인 매도세가 진정 국면에 진입한다면 지수의 하방 경직성이 확보될 것이고, 아니라면 9월 생산자물가 상승에 따른 인플레이션 부담과 맞물려 추가 하락 압력이 지속될 것으로 보입니다.\n\n다음 거래일에는 반대매매 물량의 소화 경과와 함께 기관 및 외국인 수급의 매도 강도 완화 여부를 면밀히 점검할 필요가 있습니다.",
+    "todays_watch": [
+      "5거래일 연속 500억 원을 상회한 개인 반대매매 물량의 소화 경과",
+      "2달째 오름세를 기록한 9월 생산자물가(0.2% 상승) 지표의 향후 여파",
+      "양대 시장에서 이어진 외국인 및 기관의 순매도 기조 변화 여부"
+    ],
+    "todays_watch_oneliner": "외국인·기관의 동반 매도와 반대매매 출회 속에 수급 부담 지속 여부를 관찰할 시점입니다.",
+    "content_status": "GENERATED_REPAIRED"
+  },
+  "moo_q": {
+    "claim_id": "2026-10-21-c1",
+    "claim_text": "코스닥이 나스닥 대비 약세를 이어갈까요?",
+    "topic": "코스닥 vs 나스닥 상대성과(LLM 후보, 5거래일)",
+    "resolution_at": "2026-10-27",
+    "status": "unresolved"
+  },
+  "moo_check": [
+    {
+      "previous_claim": "코스닥이 나스닥 대비 강세를 이어갈까요?",
+      "claim_date": "2026-10-20",
+      "evaluation_date": null,
+      "observed_result": null,
+      "verdict": "PENDING",
+      "evidence": null,
+      "source": null
+    }
+  ],
+  "moo_word": {
+    "id": "open_반대매매",
+    "term": "반대매매",
+    "definition": "반대매매는 투자자가 증권사에서 돈을 빌려 주식을 산 뒤 돈을 갚지 못하거나 주가 하락으로 담보가치가 기준 이하로 떨어질 때 증권사가 주식을 강제로 일괄 매각해 대출금을 회수하는 처분이다.",
+    "why_today": "국내 증시 조정 장세와 주가 급락 여파로 빚을 내 주식을 산 개인투자자들의 주식이 강제 처분되면서 5거래일 연속 500억 원을 웃돌았다.",
+    "memory_hook": null,
+    "source_label": "파이낸셜뉴스",
+    "article_id": "news_10",
+    "article_url": "https://www.fnnews.com/news/202610202058004939",
+    "article_publisher": "파이낸셜뉴스",
+    "evidence_snippets": [
+      "주가 급락 여파로 빚을 내 주식을 산 개인투자자들의 주식이 강제 처분되는 '반대매매' 규모도 5거래일 연속 500억 원을 웃돌며 증시 하방 압력"
+    ],
+    "definition_source_name": null,
+    "definition_source_url": null,
+    "definition_priority": "P2_SOURCES_PARTIAL",
+    "origin": "llm_proposed",
+    "grounded_in_article": true,
+    "definition_evidence_verified": true,
+    "status": "ELIGIBLE_FOR_PUBLICATION",
+    "eligible_for_publication": true
+  },
+  "sources": [
+    {
+      "source_name": "매일경제",
+      "source_url": "https://www.mk.co.kr/news/economy/12181262",
+      "published_at": "2026-10-21",
+      "source_headline": "4년전 급락장선 150조 증발…올 하반기 급락장, 지갑 얼마나 얇아지나"
+    },
+    {
+      "source_name": "파이낸셜뉴스",
+      "source_url": "https://www.fnnews.com/news/202610201636484269",
+      "published_at": "2026-10-21",
+      "source_headline": "고유가에 추석 대목 겹쳐.. 9월 생산자물가 0.2%↑ 두 달째 상승"
+    },
+    {
+      "source_name": "CNBC",
+      "source_url": "https://www.cnbc.com/2026/10/20/netflix-nflx-earnings-q3-2026.html",
+      "published_at": "2026-10-20",
+      "source_headline": "Netflix posts third-quarter earnings beat, but shares fall on advertising and revenue guidance"
+    },
+    {
+      "source_name": "CNBC",
+      "source_url": "https://www.cnbc.com/2026/10/20/general-motors-gm-earnings-q3-2026.html",
+      "published_at": "2026-10-20",
+      "source_headline": "General Motors beats Wall Street's Q3 earnings expectations, narrows full-year guidance"
+    }
+  ],
+  "public_url": "https://mooconomy.co.kr/latest-email.html",
+  "validation_status": {
+    "main_story_status": "SELECTED",
+    "content_provenance": "VALIDATED_GEMINI_36",
+    "moo_word_present": true,
+    "sources_count": 4,
+    "is_approximate": false
+  },
+  "content_hash": "5dfdd1fc709eeebd001e9510574afc9880466dc2a0fc983cda823ec882a38a36",
+  "archived_at": "2026-10-20T21:50:16.717700+00:00"
+}
