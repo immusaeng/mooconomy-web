@@ -1,0 +1,177 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-22",
+  "generatedAt": "2026-10-22T06:43:04+09:00",
+  "indicators": [
+    {
+      "id": "kospi",
+      "value": 5735.66,
+      "change": 3.2942,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "kosdaq",
+      "value": 792.76,
+      "change": 1.3798,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "nasdaq",
+      "value": 26702.86,
+      "change": 1.0522,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "sp500",
+      "value": 7757.17,
+      "change": 0.5783,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1326.63,
+      "change": 0.39,
+      "displayMode": "delta",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "us10y",
+      "value": 5.15,
+      "change": 0.03,
+      "displayMode": "delta",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "wti",
+      "value": 97.71,
+      "change": null,
+      "displayMode": "pct",
+      "direction": null,
+      "status": "stale"
+    },
+    {
+      "id": "vix",
+      "value": 16.68,
+      "change": -3.6395,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    }
+  ],
+  "auditIndicators": [
+    {
+      "id": "kospi",
+      "value": 5735.66,
+      "displayMode": "pct"
+    },
+    {
+      "id": "kosdaq",
+      "value": 792.76,
+      "displayMode": "pct"
+    },
+    {
+      "id": "nasdaq",
+      "value": 26702.86,
+      "displayMode": "pct"
+    },
+    {
+      "id": "sp500",
+      "value": 7757.17,
+      "displayMode": "pct"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1326.63,
+      "displayMode": "dual"
+    },
+    {
+      "id": "us10y",
+      "value": 5.15,
+      "displayMode": "delta"
+    },
+    {
+      "id": "wti",
+      "value": 97.71,
+      "displayMode": "pct"
+    },
+    {
+      "id": "vix",
+      "value": 16.68,
+      "displayMode": "pct"
+    },
+    {
+      "id": "gold",
+      "value": 4159.5,
+      "displayMode": "pct"
+    },
+    {
+      "id": "dollarindex",
+      "value": 101.7,
+      "displayMode": "pct"
+    },
+    {
+      "id": "brent",
+      "value": 109.73,
+      "displayMode": "pct"
+    },
+    {
+      "id": "dow",
+      "value": 52856.09,
+      "displayMode": "pct"
+    },
+    {
+      "id": "nikkei",
+      "value": 64075.42,
+      "displayMode": "pct"
+    },
+    {
+      "id": "shanghai",
+      "value": 3735.37,
+      "displayMode": "pct"
+    }
+  ],
+  "signals": [
+    {
+      "id": "recession",
+      "color": "gray",
+      "value": null
+    }
+  ],
+  "calendarSnapshot": [
+    {
+      "id": "us-earn-2026-10-28-알파벳",
+      "time": "2026-10-28",
+      "country": "US",
+      "title": "알파벳 실적발표",
+      "importance": "medium"
+    },
+    {
+      "id": "us-earn-2026-10-28-마이크로소프트",
+      "time": "2026-10-28",
+      "country": "US",
+      "title": "마이크로소프트 실적발표",
+      "importance": "medium"
+    }
+  ],
+  "marketTemperature": {
+    "label": "risk_on",
+    "displayLabel": "위험선호",
+    "status": "ok"
+  },
+  "connectionTopology": "DELTA_MODEL_V1",
+  "driverClaims": [
+    "미국 주요 기술 기업들의 호실적으로 인한 뉴욕증시 강세",
+    "코스피 외국인 대규모 순매수에 따른 한국 증시 급등"
+  ],
+  "krMarketClosed": false
+}
