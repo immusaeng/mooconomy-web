@@ -1,0 +1,236 @@
+{
+  "schema_version": "normalized-daily-issue/v1",
+  "edition_id": "2026-10-23",
+  "edition_date_kst": "2026-10-23",
+  "canonical_status": "production",
+  "production_status": "SEND_CONFIRMED",
+  "source_commit_sha": "49e19a745f2713be78f276d065acae6570641ea6",
+  "subject": "AI 투자 회의론에 나스닥 2.6% 급락…기술주 약세",
+  "preheader": "오늘 CHAIN은 전일·전주 대비 델타 3건을 관측했습니다.",
+  "thesis": {
+    "headline": "AI 투자 회의론에 나스닥 2.6% 급락…기술주 약세",
+    "three_signals": [
+      "간밤 미국 증시는 AI 기업 수익성 회의론에 기술주 위주로 하락했습니다.",
+      "지난 거래일(10-22) 국내 증시도 미국발 악재와 외국인·기관 매도세로 급락했습니다.",
+      "안전자산 선호 심리가 확대되며 미국채 10년물 금리가 4.95%로 하락세를 나타냈습니다."
+    ]
+  },
+  "main_story": {
+    "headline": "AI 투자 회의론에 기술주 급락",
+    "verified_fact": "인공지능 기업들의 대규모 투자 대비 수익성 우려가 불거지며 기술주를 중심으로 증시가 강한 하락세를 보였다.",
+    "why_it_matters": null,
+    "sources": []
+  },
+  "entities": [
+    {
+      "name": "나스닥",
+      "type": "index"
+    }
+  ],
+  "metrics": [
+    {
+      "id": "kospi",
+      "value": 5533.77,
+      "change": -3.5199,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "kosdaq",
+      "value": 764.1,
+      "change": -3.6152,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "nasdaq",
+      "value": 26008.86,
+      "change": -2.599,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "sp500",
+      "value": 7663.43,
+      "change": -1.2084,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1325.4,
+      "change": -1.23,
+      "displayMode": "delta",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "us10y",
+      "value": 4.95,
+      "change": -0.2,
+      "displayMode": "delta",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "wti",
+      "value": 99.1,
+      "change": null,
+      "displayMode": "pct",
+      "direction": null,
+      "status": "stale"
+    },
+    {
+      "id": "vix",
+      "value": 19.03,
+      "change": 14.0887,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    }
+  ],
+  "market_changes": [
+    {
+      "id": "kospi",
+      "change": -3.5199,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "kosdaq",
+      "change": -3.6152,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "nasdaq",
+      "change": -2.599,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "sp500",
+      "change": -1.2084,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "usdkrw",
+      "change": -1.23,
+      "changeUnit": "원",
+      "direction": "down"
+    },
+    {
+      "id": "us10y",
+      "change": -0.2,
+      "changeUnit": "%p",
+      "direction": "down"
+    },
+    {
+      "id": "wti",
+      "change": null,
+      "changeUnit": "%",
+      "direction": null
+    },
+    {
+      "id": "vix",
+      "change": 14.0887,
+      "changeUnit": "%",
+      "direction": "up"
+    }
+  ],
+  "narratives": {
+    "moo_view": "예상과 달리 코스피는 하루 만에 3.52% 급락하며 하락 전환했습니다. 인공지능 기업들의 대규모 투자 대비 수익성 우려가 확산하면서 글로벌 기술주 중심의 투심 위축을 불러왔고, 미국 국채 금리 급락과 증시 전반의 동반 약세로 연결되는 흐름이 형성된 것으로 보입니다.\n\n국내 시장에서는 지수 하락 속에서도 시장 간 수급 대응이 뚜렷하게 갈리는 모습이 나타났습니다. 유가증권시장에서는 기관 매도세에 맞서 개인과 외국인의 동반 매수세가 유입되었으나, 코스닥 시장에서는 외국인과 기관의 동반 매도세가 이어지며 전기제품 및 석유와가스 업종을 중심으로 낙폭이 심화된 것으로 관찰됩니다. 반면 일각의 시각과 달리 건설이나 손해보험 등 일부 업종은 상승세를 지켜내며 방어적인 면모를 드러내기도 했습니다.\n\n향후 OpenAI의 300억 달러 투자 유치 추진 경과가 기술주 전반의 수익성 회의론을 진정시킨다면 지수는 조기 안정을 찾을 수 있겠으나, 중국 전기차의 국내 시장 침투나 주요 기업의 상장 철회 여파가 지속된다면 추가적인 지수 하락 압력이 이어질 가능성이 있습니다.\n\n다음 거래일에는 한국은행의 기준금리 동결 결정 이후 시장 내 유동성 흐름과 함께, 업종별 수급 차별화 지속 여부를 중심으로 관찰할 필요가 있을 것으로 보입니다.",
+    "todays_watch": [
+      "한국은행 기준금리 3.0% 동결 이후 국내 증시 기관 순매도세 지속 여부",
+      "OpenAI의 300억달러 투자 유치 추진 경과에 따른 기술주 투심 회복 가능성",
+      "중국 전기차 시장 점유율 확대가 국산 전기제품 및 배터리 업종에 미치는 영향"
+    ],
+    "todays_watch_oneliner": "AI 수익성 우려가 불러온 기술주 급락 속 수급 주체별 차별화 양상을 주시할 필요가 있습니다.",
+    "content_status": "GENERATED_REPAIRED"
+  },
+  "moo_q": {
+    "claim_id": "2026-10-23-c1",
+    "claim_text": "PCE 발표를 앞두고 코스피가 나스닥 대비 약세를 이어갈까요?",
+    "topic": "코스피 vs 나스닥 상대성과(이벤트연동: PCE)",
+    "resolution_at": "2026-10-29",
+    "status": "unresolved"
+  },
+  "moo_check": [
+    {
+      "previous_claim": "삼성전자보통주가 삼성전자우선주 대비 강세를 이어갈까요?",
+      "claim_date": "2026-10-22",
+      "evaluation_date": "2026-10-23T06:42:45+09:00",
+      "observed_result": "변화폭이 중립 구간(±1.0%) 이내에 머물러 뚜렷한 방향이 나타나지 않았습니다.",
+      "verdict": "PARTIAL",
+      "evidence": "삼성전자보통주 223,500→214,500 (-4.03%) · 삼성전자우선주 172,400→166,600 (-3.36%) · 상대 -0.67%p",
+      "source": "Naver"
+    }
+  ],
+  "moo_word": {
+    "id": "open_ustr",
+    "term": "USTR(Office of the United States Trade Representative)",
+    "definition": "미국무역대표부(Office of the United States Trade Representative)의 약자로 미국의 국제통상교섭을 담당하는 대통령 직속 정부기관이다. 미국의 무역, 통상정책을 수립하고 집행하며 외국과의 협상을 주도하거나 지휘하고, 불공정무역행위에 관한 조사와 관련 상대국과의 협상, 보복조치 등을 집행한다.",
+    "why_today": "디즈니가 ABC와 ESPN 등을 통해 슈퍼볼을 다중 플랫폼으로 송출하는 계획을 추진하면서 지역 방송 제휴사들의 반발을 사고 있다.",
+    "memory_hook": null,
+    "source_label": "CNBC",
+    "article_id": "news_15",
+    "article_url": "https://www.cnbc.com/2026/10/22/disneys-multiplatform-super-bowl-plan-frustrates-abc-affiliates.html",
+    "article_publisher": "CNBC",
+    "evidence_snippets": [],
+    "definition_source_name": "기획재정부 시사경제용어사전",
+    "definition_source_url": "https://econedu.go.kr/user/playEcon/currEconTermDoc/menu/list",
+    "definition_priority": "P1_SOURCES_VERIFIED",
+    "origin": "replenish",
+    "grounded_in_article": true,
+    "definition_evidence_verified": true,
+    "status": "ELIGIBLE_FOR_PUBLICATION",
+    "eligible_for_publication": true
+  },
+  "sources": [
+    {
+      "source_name": "파이낸셜뉴스",
+      "source_url": "https://www.fnnews.com/news/202610221837490376",
+      "published_at": "2026-10-22",
+      "source_headline": "\"성장·물가 강해 긴축 지속\"… 11월·내년초 추가 인상 전망[기준금리 3.0% 동결]"
+    },
+    {
+      "source_name": "머니투데이",
+      "source_url": "https://www.mt.co.kr/industry/2026/10/23/2026102217120656718",
+      "published_at": "2026-10-23",
+      "source_headline": "\"저가 中전기차, 우린 안 막아?\"...손 놓은 韓, 점유율 '50% 벽' 와르르"
+    },
+    {
+      "source_name": "한국경제",
+      "source_url": "https://www.hankyung.com/article/2026102298171",
+      "published_at": "2026-10-23",
+      "source_headline": "[단독] 솔리다임 美상장 전격 철회…SK하이닉스, 주주의견 수용"
+    },
+    {
+      "source_name": "MarketWatch",
+      "source_url": "https://www.marketwatch.com/story/treasury-yields-see-extreme-plunge-why-investors-are-ducking-for-cover-60044c66?mod=mw_rss_topstories",
+      "published_at": "2026-10-22",
+      "source_headline": "Treasury yields see extreme plunge. Why investors are ducking for cover."
+    },
+    {
+      "source_name": "CNBC",
+      "source_url": "https://www.cnbc.com/2026/10/22/openai-funding-round-uae-investors.html",
+      "published_at": "2026-10-22",
+      "source_headline": "OpenAI nears up to $30 billion funding round at $1.25 trillion valuation led by UAE investors"
+    }
+  ],
+  "public_url": "https://mooconomy.co.kr/latest-email.html",
+  "validation_status": {
+    "main_story_status": "SELECTED",
+    "content_provenance": "VALIDATED_GEMINI_36",
+    "moo_word_present": true,
+    "sources_count": 5,
+    "is_approximate": false
+  },
+  "content_hash": "59842c589f631f24240fc69de8888c5aeefd21d0761832b63927b9fdb6b12378",
+  "archived_at": "2026-10-22T21:47:05.256128+00:00"
+}
