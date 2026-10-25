@@ -1,14 +1,14 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-24T22:36:17.007436+00:00",
+  "generatedAt": "2026-10-25T22:41:18.815802+00:00",
   "timezone": "Asia/Seoul",
   "range": {
-    "from": "2026-10-24",
-    "to": "2026-10-26"
+    "from": "2026-10-25",
+    "to": "2026-10-27"
   },
   "freshness": {
     "status": "fresh",
-    "lastSuccessfulAt": "2026-10-24T22:36:17.007443+00:00",
+    "lastSuccessfulAt": "2026-10-25T22:41:18.815805+00:00",
     "failedSources": [],
     "sources": {
       "fred": "ok",
@@ -23,5 +23,37 @@
       "rules": "ok"
     }
   },
-  "events": []
+  "events": [
+    {
+      "id": "bok-2026-3-4-2026-10-27-c3e6e8e725a7",
+      "title": "2026년 3/4분기 실질 국내총생산(속보)",
+      "originalTitle": "2026년 3/4분기 실질 국내총생산(속보)",
+      "titleKo": "2026년 3/4분기 실질 국내총생산(속보)",
+      "country": "KR",
+      "category": "macro",
+      "importance": "high",
+      "scheduledDate": "2026-10-27",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "scheduled",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "BOK",
+      "sourceTier": "official",
+      "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-10",
+      "sourceEventId": null,
+      "updatedAt": "2026-10-25T22:41:18.814774+00:00",
+      "confidence": "single_source",
+      "sourceRefs": [
+        {
+          "sourceName": "BOK",
+          "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-10",
+          "sourceTier": "official"
+        }
+      ]
+    }
+  ]
 }
