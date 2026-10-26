@@ -1,14 +1,14 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-25T22:41:18.815802+00:00",
+  "generatedAt": "2026-10-26T23:57:30.413143+00:00",
   "timezone": "Asia/Seoul",
   "range": {
-    "from": "2026-10-25",
-    "to": "2026-10-27"
+    "from": "2026-10-26",
+    "to": "2026-10-28"
   },
   "freshness": {
     "status": "fresh",
-    "lastSuccessfulAt": "2026-10-25T22:41:18.815805+00:00",
+    "lastSuccessfulAt": "2026-10-26T23:57:30.413151+00:00",
     "failedSources": [],
     "sources": {
       "fred": "ok",
@@ -25,32 +25,32 @@
   },
   "events": [
     {
-      "id": "bok-2026-3-4-2026-10-27-c3e6e8e725a7",
-      "title": "2026년 3/4분기 실질 국내총생산(속보)",
-      "originalTitle": "2026년 3/4분기 실질 국내총생산(속보)",
-      "titleKo": "2026년 3/4분기 실질 국내총생산(속보)",
-      "country": "KR",
-      "category": "macro",
+      "id": "fomc-2026-10-28",
+      "title": "FOMC Interest Rate Decision",
+      "originalTitle": "FOMC Interest Rate Decision",
+      "titleKo": "FOMC 금리 결정",
+      "country": "US",
+      "category": "monetary_policy",
       "importance": "high",
-      "scheduledDate": "2026-10-27",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
+      "scheduledDate": "2026-10-28",
+      "scheduledAt": "2026-10-29T03:00:00+09:00",
+      "timezone": "Asia/Seoul",
+      "timePrecision": "datetime",
       "status": "scheduled",
       "previous": null,
       "consensus": null,
       "actual": null,
       "unit": null,
-      "sourceName": "BOK",
+      "sourceName": "Federal Reserve",
       "sourceTier": "official",
-      "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-10",
+      "sourceUrl": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
       "sourceEventId": null,
-      "updatedAt": "2026-10-25T22:41:18.814774+00:00",
-      "confidence": "single_source",
+      "updatedAt": "2026-10-26T23:57:30.412032+00:00",
+      "confidence": "confirmed",
       "sourceRefs": [
         {
-          "sourceName": "BOK",
-          "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-10",
+          "sourceName": "Federal Reserve",
+          "sourceUrl": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
           "sourceTier": "official"
         }
       ]
