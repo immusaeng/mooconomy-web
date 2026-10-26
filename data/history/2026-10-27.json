@@ -1,0 +1,299 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-27",
+  "generatedAt": "2026-10-27T06:45:35+09:00",
+  "indicators": [
+    {
+      "id": "kospi",
+      "value": 5469.47,
+      "change": -1.4563,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "kosdaq",
+      "value": 727.21,
+      "change": -3.2567,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "nasdaq",
+      "value": 26169.38,
+      "change": 0.8246,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "sp500",
+      "value": 7676.77,
+      "change": 0.6964,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1325.17,
+      "change": 1.51,
+      "displayMode": "delta",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "us10y",
+      "value": 4.99,
+      "change": -0.0,
+      "displayMode": "delta",
+      "direction": "flat",
+      "status": "ok"
+    },
+    {
+      "id": "wti",
+      "value": 101.25,
+      "change": -2.1172,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "vix",
+      "value": 18.39,
+      "change": -5.4499,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    }
+  ],
+  "auditIndicators": [
+    {
+      "id": "kospi",
+      "value": 5469.47,
+      "displayMode": "pct"
+    },
+    {
+      "id": "kosdaq",
+      "value": 727.21,
+      "displayMode": "pct"
+    },
+    {
+      "id": "nasdaq",
+      "value": 26169.38,
+      "displayMode": "pct"
+    },
+    {
+      "id": "sp500",
+      "value": 7676.77,
+      "displayMode": "pct"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1325.17,
+      "displayMode": "dual"
+    },
+    {
+      "id": "us10y",
+      "value": 4.99,
+      "displayMode": "delta"
+    },
+    {
+      "id": "wti",
+      "value": 101.25,
+      "displayMode": "pct"
+    },
+    {
+      "id": "vix",
+      "value": 18.39,
+      "displayMode": "pct"
+    },
+    {
+      "id": "gold",
+      "value": 4031.0,
+      "displayMode": "pct"
+    },
+    {
+      "id": "dollarindex",
+      "value": 102.01,
+      "displayMode": "pct"
+    },
+    {
+      "id": "brent",
+      "value": 110.27,
+      "displayMode": "pct"
+    },
+    {
+      "id": "dow",
+      "value": 52361.58,
+      "displayMode": "pct"
+    },
+    {
+      "id": "nikkei",
+      "value": 62693.16,
+      "displayMode": "pct"
+    },
+    {
+      "id": "shanghai",
+      "value": 3690.48,
+      "displayMode": "pct"
+    }
+  ],
+  "signals": [
+    {
+      "id": "recession",
+      "color": "green",
+      "value": 0.31
+    },
+    {
+      "id": "rate-gap",
+      "color": "green",
+      "value": 1.0
+    },
+    {
+      "id": "liquidity-stress",
+      "color": "green",
+      "value": 3.38
+    }
+  ],
+  "calendarSnapshot": [
+    {
+      "id": "us-earn-2026-10-28-알파벳",
+      "time": "2026-10-28",
+      "country": "US",
+      "title": "알파벳 실적발표",
+      "importance": "medium"
+    },
+    {
+      "id": "us-earn-2026-10-28-마이크로소프트",
+      "time": "2026-10-28",
+      "country": "US",
+      "title": "마이크로소프트 실적발표",
+      "importance": "medium"
+    },
+    {
+      "id": "us-2026-10-29-미국 개인소득·지출(PCE)",
+      "time": "2026-10-29",
+      "country": "US",
+      "title": "미국 개인소득·지출(PCE)",
+      "importance": "high"
+    }
+  ],
+  "marketTemperature": {
+    "label": "neutral",
+    "displayLabel": "중립",
+    "status": "ok"
+  },
+  "connectionTopology": "DELTA_MODEL_V1",
+  "driverClaims": [
+    "앤트로픽 IPO 신청서 제출로 글로벌 AI 기술주 투심 회복",
+    "코스피 외국인 대규모 순매도로 인한 지수 하락 압력"
+  ],
+  "krMarketClosed": false,
+  "weeklyEvents": {
+    "weekStart": "2026-10-26",
+    "source": "calendar_events.json",
+    "events": [
+      {
+        "id": "bok-2026-3-4-2026-10-27-c3e6e8e725a7",
+        "date": "2026-10-27",
+        "us_date": null,
+        "at": null,
+        "country": "KR",
+        "importance": "high",
+        "category": "macro",
+        "title": "2026년 3/4분기 실질 국내총생산(속보)",
+        "ord": null
+      },
+      {
+        "id": "kr-earn-2026-10-28-SK하이닉스",
+        "date": "2026-10-28",
+        "us_date": null,
+        "at": "2026-10-28T09:00:00+09:00",
+        "country": "KR",
+        "importance": "medium",
+        "category": "earnings",
+        "title": "SK하이닉스 3분기 실적 · 오전 9시",
+        "ord": 1
+      },
+      {
+        "id": "fomc-2026-10-28",
+        "date": "2026-10-29",
+        "us_date": null,
+        "at": "2026-10-29T03:00:00+09:00",
+        "country": "US",
+        "importance": "high",
+        "category": "monetary_policy",
+        "title": "FOMC 금리 결정",
+        "ord": null
+      },
+      {
+        "id": "fred-personal-income-and-outlays-2026-10-29-34de6194a2b8",
+        "date": "2026-10-29",
+        "us_date": null,
+        "at": "2026-10-29T21:30:00+09:00",
+        "country": "US",
+        "importance": "high",
+        "category": "macro",
+        "title": "개인소득 및 소비지출",
+        "ord": null
+      },
+      {
+        "id": "fred-gross-domestic-product-2026-10-29-b887c52a4d02",
+        "date": "2026-10-29",
+        "us_date": null,
+        "at": "2026-10-29T21:30:00+09:00",
+        "country": "US",
+        "importance": "high",
+        "category": "macro",
+        "title": "미국 국내총생산(GDP)",
+        "ord": null
+      },
+      {
+        "id": "kr-earn-2026-10-29-삼성전자",
+        "date": "2026-10-29",
+        "us_date": null,
+        "at": "2026-10-29T10:00:00+09:00",
+        "country": "KR",
+        "importance": "medium",
+        "category": "earnings",
+        "title": "삼성전자 3분기 실적 · 오전 10시",
+        "ord": 0
+      },
+      {
+        "id": "us-earn-2026-10-28-마이크로소프트",
+        "date": "2026-10-29",
+        "us_date": "2026-10-28",
+        "at": null,
+        "country": "US",
+        "importance": "medium",
+        "category": "earnings",
+        "title": "마이크로소프트 실적 · 새벽 발표",
+        "ord": 3
+      },
+      {
+        "id": "us-earn-2026-10-28-알파벳",
+        "date": "2026-10-29",
+        "us_date": "2026-10-28",
+        "at": null,
+        "country": "US",
+        "importance": "medium",
+        "category": "earnings",
+        "title": "알파벳 실적 · 새벽 발표",
+        "ord": 4
+      },
+      {
+        "id": "rules-korea-exports-and-imports-2026-11-01-654a74ecbf17",
+        "date": "2026-11-01",
+        "us_date": null,
+        "at": null,
+        "country": "KR",
+        "importance": "medium",
+        "category": "trade",
+        "title": "수출입 동향",
+        "ord": null
+      }
+    ]
+  }
+}

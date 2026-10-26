@@ -1,0 +1,238 @@
+{
+  "schema_version": "normalized-daily-issue/v1",
+  "edition_id": "2026-10-27",
+  "edition_date_kst": "2026-10-27",
+  "canonical_status": "production",
+  "production_status": "SEND_CONFIRMED",
+  "source_commit_sha": "b01a0903e9dfe893819fbedaabb66cc50b1a6601",
+  "subject": "코스닥 3.26% 급락…개인이 더 샀고 기관만 팔았다",
+  "preheader": "오늘 CHAIN은 전일·전주 대비 델타 3건을 관측했습니다.",
+  "thesis": {
+    "headline": "코스닥 3.26% 급락…개인이 더 샀고 기관만 팔았다",
+    "three_signals": [
+      "앤트로픽 IPO 소식에 뉴욕증시 기술주 중심으로 투자심리가 개선되었습니다.",
+      "지난 거래일(10-26) 코스피는 외국인 매도세 속에 1.45% 하락하며 약세를 보였습니다.",
+      "기관의 매도세로 코스닥 지수가 3.26% 급락했습니다."
+    ]
+  },
+  "main_story": {
+    "headline": "앤트로픽 IPO 공식화에 랠리",
+    "verified_fact": "인공지능 기업 앤트로픽이 미국 증권거래소에 기업공개(IPO) 신청서를 제출하며 뉴욕 증시 기술주 중심으로 투자심리가 개선되었습니다.",
+    "why_it_matters": null,
+    "sources": []
+  },
+  "entities": [
+    {
+      "name": "코스닥",
+      "type": "index"
+    }
+  ],
+  "metrics": [
+    {
+      "id": "kospi",
+      "value": 5469.47,
+      "change": -1.4563,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "kosdaq",
+      "value": 727.21,
+      "change": -3.2567,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "nasdaq",
+      "value": 26169.38,
+      "change": 0.8246,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "sp500",
+      "value": 7676.77,
+      "change": 0.6964,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1325.17,
+      "change": 1.51,
+      "displayMode": "delta",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "us10y",
+      "value": 4.99,
+      "change": -0.0,
+      "displayMode": "delta",
+      "direction": "flat",
+      "status": "ok"
+    },
+    {
+      "id": "wti",
+      "value": 101.25,
+      "change": -2.1172,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "vix",
+      "value": 18.39,
+      "change": -5.4499,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    }
+  ],
+  "market_changes": [
+    {
+      "id": "kospi",
+      "change": -1.4563,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "kosdaq",
+      "change": -3.2567,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "nasdaq",
+      "change": 0.8246,
+      "changeUnit": "%",
+      "direction": "up"
+    },
+    {
+      "id": "sp500",
+      "change": 0.6964,
+      "changeUnit": "%",
+      "direction": "up"
+    },
+    {
+      "id": "usdkrw",
+      "change": 1.51,
+      "changeUnit": "원",
+      "direction": "up"
+    },
+    {
+      "id": "us10y",
+      "change": -0.0,
+      "changeUnit": "%p",
+      "direction": "flat"
+    },
+    {
+      "id": "wti",
+      "change": -2.1172,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "vix",
+      "change": -5.4499,
+      "changeUnit": "%",
+      "direction": "down"
+    }
+  ],
+  "narratives": {
+    "moo_view": "전일 외국인 매도에도 방어력을 나타냈던 관점과 달리, 오늘 코스피는 외국인의 대규모 매도 여파로 하락세를 보였습니다. 뉴욕 증시는 앤트로픽의 IPO 신청서 제출 소식에 기술주 중심으로 투심이 개선되었으나, 대외 온기가 국내 위험자산 선호 심리로 매끄럽게 전이되지 않는 모습입니다.\n\n국내 시장에서는 지수와 수급 주체별로 뚜렷한 온도 차가 형성되었습니다. 코스피에서는 외국인의 매도 물량을 기관이 순매수하며 하방을 방어한 반면, 코스닥은 기관의 순매도 속에 급락세를 기록했습니다. 업종별로는 건강관리기술이 대형 강세를 나타낸 반면 에너지장비및서비스와 우주항공과국방 업종은 큰 폭의 내림세를 기록했습니다.\n\n소비자심리지수 하락과 고금리 불확실성이 진정되고 외국인 수급이 순매수로 전환된다면 지수의 반등 계기가 마련될 수 있으나, 외국인의 매도세가 장기화되고 중동 리스크 및 유가 상승 부담이 이어진다면 하방 압력이 더욱 확대될 가능성이 존재합니다. 다만 이러한 대외 악재에도 불구하고 특정 업종의 개별 장세가 이어질 수 있다는 시각도 공존합니다.\n\n다음 거래일에는 한 달 만에 꺾인 소비자심리지수 추이와 함께 회사채 발행 확대에 따른 금융채 수급 영향, 대형 기술주의 자금 조달 일정을 면밀히 살펴볼 필요가 있습니다.",
+    "todays_watch": [
+      "한 달 만에 하락 전환한 소비자심리지수의 향후 추이",
+      "전월 대비 증가한 9월 회사채 발행 시장 영향",
+      "외국인의 코스피 순매도세 지속 여부 및 수급 전환 가능성"
+    ],
+    "todays_watch_oneliner": "미국 AI 호재에도 불구하고 외국인 수급 이탈로 국내 증시의 차별화된 약세가 이어집니다.",
+    "content_status": "GENERATED_REPAIRED"
+  },
+  "moo_q": {
+    "claim_id": "2026-10-27-c1",
+    "claim_text": "인공지능 기업 앤트로픽이 SEC에 IPO 신청서를 제출했다는 소식에 뉴욕 증시 기술주 중심으로 투자심리가 되살아났다. — 나스닥이 코스닥 대비 강세를 이어갈까요?",
+    "topic": "나스닥 vs 코스닥 상대성과(LLM 후보, 1거래일)",
+    "resolution_at": "2026-10-28",
+    "status": "unresolved"
+  },
+  "moo_check": [
+    {
+      "previous_claim": "미국과 이란 간 군사적 긴장 고조로 국제유가가 급등하면서 뉴욕증시 3대 지수가 일제히 내림세를 기록했습니다. — 나스닥이 S&P500 대비 강세를 이어갈까요?",
+      "claim_date": "2026-10-24",
+      "evaluation_date": "2026-10-27T06:45:31+09:00",
+      "observed_result": "변화폭이 중립 구간(±0.3%) 이내에 머물러 뚜렷한 방향이 나타나지 않았습니다.",
+      "verdict": "PARTIAL",
+      "evidence": "나스닥 25955.34→26169.38 (+0.82%) · S&P500 7623.68→7676.77 (+0.70%) · 상대 +0.12%p",
+      "source": "FinanceDataReader"
+    }
+  ],
+  "moo_word": {
+    "id": "open_ipo",
+    "term": "IPO",
+    "definition": "IPO는 기업이 외부 투자자로부터 자금을 조달하기 위해 주식을 증권시장에 처음 상장하여 공개하는 것으로, 증시 상장을 통해 대규모 자금을 안정적으로 확보하고 재무 구조를 투명하게 개선하는 방식으로 작동한다.",
+    "why_today": "앤트로픽 IPO 공식화에 뉴욕증시가 들썩이며 나스닥이 0.8% 상승했다.",
+    "memory_hook": null,
+    "source_label": "연합뉴스마켓",
+    "article_id": "news_4",
+    "article_url": "https://www.yna.co.kr/view/AKR20261027006651072",
+    "article_publisher": "연합뉴스마켓",
+    "evidence_snippets": [
+      "앤트로픽 IPO 공식화에 뉴욕증시 들썩…나스닥 0.8%↑(종합)."
+    ],
+    "definition_source_name": null,
+    "definition_source_url": null,
+    "definition_priority": "P2_SOURCES_PARTIAL",
+    "origin": "llm_proposed",
+    "grounded_in_article": true,
+    "definition_evidence_verified": true,
+    "status": "ELIGIBLE_FOR_PUBLICATION",
+    "eligible_for_publication": true
+  },
+  "sources": [
+    {
+      "source_name": "연합뉴스마켓",
+      "source_url": "https://www.yna.co.kr/view/AKR20261026147400017",
+      "published_at": "2026-10-27",
+      "source_headline": "게임업계 3분기 실적 희비…크래프톤 매출 1조·엔씨 흑자 전망"
+    },
+    {
+      "source_name": "파이낸셜뉴스",
+      "source_url": "https://www.fnnews.com/news/202610261655342974",
+      "published_at": "2026-10-27",
+      "source_headline": "주가 폭락에 고금리까지..소비자심리지수 다시 꺾였다"
+    },
+    {
+      "source_name": "연합뉴스",
+      "source_url": "https://www.yna.co.kr/view/AKR20261026142900002",
+      "published_at": "2026-10-27",
+      "source_headline": "9월 기업 회사채 발행 78% 증가…12조 증가분 대부분이 금융채"
+    },
+    {
+      "source_name": "MarketWatch",
+      "source_url": "https://www.marketwatch.com/story/nvidia-amd-and-broadcom-could-buy-meta-shares-as-part-of-35-billion-stock-offering-d816fec2?mod=mw_rss_topstories",
+      "published_at": "2026-10-26",
+      "source_headline": "Nvidia, AMD and Broadcom could buy Meta shares as part of $35 billion stock offering"
+    },
+    {
+      "source_name": "CNBC",
+      "source_url": "https://www.cnbc.com/2026/10/26/anthropic-ipo-founder-voting-control.html",
+      "published_at": "2026-10-26",
+      "source_headline": "Anthropic's IPO puts power in the hands of founders, giving everyday shareholders little voice"
+    }
+  ],
+  "public_url": "https://mooconomy.co.kr/latest-email.html",
+  "validation_status": {
+    "main_story_status": "SELECTED",
+    "content_provenance": "VALIDATED_GEMINI_36",
+    "moo_word_present": true,
+    "sources_count": 5,
+    "is_approximate": false
+  },
+  "content_hash": "ca50fe5c92736d2dcb0626552c3ea2fb94d490b2ac272c8cd4ac95dddac54a19",
+  "archived_at": "2026-10-26T21:52:42.256677+00:00"
+}
