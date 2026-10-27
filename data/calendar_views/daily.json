@@ -1,14 +1,14 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-26T23:57:30.413143+00:00",
+  "generatedAt": "2026-10-27T23:52:39.870852+00:00",
   "timezone": "Asia/Seoul",
   "range": {
-    "from": "2026-10-26",
-    "to": "2026-10-28"
+    "from": "2026-10-27",
+    "to": "2026-10-29"
   },
   "freshness": {
     "status": "fresh",
-    "lastSuccessfulAt": "2026-10-26T23:57:30.413151+00:00",
+    "lastSuccessfulAt": "2026-10-27T23:52:39.870859+00:00",
     "failedSources": [],
     "sources": {
       "fred": "ok",
@@ -45,13 +45,75 @@
       "sourceTier": "official",
       "sourceUrl": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
       "sourceEventId": null,
-      "updatedAt": "2026-10-26T23:57:30.412032+00:00",
+      "updatedAt": "2026-10-27T23:52:39.869893+00:00",
       "confidence": "confirmed",
       "sourceRefs": [
         {
           "sourceName": "Federal Reserve",
           "sourceUrl": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
           "sourceTier": "official"
+        }
+      ]
+    },
+    {
+      "id": "fred-gross-domestic-product-2026-10-29-b887c52a4d02",
+      "title": "Gross Domestic Product",
+      "originalTitle": "Gross Domestic Product",
+      "titleKo": "미국 국내총생산(GDP)",
+      "country": "US",
+      "category": "macro",
+      "importance": "high",
+      "scheduledDate": "2026-10-29",
+      "scheduledAt": "2026-10-29T21:30:00+09:00",
+      "timezone": "Asia/Seoul",
+      "timePrecision": "datetime",
+      "status": "scheduled",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "FRED",
+      "sourceTier": "official_aggregator",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=53",
+      "sourceEventId": "53",
+      "updatedAt": "2026-10-27T23:52:39.869092+00:00",
+      "confidence": "single_source",
+      "sourceRefs": [
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=53",
+          "sourceTier": "official_aggregator"
+        }
+      ]
+    },
+    {
+      "id": "fred-personal-income-and-outlays-2026-10-29-34de6194a2b8",
+      "title": "Personal Income and Outlays",
+      "originalTitle": "Personal Income and Outlays",
+      "titleKo": "개인소득 및 소비지출",
+      "country": "US",
+      "category": "macro",
+      "importance": "high",
+      "scheduledDate": "2026-10-29",
+      "scheduledAt": "2026-10-29T21:30:00+09:00",
+      "timezone": "Asia/Seoul",
+      "timePrecision": "datetime",
+      "status": "scheduled",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "FRED",
+      "sourceTier": "official_aggregator",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=54",
+      "sourceEventId": "54",
+      "updatedAt": "2026-10-27T23:52:39.869108+00:00",
+      "confidence": "single_source",
+      "sourceRefs": [
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=54",
+          "sourceTier": "official_aggregator"
         }
       ]
     }
