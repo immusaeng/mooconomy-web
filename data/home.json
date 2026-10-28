@@ -1,23 +1,22 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-28T06:43:08+09:00",
-  "publishDate": "2026-10-28",
-  "marketDateKr": "2026-10-27",
-  "marketDateUs": "2026-10-27",
+  "generatedAt": "2026-10-29T06:47:47+09:00",
+  "publishDate": "2026-10-29",
+  "marketDateKr": "2026-10-28",
+  "marketDateUs": "2026-10-28",
   "isDelayed": true,
   "status": "ok",
   "marketTemperature": {
-    "label": "risk_on",
-    "displayLabel": "위험선호",
-    "summary": "간밤 미국 증시가 평균 +0.60% 상승한 가운데, 국내 증시가 +3.09% 급등하고 외국인이 코스피에서 5,826억원을 순매수하며 위험선호 심리가 우세한 모습으로 보입니다.",
+    "label": "neutral",
+    "displayLabel": "중립",
+    "summary": "국내 증시가 +6.63% 상승하고 외국인이 7,677억원을 순매수하며 중립적인 시장 온도가 관찰됩니다. 원/달러 환율이 +1.16% 상승하여 원화 약세를 보이는 점이 확인됩니다.",
     "reasons": [
-      "간밤 미국 증시 평균 +0.60% 상승",
-      "국내 증시 +3.09% 상승",
-      "외국인 코스피 순매수 5,826억원"
+      "국내 증시 +6.63% 상승",
+      "원/달러 +1.16%(원화 약세)",
+      "외국인 코스피 순매수 7,677억원"
     ],
     "watchItems": [
-      "원/달러 환율",
-      "외국인 수급"
+      "원/달러 환율"
     ],
     "status": "ok"
   },
@@ -25,19 +24,19 @@
     {
       "id": "overnight-global",
       "title": "간밤 글로벌 시장",
-      "text": "나스닥 +1.18%, S&P500 +0.60%, 다우 +0.03%로 미국 증시가 상승 마감했고, VIX는 17.52, 미국채10년물은 4.99%를 기록했습니다.",
+      "text": "간밤 나스닥 +0.27%, S&P500 +0.28%, 다우 +0.19% 등 주요 지수가 상승 마감했습니다. VIX는 16.91, 미국채 10년물 금리는 5.05%로 나타났습니다.",
       "status": "ok"
     },
     {
       "id": "today-domestic",
       "title": "전일 국내 시장",
-      "text": "전일 국내 시장에서는 코스피가 +3.09%, 코스닥이 +2.29% 상승했으며, 외국인이 코스피 5,826억원을 순매수하고 원/달러 환율은 +0.12% 변동을 보였습니다.",
+      "text": "전일 국내 시장에서는 코스피가 +6.63%, 코스닥이 +3.69% 상승했습니다. 외국인의 코스피 순매수는 7,677억원을 기록했고, 원/달러 환율은 +1.16% 변동했습니다.",
       "status": "ok"
     },
     {
       "id": "today-checkpoint",
       "title": "오늘의 체크포인트",
-      "text": "글로벌 시장의 안정적 흐름과 국내 증시의 강세 속에서 원/달러 환율과 외국인 수급 등 주요 지표를 중심으로 시장의 방향성을 살피는 분위기입니다.",
+      "text": "글로벌 증시의 완만한 상승세와 국내 시장의 급등세가 맞물리며, 시장 참여자들의 경계감과 기대감이 교차하는 분위기입니다.",
       "status": "ok"
     }
   ],
@@ -45,18 +44,18 @@
     "nodes": [
       {
         "role": "방향 전환",
-        "label": "코스피",
-        "detail": "코스피가 전일 하락 흐름에서 2026-10-27 기준 상승으로 전환됐습니다(5,638.34)."
+        "label": "WTI",
+        "detail": "WTI가 전일 하락 흐름에서 2026-10-28 기준 상승으로 전환됐습니다($101.94)."
       },
       {
         "role": "새 동인",
         "label": "동인 변화",
-        "detail": "새로 등장한 동인이 관측됩니다: 빅테크 실적 발표를 앞두고 미 증시 나스닥 및 S&P500 상승"
+        "detail": "새로 등장한 동인이 관측됩니다: 기업 체감경기 반등 및 반도체 산업 호조가 국내 증시 급등 유발"
       },
       {
         "role": "변화폭 1위",
-        "label": "VIX",
-        "detail": "오늘 변화 폭이 가장 큰 지표는 VIX입니다(-4.73%)."
+        "label": "원/달러",
+        "detail": "오늘 변화 폭이 가장 큰 지표는 원/달러입니다(+15.43원)."
       }
     ],
     "topologyId": "DELTA_MODEL_V1",
@@ -69,81 +68,64 @@
       {
         "id": "foreign",
         "label": "외국인 수급",
-        "value": 5826,
-        "displayValue": "+5,826억원",
+        "value": 7677,
+        "displayValue": "+7,677억원",
         "direction": "up",
         "status": "ok"
       },
       {
         "id": "institution",
         "label": "기관 수급",
-        "value": 2824,
-        "displayValue": "+2,824억원",
+        "value": 9131,
+        "displayValue": "+9,131억원",
         "direction": "up",
         "status": "ok"
       },
       {
         "id": "individual",
         "label": "개인 수급",
-        "value": -9407,
-        "displayValue": "-9,407억원",
+        "value": -17037,
+        "displayValue": "-17,037억원",
         "direction": "down",
         "status": "ok"
       },
       {
         "id": "usdkrw",
         "label": "원/달러",
-        "value": 1326.81,
-        "displayValue": "1,326.8원",
+        "value": 1342.24,
+        "displayValue": "1,342.2원",
         "direction": "up",
         "status": "ok"
       },
       {
         "id": "leading-sector",
         "label": "주도 업종",
-        "value": 8.41,
-        "displayValue": "전자장비와기기 +8.41%",
+        "value": 11.24,
+        "displayValue": "반도체와반도체장비 +11.24%",
         "direction": "up",
         "status": "ok"
       }
     ],
-    "summary": "외국인 수급 +5,826억원, 기관 수급 +2,824억원, 개인 수급 -9,407억원, 원/달러 1,326.8원, 주도 업종 전자장비와기기 +8.41%.",
+    "summary": "외국인 수급 +7,677억원, 기관 수급 +9,131억원, 개인 수급 -17,037억원, 원/달러 1,342.2원, 주도 업종 반도체와반도체장비 +11.24%.",
     "status": "ok"
   },
   "risks": [
     {
       "id": "kr-swing",
       "title": "국내 증시 큰 변동",
-      "detail": "코스피가 +3.09% 급등하는 등 국내 증시에서 큰 폭의 변동성이 나타난 점이 관찰됩니다.",
+      "detail": "코스피가 +6.63% 급등하는 등 국내 증시의 변동성이 확대된 양상이 관찰됩니다.",
+      "level": "관찰",
+      "status": "ok"
+    },
+    {
+      "id": "fx-swing",
+      "title": "환율 변동성",
+      "detail": "원/달러 환율이 +1.16% 상승하며 환율 변동성이 나타날 가능성이 있습니다.",
       "level": "관찰",
       "status": "ok"
     }
   ],
   "calendar": [
-    {
-      "id": "us-earn-2026-10-28-알파벳",
-      "time": "2026-10-28",
-      "country": "US",
-      "title": "알파벳 실적발표",
-      "importance": "medium",
-      "status": "ok"
-    },
-    {
-      "id": "us-earn-2026-10-28-마이크로소프트",
-      "time": "2026-10-28",
-      "country": "US",
-      "title": "마이크로소프트 실적발표",
-      "importance": "medium",
-      "status": "ok"
-    },
-    {
-      "id": "us-2026-10-29-미국 GDP",
-      "time": "2026-10-29",
-      "country": "US",
-      "title": "미국 GDP",
-      "importance": "high",
-      "status": "ok"
-    },
     {
       "id": "us-2026-10-29-미국 개인소득·지출(PCE)",
       "time": "2026-10-29",
@@ -153,10 +135,10 @@
       "status": "ok"
     },
     {
-      "id": "us-earn-2026-10-29-아마존",
-      "time": "2026-10-29",
+      "id": "us-earn-2026-11-02-애플",
+      "time": "2026-11-02",
       "country": "US",
-      "title": "아마존 실적발표",
+      "title": "애플 실적발표",
       "importance": "medium",
       "status": "ok"
     }
@@ -164,143 +146,143 @@
   "news": {
     "items": [
       {
-        "id": "news-매일경제-“반도체 호황도 못 살렸다”…기업 경기전망 2개월째 ‘부정적’",
+        "id": "news-매일경제-자가 거주 가구주 47% “소득 부족”…“여유 있다”는 18%",
         "category": "news",
         "source": "매일경제",
-        "title": "“반도체 호황도 못 살렸다”…기업 경기전망 2개월째 ‘부정적’",
-        "url": "https://www.mk.co.kr/news/economy/12187984",
-        "publishedAt": "2026-10-28",
+        "title": "자가 거주 가구주 47% “소득 부족”…“여유 있다”는 18%",
+        "url": "https://www.mk.co.kr/news/economy/12189411",
+        "publishedAt": "2026-10-29",
         "status": "ok"
       },
       {
-        "id": "news-매일경제-“2억1700만원까지는 그냥 받아도 된다?” … 헷갈리는 부모 무상증여",
+        "id": "news-매일경제-“전력망 건설속도 6배 끌어올려야”…경제자문회의 부의장이 경고한 이유",
         "category": "news",
         "source": "매일경제",
-        "title": "“2억1700만원까지는 그냥 받아도 된다?” … 헷갈리는 부모 무상증여",
-        "url": "https://www.mk.co.kr/news/economy/12187375",
-        "publishedAt": "2026-10-28",
+        "title": "“전력망 건설속도 6배 끌어올려야”…경제자문회의 부의장이 경고한 이유",
+        "url": "https://www.mk.co.kr/news/economy/12189346",
+        "publishedAt": "2026-10-29",
         "status": "ok"
       },
       {
-        "id": "news-연합뉴스-K-가방 해외 수출 40% 급증…무신사 글로벌 역직구 거래액 2배로",
+        "id": "news-한국경제-\"다음은 반도체 후공정\"...반도체 랠리, 장비주로 온기 번질까",
+        "category": "news",
+        "source": "한국경제",
+        "title": "\"다음은 반도체 후공정\"...반도체 랠리, 장비주로 온기 번질까",
+        "url": "https://www.hankyung.com/article/202610280783i",
+        "publishedAt": "2026-10-29",
+        "status": "ok"
+      },
+      {
+        "id": "news-한국경제-\"너무 차이 난다\"…코스피 급등해도 LG이노텍 개미는 '울상' [종목+]",
+        "category": "news",
+        "source": "한국경제",
+        "title": "\"너무 차이 난다\"…코스피 급등해도 LG이노텍 개미는 '울상' [종목+]",
+        "url": "https://www.hankyung.com/article/2026102808756",
+        "publishedAt": "2026-10-29",
+        "status": "ok"
+      },
+      {
+        "id": "news-머니투데이-\"AI 투자도 금리 못 피한다\"…美 연준의장 일침",
+        "category": "news",
+        "source": "머니투데이",
+        "title": "\"AI 투자도 금리 못 피한다\"…美 연준의장 일침",
+        "url": "https://www.mt.co.kr/world/2026/10/29/2026102906184894677",
+        "publishedAt": "2026-10-29",
+        "status": "ok"
+      },
+      {
+        "id": "news-머니투데이-'AI 풍향계' 오라클, 흑자전환 전망...주가 12% 급등",
+        "category": "news",
+        "source": "머니투데이",
+        "title": "'AI 풍향계' 오라클, 흑자전환 전망...주가 12% 급등",
+        "url": "https://www.mt.co.kr/world/2026/10/29/2026102905574982526",
+        "publishedAt": "2026-10-29",
+        "status": "ok"
+      },
+      {
+        "id": "news-연합뉴스-외식 물가 부담에 냉동치킨 '인기'…식품업계, 차별화 경쟁 속도",
         "category": "news",
         "source": "연합뉴스",
-        "title": "K-가방 해외 수출 40% 급증…무신사 글로벌 역직구 거래액 2배로",
-        "url": "https://www.yna.co.kr/view/AKR20261027151100030",
-        "publishedAt": "2026-10-28",
+        "title": "외식 물가 부담에 냉동치킨 '인기'…식품업계, 차별화 경쟁 속도",
+        "url": "https://www.yna.co.kr/view/AKR20261028165800030",
+        "publishedAt": "2026-10-29",
         "status": "ok"
       },
       {
-        "id": "news-연합뉴스마켓-[코스피·코스닥 전 거래일(27일) 주요공시]",
+        "id": "news-연합뉴스마켓-[코스피·코스닥 전 거래일(28일) 주요공시]",
         "category": "news",
         "source": "연합뉴스마켓",
-        "title": "[코스피·코스닥 전 거래일(27일) 주요공시]",
-        "url": "https://www.yna.co.kr/view/AKR20261027178500008",
-        "publishedAt": "2026-10-28",
+        "title": "[코스피·코스닥 전 거래일(28일) 주요공시]",
+        "url": "https://www.yna.co.kr/view/AKR20261028184200008",
+        "publishedAt": "2026-10-29",
         "status": "ok"
       },
       {
-        "id": "news-연합뉴스마켓-내일 삼성전자 3분기 세부실적…메모리만 110조 영업익 추정",
-        "category": "news",
-        "source": "연합뉴스마켓",
-        "title": "내일 삼성전자 3분기 세부실적…메모리만 110조 영업익 추정",
-        "url": "https://www.yna.co.kr/view/AKR20261026160500003",
-        "publishedAt": "2026-10-28",
-        "status": "ok"
-      },
-      {
-        "id": "news-연합뉴스-반도체 실적 호조에도…기업 경기 전망 2개월 연속 '부정적'",
-        "category": "news",
-        "source": "연합뉴스",
-        "title": "반도체 실적 호조에도…기업 경기 전망 2개월 연속 '부정적'",
-        "url": "https://www.yna.co.kr/view/AKR20261027167600003",
-        "publishedAt": "2026-10-28",
-        "status": "ok"
-      },
-      {
-        "id": "news-연합뉴스-한·인니, 3년 만에 2차 CEPA 공동위원회…이행 현황 점검",
-        "category": "news",
-        "source": "연합뉴스",
-        "title": "한·인니, 3년 만에 2차 CEPA 공동위원회…이행 현황 점검",
-        "url": "https://www.yna.co.kr/view/AKR20261027183600003",
-        "publishedAt": "2026-10-28",
-        "status": "ok"
-      },
-      {
-        "id": "news-매일경제-3분기 GDP 1% '깜짝성장' … 한국은행 \"올 4%도 가능\"",
-        "category": "news",
-        "source": "매일경제",
-        "title": "3분기 GDP 1% '깜짝성장' … 한국은행 \"올 4%도 가능\"",
-        "url": "https://www.mk.co.kr/news/economy/12187424",
-        "publishedAt": "2026-10-27",
-        "status": "ok"
-      },
-      {
-        "id": "news-MarketWatch-The rest of the market is leaving Big Tech behind after a histo",
-        "category": "news",
-        "source": "MarketWatch",
-        "title": "The rest of the market is leaving Big Tech behind after a historic comeback",
-        "url": "https://www.marketwatch.com/story/the-rest-of-the-market-is-leaving-big-tech-behind-after-a-historic-comeback-324e9fb2?mod=mw_rss_topstories",
-        "publishedAt": "2026-10-27",
-        "status": "ok"
-      },
-      {
-        "id": "news-CNBC-Polymarket faces renewed CFTC probe over U.S. access to offshore platf",
+        "id": "news-CNBC-Microsoft stock jumps 4% as cloud growth drives earnings and revenue b",
         "category": "news",
         "source": "CNBC",
-        "title": "Polymarket faces renewed CFTC probe over U.S. access to offshore platform",
-        "url": "https://www.cnbc.com/2026/10/27/cftc-probes-polymarket-over-2022-settlement.html",
-        "publishedAt": "2026-10-27",
+        "title": "Microsoft stock jumps 4% as cloud growth drives earnings and revenue beat",
+        "url": "https://www.cnbc.com/2026/10/28/microsoft-msft-q1-earnings-report-2027.html",
+        "publishedAt": "2026-10-28",
         "status": "ok"
       },
       {
-        "id": "news-CNBC-Chart: Anthropic's cash pile towers over nearly every U.S. company",
+        "id": "news-CNBC-Ford reports mixed third-quarter results, says 2027 earnings will be i",
         "category": "news",
         "source": "CNBC",
-        "title": "Chart: Anthropic's cash pile towers over nearly every U.S. company",
-        "url": "https://www.cnbc.com/2026/10/27/anthropic-cash-investments-ipo.html",
-        "publishedAt": "2026-10-27",
+        "title": "Ford reports mixed third-quarter results, says 2027 earnings will be in line with this year",
+        "url": "https://www.cnbc.com/2026/10/28/ford-motor-f-earnings-q3-2026.html",
+        "publishedAt": "2026-10-28",
         "status": "ok"
       },
       {
-        "id": "news-MarketWatch-Retail traders buy the dip on chip stocks — but Robinhood gets ",
-        "category": "news",
-        "source": "MarketWatch",
-        "title": "Retail traders buy the dip on chip stocks — but Robinhood gets burned by the crypto market",
-        "url": "https://www.marketwatch.com/story/retail-traders-buy-the-dip-on-chip-stocks-but-robinhood-gets-burned-by-the-crypto-market-33cea913?mod=mw_rss_topstories",
-        "publishedAt": "2026-10-27",
-        "status": "ok"
-      },
-      {
-        "id": "news-CNBC-Anthropic's IPO is risky business",
+        "id": "news-CNBC-Here are five key takeaways from the Fed rate decision and Warsh news ",
         "category": "news",
         "source": "CNBC",
-        "title": "Anthropic's IPO is risky business",
-        "url": "https://www.cnbc.com/2026/10/27/anthropic-five-surprising-risks-s1.html",
-        "publishedAt": "2026-10-27",
+        "title": "Here are five key takeaways from the Fed rate decision and Warsh news conference",
+        "url": "https://www.cnbc.com/2026/10/28/fed-rate-decision-warsh-takeaways.html",
+        "publishedAt": "2026-10-28",
         "status": "ok"
       },
       {
-        "id": "news-MarketWatch-The big reason Boeing’s stock is falling so hard after earnings",
+        "id": "news-MarketWatch-We’re in our 70s. Should we pay off our 2.5% mortgage — or put ",
         "category": "news",
         "source": "MarketWatch",
-        "title": "The big reason Boeing’s stock is falling so hard after earnings",
-        "url": "https://www.marketwatch.com/story/the-big-reason-boeings-stock-is-falling-so-hard-after-earnings-d31b400d?mod=mw_rss_topstories",
-        "publishedAt": "2026-10-27",
+        "title": "We’re in our 70s. Should we pay off our 2.5% mortgage — or put the money in a high-yield savings account?",
+        "url": "https://www.marketwatch.com/story/we-are-in-our-70s-should-we-pay-off-our-2-5-mortgage-or-build-up-our-savings-5a35e9c1?mod=mw_rss_topstories",
+        "publishedAt": "2026-10-28",
         "status": "ok"
       },
       {
-        "id": "news-Investing-Robinhood CEO’s AI startup Harmonic expands into software, chip d",
+        "id": "news-MarketWatch-Why did the Fed hold off on raising interest rates? Warsh says ",
+        "category": "news",
+        "source": "MarketWatch",
+        "title": "Why did the Fed hold off on raising interest rates? Warsh says it’s because an ‘information-rich’ period is coming.",
+        "url": "https://www.marketwatch.com/story/why-did-the-fed-hold-off-on-raising-interest-rates-warsh-says-its-because-an-information-rich-period-is-coming-098ced8d?mod=mw_rss_topstories",
+        "publishedAt": "2026-10-28",
+        "status": "ok"
+      },
+      {
+        "id": "news-Investing-Global stocks hold gains after Fed decision, oil prices rise",
         "category": "news",
         "source": "Investing",
-        "title": "Robinhood CEO’s AI startup Harmonic expands into software, chip design verification",
-        "url": "https://www.investing.com/news/economy-news/robinhood-ceos-ai-startup-harmonic-expands-into-software-chip-design-verification-4976694",
-        "publishedAt": "2026-10-27",
+        "title": "Global stocks hold gains after Fed decision, oil prices rise",
+        "url": "https://www.investing.com/news/economy-news/stocks-get-ai-lift-dollar-holds-steady-ahead-of-fed-decision-4977355",
+        "publishedAt": "2026-10-28",
+        "status": "ok"
+      },
+      {
+        "id": "news-Investing-Fed leaves rates unchanged as it awaits ’accumulation of more inf",
+        "category": "news",
+        "source": "Investing",
+        "title": "Fed leaves rates unchanged as it awaits ’accumulation of more information’",
+        "url": "https://www.investing.com/news/economy-news/fed-holds-rates-steady-as-it-awaits-accumulation-of-more-information-4980411",
+        "publishedAt": "2026-10-28",
         "status": "ok"
       }
     ],
     "clusters": [],
-    "summary": "삼성전자 3분기 세부실적 발표를 앞두고 반도체 실적 호조 기대감이 전해지는 모습입니다.",
+    "summary": "반도체 장비주로 랠리 온기가 확산되는 양상과 함께 AI 투자 및 전력망 건설 관련 이슈가 주목받는 모습입니다.",
     "status": "ok"
   },
   "latestBriefing": null,
@@ -308,13 +290,13 @@
     {
       "id": "kospi",
       "name": "코스피",
-      "value": 5638.34,
-      "displayValue": "5,638.34",
-      "change": 3.0875,
+      "value": 6012.44,
+      "displayValue": "6,012.44",
+      "change": 6.6349,
       "changeUnit": "%",
       "displayMode": "pct",
       "direction": "up",
-      "asOf": "2026-10-27",
+      "asOf": "2026-10-28",
       "source": "KRX",
       "sourceUrl": "",
       "frequency": "daily",
@@ -325,13 +307,13 @@
     {
       "id": "kosdaq",
       "name": "코스닥",
-      "value": 743.83,
-      "displayValue": "743.83",
-      "change": 2.2854,
+      "value": 771.28,
+      "displayValue": "771.28",
+      "change": 3.6904,
       "changeUnit": "%",
       "displayMode": "pct",
       "direction": "up",
-      "asOf": "2026-10-27",
+      "asOf": "2026-10-28",
       "source": "KRX",
       "sourceUrl": "",
       "frequency": "daily",
@@ -342,47 +324,47 @@
     {
       "id": "nasdaq",
       "name": "나스닥",
-      "value": 26477.81,
-      "displayValue": "26,477.81",
-      "change": 1.1786,
+      "value": 26549.85,
+      "displayValue": "26,549.85",
+      "change": 0.2721,
       "changeUnit": "%",
       "displayMode": "pct",
       "direction": "up",
-      "asOf": "2026-10-27",
+      "asOf": "2026-10-28",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
       "isDelayed": true,
       "status": "ok",
-      "insight": "전일 대비 상승"
+      "insight": "전일 대비 소폭 상승"
     },
     {
       "id": "sp500",
       "name": "S&P500",
-      "value": 7722.6,
-      "displayValue": "7,722.60",
-      "change": 0.597,
+      "value": 7743.98,
+      "displayValue": "7,743.98",
+      "change": 0.2768,
       "changeUnit": "%",
       "displayMode": "pct",
       "direction": "up",
-      "asOf": "2026-10-27",
+      "asOf": "2026-10-28",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
       "isDelayed": true,
       "status": "ok",
-      "insight": "전일 대비 상승"
+      "insight": "전일 대비 소폭 상승"
     },
     {
       "id": "usdkrw",
       "name": "원/달러",
-      "value": 1326.81,
-      "displayValue": "1,326.8",
-      "change": 1.64,
+      "value": 1342.24,
+      "displayValue": "1,342.2",
+      "change": 15.43,
       "changeUnit": "원",
       "displayMode": "delta",
       "direction": "up",
-      "asOf": "2026-10-27",
+      "asOf": "2026-10-28",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
@@ -393,47 +375,47 @@
     {
       "id": "us10y",
       "name": "미국채10년",
-      "value": 4.99,
-      "displayValue": "4.99%",
-      "change": 0.01,
+      "value": 5.05,
+      "displayValue": "5.05%",
+      "change": 0.06,
       "changeUnit": "%p",
       "displayMode": "delta",
       "direction": "up",
-      "asOf": "2026-10-27",
+      "asOf": "2026-10-28",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
       "isDelayed": true,
       "status": "ok",
-      "insight": "보합권"
+      "insight": "전일 대비 소폭 상승"
     },
     {
       "id": "wti",
       "name": "WTI",
-      "value": 100.2,
-      "displayValue": "$100.20",
-      "change": -1.53,
+      "value": 101.94,
+      "displayValue": "$101.94",
+      "change": 2.04,
       "changeUnit": "%",
       "displayMode": "pct",
-      "direction": "down",
-      "asOf": "2026-10-27",
+      "direction": "up",
+      "asOf": "2026-10-28",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
       "isDelayed": true,
       "status": "ok",
-      "insight": "전일 대비 큰 폭 하락"
+      "insight": "전일 대비 큰 폭 상승"
     },
     {
       "id": "vix",
       "name": "VIX",
-      "value": 17.52,
-      "displayValue": "17.52",
-      "change": -4.7308,
+      "value": 16.91,
+      "displayValue": "16.91",
+      "change": -3.4817,
       "changeUnit": "%",
       "displayMode": "pct",
       "direction": "down",
-      "asOf": "2026-10-27",
+      "asOf": "2026-10-28",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
@@ -447,11 +429,11 @@
       "id": "recession",
       "name": "경기침체 경보등",
       "color": "green",
-      "value": 0.32,
-      "valueLabel": "+0.32%p",
+      "value": 0.29,
+      "valueLabel": "+0.29%p",
       "insight": "장단기 금리차가 정상 범위에 있어 침체 신호는 뚜렷하지 않습니다.",
       "sourceLabel": "장단기 금리차 (미국채 10Y-2Y)",
-      "asOf": "2026-10-28"
+      "asOf": "2026-10-29"
     },
     {
       "id": "rate-gap",
@@ -461,21 +443,31 @@
       "valueLabel": "+1.00%p",
       "insight": "한미 금리차가 관리 가능한 수준이라 자본유출 압력은 크지 않습니다.",
       "sourceLabel": "한미 기준금리차 (Fed-한은)",
-      "asOf": "2026-10-28"
+      "asOf": "2026-10-29"
     },
     {
       "id": "liquidity-stress",
       "name": "유동성 스트레스",
       "color": "green",
-      "value": 3.3,
-      "valueLabel": "3.30%p",
+      "value": 3.18,
+      "valueLabel": "3.18%p",
       "insight": "신용시장 스프레드가 평상 수준이라 유동성 경색 신호는 없습니다.",
       "sourceLabel": "하이일드 스프레드 (BAMLH0A0HYM2)",
-      "asOf": "2026-10-28"
+      "asOf": "2026-10-29"
     }
   ],
   "claims": {
     "previousClaims": [
+      {
+        "claimText": "GDP 발표를 앞두고 코스피가 코스닥 대비 강세를 이어갈까요?",
+        "status": "hit",
+        "resolution": {
+          "verdict": "hit",
+          "startValue": 5638.34,
+          "endValue": 6012.44,
+          "metricId": "kospi"
+        }
+      },
       {
         "claimText": "인공지능 기업 앤트로픽이 SEC에 IPO 신청서를 제출했다는 소식에 뉴욕 증시 기술주 중심으로 투자심리가 되살아났다. — 나스닥이 코스닥 대비 강세를 이어갈까요?",
         "status": "miss",
@@ -494,6 +486,16 @@
           "startValue": 25955.34,
           "endValue": 26169.38,
           "metricId": "nasdaq"
+        }
+      },
+      {
+        "claimText": "PCE 발표를 앞두고 코스피가 나스닥 대비 약세를 이어갈까요?",
+        "status": "miss",
+        "resolution": {
+          "verdict": "miss",
+          "startValue": 5533.77,
+          "endValue": 6012.44,
+          "metricId": "kospi"
         }
       },
       {
@@ -1153,29 +1155,25 @@
     ],
     "todayClaims": [
       {
-        "claimText": "GDP 발표를 앞두고 코스피가 코스닥 대비 강세를 이어갈까요?",
-        "status": "unresolved"
-      },
-      {
-        "claimText": "PCE 발표를 앞두고 코스피가 나스닥 대비 약세를 이어갈까요?",
+        "claimText": "나스닥이 S&P500 대비 약세를 이어갈까요?",
         "status": "unresolved"
       }
     ],
     "totals": {
-      "hit": 19,
-      "miss": 34,
+      "hit": 20,
+      "miss": 35,
       "neutral": 14,
-      "unresolved": 2,
+      "unresolved": 1,
       "invalidated": 1
     }
   },
   "newsletterClaimsTeaser": {
-    "publicationId": "2026-10-27",
+    "publicationId": "2026-10-28",
     "resolvedCount": 1,
-    "hitCount": 0,
-    "missCount": 1,
+    "hitCount": 1,
+    "missCount": 0,
     "neutralCount": 0,
     "unresolvedCount": 0,
-    "highlightText": "인공지능 기업 앤트로픽이 SEC에 IPO 신청서를 제출했다는 소식에 뉴욕 증시 기술주 중심으로 투자심리가 되살아났다. — 나스닥이 코스닥 대비 강세를 이어갈까요?"
+    "highlightText": "GDP 발표를 앞두고 코스피가 코스닥 대비 강세를 이어갈까요?"
   }
 }
