@@ -1,0 +1,292 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-30",
+  "generatedAt": "2026-10-30T06:43:15+09:00",
+  "indicators": [
+    {
+      "id": "kospi",
+      "value": 5937.66,
+      "change": -1.2438,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "kosdaq",
+      "value": 753.23,
+      "change": -2.3403,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "nasdaq",
+      "value": 26184.72,
+      "change": -1.3753,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "sp500",
+      "value": 7720.39,
+      "change": -0.3046,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1338.76,
+      "change": -3.48,
+      "displayMode": "delta",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "us10y",
+      "value": 4.99,
+      "change": -0.06,
+      "displayMode": "delta",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "wti",
+      "value": 102.86,
+      "change": 0.08,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "vix",
+      "value": 17.2,
+      "change": 1.715,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    }
+  ],
+  "auditIndicators": [
+    {
+      "id": "kospi",
+      "value": 5937.66,
+      "displayMode": "pct"
+    },
+    {
+      "id": "kosdaq",
+      "value": 753.23,
+      "displayMode": "pct"
+    },
+    {
+      "id": "nasdaq",
+      "value": 26184.72,
+      "displayMode": "pct"
+    },
+    {
+      "id": "sp500",
+      "value": 7720.39,
+      "displayMode": "pct"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1338.76,
+      "displayMode": "dual"
+    },
+    {
+      "id": "us10y",
+      "value": 4.99,
+      "displayMode": "delta"
+    },
+    {
+      "id": "wti",
+      "value": 102.86,
+      "displayMode": "pct"
+    },
+    {
+      "id": "vix",
+      "value": 17.2,
+      "displayMode": "pct"
+    },
+    {
+      "id": "gold",
+      "value": 4033.3,
+      "displayMode": "pct"
+    },
+    {
+      "id": "dollarindex",
+      "value": 101.93,
+      "displayMode": "pct"
+    },
+    {
+      "id": "brent",
+      "value": 111.54,
+      "displayMode": "pct"
+    },
+    {
+      "id": "dow",
+      "value": 52342.56,
+      "displayMode": "pct"
+    },
+    {
+      "id": "nikkei",
+      "value": 63954.19,
+      "displayMode": "pct"
+    },
+    {
+      "id": "shanghai",
+      "value": 3681.47,
+      "displayMode": "pct"
+    }
+  ],
+  "signals": [
+    {
+      "id": "recession",
+      "color": "green",
+      "value": 0.38
+    },
+    {
+      "id": "rate-gap",
+      "color": "green",
+      "value": 1.0
+    },
+    {
+      "id": "liquidity-stress",
+      "color": "green",
+      "value": 3.14
+    }
+  ],
+  "calendarSnapshot": [
+    {
+      "id": "us-earn-2026-11-02-애플",
+      "time": "2026-11-02",
+      "country": "US",
+      "title": "애플 실적발표",
+      "importance": "medium"
+    },
+    {
+      "id": "us-2026-11-06-미국 고용보고서(비농업고용·실업률)",
+      "time": "2026-11-06",
+      "country": "US",
+      "title": "미국 고용보고서(비농업고용·실업률)",
+      "importance": "high"
+    }
+  ],
+  "marketTemperature": {
+    "label": "neutral",
+    "displayLabel": "중립",
+    "status": "ok"
+  },
+  "connectionTopology": "DELTA_MODEL_V1",
+  "driverClaims": [
+    "알파벳 자본지출 급증 및 아마존 실적 미달로 인한 빅테크 투자심리 악화",
+    "인텔 PC 수요 둔화 전망에 따른 반도체 섹터 전반의 약세"
+  ],
+  "krMarketClosed": false,
+  "weeklyEvents": {
+    "weekStart": "2026-10-26",
+    "source": "calendar_events.json",
+    "events": [
+      {
+        "id": "bok-2026-3-4-2026-10-27-c3e6e8e725a7",
+        "date": "2026-10-27",
+        "us_date": null,
+        "at": null,
+        "country": "KR",
+        "importance": "high",
+        "category": "macro",
+        "title": "2026년 3/4분기 실질 국내총생산(속보)",
+        "ord": null
+      },
+      {
+        "id": "kr-earn-2026-10-28-SK하이닉스",
+        "date": "2026-10-28",
+        "us_date": null,
+        "at": "2026-10-28T09:00:00+09:00",
+        "country": "KR",
+        "importance": "medium",
+        "category": "earnings",
+        "title": "SK하이닉스 3분기 실적 · 오전 9시",
+        "ord": 1
+      },
+      {
+        "id": "fomc-2026-10-28",
+        "date": "2026-10-29",
+        "us_date": null,
+        "at": "2026-10-29T03:00:00+09:00",
+        "country": "US",
+        "importance": "high",
+        "category": "monetary_policy",
+        "title": "FOMC 금리 결정",
+        "ord": null
+      },
+      {
+        "id": "fred-personal-income-and-outlays-2026-10-29-34de6194a2b8",
+        "date": "2026-10-29",
+        "us_date": null,
+        "at": "2026-10-29T21:30:00+09:00",
+        "country": "US",
+        "importance": "high",
+        "category": "macro",
+        "title": "개인소득 및 소비지출",
+        "ord": null
+      },
+      {
+        "id": "fred-gross-domestic-product-2026-10-29-b887c52a4d02",
+        "date": "2026-10-29",
+        "us_date": null,
+        "at": "2026-10-29T21:30:00+09:00",
+        "country": "US",
+        "importance": "high",
+        "category": "macro",
+        "title": "미국 국내총생산(GDP)",
+        "ord": null
+      },
+      {
+        "id": "kr-earn-2026-10-29-삼성전자",
+        "date": "2026-10-29",
+        "us_date": null,
+        "at": "2026-10-29T10:00:00+09:00",
+        "country": "KR",
+        "importance": "medium",
+        "category": "earnings",
+        "title": "삼성전자 3분기 실적 · 오전 10시",
+        "ord": 0
+      },
+      {
+        "id": "us-earn-2026-10-28-마이크로소프트",
+        "date": "2026-10-29",
+        "us_date": "2026-10-28",
+        "at": null,
+        "country": "US",
+        "importance": "medium",
+        "category": "earnings",
+        "title": "마이크로소프트 실적 · 새벽 발표",
+        "ord": 3
+      },
+      {
+        "id": "us-earn-2026-10-28-알파벳",
+        "date": "2026-10-29",
+        "us_date": "2026-10-28",
+        "at": null,
+        "country": "US",
+        "importance": "medium",
+        "category": "earnings",
+        "title": "알파벳 실적 · 새벽 발표",
+        "ord": 4
+      },
+      {
+        "id": "rules-korea-exports-and-imports-2026-11-01-654a74ecbf17",
+        "date": "2026-11-01",
+        "us_date": null,
+        "at": null,
+        "country": "KR",
+        "importance": "medium",
+        "category": "trade",
+        "title": "수출입 동향",
+        "ord": null
+      }
+    ]
+  }
+}
