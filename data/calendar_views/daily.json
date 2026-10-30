@@ -1,14 +1,14 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-29T00:05:58.692311+00:00",
+  "generatedAt": "2026-10-30T00:01:32.908491+00:00",
   "timezone": "Asia/Seoul",
   "range": {
-    "from": "2026-10-29",
-    "to": "2026-10-31"
+    "from": "2026-10-30",
+    "to": "2026-11-01"
   },
   "freshness": {
     "status": "fresh",
-    "lastSuccessfulAt": "2026-10-29T00:05:58.692314+00:00",
+    "lastSuccessfulAt": "2026-10-30T00:01:32.908498+00:00",
     "failedSources": [],
     "sources": {
       "fred": "ok",
@@ -25,64 +25,33 @@
   },
   "events": [
     {
-      "id": "fred-gross-domestic-product-2026-10-29-b887c52a4d02",
-      "title": "Gross Domestic Product",
-      "originalTitle": "Gross Domestic Product",
-      "titleKo": "미국 국내총생산(GDP)",
-      "country": "US",
-      "category": "macro",
-      "importance": "high",
-      "scheduledDate": "2026-10-29",
-      "scheduledAt": "2026-10-29T21:30:00+09:00",
-      "timezone": "Asia/Seoul",
-      "timePrecision": "datetime",
+      "id": "rules-korea-exports-and-imports-2026-11-01-654a74ecbf17",
+      "title": "Korea Exports and Imports (Monthly)",
+      "originalTitle": "Korea Exports and Imports (Monthly)",
+      "titleKo": "수출입 동향",
+      "country": "KR",
+      "category": "trade",
+      "importance": "medium",
+      "scheduledDate": "2026-11-01",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
       "status": "scheduled",
       "previous": null,
       "consensus": null,
       "actual": null,
       "unit": null,
-      "sourceName": "FRED",
-      "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=53",
-      "sourceEventId": "53",
-      "updatedAt": "2026-10-29T00:05:58.691241+00:00",
-      "confidence": "single_source",
+      "sourceName": "산업통상부 보도자료(발표 관행)",
+      "sourceTier": "official",
+      "sourceUrl": "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/172254/view",
+      "sourceEventId": null,
+      "updatedAt": "2026-10-30T00:01:32.907345+00:00",
+      "confidence": "confirmed",
       "sourceRefs": [
         {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=53",
-          "sourceTier": "official_aggregator"
-        }
-      ]
-    },
-    {
-      "id": "fred-personal-income-and-outlays-2026-10-29-34de6194a2b8",
-      "title": "Personal Income and Outlays",
-      "originalTitle": "Personal Income and Outlays",
-      "titleKo": "개인소득 및 소비지출",
-      "country": "US",
-      "category": "macro",
-      "importance": "high",
-      "scheduledDate": "2026-10-29",
-      "scheduledAt": "2026-10-29T21:30:00+09:00",
-      "timezone": "Asia/Seoul",
-      "timePrecision": "datetime",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "FRED",
-      "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=54",
-      "sourceEventId": "54",
-      "updatedAt": "2026-10-29T00:05:58.691255+00:00",
-      "confidence": "single_source",
-      "sourceRefs": [
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=54",
-          "sourceTier": "official_aggregator"
+          "sourceName": "산업통상부 보도자료(발표 관행)",
+          "sourceUrl": "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/172254/view",
+          "sourceTier": "official"
         }
       ]
     }
