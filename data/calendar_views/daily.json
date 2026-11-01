@@ -1,14 +1,14 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-31T23:30:38.075594+00:00",
+  "generatedAt": "2026-11-01T23:42:58.258864+00:00",
   "timezone": "Asia/Seoul",
   "range": {
-    "from": "2026-10-31",
-    "to": "2026-11-02"
+    "from": "2026-11-01",
+    "to": "2026-11-03"
   },
   "freshness": {
     "status": "fresh",
-    "lastSuccessfulAt": "2026-10-31T23:30:38.075599+00:00",
+    "lastSuccessfulAt": "2026-11-01T23:42:58.258869+00:00",
     "failedSources": [],
     "sources": {
       "fred": "ok",
@@ -45,13 +45,44 @@
       "sourceTier": "official",
       "sourceUrl": "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/172254/view",
       "sourceEventId": null,
-      "updatedAt": "2026-10-31T23:30:38.074706+00:00",
+      "updatedAt": "2026-11-01T23:42:58.258094+00:00",
       "confidence": "confirmed",
       "sourceRefs": [
         {
           "sourceName": "산업통상부 보도자료(발표 관행)",
           "sourceUrl": "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/172254/view",
           "sourceTier": "official"
+        }
+      ]
+    },
+    {
+      "id": "fred-job-openings-and-labor-turnover-survey-2026-11-03-82fb4d0f7677",
+      "title": "Job Openings and Labor Turnover Survey",
+      "originalTitle": "Job Openings and Labor Turnover Survey",
+      "titleKo": "구인·이직 보고서(JOLTS)",
+      "country": "US",
+      "category": "macro",
+      "importance": "medium",
+      "scheduledDate": "2026-11-03",
+      "scheduledAt": "2026-11-04T00:00:00+09:00",
+      "timezone": "Asia/Seoul",
+      "timePrecision": "datetime",
+      "status": "scheduled",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "FRED",
+      "sourceTier": "official_aggregator",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=192",
+      "sourceEventId": "192",
+      "updatedAt": "2026-11-01T23:42:58.257487+00:00",
+      "confidence": "single_source",
+      "sourceRefs": [
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=192",
+          "sourceTier": "official_aggregator"
         }
       ]
     }
