@@ -1,14 +1,14 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-01T23:42:58.258864+00:00",
+  "generatedAt": "2026-11-03T02:29:23.171963+00:00",
   "timezone": "Asia/Seoul",
   "range": {
-    "from": "2026-11-01",
-    "to": "2026-11-15"
+    "from": "2026-11-03",
+    "to": "2026-11-17"
   },
   "freshness": {
     "status": "fresh",
-    "lastSuccessfulAt": "2026-11-01T23:42:58.258869+00:00",
+    "lastSuccessfulAt": "2026-11-03T02:29:23.171973+00:00",
     "failedSources": [],
     "sources": {
       "fred": "ok",
@@ -45,7 +45,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=50",
       "sourceEventId": "50",
-      "updatedAt": "2026-11-01T23:42:58.257491+00:00",
+      "updatedAt": "2026-11-03T02:29:23.170107+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -76,7 +76,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=10",
       "sourceEventId": "10",
-      "updatedAt": "2026-11-01T23:42:58.257497+00:00",
+      "updatedAt": "2026-11-03T02:29:23.170114+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -87,33 +87,33 @@
       ]
     },
     {
-      "id": "rules-korea-exports-and-imports-2026-11-01-654a74ecbf17",
-      "title": "Korea Exports and Imports (Monthly)",
-      "originalTitle": "Korea Exports and Imports (Monthly)",
-      "titleKo": "수출입 동향",
-      "country": "KR",
-      "category": "trade",
-      "importance": "medium",
-      "scheduledDate": "2026-11-01",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
+      "id": "fred-advance-monthly-sales-for-retail-and-food-services-2026-11-17-b894b81e03e0",
+      "title": "Advance Monthly Sales for Retail and Food Services",
+      "originalTitle": "Advance Monthly Sales for Retail and Food Services",
+      "titleKo": "미국 소매판매 속보",
+      "country": "US",
+      "category": "macro",
+      "importance": "high",
+      "scheduledDate": "2026-11-17",
+      "scheduledAt": "2026-11-17T22:30:00+09:00",
+      "timezone": "Asia/Seoul",
+      "timePrecision": "datetime",
       "status": "scheduled",
       "previous": null,
       "consensus": null,
       "actual": null,
       "unit": null,
-      "sourceName": "산업통상부 보도자료(발표 관행)",
-      "sourceTier": "official",
-      "sourceUrl": "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/172254/view",
-      "sourceEventId": null,
-      "updatedAt": "2026-11-01T23:42:58.258094+00:00",
-      "confidence": "confirmed",
+      "sourceName": "FRED",
+      "sourceTier": "official_aggregator",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=9",
+      "sourceEventId": "9",
+      "updatedAt": "2026-11-03T02:29:23.170124+00:00",
+      "confidence": "single_source",
       "sourceRefs": [
         {
-          "sourceName": "산업통상부 보도자료(발표 관행)",
-          "sourceUrl": "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/172254/view",
-          "sourceTier": "official"
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=9",
+          "sourceTier": "official_aggregator"
         }
       ]
     },
@@ -138,7 +138,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=192",
       "sourceEventId": "192",
-      "updatedAt": "2026-11-01T23:42:58.257487+00:00",
+      "updatedAt": "2026-11-03T02:29:23.170101+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -169,7 +169,7 @@
       "sourceTier": "official",
       "sourceUrl": "https://www.krx.co.kr/contents/OPN/01/01040202/OPN01040202.jsp",
       "sourceEventId": null,
-      "updatedAt": "2026-11-01T23:42:58.258098+00:00",
+      "updatedAt": "2026-11-03T02:29:23.170894+00:00",
       "confidence": "confirmed",
       "sourceRefs": [
         {
@@ -200,13 +200,420 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=46",
       "sourceEventId": "46",
-      "updatedAt": "2026-11-01T23:42:58.257501+00:00",
+      "updatedAt": "2026-11-03T02:29:23.170118+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
           "sourceName": "FRED",
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=46",
           "sourceTier": "official_aggregator"
+        }
+      ]
+    },
+    {
+      "id": "dart-20261103900196-2026-11-03-06f7916824e6",
+      "title": "알테오젠 - 연결재무제표기준영업(잠정)실적(공정공시)",
+      "originalTitle": "알테오젠 - 연결재무제표기준영업(잠정)실적(공정공시)",
+      "titleKo": "알테오젠 - 연결재무제표기준영업(잠정)실적(공정공시)",
+      "country": "KR",
+      "category": "disclosure",
+      "importance": "low",
+      "scheduledDate": "2026-11-03",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "published",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "OpenDART",
+      "sourceTier": "official_disclosure",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261103900196",
+      "sourceEventId": "20261103900196",
+      "updatedAt": "2026-11-03T02:29:23.170274+00:00",
+      "confidence": "cross_checked",
+      "sourceRefs": [
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261103900196",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261103000094",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261103000093",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261103000091",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261103000089",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261103000088",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261103000085",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261103000081",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261103000084",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261103900178",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261103000077",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261103000062",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261103800128",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261103800120",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261103000055",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261103800126",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261103800117",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261103800115",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261103000050",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261103000046",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261103000045",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261103800095",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261103000036",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261103000039",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261103000032",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261103000027",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261103000018",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261103000016",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261103800043",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261103000013",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261103000007",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261103000003",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261103000001",
+          "sourceTier": "official_disclosure"
+        }
+      ]
+    },
+    {
+      "id": "dart-20261103000098-2026-11-03-8016dd7320d1",
+      "title": "BNK투자증권 - 일괄신고추가서류(파생결합사채-주가연계파생결합사채)",
+      "originalTitle": "BNK투자증권 - 일괄신고추가서류(파생결합사채-주가연계파생결합사채)",
+      "titleKo": "BNK투자증권 - 일괄신고추가서류(파생결합사채-주가연계파생결합사채)",
+      "country": "KR",
+      "category": "disclosure",
+      "importance": "low",
+      "scheduledDate": "2026-11-03",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "published",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "OpenDART",
+      "sourceTier": "official_disclosure",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261103000098",
+      "sourceEventId": "20261103000098",
+      "updatedAt": "2026-11-03T02:29:23.170280+00:00",
+      "confidence": "cross_checked",
+      "sourceRefs": [
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261103000098",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261103000048",
+          "sourceTier": "official_disclosure"
+        }
+      ]
+    },
+    {
+      "id": "dart-20261103900199-2026-11-03-211a4354a9fd",
+      "title": "메쎄이상 - [기재정정]기업설명회(IR)개최",
+      "originalTitle": "메쎄이상 - [기재정정]기업설명회(IR)개최",
+      "titleKo": "메쎄이상 - [기재정정]기업설명회(IR)개최",
+      "country": "KR",
+      "category": "disclosure",
+      "importance": "low",
+      "scheduledDate": "2026-11-03",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "published",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "OpenDART",
+      "sourceTier": "official_disclosure",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261103900199",
+      "sourceEventId": "20261103900199",
+      "updatedAt": "2026-11-03T02:29:23.170287+00:00",
+      "confidence": "single_source",
+      "sourceRefs": [
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261103900199",
+          "sourceTier": "official_disclosure"
+        }
+      ]
+    },
+    {
+      "id": "dart-20261103000092-2026-11-03-319677b60649",
+      "title": "삼성FN리츠 - 특수관계인의유상증자참여",
+      "originalTitle": "삼성FN리츠 - 특수관계인의유상증자참여",
+      "titleKo": "삼성FN리츠 - 특수관계인의유상증자참여",
+      "country": "KR",
+      "category": "disclosure",
+      "importance": "low",
+      "scheduledDate": "2026-11-03",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "published",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "OpenDART",
+      "sourceTier": "official_disclosure",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261103000092",
+      "sourceEventId": "20261103000092",
+      "updatedAt": "2026-11-03T02:29:23.170305+00:00",
+      "confidence": "cross_checked",
+      "sourceRefs": [
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261103000092",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261103000090",
+          "sourceTier": "official_disclosure"
+        }
+      ]
+    },
+    {
+      "id": "dart-20261103800145-2026-11-03-48e038b2ca5f",
+      "title": "LG화학 - 기타경영사항(자율공시)              (희귀비만 치료제 후보물질 비바멜라곤 기술수출 계약 개정 체결)",
+      "originalTitle": "LG화학 - 기타경영사항(자율공시)              (희귀비만 치료제 후보물질 비바멜라곤 기술수출 계약 개정 체결)",
+      "titleKo": "LG화학 - 기타경영사항(자율공시)              (희귀비만 치료제 후보물질 비바멜라곤 기술수출 계약 개정 체결)",
+      "country": "KR",
+      "category": "disclosure",
+      "importance": "low",
+      "scheduledDate": "2026-11-03",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "published",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "OpenDART",
+      "sourceTier": "official_disclosure",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261103800145",
+      "sourceEventId": "20261103800145",
+      "updatedAt": "2026-11-03T02:29:23.170358+00:00",
+      "confidence": "cross_checked",
+      "sourceRefs": [
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261103800145",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261103800111",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261103800087",
+          "sourceTier": "official_disclosure"
+        }
+      ]
+    },
+    {
+      "id": "dart-20261103000066-2026-11-03-be10605cea11",
+      "title": "영우디에스피 - 분기보고서 (2026.09)",
+      "originalTitle": "영우디에스피 - 분기보고서 (2026.09)",
+      "titleKo": "영우디에스피 - 분기보고서 (2026.09)",
+      "country": "KR",
+      "category": "disclosure",
+      "importance": "low",
+      "scheduledDate": "2026-11-03",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "published",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "OpenDART",
+      "sourceTier": "official_disclosure",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261103000066",
+      "sourceEventId": "20261103000066",
+      "updatedAt": "2026-11-03T02:29:23.170370+00:00",
+      "confidence": "cross_checked",
+      "sourceRefs": [
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261103000066",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261103000043",
+          "sourceTier": "official_disclosure"
+        }
+      ]
+    },
+    {
+      "id": "dart-20261103000042-2026-11-03-62cbe790f5e6",
+      "title": "모델솔루션 - [기재정정]대규모기업집단현황공시[연1회공시및1/4분기용(개별회사)]",
+      "originalTitle": "모델솔루션 - [기재정정]대규모기업집단현황공시[연1회공시및1/4분기용(개별회사)]",
+      "titleKo": "모델솔루션 - [기재정정]대규모기업집단현황공시[연1회공시및1/4분기용(개별회사)]",
+      "country": "KR",
+      "category": "disclosure",
+      "importance": "low",
+      "scheduledDate": "2026-11-03",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "published",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "OpenDART",
+      "sourceTier": "official_disclosure",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261103000042",
+      "sourceEventId": "20261103000042",
+      "updatedAt": "2026-11-03T02:29:23.170459+00:00",
+      "confidence": "cross_checked",
+      "sourceRefs": [
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261103000042",
+          "sourceTier": "official_disclosure"
+        },
+        {
+          "sourceName": "OpenDART",
+          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261103000025",
+          "sourceTier": "official_disclosure"
         }
       ]
     },
@@ -231,7 +638,7 @@
       "sourceTier": "official",
       "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-11",
       "sourceEventId": null,
-      "updatedAt": "2026-11-01T23:42:58.257544+00:00",
+      "updatedAt": "2026-11-03T02:29:23.170175+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -262,7 +669,7 @@
       "sourceTier": "official",
       "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-11",
       "sourceEventId": null,
-      "updatedAt": "2026-11-01T23:42:58.257549+00:00",
+      "updatedAt": "2026-11-03T02:29:23.170181+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -293,13 +700,44 @@
       "sourceTier": "official",
       "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-11",
       "sourceEventId": null,
-      "updatedAt": "2026-11-01T23:42:58.257555+00:00",
+      "updatedAt": "2026-11-03T02:29:23.170189+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
           "sourceName": "BOK",
           "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-11",
           "sourceTier": "official"
+        }
+      ]
+    },
+    {
+      "id": "fred-u-s-import-and-export-price-indexes-2026-11-17-ad63f4f4d688",
+      "title": "U.S. Import and Export Price Indexes",
+      "originalTitle": "U.S. Import and Export Price Indexes",
+      "titleKo": "미국 수출입 물가지수",
+      "country": "US",
+      "category": "macro",
+      "importance": "low",
+      "scheduledDate": "2026-11-17",
+      "scheduledAt": "2026-11-17T22:30:00+09:00",
+      "timezone": "Asia/Seoul",
+      "timePrecision": "datetime",
+      "status": "scheduled",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "FRED",
+      "sourceTier": "official_aggregator",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=188",
+      "sourceEventId": "188",
+      "updatedAt": "2026-11-03T02:29:23.170129+00:00",
+      "confidence": "single_source",
+      "sourceRefs": [
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=188",
+          "sourceTier": "official_aggregator"
         }
       ]
     }
