@@ -1,24 +1,22 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-03T06:43:14+09:00",
-  "publishDate": "2026-11-03",
-  "marketDateKr": "2026-11-02",
-  "marketDateUs": "2026-11-02",
+  "generatedAt": "2026-11-04T06:44:30+09:00",
+  "publishDate": "2026-11-04",
+  "marketDateKr": "2026-11-03",
+  "marketDateUs": "2026-11-03",
   "isDelayed": true,
   "status": "ok",
   "marketTemperature": {
     "label": "cautious",
     "displayLabel": "경계",
-    "summary": "국내 증시가 +2.24% 상승했으나, VIX가 21.15를 기록하고 원/달러가 +0.93% 오르는 등 경계 구간의 흐름이 관찰됩니다. 외국인의 코스피 순매도가 이어지면서 기술주 고평가 경계감이 상단을 제한하는 모습으로 보입니다.",
+    "summary": "국내 증시는 미 국채 금리 상승과 글로벌 기술주 경계감이 겹치며 경계 구간을 나타내는 것으로 보입니다.",
     "reasons": [
-      "국내 증시 +2.24% 상승",
-      "VIX 21.15로 경계 구간",
-      "원/달러 +0.93%(원화 약세)",
-      "외국인 코스피 순매도 3,845억원"
+      "국내 증시 -3.59% 하락",
+      "VIX 20.83로 경계 구간",
+      "외국인 코스피 순매도 15,086억원"
     ],
     "watchItems": [
       "VIX 변동성",
-      "원/달러 환율",
       "외국인 수급"
     ],
     "status": "ok"
@@ -27,19 +25,19 @@
     {
       "id": "overnight-global",
       "title": "간밤 글로벌 시장",
-      "text": "나스닥이 -1.07%, S&P500이 -0.51% 하락한 반면 다우는 +0.41% 상승했습니다. VIX는 21.15, 미국채 10년물 금리는 4.89%로 나타났습니다.",
+      "text": "간밤 글로벌 시장에서는 나스닥과 S&P500이 상승한 반면 다우는 하락세를 보였고, VIX는 20.83, 미국채 10년물 금리는 4.95%를 기록했습니다.",
       "status": "ok"
     },
     {
       "id": "today-domestic",
       "title": "전일 국내 시장",
-      "text": "전일 국내 시장에서는 코스피가 +2.24%, 코스닥이 +1.38% 상승했습니다. 외국인이 코스피에서 3,845억 원을 순매도하고 원/달러 환율은 +0.93% 상승한 점이 관찰됩니다.",
+      "text": "전일 국내 시장에서는 코스피와 코스닥이 각각 -3.59%, -4.08% 하락했고, 외국인은 15,086억원을 순매도한 것으로 관찰됩니다.",
       "status": "ok"
     },
     {
       "id": "today-checkpoint",
       "title": "오늘의 체크포인트",
-      "text": "지정학 리스크 완화 속에서도 글로벌 기술주 매도세와 환율 및 변동성 압력이 맞물려, 시장은 뚜렷한 방향성보다 방어적 흐름을 살피는 분위기입니다.",
+      "text": "간밤의 혼조세와 위험회피 심리가 국내로 이어지며, 시장은 뚜렷한 반등보다는 방어와 관망에 무게를 두는 분위기입니다.",
       "status": "ok"
     }
   ],
@@ -48,17 +46,17 @@
       {
         "role": "방향 전환",
         "label": "코스피",
-        "detail": "코스피가 전일 하락 흐름에서 2026-11-02 기준 상승으로 전환됐습니다(5,859.08)."
+        "detail": "코스피가 전일 상승 흐름에서 2026-11-03 기준 하락으로 전환됐습니다(5,648.79)."
       },
       {
         "role": "새 동인",
         "label": "동인 변화",
-        "detail": "새로 등장한 동인이 관측됩니다: AI 빅테크 투자 부담 및 나스닥 기술주 매도세"
+        "detail": "새로 등장한 동인이 관측됩니다: 미국 국채 10년물 금리 상승으로 인한 위험자산 투자심리 위축"
       },
       {
         "role": "변화폭 1위",
-        "label": "원/달러",
-        "detail": "오늘 변화 폭이 가장 큰 지표는 원/달러입니다(+12.42원)."
+        "label": "코스닥",
+        "detail": "오늘 변화 폭이 가장 큰 지표는 코스닥입니다(-4.08%)."
       }
     ],
     "topologyId": "DELTA_MODEL_V1",
@@ -71,53 +69,67 @@
       {
         "id": "foreign",
         "label": "외국인 수급",
-        "value": -3845,
-        "displayValue": "-3,845억원",
+        "value": -15086,
+        "displayValue": "-15,086억원",
         "direction": "down",
         "status": "ok"
       },
       {
         "id": "institution",
         "label": "기관 수급",
-        "value": 12257,
-        "displayValue": "+12,257억원",
-        "direction": "up",
+        "value": -4941,
+        "displayValue": "-4,941억원",
+        "direction": "down",
         "status": "ok"
       },
       {
         "id": "individual",
         "label": "개인 수급",
-        "value": -13303,
-        "displayValue": "-13,303억원",
-        "direction": "down",
+        "value": 16388,
+        "displayValue": "+16,388억원",
+        "direction": "up",
         "status": "ok"
       },
       {
         "id": "usdkrw",
         "label": "원/달러",
-        "value": 1345.86,
-        "displayValue": "1,345.9원",
-        "direction": "up",
+        "value": 1344.83,
+        "displayValue": "1,344.8원",
+        "direction": "down",
         "status": "ok"
       },
       {
         "id": "leading-sector",
         "label": "주도 업종",
-        "value": 11.36,
-        "displayValue": "항공사 +11.36%",
+        "value": 14.74,
+        "displayValue": "항공사 +14.74%",
         "direction": "up",
         "status": "ok"
       }
     ],
-    "summary": "외국인 수급 -3,845억원, 기관 수급 +12,257억원, 개인 수급 -13,303억원, 원/달러 1,345.9원, 주도 업종 항공사 +11.36%.",
+    "summary": "외국인과 기관의 매도세가 집중된 가운데 개인이 물량을 받아내는 수급 흐름이 관찰됩니다.",
     "status": "ok"
   },
   "risks": [
     {
       "id": "vix-volatility",
       "title": "변동성 확대 국면",
-      "detail": "VIX가 21.15로 전일 대비 +8.91% 상승하며 변동성 확대 국면이 지속될 가능성이 있습니다.",
+      "detail": "VIX 20.83(전일대비 -1.51%)로 변동성 지표가 높아진 상태입니다.",
       "level": "주의",
+      "status": "ok"
+    },
+    {
+      "id": "foreign-outflow",
+      "title": "외국인 수급 이탈",
+      "detail": "외국인이 코스피 시장에서 15,086억원을 순매도하며 수급 이탈 흐름이 나타나는 점이 관찰됩니다.",
+      "level": "주의",
+      "status": "ok"
+    },
+    {
+      "id": "kr-swing",
+      "title": "국내 증시 큰 변동",
+      "detail": "코스피가 -3.59% 큰 폭으로 하락하며 국내 증시의 변동성이 커진 점이 확인됩니다.",
+      "level": "관찰",
       "status": "ok"
     }
   ],
@@ -142,143 +154,155 @@
   "news": {
     "items": [
       {
-        "id": "news-머니투데이-팔란티어, 시장 예상 웃도는 실적 발표…시간외 주가 1% 미만 상승",
+        "id": "news-파이낸셜뉴스-\"주식 고르지 마세요\"…128만 경제 유튜버가 밝힌 강남 부자들의 자산 축적법",
         "category": "news",
-        "source": "머니투데이",
-        "title": "팔란티어, 시장 예상 웃도는 실적 발표…시간외 주가 1% 미만 상승",
-        "url": "https://www.mt.co.kr/world/2026/11/03/2026110306342796482",
-        "publishedAt": "2026-11-03",
+        "source": "파이낸셜뉴스",
+        "title": "\"주식 고르지 마세요\"…128만 경제 유튜버가 밝힌 강남 부자들의 자산 축적법",
+        "url": "https://www.fnnews.com/news/202611040621296736",
+        "publishedAt": "2026-11-04",
         "status": "ok"
       },
       {
-        "id": "news-머니투데이-앤트로픽, 3분기 매출 12배 폭증…'1200조 원' 초대형 AI 투자 약정",
-        "category": "news",
-        "source": "머니투데이",
-        "title": "앤트로픽, 3분기 매출 12배 폭증…'1200조 원' 초대형 AI 투자 약정",
-        "url": "https://www.mt.co.kr/world/2026/11/03/2026110305213754264",
-        "publishedAt": "2026-11-03",
-        "status": "ok"
-      },
-      {
-        "id": "news-연합뉴스마켓-뉴욕증시, 유가 하락에도 기술주 매도세 계속…나스닥 1.1%↓",
+        "id": "news-연합뉴스마켓-뉴욕증시, 중간선거 경계 속 혼조…기술주 반등에 나스닥 0.8%↑",
         "category": "news",
         "source": "연합뉴스마켓",
-        "title": "뉴욕증시, 유가 하락에도 기술주 매도세 계속…나스닥 1.1%↓",
-        "url": "https://www.yna.co.kr/view/AKR20261103010400072",
-        "publishedAt": "2026-11-03",
+        "title": "뉴욕증시, 중간선거 경계 속 혼조…기술주 반등에 나스닥 0.8%↑",
+        "url": "https://www.yna.co.kr/view/AKR20261104009800072",
+        "publishedAt": "2026-11-04",
         "status": "ok"
       },
       {
-        "id": "news-연합뉴스마켓-[코스피·코스닥 전 거래일(2일) 주요공시]",
+        "id": "news-머니투데이-[속보] 쿠팡Inc, 3분기 당기순손실 7151억원",
         "category": "news",
-        "source": "연합뉴스마켓",
-        "title": "[코스피·코스닥 전 거래일(2일) 주요공시]",
-        "url": "https://www.yna.co.kr/view/AKR20261102166600008",
-        "publishedAt": "2026-11-03",
-        "status": "ok"
+        "source": "머니투데이",
+        "title": "[속보] 쿠팡Inc, 3분기 당기순손실 7151억원",
+        "url": "https://www.mt.co.kr/living/2026/11/04/2026110406151054196",
+        "publishedAt": "2026-11-04",
+        "status": "ok",
+        "related": [
+          {
+            "source": "연합뉴스마켓",
+            "title": "[2보] 쿠팡Inc, 3분기 6천423억원 영업손실…매출은 11% 증가",
+            "url": "https://www.yna.co.kr/view/AKR20261104009151030",
+            "publishedAt": "2026-11-04",
+            "id": "news-연합뉴스마켓-[2보] 쿠팡Inc, 3분기 6천423억원 영업손실…매출은 11% 증가"
+          },
+          {
+            "source": "머니투데이",
+            "title": "[속보] 쿠팡Inc, 3분기 매출 14조2209억원...영업손실 6423억원",
+            "url": "https://www.mt.co.kr/living/2026/11/04/2026110405591246050",
+            "publishedAt": "2026-11-04",
+            "id": "news-머니투데이-[속보] 쿠팡Inc, 3분기 매출 14조2209억원...영업손실 6423억원"
+          }
+        ]
       },
       {
-        "id": "news-연합뉴스-미·이란 협상 기대에 국제유가 7%대 급락…WTI 96달러선",
+        "id": "news-연합뉴스-송미령 농식품부 장관, 가락시장 찾아 김장재료 수급 점검",
         "category": "news",
         "source": "연합뉴스",
-        "title": "미·이란 협상 기대에 국제유가 7%대 급락…WTI 96달러선",
-        "url": "https://www.yna.co.kr/view/AKR20261103007851072",
-        "publishedAt": "2026-11-03",
+        "title": "송미령 농식품부 장관, 가락시장 찾아 김장재료 수급 점검",
+        "url": "https://www.yna.co.kr/view/AKR20261103117700030",
+        "publishedAt": "2026-11-04",
         "status": "ok"
       },
       {
-        "id": "news-연합뉴스-세계경제 분절화 속 한일협력 필수…오늘 연합뉴스 미래경제포럼",
+        "id": "news-연합뉴스-인베스트코리아서밋 개막…역대 최대 20억달러 투자 유치",
         "category": "news",
         "source": "연합뉴스",
-        "title": "세계경제 분절화 속 한일협력 필수…오늘 연합뉴스 미래경제포럼",
-        "url": "https://www.yna.co.kr/view/AKR20261102067200898",
+        "title": "인베스트코리아서밋 개막…역대 최대 20억달러 투자 유치",
+        "url": "https://www.yna.co.kr/view/AKR20261103158200003",
+        "publishedAt": "2026-11-04",
+        "status": "ok"
+      },
+      {
+        "id": "news-매일경제-“비거주자 징벌 과세” vs “과세 정상화”…부동산 세제개편 전문가도 충돌",
+        "category": "news",
+        "source": "매일경제",
+        "title": "“비거주자 징벌 과세” vs “과세 정상화”…부동산 세제개편 전문가도 충돌",
+        "url": "https://www.mk.co.kr/news/economy/12195307",
         "publishedAt": "2026-11-03",
         "status": "ok"
       },
       {
-        "id": "news-매일경제-지방에 돈 풀겠다더니…늘어난 기업대출, 100원 중 83원은 수도권行",
-        "category": "news",
-        "source": "매일경제",
-        "title": "지방에 돈 풀겠다더니…늘어난 기업대출, 100원 중 83원은 수도권行",
-        "url": "https://www.mk.co.kr/news/economy/12193958",
-        "publishedAt": "2026-11-02",
-        "status": "ok"
-      },
-      {
-        "id": "news-매일경제-해외 코인계좌서 美주식 선물투자땐 과세",
-        "category": "news",
-        "source": "매일경제",
-        "title": "해외 코인계좌서 美주식 선물투자땐 과세",
-        "url": "https://www.mk.co.kr/news/economy/12193840",
-        "publishedAt": "2026-11-02",
-        "status": "ok"
-      },
-      {
-        "id": "news-CNBC-Kimberly-Clark closes its acquisition of Tylenol maker Kenvue. What to",
-        "category": "news",
-        "source": "CNBC",
-        "title": "Kimberly-Clark closes its acquisition of Tylenol maker Kenvue. What to expect next",
-        "url": "https://www.cnbc.com/investingclub/2026/11/02/kimberly-clark-closes-its-acquisition-of-tylenol-maker-kenvue-what-to-expect-next.html",
-        "publishedAt": "2026-11-02",
-        "status": "ok"
-      },
-      {
-        "id": "news-MarketWatch-The stock market has gone nowhere for the past 5 months. It’s n",
+        "id": "news-MarketWatch-S&P 500 is looking over the edge of a technical cliff — what ha",
         "category": "news",
         "source": "MarketWatch",
-        "title": "The stock market has gone nowhere for the past 5 months. It’s now looking like a bargain.",
-        "url": "https://www.marketwatch.com/story/the-stock-market-has-gone-nowhere-for-the-past-5-months-its-now-looking-like-a-bargain-150914c2?mod=mw_rss_topstories",
-        "publishedAt": "2026-11-02",
+        "title": "S&P 500 is looking over the edge of a technical cliff — what happens if it falls off?",
+        "url": "https://www.marketwatch.com/story/s-p-500-is-looking-over-the-edge-of-a-technical-cliff-what-happens-if-it-falls-off-be97ebd9?mod=mw_rss_topstories",
+        "publishedAt": "2026-11-03",
         "status": "ok"
       },
       {
-        "id": "news-CNBC-Texas governor race tightens in prediction markets, but Abbott remains",
-        "category": "news",
-        "source": "CNBC",
-        "title": "Texas governor race tightens in prediction markets, but Abbott remains favored",
-        "url": "https://www.cnbc.com/2026/11/02/texas-governor-prediction-markets-abbott-hinojosa.html",
-        "publishedAt": "2026-11-02",
-        "status": "ok"
-      },
-      {
-        "id": "news-CNBC-Oracle files to sell $20 billion in new stock, bonds to finance AI bui",
-        "category": "news",
-        "source": "CNBC",
-        "title": "Oracle files to sell $20 billion in new stock, bonds to finance AI buildout",
-        "url": "https://www.cnbc.com/2026/11/02/oracle-files-to-sell-20-billion-in-new-stock-bonds-to-finance-ai-buildout.html",
-        "publishedAt": "2026-11-02",
-        "status": "ok"
-      },
-      {
-        "id": "news-MarketWatch-Palantir earnings reveal a major AI turning point",
+        "id": "news-MarketWatch-Depressing, but true: If you want to get ahead at work, embrace",
         "category": "news",
         "source": "MarketWatch",
-        "title": "Palantir earnings reveal a major AI turning point",
-        "url": "https://www.marketwatch.com/story/palantir-earnings-reveal-a-major-ai-turning-point-db766110?mod=mw_rss_topstories",
-        "publishedAt": "2026-11-02",
+        "title": "Depressing, but true: If you want to get ahead at work, embrace virtue signaling",
+        "url": "https://www.marketwatch.com/story/depressing-but-true-if-you-want-to-get-ahead-at-work-embrace-virtue-signaling-b4e72f0a?mod=mw_rss_topstories",
+        "publishedAt": "2026-11-03",
         "status": "ok"
       },
       {
-        "id": "news-MarketWatch-Chip stocks are suffering from a ‘crisis of confidence’ — but t",
+        "id": "news-CNBC-AMD stock jumps 7% on earnings as data center revenue nearly doubles",
+        "category": "news",
+        "source": "CNBC",
+        "title": "AMD stock jumps 7% on earnings as data center revenue nearly doubles",
+        "url": "https://www.cnbc.com/2026/11/03/amd-amd-q3-earnings-report-2026-.html",
+        "publishedAt": "2026-11-03",
+        "status": "ok"
+      },
+      {
+        "id": "news-MarketWatch-Super Micro’s stock pops as earnings show booming demand for AI",
         "category": "news",
         "source": "MarketWatch",
-        "title": "Chip stocks are suffering from a ‘crisis of confidence’ — but things aren’t as gloomy as they seem",
-        "url": "https://www.marketwatch.com/story/chip-stocks-are-suffering-from-a-crisis-of-confidence-but-things-arent-as-gloomy-as-they-seem-6ed14ea9?mod=mw_rss_topstories",
-        "publishedAt": "2026-11-02",
+        "title": "Super Micro’s stock pops as earnings show booming demand for AI servers",
+        "url": "https://www.marketwatch.com/story/super-micros-stock-pops-as-earnings-show-booming-demand-for-ai-servers-2d179658?mod=mw_rss_topstories",
+        "publishedAt": "2026-11-03",
         "status": "ok"
       },
       {
-        "id": "news-Investing-US Treasury cuts fourth-quarter borrowing estimate to $618 billio",
+        "id": "news-CNBC-Ferrari raises 2026 guidance after Q3 earnings beat",
+        "category": "news",
+        "source": "CNBC",
+        "title": "Ferrari raises 2026 guidance after Q3 earnings beat",
+        "url": "https://www.cnbc.com/2026/11/03/ferrari-race-earnings-q3-2026.html",
+        "publishedAt": "2026-11-03",
+        "status": "ok"
+      },
+      {
+        "id": "news-Investing-Stocks wobble as investors watch US midterm elections",
         "category": "news",
         "source": "Investing",
-        "title": "US Treasury cuts fourth-quarter borrowing estimate to $618 billion",
-        "url": "https://www.investing.com/news/economy-news/us-treasury-cuts-fourthquarter-borrowing-estimate-to-618-billion-4992645",
-        "publishedAt": "2026-11-02",
+        "title": "Stocks wobble as investors watch US midterm elections",
+        "url": "https://www.investing.com/news/economy-news/asian-stocks-retreat-ahead-of-us-midterms-oil-steadies-4993399",
+        "publishedAt": "2026-11-03",
+        "status": "ok"
+      },
+      {
+        "id": "news-CNBC-Options traders are betting heavily on these stocks ahead of election ",
+        "category": "news",
+        "source": "CNBC",
+        "title": "Options traders are betting heavily on these stocks ahead of election results",
+        "url": "https://www.cnbc.com/2026/11/03/options-traders-are-betting-heavily-on-these-stocks-ahead-of-election-results.html",
+        "publishedAt": "2026-11-03",
         "status": "ok"
       }
     ],
-    "clusters": [],
-    "summary": "유가 급락과 AI 관련 대규모 투자 약정 등 다양한 대외 이슈 속에서 기술주 매도세가 이어지는 모습이 관찰됩니다.",
+    "clusters": [
+      {
+        "id": "cluster-news-머니투데이-[속보] 쿠팡Inc, 3분기 당기순손실 7151억원",
+        "title": "[속보] 쿠팡Inc, 3분기 당기순손실 7151억원",
+        "summary": "3개 매체가 이 소식을 함께 보도했습니다.",
+        "leadItemId": "news-머니투데이-[속보] 쿠팡Inc, 3분기 당기순손실 7151억원",
+        "relatedItemIds": [
+          "news-연합뉴스마켓-[2보] 쿠팡Inc, 3분기 6천423억원 영업손실…매출은 11% 증가",
+          "news-머니투데이-[속보] 쿠팡Inc, 3분기 매출 14조2209억원...영업손실 6423억원"
+        ],
+        "sourceCount": 3,
+        "topic": "[속보] 쿠팡Inc, 3분기 당기순손실 7151억원",
+        "status": "ok"
+      }
+    ],
+    "summary": "뉴욕증시 혼조세와 기술주 반등 속에서도 쿠팡Inc의 3분기 순손실 기록 등 주요 이슈가 이어지는 모습입니다.",
     "status": "ok"
   },
   "latestBriefing": null,
@@ -286,116 +310,14 @@
     {
       "id": "kospi",
       "name": "코스피",
-      "value": 5859.08,
-      "displayValue": "5,859.08",
-      "change": 2.2395,
+      "value": 5648.79,
+      "displayValue": "5,648.79",
+      "change": -3.5891,
       "changeUnit": "%",
       "displayMode": "pct",
-      "direction": "up",
-      "asOf": "2026-11-02",
+      "direction": "down",
+      "asOf": "2026-11-03",
       "source": "KRX",
-      "sourceUrl": "",
-      "frequency": "daily",
-      "isDelayed": true,
-      "status": "ok",
-      "insight": "전일 대비 큰 폭 상승"
-    },
-    {
-      "id": "kosdaq",
-      "name": "코스닥",
-      "value": 734.36,
-      "displayValue": "734.36",
-      "change": 1.3777,
-      "changeUnit": "%",
-      "displayMode": "pct",
-      "direction": "up",
-      "asOf": "2026-11-02",
-      "source": "KRX",
-      "sourceUrl": "",
-      "frequency": "daily",
-      "isDelayed": true,
-      "status": "ok",
-      "insight": "전일 대비 상승"
-    },
-    {
-      "id": "nasdaq",
-      "name": "나스닥",
-      "value": 25164.32,
-      "displayValue": "25,164.32",
-      "change": -1.072,
-      "changeUnit": "%",
-      "displayMode": "pct",
-      "direction": "down",
-      "asOf": "2026-11-02",
-      "source": "FinanceDataReader",
-      "sourceUrl": "",
-      "frequency": "daily",
-      "isDelayed": true,
-      "status": "ok",
-      "insight": "전일 대비 하락"
-    },
-    {
-      "id": "sp500",
-      "name": "S&P500",
-      "value": 7541.4,
-      "displayValue": "7,541.40",
-      "change": -0.5102,
-      "changeUnit": "%",
-      "displayMode": "pct",
-      "direction": "down",
-      "asOf": "2026-11-02",
-      "source": "FinanceDataReader",
-      "sourceUrl": "",
-      "frequency": "daily",
-      "isDelayed": true,
-      "status": "ok",
-      "insight": "전일 대비 하락"
-    },
-    {
-      "id": "usdkrw",
-      "name": "원/달러",
-      "value": 1345.86,
-      "displayValue": "1,345.9",
-      "change": 12.42,
-      "changeUnit": "원",
-      "displayMode": "delta",
-      "direction": "up",
-      "asOf": "2026-11-02",
-      "source": "FinanceDataReader",
-      "sourceUrl": "",
-      "frequency": "daily",
-      "isDelayed": true,
-      "status": "ok",
-      "insight": "전일 대비 큰 폭 상승"
-    },
-    {
-      "id": "us10y",
-      "name": "미국채10년",
-      "value": 4.89,
-      "displayValue": "4.89%",
-      "change": -0.04,
-      "changeUnit": "%p",
-      "displayMode": "delta",
-      "direction": "down",
-      "asOf": "2026-11-02",
-      "source": "FinanceDataReader",
-      "sourceUrl": "",
-      "frequency": "daily",
-      "isDelayed": true,
-      "status": "ok",
-      "insight": "보합권"
-    },
-    {
-      "id": "wti",
-      "name": "WTI",
-      "value": 96.15,
-      "displayValue": "$96.15",
-      "change": -7.65,
-      "changeUnit": "%",
-      "displayMode": "pct",
-      "direction": "down",
-      "asOf": "2026-11-02",
-      "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
       "isDelayed": true,
@@ -403,21 +325,123 @@
       "insight": "전일 대비 큰 폭 하락"
     },
     {
-      "id": "vix",
-      "name": "VIX",
-      "value": 21.15,
-      "displayValue": "21.15",
-      "change": 8.9083,
+      "id": "kosdaq",
+      "name": "코스닥",
+      "value": 704.39,
+      "displayValue": "704.39",
+      "change": -4.0811,
+      "changeUnit": "%",
+      "displayMode": "pct",
+      "direction": "down",
+      "asOf": "2026-11-03",
+      "source": "KRX",
+      "sourceUrl": "",
+      "frequency": "daily",
+      "isDelayed": true,
+      "status": "ok",
+      "insight": "전일 대비 큰 폭 하락"
+    },
+    {
+      "id": "nasdaq",
+      "name": "나스닥",
+      "value": 25372.01,
+      "displayValue": "25,372.01",
+      "change": 0.8253,
       "changeUnit": "%",
       "displayMode": "pct",
       "direction": "up",
-      "asOf": "2026-11-02",
+      "asOf": "2026-11-03",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
       "isDelayed": true,
       "status": "ok",
-      "insight": "전일 대비 큰 폭 상승"
+      "insight": "전일 대비 상승"
+    },
+    {
+      "id": "sp500",
+      "name": "S&P500",
+      "value": 7568.92,
+      "displayValue": "7,568.92",
+      "change": 0.3649,
+      "changeUnit": "%",
+      "displayMode": "pct",
+      "direction": "up",
+      "asOf": "2026-11-03",
+      "source": "FinanceDataReader",
+      "sourceUrl": "",
+      "frequency": "daily",
+      "isDelayed": true,
+      "status": "ok",
+      "insight": "전일 대비 상승"
+    },
+    {
+      "id": "usdkrw",
+      "name": "원/달러",
+      "value": 1344.83,
+      "displayValue": "1,344.8",
+      "change": -1.03,
+      "changeUnit": "원",
+      "displayMode": "delta",
+      "direction": "down",
+      "asOf": "2026-11-03",
+      "source": "FinanceDataReader",
+      "sourceUrl": "",
+      "frequency": "daily",
+      "isDelayed": true,
+      "status": "ok",
+      "insight": "전일 대비 하락"
+    },
+    {
+      "id": "us10y",
+      "name": "미국채10년",
+      "value": 4.95,
+      "displayValue": "4.95%",
+      "change": 0.06,
+      "changeUnit": "%p",
+      "displayMode": "delta",
+      "direction": "up",
+      "asOf": "2026-11-03",
+      "source": "FinanceDataReader",
+      "sourceUrl": "",
+      "frequency": "daily",
+      "isDelayed": true,
+      "status": "ok",
+      "insight": "전일 대비 소폭 상승"
+    },
+    {
+      "id": "wti",
+      "name": "WTI",
+      "value": 96.88,
+      "displayValue": "$96.88",
+      "change": 0.44,
+      "changeUnit": "%",
+      "displayMode": "pct",
+      "direction": "up",
+      "asOf": "2026-11-03",
+      "source": "FinanceDataReader",
+      "sourceUrl": "",
+      "frequency": "daily",
+      "isDelayed": true,
+      "status": "ok",
+      "insight": "전일 대비 상승"
+    },
+    {
+      "id": "vix",
+      "name": "VIX",
+      "value": 20.83,
+      "displayValue": "20.83",
+      "change": -1.513,
+      "changeUnit": "%",
+      "displayMode": "pct",
+      "direction": "down",
+      "asOf": "2026-11-03",
+      "source": "FinanceDataReader",
+      "sourceUrl": "",
+      "frequency": "daily",
+      "isDelayed": true,
+      "status": "ok",
+      "insight": "전일 대비 큰 폭 하락"
     }
   ],
   "signals": [
@@ -425,11 +449,11 @@
       "id": "recession",
       "name": "경기침체 경보등",
       "color": "green",
-      "value": 0.38,
-      "valueLabel": "+0.38%p",
+      "value": 0.32,
+      "valueLabel": "+0.32%p",
       "insight": "장단기 금리차가 정상 범위에 있어 침체 신호는 뚜렷하지 않습니다.",
       "sourceLabel": "장단기 금리차 (미국채 10Y-2Y)",
-      "asOf": "2026-11-03"
+      "asOf": "2026-11-04"
     },
     {
       "id": "rate-gap",
@@ -439,21 +463,31 @@
       "valueLabel": "+1.00%p",
       "insight": "한미 금리차가 관리 가능한 수준이라 자본유출 압력은 크지 않습니다.",
       "sourceLabel": "한미 기준금리차 (Fed-한은)",
-      "asOf": "2026-11-03"
+      "asOf": "2026-11-04"
     },
     {
       "id": "liquidity-stress",
       "name": "유동성 스트레스",
       "color": "green",
-      "value": 3.44,
-      "valueLabel": "3.44%p",
+      "value": 3.43,
+      "valueLabel": "3.43%p",
       "insight": "신용시장 스프레드가 평상 수준이라 유동성 경색 신호는 없습니다.",
       "sourceLabel": "하이일드 스프레드 (BAMLH0A0HYM2)",
-      "asOf": "2026-11-03"
+      "asOf": "2026-11-04"
     }
   ],
   "claims": {
     "previousClaims": [
+      {
+        "claimText": "미국과 이란 간 평화 협상 가능성이 떠오르면서 국제유가가 7% 넘게 떨어져 WTI가 96.15달러에 거래를 마쳤습니다. — 나스닥이 WTI 대비 강세를 이어갈까요?",
+        "status": "neutral",
+        "resolution": {
+          "verdict": "neutral",
+          "startValue": 25164.32,
+          "endValue": 25372.01,
+          "metricId": "nasdaq"
+        }
+      },
       {
         "claimText": "이란 관련 전쟁 확전 가능성과 호르무즈 해협의 원유 수송 차질 우려가 겹치면서 국제유가가 상승했습니다. — WTI가 나스닥 대비 강세를 이어갈까요?",
         "status": "miss",
@@ -1181,25 +1215,25 @@
     ],
     "todayClaims": [
       {
-        "claimText": "미국과 이란 간 평화 협상 가능성이 떠오르면서 국제유가가 7% 넘게 떨어져 WTI가 96.15달러에 거래를 마쳤습니다. — 나스닥이 WTI 대비 강세를 이어갈까요?",
+        "claimText": "나스닥이 코스닥 대비 강세를 이어갈까요?",
         "status": "unresolved"
       }
     ],
     "totals": {
       "hit": 22,
       "miss": 36,
-      "neutral": 14,
+      "neutral": 15,
       "unresolved": 1,
       "invalidated": 1
     }
   },
   "newsletterClaimsTeaser": {
-    "publicationId": "2026-10-31",
+    "publicationId": "2026-11-03",
     "resolvedCount": 1,
     "hitCount": 0,
-    "missCount": 1,
-    "neutralCount": 0,
+    "missCount": 0,
+    "neutralCount": 1,
     "unresolvedCount": 0,
-    "highlightText": "이란 관련 전쟁 확전 가능성과 호르무즈 해협의 원유 수송 차질 우려가 겹치면서 국제유가가 상승했습니다. — WTI가 나스닥 대비 강세를 이어갈까요?"
+    "highlightText": "미국과 이란 간 평화 협상 가능성이 떠오르면서 국제유가가 7% 넘게 떨어져 WTI가 96.15달러에 거래를 마쳤습니다. — 나스닥이 WTI 대비 강세를 이어갈까요?"
   }
 }

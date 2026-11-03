@@ -1,0 +1,215 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-04",
+  "generatedAt": "2026-11-04T06:44:39+09:00",
+  "indicators": [
+    {
+      "id": "kospi",
+      "value": 5648.79,
+      "change": -3.5891,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "kosdaq",
+      "value": 704.39,
+      "change": -4.0811,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "nasdaq",
+      "value": 25372.01,
+      "change": 0.8253,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "sp500",
+      "value": 7568.92,
+      "change": 0.3649,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1344.83,
+      "change": -1.03,
+      "displayMode": "delta",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "us10y",
+      "value": 4.95,
+      "change": 0.06,
+      "displayMode": "delta",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "wti",
+      "value": 96.88,
+      "change": 0.44,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "vix",
+      "value": 20.83,
+      "change": -1.513,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    }
+  ],
+  "auditIndicators": [
+    {
+      "id": "kospi",
+      "value": 5648.79,
+      "displayMode": "pct"
+    },
+    {
+      "id": "kosdaq",
+      "value": 704.39,
+      "displayMode": "pct"
+    },
+    {
+      "id": "nasdaq",
+      "value": 25372.01,
+      "displayMode": "pct"
+    },
+    {
+      "id": "sp500",
+      "value": 7568.92,
+      "displayMode": "pct"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1344.83,
+      "displayMode": "dual"
+    },
+    {
+      "id": "us10y",
+      "value": 4.95,
+      "displayMode": "delta"
+    },
+    {
+      "id": "wti",
+      "value": 96.88,
+      "displayMode": "pct"
+    },
+    {
+      "id": "vix",
+      "value": 20.83,
+      "displayMode": "pct"
+    },
+    {
+      "id": "gold",
+      "value": 3937.8,
+      "displayMode": "pct"
+    },
+    {
+      "id": "dollarindex",
+      "value": 101.86,
+      "displayMode": "pct"
+    },
+    {
+      "id": "brent",
+      "value": 104.46,
+      "displayMode": "pct"
+    },
+    {
+      "id": "dow",
+      "value": 51786.72,
+      "displayMode": "pct"
+    },
+    {
+      "id": "nikkei",
+      "value": 63081.86,
+      "displayMode": "pct"
+    },
+    {
+      "id": "shanghai",
+      "value": 3638.03,
+      "displayMode": "pct"
+    }
+  ],
+  "signals": [
+    {
+      "id": "recession",
+      "color": "green",
+      "value": 0.32
+    },
+    {
+      "id": "rate-gap",
+      "color": "green",
+      "value": 1.0
+    },
+    {
+      "id": "liquidity-stress",
+      "color": "green",
+      "value": 3.43
+    }
+  ],
+  "calendarSnapshot": [
+    {
+      "id": "us-2026-11-06-미국 고용보고서(비농업고용·실업률)",
+      "time": "2026-11-06",
+      "country": "US",
+      "title": "미국 고용보고서(비농업고용·실업률)",
+      "importance": "high"
+    },
+    {
+      "id": "us-2026-11-10-미국 소비자물가(CPI)",
+      "time": "2026-11-10",
+      "country": "US",
+      "title": "미국 소비자물가(CPI)",
+      "importance": "high"
+    }
+  ],
+  "marketTemperature": {
+    "label": "cautious",
+    "displayLabel": "경계",
+    "status": "ok"
+  },
+  "connectionTopology": "DELTA_MODEL_V1",
+  "driverClaims": [
+    "미국 국채 10년물 금리 상승으로 인한 위험자산 투자심리 위축",
+    "외국인 및 기관의 대규모 순매도로 인한 증시 하락 압력"
+  ],
+  "krMarketClosed": false,
+  "weeklyEvents": {
+    "weekStart": "2026-11-02",
+    "source": "calendar_events.json",
+    "events": [
+      {
+        "id": "fred-job-openings-and-labor-turnover-survey-2026-11-03-82fb4d0f7677",
+        "date": "2026-11-04",
+        "us_date": null,
+        "at": "2026-11-04T00:00:00+09:00",
+        "country": "US",
+        "importance": "medium",
+        "category": "macro",
+        "title": "구인·이직 보고서(JOLTS)",
+        "ord": null
+      },
+      {
+        "id": "fred-employment-situation-2026-11-06-fc6cdfa8f80b",
+        "date": "2026-11-06",
+        "us_date": null,
+        "at": "2026-11-06T22:30:00+09:00",
+        "country": "US",
+        "importance": "high",
+        "category": "macro",
+        "title": "미국 고용보고서",
+        "ord": null
+      }
+    ]
+  }
+}
