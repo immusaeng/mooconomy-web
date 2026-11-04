@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-04T06:44:39+09:00",
+  "updatedAt": "2026-11-05T06:53:22+09:00",
   "claims": {
     "2026-07-19-c1": {
       "schemaVersion": 1,
@@ -4495,7 +4495,7 @@
       },
       "thresholdRuleId": "pct_030",
       "confidence": null,
-      "status": "unresolved",
+      "status": "neutral",
       "revision": {
         "version": 1,
         "contentHash": "7204eb88b01640f5747218aa304b32330733c8ec318391154381ad256dc125bd",
@@ -4506,6 +4506,68 @@
         "asOf": "2026-11-03",
         "benchmarkValue": 704.39,
         "benchmarkAsOf": "2026-11-03"
+      },
+      "resolution": {
+        "resolutionId": "2026-11-04-c1-res",
+        "claimId": "2026-11-04-c1",
+        "resolvedAt": "2026-11-05T06:53:16+09:00",
+        "verdict": "neutral",
+        "metricId": "nasdaq",
+        "comparisonType": "excess_return",
+        "startValue": 25372.01,
+        "endValue": 25736.51,
+        "changeValue": -0.06254701136543006,
+        "changeUnit": "%",
+        "benchmarkMetricId": "kosdaq",
+        "benchmarkStartValue": 704.39,
+        "benchmarkEndValue": 714.95,
+        "neutralLower": -0.3,
+        "neutralUpper": 0.3,
+        "neutralBand": 0.3,
+        "dataProvider": "FinanceDataReader",
+        "sourceUrl": "",
+        "observedAt": "2026-11-04",
+        "explanation": "변화폭이 중립 구간(±0.3%) 이내에 머물러 뚜렷한 방향이 나타나지 않았습니다."
+      }
+    },
+    "2026-11-05-c1": {
+      "schemaVersion": 1,
+      "claimId": "2026-11-05-c1",
+      "publicationId": "2026-11-05",
+      "issuedAt": "2026-11-05T06:53:22+09:00",
+      "dataCutoffAt": "2026-11-05T06:53:22+09:00",
+      "lockedAt": "2026-11-05T06:53:22+09:00",
+      "claimMode": "auto",
+      "verificationType": "proxy",
+      "topic": "코스피 vs 코스닥 상대성과(이벤트연동: 고용)",
+      "sourceNewsIds": [],
+      "observationText": "코스피는 전일 대비 +0.62%, 코스닥은 +1.50% — 상대 괴리 -0.88%p.",
+      "interpretationText": "고용 발표 이후에도 이 상대적 괴리가 유지되는지가 확인 대상입니다.",
+      "claimText": "고용 발표를 앞두고 코스피가 코스닥 대비 약세를 이어갈까요?",
+      "metricId": "kospi",
+      "benchmarkMetricId": "kosdaq",
+      "comparisonType": "excess_return",
+      "expectedDirection": "down",
+      "horizon": {
+        "type": "event_linked",
+        "market": "KR",
+        "eventId": "고용",
+        "deadline": "2026-11-06",
+        "resolutionAt": "2026-11-06"
+      },
+      "thresholdRuleId": "pct_030",
+      "confidence": null,
+      "status": "unresolved",
+      "revision": {
+        "version": 1,
+        "contentHash": "955d711f480c34a7234b9c68e11c5ede4feab205122b5c2055a7f51ac95e92a0",
+        "correctedFrom": null
+      },
+      "baseline": {
+        "value": 5683.8,
+        "asOf": "2026-11-04",
+        "benchmarkValue": 714.95,
+        "benchmarkAsOf": "2026-11-04"
       },
       "resolution": null
     }
