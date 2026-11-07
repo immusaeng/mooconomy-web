@@ -1,14 +1,14 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-06T00:59:53.942148+00:00",
+  "generatedAt": "2026-11-07T00:10:40.220243+00:00",
   "timezone": "Asia/Seoul",
   "range": {
-    "from": "2026-11-06",
-    "to": "2026-11-20"
+    "from": "2026-11-07",
+    "to": "2026-11-21"
   },
   "freshness": {
     "status": "fresh",
-    "lastSuccessfulAt": "2026-11-06T00:59:53.942151+00:00",
+    "lastSuccessfulAt": "2026-11-07T00:10:40.220250+00:00",
     "failedSources": [],
     "sources": {
       "fred": "ok",
@@ -24,37 +24,6 @@
     }
   },
   "events": [
-    {
-      "id": "fred-employment-situation-2026-11-06-fc6cdfa8f80b",
-      "title": "Employment Situation",
-      "originalTitle": "Employment Situation",
-      "titleKo": "미국 고용보고서",
-      "country": "US",
-      "category": "macro",
-      "importance": "high",
-      "scheduledDate": "2026-11-06",
-      "scheduledAt": "2026-11-06T22:30:00+09:00",
-      "timezone": "Asia/Seoul",
-      "timePrecision": "datetime",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "FRED",
-      "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=50",
-      "sourceEventId": "50",
-      "updatedAt": "2026-11-06T00:59:53.941143+00:00",
-      "confidence": "single_source",
-      "sourceRefs": [
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=50",
-          "sourceTier": "official_aggregator"
-        }
-      ]
-    },
     {
       "id": "fred-consumer-price-index-2026-11-10-1eb11679e364",
       "title": "Consumer Price Index",
@@ -76,7 +45,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=10",
       "sourceEventId": "10",
-      "updatedAt": "2026-11-06T00:59:53.941148+00:00",
+      "updatedAt": "2026-11-07T00:10:40.218626+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -107,7 +76,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=9",
       "sourceEventId": "9",
-      "updatedAt": "2026-11-06T00:59:53.941154+00:00",
+      "updatedAt": "2026-11-07T00:10:40.218636+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -138,7 +107,7 @@
       "sourceTier": "official",
       "sourceUrl": "https://www.krx.co.kr/contents/OPN/01/01040202/OPN01040202.jsp",
       "sourceEventId": null,
-      "updatedAt": "2026-11-06T00:59:53.941586+00:00",
+      "updatedAt": "2026-11-07T00:10:40.219363+00:00",
       "confidence": "confirmed",
       "sourceRefs": [
         {
@@ -169,616 +138,13 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=46",
       "sourceEventId": "46",
-      "updatedAt": "2026-11-06T00:59:53.941150+00:00",
+      "updatedAt": "2026-11-07T00:10:40.218631+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
           "sourceName": "FRED",
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=46",
           "sourceTier": "official_aggregator"
-        }
-      ]
-    },
-    {
-      "id": "dart-20261106800254-2026-11-06-0376877a0b71",
-      "title": "한국가스공사 - 결산실적공시예고(안내공시)",
-      "originalTitle": "한국가스공사 - 결산실적공시예고(안내공시)",
-      "titleKo": "한국가스공사 - 결산실적공시예고(안내공시)",
-      "country": "KR",
-      "category": "disclosure",
-      "importance": "low",
-      "scheduledDate": "2026-11-06",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "published",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "OpenDART",
-      "sourceTier": "official_disclosure",
-      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106800254",
-      "sourceEventId": "20261106800254",
-      "updatedAt": "2026-11-06T00:59:53.941247+00:00",
-      "confidence": "cross_checked",
-      "sourceRefs": [
-        {
-          "sourceName": "OpenDART",
-          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106800254",
-          "sourceTier": "official_disclosure"
-        },
-        {
-          "sourceName": "OpenDART",
-          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106900251",
-          "sourceTier": "official_disclosure"
-        },
-        {
-          "sourceName": "OpenDART",
-          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106800234",
-          "sourceTier": "official_disclosure"
-        },
-        {
-          "sourceName": "OpenDART",
-          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106900228",
-          "sourceTier": "official_disclosure"
-        },
-        {
-          "sourceName": "OpenDART",
-          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106800219",
-          "sourceTier": "official_disclosure"
-        },
-        {
-          "sourceName": "OpenDART",
-          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106000034",
-          "sourceTier": "official_disclosure"
-        },
-        {
-          "sourceName": "OpenDART",
-          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106000033",
-          "sourceTier": "official_disclosure"
-        },
-        {
-          "sourceName": "OpenDART",
-          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106000032",
-          "sourceTier": "official_disclosure"
-        },
-        {
-          "sourceName": "OpenDART",
-          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106800224",
-          "sourceTier": "official_disclosure"
-        },
-        {
-          "sourceName": "OpenDART",
-          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106000031",
-          "sourceTier": "official_disclosure"
-        },
-        {
-          "sourceName": "OpenDART",
-          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106900195",
-          "sourceTier": "official_disclosure"
-        },
-        {
-          "sourceName": "OpenDART",
-          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106900194",
-          "sourceTier": "official_disclosure"
-        },
-        {
-          "sourceName": "OpenDART",
-          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106900196",
-          "sourceTier": "official_disclosure"
-        },
-        {
-          "sourceName": "OpenDART",
-          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106000030",
-          "sourceTier": "official_disclosure"
-        },
-        {
-          "sourceName": "OpenDART",
-          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106000029",
-          "sourceTier": "official_disclosure"
-        },
-        {
-          "sourceName": "OpenDART",
-          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106900173",
-          "sourceTier": "official_disclosure"
-        },
-        {
-          "sourceName": "OpenDART",
-          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106000008",
-          "sourceTier": "official_disclosure"
-        },
-        {
-          "sourceName": "OpenDART",
-          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106000010",
-          "sourceTier": "official_disclosure"
-        },
-        {
-          "sourceName": "OpenDART",
-          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106000011",
-          "sourceTier": "official_disclosure"
-        },
-        {
-          "sourceName": "OpenDART",
-          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106000013",
-          "sourceTier": "official_disclosure"
-        },
-        {
-          "sourceName": "OpenDART",
-          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106000005",
-          "sourceTier": "official_disclosure"
-        },
-        {
-          "sourceName": "OpenDART",
-          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106000019",
-          "sourceTier": "official_disclosure"
-        },
-        {
-          "sourceName": "OpenDART",
-          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106800151",
-          "sourceTier": "official_disclosure"
-        },
-        {
-          "sourceName": "OpenDART",
-          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106800125",
-          "sourceTier": "official_disclosure"
-        },
-        {
-          "sourceName": "OpenDART",
-          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106000022",
-          "sourceTier": "official_disclosure"
-        },
-        {
-          "sourceName": "OpenDART",
-          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106800080",
-          "sourceTier": "official_disclosure"
-        },
-        {
-          "sourceName": "OpenDART",
-          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106000009",
-          "sourceTier": "official_disclosure"
-        },
-        {
-          "sourceName": "OpenDART",
-          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106000007",
-          "sourceTier": "official_disclosure"
-        },
-        {
-          "sourceName": "OpenDART",
-          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106000006",
-          "sourceTier": "official_disclosure"
-        },
-        {
-          "sourceName": "OpenDART",
-          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106000004",
-          "sourceTier": "official_disclosure"
-        },
-        {
-          "sourceName": "OpenDART",
-          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106800008",
-          "sourceTier": "official_disclosure"
-        },
-        {
-          "sourceName": "OpenDART",
-          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106900007",
-          "sourceTier": "official_disclosure"
-        },
-        {
-          "sourceName": "OpenDART",
-          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106000003",
-          "sourceTier": "official_disclosure"
-        },
-        {
-          "sourceName": "OpenDART",
-          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106000001",
-          "sourceTier": "official_disclosure"
-        },
-        {
-          "sourceName": "OpenDART",
-          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106000002",
-          "sourceTier": "official_disclosure"
-        }
-      ]
-    },
-    {
-      "id": "dart-20261106800248-2026-11-06-5f675ca8effb",
-      "title": "현대글로비스 - 기업설명회(IR)개최(안내공시)",
-      "originalTitle": "현대글로비스 - 기업설명회(IR)개최(안내공시)",
-      "titleKo": "현대글로비스 - 기업설명회(IR)개최(안내공시)",
-      "country": "KR",
-      "category": "disclosure",
-      "importance": "low",
-      "scheduledDate": "2026-11-06",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "published",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "OpenDART",
-      "sourceTier": "official_disclosure",
-      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106800248",
-      "sourceEventId": "20261106800248",
-      "updatedAt": "2026-11-06T00:59:53.941254+00:00",
-      "confidence": "cross_checked",
-      "sourceRefs": [
-        {
-          "sourceName": "OpenDART",
-          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106800248",
-          "sourceTier": "official_disclosure"
-        },
-        {
-          "sourceName": "OpenDART",
-          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106800241",
-          "sourceTier": "official_disclosure"
-        }
-      ]
-    },
-    {
-      "id": "dart-20261106000035-2026-11-06-613e757bd58e",
-      "title": "글로벌세아 - [기재정정]대규모기업집단현황공시[연1회공시및1/4분기용(대표회사)]",
-      "originalTitle": "글로벌세아 - [기재정정]대규모기업집단현황공시[연1회공시및1/4분기용(대표회사)]",
-      "titleKo": "글로벌세아 - [기재정정]대규모기업집단현황공시[연1회공시및1/4분기용(대표회사)]",
-      "country": "KR",
-      "category": "disclosure",
-      "importance": "low",
-      "scheduledDate": "2026-11-06",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "published",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "OpenDART",
-      "sourceTier": "official_disclosure",
-      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106000035",
-      "sourceEventId": "20261106000035",
-      "updatedAt": "2026-11-06T00:59:53.941269+00:00",
-      "confidence": "single_source",
-      "sourceRefs": [
-        {
-          "sourceName": "OpenDART",
-          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106000035",
-          "sourceTier": "official_disclosure"
-        }
-      ]
-    },
-    {
-      "id": "dart-20261106800193-2026-11-06-ef1f7ac0e764",
-      "title": "HD현대마린솔루션 - 최대주주등소유주식변동신고서",
-      "originalTitle": "HD현대마린솔루션 - 최대주주등소유주식변동신고서",
-      "titleKo": "HD현대마린솔루션 - 최대주주등소유주식변동신고서",
-      "country": "KR",
-      "category": "disclosure",
-      "importance": "low",
-      "scheduledDate": "2026-11-06",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "published",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "OpenDART",
-      "sourceTier": "official_disclosure",
-      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106800193",
-      "sourceEventId": "20261106800193",
-      "updatedAt": "2026-11-06T00:59:53.941304+00:00",
-      "confidence": "cross_checked",
-      "sourceRefs": [
-        {
-          "sourceName": "OpenDART",
-          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106800193",
-          "sourceTier": "official_disclosure"
-        },
-        {
-          "sourceName": "OpenDART",
-          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106000024",
-          "sourceTier": "official_disclosure"
-        }
-      ]
-    },
-    {
-      "id": "dart-20261106000028-2026-11-06-1b76fe966cc6",
-      "title": "KG스틸 - 주식등의대량보유상황보고서(일반)",
-      "originalTitle": "KG스틸 - 주식등의대량보유상황보고서(일반)",
-      "titleKo": "KG스틸 - 주식등의대량보유상황보고서(일반)",
-      "country": "KR",
-      "category": "disclosure",
-      "importance": "low",
-      "scheduledDate": "2026-11-06",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "published",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "OpenDART",
-      "sourceTier": "official_disclosure",
-      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106000028",
-      "sourceEventId": "20261106000028",
-      "updatedAt": "2026-11-06T00:59:53.941313+00:00",
-      "confidence": "single_source",
-      "sourceRefs": [
-        {
-          "sourceName": "OpenDART",
-          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106000028",
-          "sourceTier": "official_disclosure"
-        }
-      ]
-    },
-    {
-      "id": "dart-20261106000012-2026-11-06-ffe3f3be2b24",
-      "title": "다올자산운용 - [기재정정]투자설명서(집합투자증권)(다올액티브자산배분형증권자투자회사제2호[주식혼합])",
-      "originalTitle": "다올자산운용 - [기재정정]투자설명서(집합투자증권)(다올액티브자산배분형증권자투자회사제2호[주식혼합])",
-      "titleKo": "다올자산운용 - [기재정정]투자설명서(집합투자증권)(다올액티브자산배분형증권자투자회사제2호[주식혼합])",
-      "country": "KR",
-      "category": "disclosure",
-      "importance": "low",
-      "scheduledDate": "2026-11-06",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "published",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "OpenDART",
-      "sourceTier": "official_disclosure",
-      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106000012",
-      "sourceEventId": "20261106000012",
-      "updatedAt": "2026-11-06T00:59:53.941346+00:00",
-      "confidence": "cross_checked",
-      "sourceRefs": [
-        {
-          "sourceName": "OpenDART",
-          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106000012",
-          "sourceTier": "official_disclosure"
-        },
-        {
-          "sourceName": "OpenDART",
-          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106000020",
-          "sourceTier": "official_disclosure"
-        }
-      ]
-    },
-    {
-      "id": "dart-20261106000014-2026-11-06-93ebaafcfb88",
-      "title": "한화자산운용 - [기재정정]투자설명서(집합투자증권)(한화PLUS200커버드콜액티브증권상장지수투자신탁(주식-파생형))",
-      "originalTitle": "한화자산운용 - [기재정정]투자설명서(집합투자증권)(한화PLUS200커버드콜액티브증권상장지수투자신탁(주식-파생형))",
-      "titleKo": "한화자산운용 - [기재정정]투자설명서(집합투자증권)(한화PLUS200커버드콜액티브증권상장지수투자신탁(주식-파생형))",
-      "country": "KR",
-      "category": "disclosure",
-      "importance": "low",
-      "scheduledDate": "2026-11-06",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "published",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "OpenDART",
-      "sourceTier": "official_disclosure",
-      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106000014",
-      "sourceEventId": "20261106000014",
-      "updatedAt": "2026-11-06T00:59:53.941353+00:00",
-      "confidence": "single_source",
-      "sourceRefs": [
-        {
-          "sourceName": "OpenDART",
-          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106000014",
-          "sourceTier": "official_disclosure"
-        }
-      ]
-    },
-    {
-      "id": "dart-20261106000015-2026-11-06-76919a0c4239",
-      "title": "한화자산운용 - [기재정정]투자설명서(집합투자증권)(한화PLUS고배당주위클리고정커버드콜증권상장지수투자신탁(주식-파생형))",
-      "originalTitle": "한화자산운용 - [기재정정]투자설명서(집합투자증권)(한화PLUS고배당주위클리고정커버드콜증권상장지수투자신탁(주식-파생형))",
-      "titleKo": "한화자산운용 - [기재정정]투자설명서(집합투자증권)(한화PLUS고배당주위클리고정커버드콜증권상장지수투자신탁(주식-파생형))",
-      "country": "KR",
-      "category": "disclosure",
-      "importance": "low",
-      "scheduledDate": "2026-11-06",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "published",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "OpenDART",
-      "sourceTier": "official_disclosure",
-      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106000015",
-      "sourceEventId": "20261106000015",
-      "updatedAt": "2026-11-06T00:59:53.941357+00:00",
-      "confidence": "cross_checked",
-      "sourceRefs": [
-        {
-          "sourceName": "OpenDART",
-          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106000015",
-          "sourceTier": "official_disclosure"
-        },
-        {
-          "sourceName": "OpenDART",
-          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106000016",
-          "sourceTier": "official_disclosure"
-        },
-        {
-          "sourceName": "OpenDART",
-          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106000017",
-          "sourceTier": "official_disclosure"
-        }
-      ]
-    },
-    {
-      "id": "dart-20261106000018-2026-11-06-ea2c9732c4c9",
-      "title": "KB자산운용 - 투자설명서(집합투자증권)(KBRISE27-11회사채(AA-이상)액티브증권상장지수투자신탁(채권))",
-      "originalTitle": "KB자산운용 - 투자설명서(집합투자증권)(KBRISE27-11회사채(AA-이상)액티브증권상장지수투자신탁(채권))",
-      "titleKo": "KB자산운용 - 투자설명서(집합투자증권)(KBRISE27-11회사채(AA-이상)액티브증권상장지수투자신탁(채권))",
-      "country": "KR",
-      "category": "disclosure",
-      "importance": "low",
-      "scheduledDate": "2026-11-06",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "published",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "OpenDART",
-      "sourceTier": "official_disclosure",
-      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106000018",
-      "sourceEventId": "20261106000018",
-      "updatedAt": "2026-11-06T00:59:53.941387+00:00",
-      "confidence": "single_source",
-      "sourceRefs": [
-        {
-          "sourceName": "OpenDART",
-          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106000018",
-          "sourceTier": "official_disclosure"
-        }
-      ]
-    },
-    {
-      "id": "dart-20261106900158-2026-11-06-4c572441eb09",
-      "title": "ISC - 기업설명회(IR)개최",
-      "originalTitle": "ISC - 기업설명회(IR)개최",
-      "titleKo": "ISC - 기업설명회(IR)개최",
-      "country": "KR",
-      "category": "disclosure",
-      "importance": "low",
-      "scheduledDate": "2026-11-06",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "published",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "OpenDART",
-      "sourceTier": "official_disclosure",
-      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106900158",
-      "sourceEventId": "20261106900158",
-      "updatedAt": "2026-11-06T00:59:53.941435+00:00",
-      "confidence": "single_source",
-      "sourceRefs": [
-        {
-          "sourceName": "OpenDART",
-          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106900158",
-          "sourceTier": "official_disclosure"
-        }
-      ]
-    },
-    {
-      "id": "dart-20261106000027-2026-11-06-475b686a5a7f",
-      "title": "아이엠스팩1호 - 주식등의대량보유상황보고서(일반)",
-      "originalTitle": "아이엠스팩1호 - 주식등의대량보유상황보고서(일반)",
-      "titleKo": "아이엠스팩1호 - 주식등의대량보유상황보고서(일반)",
-      "country": "KR",
-      "category": "disclosure",
-      "importance": "low",
-      "scheduledDate": "2026-11-06",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "published",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "OpenDART",
-      "sourceTier": "official_disclosure",
-      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106000027",
-      "sourceEventId": "20261106000027",
-      "updatedAt": "2026-11-06T00:59:53.941439+00:00",
-      "confidence": "single_source",
-      "sourceRefs": [
-        {
-          "sourceName": "OpenDART",
-          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106000027",
-          "sourceTier": "official_disclosure"
-        }
-      ]
-    },
-    {
-      "id": "dart-20261106100002-2026-11-06-9b6e38a20b45",
-      "title": "신한자산운용 - 효력발생안내( 2026.11.5. 제출 일괄신고서(집합투자증권-신탁형) )",
-      "originalTitle": "신한자산운용 - 효력발생안내( 2026.11.5. 제출 일괄신고서(집합투자증권-신탁형) )",
-      "titleKo": "신한자산운용 - 효력발생안내( 2026.11.5. 제출 일괄신고서(집합투자증권-신탁형) )",
-      "country": "KR",
-      "category": "disclosure",
-      "importance": "low",
-      "scheduledDate": "2026-11-06",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "published",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "OpenDART",
-      "sourceTier": "official_disclosure",
-      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106100002",
-      "sourceEventId": "20261106100002",
-      "updatedAt": "2026-11-06T00:59:53.941443+00:00",
-      "confidence": "cross_checked",
-      "sourceRefs": [
-        {
-          "sourceName": "OpenDART",
-          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106100002",
-          "sourceTier": "official_disclosure"
-        },
-        {
-          "sourceName": "OpenDART",
-          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106100001",
-          "sourceTier": "official_disclosure"
-        }
-      ]
-    },
-    {
-      "id": "dart-20261106000023-2026-11-06-d5ae74255d9a",
-      "title": "미원화학 - 분기보고서 (2026.09)",
-      "originalTitle": "미원화학 - 분기보고서 (2026.09)",
-      "titleKo": "미원화학 - 분기보고서 (2026.09)",
-      "country": "KR",
-      "category": "disclosure",
-      "importance": "low",
-      "scheduledDate": "2026-11-06",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "published",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "OpenDART",
-      "sourceTier": "official_disclosure",
-      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106000023",
-      "sourceEventId": "20261106000023",
-      "updatedAt": "2026-11-06T00:59:53.941460+00:00",
-      "confidence": "single_source",
-      "sourceRefs": [
-        {
-          "sourceName": "OpenDART",
-          "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106000023",
-          "sourceTier": "official_disclosure"
         }
       ]
     },
@@ -803,7 +169,7 @@
       "sourceTier": "official",
       "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-11",
       "sourceEventId": null,
-      "updatedAt": "2026-11-06T00:59:53.941184+00:00",
+      "updatedAt": "2026-11-07T00:10:40.218683+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -834,7 +200,7 @@
       "sourceTier": "official",
       "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-11",
       "sourceEventId": null,
-      "updatedAt": "2026-11-06T00:59:53.941189+00:00",
+      "updatedAt": "2026-11-07T00:10:40.218690+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -865,7 +231,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=188",
       "sourceEventId": "188",
-      "updatedAt": "2026-11-06T00:59:53.941157+00:00",
+      "updatedAt": "2026-11-07T00:10:40.218642+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -896,7 +262,7 @@
       "sourceTier": "official",
       "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-11",
       "sourceEventId": null,
-      "updatedAt": "2026-11-06T00:59:53.941193+00:00",
+      "updatedAt": "2026-11-07T00:10:40.218696+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -932,7 +298,7 @@
       "sourceTier": "official",
       "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-11",
       "sourceEventId": null,
-      "updatedAt": "2026-11-06T00:59:53.941199+00:00",
+      "updatedAt": "2026-11-07T00:10:40.218707+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -963,7 +329,7 @@
       "sourceTier": "official",
       "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-11",
       "sourceEventId": null,
-      "updatedAt": "2026-11-06T00:59:53.941202+00:00",
+      "updatedAt": "2026-11-07T00:10:40.218713+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
