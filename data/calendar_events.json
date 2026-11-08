@@ -1,18 +1,20 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-07T23:43:51.355759+00:00",
+  "generatedAt": "2026-11-08T23:50:33.292816+00:00",
   "timezone": "Asia/Seoul",
   "range": {
-    "from": "2026-10-31",
-    "to": "2026-12-22"
+    "from": "2026-11-01",
+    "to": "2026-12-23"
   },
   "freshness": {
-    "status": "fresh",
-    "lastSuccessfulAt": "2026-11-07T23:43:51.355766+00:00",
-    "failedSources": [],
+    "status": "partial",
+    "lastSuccessfulAt": "2026-11-08T23:50:33.292820+00:00",
+    "failedSources": [
+      "bok"
+    ],
     "sources": {
       "fred": "ok",
-      "bok": "ok",
+      "bok": "failed",
       "ecos": "not_implemented",
       "kosis": "not_implemented",
       "eia": "ok",
@@ -27,14 +29,15 @@
     {
       "name": "fred",
       "ok": true,
-      "count": 14,
+      "count": 16,
       "mode": "live",
       "had_key": true
     },
     {
       "name": "bok",
-      "ok": true,
-      "count": 19,
+      "ok": false,
+      "count": 0,
+      "error": "HTTPSConnectionPool(host='www.bok.or.kr', port=443): Read timed out. (read timeout=15)",
       "mode": "live",
       "had_key": true
     },
@@ -91,476 +94,6 @@
   ],
   "events": [
     {
-      "id": "bok-2026-9-2026-11-13-b047f5e80525",
-      "title": "2026년 9월 통화 및 유동성",
-      "originalTitle": "2026년 9월 통화 및 유동성",
-      "titleKo": "2026년 9월 통화 및 유동성",
-      "country": "KR",
-      "category": "macro",
-      "importance": "low",
-      "scheduledDate": "2026-11-13",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "BOK",
-      "sourceTier": "official",
-      "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-11",
-      "sourceEventId": null,
-      "updatedAt": "2026-11-07T23:43:51.354207+00:00",
-      "confidence": "single_source",
-      "sourceRefs": [
-        {
-          "sourceName": "BOK",
-          "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-11",
-          "sourceTier": "official"
-        }
-      ]
-    },
-    {
-      "id": "bok-2026-10-2026-11-13-893603d4c391",
-      "title": "2026년 10월 수출입물가지수 및 무역지수(잠정)",
-      "originalTitle": "2026년 10월 수출입물가지수 및 무역지수(잠정)",
-      "titleKo": "2026년 10월 수출입물가지수 및 무역지수(잠정)",
-      "country": "KR",
-      "category": "macro",
-      "importance": "low",
-      "scheduledDate": "2026-11-13",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "BOK",
-      "sourceTier": "official",
-      "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-11",
-      "sourceEventId": null,
-      "updatedAt": "2026-11-07T23:43:51.354215+00:00",
-      "confidence": "single_source",
-      "sourceRefs": [
-        {
-          "sourceName": "BOK",
-          "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-11",
-          "sourceTier": "official"
-        }
-      ]
-    },
-    {
-      "id": "bok-2026-3-4-2026-11-18-ce3e95283aa8",
-      "title": "2026년 3/4분기 가계신용(잠정)",
-      "originalTitle": "2026년 3/4분기 가계신용(잠정)",
-      "titleKo": "2026년 3/4분기 가계신용(잠정)",
-      "country": "KR",
-      "category": "macro",
-      "importance": "low",
-      "scheduledDate": "2026-11-18",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "BOK",
-      "sourceTier": "official",
-      "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-11",
-      "sourceEventId": null,
-      "updatedAt": "2026-11-07T23:43:51.354221+00:00",
-      "confidence": "cross_checked",
-      "sourceRefs": [
-        {
-          "sourceName": "BOK",
-          "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-11",
-          "sourceTier": "official"
-        },
-        {
-          "sourceName": "BOK",
-          "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-11",
-          "sourceTier": "official"
-        }
-      ]
-    },
-    {
-      "id": "bok-2026-3-4-2026-11-20-e5a6f2771da7",
-      "title": "2026년 3/4분기 차주별 가계부채",
-      "originalTitle": "2026년 3/4분기 차주별 가계부채",
-      "titleKo": "2026년 3/4분기 차주별 가계부채",
-      "country": "KR",
-      "category": "macro",
-      "importance": "low",
-      "scheduledDate": "2026-11-20",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "BOK",
-      "sourceTier": "official",
-      "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-11",
-      "sourceEventId": null,
-      "updatedAt": "2026-11-07T23:43:51.354232+00:00",
-      "confidence": "single_source",
-      "sourceRefs": [
-        {
-          "sourceName": "BOK",
-          "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-11",
-          "sourceTier": "official"
-        }
-      ]
-    },
-    {
-      "id": "bok-2026-10-2026-11-20-440f7568b3f0",
-      "title": "2026년 10월 생산자물가지수(잠정)",
-      "originalTitle": "2026년 10월 생산자물가지수(잠정)",
-      "titleKo": "2026년 10월 생산자물가지수(잠정)",
-      "country": "KR",
-      "category": "macro",
-      "importance": "low",
-      "scheduledDate": "2026-11-20",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "BOK",
-      "sourceTier": "official",
-      "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-11",
-      "sourceEventId": null,
-      "updatedAt": "2026-11-07T23:43:51.354237+00:00",
-      "confidence": "single_source",
-      "sourceRefs": [
-        {
-          "sourceName": "BOK",
-          "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-11",
-          "sourceTier": "official"
-        }
-      ]
-    },
-    {
-      "id": "bok-2026-11-2026-11-24-b06d4fdf1c65",
-      "title": "2026년 11월 소비자동향조사 결과",
-      "originalTitle": "2026년 11월 소비자동향조사 결과",
-      "titleKo": "2026년 11월 소비자동향조사 결과",
-      "country": "KR",
-      "category": "macro",
-      "importance": "low",
-      "scheduledDate": "2026-11-24",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "BOK",
-      "sourceTier": "official",
-      "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-11",
-      "sourceEventId": null,
-      "updatedAt": "2026-11-07T23:43:51.354243+00:00",
-      "confidence": "single_source",
-      "sourceRefs": [
-        {
-          "sourceName": "BOK",
-          "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-11",
-          "sourceTier": "official"
-        }
-      ]
-    },
-    {
-      "id": "bok-2026-10-2026-11-25-01d4f4a64634",
-      "title": "2026년 10월 금융기관 가중평균금리",
-      "originalTitle": "2026년 10월 금융기관 가중평균금리",
-      "titleKo": "2026년 10월 금융기관 가중평균금리",
-      "country": "KR",
-      "category": "macro",
-      "importance": "low",
-      "scheduledDate": "2026-11-25",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "BOK",
-      "sourceTier": "official",
-      "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-11",
-      "sourceEventId": null,
-      "updatedAt": "2026-11-07T23:43:51.354248+00:00",
-      "confidence": "single_source",
-      "sourceRefs": [
-        {
-          "sourceName": "BOK",
-          "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-11",
-          "sourceTier": "official"
-        }
-      ]
-    },
-    {
-      "id": "bok-2026-11-esi-2026-11-25-912e9ca2ce42",
-      "title": "2026년 11월 기업경기조사 결과 및 경제심리지수(ESI)",
-      "originalTitle": "2026년 11월 기업경기조사 결과 및 경제심리지수(ESI)",
-      "titleKo": "2026년 11월 기업경기조사 결과 및 경제심리지수(ESI)",
-      "country": "KR",
-      "category": "macro",
-      "importance": "low",
-      "scheduledDate": "2026-11-25",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "BOK",
-      "sourceTier": "official",
-      "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-11",
-      "sourceEventId": null,
-      "updatedAt": "2026-11-07T23:43:51.354255+00:00",
-      "confidence": "single_source",
-      "sourceRefs": [
-        {
-          "sourceName": "BOK",
-          "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-11",
-          "sourceTier": "official"
-        }
-      ]
-    },
-    {
-      "id": "bok-2026-3-4-2026-12-04-9a620ee0ddfa",
-      "title": "2026년 3/4분기 예금취급기관 산업별대출금",
-      "originalTitle": "2026년 3/4분기 예금취급기관 산업별대출금",
-      "titleKo": "2026년 3/4분기 예금취급기관 산업별대출금",
-      "country": "KR",
-      "category": "macro",
-      "importance": "low",
-      "scheduledDate": "2026-12-04",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "BOK",
-      "sourceTier": "official",
-      "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-12",
-      "sourceEventId": null,
-      "updatedAt": "2026-11-07T23:43:51.354261+00:00",
-      "confidence": "single_source",
-      "sourceRefs": [
-        {
-          "sourceName": "BOK",
-          "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-12",
-          "sourceTier": "official"
-        }
-      ]
-    },
-    {
-      "id": "bok-2026-10-2026-12-08-c964b73bd1cc",
-      "title": "2026년 10월 국제수지(잠정)",
-      "originalTitle": "2026년 10월 국제수지(잠정)",
-      "titleKo": "2026년 10월 국제수지(잠정)",
-      "country": "KR",
-      "category": "macro",
-      "importance": "low",
-      "scheduledDate": "2026-12-08",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "BOK",
-      "sourceTier": "official",
-      "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-12",
-      "sourceEventId": null,
-      "updatedAt": "2026-11-07T23:43:51.354267+00:00",
-      "confidence": "single_source",
-      "sourceRefs": [
-        {
-          "sourceName": "BOK",
-          "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-12",
-          "sourceTier": "official"
-        }
-      ]
-    },
-    {
-      "id": "bok-2026-3-4-2026-12-09-a1832bd6dbd5",
-      "title": "2026년 3/4분기 국민소득(잠정)",
-      "originalTitle": "2026년 3/4분기 국민소득(잠정)",
-      "titleKo": "2026년 3/4분기 국민소득(잠정)",
-      "country": "KR",
-      "category": "macro",
-      "importance": "low",
-      "scheduledDate": "2026-12-09",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "BOK",
-      "sourceTier": "official",
-      "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-12",
-      "sourceEventId": null,
-      "updatedAt": "2026-11-07T23:43:51.354272+00:00",
-      "confidence": "single_source",
-      "sourceRefs": [
-        {
-          "sourceName": "BOK",
-          "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-12",
-          "sourceTier": "official"
-        }
-      ]
-    },
-    {
-      "id": "bok-2026-10-2026-12-15-7ac484ccf45d",
-      "title": "2026년 10월 통화 및 유동성",
-      "originalTitle": "2026년 10월 통화 및 유동성",
-      "titleKo": "2026년 10월 통화 및 유동성",
-      "country": "KR",
-      "category": "macro",
-      "importance": "low",
-      "scheduledDate": "2026-12-15",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "BOK",
-      "sourceTier": "official",
-      "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-12",
-      "sourceEventId": null,
-      "updatedAt": "2026-11-07T23:43:51.354277+00:00",
-      "confidence": "single_source",
-      "sourceRefs": [
-        {
-          "sourceName": "BOK",
-          "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-12",
-          "sourceTier": "official"
-        }
-      ]
-    },
-    {
-      "id": "bok-2026-11-2026-12-15-cb657576d988",
-      "title": "2026년 11월 수출입물가지수 및 무역지수(잠정)",
-      "originalTitle": "2026년 11월 수출입물가지수 및 무역지수(잠정)",
-      "titleKo": "2026년 11월 수출입물가지수 및 무역지수(잠정)",
-      "country": "KR",
-      "category": "macro",
-      "importance": "low",
-      "scheduledDate": "2026-12-15",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "BOK",
-      "sourceTier": "official",
-      "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-12",
-      "sourceEventId": null,
-      "updatedAt": "2026-11-07T23:43:51.354284+00:00",
-      "confidence": "single_source",
-      "sourceRefs": [
-        {
-          "sourceName": "BOK",
-          "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-12",
-          "sourceTier": "official"
-        }
-      ]
-    },
-    {
-      "id": "bok-2026-3-4-2026-12-16-e4e700761f87",
-      "title": "2026년 3/4분기 기업경영분석",
-      "originalTitle": "2026년 3/4분기 기업경영분석",
-      "titleKo": "2026년 3/4분기 기업경영분석",
-      "country": "KR",
-      "category": "macro",
-      "importance": "low",
-      "scheduledDate": "2026-12-16",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "BOK",
-      "sourceTier": "official",
-      "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-12",
-      "sourceEventId": null,
-      "updatedAt": "2026-11-07T23:43:51.354289+00:00",
-      "confidence": "single_source",
-      "sourceRefs": [
-        {
-          "sourceName": "BOK",
-          "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-12",
-          "sourceTier": "official"
-        }
-      ]
-    },
-    {
-      "id": "bok-2026-11-2026-12-22-5f9d3578bd7b",
-      "title": "2026년 11월 생산자물가지수(잠정)",
-      "originalTitle": "2026년 11월 생산자물가지수(잠정)",
-      "titleKo": "2026년 11월 생산자물가지수(잠정)",
-      "country": "KR",
-      "category": "macro",
-      "importance": "low",
-      "scheduledDate": "2026-12-22",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "BOK",
-      "sourceTier": "official",
-      "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-12",
-      "sourceEventId": null,
-      "updatedAt": "2026-11-07T23:43:51.354294+00:00",
-      "confidence": "single_source",
-      "sourceRefs": [
-        {
-          "sourceName": "BOK",
-          "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-12",
-          "sourceTier": "official"
-        }
-      ]
-    },
-    {
       "id": "bok-mpb-2026-11-26",
       "title": "BOK Monetary Policy Board Meeting (Base Rate Decision)",
       "originalTitle": "BOK Monetary Policy Board Meeting (Base Rate Decision)",
@@ -581,7 +114,7 @@
       "sourceTier": "official",
       "sourceUrl": "https://www.bok.or.kr/portal/singl/crncyPolicyDrcMtg/listYear.do?menuNo=200755&mtgSe=A",
       "sourceEventId": null,
-      "updatedAt": "2026-11-07T23:43:51.354865+00:00",
+      "updatedAt": "2026-11-08T23:50:33.292237+00:00",
       "confidence": "confirmed",
       "sourceRefs": [
         {
@@ -612,7 +145,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=192",
       "sourceEventId": "192",
-      "updatedAt": "2026-11-07T23:43:51.354127+00:00",
+      "updatedAt": "2026-11-08T23:50:33.291747+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -643,7 +176,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=50",
       "sourceEventId": "50",
-      "updatedAt": "2026-11-07T23:43:51.354142+00:00",
+      "updatedAt": "2026-11-08T23:50:33.291765+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -674,7 +207,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=10",
       "sourceEventId": "10",
-      "updatedAt": "2026-11-07T23:43:51.354149+00:00",
+      "updatedAt": "2026-11-08T23:50:33.291772+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -705,7 +238,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=46",
       "sourceEventId": "46",
-      "updatedAt": "2026-11-07T23:43:51.354153+00:00",
+      "updatedAt": "2026-11-08T23:50:33.291775+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -736,7 +269,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=9",
       "sourceEventId": "9",
-      "updatedAt": "2026-11-07T23:43:51.354159+00:00",
+      "updatedAt": "2026-11-08T23:50:33.291779+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -767,7 +300,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=188",
       "sourceEventId": "188",
-      "updatedAt": "2026-11-07T23:43:51.354165+00:00",
+      "updatedAt": "2026-11-08T23:50:33.291784+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -798,7 +331,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=53",
       "sourceEventId": "53",
-      "updatedAt": "2026-11-07T23:43:51.354170+00:00",
+      "updatedAt": "2026-11-08T23:50:33.291788+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -829,7 +362,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=54",
       "sourceEventId": "54",
-      "updatedAt": "2026-11-07T23:43:51.354174+00:00",
+      "updatedAt": "2026-11-08T23:50:33.291792+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -860,7 +393,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=192",
       "sourceEventId": "192",
-      "updatedAt": "2026-11-07T23:43:51.354179+00:00",
+      "updatedAt": "2026-11-08T23:50:33.291796+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -891,7 +424,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=50",
       "sourceEventId": "50",
-      "updatedAt": "2026-11-07T23:43:51.354184+00:00",
+      "updatedAt": "2026-11-08T23:50:33.291799+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -922,7 +455,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=10",
       "sourceEventId": "10",
-      "updatedAt": "2026-11-07T23:43:51.354187+00:00",
+      "updatedAt": "2026-11-08T23:50:33.291801+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -953,7 +486,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=46",
       "sourceEventId": "46",
-      "updatedAt": "2026-11-07T23:43:51.354190+00:00",
+      "updatedAt": "2026-11-08T23:50:33.291804+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -984,7 +517,7 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=9",
       "sourceEventId": "9",
-      "updatedAt": "2026-11-07T23:43:51.354195+00:00",
+      "updatedAt": "2026-11-08T23:50:33.291807+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -1015,12 +548,74 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=188",
       "sourceEventId": "188",
-      "updatedAt": "2026-11-07T23:43:51.354200+00:00",
+      "updatedAt": "2026-11-08T23:50:33.291811+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
           "sourceName": "FRED",
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=188",
+          "sourceTier": "official_aggregator"
+        }
+      ]
+    },
+    {
+      "id": "fred-gross-domestic-product-2026-12-23-644f87b1b33a",
+      "title": "Gross Domestic Product",
+      "originalTitle": "Gross Domestic Product",
+      "titleKo": "미국 국내총생산(GDP)",
+      "country": "US",
+      "category": "macro",
+      "importance": "high",
+      "scheduledDate": "2026-12-23",
+      "scheduledAt": "2026-12-23T22:30:00+09:00",
+      "timezone": "Asia/Seoul",
+      "timePrecision": "datetime",
+      "status": "scheduled",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "FRED",
+      "sourceTier": "official_aggregator",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=53",
+      "sourceEventId": "53",
+      "updatedAt": "2026-11-08T23:50:33.291814+00:00",
+      "confidence": "single_source",
+      "sourceRefs": [
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=53",
+          "sourceTier": "official_aggregator"
+        }
+      ]
+    },
+    {
+      "id": "fred-personal-income-and-outlays-2026-12-23-0373125334e6",
+      "title": "Personal Income and Outlays",
+      "originalTitle": "Personal Income and Outlays",
+      "titleKo": "개인소득 및 소비지출",
+      "country": "US",
+      "category": "macro",
+      "importance": "high",
+      "scheduledDate": "2026-12-23",
+      "scheduledAt": "2026-12-23T22:30:00+09:00",
+      "timezone": "Asia/Seoul",
+      "timePrecision": "datetime",
+      "status": "scheduled",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "FRED",
+      "sourceTier": "official_aggregator",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=54",
+      "sourceEventId": "54",
+      "updatedAt": "2026-11-08T23:50:33.291817+00:00",
+      "confidence": "single_source",
+      "sourceRefs": [
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=54",
           "sourceTier": "official_aggregator"
         }
       ]
@@ -1046,7 +641,7 @@
       "sourceTier": "official_disclosure",
       "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106100004",
       "sourceEventId": "20261106100004",
-      "updatedAt": "2026-11-07T23:43:51.354301+00:00",
+      "updatedAt": "2026-11-08T23:50:33.291826+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -1077,7 +672,7 @@
       "sourceTier": "official_disclosure",
       "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106901026",
       "sourceEventId": "20261106901026",
-      "updatedAt": "2026-11-07T23:43:51.354308+00:00",
+      "updatedAt": "2026-11-08T23:50:33.291832+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -1458,7 +1053,7 @@
       "sourceTier": "official_disclosure",
       "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106901000",
       "sourceEventId": "20261106901000",
-      "updatedAt": "2026-11-07T23:43:51.354365+00:00",
+      "updatedAt": "2026-11-08T23:50:33.291878+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -1489,7 +1084,7 @@
       "sourceTier": "official_disclosure",
       "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106000474",
       "sourceEventId": "20261106000474",
-      "updatedAt": "2026-11-07T23:43:51.354381+00:00",
+      "updatedAt": "2026-11-08T23:50:33.291891+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -1535,7 +1130,7 @@
       "sourceTier": "official_disclosure",
       "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106900966",
       "sourceEventId": "20261106900966",
-      "updatedAt": "2026-11-07T23:43:51.354393+00:00",
+      "updatedAt": "2026-11-08T23:50:33.291900+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -1566,7 +1161,7 @@
       "sourceTier": "official_disclosure",
       "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106000473",
       "sourceEventId": "20261106000473",
-      "updatedAt": "2026-11-07T23:43:51.354399+00:00",
+      "updatedAt": "2026-11-08T23:50:33.291904+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -1602,7 +1197,7 @@
       "sourceTier": "official_disclosure",
       "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106000461",
       "sourceEventId": "20261106000461",
-      "updatedAt": "2026-11-07T23:43:51.354536+00:00",
+      "updatedAt": "2026-11-08T23:50:33.292008+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -1643,7 +1238,7 @@
       "sourceTier": "official_disclosure",
       "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106000458",
       "sourceEventId": "20261106000458",
-      "updatedAt": "2026-11-07T23:43:51.354558+00:00",
+      "updatedAt": "2026-11-08T23:50:33.292023+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -1674,7 +1269,7 @@
       "sourceTier": "official_disclosure",
       "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106900961",
       "sourceEventId": "20261106900961",
-      "updatedAt": "2026-11-07T23:43:51.354563+00:00",
+      "updatedAt": "2026-11-08T23:50:33.292027+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -1710,7 +1305,7 @@
       "sourceTier": "official_disclosure",
       "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106000453",
       "sourceEventId": "20261106000453",
-      "updatedAt": "2026-11-07T23:43:51.354601+00:00",
+      "updatedAt": "2026-11-08T23:50:33.292055+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -1746,7 +1341,7 @@
       "sourceTier": "official_disclosure",
       "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106800944",
       "sourceEventId": "20261106800944",
-      "updatedAt": "2026-11-07T23:43:51.354607+00:00",
+      "updatedAt": "2026-11-08T23:50:33.292060+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -1777,7 +1372,7 @@
       "sourceTier": "official_disclosure",
       "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106900937",
       "sourceEventId": "20261106900937",
-      "updatedAt": "2026-11-07T23:43:51.354612+00:00",
+      "updatedAt": "2026-11-08T23:50:33.292064+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -1823,7 +1418,7 @@
       "sourceTier": "official_disclosure",
       "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106000449",
       "sourceEventId": "20261106000449",
-      "updatedAt": "2026-11-07T23:43:51.354635+00:00",
+      "updatedAt": "2026-11-08T23:50:33.292081+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -1854,7 +1449,7 @@
       "sourceTier": "official_disclosure",
       "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106800943",
       "sourceEventId": "20261106800943",
-      "updatedAt": "2026-11-07T23:43:51.354651+00:00",
+      "updatedAt": "2026-11-08T23:50:33.292093+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -1885,7 +1480,7 @@
       "sourceTier": "official_disclosure",
       "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106000447",
       "sourceEventId": "20261106000447",
-      "updatedAt": "2026-11-07T23:43:51.354667+00:00",
+      "updatedAt": "2026-11-08T23:50:33.292104+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -1916,7 +1511,7 @@
       "sourceTier": "official_disclosure",
       "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106800924",
       "sourceEventId": "20261106800924",
-      "updatedAt": "2026-11-07T23:43:51.354756+00:00",
+      "updatedAt": "2026-11-08T23:50:33.292158+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -1947,7 +1542,7 @@
       "sourceTier": "official_disclosure",
       "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106000424",
       "sourceEventId": "20261106000424",
-      "updatedAt": "2026-11-07T23:43:51.354784+00:00",
+      "updatedAt": "2026-11-08T23:50:33.292177+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -1978,7 +1573,7 @@
       "sourceTier": "official_disclosure",
       "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106000427",
       "sourceEventId": "20261106000427",
-      "updatedAt": "2026-11-07T23:43:51.354821+00:00",
+      "updatedAt": "2026-11-08T23:50:33.292205+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -2009,7 +1604,7 @@
       "sourceTier": "official_disclosure",
       "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261106000422",
       "sourceEventId": "20261106000422",
-      "updatedAt": "2026-11-07T23:43:51.354854+00:00",
+      "updatedAt": "2026-11-08T23:50:33.292229+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -2040,7 +1635,7 @@
       "sourceTier": "official",
       "sourceUrl": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
       "sourceEventId": null,
-      "updatedAt": "2026-11-07T23:43:51.354868+00:00",
+      "updatedAt": "2026-11-08T23:50:33.292238+00:00",
       "confidence": "confirmed",
       "sourceRefs": [
         {
@@ -2071,7 +1666,7 @@
       "sourceTier": "official",
       "sourceUrl": "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/172254/view",
       "sourceEventId": null,
-      "updatedAt": "2026-11-07T23:43:51.354873+00:00",
+      "updatedAt": "2026-11-08T23:50:33.292242+00:00",
       "confidence": "confirmed",
       "sourceRefs": [
         {
@@ -2102,7 +1697,7 @@
       "sourceTier": "official",
       "sourceUrl": "https://www.krx.co.kr/contents/OPN/01/01040202/OPN01040202.jsp",
       "sourceEventId": null,
-      "updatedAt": "2026-11-07T23:43:51.354878+00:00",
+      "updatedAt": "2026-11-08T23:50:33.292245+00:00",
       "confidence": "confirmed",
       "sourceRefs": [
         {
@@ -2133,7 +1728,7 @@
       "sourceTier": "official",
       "sourceUrl": "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/172254/view",
       "sourceEventId": null,
-      "updatedAt": "2026-11-07T23:43:51.354882+00:00",
+      "updatedAt": "2026-11-08T23:50:33.292248+00:00",
       "confidence": "confirmed",
       "sourceRefs": [
         {
@@ -2164,7 +1759,7 @@
       "sourceTier": "official",
       "sourceUrl": "https://www.krx.co.kr/contents/OPN/01/01040201/OPN01040201.jsp",
       "sourceEventId": null,
-      "updatedAt": "2026-11-07T23:43:51.354887+00:00",
+      "updatedAt": "2026-11-08T23:50:33.292252+00:00",
       "confidence": "confirmed",
       "sourceRefs": [
         {
