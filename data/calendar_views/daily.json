@@ -1,20 +1,18 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-08T23:50:33.292816+00:00",
+  "generatedAt": "2026-11-10T02:48:59.030498+00:00",
   "timezone": "Asia/Seoul",
   "range": {
-    "from": "2026-11-08",
-    "to": "2026-11-10"
+    "from": "2026-11-10",
+    "to": "2026-11-12"
   },
   "freshness": {
-    "status": "partial",
-    "lastSuccessfulAt": "2026-11-08T23:50:33.292820+00:00",
-    "failedSources": [
-      "bok"
-    ],
+    "status": "fresh",
+    "lastSuccessfulAt": "2026-11-10T02:48:59.030506+00:00",
+    "failedSources": [],
     "sources": {
       "fred": "ok",
-      "bok": "failed",
+      "bok": "ok",
       "ecos": "not_implemented",
       "kosis": "not_implemented",
       "eia": "ok",
@@ -47,13 +45,44 @@
       "sourceTier": "official_aggregator",
       "sourceUrl": "https://fred.stlouisfed.org/release?rid=10",
       "sourceEventId": "10",
-      "updatedAt": "2026-11-08T23:50:33.291772+00:00",
+      "updatedAt": "2026-11-10T02:48:59.028758+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
           "sourceName": "FRED",
           "sourceUrl": "https://fred.stlouisfed.org/release?rid=10",
           "sourceTier": "official_aggregator"
+        }
+      ]
+    },
+    {
+      "id": "rules-kospi200-options-expiry-2026-11-12-32149c6dc938",
+      "title": "KOSPI 200 Options Expiry",
+      "originalTitle": "KOSPI 200 Options Expiry",
+      "titleKo": "코스피200 옵션 만기",
+      "country": "KR",
+      "category": "other",
+      "importance": "medium",
+      "scheduledDate": "2026-11-12",
+      "scheduledAt": null,
+      "timezone": null,
+      "timePrecision": "date",
+      "status": "scheduled",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "KRX",
+      "sourceTier": "official",
+      "sourceUrl": "https://www.krx.co.kr/contents/OPN/01/01040202/OPN01040202.jsp",
+      "sourceEventId": null,
+      "updatedAt": "2026-11-10T02:48:59.029539+00:00",
+      "confidence": "confirmed",
+      "sourceRefs": [
+        {
+          "sourceName": "KRX",
+          "sourceUrl": "https://www.krx.co.kr/contents/OPN/01/01040202/OPN01040202.jsp",
+          "sourceTier": "official"
         }
       ]
     }
