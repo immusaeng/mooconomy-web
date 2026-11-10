@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-10T06:52:24+09:00",
+  "updatedAt": "2026-11-11T06:43:17+09:00",
   "claims": {
     "2026-07-19-c1": {
       "schemaVersion": 1,
@@ -4739,7 +4739,7 @@
       },
       "thresholdRuleId": "pct_020",
       "confidence": null,
-      "status": "unresolved",
+      "status": "neutral",
       "revision": {
         "version": 1,
         "contentHash": "a3431904ee9991a541b22e1157b29af97feda4c7883c73dc0450a065c58ae479",
@@ -4750,6 +4750,66 @@
         "asOf": "2026-11-09",
         "benchmarkValue": null,
         "benchmarkAsOf": null
+      },
+      "resolution": {
+        "resolutionId": "2026-11-10-c1-res",
+        "claimId": "2026-11-10-c1",
+        "resolvedAt": "2026-11-11T06:43:07+09:00",
+        "verdict": "neutral",
+        "metricId": "usdkrw",
+        "comparisonType": "absolute_return",
+        "startValue": 1340.8,
+        "endValue": 1342.33,
+        "changeValue": 0.11411097852028437,
+        "changeUnit": "%",
+        "benchmarkMetricId": null,
+        "benchmarkStartValue": null,
+        "benchmarkEndValue": null,
+        "neutralLower": -0.2,
+        "neutralUpper": 0.2,
+        "neutralBand": 0.2,
+        "dataProvider": "FinanceDataReader",
+        "sourceUrl": "",
+        "observedAt": "2026-11-10",
+        "explanation": "변화폭이 중립 구간(±0.2%) 이내에 머물러 뚜렷한 방향이 나타나지 않았습니다."
+      }
+    },
+    "2026-11-11-c1": {
+      "schemaVersion": 1,
+      "claimId": "2026-11-11-c1",
+      "publicationId": "2026-11-11",
+      "issuedAt": "2026-11-11T06:43:17+09:00",
+      "dataCutoffAt": "2026-11-11T06:43:17+09:00",
+      "lockedAt": "2026-11-11T06:43:17+09:00",
+      "claimMode": "auto",
+      "verificationType": "proxy",
+      "topic": "나스닥 vs S&P500 상대성과(LLM 후보, 1거래일)",
+      "sourceNewsIds": [],
+      "observationText": "나스닥은 전일 대비 -0.74%, S&P500는 -0.38% — 상대 괴리 -0.36%p.",
+      "interpretationText": "나스닥이 S&P500 대비 상대적으로 약세를 유지하는지가 확인 대상입니다.",
+      "claimText": "나스닥이 S&P500 대비 약세를 이어갈까요?",
+      "metricId": "nasdaq",
+      "benchmarkMetricId": "sp500",
+      "comparisonType": "excess_return",
+      "expectedDirection": "down",
+      "horizon": {
+        "type": "next_close",
+        "market": "US",
+        "resolutionAt": "2026-11-12"
+      },
+      "thresholdRuleId": "pct_030",
+      "confidence": null,
+      "status": "unresolved",
+      "revision": {
+        "version": 1,
+        "contentHash": "28e7cc68c114d6ec7deff5a15768bbcf3bf27ae5a265dce0ca1907f3d52b9410",
+        "correctedFrom": null
+      },
+      "baseline": {
+        "value": 25065.88,
+        "asOf": "2026-11-10",
+        "benchmarkValue": 7520.93,
+        "benchmarkAsOf": "2026-11-10"
       },
       "resolution": null
     }

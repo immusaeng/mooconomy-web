@@ -1,0 +1,260 @@
+{
+  "schema_version": "normalized-daily-issue/v1",
+  "edition_id": "2026-11-11",
+  "edition_date_kst": "2026-11-11",
+  "canonical_status": "production",
+  "production_status": "SEND_CONFIRMED",
+  "source_commit_sha": "d7c9a661e676e4b9181c7ae0480874e767f94316",
+  "subject": "코스닥 4.48% 급등…외국인이 더 팔았고 기관만 샀다",
+  "preheader": "미 연준 12월 0.5%p 금리 인상 가능성 재부각",
+  "thesis": {
+    "headline": "코스닥 4.48% 급등…외국인이 더 팔았고 기관만 샀다",
+    "three_signals": [
+      "미국 물가 경계감과 기술주 악재로 나스닥이 0.74% 하락했습니다.",
+      "지난 거래일 코스피는 외국인과 기관 매수로 4.39% 급등했습니다.",
+      "미국 PPI 발표와 엔비디아 관련 불확실성 해소 여부가 향후 시장 향방을 결정할 주요 요소입니다."
+    ]
+  },
+  "main_story": {
+    "headline": "연준 빅스텝 우려 재부각",
+    "verified_fact": "미국 10월 물가 지표 우려와 고용 시장 안정으로 12월 0.5%p 금리 인상 전망에 힘이 실리고 있습니다. 연준 주요 인사들의 발언과 유가 움직임이 시장 불안감을 자극하는 양상입니다.",
+    "why_it_matters": null,
+    "sources": []
+  },
+  "entities": [
+    {
+      "name": "코스닥",
+      "type": "index"
+    },
+    {
+      "name": "금",
+      "type": "commodity"
+    }
+  ],
+  "metrics": [
+    {
+      "id": "kospi",
+      "value": 5239.13,
+      "change": 4.3891,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "kosdaq",
+      "value": 667.61,
+      "change": 4.4822,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "nasdaq",
+      "value": 25065.88,
+      "change": -0.7415,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "sp500",
+      "value": 7520.93,
+      "change": -0.3842,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1342.33,
+      "change": 1.53,
+      "displayMode": "delta",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "us10y",
+      "value": 4.98,
+      "change": 0.12,
+      "displayMode": "delta",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "wti",
+      "value": 86.42,
+      "change": -0.3115,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "vix",
+      "value": 19.46,
+      "change": -2.3092,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    }
+  ],
+  "market_changes": [
+    {
+      "id": "kospi",
+      "change": 4.3891,
+      "changeUnit": "%",
+      "direction": "up"
+    },
+    {
+      "id": "kosdaq",
+      "change": 4.4822,
+      "changeUnit": "%",
+      "direction": "up"
+    },
+    {
+      "id": "nasdaq",
+      "change": -0.7415,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "sp500",
+      "change": -0.3842,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "usdkrw",
+      "change": 1.53,
+      "changeUnit": "원",
+      "direction": "up"
+    },
+    {
+      "id": "us10y",
+      "change": 0.12,
+      "changeUnit": "%p",
+      "direction": "up"
+    },
+    {
+      "id": "wti",
+      "change": -0.3115,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "vix",
+      "change": -2.3092,
+      "changeUnit": "%",
+      "direction": "down"
+    }
+  ],
+  "narratives": {
+    "moo_view": "미국 증시 하락과 엔비디아 악재에도 불구하고 국내 증시는 외국인 투자자의 4,439억원 규모 순매수에 힘입어 급등세를 나타냈습니다. 간밤 뉴욕증시가 10월 CPI 상승 우려와 연준의 12월 빅스텝 전망에 자극받아 기술주 위주로 하락 압력을 받은 경로와 달리, 국내 시장은 매수 수급 유입이 지수 상승을 이끄는 동력으로 작동했습니다.\n\n수급 주체별 동향을 살펴보면 외국인과 기관(4,642억원 순매수)이 동반 순매수로 상승 흐름을 방어한 반면 개인은 코스피에서 13,947억원을 순매도하며 매도를 주도하는 차별화가 드러났습니다. 업종별로는 유가 하락 흐름 속에 항공사가 13.26% 상승하며 강세를 보인 반면 복합유틸리티는 약세조정을 받으며 엇갈린 흐름을 보였습니다.\n\n한편, 해외 악재에도 불구하고 AI 클라우드 기업 코어위브의 실적 호조 소식이 전해지며 기술주 전반의 투심 악화를 일부 상쇄하는 대립적 기류가 형성되기도 했습니다.\n\n유가 하락세가 지속되어 물가 압력이 완화된다면 증시의 추가 반등을 기대할 수 있으나, 미국 10월 CPI 여파와 엔비디아의 대중국 수출 규제 강화 가능성이 장기화되면 하락 압력이 다시 확대될 가능성이 있습니다.\n\n다음 거래일에는 엔비디아 대중 수출 규제 입법 동향과 더불어 미국 국채 금리 추이 및 연준 주요 인사들의 발언 내용이 국내 증시 수급에 미칠 영향을 면밀히 체크할 필요가 있습니다.",
+    "todays_watch": [
+      "미국 10월 CPI 물가 지표 발표 여파와 연준 12월 0.5%p 금리 인상 전망 변동",
+      "엔비디아 대중국 반도체 수출 규제 입법 압박 및 주가 영향",
+      "국제유가 하락세 지속 여부 및 연준 인사 발언 영향"
+    ],
+    "todays_watch_oneliner": "외국인 매수세로 코스피가 4.39% 급등했으나 미국 물가 우려와 엔비디아 규제 변수가 향후 수급 향방을 결정할 가능성이 존재합니다.",
+    "content_status": "GENERATED_REPAIRED"
+  },
+  "moo_q": {
+    "claim_id": "2026-11-11-c1",
+    "claim_text": "나스닥이 S&P500 대비 약세를 이어갈까요?",
+    "topic": "나스닥 vs S&P500 상대성과(LLM 후보, 1거래일)",
+    "resolution_at": "2026-11-12",
+    "status": "unresolved"
+  },
+  "moo_check": [
+    {
+      "previous_claim": "외국인 매도 흐름이 이어지는 가운데 원/달러가 내릴까요?",
+      "claim_date": "2026-11-10",
+      "evaluation_date": "2026-11-11T06:43:07+09:00",
+      "observed_result": "변화폭이 중립 구간(±0.2%) 이내에 머물러 뚜렷한 방향이 나타나지 않았습니다.",
+      "verdict": "PARTIAL",
+      "evidence": "1340.80 → 1342.33 (+0.11%)",
+      "source": "FinanceDataReader"
+    }
+  ],
+  "moo_word": {
+    "id": "open_빅스텝",
+    "term": "빅스텝",
+    "definition": "빅스텝은 중앙은행이 기준금리를 한 번에 0.5%포인트 인상하는 통화정책 운용 방식으로, 물가 상승 압력이 높을 때 시중 유동성을 빠르게 흡수하여 인플레이션을 억제한다.",
+    "why_today": "물가불안과 유가발 인플레이션 우려가 여전한 상황에서 연준 월러 위원이 12월 0.5%p 인상을 언급하며 빅스텝 가능성이 제기되었다.",
+    "memory_hook": null,
+    "source_label": "매일경제",
+    "article_id": "news_0",
+    "article_url": "https://www.mk.co.kr/news/economy/12204627",
+    "article_publisher": "매일경제",
+    "evidence_snippets": [
+      "물가불안에 빅스텝까지...연준 월러 “12월 0.5%p 인상”."
+    ],
+    "definition_source_name": null,
+    "definition_source_url": null,
+    "definition_priority": "P2_SOURCES_PARTIAL",
+    "origin": "llm_proposed",
+    "grounded_in_article": true,
+    "definition_evidence_verified": true,
+    "status": "ELIGIBLE_FOR_PUBLICATION",
+    "eligible_for_publication": true
+  },
+  "sources": [
+    {
+      "source_name": "파이낸셜뉴스",
+      "source_url": "https://www.fnnews.com/news/202611101953165514",
+      "published_at": "2026-11-11",
+      "source_headline": "\"I am 신뢰에요\"…엔비디아 260조 증발하자 '전청조' 소환된 까닭"
+    },
+    {
+      "source_name": "한국경제",
+      "source_url": "https://www.hankyung.com/article/2026111187687",
+      "published_at": "2026-11-11",
+      "source_headline": "[속보] 엔비디아 5.53% 급락…이틀간 시총 약 4300억달러 증발"
+    },
+    {
+      "source_name": "머니투데이",
+      "source_url": "https://www.mt.co.kr/world/2026/11/11/2026111106355254454",
+      "published_at": "2026-11-11",
+      "source_headline": "국제유가 두 달 만에 최저…美 휘발유값도 4달러 아래로"
+    },
+    {
+      "source_name": "연합뉴스",
+      "source_url": "https://www.yna.co.kr/view/AKR20261111008700072",
+      "published_at": "2026-11-11",
+      "source_headline": "국제유가 하락세 지속…8월 31일 이후 최저"
+    },
+    {
+      "source_name": "Investing",
+      "source_url": "https://www.investing.com/news/economy-news/october-cpi-sparks-december-fed-hike-fears-as-yields-surge-and-tech-stocks-slide-93CH-5016723",
+      "published_at": "2026-11-10",
+      "source_headline": "October CPI sparks December Fed hike fears as yields surge and tech stocks slide"
+    },
+    {
+      "source_name": "연합뉴스마켓",
+      "source_url": "https://www.yna.co.kr/view/AKR20261111010500072",
+      "published_at": "2026-11-11",
+      "source_headline": "예상 웃돈 물가에 뉴욕증시 일제히 하락…나스닥 0.7%↓"
+    },
+    {
+      "source_name": "MarketWatch",
+      "source_url": "https://www.marketwatch.com/story/nvidia-could-soon-face-tougher-export-rules-making-it-harder-to-sell-chips-to-china-69c88cc8?mod=mw_rss_topstories",
+      "published_at": "2026-11-10",
+      "source_headline": "Nvidia could soon face tougher export rules, making it harder to sell chips to China after scandal"
+    },
+    {
+      "source_name": "CNBC",
+      "source_url": "https://www.cnbc.com/2026/11/10/coreweave-crwv-q3-earnings-report-2026.html",
+      "published_at": "2026-11-10",
+      "source_headline": "CoreWeave beats on revenue and lifts guidance, easing AI slowdown concerns"
+    }
+  ],
+  "public_url": "https://mooconomy.co.kr/latest-email.html",
+  "validation_status": {
+    "main_story_status": "SELECTED",
+    "content_provenance": "VALIDATED_GEMINI_36",
+    "moo_word_present": true,
+    "sources_count": 8,
+    "is_approximate": false
+  },
+  "content_hash": "5af3a3a5c350bb631fe86b0c46ab6a3436c544ad4bf07e21963057cba3cd8630",
+  "archived_at": "2026-11-10T21:48:11.444896+00:00"
+}

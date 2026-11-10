@@ -1,0 +1,215 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-11",
+  "generatedAt": "2026-11-11T06:43:17+09:00",
+  "indicators": [
+    {
+      "id": "kospi",
+      "value": 5239.13,
+      "change": 4.3891,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "kosdaq",
+      "value": 667.61,
+      "change": 4.4822,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "nasdaq",
+      "value": 25065.88,
+      "change": -0.7415,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "sp500",
+      "value": 7520.93,
+      "change": -0.3842,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1342.33,
+      "change": 1.53,
+      "displayMode": "delta",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "us10y",
+      "value": 4.98,
+      "change": 0.12,
+      "displayMode": "delta",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "wti",
+      "value": 86.42,
+      "change": -0.3115,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "vix",
+      "value": 19.46,
+      "change": -2.3092,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    }
+  ],
+  "auditIndicators": [
+    {
+      "id": "kospi",
+      "value": 5239.13,
+      "displayMode": "pct"
+    },
+    {
+      "id": "kosdaq",
+      "value": 667.61,
+      "displayMode": "pct"
+    },
+    {
+      "id": "nasdaq",
+      "value": 25065.88,
+      "displayMode": "pct"
+    },
+    {
+      "id": "sp500",
+      "value": 7520.93,
+      "displayMode": "pct"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1342.33,
+      "displayMode": "dual"
+    },
+    {
+      "id": "us10y",
+      "value": 4.98,
+      "displayMode": "delta"
+    },
+    {
+      "id": "wti",
+      "value": 86.42,
+      "displayMode": "pct"
+    },
+    {
+      "id": "vix",
+      "value": 19.46,
+      "displayMode": "pct"
+    },
+    {
+      "id": "gold",
+      "value": 4034.6,
+      "displayMode": "pct"
+    },
+    {
+      "id": "dollarindex",
+      "value": 102.24,
+      "displayMode": "pct"
+    },
+    {
+      "id": "brent",
+      "value": 91.93,
+      "displayMode": "pct"
+    },
+    {
+      "id": "dow",
+      "value": 52231.89,
+      "displayMode": "pct"
+    },
+    {
+      "id": "nikkei",
+      "value": 58775.5,
+      "displayMode": "pct"
+    },
+    {
+      "id": "shanghai",
+      "value": 3660.79,
+      "displayMode": "pct"
+    }
+  ],
+  "signals": [
+    {
+      "id": "recession",
+      "color": "green",
+      "value": 0.32
+    },
+    {
+      "id": "rate-gap",
+      "color": "green",
+      "value": 1.0
+    },
+    {
+      "id": "liquidity-stress",
+      "color": "green",
+      "value": 3.34
+    }
+  ],
+  "calendarSnapshot": [
+    {
+      "id": "us-2026-11-13-미국 생산자물가(PPI)",
+      "time": "2026-11-13",
+      "country": "US",
+      "title": "미국 생산자물가(PPI)",
+      "importance": "medium"
+    },
+    {
+      "id": "us-earn-2026-11-17-엔비디아",
+      "time": "2026-11-17",
+      "country": "US",
+      "title": "엔비디아 실적발표",
+      "importance": "medium"
+    }
+  ],
+  "marketTemperature": {
+    "label": "risk_on",
+    "displayLabel": "위험선호",
+    "status": "ok"
+  },
+  "connectionTopology": "DELTA_MODEL_V1",
+  "driverClaims": [
+    "미국 10월 CPI 상승 우려와 매파적 연준 발언이 국채 금리 상승과 기술주 하락을 유발함",
+    "젠슨 황 CEO 이슈 및 대중 수출 규제 우려로 엔비디아 주가 급락"
+  ],
+  "krMarketClosed": false,
+  "weeklyEvents": {
+    "weekStart": "2026-11-09",
+    "source": "calendar_events.json",
+    "events": [
+      {
+        "id": "fred-consumer-price-index-2026-11-10-1eb11679e364",
+        "date": "2026-11-10",
+        "us_date": null,
+        "at": "2026-11-10T22:30:00+09:00",
+        "country": "US",
+        "importance": "high",
+        "category": "macro",
+        "title": "소비자물가지수(CPI)",
+        "ord": null
+      },
+      {
+        "id": "fred-producer-price-index-2026-11-13-e04746d041b7",
+        "date": "2026-11-13",
+        "us_date": null,
+        "at": "2026-11-13T22:30:00+09:00",
+        "country": "US",
+        "importance": "medium",
+        "category": "macro",
+        "title": "생산자물가지수(PPI)",
+        "ord": null
+      }
+    ]
+  }
+}
