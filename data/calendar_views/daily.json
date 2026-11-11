@@ -1,14 +1,14 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-10T02:48:59.030498+00:00",
+  "generatedAt": "2026-11-11T00:44:23.845371+00:00",
   "timezone": "Asia/Seoul",
   "range": {
-    "from": "2026-11-10",
-    "to": "2026-11-12"
+    "from": "2026-11-11",
+    "to": "2026-11-13"
   },
   "freshness": {
     "status": "fresh",
-    "lastSuccessfulAt": "2026-11-10T02:48:59.030506+00:00",
+    "lastSuccessfulAt": "2026-11-11T00:44:23.845377+00:00",
     "failedSources": [],
     "sources": {
       "fred": "ok",
@@ -24,37 +24,6 @@
     }
   },
   "events": [
-    {
-      "id": "fred-consumer-price-index-2026-11-10-1eb11679e364",
-      "title": "Consumer Price Index",
-      "originalTitle": "Consumer Price Index",
-      "titleKo": "소비자물가지수(CPI)",
-      "country": "US",
-      "category": "macro",
-      "importance": "high",
-      "scheduledDate": "2026-11-10",
-      "scheduledAt": "2026-11-10T22:30:00+09:00",
-      "timezone": "Asia/Seoul",
-      "timePrecision": "datetime",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "FRED",
-      "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=10",
-      "sourceEventId": "10",
-      "updatedAt": "2026-11-10T02:48:59.028758+00:00",
-      "confidence": "single_source",
-      "sourceRefs": [
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=10",
-          "sourceTier": "official_aggregator"
-        }
-      ]
-    },
     {
       "id": "rules-kospi200-options-expiry-2026-11-12-32149c6dc938",
       "title": "KOSPI 200 Options Expiry",
@@ -76,13 +45,44 @@
       "sourceTier": "official",
       "sourceUrl": "https://www.krx.co.kr/contents/OPN/01/01040202/OPN01040202.jsp",
       "sourceEventId": null,
-      "updatedAt": "2026-11-10T02:48:59.029539+00:00",
+      "updatedAt": "2026-11-11T00:44:23.844555+00:00",
       "confidence": "confirmed",
       "sourceRefs": [
         {
           "sourceName": "KRX",
           "sourceUrl": "https://www.krx.co.kr/contents/OPN/01/01040202/OPN01040202.jsp",
           "sourceTier": "official"
+        }
+      ]
+    },
+    {
+      "id": "fred-producer-price-index-2026-11-13-e04746d041b7",
+      "title": "Producer Price Index",
+      "originalTitle": "Producer Price Index",
+      "titleKo": "생산자물가지수(PPI)",
+      "country": "US",
+      "category": "macro",
+      "importance": "medium",
+      "scheduledDate": "2026-11-13",
+      "scheduledAt": "2026-11-13T22:30:00+09:00",
+      "timezone": "Asia/Seoul",
+      "timePrecision": "datetime",
+      "status": "scheduled",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "FRED",
+      "sourceTier": "official_aggregator",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=46",
+      "sourceEventId": "46",
+      "updatedAt": "2026-11-11T00:44:23.843950+00:00",
+      "confidence": "single_source",
+      "sourceRefs": [
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=46",
+          "sourceTier": "official_aggregator"
         }
       ]
     }
