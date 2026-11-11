@@ -1,0 +1,208 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-12",
+  "generatedAt": "2026-11-12T06:43:28+09:00",
+  "indicators": [
+    {
+      "id": "kospi",
+      "value": 5375.36,
+      "change": 2.6002,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "kosdaq",
+      "value": 705.1,
+      "change": 5.6156,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "nasdaq",
+      "value": 25466.19,
+      "change": 1.597,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "sp500",
+      "value": 7619.38,
+      "change": 1.309,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1338.88,
+      "change": -3.45,
+      "displayMode": "delta",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "us10y",
+      "value": 5.0,
+      "change": 0.02,
+      "displayMode": "delta",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "wti",
+      "value": 86.41,
+      "change": 0.43,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "vix",
+      "value": 17.49,
+      "change": -10.1233,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    }
+  ],
+  "auditIndicators": [
+    {
+      "id": "kospi",
+      "value": 5375.36,
+      "displayMode": "pct"
+    },
+    {
+      "id": "kosdaq",
+      "value": 705.1,
+      "displayMode": "pct"
+    },
+    {
+      "id": "nasdaq",
+      "value": 25466.19,
+      "displayMode": "pct"
+    },
+    {
+      "id": "sp500",
+      "value": 7619.38,
+      "displayMode": "pct"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1338.88,
+      "displayMode": "dual"
+    },
+    {
+      "id": "us10y",
+      "value": 5.0,
+      "displayMode": "delta"
+    },
+    {
+      "id": "wti",
+      "value": 86.41,
+      "displayMode": "pct"
+    },
+    {
+      "id": "vix",
+      "value": 17.49,
+      "displayMode": "pct"
+    },
+    {
+      "id": "gold",
+      "value": 3991.0,
+      "displayMode": "pct"
+    },
+    {
+      "id": "dollarindex",
+      "value": 102.93,
+      "displayMode": "pct"
+    },
+    {
+      "id": "brent",
+      "value": 92.55,
+      "displayMode": "pct"
+    },
+    {
+      "id": "dow",
+      "value": 52486.49,
+      "displayMode": "pct"
+    },
+    {
+      "id": "nikkei",
+      "value": 60459.58,
+      "displayMode": "pct"
+    },
+    {
+      "id": "shanghai",
+      "value": 3663.72,
+      "displayMode": "pct"
+    }
+  ],
+  "signals": [
+    {
+      "id": "recession",
+      "color": "green",
+      "value": 0.32
+    },
+    {
+      "id": "rate-gap",
+      "color": "green",
+      "value": 1.0
+    },
+    {
+      "id": "liquidity-stress",
+      "color": "green",
+      "value": 3.34
+    }
+  ],
+  "calendarSnapshot": [
+    {
+      "id": "us-earn-2026-11-17-엔비디아",
+      "time": "2026-11-17",
+      "country": "US",
+      "title": "엔비디아 실적발표",
+      "importance": "medium"
+    }
+  ],
+  "marketTemperature": {
+    "label": "risk_on",
+    "displayLabel": "위험선호",
+    "status": "ok"
+  },
+  "connectionTopology": "DELTA_MODEL_V1",
+  "driverClaims": [
+    "코어위브 실적 발표가 AI 투자 둔화 우려를 완화시켜 증시 상승을 견인함",
+    "미국 대중 반도체 규제 논의 재구조화가 국내 반도체 센티멘트에 영향을 미침"
+  ],
+  "krMarketClosed": false,
+  "weeklyEvents": {
+    "weekStart": "2026-11-09",
+    "source": "calendar_events.json",
+    "events": [
+      {
+        "id": "fred-consumer-price-index-2026-11-10-1eb11679e364",
+        "date": "2026-11-10",
+        "us_date": null,
+        "at": "2026-11-10T22:30:00+09:00",
+        "country": "US",
+        "importance": "high",
+        "category": "macro",
+        "title": "소비자물가지수(CPI)",
+        "ord": null
+      },
+      {
+        "id": "fred-producer-price-index-2026-11-13-e04746d041b7",
+        "date": "2026-11-13",
+        "us_date": null,
+        "at": "2026-11-13T22:30:00+09:00",
+        "country": "US",
+        "importance": "medium",
+        "category": "macro",
+        "title": "생산자물가지수(PPI)",
+        "ord": null
+      }
+    ]
+  }
+}
