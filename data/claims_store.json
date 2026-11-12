@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-12T06:43:28+09:00",
+  "updatedAt": "2026-11-13T06:52:11+09:00",
   "claims": {
     "2026-07-19-c1": {
       "schemaVersion": 1,
@@ -4859,7 +4859,7 @@
       },
       "thresholdRuleId": "pct_030",
       "confidence": null,
-      "status": "unresolved",
+      "status": "miss",
       "revision": {
         "version": 1,
         "contentHash": "900104036e5178d80d30446c97fc783a4ed550c2c3718771df2375fcc3ea21da",
@@ -4871,7 +4871,28 @@
         "benchmarkValue": 705.1,
         "benchmarkAsOf": "2026-11-11"
       },
-      "resolution": null
+      "resolution": {
+        "resolutionId": "2026-11-12-c1-res",
+        "claimId": "2026-11-12-c1",
+        "resolvedAt": "2026-11-13T06:52:05+09:00",
+        "verdict": "miss",
+        "metricId": "nasdaq",
+        "comparisonType": "excess_return",
+        "startValue": 25466.19,
+        "endValue": 25366.09,
+        "changeValue": 0.8223602509704021,
+        "changeUnit": "%",
+        "benchmarkMetricId": "kosdaq",
+        "benchmarkStartValue": 705.1,
+        "benchmarkEndValue": 696.53,
+        "neutralLower": -0.3,
+        "neutralUpper": 0.3,
+        "neutralBand": 0.3,
+        "dataProvider": "FinanceDataReader",
+        "sourceUrl": "",
+        "observedAt": "2026-11-12",
+        "explanation": "실제 변화가 예상한 하락 방향과 다르게 움직였습니다."
+      }
     }
   }
 }
