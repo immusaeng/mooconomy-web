@@ -1,17 +1,19 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-12T01:57:13.580482+00:00",
+  "generatedAt": "2026-11-13T01:15:35.308036+00:00",
   "timezone": "Asia/Seoul",
   "range": {
-    "from": "2026-11-12",
-    "to": "2026-11-14"
+    "from": "2026-11-13",
+    "to": "2026-11-15"
   },
   "freshness": {
-    "status": "fresh",
-    "lastSuccessfulAt": "2026-11-12T01:57:13.580485+00:00",
-    "failedSources": [],
+    "status": "partial",
+    "lastSuccessfulAt": "2026-11-13T01:15:35.308043+00:00",
+    "failedSources": [
+      "fred"
+    ],
     "sources": {
-      "fred": "ok",
+      "fred": "failed",
       "bok": "ok",
       "ecos": "not_implemented",
       "kosis": "not_implemented",
@@ -23,68 +25,5 @@
       "rules": "ok"
     }
   },
-  "events": [
-    {
-      "id": "rules-kospi200-options-expiry-2026-11-12-32149c6dc938",
-      "title": "KOSPI 200 Options Expiry",
-      "originalTitle": "KOSPI 200 Options Expiry",
-      "titleKo": "코스피200 옵션 만기",
-      "country": "KR",
-      "category": "other",
-      "importance": "medium",
-      "scheduledDate": "2026-11-12",
-      "scheduledAt": null,
-      "timezone": null,
-      "timePrecision": "date",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "KRX",
-      "sourceTier": "official",
-      "sourceUrl": "https://www.krx.co.kr/contents/OPN/01/01040202/OPN01040202.jsp",
-      "sourceEventId": null,
-      "updatedAt": "2026-11-12T01:57:13.579861+00:00",
-      "confidence": "confirmed",
-      "sourceRefs": [
-        {
-          "sourceName": "KRX",
-          "sourceUrl": "https://www.krx.co.kr/contents/OPN/01/01040202/OPN01040202.jsp",
-          "sourceTier": "official"
-        }
-      ]
-    },
-    {
-      "id": "fred-producer-price-index-2026-11-13-e04746d041b7",
-      "title": "Producer Price Index",
-      "originalTitle": "Producer Price Index",
-      "titleKo": "생산자물가지수(PPI)",
-      "country": "US",
-      "category": "macro",
-      "importance": "medium",
-      "scheduledDate": "2026-11-13",
-      "scheduledAt": "2026-11-13T22:30:00+09:00",
-      "timezone": "Asia/Seoul",
-      "timePrecision": "datetime",
-      "status": "scheduled",
-      "previous": null,
-      "consensus": null,
-      "actual": null,
-      "unit": null,
-      "sourceName": "FRED",
-      "sourceTier": "official_aggregator",
-      "sourceUrl": "https://fred.stlouisfed.org/release?rid=46",
-      "sourceEventId": "46",
-      "updatedAt": "2026-11-12T01:57:13.579348+00:00",
-      "confidence": "single_source",
-      "sourceRefs": [
-        {
-          "sourceName": "FRED",
-          "sourceUrl": "https://fred.stlouisfed.org/release?rid=46",
-          "sourceTier": "official_aggregator"
-        }
-      ]
-    }
-  ]
+  "events": []
 }
