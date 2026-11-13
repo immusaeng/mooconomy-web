@@ -1,21 +1,20 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-13T06:52:03+09:00",
-  "publishDate": "2026-11-13",
-  "marketDateKr": "2026-11-12",
-  "marketDateUs": "2026-11-12",
+  "generatedAt": "2026-11-14T06:46:42+09:00",
+  "publishDate": "2026-11-14",
+  "marketDateKr": "2026-11-13",
+  "marketDateUs": "2026-11-13",
   "isDelayed": true,
   "status": "ok",
   "marketTemperature": {
-    "label": "neutral",
-    "displayLabel": "중립",
-    "summary": "국내 증시가 -0.61% 하락한 가운데 중립적인 시장 온도가 관찰되며, 외국인은 코스피 시장에서 4,123억원을 순매수한 것으로 나타납니다.",
+    "label": "cautious",
+    "displayLabel": "경계",
+    "summary": "국내 증시가 -0.98% 하락하고 외국인이 5,419억 원을 순매도하며 경계 국면을 나타내는 것으로 보입니다.",
     "reasons": [
-      "국내 증시 -0.61% 하락",
-      "외국인 코스피 순매수 4,123억원"
+      "국내 증시 -0.98% 하락",
+      "외국인 코스피 순매도 5,419억원"
     ],
     "watchItems": [
-      "원/달러 환율",
       "외국인 수급"
     ],
     "status": "ok"
@@ -24,19 +23,19 @@
     {
       "id": "overnight-global",
       "title": "간밤 글로벌 시장",
-      "text": "나스닥 -0.39%, S&P500 -0.35%, 다우 -0.36% 등 미 증시가 약세를 보였고, VIX는 18.70, 미국채 10년물 금리는 5.10%로 기록되었습니다.",
+      "text": "나스닥 -0.91%, S&P500 -0.40% 등 하락세를 보인 반면 다우는 +0.10% 소폭 상승 마감했습니다.",
       "status": "ok"
     },
     {
       "id": "today-domestic",
       "title": "전일 국내 시장",
-      "text": "전일 국내 시장에서는 코스피가 -0.61%, 코스닥이 -1.22% 하락하였으며, 원/달러 환율은 -0.32% 변동을 보이고 외국인은 코스피를 4,123억원 순매수했습니다.",
+      "text": "전일 코스피는 -0.98% 하락하였고 코스닥은 +0.45% 상승한 가운데, 외국인은 코스피에서 5,419억 원을 순매도했습니다.",
       "status": "ok"
     },
     {
       "id": "today-checkpoint",
       "title": "오늘의 체크포인트",
-      "text": "간밤의 대외 요인에 따른 긴장감이 감도는 가운데, 국내 시장은 뚜렷한 방향성보다는 신중한 관망세가 우세한 분위기로 보입니다.",
+      "text": "글로벌 증시의 혼조세와 외국인 수급 이탈 흐름이 맞물려 시장 전반에 신중한 관망 심리가 형성되는 분위기입니다.",
       "status": "ok"
     }
   ],
@@ -44,18 +43,18 @@
     "nodes": [
       {
         "role": "방향 전환",
-        "label": "코스피",
-        "detail": "코스피가 전일 상승 흐름에서 2026-11-12 기준 하락으로 전환됐습니다(5,342.73)."
+        "label": "코스닥",
+        "detail": "코스닥이 전일 하락 흐름에서 2026-11-13 기준 상승으로 전환됐습니다(699.66)."
       },
       {
         "role": "새 동인",
         "label": "동인 변화",
-        "detail": "새로 등장한 동인이 관측됩니다: 미-이란 협상 결렬 언급에 국제유가 급등"
+        "detail": "새로 등장한 동인이 관측됩니다: 엔비디아 주가 하락 및 칩 섹터 전반 약세"
       },
       {
         "role": "변화폭 1위",
         "label": "VIX",
-        "detail": "오늘 변화 폭이 가장 큰 지표는 VIX입니다(+6.92%)."
+        "detail": "오늘 변화 폭이 가장 큰 지표는 VIX입니다(+3.21%)."
       }
     ],
     "topologyId": "DELTA_MODEL_V1",
@@ -68,65 +67,57 @@
       {
         "id": "foreign",
         "label": "외국인 수급",
-        "value": 4123,
-        "displayValue": "+4,123억원",
-        "direction": "up",
+        "value": -5419,
+        "displayValue": "-5,419억원",
+        "direction": "down",
         "status": "ok"
       },
       {
         "id": "institution",
         "label": "기관 수급",
-        "value": -6624,
-        "displayValue": "-6,624억원",
+        "value": -59,
+        "displayValue": "-59억원",
         "direction": "down",
         "status": "ok"
       },
       {
         "id": "individual",
         "label": "개인 수급",
-        "value": -2689,
-        "displayValue": "-2,689억원",
-        "direction": "down",
+        "value": 145,
+        "displayValue": "+145억원",
+        "direction": "up",
         "status": "ok"
       },
       {
         "id": "usdkrw",
         "label": "원/달러",
-        "value": 1334.66,
-        "displayValue": "1,334.7원",
-        "direction": "down",
+        "value": 1334.85,
+        "displayValue": "1,334.8원",
+        "direction": "up",
         "status": "ok"
       },
       {
         "id": "leading-sector",
         "label": "주도 업종",
-        "value": 5.23,
-        "displayValue": "방송과엔터테인먼트 +5.23%",
+        "value": 8.04,
+        "displayValue": "창업투자 +8.04%",
         "direction": "up",
         "status": "ok"
       }
     ],
-    "summary": "외국인이 4,123억원을 순매수했으나 기관과 개인이 각각 -6,624억원과 -2,689억원의 순매도를 보였고, 원/달러 환율은 1,334.7원 속에서 방송과엔터테인먼트 업종이 +5.23% 상승한 점이 관찰됩니다.",
+    "summary": "외국인 수급 -5,419억원, 기관 수급 -59억원, 개인 수급 +145억원, 원/달러 1,334.8원, 주도 업종 창업투자 +8.04%.",
     "status": "ok"
   },
   "risks": [
     {
-      "id": "vix-volatility",
-      "title": "변동성 확대 국면",
-      "detail": "VIX가 18.70으로 전일 대비 +6.92% 상승하며 변동성이 확대되는 국면이 나타나고 있습니다.",
+      "id": "foreign-outflow",
+      "title": "외국인 수급 이탈",
+      "detail": "외국인의 코스피 순매도 5,419억원 규모의 수급 이탈이 지속되는 점이 관찰됩니다.",
       "level": "주의",
       "status": "ok"
     }
   ],
   "calendar": [
-    {
-      "id": "us-2026-11-13-미국 생산자물가(PPI)",
-      "time": "2026-11-13",
-      "country": "US",
-      "title": "미국 생산자물가(PPI)",
-      "importance": "medium",
-      "status": "ok"
-    },
     {
       "id": "us-earn-2026-11-17-엔비디아",
       "time": "2026-11-17",
@@ -139,143 +130,143 @@
   "news": {
     "items": [
       {
-        "id": "news-매일경제-젠슨황 쇼크에 美증시 하락...엔비디아 급락, AMD는 반사이익 [월가월부]",
-        "category": "news",
-        "source": "매일경제",
-        "title": "젠슨황 쇼크에 美증시 하락...엔비디아 급락, AMD는 반사이익 [월가월부]",
-        "url": "https://www.mk.co.kr/news/economy/12207457",
-        "publishedAt": "2026-11-13",
-        "status": "ok"
-      },
-      {
-        "id": "news-매일경제-“통역 없어도” 안경 쓰니 일본인과 한국어로 대화 술술",
-        "category": "news",
-        "source": "매일경제",
-        "title": "“통역 없어도” 안경 쓰니 일본인과 한국어로 대화 술술",
-        "url": "https://www.mk.co.kr/news/economy/12207244",
-        "publishedAt": "2026-11-13",
-        "status": "ok"
-      },
-      {
-        "id": "news-연합뉴스마켓-젠슨 황 퇴진에 엔비디아 시총 장중 801조원 증발",
+        "id": "news-연합뉴스마켓-뉴욕증시 혼조 마감…엔비디아 하락세 계속, 2%↓",
         "category": "news",
         "source": "연합뉴스마켓",
-        "title": "젠슨 황 퇴진에 엔비디아 시총 장중 801조원 증발",
-        "url": "https://www.yna.co.kr/view/AKR20261113014000009",
-        "publishedAt": "2026-11-13",
+        "title": "뉴욕증시 혼조 마감…엔비디아 하락세 계속, 2%↓",
+        "url": "https://www.yna.co.kr/view/AKR20261114009500072",
+        "publishedAt": "2026-11-14",
         "status": "ok"
       },
       {
-        "id": "news-머니투데이-美연준 내년 10월엔 금리결정 없이 전략 논의만…연 8회→7회로 축소",
-        "category": "news",
-        "source": "머니투데이",
-        "title": "美연준 내년 10월엔 금리결정 없이 전략 논의만…연 8회→7회로 축소",
-        "url": "https://www.mt.co.kr/world/2026/11/13/2026111306264481203",
-        "publishedAt": "2026-11-13",
-        "status": "ok"
-      },
-      {
-        "id": "news-머니투데이-'월 360만원' 남편, N잡러 아내에 전업주부 요구 \"육각형 엄마 원해\"",
-        "category": "news",
-        "source": "머니투데이",
-        "title": "'월 360만원' 남편, N잡러 아내에 전업주부 요구 \"육각형 엄마 원해\"",
-        "url": "https://www.mt.co.kr/entertainment/2026/11/13/2026111305564946112",
-        "publishedAt": "2026-11-13",
-        "status": "ok"
-      },
-      {
-        "id": "news-연합뉴스마켓-젠슨 황 퇴진·유가 급등에 뉴욕증시 하락…나스닥 0.4%↓",
-        "category": "news",
-        "source": "연합뉴스마켓",
-        "title": "젠슨 황 퇴진·유가 급등에 뉴욕증시 하락…나스닥 0.4%↓",
-        "url": "https://www.yna.co.kr/view/AKR20261113012000072",
-        "publishedAt": "2026-11-13",
-        "status": "ok"
-      },
-      {
-        "id": "news-연합뉴스-환율·유가 동반 하락에 10월 수입물가 1.8%↓",
+        "id": "news-연합뉴스-국제유가, 공급 과잉 전망 속 혼조 마감…WTI 0.2%↓",
         "category": "news",
         "source": "연합뉴스",
-        "title": "환율·유가 동반 하락에 10월 수입물가 1.8%↓",
-        "url": "https://www.yna.co.kr/view/AKR20261112167900002",
-        "publishedAt": "2026-11-13",
+        "title": "국제유가, 공급 과잉 전망 속 혼조 마감…WTI 0.2%↓",
+        "url": "https://www.yna.co.kr/view/AKR20261114008200072",
+        "publishedAt": "2026-11-14",
         "status": "ok"
       },
       {
-        "id": "news-파이낸셜뉴스-10월 수출물가 반등..무역지수는 '역대 최고'",
+        "id": "news-연합뉴스마켓-'젠슨황 스캔들' 엔비디아 급락…서학개미, 한주간 1천억 폭풍매수",
+        "category": "news",
+        "source": "연합뉴스마켓",
+        "title": "'젠슨황 스캔들' 엔비디아 급락…서학개미, 한주간 1천억 폭풍매수",
+        "url": "https://www.yna.co.kr/view/AKR20261113140200008",
+        "publishedAt": "2026-11-14",
+        "status": "ok"
+      },
+      {
+        "id": "news-연합뉴스-[부동산캘린더] 내주 전국 10곳서 1천681가구 공급…수도권 집중",
+        "category": "news",
+        "source": "연합뉴스",
+        "title": "[부동산캘린더] 내주 전국 10곳서 1천681가구 공급…수도권 집중",
+        "url": "https://www.yna.co.kr/view/AKR20261113166700003",
+        "publishedAt": "2026-11-14",
+        "status": "ok"
+      },
+      {
+        "id": "news-파이낸셜뉴스-\"1억으로 100억 굴리고 '-4000만원'찍혔다\"…남편 종신보험까지 깨서 단타 친 60대 아내의 최후",
         "category": "news",
         "source": "파이낸셜뉴스",
-        "title": "10월 수출물가 반등..무역지수는 '역대 최고'",
-        "url": "https://www.fnnews.com/news/202611121709049131",
+        "title": "\"1억으로 100억 굴리고 '-4000만원'찍혔다\"…남편 종신보험까지 깨서 단타 친 60대 아내의 최후",
+        "url": "https://www.fnnews.com/news/202611131612010465",
+        "publishedAt": "2026-11-14",
+        "status": "ok"
+      },
+      {
+        "id": "news-연합뉴스마켓-뉴욕증시, PPI 소화하며 혼조 출발",
+        "category": "news",
+        "source": "연합뉴스마켓",
+        "title": "뉴욕증시, PPI 소화하며 혼조 출발",
+        "url": "https://www.yna.co.kr/view/AKR20261114000400009",
+        "publishedAt": "2026-11-14",
+        "status": "ok"
+      },
+      {
+        "id": "news-매일경제-해킹 당한 금융보안원 “공격 IP 246개 차단완료…국적은 한국”",
+        "category": "news",
+        "source": "매일경제",
+        "title": "해킹 당한 금융보안원 “공격 IP 246개 차단완료…국적은 한국”",
+        "url": "https://www.mk.co.kr/news/economy/12208349",
         "publishedAt": "2026-11-13",
         "status": "ok"
       },
       {
-        "id": "news-CNBC-Cisco beats on earnings, says AI infrastructure revenue will double th",
+        "id": "news-매일경제-백령도공항 3년뒤 착공…사업 타당성재조사 통과",
+        "category": "news",
+        "source": "매일경제",
+        "title": "백령도공항 3년뒤 착공…사업 타당성재조사 통과",
+        "url": "https://www.mk.co.kr/news/economy/12208346",
+        "publishedAt": "2026-11-13",
+        "status": "ok"
+      },
+      {
+        "id": "news-Investing-Nvidia stock slides to worst week since April 2025 after Huang re",
+        "category": "news",
+        "source": "Investing",
+        "title": "Nvidia stock slides to worst week since April 2025 after Huang resignation",
+        "url": "https://www.investing.com/news/economy-news/nvidia-inches-higher-premarket-after-stock-slides-following-huang-resignation-5024641",
+        "publishedAt": "2026-11-13",
+        "status": "ok"
+      },
+      {
+        "id": "news-CNBC-Goldman Sachs looks to cash in on big IPOs twice. Anthropic’s historic",
         "category": "news",
         "source": "CNBC",
-        "title": "Cisco beats on earnings, says AI infrastructure revenue will double this fiscal year",
-        "url": "https://www.cnbc.com/2026/11/12/cisco-csco-q1-2027-earnings.html",
-        "publishedAt": "2026-11-12",
+        "title": "Goldman Sachs looks to cash in on big IPOs twice. Anthropic’s historic deal is its next chance",
+        "url": "https://www.cnbc.com/investingclub/2026/11/13/goldman-sachs-looks-to-cash-in-on-anthropics-ipo-twice-heres-how-and-who-else-wants-to.html",
+        "publishedAt": "2026-11-13",
         "status": "ok"
       },
       {
-        "id": "news-CNBC-Nvidia stock closes down over 4% after CEO Jensen Huang announces resi",
+        "id": "news-CNBC-FAA issues nationwide ground stop citing communication issues affectin",
         "category": "news",
         "source": "CNBC",
-        "title": "Nvidia stock closes down over 4% after CEO Jensen Huang announces resignation",
-        "url": "https://www.cnbc.com/2026/11/12/nvidia-nvda-jensen-huang-second-affair.html",
-        "publishedAt": "2026-11-12",
+        "title": "FAA issues nationwide ground stop citing communication issues affecting ‘multiple’ air traffic control facilities",
+        "url": "https://www.cnbc.com/2026/11/13/faa-ground-stop.html",
+        "publishedAt": "2026-11-13",
         "status": "ok"
       },
       {
-        "id": "news-MarketWatch-The S&P 500 is shrugging off Nvidia’s selloff this week. Here’s",
+        "id": "news-CNBC-Nvidia stock suffers longest weekly losing streak since 2012 as market",
+        "category": "news",
+        "source": "CNBC",
+        "title": "Nvidia stock suffers longest weekly losing streak since 2012 as market value sinks by $1.7 trillion",
+        "url": "https://www.cnbc.com/2026/11/13/nvidia-stock-jensen-affair-ai.html",
+        "publishedAt": "2026-11-13",
+        "status": "ok"
+      },
+      {
+        "id": "news-MarketWatch-Bitcoin is now below $69,000 and could fall even further if inv",
         "category": "news",
         "source": "MarketWatch",
-        "title": "The S&P 500 is shrugging off Nvidia’s selloff this week. Here’s what’s keeping the rest of the market afloat.",
-        "url": "https://www.marketwatch.com/story/the-s-p-500-is-shrugging-off-nvidias-selloff-heres-whats-keeping-the-rest-of-the-market-afloat-7cdf2f05?mod=mw_rss_topstories",
-        "publishedAt": "2026-11-12",
+        "title": "Bitcoin is now below $69,000 and could fall even further if investors cash out to buy into the Anthropic IPO",
+        "url": "https://www.marketwatch.com/story/bitcoin-could-fall-even-further-if-investors-cash-out-to-buy-into-the-anthropic-ipo-5a14f46a?mod=mw_rss_topstories",
+        "publishedAt": "2026-11-13",
         "status": "ok"
       },
       {
-        "id": "news-Investing-Fed has time to calibrate rate hikes, Daly says",
-        "category": "news",
-        "source": "Investing",
-        "title": "Fed has time to calibrate rate hikes, Daly says",
-        "url": "https://www.investing.com/news/economy-news/fed-has-time-to-calibrate-rate-hikes-daly-says-5023157",
-        "publishedAt": "2026-11-12",
-        "status": "ok"
-      },
-      {
-        "id": "news-Investing-US handled $12 billion of Venezuela’s oil revenues, report says",
-        "category": "news",
-        "source": "Investing",
-        "title": "US handled $12 billion of Venezuela’s oil revenues, report says",
-        "url": "https://www.investing.com/news/economy-news/us-handled-12-billion-of-venezuelas-oil-revenues-report-says-5023141",
-        "publishedAt": "2026-11-12",
-        "status": "ok"
-      },
-      {
-        "id": "news-MarketWatch-The bond market now has an even bigger fear than AI fallout",
+        "id": "news-MarketWatch-AMD and other chip stocks slide as Wall Street rethinks the AI ",
         "category": "news",
         "source": "MarketWatch",
-        "title": "The bond market now has an even bigger fear than AI fallout",
-        "url": "https://www.marketwatch.com/story/the-bond-market-now-has-an-even-bigger-fear-than-the-ai-fallout-b6401b54?mod=mw_rss_topstories",
-        "publishedAt": "2026-11-12",
+        "title": "AMD and other chip stocks slide as Wall Street rethinks the AI trade without Jensen Huang",
+        "url": "https://www.marketwatch.com/story/amd-and-other-chip-stocks-slide-as-wall-street-rethinks-the-ai-trade-without-jensen-huang-2fb74547?mod=mw_rss_topstories",
+        "publishedAt": "2026-11-13",
         "status": "ok"
       },
       {
-        "id": "news-Investing-US existing-home sales hit 16-year low as rates and affordability",
+        "id": "news-MarketWatch-The trillion-dollar mistake corporate America is making about r",
         "category": "news",
-        "source": "Investing",
-        "title": "US existing-home sales hit 16-year low as rates and affordability weigh on market",
-        "url": "https://www.investing.com/news/stock-market-news/us-existinghome-sales-hit-16year-low-as-rates-and-affordability-weigh-on-market-93CH-5023129",
-        "publishedAt": "2026-11-12",
+        "source": "MarketWatch",
+        "title": "The trillion-dollar mistake corporate America is making about retirement",
+        "url": "https://www.marketwatch.com/story/corporate-america-is-making-a-trillion-dollar-mistake-about-retirement-234c8996?mod=mw_rss_topstories",
+        "publishedAt": "2026-11-13",
         "status": "ok"
       }
     ],
     "clusters": [],
-    "summary": "젠슨 황의 퇴진 및 쇼크와 유가 급등이 겹치면서 뉴욕증시와 엔비디아의 하락세에 영향을 준 것으로 보입니다.",
+    "summary": "엔비디아 하락세와 관련 악재가 이어지며 글로벌 투심에 영향을 주는 모습입니다.",
     "status": "ok"
   },
   "latestBriefing": null,
@@ -283,13 +274,13 @@
     {
       "id": "kospi",
       "name": "코스피",
-      "value": 5342.73,
-      "displayValue": "5,342.73",
-      "change": -0.607,
+      "value": 5290.53,
+      "displayValue": "5,290.53",
+      "change": -0.977,
       "changeUnit": "%",
       "displayMode": "pct",
       "direction": "down",
-      "asOf": "2026-11-12",
+      "asOf": "2026-11-13",
       "source": "KRX",
       "sourceUrl": "",
       "frequency": "daily",
@@ -300,30 +291,30 @@
     {
       "id": "kosdaq",
       "name": "코스닥",
-      "value": 696.53,
-      "displayValue": "696.53",
-      "change": -1.2154,
+      "value": 699.66,
+      "displayValue": "699.66",
+      "change": 0.4494,
       "changeUnit": "%",
       "displayMode": "pct",
-      "direction": "down",
-      "asOf": "2026-11-12",
+      "direction": "up",
+      "asOf": "2026-11-13",
       "source": "KRX",
       "sourceUrl": "",
       "frequency": "daily",
       "isDelayed": true,
       "status": "ok",
-      "insight": "전일 대비 하락"
+      "insight": "전일 대비 상승"
     },
     {
       "id": "nasdaq",
       "name": "나스닥",
-      "value": 25366.09,
-      "displayValue": "25,366.09",
-      "change": -0.3931,
+      "value": 25136.27,
+      "displayValue": "25,136.27",
+      "change": -0.906,
       "changeUnit": "%",
       "displayMode": "pct",
       "direction": "down",
-      "asOf": "2026-11-12",
+      "asOf": "2026-11-13",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
@@ -334,13 +325,13 @@
     {
       "id": "sp500",
       "name": "S&P500",
-      "value": 7592.4,
-      "displayValue": "7,592.40",
-      "change": -0.3541,
+      "value": 7561.67,
+      "displayValue": "7,561.67",
+      "change": -0.4047,
       "changeUnit": "%",
       "displayMode": "pct",
       "direction": "down",
-      "asOf": "2026-11-12",
+      "asOf": "2026-11-13",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
@@ -351,30 +342,30 @@
     {
       "id": "usdkrw",
       "name": "원/달러",
-      "value": 1334.66,
-      "displayValue": "1,334.7",
-      "change": -4.22,
+      "value": 1334.85,
+      "displayValue": "1,334.8",
+      "change": 0.19,
       "changeUnit": "원",
       "displayMode": "delta",
-      "direction": "down",
-      "asOf": "2026-11-12",
+      "direction": "up",
+      "asOf": "2026-11-13",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
       "isDelayed": true,
       "status": "ok",
-      "insight": "전일 대비 큰 폭 하락"
+      "insight": "전일 대비 소폭 상승"
     },
     {
       "id": "us10y",
       "name": "미국채10년",
-      "value": 5.1,
-      "displayValue": "5.10%",
-      "change": 0.1,
+      "value": 5.15,
+      "displayValue": "5.15%",
+      "change": 0.05,
       "changeUnit": "%p",
       "displayMode": "delta",
       "direction": "up",
-      "asOf": "2026-11-12",
+      "asOf": "2026-11-13",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
@@ -385,30 +376,30 @@
     {
       "id": "wti",
       "name": "WTI",
-      "value": 88.76,
-      "displayValue": "$88.76",
-      "change": 2.7196,
+      "value": 89.17,
+      "displayValue": "$89.17",
+      "change": 0.4619,
       "changeUnit": "%",
       "displayMode": "pct",
       "direction": "up",
-      "asOf": "2026-11-12",
+      "asOf": "2026-11-13",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
       "isDelayed": true,
       "status": "ok",
-      "insight": "전일 대비 큰 폭 상승"
+      "insight": "전일 대비 상승"
     },
     {
       "id": "vix",
       "name": "VIX",
-      "value": 18.7,
-      "displayValue": "18.70",
-      "change": 6.9182,
+      "value": 19.3,
+      "displayValue": "19.30",
+      "change": 3.2086,
       "changeUnit": "%",
       "displayMode": "pct",
       "direction": "up",
-      "asOf": "2026-11-12",
+      "asOf": "2026-11-13",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
@@ -422,11 +413,11 @@
       "id": "recession",
       "name": "경기침체 경보등",
       "color": "green",
-      "value": 0.25,
-      "valueLabel": "+0.25%p",
+      "value": 0.24,
+      "valueLabel": "+0.24%p",
       "insight": "장단기 금리차가 정상 범위에 있어 침체 신호는 뚜렷하지 않습니다.",
       "sourceLabel": "장단기 금리차 (미국채 10Y-2Y)",
-      "asOf": "2026-11-13"
+      "asOf": "2026-11-14"
     },
     {
       "id": "rate-gap",
@@ -436,17 +427,17 @@
       "valueLabel": "+1.00%p",
       "insight": "한미 금리차가 관리 가능한 수준이라 자본유출 압력은 크지 않습니다.",
       "sourceLabel": "한미 기준금리차 (Fed-한은)",
-      "asOf": "2026-11-13"
+      "asOf": "2026-11-14"
     },
     {
       "id": "liquidity-stress",
       "name": "유동성 스트레스",
       "color": "green",
-      "value": 3.3,
-      "valueLabel": "3.30%p",
+      "value": 3.2,
+      "valueLabel": "3.20%p",
       "insight": "신용시장 스프레드가 평상 수준이라 유동성 경색 신호는 없습니다.",
       "sourceLabel": "하이일드 스프레드 (BAMLH0A0HYM2)",
-      "asOf": "2026-11-13"
+      "asOf": "2026-11-14"
     }
   ],
   "claims": {
@@ -1256,12 +1247,17 @@
         }
       }
     ],
-    "todayClaims": [],
+    "todayClaims": [
+      {
+        "claimText": "공급 불안이 이어지는 가운데 WTI가 오를까요?",
+        "status": "unresolved"
+      }
+    ],
     "totals": {
       "hit": 22,
       "miss": 38,
       "neutral": 20,
-      "unresolved": 0,
+      "unresolved": 1,
       "invalidated": 1
     }
   },
