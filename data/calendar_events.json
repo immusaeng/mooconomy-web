@@ -1,19 +1,17 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-14T00:56:25.368483+00:00",
+  "generatedAt": "2026-11-15T00:00:05.951277+00:00",
   "timezone": "Asia/Seoul",
   "range": {
-    "from": "2026-11-07",
-    "to": "2026-12-29"
+    "from": "2026-11-08",
+    "to": "2026-12-30"
   },
   "freshness": {
-    "status": "partial",
-    "lastSuccessfulAt": "2026-11-14T00:56:25.368488+00:00",
-    "failedSources": [
-      "fred"
-    ],
+    "status": "fresh",
+    "lastSuccessfulAt": "2026-11-15T00:00:05.951285+00:00",
+    "failedSources": [],
     "sources": {
-      "fred": "failed",
+      "fred": "ok",
       "bok": "ok",
       "ecos": "not_implemented",
       "kosis": "not_implemented",
@@ -28,9 +26,8 @@
   "sources": [
     {
       "name": "fred",
-      "ok": false,
-      "count": 0,
-      "error": "HTTPSConnectionPool(host='api.stlouisfed.org', port=443): Read timed out. (read timeout=15)",
+      "ok": true,
+      "count": 14,
       "mode": "live",
       "had_key": true
     },
@@ -114,7 +111,7 @@
       "sourceTier": "official",
       "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-11",
       "sourceEventId": null,
-      "updatedAt": "2026-11-14T00:56:25.367390+00:00",
+      "updatedAt": "2026-11-15T00:00:05.949368+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -150,7 +147,7 @@
       "sourceTier": "official",
       "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-11",
       "sourceEventId": null,
-      "updatedAt": "2026-11-14T00:56:25.367412+00:00",
+      "updatedAt": "2026-11-15T00:00:05.949382+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -181,7 +178,7 @@
       "sourceTier": "official",
       "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-11",
       "sourceEventId": null,
-      "updatedAt": "2026-11-14T00:56:25.367417+00:00",
+      "updatedAt": "2026-11-15T00:00:05.949389+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -212,7 +209,7 @@
       "sourceTier": "official",
       "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-11",
       "sourceEventId": null,
-      "updatedAt": "2026-11-14T00:56:25.367421+00:00",
+      "updatedAt": "2026-11-15T00:00:05.949395+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -243,7 +240,7 @@
       "sourceTier": "official",
       "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-11",
       "sourceEventId": null,
-      "updatedAt": "2026-11-14T00:56:25.367425+00:00",
+      "updatedAt": "2026-11-15T00:00:05.949402+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -274,7 +271,7 @@
       "sourceTier": "official",
       "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-11",
       "sourceEventId": null,
-      "updatedAt": "2026-11-14T00:56:25.367431+00:00",
+      "updatedAt": "2026-11-15T00:00:05.949410+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -305,7 +302,7 @@
       "sourceTier": "official",
       "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-12",
       "sourceEventId": null,
-      "updatedAt": "2026-11-14T00:56:25.367437+00:00",
+      "updatedAt": "2026-11-15T00:00:05.949418+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -336,7 +333,7 @@
       "sourceTier": "official",
       "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-12",
       "sourceEventId": null,
-      "updatedAt": "2026-11-14T00:56:25.367442+00:00",
+      "updatedAt": "2026-11-15T00:00:05.949425+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -367,7 +364,7 @@
       "sourceTier": "official",
       "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-12",
       "sourceEventId": null,
-      "updatedAt": "2026-11-14T00:56:25.367446+00:00",
+      "updatedAt": "2026-11-15T00:00:05.949432+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -398,7 +395,7 @@
       "sourceTier": "official",
       "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-12",
       "sourceEventId": null,
-      "updatedAt": "2026-11-14T00:56:25.367473+00:00",
+      "updatedAt": "2026-11-15T00:00:05.949438+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -429,7 +426,7 @@
       "sourceTier": "official",
       "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-12",
       "sourceEventId": null,
-      "updatedAt": "2026-11-14T00:56:25.367479+00:00",
+      "updatedAt": "2026-11-15T00:00:05.949446+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -460,7 +457,7 @@
       "sourceTier": "official",
       "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-12",
       "sourceEventId": null,
-      "updatedAt": "2026-11-14T00:56:25.367483+00:00",
+      "updatedAt": "2026-11-15T00:00:05.949452+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -491,7 +488,7 @@
       "sourceTier": "official",
       "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-12",
       "sourceEventId": null,
-      "updatedAt": "2026-11-14T00:56:25.367487+00:00",
+      "updatedAt": "2026-11-15T00:00:05.949459+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -522,7 +519,7 @@
       "sourceTier": "official",
       "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-12",
       "sourceEventId": null,
-      "updatedAt": "2026-11-14T00:56:25.367491+00:00",
+      "updatedAt": "2026-11-15T00:00:05.949465+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -553,7 +550,7 @@
       "sourceTier": "official",
       "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-12",
       "sourceEventId": null,
-      "updatedAt": "2026-11-14T00:56:25.367496+00:00",
+      "updatedAt": "2026-11-15T00:00:05.949472+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -584,7 +581,7 @@
       "sourceTier": "official",
       "sourceUrl": "https://www.bok.or.kr/portal/stats/statsPublictSchdul/listCldr.do?menuNo=200775&date=2026-12",
       "sourceEventId": null,
-      "updatedAt": "2026-11-14T00:56:25.367500+00:00",
+      "updatedAt": "2026-11-15T00:00:05.949500+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -615,13 +612,447 @@
       "sourceTier": "official",
       "sourceUrl": "https://www.bok.or.kr/portal/singl/crncyPolicyDrcMtg/listYear.do?menuNo=200755&mtgSe=A",
       "sourceEventId": null,
-      "updatedAt": "2026-11-14T00:56:25.367915+00:00",
+      "updatedAt": "2026-11-15T00:00:05.950188+00:00",
       "confidence": "confirmed",
       "sourceRefs": [
         {
           "sourceName": "BOK",
           "sourceUrl": "https://www.bok.or.kr/portal/singl/crncyPolicyDrcMtg/listYear.do?menuNo=200755&mtgSe=A",
           "sourceTier": "official"
+        }
+      ]
+    },
+    {
+      "id": "fred-consumer-price-index-2026-11-10-1eb11679e364",
+      "title": "Consumer Price Index",
+      "originalTitle": "Consumer Price Index",
+      "titleKo": "소비자물가지수(CPI)",
+      "country": "US",
+      "category": "macro",
+      "importance": "high",
+      "scheduledDate": "2026-11-10",
+      "scheduledAt": "2026-11-10T22:30:00+09:00",
+      "timezone": "Asia/Seoul",
+      "timePrecision": "datetime",
+      "status": "scheduled",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "FRED",
+      "sourceTier": "official_aggregator",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=10",
+      "sourceEventId": "10",
+      "updatedAt": "2026-11-15T00:00:05.949269+00:00",
+      "confidence": "single_source",
+      "sourceRefs": [
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=10",
+          "sourceTier": "official_aggregator"
+        }
+      ]
+    },
+    {
+      "id": "fred-producer-price-index-2026-11-13-e04746d041b7",
+      "title": "Producer Price Index",
+      "originalTitle": "Producer Price Index",
+      "titleKo": "생산자물가지수(PPI)",
+      "country": "US",
+      "category": "macro",
+      "importance": "medium",
+      "scheduledDate": "2026-11-13",
+      "scheduledAt": "2026-11-13T22:30:00+09:00",
+      "timezone": "Asia/Seoul",
+      "timePrecision": "datetime",
+      "status": "scheduled",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "FRED",
+      "sourceTier": "official_aggregator",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=46",
+      "sourceEventId": "46",
+      "updatedAt": "2026-11-15T00:00:05.949285+00:00",
+      "confidence": "single_source",
+      "sourceRefs": [
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=46",
+          "sourceTier": "official_aggregator"
+        }
+      ]
+    },
+    {
+      "id": "fred-advance-monthly-sales-for-retail-and-food-services-2026-11-17-b894b81e03e0",
+      "title": "Advance Monthly Sales for Retail and Food Services",
+      "originalTitle": "Advance Monthly Sales for Retail and Food Services",
+      "titleKo": "미국 소매판매 속보",
+      "country": "US",
+      "category": "macro",
+      "importance": "high",
+      "scheduledDate": "2026-11-17",
+      "scheduledAt": "2026-11-17T22:30:00+09:00",
+      "timezone": "Asia/Seoul",
+      "timePrecision": "datetime",
+      "status": "scheduled",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "FRED",
+      "sourceTier": "official_aggregator",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=9",
+      "sourceEventId": "9",
+      "updatedAt": "2026-11-15T00:00:05.949296+00:00",
+      "confidence": "single_source",
+      "sourceRefs": [
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=9",
+          "sourceTier": "official_aggregator"
+        }
+      ]
+    },
+    {
+      "id": "fred-u-s-import-and-export-price-indexes-2026-11-17-ad63f4f4d688",
+      "title": "U.S. Import and Export Price Indexes",
+      "originalTitle": "U.S. Import and Export Price Indexes",
+      "titleKo": "미국 수출입 물가지수",
+      "country": "US",
+      "category": "macro",
+      "importance": "low",
+      "scheduledDate": "2026-11-17",
+      "scheduledAt": "2026-11-17T22:30:00+09:00",
+      "timezone": "Asia/Seoul",
+      "timePrecision": "datetime",
+      "status": "scheduled",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "FRED",
+      "sourceTier": "official_aggregator",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=188",
+      "sourceEventId": "188",
+      "updatedAt": "2026-11-15T00:00:05.949303+00:00",
+      "confidence": "single_source",
+      "sourceRefs": [
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=188",
+          "sourceTier": "official_aggregator"
+        }
+      ]
+    },
+    {
+      "id": "fred-gross-domestic-product-2026-11-25-db978c33d867",
+      "title": "Gross Domestic Product",
+      "originalTitle": "Gross Domestic Product",
+      "titleKo": "미국 국내총생산(GDP)",
+      "country": "US",
+      "category": "macro",
+      "importance": "high",
+      "scheduledDate": "2026-11-25",
+      "scheduledAt": "2026-11-25T22:30:00+09:00",
+      "timezone": "Asia/Seoul",
+      "timePrecision": "datetime",
+      "status": "scheduled",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "FRED",
+      "sourceTier": "official_aggregator",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=53",
+      "sourceEventId": "53",
+      "updatedAt": "2026-11-15T00:00:05.949310+00:00",
+      "confidence": "single_source",
+      "sourceRefs": [
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=53",
+          "sourceTier": "official_aggregator"
+        }
+      ]
+    },
+    {
+      "id": "fred-personal-income-and-outlays-2026-11-25-628e6b768d26",
+      "title": "Personal Income and Outlays",
+      "originalTitle": "Personal Income and Outlays",
+      "titleKo": "개인소득 및 소비지출",
+      "country": "US",
+      "category": "macro",
+      "importance": "high",
+      "scheduledDate": "2026-11-25",
+      "scheduledAt": "2026-11-25T22:30:00+09:00",
+      "timezone": "Asia/Seoul",
+      "timePrecision": "datetime",
+      "status": "scheduled",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "FRED",
+      "sourceTier": "official_aggregator",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=54",
+      "sourceEventId": "54",
+      "updatedAt": "2026-11-15T00:00:05.949316+00:00",
+      "confidence": "single_source",
+      "sourceRefs": [
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=54",
+          "sourceTier": "official_aggregator"
+        }
+      ]
+    },
+    {
+      "id": "fred-job-openings-and-labor-turnover-survey-2026-12-01-0dccc7d16270",
+      "title": "Job Openings and Labor Turnover Survey",
+      "originalTitle": "Job Openings and Labor Turnover Survey",
+      "titleKo": "구인·이직 보고서(JOLTS)",
+      "country": "US",
+      "category": "macro",
+      "importance": "medium",
+      "scheduledDate": "2026-12-01",
+      "scheduledAt": "2026-12-02T00:00:00+09:00",
+      "timezone": "Asia/Seoul",
+      "timePrecision": "datetime",
+      "status": "scheduled",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "FRED",
+      "sourceTier": "official_aggregator",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=192",
+      "sourceEventId": "192",
+      "updatedAt": "2026-11-15T00:00:05.949322+00:00",
+      "confidence": "single_source",
+      "sourceRefs": [
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=192",
+          "sourceTier": "official_aggregator"
+        }
+      ]
+    },
+    {
+      "id": "fred-employment-situation-2026-12-04-5b8bea7f87c5",
+      "title": "Employment Situation",
+      "originalTitle": "Employment Situation",
+      "titleKo": "미국 고용보고서",
+      "country": "US",
+      "category": "macro",
+      "importance": "high",
+      "scheduledDate": "2026-12-04",
+      "scheduledAt": "2026-12-04T22:30:00+09:00",
+      "timezone": "Asia/Seoul",
+      "timePrecision": "datetime",
+      "status": "scheduled",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "FRED",
+      "sourceTier": "official_aggregator",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=50",
+      "sourceEventId": "50",
+      "updatedAt": "2026-11-15T00:00:05.949328+00:00",
+      "confidence": "single_source",
+      "sourceRefs": [
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=50",
+          "sourceTier": "official_aggregator"
+        }
+      ]
+    },
+    {
+      "id": "fred-consumer-price-index-2026-12-10-3cfd41dd8f75",
+      "title": "Consumer Price Index",
+      "originalTitle": "Consumer Price Index",
+      "titleKo": "소비자물가지수(CPI)",
+      "country": "US",
+      "category": "macro",
+      "importance": "high",
+      "scheduledDate": "2026-12-10",
+      "scheduledAt": "2026-12-10T22:30:00+09:00",
+      "timezone": "Asia/Seoul",
+      "timePrecision": "datetime",
+      "status": "scheduled",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "FRED",
+      "sourceTier": "official_aggregator",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=10",
+      "sourceEventId": "10",
+      "updatedAt": "2026-11-15T00:00:05.949332+00:00",
+      "confidence": "single_source",
+      "sourceRefs": [
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=10",
+          "sourceTier": "official_aggregator"
+        }
+      ]
+    },
+    {
+      "id": "fred-producer-price-index-2026-12-15-eefd3fed0740",
+      "title": "Producer Price Index",
+      "originalTitle": "Producer Price Index",
+      "titleKo": "생산자물가지수(PPI)",
+      "country": "US",
+      "category": "macro",
+      "importance": "medium",
+      "scheduledDate": "2026-12-15",
+      "scheduledAt": "2026-12-15T22:30:00+09:00",
+      "timezone": "Asia/Seoul",
+      "timePrecision": "datetime",
+      "status": "scheduled",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "FRED",
+      "sourceTier": "official_aggregator",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=46",
+      "sourceEventId": "46",
+      "updatedAt": "2026-11-15T00:00:05.949336+00:00",
+      "confidence": "single_source",
+      "sourceRefs": [
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=46",
+          "sourceTier": "official_aggregator"
+        }
+      ]
+    },
+    {
+      "id": "fred-advance-monthly-sales-for-retail-and-food-services-2026-12-16-a655f545d215",
+      "title": "Advance Monthly Sales for Retail and Food Services",
+      "originalTitle": "Advance Monthly Sales for Retail and Food Services",
+      "titleKo": "미국 소매판매 속보",
+      "country": "US",
+      "category": "macro",
+      "importance": "high",
+      "scheduledDate": "2026-12-16",
+      "scheduledAt": "2026-12-16T22:30:00+09:00",
+      "timezone": "Asia/Seoul",
+      "timePrecision": "datetime",
+      "status": "scheduled",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "FRED",
+      "sourceTier": "official_aggregator",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=9",
+      "sourceEventId": "9",
+      "updatedAt": "2026-11-15T00:00:05.949342+00:00",
+      "confidence": "single_source",
+      "sourceRefs": [
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=9",
+          "sourceTier": "official_aggregator"
+        }
+      ]
+    },
+    {
+      "id": "fred-u-s-import-and-export-price-indexes-2026-12-17-7bcd2c3bd089",
+      "title": "U.S. Import and Export Price Indexes",
+      "originalTitle": "U.S. Import and Export Price Indexes",
+      "titleKo": "미국 수출입 물가지수",
+      "country": "US",
+      "category": "macro",
+      "importance": "low",
+      "scheduledDate": "2026-12-17",
+      "scheduledAt": "2026-12-17T22:30:00+09:00",
+      "timezone": "Asia/Seoul",
+      "timePrecision": "datetime",
+      "status": "scheduled",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "FRED",
+      "sourceTier": "official_aggregator",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=188",
+      "sourceEventId": "188",
+      "updatedAt": "2026-11-15T00:00:05.949347+00:00",
+      "confidence": "single_source",
+      "sourceRefs": [
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=188",
+          "sourceTier": "official_aggregator"
+        }
+      ]
+    },
+    {
+      "id": "fred-gross-domestic-product-2026-12-23-644f87b1b33a",
+      "title": "Gross Domestic Product",
+      "originalTitle": "Gross Domestic Product",
+      "titleKo": "미국 국내총생산(GDP)",
+      "country": "US",
+      "category": "macro",
+      "importance": "high",
+      "scheduledDate": "2026-12-23",
+      "scheduledAt": "2026-12-23T22:30:00+09:00",
+      "timezone": "Asia/Seoul",
+      "timePrecision": "datetime",
+      "status": "scheduled",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "FRED",
+      "sourceTier": "official_aggregator",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=53",
+      "sourceEventId": "53",
+      "updatedAt": "2026-11-15T00:00:05.949352+00:00",
+      "confidence": "single_source",
+      "sourceRefs": [
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=53",
+          "sourceTier": "official_aggregator"
+        }
+      ]
+    },
+    {
+      "id": "fred-personal-income-and-outlays-2026-12-23-0373125334e6",
+      "title": "Personal Income and Outlays",
+      "originalTitle": "Personal Income and Outlays",
+      "titleKo": "개인소득 및 소비지출",
+      "country": "US",
+      "category": "macro",
+      "importance": "high",
+      "scheduledDate": "2026-12-23",
+      "scheduledAt": "2026-12-23T22:30:00+09:00",
+      "timezone": "Asia/Seoul",
+      "timePrecision": "datetime",
+      "status": "scheduled",
+      "previous": null,
+      "consensus": null,
+      "actual": null,
+      "unit": null,
+      "sourceName": "FRED",
+      "sourceTier": "official_aggregator",
+      "sourceUrl": "https://fred.stlouisfed.org/release?rid=54",
+      "sourceEventId": "54",
+      "updatedAt": "2026-11-15T00:00:05.949358+00:00",
+      "confidence": "single_source",
+      "sourceRefs": [
+        {
+          "sourceName": "FRED",
+          "sourceUrl": "https://fred.stlouisfed.org/release?rid=54",
+          "sourceTier": "official_aggregator"
         }
       ]
     },
@@ -646,7 +1077,7 @@
       "sourceTier": "official_disclosure",
       "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261113802072",
       "sourceEventId": "20261113802072",
-      "updatedAt": "2026-11-14T00:56:25.367505+00:00",
+      "updatedAt": "2026-11-15T00:00:05.949513+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -927,7 +1358,7 @@
       "sourceTier": "official_disclosure",
       "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261113902073",
       "sourceEventId": "20261113902073",
-      "updatedAt": "2026-11-14T00:56:25.367514+00:00",
+      "updatedAt": "2026-11-15T00:00:05.949528+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -958,7 +1389,7 @@
       "sourceTier": "official_disclosure",
       "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261113001696",
       "sourceEventId": "20261113001696",
-      "updatedAt": "2026-11-14T00:56:25.367552+00:00",
+      "updatedAt": "2026-11-15T00:00:05.949592+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -1124,7 +1555,7 @@
       "sourceTier": "official_disclosure",
       "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261113902039",
       "sourceEventId": "20261113902039",
-      "updatedAt": "2026-11-14T00:56:25.367576+00:00",
+      "updatedAt": "2026-11-15T00:00:05.949629+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -1155,7 +1586,7 @@
       "sourceTier": "official_disclosure",
       "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261113902045",
       "sourceEventId": "20261113902045",
-      "updatedAt": "2026-11-14T00:56:25.367614+00:00",
+      "updatedAt": "2026-11-15T00:00:05.949691+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -1196,7 +1627,7 @@
       "sourceTier": "official_disclosure",
       "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261113001677",
       "sourceEventId": "20261113001677",
-      "updatedAt": "2026-11-14T00:56:25.367660+00:00",
+      "updatedAt": "2026-11-15T00:00:05.949767+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -1227,7 +1658,7 @@
       "sourceTier": "official_disclosure",
       "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261113901992",
       "sourceEventId": "20261113901992",
-      "updatedAt": "2026-11-14T00:56:25.367743+00:00",
+      "updatedAt": "2026-11-15T00:00:05.949905+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -1258,7 +1689,7 @@
       "sourceTier": "official_disclosure",
       "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261113000545",
       "sourceEventId": "20261113000545",
-      "updatedAt": "2026-11-14T00:56:25.367748+00:00",
+      "updatedAt": "2026-11-15T00:00:05.949913+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -1289,7 +1720,7 @@
       "sourceTier": "official_disclosure",
       "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261113000567",
       "sourceEventId": "20261113000567",
-      "updatedAt": "2026-11-14T00:56:25.367757+00:00",
+      "updatedAt": "2026-11-15T00:00:05.949928+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -1320,7 +1751,7 @@
       "sourceTier": "official_disclosure",
       "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261113000624",
       "sourceEventId": "20261113000624",
-      "updatedAt": "2026-11-14T00:56:25.367761+00:00",
+      "updatedAt": "2026-11-15T00:00:05.949935+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -1351,7 +1782,7 @@
       "sourceTier": "official_disclosure",
       "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261113000654",
       "sourceEventId": "20261113000654",
-      "updatedAt": "2026-11-14T00:56:25.367765+00:00",
+      "updatedAt": "2026-11-15T00:00:05.949941+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -1382,7 +1813,7 @@
       "sourceTier": "official_disclosure",
       "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261113000751",
       "sourceEventId": "20261113000751",
-      "updatedAt": "2026-11-14T00:56:25.367772+00:00",
+      "updatedAt": "2026-11-15T00:00:05.949954+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -1413,7 +1844,7 @@
       "sourceTier": "official_disclosure",
       "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261113000783",
       "sourceEventId": "20261113000783",
-      "updatedAt": "2026-11-14T00:56:25.367776+00:00",
+      "updatedAt": "2026-11-15T00:00:05.949960+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -1444,7 +1875,7 @@
       "sourceTier": "official_disclosure",
       "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261113000817",
       "sourceEventId": "20261113000817",
-      "updatedAt": "2026-11-14T00:56:25.367779+00:00",
+      "updatedAt": "2026-11-15T00:00:05.949966+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -1475,7 +1906,7 @@
       "sourceTier": "official_disclosure",
       "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261113000927",
       "sourceEventId": "20261113000927",
-      "updatedAt": "2026-11-14T00:56:25.367784+00:00",
+      "updatedAt": "2026-11-15T00:00:05.949974+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -1506,7 +1937,7 @@
       "sourceTier": "official_disclosure",
       "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261113000998",
       "sourceEventId": "20261113000998",
-      "updatedAt": "2026-11-14T00:56:25.367789+00:00",
+      "updatedAt": "2026-11-15T00:00:05.949982+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -1537,7 +1968,7 @@
       "sourceTier": "official_disclosure",
       "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261113001049",
       "sourceEventId": "20261113001049",
-      "updatedAt": "2026-11-14T00:56:25.367802+00:00",
+      "updatedAt": "2026-11-15T00:00:05.950003+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -1568,7 +1999,7 @@
       "sourceTier": "official_disclosure",
       "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261113000460",
       "sourceEventId": "20261113000460",
-      "updatedAt": "2026-11-14T00:56:25.367815+00:00",
+      "updatedAt": "2026-11-15T00:00:05.950024+00:00",
       "confidence": "cross_checked",
       "sourceRefs": [
         {
@@ -1609,7 +2040,7 @@
       "sourceTier": "official_disclosure",
       "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261113001624",
       "sourceEventId": "20261113001624",
-      "updatedAt": "2026-11-14T00:56:25.367901+00:00",
+      "updatedAt": "2026-11-15T00:00:05.950169+00:00",
       "confidence": "single_source",
       "sourceRefs": [
         {
@@ -1640,7 +2071,7 @@
       "sourceTier": "official",
       "sourceUrl": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
       "sourceEventId": null,
-      "updatedAt": "2026-11-14T00:56:25.367917+00:00",
+      "updatedAt": "2026-11-15T00:00:05.950191+00:00",
       "confidence": "confirmed",
       "sourceRefs": [
         {
@@ -1671,7 +2102,7 @@
       "sourceTier": "official",
       "sourceUrl": "https://open.krx.co.kr/contents/MKD/01/0110/01100305/MKD01100305.jsp",
       "sourceEventId": null,
-      "updatedAt": "2026-11-14T00:56:25.367921+00:00",
+      "updatedAt": "2026-11-15T00:00:05.950198+00:00",
       "confidence": "confirmed",
       "sourceRefs": [
         {
@@ -1702,7 +2133,7 @@
       "sourceTier": "official",
       "sourceUrl": "https://www.krx.co.kr/contents/OPN/01/01040202/OPN01040202.jsp",
       "sourceEventId": null,
-      "updatedAt": "2026-11-14T00:56:25.367925+00:00",
+      "updatedAt": "2026-11-15T00:00:05.950204+00:00",
       "confidence": "confirmed",
       "sourceRefs": [
         {
@@ -1733,7 +2164,7 @@
       "sourceTier": "official",
       "sourceUrl": "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/172254/view",
       "sourceEventId": null,
-      "updatedAt": "2026-11-14T00:56:25.367928+00:00",
+      "updatedAt": "2026-11-15T00:00:05.950210+00:00",
       "confidence": "confirmed",
       "sourceRefs": [
         {
@@ -1764,7 +2195,7 @@
       "sourceTier": "official",
       "sourceUrl": "https://www.krx.co.kr/contents/OPN/01/01040201/OPN01040201.jsp",
       "sourceEventId": null,
-      "updatedAt": "2026-11-14T00:56:25.367932+00:00",
+      "updatedAt": "2026-11-15T00:00:05.950216+00:00",
       "confidence": "confirmed",
       "sourceRefs": [
         {
