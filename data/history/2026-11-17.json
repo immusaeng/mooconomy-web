@@ -1,0 +1,208 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-17",
+  "generatedAt": "2026-11-17T06:44:16+09:00",
+  "indicators": [
+    {
+      "id": "kospi",
+      "value": 5100.5,
+      "change": -3.5919,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "kosdaq",
+      "value": 665.65,
+      "change": -4.8609,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "nasdaq",
+      "value": 24509.76,
+      "change": -2.4925,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "sp500",
+      "value": 7416.59,
+      "change": -1.9186,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1335.35,
+      "change": 0.5,
+      "displayMode": "delta",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "us10y",
+      "value": 5.12,
+      "change": -0.03,
+      "displayMode": "delta",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "wti",
+      "value": 85.17,
+      "change": -3.83,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "vix",
+      "value": 22.91,
+      "change": 18.7047,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    }
+  ],
+  "auditIndicators": [
+    {
+      "id": "kospi",
+      "value": 5100.5,
+      "displayMode": "pct"
+    },
+    {
+      "id": "kosdaq",
+      "value": 665.65,
+      "displayMode": "pct"
+    },
+    {
+      "id": "nasdaq",
+      "value": 24509.76,
+      "displayMode": "pct"
+    },
+    {
+      "id": "sp500",
+      "value": 7416.59,
+      "displayMode": "pct"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1335.35,
+      "displayMode": "dual"
+    },
+    {
+      "id": "us10y",
+      "value": 5.12,
+      "displayMode": "delta"
+    },
+    {
+      "id": "wti",
+      "value": 85.17,
+      "displayMode": "pct"
+    },
+    {
+      "id": "vix",
+      "value": 22.91,
+      "displayMode": "pct"
+    },
+    {
+      "id": "gold",
+      "value": 3856.6,
+      "displayMode": "pct"
+    },
+    {
+      "id": "dollarindex",
+      "value": 103.59,
+      "displayMode": "pct"
+    },
+    {
+      "id": "brent",
+      "value": 91.96,
+      "displayMode": "pct"
+    },
+    {
+      "id": "dow",
+      "value": 51608.17,
+      "displayMode": "pct"
+    },
+    {
+      "id": "nikkei",
+      "value": 61142.35,
+      "displayMode": "pct"
+    },
+    {
+      "id": "shanghai",
+      "value": 3634.35,
+      "displayMode": "pct"
+    }
+  ],
+  "signals": [
+    {
+      "id": "recession",
+      "color": "green",
+      "value": 0.27
+    },
+    {
+      "id": "rate-gap",
+      "color": "green",
+      "value": 1.0
+    },
+    {
+      "id": "liquidity-stress",
+      "color": "green",
+      "value": 3.23
+    }
+  ],
+  "calendarSnapshot": [
+    {
+      "id": "us-earn-2026-11-17-엔비디아",
+      "time": "2026-11-17",
+      "country": "US",
+      "title": "엔비디아 실적발표",
+      "importance": "medium"
+    }
+  ],
+  "marketTemperature": {
+    "label": "risk_off",
+    "displayLabel": "위험회피",
+    "status": "ok"
+  },
+  "connectionTopology": "DELTA_MODEL_V1",
+  "driverClaims": [
+    "엔비디아 악재 및 AI 기술주 매도세가 지수 급락을 주도",
+    "외국인과 기관의 동반 대량 매도가 코스피 수급 기반을 약화"
+  ],
+  "krMarketClosed": false,
+  "weeklyEvents": {
+    "weekStart": "2026-11-16",
+    "source": "calendar_events.json",
+    "events": [
+      {
+        "id": "kr-earn-2026-11-18-삼성전자",
+        "date": "2026-11-18",
+        "us_date": null,
+        "at": "2026-11-18T13:00:00+09:00",
+        "country": "KR",
+        "importance": "medium",
+        "category": "earnings",
+        "title": "삼성전자 3분기 실적 · 오후 1시",
+        "ord": 0
+      },
+      {
+        "id": "us-earn-2026-11-17-엔비디아",
+        "date": "2026-11-18",
+        "us_date": "2026-11-17",
+        "at": null,
+        "country": "US",
+        "importance": "medium",
+        "category": "earnings",
+        "title": "엔비디아 실적 · 새벽 발표",
+        "ord": 0
+      }
+    ]
+  }
+}

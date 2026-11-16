@@ -1,0 +1,242 @@
+{
+  "schema_version": "normalized-daily-issue/v1",
+  "edition_id": "2026-11-17",
+  "edition_date_kst": "2026-11-17",
+  "canonical_status": "production",
+  "production_status": "SEND_CONFIRMED",
+  "source_commit_sha": "d7c9a661e676e4b9181c7ae0480874e767f94316",
+  "subject": "코스닥 4.86% 급락…외국인이 더 팔았고 개인만 샀다",
+  "preheader": "엔비디아 실적 결과에 따른 글로벌 기술주 추가 변동성 위험",
+  "thesis": {
+    "headline": "코스닥 4.86% 급락…외국인이 더 팔았고 개인만 샀다",
+    "three_signals": [
+      "간밤 미국 증시는 엔비디아 사임 여파와 칩 섹터 매도세로 일제히 하락했습니다.",
+      "지난 거래일 코스피는 외국인과 기관의 동반 매도 속에 하락했습니다.",
+      "중동 원유 수출 회복으로 국제 유가는 배럴당 85달러 선으로 내렸습니다."
+    ]
+  },
+  "main_story": {
+    "headline": "엔비디아 사임 여파에 AI주 매도세 심화",
+    "verified_fact": "엔비디아 CEO 이슈 및 생태계 자금 지원 축소 우려로 마이크론, AMD 등 반도체 전반의 매도세가 거세졌습니다. 투자자들은 다가오는 실적 발표에 촉각을 세우고 있습니다.",
+    "why_it_matters": null,
+    "sources": []
+  },
+  "entities": [
+    {
+      "name": "코스닥",
+      "type": "index"
+    },
+    {
+      "name": "금",
+      "type": "commodity"
+    }
+  ],
+  "metrics": [
+    {
+      "id": "kospi",
+      "value": 5100.5,
+      "change": -3.5919,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "kosdaq",
+      "value": 665.65,
+      "change": -4.8609,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "nasdaq",
+      "value": 24509.76,
+      "change": -2.4925,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "sp500",
+      "value": 7416.59,
+      "change": -1.9186,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1335.35,
+      "change": 0.5,
+      "displayMode": "delta",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "us10y",
+      "value": 5.12,
+      "change": -0.03,
+      "displayMode": "delta",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "wti",
+      "value": 85.17,
+      "change": -3.83,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "vix",
+      "value": 22.91,
+      "change": 18.7047,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    }
+  ],
+  "market_changes": [
+    {
+      "id": "kospi",
+      "change": -3.5919,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "kosdaq",
+      "change": -4.8609,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "nasdaq",
+      "change": -2.4925,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "sp500",
+      "change": -1.9186,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "usdkrw",
+      "change": 0.5,
+      "changeUnit": "원",
+      "direction": "up"
+    },
+    {
+      "id": "us10y",
+      "change": -0.03,
+      "changeUnit": "%p",
+      "direction": "down"
+    },
+    {
+      "id": "wti",
+      "change": -3.83,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "vix",
+      "change": 18.7047,
+      "changeUnit": "%",
+      "direction": "up"
+    }
+  ],
+  "narratives": {
+    "moo_view": "예상과 달리 코스피는 외국인과 기관의 동반 매도 속에 하락세를 이어갔습니다. 간밤 미국 증시에서 엔비디아 CEO 이슈와 AI 생태계 자금 지원 축소 우려가 불거지며 기술주 전반에 매도세가 심화되었고, 이것이 국내 위험회피 심리로 전이되어 지수의 큰 폭 하락을 유발한 것으로 풀이됩니다.\n\n지수별로는 코스피와 코스닥이 동반 약세를 보인 가운데 수급 주체별로 차별화가 형성되었습니다. 코스피와 코스닥 시장 모두에서 외국인과 기관이 동반 매도를 주도하며 하방 압력을 가한 반면, 개인은 홀로 순매수 조를 형성하며 물량을 받아내는 방어적 태도를 취했습니다. 업종별로는 전자장비와기기, 반도체와반도체장비 등 기술주 관련 업종이 하락세를 이끈 반면, 항공사 등 일부 업종은 유가 하락 호재 속에 상대적 강세를 나타냈습니다.\n\n외국인의 기술주 매도세가 진정되고 AI 기업들의 다가오는 실적 발표에서 긍정적 결과가 확인된다면 증시의 분위기 반전을 기대할 수 있으나, AI 칩 생태계의 불확실성이 장기화된다면 투자심리 위축에 따른 하방 압력이 이어질 수 있습니다.\n\n다만 중동 원유 수출 회복에 따른 유가 안정세가 지정학적 리스크 완화 신호로 해석되어 하방을 지지하는 요인으로 작용할 가능성도 존재합니다.\n\n다음 거래일에는 다가오는 주요 반도체 기업들의 실적 발표 내용과 함께 코스피 외국인 수급의 매도세 완화 여부를 집중적으로 점검할 필요가 있습니다.",
+    "todays_watch": [
+      "엔비디아 CEO 이슈 및 생태계 자금 지원 축소 우려 속 다가오는 주요 반도체 기업 실적 발표",
+      "코스피 시장 내 외국인의 13,287억 원 규모 순매도세 전환 여부",
+      "중동 원유 수출 회복으로 인한 유가 85.17달러 하락 추세 유지 여부"
+    ],
+    "todays_watch_oneliner": "AI 생태계 불확실성에 따른 기술주 심리 위축이 지수 하락을 이끌며 실적 발표 및 수급 전환이 향후 향방을 결정할 요소입니다.",
+    "content_status": "GENERATED_REPAIRED"
+  },
+  "moo_q": {
+    "claim_id": "2026-11-17-c1",
+    "claim_text": "외국인 매도 흐름이 이어지는 가운데 원/달러가 오를까요?",
+    "topic": "원/달러 다음 거래일 방향(flow_fx)",
+    "resolution_at": "2026-11-18",
+    "status": "unresolved"
+  },
+  "moo_check": [
+    {
+      "previous_claim": "공급 불안이 이어지는 가운데 WTI가 오를까요?",
+      "claim_date": "2026-11-14",
+      "evaluation_date": "2026-11-17T06:44:01+09:00",
+      "observed_result": "실제 변화가 예상한 상승 방향과 다르게 움직였습니다.",
+      "verdict": "MISS",
+      "evidence": "89.17 → 85.17 (-4.49%)",
+      "source": "FinanceDataReader"
+    }
+  ],
+  "moo_word": {
+    "id": "open_금융배출량",
+    "term": "금융배출량",
+    "definition": "금융배출량은 금융회사가 투자와 대출 등 자금을 공급하는 기업이나 사업의 온실가스 배출량을 간접적으로 산정한 양이며, 금융기관의 포트폴리오가 기후 변화에 미치는 영향을 측정하여 저탄소 경제로의 전환을 유도하는 지표이다.",
+    "why_today": "국내 은행의 금융배출량이 탄소 감축 목표 달성에 필요한 경로상의 목표치를 10% 가까이 웃돌면서 은행권의 탄소 감축 속도 둔화 현상이 나타났다.",
+    "memory_hook": null,
+    "source_label": "연합뉴스",
+    "article_id": "news_7",
+    "article_url": "https://www.yna.co.kr/view/AKR20261116154400002",
+    "article_publisher": "연합뉴스",
+    "evidence_snippets": [
+      "은행권 탄소 감축 속도 둔화…금융배출량 목표치 9% 초과."
+    ],
+    "definition_source_name": null,
+    "definition_source_url": null,
+    "definition_priority": "P2_SOURCES_PARTIAL",
+    "origin": "llm_proposed",
+    "grounded_in_article": true,
+    "definition_evidence_verified": true,
+    "status": "ELIGIBLE_FOR_PUBLICATION",
+    "eligible_for_publication": true
+  },
+  "sources": [
+    {
+      "source_name": "매일경제",
+      "source_url": "https://www.mk.co.kr/news/economy/12210636",
+      "published_at": "2026-11-17",
+      "source_headline": "억지로 눌러놓은 기름값, 청구서 날아왔다…정유사 “손실, 정부 계산의 5배”"
+    },
+    {
+      "source_name": "매일경제",
+      "source_url": "https://www.mk.co.kr/news/economy/12210635",
+      "published_at": "2026-11-17",
+      "source_headline": "새출발할 수 있게 빚 깎아줬는데…소상공인 상환율 ‘절반 수준’으로 추락"
+    },
+    {
+      "source_name": "머니투데이",
+      "source_url": "https://www.mt.co.kr/finance/2026/11/17/2026111622395971332",
+      "published_at": "2026-11-17",
+      "source_headline": "'한 지붕 두 은행'에 생산성 발목…'지역 중기 돈줄' 지방은행 살 길은"
+    },
+    {
+      "source_name": "CNBC",
+      "source_url": "https://www.cnbc.com/2026/11/16/us-crude-oil-declines-to-87-a-barrel-on-recovering-middle-east-exports.html",
+      "published_at": "2026-11-16",
+      "source_headline": "U.S. crude oil declines to $85 a barrel on recovering Middle East exports"
+    },
+    {
+      "source_name": "Investing",
+      "source_url": "https://www.investing.com/news/economy-news/feds-hammack-backs-gradual-rate-hikes-flags-risk-of-bigger-moves--bloomberg-tv-5030794",
+      "published_at": "2026-11-16",
+      "source_headline": "Fed’s Hammack backs gradual rate hikes, flags risk of bigger moves - Bloomberg TV"
+    }
+  ],
+  "public_url": "https://mooconomy.co.kr/latest-email.html",
+  "validation_status": {
+    "main_story_status": "SELECTED",
+    "content_provenance": "VALIDATED_GEMINI_36",
+    "moo_word_present": true,
+    "sources_count": 5,
+    "is_approximate": false
+  },
+  "content_hash": "47b612698c77a89f4cc3367e75fdbc664432ded8df1e3fe8ac3f416b64034ea4",
+  "archived_at": "2026-11-16T21:48:36.940121+00:00"
+}
