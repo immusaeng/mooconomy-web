@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-17T06:44:16+09:00",
+  "updatedAt": "2026-11-18T06:55:35+09:00",
   "claims": {
     "2026-07-19-c1": {
       "schemaVersion": 1,
@@ -4979,7 +4979,7 @@
       },
       "thresholdRuleId": "pct_020",
       "confidence": null,
-      "status": "unresolved",
+      "status": "neutral",
       "revision": {
         "version": 1,
         "contentHash": "6c4073091740e093280df567ee5f284254edfb26fdcf53aef8257bfca8efe659",
@@ -4990,6 +4990,66 @@
         "asOf": "2026-11-16",
         "benchmarkValue": null,
         "benchmarkAsOf": null
+      },
+      "resolution": {
+        "resolutionId": "2026-11-17-c1-res",
+        "claimId": "2026-11-17-c1",
+        "resolvedAt": "2026-11-18T06:55:21+09:00",
+        "verdict": "neutral",
+        "metricId": "usdkrw",
+        "comparisonType": "absolute_return",
+        "startValue": 1335.35,
+        "endValue": 1334.35,
+        "changeValue": -0.07488673381510466,
+        "changeUnit": "%",
+        "benchmarkMetricId": null,
+        "benchmarkStartValue": null,
+        "benchmarkEndValue": null,
+        "neutralLower": -0.2,
+        "neutralUpper": 0.2,
+        "neutralBand": 0.2,
+        "dataProvider": "FinanceDataReader",
+        "sourceUrl": "",
+        "observedAt": "2026-11-17",
+        "explanation": "변화폭이 중립 구간(±0.2%) 이내에 머물러 뚜렷한 방향이 나타나지 않았습니다."
+      }
+    },
+    "2026-11-18-c1": {
+      "schemaVersion": 1,
+      "claimId": "2026-11-18-c1",
+      "publicationId": "2026-11-18",
+      "issuedAt": "2026-11-18T06:55:35+09:00",
+      "dataCutoffAt": "2026-11-18T06:55:35+09:00",
+      "lockedAt": "2026-11-18T06:55:35+09:00",
+      "claimMode": "auto",
+      "verificationType": "proxy",
+      "topic": "코스피 vs 나스닥 상대성과",
+      "sourceNewsIds": [],
+      "observationText": "코스피는 전일 대비 -2.59%, 나스닥은 -0.74% — 상대 괴리 -1.85%p.",
+      "interpretationText": "외국인 순매도 흐름 속에서 이 상대적 괴리가 다음 거래일까지 이어지는지가 확인 대상입니다.",
+      "claimText": "외국인 순매도 흐름 속에서 코스피가 나스닥 대비 약세를 이어갈까요?",
+      "metricId": "kospi",
+      "benchmarkMetricId": "nasdaq",
+      "comparisonType": "excess_return",
+      "expectedDirection": "down",
+      "horizon": {
+        "type": "next_close",
+        "market": "KR",
+        "resolutionAt": "2026-11-19"
+      },
+      "thresholdRuleId": "pct_030",
+      "confidence": null,
+      "status": "unresolved",
+      "revision": {
+        "version": 1,
+        "contentHash": "fef96d75cb296279ae46d451de2f87b49d4a0c22f64884e71e7fc6e2aed98fb0",
+        "correctedFrom": null
+      },
+      "baseline": {
+        "value": 4968.48,
+        "asOf": "2026-11-17",
+        "benchmarkValue": 24328.38,
+        "benchmarkAsOf": "2026-11-17"
       },
       "resolution": null
     }

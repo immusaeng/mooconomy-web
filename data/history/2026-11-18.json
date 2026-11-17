@@ -1,0 +1,205 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-18",
+  "generatedAt": "2026-11-18T06:55:35+09:00",
+  "indicators": [
+    {
+      "id": "kospi",
+      "value": 4968.48,
+      "change": -2.5884,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "kosdaq",
+      "value": 650.06,
+      "change": -2.3421,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "nasdaq",
+      "value": 24328.38,
+      "change": -0.74,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "sp500",
+      "value": 7340.53,
+      "change": -1.0255,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1334.35,
+      "change": -1.0,
+      "displayMode": "delta",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "us10y",
+      "value": 5.1,
+      "change": -0.02,
+      "displayMode": "delta",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "wti",
+      "value": 85.56,
+      "change": -0.19,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "vix",
+      "value": 25.46,
+      "change": 11.1305,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    }
+  ],
+  "auditIndicators": [
+    {
+      "id": "kospi",
+      "value": 4968.48,
+      "displayMode": "pct"
+    },
+    {
+      "id": "kosdaq",
+      "value": 650.06,
+      "displayMode": "pct"
+    },
+    {
+      "id": "nasdaq",
+      "value": 24328.38,
+      "displayMode": "pct"
+    },
+    {
+      "id": "sp500",
+      "value": 7340.53,
+      "displayMode": "pct"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1334.35,
+      "displayMode": "dual"
+    },
+    {
+      "id": "us10y",
+      "value": 5.1,
+      "displayMode": "delta"
+    },
+    {
+      "id": "wti",
+      "value": 85.56,
+      "displayMode": "pct"
+    },
+    {
+      "id": "vix",
+      "value": 25.46,
+      "displayMode": "pct"
+    },
+    {
+      "id": "gold",
+      "value": 3856.6,
+      "displayMode": "pct"
+    },
+    {
+      "id": "dollarindex",
+      "value": 103.55,
+      "displayMode": "pct"
+    },
+    {
+      "id": "brent",
+      "value": 92.88,
+      "displayMode": "pct"
+    },
+    {
+      "id": "dow",
+      "value": 50759.42,
+      "displayMode": "pct"
+    },
+    {
+      "id": "nikkei",
+      "value": 59662.02,
+      "displayMode": "pct"
+    },
+    {
+      "id": "shanghai",
+      "value": 3602.57,
+      "displayMode": "pct"
+    }
+  ],
+  "signals": [
+    {
+      "id": "recession",
+      "color": "green",
+      "value": 0.29
+    },
+    {
+      "id": "rate-gap",
+      "color": "green",
+      "value": 1.0
+    },
+    {
+      "id": "liquidity-stress",
+      "color": "green",
+      "value": 3.34
+    }
+  ],
+  "calendarSnapshot": [
+    {
+      "id": "us-2026-11-25-미국 개인소득·지출(PCE)",
+      "time": "2026-11-25",
+      "country": "US",
+      "title": "미국 개인소득·지출(PCE)",
+      "importance": "high"
+    }
+  ],
+  "marketTemperature": {
+    "label": "risk_off",
+    "displayLabel": "위험회피",
+    "status": "ok"
+  },
+  "connectionTopology": "DELTA_MODEL_V1",
+  "driverClaims": [],
+  "krMarketClosed": false,
+  "weeklyEvents": {
+    "weekStart": "2026-11-16",
+    "source": "calendar_events.json",
+    "events": [
+      {
+        "id": "kr-earn-2026-11-18-삼성전자",
+        "date": "2026-11-18",
+        "us_date": null,
+        "at": "2026-11-18T13:00:00+09:00",
+        "country": "KR",
+        "importance": "medium",
+        "category": "earnings",
+        "title": "삼성전자 3분기 실적 · 오후 1시",
+        "ord": 0
+      },
+      {
+        "id": "us-earn-2026-11-17-엔비디아",
+        "date": "2026-11-18",
+        "us_date": "2026-11-17",
+        "at": null,
+        "country": "US",
+        "importance": "medium",
+        "category": "earnings",
+        "title": "엔비디아 실적 · 새벽 발표",
+        "ord": 0
+      }
+    ]
+  }
+}
