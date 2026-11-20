@@ -1,0 +1,210 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-21",
+  "generatedAt": "2026-11-21T06:43:38+09:00",
+  "indicators": [
+    {
+      "id": "kospi",
+      "value": 4869.96,
+      "change": -5.2148,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "kosdaq",
+      "value": 645.68,
+      "change": -5.714,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "nasdaq",
+      "value": 22617.73,
+      "change": -5.2827,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "sp500",
+      "value": 6910.39,
+      "change": -3.6991,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1345.94,
+      "change": 12.05,
+      "displayMode": "delta",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "us10y",
+      "value": 4.91,
+      "change": -0.14,
+      "displayMode": "delta",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "wti",
+      "value": 83.73,
+      "change": 0.637,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "vix",
+      "value": 35.89,
+      "change": 26.1955,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    }
+  ],
+  "auditIndicators": [
+    {
+      "id": "kospi",
+      "value": 4869.96,
+      "displayMode": "pct"
+    },
+    {
+      "id": "kosdaq",
+      "value": 645.68,
+      "displayMode": "pct"
+    },
+    {
+      "id": "nasdaq",
+      "value": 22617.73,
+      "displayMode": "pct"
+    },
+    {
+      "id": "sp500",
+      "value": 6910.39,
+      "displayMode": "pct"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1345.94,
+      "displayMode": "dual"
+    },
+    {
+      "id": "us10y",
+      "value": 4.91,
+      "displayMode": "delta"
+    },
+    {
+      "id": "wti",
+      "value": 83.73,
+      "displayMode": "pct"
+    },
+    {
+      "id": "vix",
+      "value": 35.89,
+      "displayMode": "pct"
+    },
+    {
+      "id": "gold",
+      "value": 3523.4,
+      "displayMode": "pct"
+    },
+    {
+      "id": "dollarindex",
+      "value": 103.9,
+      "displayMode": "pct"
+    },
+    {
+      "id": "brent",
+      "value": 90.03,
+      "displayMode": "pct"
+    },
+    {
+      "id": "dow",
+      "value": 48147.33,
+      "displayMode": "pct"
+    },
+    {
+      "id": "nikkei",
+      "value": 59444.21,
+      "displayMode": "pct"
+    },
+    {
+      "id": "shanghai",
+      "value": 3577.62,
+      "displayMode": "pct"
+    }
+  ],
+  "signals": [
+    {
+      "id": "recession",
+      "color": "green",
+      "value": 0.28
+    },
+    {
+      "id": "liquidity-stress",
+      "color": "green",
+      "value": 3.52
+    }
+  ],
+  "calendarSnapshot": [
+    {
+      "id": "us-2026-11-25-미국 GDP",
+      "time": "2026-11-25",
+      "country": "US",
+      "title": "미국 GDP",
+      "importance": "high"
+    },
+    {
+      "id": "us-2026-11-25-미국 개인소득·지출(PCE)",
+      "time": "2026-11-25",
+      "country": "US",
+      "title": "미국 개인소득·지출(PCE)",
+      "importance": "high"
+    }
+  ],
+  "marketTemperature": {
+    "label": "risk_off",
+    "displayLabel": "위험회피",
+    "status": "ok"
+  },
+  "connectionTopology": "DELTA_MODEL_V1",
+  "driverClaims": [
+    "미국 AI 주가 폭락 및 회계 조사 악재로 기술주 심리 악화",
+    "외국인 매도세와 환율 상승이 국내 지수 급락 자극"
+  ],
+  "krMarketClosed": false,
+  "weeklyEvents": {
+    "weekStart": "2026-11-16",
+    "source": "calendar_events.json",
+    "events": [
+      {
+        "id": "kr-earn-2026-11-18-삼성전자",
+        "date": "2026-11-18",
+        "us_date": null,
+        "at": "2026-11-18T13:00:00+09:00",
+        "country": "KR",
+        "importance": "medium",
+        "category": "earnings",
+        "title": "삼성전자 3분기 실적 · 오후 1시",
+        "ord": 0
+      },
+      {
+        "id": "us-earn-2026-11-17-엔비디아",
+        "date": "2026-11-18",
+        "us_date": "2026-11-17",
+        "at": null,
+        "country": "US",
+        "importance": "medium",
+        "category": "earnings",
+        "title": "엔비디아 실적 · 새벽 발표",
+        "ord": 0
+      }
+    ]
+  }
+}
