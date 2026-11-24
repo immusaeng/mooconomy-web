@@ -1,0 +1,260 @@
+{
+  "schema_version": "normalized-daily-issue/v1",
+  "edition_id": "2026-11-25",
+  "edition_date_kst": "2026-11-25",
+  "canonical_status": "production",
+  "production_status": "SEND_CONFIRMED",
+  "source_commit_sha": "ade3f7e35803a2b22336d4b2fa30696c3fefc7cc",
+  "subject": "코스피 6%대 급등…미국 반도체 약세 속 반전의 전말",
+  "preheader": "미국 반도체주 가격 조정에 따른 국내 IT 대형주 외국인 수급 변동성 확대",
+  "thesis": {
+    "headline": "코스피 6%대 급등…미국 반도체 약세 속 반전의 전말",
+    "three_signals": [
+      "미국 반도체주 약세로 나스닥과 엔비디아가 급락했습니다.",
+      "지난 거래일(11-24) 코스피는 외국인·기관 순매수로 6.32% 급등했습니다.",
+      "오늘은 미국 PCE 물가지표 발표가 주요 관전포인트입니다."
+    ]
+  },
+  "main_story": {
+    "headline": "디지털자산업법 정부안 공개",
+    "verified_fact": "금융위원회가 은행 중심 컨소시엄의 원화 스테이블코인 발행을 허용하는 디지털자산업법 정부안을 발표했습니다. 가상자산거래소 대주주 지분율을 원칙적으로 20%로 제한하는 등 거래소 규제 문턱은 높아질 전망입니다.",
+    "why_it_matters": null,
+    "sources": []
+  },
+  "entities": [
+    {
+      "name": "코스피",
+      "type": "index"
+    },
+    {
+      "name": "금",
+      "type": "commodity"
+    }
+  ],
+  "metrics": [
+    {
+      "id": "kospi",
+      "value": 5006.03,
+      "change": 6.3181,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "kosdaq",
+      "value": 665.88,
+      "change": 4.7887,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "nasdaq",
+      "value": 23733.54,
+      "change": -1.4779,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "sp500",
+      "value": 7201.09,
+      "change": -0.4985,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1340.32,
+      "change": -0.24,
+      "displayMode": "delta",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "us10y",
+      "value": 4.9,
+      "change": -0.02,
+      "displayMode": "delta",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "wti",
+      "value": 81.5,
+      "change": 1.507,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "vix",
+      "value": 26.36,
+      "change": -0.9767,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    }
+  ],
+  "market_changes": [
+    {
+      "id": "kospi",
+      "change": 6.3181,
+      "changeUnit": "%",
+      "direction": "up"
+    },
+    {
+      "id": "kosdaq",
+      "change": 4.7887,
+      "changeUnit": "%",
+      "direction": "up"
+    },
+    {
+      "id": "nasdaq",
+      "change": -1.4779,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "sp500",
+      "change": -0.4985,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "usdkrw",
+      "change": -0.24,
+      "changeUnit": "원",
+      "direction": "down"
+    },
+    {
+      "id": "us10y",
+      "change": -0.02,
+      "changeUnit": "%p",
+      "direction": "down"
+    },
+    {
+      "id": "wti",
+      "change": 1.507,
+      "changeUnit": "%",
+      "direction": "up"
+    },
+    {
+      "id": "vix",
+      "change": -0.9767,
+      "changeUnit": "%",
+      "direction": "down"
+    }
+  ],
+  "narratives": {
+    "moo_view": "예상과 달리 코스피는 외국인과 기관이 8,000억 원 이상의 매수 우위를 보이며 반등에 성공했습니다. 미 증시에서 엔비디아 급락으로 나스닥이 조정을 받았음에도, 국내 증시는 수급 유입에 힘입어 뚜렷한 상방 압력을 받았습니다. 다만 공모가를 하회한 앤스로픽 등 글로벌 AI 기업의 변동성은 여전히 국내 기술주 심리에 부담을 줄 수 있습니다.\n\n국내 증시는 개인의 매도 물량을 외국인과 기관이 함께 받아내며 상승 흐름을 이끌었습니다. 업종별로는 전자제품과 자동차부품이 상승세를 주도한 반면, 생물공학 및 다각화된소비자서비스는 하락하며 업종 간 차별화가 뚜렷했습니다.\n\n한편 미 기술주 약세에도 불구하고 국내 반도체 관련 업종으로의 자금 유입이 지속된다면 지수의 하방 경직성이 강화될 것이나, 글로벌 시장의 수급 불안이 장기화될 경우 국내 증시 역시 재차 하락 압력을 받을 수 있습니다.\n\n해외 악재에도 불구하고 국내 대형 IT 주도로 추가 상승세를 이어갈 것이라는 낙관적 전망도 존재합니다. 그러나 기업 체감경기가 한 달 만에 하락세로 돌아선 점은 펀더멘털 측면에서 부담 요인입니다.\n\n향후 증시는 외국인 수급의 지속성 여부와 함께 미 기술주 약세 여파가 국내 관련 섹터로 확산되는지 모니터링할 필요가 있습니다.",
+    "todays_watch": [
+      "엔비디아 급락에 따른 미 반도체 지수 및 국내 관련 업종 영향",
+      "델 실적 호조 및 자사주 매입 발표 이후 AI 서버 관련 투자 심리 유지 여부",
+      "앤스로픽 공모가 하회 이후 글로벌 대형 AI IPO 시장의 수급 변화"
+    ],
+    "todays_watch_oneliner": "미 반도체주 약세 전환 속 국내 외국인·기관 수급 지속성이 향후 방향성을 결정할 전망입니다.",
+    "content_status": "GENERATED_REPAIRED"
+  },
+  "moo_q": {
+    "claim_id": "2026-11-25-c1",
+    "claim_text": "PCE 발표 뒤 미국채10년이 하락세를 이어갈까요?",
+    "topic": "미국채10년 다음 거래일 방향(calendar)",
+    "resolution_at": "2026-11-26",
+    "status": "unresolved"
+  },
+  "moo_check": [
+    {
+      "previous_claim": "GDP 발표를 앞두고 코스피가 코스닥 대비 약세를 이어갈까요?",
+      "claim_date": "2026-11-24",
+      "evaluation_date": "2026-11-25T06:42:54+09:00",
+      "observed_result": "실제 변화가 예상한 하락 방향과 다르게 움직였습니다.",
+      "verdict": "MISS",
+      "evidence": "코스피 4708.54→5006.03 (+6.32%) · 코스닥 635.45→665.88 (+4.79%) · 상대 +1.53%p",
+      "source": "KRX"
+    }
+  ],
+  "moo_word": {
+    "id": "open_스테이블코인",
+    "term": "스테이블코인",
+    "definition": "스테이블코인은 가격 변동성을 최소화하기 위해 미국 달러화 등의 법정화폐와 가치가 1대1로 연동되도록 설계된 암호화폐이며, 가상자산 시장에서 자금의 이동과 거래를 안정적으로 수행하는 교환의 매개체로 작동한다.",
+    "why_today": "금융위원회가 은행 중심 컨소시엄부터 원화 스테이블코인 발행을 허용하고 가상자산거래소 대주주 지분율을 원칙적으로 20%, 최대 34%로 제한하는 내용의 디지털자산업법 정부안을 발표했다.",
+    "memory_hook": null,
+    "source_label": "머니투데이",
+    "article_id": "news_5",
+    "article_url": "https://www.mt.co.kr/stock/2026/11/25/2026112420193368192",
+    "article_publisher": "머니투데이",
+    "evidence_snippets": [
+      "['디지털자산업법' 정부안 공개] (종합) 금융위원회가 은행 중심 컨소시엄부터 원화 스테이블코인 발행을 허용하고 가상자산거래소 대주주 지분율을 원칙적으로 20%, 최대 34%로 제한하는 내용의 디지털자산업법 정부안을 발표했다."
+    ],
+    "definition_source_name": null,
+    "definition_source_url": null,
+    "definition_priority": "P2_SOURCES_PARTIAL",
+    "origin": "llm_proposed",
+    "grounded_in_article": true,
+    "definition_evidence_verified": true,
+    "status": "ELIGIBLE_FOR_PUBLICATION",
+    "eligible_for_publication": true
+  },
+  "sources": [
+    {
+      "source_name": "머니투데이",
+      "source_url": "https://www.mt.co.kr/economy/2026/11/25/2026112416264988424",
+      "published_at": "2026-11-25",
+      "source_headline": "내수 부진이 최대 고민이라는데…4년 반 만에 웃은 내수기업"
+    },
+    {
+      "source_name": "파이낸셜뉴스",
+      "source_url": "https://www.fnnews.com/news/202611241637495810",
+      "published_at": "2026-11-25",
+      "source_headline": "재고 늘고 비용 올라..11월 기업 체감경기 한 달 만에 꺾였다"
+    },
+    {
+      "source_name": "연합뉴스",
+      "source_url": "https://www.yna.co.kr/view/AKR20261124166800003",
+      "published_at": "2026-11-25",
+      "source_headline": "EU 재생원료 사용 의무화 확대되는데…수출기업 43% \"내용 몰라\""
+    },
+    {
+      "source_name": "CNBC",
+      "source_url": "https://www.cnbc.com/2026/11/24/nvidia-stock-jensen-huang-return.html",
+      "published_at": "2026-11-24",
+      "source_headline": "Nvidia shares fall more than 5% as Huang comeback rally cools"
+    },
+    {
+      "source_name": "연합뉴스마켓",
+      "source_url": "https://www.yna.co.kr/view/AKR20261125012700009",
+      "published_at": "2026-11-25",
+      "source_headline": "'젠슨황 효과' 의문에 美증시 반도체지수 8% 급반락"
+    },
+    {
+      "source_name": "Investing",
+      "source_url": "https://www.investing.com/news/economy-news/anthropic-breaks-below-83-ipo-price-as-debut-rally-unravels-5047654",
+      "published_at": "2026-11-24",
+      "source_headline": "Anthropic shares tumble below $83 IPO price, on track to lose nearly $200 billion in value"
+    },
+    {
+      "source_name": "한국경제",
+      "source_url": "https://www.hankyung.com/article/202611258064i",
+      "published_at": "2026-11-25",
+      "source_headline": "사상 최대 IPO 앤스로픽,며칠새 공모가 붕괴…월가는 여전히 '매수'"
+    },
+    {
+      "source_name": "CNBC",
+      "source_url": "https://www.cnbc.com/2026/11/24/dell-earnings-report-q3-2027.html",
+      "published_at": "2026-11-24",
+      "source_headline": "Dell earnings beat on AI strength, company authorizes $25 billion buyback"
+    }
+  ],
+  "public_url": "https://mooconomy.co.kr/latest-email.html",
+  "validation_status": {
+    "main_story_status": "SELECTED",
+    "content_provenance": "VALIDATED_GEMINI_36",
+    "moo_word_present": true,
+    "sources_count": 8,
+    "is_approximate": false
+  },
+  "content_hash": "98f08214d85d00551e624f6ee944be34115f34801bb63c07a17abfe3e96929bd",
+  "archived_at": "2026-11-24T21:46:00.448135+00:00"
+}
