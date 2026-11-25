@@ -1,0 +1,242 @@
+{
+  "schema_version": "normalized-daily-issue/v1",
+  "edition_id": "2026-11-26",
+  "edition_date_kst": "2026-11-26",
+  "canonical_status": "production",
+  "production_status": "SEND_CONFIRMED",
+  "source_commit_sha": "ade3f7e35803a2b22336d4b2fa30696c3fefc7cc",
+  "subject": "코스피 6.16% 급락…개인이 더 샀고 외국인만 팔았다",
+  "preheader": "S&P500 하락 흐름 이어질지 주목",
+  "thesis": {
+    "headline": "코스피 6.16% 급락…개인이 더 샀고 외국인만 팔았다",
+    "three_signals": [
+      "간밤 미국 증시는 기술주 매도세와 관세 우려로 하락세를 나타냈습니다.",
+      "코스피는 외국인의 대규모 순매도에 6% 넘게 하락했습니다.",
+      "코스피에서는 개인이 순매수에 나섰으나 외국인의 대규모 매도세가 지수를 압박했습니다."
+    ]
+  },
+  "main_story": {
+    "headline": "美 관세 압박 재확인",
+    "verified_fact": "미국 무역대표부(USTR)가 과잉생산 관세 조사 결과를 발표하며 한국의 전략산업 육성 정책 등을 지적했고, 한미 무역 합의에 따라 관세를 최대 15%로 제한하되 향후 25%까지 올릴 수 있다는 여지를 남겼다.",
+    "why_it_matters": null,
+    "sources": []
+  },
+  "entities": [
+    {
+      "name": "코스피",
+      "type": "index"
+    },
+    {
+      "name": "S&P500",
+      "type": "index"
+    }
+  ],
+  "metrics": [
+    {
+      "id": "kospi",
+      "value": 4697.51,
+      "change": -6.163,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "kosdaq",
+      "value": 650.64,
+      "change": -2.2887,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "nasdaq",
+      "value": 23585.8,
+      "change": -0.6225,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "sp500",
+      "value": 7182.78,
+      "change": -0.2543,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1343.88,
+      "change": 3.56,
+      "displayMode": "delta",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "us10y",
+      "value": 4.85,
+      "change": -0.05,
+      "displayMode": "delta",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "wti",
+      "value": 84.14,
+      "change": 2.55,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "vix",
+      "value": 28.29,
+      "change": 7.3217,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    }
+  ],
+  "market_changes": [
+    {
+      "id": "kospi",
+      "change": -6.163,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "kosdaq",
+      "change": -2.2887,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "nasdaq",
+      "change": -0.6225,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "sp500",
+      "change": -0.2543,
+      "changeUnit": "%",
+      "direction": "down"
+    },
+    {
+      "id": "usdkrw",
+      "change": 3.56,
+      "changeUnit": "원",
+      "direction": "up"
+    },
+    {
+      "id": "us10y",
+      "change": -0.05,
+      "changeUnit": "%p",
+      "direction": "down"
+    },
+    {
+      "id": "wti",
+      "change": 2.55,
+      "changeUnit": "%",
+      "direction": "up"
+    },
+    {
+      "id": "vix",
+      "change": 7.3217,
+      "changeUnit": "%",
+      "direction": "up"
+    }
+  ],
+  "narratives": {
+    "moo_view": "오늘의 대표 뉴스는 '美 관세 압박 재확인'입니다. 그 여파로 시장 온도는 '위험회피' 상태로 관찰됩니다.\n\n국내 지수는 대체로 하락 흐름이었습니다. 수급은 코스피 개인 +13,449억원, 코스닥 개인 -516억원으로 나타났습니다.\n\n다만 미국 국채 10년물 금리는 -0.05%p 하락하며 소폭 안정세를 보였습니다.\n\n다음 확인 변수는 대규모 수급 이탈이 멈추지 않으면 지수 반등이 어렵기 때문에 외국인의 코스피 순매수 전환 여부입니다.",
+    "todays_watch": [
+      "외국인의 18,193억 원 규모 코스피 순매도 지속 및 수급 전환 여부",
+      "엔비디아의 2025년 3월 이후 첫 데드크로스 실제 형성 여부",
+      "USTR의 과잉생산 관세 조사 결과에 따른 향후 25% 상향 여지 관련 동향"
+    ],
+    "todays_watch_oneliner": null,
+    "content_status": "DETERMINISTIC_FALLBACK_VALIDATION_FAILURE"
+  },
+  "moo_q": {
+    "claim_id": "2026-11-26-c1",
+    "claim_text": "외국인 매도 흐름이 이어지는 가운데 원/달러가 오를까요?",
+    "topic": "원/달러 다음 거래일 방향(flow_fx)",
+    "resolution_at": "2026-11-28",
+    "status": "unresolved"
+  },
+  "moo_check": [
+    {
+      "previous_claim": "PCE 발표 뒤 미국채10년이 하락세를 이어갈까요?",
+      "claim_date": "2026-11-25",
+      "evaluation_date": "2026-11-26T06:42:50+09:00",
+      "observed_result": "실제 변화가 예상한 하락 방향과 일치했습니다.",
+      "verdict": "MATCH",
+      "evidence": "4.90 → 4.85 (-0.05%p)",
+      "source": "FinanceDataReader"
+    }
+  ],
+  "moo_word": {
+    "id": "vix",
+    "term": "VIX",
+    "definition": "VIX는 S&P500 옵션 가격으로 계산하는 변동성 지수이며, 주가 하락 시 옵션 가치 상승으로 이익을 얻고 주가 급등 시 손실을 입는 방식으로 작동한다.",
+    "why_today": null,
+    "memory_hook": "20 아래는 안정, 30 위는 시장이 불안하다는 신호입니다.",
+    "source_label": "CNBC",
+    "article_id": "news_13",
+    "article_url": "https://www.cnbc.com/2026/11/25/bullish-hopes-spring-as-traders-bet-against-a-higher-vix-options-action-live.html",
+    "article_publisher": "CNBC",
+    "evidence_snippets": [
+      "Bullish hopes spring as traders bet against a higher VIX: Options Action Live."
+    ],
+    "definition_source_name": "CBOE(시카고옵션거래소)",
+    "definition_source_url": "https://www.cboe.com/",
+    "definition_priority": "P1_GLOSSARY_OFFICIAL_SOURCE",
+    "origin": "glossary",
+    "grounded_in_article": true,
+    "definition_evidence_verified": true,
+    "status": "ELIGIBLE_FOR_PUBLICATION",
+    "eligible_for_publication": true
+  },
+  "sources": [
+    {
+      "source_name": "머니투데이",
+      "source_url": "https://www.mt.co.kr/finance/2026/11/26/2026112517363944193",
+      "published_at": "2026-11-26",
+      "source_headline": "은행 '부실 방패' 얇아졌다…충당금적립률 2년 새 187%→139%"
+    },
+    {
+      "source_name": "매일경제",
+      "source_url": "https://www.mk.co.kr/news/economy/12218769",
+      "published_at": "2026-11-25",
+      "source_headline": "한투저축은행 해킹 사고… 8만6000명 정보 털렸다"
+    },
+    {
+      "source_name": "MarketWatch",
+      "source_url": "https://www.marketwatch.com/story/hps-stock-is-a-standout-gainer-in-the-tech-rout-as-an-earnings-beat-still-matters-8f6c76ad?mod=mw_rss_topstories",
+      "published_at": "2026-11-25",
+      "source_headline": "HP’s stock is a standout gainer in the tech selloff, as an earnings beat still matters"
+    },
+    {
+      "source_name": "MarketWatch",
+      "source_url": "https://www.marketwatch.com/story/nvidia-is-heading-for-its-first-death-cross-since-march-2025-as-stock-continues-to-struggle-a611b99c?mod=mw_rss_topstories",
+      "published_at": "2026-11-25",
+      "source_headline": "Nvidia is heading for its first ‘death cross’ since March 2025 as stock continues to struggle"
+    },
+    {
+      "source_name": "Investing",
+      "source_url": "https://www.investing.com/news/economy-news/fed-beige-book-shows-slight-growth-sticky-inflation-ahead-of-dec-meeting-5051430",
+      "published_at": "2026-11-25",
+      "source_headline": "Fed Beige Book shows slight growth, sticky inflation ahead of Dec meeting"
+    }
+  ],
+  "public_url": "https://mooconomy.co.kr/latest-email.html",
+  "validation_status": {
+    "main_story_status": "SELECTED",
+    "content_provenance": "VALIDATED_GEMINI_36",
+    "moo_word_present": true,
+    "sources_count": 5,
+    "is_approximate": false
+  },
+  "content_hash": "476a866176fc080b3bc5bed5209481867612bb29124f41395ccf6683b0a23bf8",
+  "archived_at": "2026-11-25T21:51:38.683867+00:00"
+}

@@ -1,0 +1,189 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-26",
+  "generatedAt": "2026-11-26T06:42:59+09:00",
+  "indicators": [
+    {
+      "id": "kospi",
+      "value": 4697.51,
+      "change": -6.163,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "kosdaq",
+      "value": 650.64,
+      "change": -2.2887,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "nasdaq",
+      "value": 23585.8,
+      "change": -0.6225,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "sp500",
+      "value": 7182.78,
+      "change": -0.2543,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1343.88,
+      "change": 3.56,
+      "displayMode": "delta",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "us10y",
+      "value": 4.85,
+      "change": -0.05,
+      "displayMode": "delta",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "wti",
+      "value": 84.14,
+      "change": 2.55,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "vix",
+      "value": 28.29,
+      "change": 7.3217,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    }
+  ],
+  "auditIndicators": [
+    {
+      "id": "kospi",
+      "value": 4697.51,
+      "displayMode": "pct"
+    },
+    {
+      "id": "kosdaq",
+      "value": 650.64,
+      "displayMode": "pct"
+    },
+    {
+      "id": "nasdaq",
+      "value": 23585.8,
+      "displayMode": "pct"
+    },
+    {
+      "id": "sp500",
+      "value": 7182.78,
+      "displayMode": "pct"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1343.88,
+      "displayMode": "dual"
+    },
+    {
+      "id": "us10y",
+      "value": 4.85,
+      "displayMode": "delta"
+    },
+    {
+      "id": "wti",
+      "value": 84.14,
+      "displayMode": "pct"
+    },
+    {
+      "id": "vix",
+      "value": 28.29,
+      "displayMode": "pct"
+    },
+    {
+      "id": "gold",
+      "value": 3605.9,
+      "displayMode": "pct"
+    },
+    {
+      "id": "dollarindex",
+      "value": 103.71,
+      "displayMode": "pct"
+    },
+    {
+      "id": "brent",
+      "value": 90.79,
+      "displayMode": "pct"
+    },
+    {
+      "id": "dow",
+      "value": 50182.95,
+      "displayMode": "pct"
+    },
+    {
+      "id": "nikkei",
+      "value": 58644.63,
+      "displayMode": "pct"
+    },
+    {
+      "id": "shanghai",
+      "value": 3548.37,
+      "displayMode": "pct"
+    }
+  ],
+  "signals": [
+    {
+      "id": "recession",
+      "color": "green",
+      "value": 0.28
+    },
+    {
+      "id": "rate-gap",
+      "color": "green",
+      "value": 1.0
+    },
+    {
+      "id": "liquidity-stress",
+      "color": "green",
+      "value": 3.72
+    }
+  ],
+  "calendarSnapshot": [],
+  "marketTemperature": {
+    "label": "risk_off",
+    "displayLabel": "위험회피",
+    "status": "ok"
+  },
+  "connectionTopology": "DELTA_MODEL_V1",
+  "driverClaims": [
+    "외국인의 코스피 대규모 순매도가 지수 급락을 주도했습니다.",
+    "미국의 관세 상향 여지 남기기가 수급 악화에 영향을 주었습니다."
+  ],
+  "krMarketClosed": false,
+  "weeklyEvents": {
+    "weekStart": "2026-11-23",
+    "source": "calendar_events.json",
+    "events": [
+      {
+        "id": "bok-mpb-2026-11-26",
+        "date": "2026-11-26",
+        "us_date": null,
+        "at": null,
+        "country": "KR",
+        "importance": "high",
+        "category": "monetary_policy",
+        "title": "금융통화위원회 통화정책방향 결정회의",
+        "ord": null
+      }
+    ]
+  }
+}

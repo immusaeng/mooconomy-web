@@ -1,22 +1,23 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-25T06:42:52+09:00",
-  "publishDate": "2026-11-25",
-  "marketDateKr": "2026-11-24",
-  "marketDateUs": "2026-11-24",
+  "generatedAt": "2026-11-26T06:42:48+09:00",
+  "publishDate": "2026-11-26",
+  "marketDateKr": "2026-11-25",
+  "marketDateUs": "2026-11-25",
   "isDelayed": true,
   "status": "ok",
   "marketTemperature": {
-    "label": "neutral",
-    "displayLabel": "중립",
-    "summary": "중립 국면입니다. 국내 증시 +6.32% 상승 · VIX 26.36로 불안 구간 · 외국인 코스피 순매수 8,130억원.",
+    "label": "risk_off",
+    "displayLabel": "위험회피",
+    "summary": "국내 증시가 -6.16% 하락하고 VIX가 28.29를 기록하며 불안 구간인 위험회피 심리가 관찰됩니다. 외국인의 18,193억원 코스피 순매도가 증시에 부담을 준 것으로 보입니다.",
     "reasons": [
-      "국내 증시 +6.32% 상승",
-      "VIX 26.36로 불안 구간",
-      "외국인 코스피 순매수 8,130억원"
+      "국내 증시 -6.16% 하락",
+      "VIX 28.29로 불안 구간",
+      "외국인 코스피 순매도 18,193억원"
     ],
     "watchItems": [
-      "VIX 변동성"
+      "VIX 변동성",
+      "외국인 수급"
     ],
     "status": "ok"
   },
@@ -24,19 +25,19 @@
     {
       "id": "overnight-global",
       "title": "간밤 글로벌 시장",
-      "text": "나스닥 -1.48%, S&P500 -0.50%, 다우 +0.85%, VIX 26.36, 미국채10년 4.90%.",
+      "text": "간밤 글로벌 시장에서는 나스닥이 -0.62%, S&P500이 -0.25% 하락한 반면 다우는 +0.33% 상승했습니다. VIX는 28.29, 미국채 10년물 금리는 4.85%를 기록했습니다.",
       "status": "ok"
     },
     {
       "id": "today-domestic",
       "title": "전일 국내 시장",
-      "text": "코스피 +6.32%, 코스닥 +4.79%, 외국인 코스피 순매수 8,130억원, 원/달러 -0.02%.",
+      "text": "코스피 -6.16%, 코스닥 -2.29%, 외국인 코스피 순매도 18,193억원, 원/달러 +0.27%.",
       "status": "ok"
     },
     {
       "id": "today-checkpoint",
       "title": "오늘의 체크포인트",
-      "text": "미국 증시 혼조와 국내 증시 강세·전일 외국인 매수가 겹친 만큼, 오늘은 VIX 변동성 여부가 시장 방향을 가늠할 핵심 조건입니다.",
+      "text": "간밤의 위험회피 심리가 국내로 이어지며, 시장은 반등보다 방어와 리스크 관리에 무게를 두는 분위기입니다.",
       "status": "ok"
     }
   ],
@@ -45,17 +46,17 @@
       {
         "role": "방향 전환",
         "label": "코스피",
-        "detail": "코스피가 전일 하락 흐름에서 2026-11-24 기준 상승으로 전환됐습니다(5,006.03)."
+        "detail": "코스피가 전일 상승 흐름에서 2026-11-25 기준 하락으로 전환됐습니다(4,697.51)."
       },
       {
         "role": "새 동인",
         "label": "동인 변화",
-        "detail": "새로 등장한 동인이 관측됩니다: 엔비디아 및 미 반도체주 약세로 나스닥 하락"
+        "detail": "새로 등장한 동인이 관측됩니다: 미국의 관세 상향 여지 남기기가 수급 악화에 영향을 주었습니다."
       },
       {
         "role": "변화폭 1위",
-        "label": "코스닥",
-        "detail": "오늘 변화 폭이 가장 큰 지표는 코스닥입니다(+4.79%)."
+        "label": "VIX",
+        "detail": "오늘 변화 폭이 가장 큰 지표는 VIX입니다(+7.32%)."
       }
     ],
     "topologyId": "DELTA_MODEL_V1",
@@ -68,213 +69,224 @@
       {
         "id": "foreign",
         "label": "외국인 수급",
-        "value": 8130,
-        "displayValue": "+8,130억원",
-        "direction": "up",
+        "value": -18193,
+        "displayValue": "-18,193억원",
+        "direction": "down",
         "status": "ok"
       },
       {
         "id": "institution",
         "label": "기관 수급",
-        "value": 8734,
-        "displayValue": "+8,734억원",
+        "value": 39,
+        "displayValue": "+39억원",
         "direction": "up",
         "status": "ok"
       },
       {
         "id": "individual",
         "label": "개인 수급",
-        "value": -21350,
-        "displayValue": "-21,350억원",
-        "direction": "down",
+        "value": 13449,
+        "displayValue": "+13,449억원",
+        "direction": "up",
         "status": "ok"
       },
       {
         "id": "usdkrw",
         "label": "원/달러",
-        "value": 1340.32,
-        "displayValue": "1,340.3원",
-        "direction": "down",
+        "value": 1343.88,
+        "displayValue": "1,343.9원",
+        "direction": "up",
         "status": "ok"
       },
       {
         "id": "leading-sector",
         "label": "주도 업종",
-        "value": 10.81,
-        "displayValue": "전자제품 +10.81%",
+        "value": 9.05,
+        "displayValue": "인터넷과카탈로그소매 +9.05%",
         "direction": "up",
         "status": "ok"
       }
     ],
-    "summary": "외국인 수급 +8,130억원, 기관 수급 +8,734억원, 개인 수급 -21,350억원, 원/달러 1,340.3원, 주도 업종 전자제품 +10.81%.",
+    "summary": "외국인이 18,193억원을 순매도하고 기관이 39억원을 순매수했으며 개인이 13,449억원을 순매수한 가운데, 원/달러 환율은 1,343.9원을 기록했고 인터넷과카탈로그소매 업종이 +9.05% 상승했습니다.",
     "status": "ok"
   },
   "risks": [
     {
       "id": "vix-volatility",
       "title": "변동성 확대 국면",
-      "detail": "VIX 26.36(전일대비 -0.98%)로 변동성 지표가 높아진 상태입니다.",
+      "detail": "VIX가 28.29로 전일 대비 +7.32% 상승하며 변동성이 확대되는 국면이 관찰됩니다.",
       "level": "주의",
       "status": "ok"
     },
     {
       "id": "kr-swing",
       "title": "국내 증시 큰 변동",
-      "detail": "코스피 +6.32%로 하루 변동폭이 컸던 점이 관찰됩니다.",
+      "detail": "코스피가 -6.16% 큰 폭으로 하락하는 변동성이 나타나는 모습입니다.",
       "level": "관찰",
       "status": "ok"
-    }
-  ],
-  "calendar": [
+    },
     {
-      "id": "us-2026-11-25-미국 개인소득·지출(PCE)",
-      "time": "2026-11-25",
-      "country": "US",
-      "title": "미국 개인소득·지출(PCE)",
-      "importance": "high",
+      "id": "foreign-outflow",
+      "title": "외국인 수급 이탈",
+      "detail": "외국인이 코스피 시장에서 18,193억원을 순매도하며 수급 이탈 흐름이 관찰됩니다.",
+      "level": "주의",
       "status": "ok"
     }
   ],
+  "calendar": [],
   "news": {
     "items": [
       {
-        "id": "news-매일경제-젠슨황 약발 하루만에...나스닥 다시 급락 [월가월부]",
+        "id": "news-매일경제-[단독] 골목사장님 쉽지않은 대출…단골·현금흐름으로 신용평가합니다",
         "category": "news",
         "source": "매일경제",
-        "title": "젠슨황 약발 하루만에...나스닥 다시 급락 [월가월부]",
-        "url": "https://www.mk.co.kr/news/economy/12217655",
-        "publishedAt": "2026-11-25",
+        "title": "[단독] 골목사장님 쉽지않은 대출…단골·현금흐름으로 신용평가합니다",
+        "url": "https://www.mk.co.kr/news/economy/12218834",
+        "publishedAt": "2026-11-26",
         "status": "ok"
       },
       {
-        "id": "news-매일경제-“노후자금으로 환경운동 마라”…퇴직연금서 ESG펀드 빼라는 트럼프",
+        "id": "news-머니투데이-美, 15% 관세 상한 지켰지만…'25% 인상' 카드 쥐고 한국 압박",
         "category": "news",
-        "source": "매일경제",
-        "title": "“노후자금으로 환경운동 마라”…퇴직연금서 ESG펀드 빼라는 트럼프",
-        "url": "https://www.mk.co.kr/news/economy/12217649",
-        "publishedAt": "2026-11-25",
+        "source": "머니투데이",
+        "title": "美, 15% 관세 상한 지켰지만…'25% 인상' 카드 쥐고 한국 압박",
+        "url": "https://www.mt.co.kr/world/2026/11/26/2026112605160435749",
+        "publishedAt": "2026-11-26",
         "status": "ok"
       },
       {
-        "id": "news-연합뉴스마켓-'젠슨황 효과' 의문에 美증시 반도체지수 8% 급반락",
-        "category": "news",
-        "source": "연합뉴스마켓",
-        "title": "'젠슨황 효과' 의문에 美증시 반도체지수 8% 급반락",
-        "url": "https://www.yna.co.kr/view/AKR20261125012700009",
-        "publishedAt": "2026-11-25",
-        "status": "ok"
-      },
-      {
-        "id": "news-연합뉴스마켓-[코스피·코스닥 전 거래일(24일) 주요공시]",
-        "category": "news",
-        "source": "연합뉴스마켓",
-        "title": "[코스피·코스닥 전 거래일(24일) 주요공시]",
-        "url": "https://www.yna.co.kr/view/AKR20261124173500008",
-        "publishedAt": "2026-11-25",
-        "status": "ok"
-      },
-      {
-        "id": "news-연합뉴스-EU 재생원료 사용 의무화 확대되는데…수출기업 43% \"내용 몰라\"",
+        "id": "news-연합뉴스-업비트서 바이낸스로 반년간 4천억원 순유출…\"파생상품 수요\"",
         "category": "news",
         "source": "연합뉴스",
-        "title": "EU 재생원료 사용 의무화 확대되는데…수출기업 43% \"내용 몰라\"",
-        "url": "https://www.yna.co.kr/view/AKR20261124166800003",
-        "publishedAt": "2026-11-25",
+        "title": "업비트서 바이낸스로 반년간 4천억원 순유출…\"파생상품 수요\"",
+        "url": "https://www.yna.co.kr/view/AKR20261125137600002",
+        "publishedAt": "2026-11-26",
         "status": "ok"
       },
       {
-        "id": "news-머니투데이-코인시장 판이 바뀐다…은행엔 열린 문, 거래소엔 높아지는 벽",
+        "id": "news-연합뉴스마켓-[코스피·코스닥 전 거래일(25일) 주요공시]",
+        "category": "news",
+        "source": "연합뉴스마켓",
+        "title": "[코스피·코스닥 전 거래일(25일) 주요공시]",
+        "url": "https://www.yna.co.kr/view/AKR20261125170700008",
+        "publishedAt": "2026-11-26",
+        "status": "ok"
+      },
+      {
+        "id": "news-연합뉴스-AI 시험 부정행위 장비 판매 관련 지갑에 28억원어치 테더 유입",
+        "category": "news",
+        "source": "연합뉴스",
+        "title": "AI 시험 부정행위 장비 판매 관련 지갑에 28억원어치 테더 유입",
+        "url": "https://www.yna.co.kr/view/AKR20261125177600002",
+        "publishedAt": "2026-11-26",
+        "status": "ok"
+      },
+      {
+        "id": "news-머니투데이-은행 '부실 방패' 얇아졌다…충당금적립률 2년 새 187%→139%",
         "category": "news",
         "source": "머니투데이",
-        "title": "코인시장 판이 바뀐다…은행엔 열린 문, 거래소엔 높아지는 벽",
-        "url": "https://www.mt.co.kr/stock/2026/11/25/2026112420193368192",
+        "title": "은행 '부실 방패' 얇아졌다…충당금적립률 2년 새 187%→139%",
+        "url": "https://www.mt.co.kr/finance/2026/11/26/2026112517363944193",
+        "publishedAt": "2026-11-26",
+        "status": "ok"
+      },
+      {
+        "id": "news-한국경제-美 10월 PCE 3.8%↑…12월 금리인상 힘실려",
+        "category": "news",
+        "source": "한국경제",
+        "title": "美 10월 PCE 3.8%↑…12월 금리인상 힘실려",
+        "url": "https://www.hankyung.com/article/2026112506871",
+        "publishedAt": "2026-11-26",
+        "status": "ok"
+      },
+      {
+        "id": "news-매일경제-한투저축은행 해킹 사고… 8만6000명 정보 털렸다",
+        "category": "news",
+        "source": "매일경제",
+        "title": "한투저축은행 해킹 사고… 8만6000명 정보 털렸다",
+        "url": "https://www.mk.co.kr/news/economy/12218769",
         "publishedAt": "2026-11-25",
         "status": "ok"
       },
       {
-        "id": "news-머니투데이-내수 부진이 최대 고민이라는데…4년 반 만에 웃은 내수기업",
+        "id": "news-MarketWatch-HP’s stock is a standout gainer in the tech selloff, as an earn",
         "category": "news",
-        "source": "머니투데이",
-        "title": "내수 부진이 최대 고민이라는데…4년 반 만에 웃은 내수기업",
-        "url": "https://www.mt.co.kr/economy/2026/11/25/2026112416264988424",
+        "source": "MarketWatch",
+        "title": "HP’s stock is a standout gainer in the tech selloff, as an earnings beat still matters",
+        "url": "https://www.marketwatch.com/story/hps-stock-is-a-standout-gainer-in-the-tech-rout-as-an-earnings-beat-still-matters-8f6c76ad?mod=mw_rss_topstories",
         "publishedAt": "2026-11-25",
         "status": "ok"
       },
       {
-        "id": "news-파이낸셜뉴스-재고 늘고 비용 올라..11월 기업 체감경기 한 달 만에 꺾였다",
+        "id": "news-CNBC-Bullish hopes spring as traders bet against a higher VIX: Options Acti",
         "category": "news",
-        "source": "파이낸셜뉴스",
-        "title": "재고 늘고 비용 올라..11월 기업 체감경기 한 달 만에 꺾였다",
-        "url": "https://www.fnnews.com/news/202611241637495810",
+        "source": "CNBC",
+        "title": "Bullish hopes spring as traders bet against a higher VIX: Options Action Live",
+        "url": "https://www.cnbc.com/2026/11/25/bullish-hopes-spring-as-traders-bet-against-a-higher-vix-options-action-live.html",
         "publishedAt": "2026-11-25",
         "status": "ok"
       },
       {
-        "id": "news-CNBC-Dell earnings beat on AI strength, company authorizes $25 billion buyb",
+        "id": "news-CNBC-10-year Treasury yield slides despite sticky inflation data as investo",
         "category": "news",
         "source": "CNBC",
-        "title": "Dell earnings beat on AI strength, company authorizes $25 billion buyback",
-        "url": "https://www.cnbc.com/2026/11/24/dell-earnings-report-q3-2027.html",
-        "publishedAt": "2026-11-24",
+        "title": "10-year Treasury yield slides despite sticky inflation data as investors buy bonds for protection",
+        "url": "https://www.cnbc.com/2026/11/25/treasury-yields-bonds-inflation.html",
+        "publishedAt": "2026-11-25",
         "status": "ok"
       },
       {
-        "id": "news-MarketWatch-Micron’s stock falls as an analyst warns about a future supply ",
-        "category": "news",
-        "source": "MarketWatch",
-        "title": "Micron’s stock falls as an analyst warns about a future supply glut",
-        "url": "https://www.marketwatch.com/story/microns-stock-falls-as-an-analyst-warns-about-a-future-supply-glut-f7fbeefb?mod=mw_rss_topstories",
-        "publishedAt": "2026-11-24",
-        "status": "ok"
-      },
-      {
-        "id": "news-MarketWatch-The stock market is hardly cheap, even taking recent declines i",
-        "category": "news",
-        "source": "MarketWatch",
-        "title": "The stock market is hardly cheap, even taking recent declines into account",
-        "url": "https://www.marketwatch.com/story/the-stock-market-is-hardly-cheap-even-taking-recent-declines-into-account-fe0a7989?mod=mw_rss_topstories",
-        "publishedAt": "2026-11-24",
-        "status": "ok"
-      },
-      {
-        "id": "news-CNBC-Nvidia shares fall more than 5% as Huang comeback rally cools",
-        "category": "news",
-        "source": "CNBC",
-        "title": "Nvidia shares fall more than 5% as Huang comeback rally cools",
-        "url": "https://www.cnbc.com/2026/11/24/nvidia-stock-jensen-huang-return.html",
-        "publishedAt": "2026-11-24",
-        "status": "ok"
-      },
-      {
-        "id": "news-MarketWatch-I’ve been married for 58 years. It’s ‘our’ money, not ‘his’ and",
-        "category": "news",
-        "source": "MarketWatch",
-        "title": "I’ve been married for 58 years. It’s ‘our’ money, not ‘his’ and ‘hers.’ Why do so many couples keep their finances separate?",
-        "url": "https://www.marketwatch.com/story/ive-been-married-for-58-years-its-our-money-not-his-and-hers-why-dont-others-feel-the-same-c5745889?mod=mw_rss_topstories",
-        "publishedAt": "2026-11-24",
-        "status": "ok"
-      },
-      {
-        "id": "news-CNBC-Trump wanted Jensen Huang back. Now, the president is all alone in Was",
-        "category": "news",
-        "source": "CNBC",
-        "title": "Trump wanted Jensen Huang back. Now, the president is all alone in Washington",
-        "url": "https://www.cnbc.com/2026/11/24/trump-jensen-huang-nvidia.html",
-        "publishedAt": "2026-11-24",
-        "status": "ok"
-      },
-      {
-        "id": "news-Investing-Nasdaq, S&P 500 end lower following Monday’s Nvidia-fueled rally",
+        "id": "news-Investing-Analysis-Volatility-weary investors side swiped as tariff mayhem ",
         "category": "news",
         "source": "Investing",
-        "title": "Nasdaq, S&P 500 end lower following Monday’s Nvidia-fueled rally",
-        "url": "https://www.investing.com/news/economy-news/wall-st-futures-dip-as-chip-stocks-cool-after-nvidiafueled-rally-5047567",
-        "publishedAt": "2026-11-24",
+        "title": "Analysis-Volatility-weary investors side swiped as tariff mayhem adds to tech pain",
+        "url": "https://www.investing.com/news/economy-news/analysisvolatilityweary-investors-hammered-as-tariff-mayhem-adds-to-tech-pain-5051297",
+        "publishedAt": "2026-11-25",
+        "status": "ok"
+      },
+      {
+        "id": "news-Investing-Fed survey shows continued economic growth, sticky inflation in r",
+        "category": "news",
+        "source": "Investing",
+        "title": "Fed survey shows continued economic growth, sticky inflation in recent weeks",
+        "url": "https://www.investing.com/news/economy-news/fed-survey-shows-continued-growth-and-sticky-inflation-in-recent-weeks-5051371",
+        "publishedAt": "2026-11-25",
+        "status": "ok",
+        "related": [
+          {
+            "source": "Investing",
+            "title": "Fed Beige Book shows slight growth, sticky inflation ahead of Dec meeting",
+            "url": "https://www.investing.com/news/economy-news/fed-beige-book-shows-slight-growth-sticky-inflation-ahead-of-dec-meeting-5051430",
+            "publishedAt": "2026-11-25",
+            "id": "news-Investing-Fed Beige Book shows slight growth, sticky inflation ahead of Dec"
+          }
+        ]
+      },
+      {
+        "id": "news-CNBC-We're buying more of a stock down big from its July highs",
+        "category": "news",
+        "source": "CNBC",
+        "title": "We're buying more of a stock down big from its July highs",
+        "url": "https://www.cnbc.com/investingclub/2026/11/25/were-buying-more-of-a-stock-down-big-from-its-july-highs.html",
+        "publishedAt": "2026-11-25",
         "status": "ok"
       }
     ],
-    "clusters": [],
-    "summary": "오늘 국내외 주요 경제 뉴스를 모았습니다.",
+    "clusters": [
+      {
+        "id": "cluster-news-Investing-Fed survey shows continued economic growth, sticky inflation in r",
+        "title": "Fed survey shows continued economic growth, sticky inflation in recent weeks",
+        "summary": "2개 매체가 이 소식을 함께 보도했습니다.",
+        "leadItemId": "news-Investing-Fed survey shows continued economic growth, sticky inflation in r",
+        "relatedItemIds": [
+          "news-Investing-Fed Beige Book shows slight growth, sticky inflation ahead of Dec"
+        ],
+        "sourceCount": 2,
+        "topic": "Fed survey shows continued economic growth, sticky inflation in recent weeks",
+        "status": "ok"
+      }
+    ],
+    "summary": "미국의 25% 인상 카드 압박과 관련된 무역 갈등 우려가 주목되는 모습입니다.",
     "status": "ok"
   },
   "latestBriefing": null,
@@ -282,47 +294,47 @@
     {
       "id": "kospi",
       "name": "코스피",
-      "value": 5006.03,
-      "displayValue": "5,006.03",
-      "change": 6.3181,
+      "value": 4697.51,
+      "displayValue": "4,697.51",
+      "change": -6.163,
       "changeUnit": "%",
       "displayMode": "pct",
-      "direction": "up",
-      "asOf": "2026-11-24",
+      "direction": "down",
+      "asOf": "2026-11-25",
       "source": "KRX",
       "sourceUrl": "",
       "frequency": "daily",
       "isDelayed": true,
       "status": "ok",
-      "insight": "전일 대비 큰 폭 상승"
+      "insight": "전일 대비 큰 폭 하락"
     },
     {
       "id": "kosdaq",
       "name": "코스닥",
-      "value": 665.88,
-      "displayValue": "665.88",
-      "change": 4.7887,
+      "value": 650.64,
+      "displayValue": "650.64",
+      "change": -2.2887,
       "changeUnit": "%",
       "displayMode": "pct",
-      "direction": "up",
-      "asOf": "2026-11-24",
+      "direction": "down",
+      "asOf": "2026-11-25",
       "source": "KRX",
       "sourceUrl": "",
       "frequency": "daily",
       "isDelayed": true,
       "status": "ok",
-      "insight": "전일 대비 큰 폭 상승"
+      "insight": "전일 대비 큰 폭 하락"
     },
     {
       "id": "nasdaq",
       "name": "나스닥",
-      "value": 23733.54,
-      "displayValue": "23,733.54",
-      "change": -1.4779,
+      "value": 23585.8,
+      "displayValue": "23,585.80",
+      "change": -0.6225,
       "changeUnit": "%",
       "displayMode": "pct",
       "direction": "down",
-      "asOf": "2026-11-24",
+      "asOf": "2026-11-25",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
@@ -333,30 +345,13 @@
     {
       "id": "sp500",
       "name": "S&P500",
-      "value": 7201.09,
-      "displayValue": "7,201.09",
-      "change": -0.4985,
+      "value": 7182.78,
+      "displayValue": "7,182.78",
+      "change": -0.2543,
       "changeUnit": "%",
       "displayMode": "pct",
       "direction": "down",
-      "asOf": "2026-11-24",
-      "source": "FinanceDataReader",
-      "sourceUrl": "",
-      "frequency": "daily",
-      "isDelayed": true,
-      "status": "ok",
-      "insight": "전일 대비 하락"
-    },
-    {
-      "id": "usdkrw",
-      "name": "원/달러",
-      "value": 1340.32,
-      "displayValue": "1,340.3",
-      "change": -0.24,
-      "changeUnit": "원",
-      "displayMode": "delta",
-      "direction": "down",
-      "asOf": "2026-11-24",
+      "asOf": "2026-11-25",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
@@ -365,32 +360,49 @@
       "insight": "전일 대비 소폭 하락"
     },
     {
-      "id": "us10y",
-      "name": "미국채10년",
-      "value": 4.9,
-      "displayValue": "4.90%",
-      "change": -0.02,
-      "changeUnit": "%p",
+      "id": "usdkrw",
+      "name": "원/달러",
+      "value": 1343.88,
+      "displayValue": "1,343.9",
+      "change": 3.56,
+      "changeUnit": "원",
       "displayMode": "delta",
-      "direction": "down",
-      "asOf": "2026-11-24",
+      "direction": "up",
+      "asOf": "2026-11-25",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
       "isDelayed": true,
       "status": "ok",
-      "insight": "보합권"
+      "insight": "전일 대비 큰 폭 상승"
+    },
+    {
+      "id": "us10y",
+      "name": "미국채10년",
+      "value": 4.85,
+      "displayValue": "4.85%",
+      "change": -0.05,
+      "changeUnit": "%p",
+      "displayMode": "delta",
+      "direction": "down",
+      "asOf": "2026-11-25",
+      "source": "FinanceDataReader",
+      "sourceUrl": "",
+      "frequency": "daily",
+      "isDelayed": true,
+      "status": "ok",
+      "insight": "전일 대비 소폭 하락"
     },
     {
       "id": "wti",
       "name": "WTI",
-      "value": 81.5,
-      "displayValue": "$81.50",
-      "change": 1.507,
+      "value": 84.14,
+      "displayValue": "$84.14",
+      "change": 2.55,
       "changeUnit": "%",
       "displayMode": "pct",
       "direction": "up",
-      "asOf": "2026-11-24",
+      "asOf": "2026-11-25",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
@@ -401,19 +413,19 @@
     {
       "id": "vix",
       "name": "VIX",
-      "value": 26.36,
-      "displayValue": "26.36",
-      "change": -0.9767,
+      "value": 28.29,
+      "displayValue": "28.29",
+      "change": 7.3217,
       "changeUnit": "%",
       "displayMode": "pct",
-      "direction": "down",
-      "asOf": "2026-11-24",
+      "direction": "up",
+      "asOf": "2026-11-25",
       "source": "FinanceDataReader",
       "sourceUrl": "",
       "frequency": "daily",
       "isDelayed": true,
       "status": "ok",
-      "insight": "전일 대비 하락"
+      "insight": "전일 대비 큰 폭 상승"
     }
   ],
   "signals": [
@@ -421,11 +433,11 @@
       "id": "recession",
       "name": "경기침체 경보등",
       "color": "green",
-      "value": 0.29,
-      "valueLabel": "+0.29%p",
+      "value": 0.28,
+      "valueLabel": "+0.28%p",
       "insight": "장단기 금리차가 정상 범위에 있어 침체 신호는 뚜렷하지 않습니다.",
       "sourceLabel": "장단기 금리차 (미국채 10Y-2Y)",
-      "asOf": "2026-11-25"
+      "asOf": "2026-11-26"
     },
     {
       "id": "rate-gap",
@@ -435,21 +447,31 @@
       "valueLabel": "+1.00%p",
       "insight": "한미 금리차가 관리 가능한 수준이라 자본유출 압력은 크지 않습니다.",
       "sourceLabel": "한미 기준금리차 (Fed-한은)",
-      "asOf": "2026-11-25"
+      "asOf": "2026-11-26"
     },
     {
       "id": "liquidity-stress",
       "name": "유동성 스트레스",
       "color": "green",
-      "value": 3.63,
-      "valueLabel": "3.63%p",
+      "value": 3.72,
+      "valueLabel": "3.72%p",
       "insight": "신용시장 스프레드가 평상 수준이라 유동성 경색 신호는 없습니다.",
       "sourceLabel": "하이일드 스프레드 (BAMLH0A0HYM2)",
-      "asOf": "2026-11-25"
+      "asOf": "2026-11-26"
     }
   ],
   "claims": {
     "previousClaims": [
+      {
+        "claimText": "PCE 발표 뒤 미국채10년이 하락세를 이어갈까요?",
+        "status": "hit",
+        "resolution": {
+          "verdict": "hit",
+          "startValue": 4.9,
+          "endValue": 4.85,
+          "metricId": "us10y"
+        }
+      },
       {
         "claimText": "GDP 발표를 앞두고 코스피가 코스닥 대비 약세를 이어갈까요?",
         "status": "miss",
@@ -1327,12 +1349,12 @@
     ],
     "todayClaims": [
       {
-        "claimText": "PCE 발표 뒤 미국채10년이 하락세를 이어갈까요?",
+        "claimText": "외국인 매도 흐름이 이어지는 가운데 원/달러가 오를까요?",
         "status": "unresolved"
       }
     ],
     "totals": {
-      "hit": 23,
+      "hit": 24,
       "miss": 43,
       "neutral": 21,
       "unresolved": 1,
@@ -1340,12 +1362,12 @@
     }
   },
   "newsletterClaimsTeaser": {
-    "publicationId": "2026-11-24",
+    "publicationId": "2026-11-25",
     "resolvedCount": 1,
-    "hitCount": 0,
-    "missCount": 1,
+    "hitCount": 1,
+    "missCount": 0,
     "neutralCount": 0,
     "unresolvedCount": 0,
-    "highlightText": "GDP 발표를 앞두고 코스피가 코스닥 대비 약세를 이어갈까요?"
+    "highlightText": "PCE 발표 뒤 미국채10년이 하락세를 이어갈까요?"
   }
 }
