@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-26T06:42:59+09:00",
+  "updatedAt": "2026-11-27T06:49:00+09:00",
   "claims": {
     "2026-07-19-c1": {
       "schemaVersion": 1,
@@ -5401,7 +5401,7 @@
       },
       "thresholdRuleId": "pct_020",
       "confidence": null,
-      "status": "unresolved",
+      "status": "neutral",
       "revision": {
         "version": 1,
         "contentHash": "d63eb37363170397d68db4357798b1548b8ccbda86f6b27ce5744ea747c83c43",
@@ -5412,6 +5412,66 @@
         "asOf": "2026-11-25",
         "benchmarkValue": null,
         "benchmarkAsOf": null
+      },
+      "resolution": {
+        "resolutionId": "2026-11-26-c1-res",
+        "claimId": "2026-11-26-c1",
+        "resolvedAt": "2026-11-27T06:48:54+09:00",
+        "verdict": "neutral",
+        "metricId": "usdkrw",
+        "comparisonType": "absolute_return",
+        "startValue": 1343.88,
+        "endValue": 1342.99,
+        "changeValue": -0.06622615114445486,
+        "changeUnit": "%",
+        "benchmarkMetricId": null,
+        "benchmarkStartValue": null,
+        "benchmarkEndValue": null,
+        "neutralLower": -0.2,
+        "neutralUpper": 0.2,
+        "neutralBand": 0.2,
+        "dataProvider": "FinanceDataReader",
+        "sourceUrl": "",
+        "observedAt": "2026-11-26",
+        "explanation": "변화폭이 중립 구간(±0.2%) 이내에 머물러 뚜렷한 방향이 나타나지 않았습니다."
+      }
+    },
+    "2026-11-27-c1": {
+      "schemaVersion": 1,
+      "claimId": "2026-11-27-c1",
+      "publicationId": "2026-11-27",
+      "issuedAt": "2026-11-27T06:49:00+09:00",
+      "dataCutoffAt": "2026-11-27T06:49:00+09:00",
+      "lockedAt": "2026-11-27T06:49:00+09:00",
+      "claimMode": "auto",
+      "verificationType": "proxy",
+      "topic": "코스닥 vs 나스닥 상대성과(LLM 후보, 1거래일)",
+      "sourceNewsIds": [],
+      "observationText": "코스닥은 전일 대비 +0.78%, 나스닥은 -0.62% — 상대 괴리 +1.40%p.",
+      "interpretationText": "코스닥이 나스닥 대비 상대적으로 강세를 유지하는지가 확인 대상입니다.",
+      "claimText": "코스닥이 나스닥 대비 강세를 이어갈까요?",
+      "metricId": "kosdaq",
+      "benchmarkMetricId": "nasdaq",
+      "comparisonType": "excess_return",
+      "expectedDirection": "up",
+      "horizon": {
+        "type": "next_close",
+        "market": "KR",
+        "resolutionAt": "2026-11-28"
+      },
+      "thresholdRuleId": "pct_030",
+      "confidence": null,
+      "status": "unresolved",
+      "revision": {
+        "version": 1,
+        "contentHash": "4c48691d49cee7a75f459725db69bf56542539b757fe7df627ca88e88d4c7f77",
+        "correctedFrom": null
+      },
+      "baseline": {
+        "value": 655.71,
+        "asOf": "2026-11-26",
+        "benchmarkValue": 23585.8,
+        "benchmarkAsOf": "2026-11-25"
       },
       "resolution": null
     }
