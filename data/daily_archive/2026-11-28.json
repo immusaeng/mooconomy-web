@@ -1,0 +1,241 @@
+{
+  "schema_version": "normalized-daily-issue/v1",
+  "edition_id": "2026-11-28",
+  "edition_date_kst": "2026-11-28",
+  "canonical_status": "production",
+  "production_status": "SEND_CONFIRMED",
+  "source_commit_sha": "ade3f7e35803a2b22336d4b2fa30696c3fefc7cc",
+  "subject": "코스닥 8.12% 급등…기술주 반등에 시장 폭발",
+  "preheader": "미국 10년물 국채금리 4.94% 달성에 따른 시중 금리 상방 압력",
+  "thesis": {
+    "headline": "코스닥 8.12% 급등…기술주 반등에 시장 폭발",
+    "three_signals": [
+      "간밤 뉴욕증시는 AI 관련 종목들이 반등을 시도하며 3대 지수가 모두 올랐습니다.",
+      "지난 거래일(11-27) 국내 증시는 코스닥이 8% 넘게 폭발하며 코스피와 동반 급등했습니다."
+    ]
+  },
+  "main_story": {
+    "headline": "국민연금 3개월간 202조 감소",
+    "verified_fact": "국민연금 기금적립금이 국내외 증시 하락의 여파로 3개월 만에 10.8% 감소했습니다.",
+    "why_it_matters": null,
+    "sources": []
+  },
+  "entities": [
+    {
+      "name": "코스닥",
+      "type": "index"
+    },
+    {
+      "name": "금",
+      "type": "commodity"
+    }
+  ],
+  "metrics": [
+    {
+      "id": "kospi",
+      "value": 4915.68,
+      "change": 4.3401,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "kosdaq",
+      "value": 708.99,
+      "change": 8.1255,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "nasdaq",
+      "value": 24129.5,
+      "change": 2.3052,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "sp500",
+      "value": 7297.49,
+      "change": 1.597,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1333.63,
+      "change": -9.36,
+      "displayMode": "delta",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "us10y",
+      "value": 4.94,
+      "change": 0.09,
+      "displayMode": "delta",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "wti",
+      "value": 83.08,
+      "change": null,
+      "displayMode": "pct",
+      "direction": null,
+      "status": "stale"
+    },
+    {
+      "id": "vix",
+      "value": 23.81,
+      "change": -11.1567,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    }
+  ],
+  "market_changes": [
+    {
+      "id": "kospi",
+      "change": 4.3401,
+      "changeUnit": "%",
+      "direction": "up"
+    },
+    {
+      "id": "kosdaq",
+      "change": 8.1255,
+      "changeUnit": "%",
+      "direction": "up"
+    },
+    {
+      "id": "nasdaq",
+      "change": 2.3052,
+      "changeUnit": "%",
+      "direction": "up"
+    },
+    {
+      "id": "sp500",
+      "change": 1.597,
+      "changeUnit": "%",
+      "direction": "up"
+    },
+    {
+      "id": "usdkrw",
+      "change": -9.36,
+      "changeUnit": "원",
+      "direction": "down"
+    },
+    {
+      "id": "us10y",
+      "change": 0.09,
+      "changeUnit": "%p",
+      "direction": "up"
+    },
+    {
+      "id": "wti",
+      "change": null,
+      "changeUnit": "%",
+      "direction": null
+    },
+    {
+      "id": "vix",
+      "change": -11.1567,
+      "changeUnit": "%",
+      "direction": "down"
+    }
+  ],
+  "narratives": {
+    "moo_view": "미 관세 압박에 따른 위험회피를 예상했던 전일 판단과 달리, 금일 국내 증시는 외국인과 기관의 강력한 순매수가 유입되며 폭등세로 돌아섰습니다. 젠슨 황의 복귀 소식 등으로 글로벌 기술주 심리가 개선되고 뉴욕증시가 강세를 나타내자, 이 매수세가 국내 증시의 수급 개선으로 이어져 위험선호 심리를 확산시킨 것으로 해석됩니다.\n\n수급 측면에서는 코스피와 코스닥 양 시장에서 개인이 수반한 매도 물량을 외국인과 기관이 동반 순매수하며 지수 상승을 이끌었습니다. 한편 업종별로는 생물공학 업종이 11.69% 급등하며 강세를 보인 반면 백화점과일반상점 업종은 1.64% 하락하는 등 업종 간 온도 차가 뚜렷하게 나타났습니다.\n\n외국인의 순매수세와 기술주 심리 개선이 지속된다면 증시의 추가 반등 기반이 강화될 수 있고, 미 3분기 GDP 수정치 관련 통계 오류 논란 등 잔존 리스크가 부각된다면 하방 압력이 다시 확대될 가능성이 공존합니다. 글로벌 증시 전반의 기술주 심리가 온전히 회복되었다고 단정하기는 어려우며, 추가 변동성이 이어질 가능성도 배제할 수 없습니다.\n\n시장 리스크 지표인 VIX가 23.81로 여전히 경계 구간에 머무르고 있는 점은 불안 요인입니다. 향후 미 3분기 GDP 수정치 관련 통계 오류 논란의 조사 진행 경과와 이에 따른 글로벌 금융시장의 여파를 면밀히 관찰할 필요가 있습니다.",
+    "todays_watch": [
+      "미국 3분기 GDP 수정치 논란 및 조사 요구 진행 경과",
+      "VIX 23.81 경계 구간 유지에 따른 글로벌 증시 변동성 지속 영향",
+      "외국인 및 기관의 동반 순매수 유입 지속성"
+    ],
+    "todays_watch_oneliner": "글로벌 기술주 심리 회복과 쌍끌이 순매수로 증시가 급반등했으나 VIX 경계 수준과 GDP 논란 등 잔존 리스크에 대한 관찰이 필요합니다.",
+    "content_status": "GENERATED_REPAIRED"
+  },
+  "moo_q": {
+    "claim_id": "2026-11-28-c1",
+    "claim_text": "외국인 매수 흐름이 이어지는 가운데 원/달러가 내릴까요?",
+    "topic": "원/달러 다음 거래일 방향(flow_fx)",
+    "resolution_at": "2026-12-01",
+    "status": "unresolved"
+  },
+  "moo_check": [
+    {
+      "previous_claim": "코스닥이 나스닥 대비 강세를 이어갈까요?",
+      "claim_date": "2026-11-27",
+      "evaluation_date": "2026-11-28T06:43:24+09:00",
+      "observed_result": "실제 변화가 예상한 상승 방향과 일치했습니다.",
+      "verdict": "MATCH",
+      "evidence": "코스닥 655.71→708.99 (+8.13%) · 나스닥 23585.80→24129.50 (+2.31%) · 상대 +5.82%p",
+      "source": "KRX"
+    }
+  ],
+  "moo_word": {
+    "id": "open_유상증자",
+    "term": "유상증자",
+    "definition": "유상증자는 기업이 주식을 추가로 발행하여 기존 주주나 새로운 투자자에게 돈을 받고 파는 방식으로 자본금을 늘리는 행위이며, 이를 통해 사업 운영 자금을 직접 조달한다.",
+    "why_today": "코스닥 상장사 피노는 시설자금 등 약 188억5천만원을 조달하고자 제3자배정 유상증자를 결정했다고 27일 공시했다.",
+    "memory_hook": null,
+    "source_label": "연합뉴스",
+    "article_id": "news_7",
+    "article_url": "https://www.yna.co.kr/view/AKR20261127159500008",
+    "article_publisher": "연합뉴스",
+    "evidence_snippets": [
+      "피노, 188억5천만원 유상증자…이케이케이알파제이호사모투자합자회사에 제3자배정."
+    ],
+    "definition_source_name": null,
+    "definition_source_url": null,
+    "definition_priority": "P2_SOURCES_PARTIAL",
+    "origin": "llm_proposed",
+    "grounded_in_article": true,
+    "definition_evidence_verified": true,
+    "status": "ELIGIBLE_FOR_PUBLICATION",
+    "eligible_for_publication": true
+  },
+  "sources": [
+    {
+      "source_name": "머니투데이",
+      "source_url": "https://www.mt.co.kr/society/2026/11/28/2026112723341520109",
+      "published_at": "2026-11-28",
+      "source_headline": "\"주식 팔아 집 사려던 수요 사라져\"…서울 부동산 시장이 멈춘 이유"
+    },
+    {
+      "source_name": "파이낸셜뉴스",
+      "source_url": "https://www.fnnews.com/news/202611271405148814",
+      "published_at": "2026-11-27",
+      "source_headline": "산업연구원 \"반도체 호황기 초과세수, 비반도체 산업 투자에 활용해야\""
+    },
+    {
+      "source_name": "CNBC",
+      "source_url": "https://www.cnbc.com/investingclub/2026/11/27/jensen-huangs-return-did-little-to-ease-ai-jitters-we-bought-on-weakness.html",
+      "published_at": "2026-11-27",
+      "source_headline": "Jensen Huang's return did little to ease AI jitters. We used the weakness to buy"
+    },
+    {
+      "source_name": "CNBC",
+      "source_url": "https://www.cnbc.com/2026/11/26/trump-gdp-revision-investigation.html",
+      "published_at": "2026-11-27",
+      "source_headline": "Trump demands probe into 'record setting error' after third-quarter GDP data gets massive revision higher"
+    },
+    {
+      "source_name": "CNBC",
+      "source_url": "https://www.cnbc.com/2026/11/27/norse-atlantic-bankruptcy-fuel-costs.html",
+      "published_at": "2026-11-27",
+      "source_headline": "Budget airline Norse Atlantic files for bankruptcy in Europe after failing to secure funding"
+    }
+  ],
+  "public_url": "https://mooconomy.co.kr/latest-email.html",
+  "validation_status": {
+    "main_story_status": "SELECTED",
+    "content_provenance": "VALIDATED_GEMINI_36",
+    "moo_word_present": true,
+    "sources_count": 5,
+    "is_approximate": false
+  },
+  "content_hash": "395a5a579775d81d428f933c2ac08c4291fb4badda6893b4c5e0ec79d3defb98",
+  "archived_at": "2026-11-27T21:48:13.148382+00:00"
+}

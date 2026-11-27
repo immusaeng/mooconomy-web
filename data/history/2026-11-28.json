@@ -1,0 +1,204 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-28",
+  "generatedAt": "2026-11-28T06:43:29+09:00",
+  "indicators": [
+    {
+      "id": "kospi",
+      "value": 4915.68,
+      "change": 4.3401,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "kosdaq",
+      "value": 708.99,
+      "change": 8.1255,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "nasdaq",
+      "value": 24129.5,
+      "change": 2.3052,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "sp500",
+      "value": 7297.49,
+      "change": 1.597,
+      "displayMode": "pct",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1333.63,
+      "change": -9.36,
+      "displayMode": "delta",
+      "direction": "down",
+      "status": "ok"
+    },
+    {
+      "id": "us10y",
+      "value": 4.94,
+      "change": 0.09,
+      "displayMode": "delta",
+      "direction": "up",
+      "status": "ok"
+    },
+    {
+      "id": "wti",
+      "value": 83.08,
+      "change": null,
+      "displayMode": "pct",
+      "direction": null,
+      "status": "stale"
+    },
+    {
+      "id": "vix",
+      "value": 23.81,
+      "change": -11.1567,
+      "displayMode": "pct",
+      "direction": "down",
+      "status": "ok"
+    }
+  ],
+  "auditIndicators": [
+    {
+      "id": "kospi",
+      "value": 4915.68,
+      "displayMode": "pct"
+    },
+    {
+      "id": "kosdaq",
+      "value": 708.99,
+      "displayMode": "pct"
+    },
+    {
+      "id": "nasdaq",
+      "value": 24129.5,
+      "displayMode": "pct"
+    },
+    {
+      "id": "sp500",
+      "value": 7297.49,
+      "displayMode": "pct"
+    },
+    {
+      "id": "usdkrw",
+      "value": 1333.63,
+      "displayMode": "dual"
+    },
+    {
+      "id": "us10y",
+      "value": 4.94,
+      "displayMode": "delta"
+    },
+    {
+      "id": "wti",
+      "value": 83.08,
+      "displayMode": "pct"
+    },
+    {
+      "id": "vix",
+      "value": 23.81,
+      "displayMode": "pct"
+    },
+    {
+      "id": "gold",
+      "value": 3668.5,
+      "displayMode": "pct"
+    },
+    {
+      "id": "dollarindex",
+      "value": 104.04,
+      "displayMode": "pct"
+    },
+    {
+      "id": "brent",
+      "value": 90.84,
+      "displayMode": "pct"
+    },
+    {
+      "id": "dow",
+      "value": 50774.94,
+      "displayMode": "pct"
+    },
+    {
+      "id": "nikkei",
+      "value": 57499.16,
+      "displayMode": "pct"
+    },
+    {
+      "id": "shanghai",
+      "value": 3476.88,
+      "displayMode": "pct"
+    }
+  ],
+  "signals": [
+    {
+      "id": "recession",
+      "color": "green",
+      "value": 0.24
+    },
+    {
+      "id": "rate-gap",
+      "color": "green",
+      "value": 0.75
+    },
+    {
+      "id": "liquidity-stress",
+      "color": "green",
+      "value": 3.77
+    }
+  ],
+  "calendarSnapshot": [
+    {
+      "id": "us-2026-12-02-미국 GDP",
+      "time": "2026-12-02",
+      "country": "US",
+      "title": "미국 GDP",
+      "importance": "high"
+    },
+    {
+      "id": "us-2026-12-04-미국 고용보고서(비농업고용·실업률)",
+      "time": "2026-12-04",
+      "country": "US",
+      "title": "미국 고용보고서(비농업고용·실업률)",
+      "importance": "high"
+    }
+  ],
+  "marketTemperature": {
+    "label": "risk_on",
+    "displayLabel": "위험선호",
+    "status": "ok"
+  },
+  "connectionTopology": "DELTA_MODEL_V1",
+  "driverClaims": [
+    "AI 관련주 반등 및 기술주 저가 매수세 유입으로 인한 뉴욕증시 상승",
+    "외국인 및 기관의 대규모 동반 순매수로 국내 양 지수 폭등"
+  ],
+  "krMarketClosed": false,
+  "weeklyEvents": {
+    "weekStart": "2026-11-23",
+    "source": "calendar_events.json",
+    "events": [
+      {
+        "id": "bok-mpb-2026-11-26",
+        "date": "2026-11-26",
+        "us_date": null,
+        "at": null,
+        "country": "KR",
+        "importance": "high",
+        "category": "monetary_policy",
+        "title": "금융통화위원회 통화정책방향 결정회의",
+        "ord": null
+      }
+    ]
+  }
+}
